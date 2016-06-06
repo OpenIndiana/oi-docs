@@ -1,8 +1,8 @@
 # openindiana-docs
 
 
-This repository is for the development of OpenIndiana systems documentation as 
-well as additional work products to help promote and improve all areas of the 
+This repository is for the development of OpenIndiana systems documentation as
+well as additional work products to help promote and improve all areas of the
 OpenIndiana project. Below you will find a stylized link to each file along with
 a brief summary of its content.
 
@@ -22,17 +22,17 @@ the development of the OpenIndiana handbook.
 
 <!-- Building a Document Management Toolchain using Sphinx -->
 ## [Building a Document Management Toolchain using Sphinx](http://gist.asciidoctor.org/?github-makruger/openindiana-docs//sphinx.adoc)
-Guidance and web-links for the development of a Sphinx based continuous 
+Guidance and web-links for the development of a Sphinx based continuous
 integration documentation toolchain. Sphinx is python based documentation
 framework and uses RestructuredTEXT as the text markup language.
 
 
 <!-- Continuous Integration Content Management -->
 ## [Continuous Integration Content Management](http://gist.asciidoctor.org/?github-makruger/openindiana-docs//toolchain.adoc)
-General discussion of ideas leading to the development of a text markup based 
-continuous integration content management toolchain. Discusses Asciidoctor, a 
-Ruby based documentation framework. Taking the idea of a documentation 
-management toolchain to the next level, looks at content delivery systems and 
+General discussion of ideas leading to the development of a text markup based
+continuous integration content management toolchain. Discusses Asciidoctor, a
+Ruby based documentation framework. Taking the idea of a documentation
+management toolchain to the next level, looks at content delivery systems and
 practices as a whole.Also discusses moving away from database driven CMS systems
 in exchange for a static HTML web presences where the source lives in GitHub and
 deploys upon commit.
@@ -40,9 +40,9 @@ deploys upon commit.
 
 <!-- Improving the OpenIndiana Project -->
 ## [Improving the OpenIndiana Project](http://gist.asciidoctor.org/?github-makruger/openindiana-docs//project.adoc)
-General discussion of ideas to further improve and promote the OpenIndiana 
-project. Also contains a wish list of software to enhance the utility of 
-OpenIndiana Hipster as a desktop operating system. Additional sections on 
+General discussion of ideas to further improve and promote the OpenIndiana
+project. Also contains a wish list of software to enhance the utility of
+OpenIndiana Hipster as a desktop operating system. Additional sections on
 suggestions for improving the Wiki and Website as well.
 
 
@@ -61,5 +61,5 @@ it's software.
 <!-- The OpenIndiana Handbook -->
 ## [The OpenIndiana Handbook](http://gist.asciidoctor.org/?github-makruger/openindiana-docs//handbook.adoc)
 The OpenIndiana Handbook - Still a work in progress.
-This document is a basic HOWTO guide for new users unfamiliar with OpenIndinana 
+This document is a basic HOWTO guide for new users unfamiliar with OpenIndinana
 Hipster.
