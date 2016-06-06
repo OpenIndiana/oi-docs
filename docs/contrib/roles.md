@@ -1,11 +1,11 @@
-== Documentation Team Roles
+# Documentation Team Roles
 
 
 There are multiple ways community members can contribute to the OpenIndiana Documentation revitalization effort.
 These contributions fall into several different roles.
 Each role requires a different skill level.
 
-=== Prerequisite skills
+## Prerequisite skills
 
 Basic familiarity with:
 
@@ -19,7 +19,7 @@ The skill level required to work with these pages is minimal.
 Other pages (indexes, layouts, etc.) are composed in HAML.
 Modifying HAML pages requires basic front end web development skills.
 
-=== Content Creator
+## Content Creator
 
 The easiest way to help the docs revitalization effort is by writing content.
 The content creator would (as the title suggests) develop content to be hosted on the docs website.
@@ -32,7 +32,7 @@ Helpful skills would include a willingness to write and work as a team with cont
 
 As needed, the content writer consults with community members performing other roles.
 
-=== Content Reviewer
+## Content Reviewer
 
 The content reviewer would effectively perform the roles of editorial reviewer, configuration manager, release manager, and as needed, coaching others in their roles.
 This person would review pull request and provide editorial feedback to content creators.
@@ -41,7 +41,7 @@ As needed the content reviewer may also perform the role of quality assurance, b
 Helpful skills would include good organization, people skills, as well as a knack for performing editorial reviews.
 
 
-=== Website Developer
+## Website Developer
 
 The docs website developer would work with content creators and content reviewers helping to improve and extend site functionality and organization.
 This role requires front end web development skills and would be working directly with the Awestruct framework and its components.
