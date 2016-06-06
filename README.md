@@ -1,4 +1,4 @@
-# Website 2.0
+# Website 2.0 [![Build Status](https://travis-ci.org/AdrianKoshka/website-2.0.svg?branch=master)](https://travis-ci.org/AdrianKoshka/website-2.0)
 
 A new home for OpenIndiana docs, made with ``mkdocs``.
 
