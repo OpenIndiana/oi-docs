@@ -33,8 +33,8 @@ General discussion of ideas leading to the development of a text markup based
 continuous integration content management toolchain. Discusses Asciidoctor, a
 Ruby based documentation framework. Taking the idea of a documentation
 management toolchain to the next level, looks at content delivery systems and
-practices as a whole. Also discusses moving away from database driven CMS 
-systems in exchange for a static HTML web presences where the source lives in 
+practices as a whole. Also discusses moving away from database driven CMS
+systems in exchange for a static HTML web presences where the source lives in
 GitHub and deploys upon commit.
 
 

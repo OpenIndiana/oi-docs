@@ -303,7 +303,7 @@ Then you are ready to push:
 git push my_name my_feature
 ----
 
-or 
+or
 
 [source, console]
 ----

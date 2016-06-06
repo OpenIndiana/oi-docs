@@ -20,7 +20,7 @@ For example, the primary OpenIndiana.org site now has a translation menu which n
 
 * Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
 ** For more details, see: http://openindiana.org/pipermail/oi-dev/2014-December/003496.html
-** We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland  
+** We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
 
 
 === Installing OI onto an ISCSI exposed SCSI target

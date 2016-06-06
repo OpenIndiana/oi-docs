@@ -16,7 +16,7 @@ To view this doc in it's final rendered form, click the following link:
 The source code used for the redistributable books is Solbook XML 3.5 (and in some cases Solbook XML 3.6).
 
 * Solbook is a creation of Sun Microsystems and is a simplified subset of Docbook.
-* We have a conversion tool (written in JAVA) which can handle the conversion of Solbook XML 3.5 to HTML 4.5, but we do not have DTD's for any other XML versions (e.g 3.6). 
+* We have a conversion tool (written in JAVA) which can handle the conversion of Solbook XML 3.5 to HTML 4.5, but we do not have DTD's for any other XML versions (e.g 3.6).
 * Assuming the differences between the XML versions are not too great, we might be able to trick the java conversion tool by simply changing the version number within the DTD.
 ** This is speculative and not yet been tried.
 
