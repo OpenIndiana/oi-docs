@@ -42,7 +42,7 @@ So, we treat the docs (and all other content) just as we would treat code (and u
 ## General Writing Tips
 
 * Write your docs by asking a question and then answering it.
-	* Later turn the questions into sectional headings, etc.
+    * Later turn the questions into sectional headings, etc.
 * Use a thesaurus - e.g. https://www.powerthesaurus.org/
 * Couch read - via a phone or tablet, proof read what you previously wrote. - (puts you into the reader's shoes)
 
@@ -77,7 +77,7 @@ This is something you can make sense of without special tools (e.g. Docbook base
 ## Tips for Working with Asciidoctor
 
 * Use "Attributes" and name space them - e.g. `:uri-project: <url>` -(place these attributes at top of document)
-	* Call your attributes in your docs like this: `{uri-project} [Project name]`
+    * Call your attributes in your docs like this: `{uri-project} [Project name]`
 * Use "Includes" - e.g. `include:: {uri-macros}/doc_to_import.asciidoc[]` - (allows you to pull in other docs into your docs)
 
 ## Asciidoctor Tools and Informational Links
