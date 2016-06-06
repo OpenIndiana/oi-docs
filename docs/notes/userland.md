@@ -105,7 +105,7 @@ COMPONENT_LICENSE_FILE=	$(COMPONENT_NAME).license
 
 | COMPONENT_NAME
 | libjpeg6-ijg
-| Use the same name as in SFE or other illumos userlands if applicabe, otherwise follow Debian
+| Use the same name as in SFE or other illumos userlands if applicable, otherwise follow Debian
 
 | COMPONENT_VERSION
 | 6.0.2
