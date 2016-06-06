@@ -1,21 +1,6 @@
-// Start of TODO
-//
-//
-//
-//
-// End of TODO
+<!--
 
-
-
-== The OpenIndiana Handbook
-
-
-=== Introduction
-
-< Place Holder for future content >
-
-
-=== Pre-installation caveats and considerations
+Pre-installation caveats and considerations
 
 * System partitioning, Gparted, etc.
 * Device Driver utility - (also how to manually install missing drivers - and where to find them if they are available)
@@ -24,28 +9,39 @@
 * How to disable drivers at boot time (this might help fix the kernel panic we see when trying to boot OI inside KVM)
 * Physical or virtual?
 
-=== What are the post-installation caveats and considerations?
+What are the post-installation caveats and considerations?
 
 * e.g. - What kinds of things can be done with a system once installed?
 
 
-=== Helpful resources for writing some of these sections
+Helpful resources for writing some of these sections
 
 * https://web.archive.org/web/20090611234850/http://dlc.sun.com/osol/docs/downloads/minibook/en/820-7102-10-Eng-doc.pdf[ Getting Started with OpenSolaris 2008.11]
 * https://web.archive.org/web/20091229232632/http://www.opensolaris.com/learn/[OpenSolaris Learn site - Wayback Machine]
 * https://web.archive.org/web/20100105080516/http://dlc.sun.com/osol/docs/content/2009.06/[OpenSolaris 2009.06 docs]
 * https://web.archive.org/web/20100401024945/http://www.opensolaris.com/use/OpenSolaris200906Booklet.pdf[OpenSolaris 2009.06 Booklet PDF]
 
-// Start of document parameters
+-->
 
-:sectnums:
 
-// End of document parameters
+# The OpenIndiana Handbook
 
-== Introducing OpenIndiana
+< Place Holder for future content >
 
-// The content for this section is pulled from the OpenIndiana FAQ (section 'What is OpenIndiana?').
-// As the FAQ evolves, try to keep this section in sync.
+## Introduction
+
+< Place Holder for future content >
+
+
+
+## Introducing OpenIndiana
+
+<!--
+
+The content for this section is pulled from the OpenIndiana FAQ (section 'What is OpenIndiana?').
+As the FAQ evolves, try to keep this section in sync.
+
+-->
 
 The OpenIndiana project is the open source community which develops, maintains, and supports the https://en.wikipedia.org/wiki/OpenIndiana[OpenIndiana] distribution, an https://en.wikipedia.org/wiki/Illumos[illumos] based Unix-like operating system derived from OpenSolaris.
 The purpose of the OpenIndiana Project is to ensure the continued availability of an openly developed distribution based on OpenSolaris.
@@ -54,55 +50,56 @@ The OpenIndiana project is also a continuation of the collaborative effort and c
 For a comprehensive history of the OpenSolaris project, see Jim Grisanzio's https://jimgrisanzio.wordpress.com/opensolaris/[OpenSolaris timeline].
 
 
-=== OpenIndiana Software Releases
+## OpenIndiana Software Releases
 
-// The content for this section is pulled from the OpenIndiana FAQ (section 'What is the OpenIndiana Release Schedule?').
-// As the FAQ evolves, try to keep this section in sync.
+<!--
+
+The content for this section is pulled from the OpenIndiana FAQ (section 'What is the OpenIndiana Release Schedule?').
+As the FAQ evolves, try to keep this section in sync.
+
+-->
 
 Approximately every six months, the OpenIndiana project releases a snapshot of the Hipster rolling release branch.
 Ideally suited for both workstations and servers, simply choose the installer type which best serves your needs.
 
-|===
 | Workstation | Server
-
+| --- | ---
 | Live installer (Gnome desktop) | Text installer (command line console)
-|===
 
 For more information, see: <<Obtaining the software>>::
 
-[NOTE]
-====
+**NOTE:**
+
 * OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
 * For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
 * While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
-====
 
-[CAUTION]
-====
+**CAUTION:**
+
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
-====
 
 
-=== System Requirements
+## System Requirements
 
-// The content for this section is pulled from the OpenIndiana FAQ (section 'What are the recommended hardware specifications?').
-// As the FAQ evolves, try to keep this section in sync.
+<!--
 
+The content for this section is pulled from the OpenIndiana FAQ (section 'What are the recommended hardware specifications?').
+As the FAQ evolves, try to keep this section in sync.
 
-|===
+-->
+
 | CPU | Disk Space | Memory (RAM)
-
+| --- | --- | ---
 | 64 Bit | 20GB (or more) | 4GB (or more)
-|===
 
 
-=== Finding help and support
+## Finding help and support
 
 < Place Holder for section Introduction Content >
 
 
-==== Local system command line help
+### Local system command line help
 
 * apropos - search the manual page names and descriptions
 * find - search for files in a directory hierarchy
@@ -111,167 +108,157 @@ While every package is tested to ensure stability, caution is nevertheless warra
 * man - an interface to the on-line reference manuals
 
 
-==== Web based support resources
+### Web based support resources
 
-// The content for this section is pulled from the OpenIndiana FAQ (section '').
-// As the FAQ evolves, try to keep this section in sync.
+<!--
 
-|===
+The content for this section is pulled from the OpenIndiana FAQ (section '').
+As the FAQ evolves, try to keep this section in sync.
+
+-->
+
+
 | Resource | URL
+| --- | ---
+| User Support IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
+| Development IRC channel | [#oi-dev on irc.freenode.net](irc://irc.freenode.net/oi-dev)
+| Documentation IRC channel | [#oi-documentation on irc.freenode.net](irc://irc.freenode.net/oi-documentation)
+| OpenIndiana Mailing Lists | <http://openindiana.org/mailman>
+| OpenIndiana Wiki | <http://wiki.openindiana.org>
+| OpenIndiana Bug Tracker | <http://www.illumos.org/projects/openindiana/issues>
 
-| User Support IRC channel
-| irc://irc.freenode.net/openindiana[#openindiana on irc.freenode.net]
+## Obtaining the software
 
-| Development IRC channel
-| irc://irc.freenode.net/oi-dev[#oi-dev on irc.freenode.net]
+<!--
 
-| Documentation IRC channel
-| irc://irc.freenode.net/oi-documentation[#oi-documentation on irc.freenode.net]
+The content for this section is pulled from the OpenIndiana FAQ (section 'Where can I download OpenIndiana Hipster?').
+As the FAQ evolves, try to keep this section in sync.
 
-| OpenIndiana Mailing Lists
-| http://openindiana.org/mailman
+-->
 
-| OpenIndiana Wiki
-| http://wiki.openindiana.org
+### OpenIndiana Hipster Download Mirrors
 
-| OpenIndiana Bug Tracker
-| http://www.illumos.org/projects/openindiana/issues
-|===
-
-=== Obtaining the software
-
-// The content for this section is pulled from the OpenIndiana FAQ (section 'Where can I download OpenIndiana Hipster?').
-// As the FAQ evolves, try to keep this section in sync.
-
-|===
-| OpenIndiana Hipster Download Mirrors
-
-| http://dlc.openindiana.org/isos/hipster[Primary Mirror] 
-| http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster[Vim.org Alternate Mirror]
-| http://dlc.openindiana.org/torrents/[Torrents]
-|===
+* [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
+* [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
+* [Torrents](http://dlc.openindiana.org/torrents/)
 
 
-[NOTE]
-====
-For the 201604 release, http://distrowatch.com/weekly.php?issue=20160425#torrent[Distrowatch] has kindly hosted a https://torrent.resonatingmedia.com/torrents/OI-hipster-gui-20160421.iso.b913f8d70cbd57e3.torrent[torrent] of the OI-hipster-gui-20160421.iso.
-The MD5 checksum for this torrent is: *e9a748169a4d1898ba140c636b72ea59*
-
-If you wish to purchase a ready made DVD or USB drive there is also https://www.osdisc.com/products/solaris/openindiana[OSDISC.COM].
-====
+If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
 
-[IMPORTANT]
-====
+### USB 3.0 Support
+
 * OpenIndiana Hipster does not yet support USB 3.0 devices.
-** Therefore, at this time it is not possible to install the operating system from a USB 3.0 device.
-** When attaching USB 2.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
-====
+	* Therefore, at this time it is not possible to install the operating system from a USB 3.0 device.
+	* When attaching USB 2.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
 
-[WARNING]
-====
+
+### Creating bootable USB Flash Drives
+
 * Creating a bootable flash drive requires the use of a header file.
 * There are 2 unique USB header files (1G and 2G).
 * Please ensure you have selected the correct file.
-** The 1G.header is only suitable for use with the text installer (Command line console).
-** The 2G.header is only suitable for use with the live installer (Gnome desktop).
-** The files are *NOT* interchangeable.
-====
+	* The 1G.header is only suitable for use with the text installer (Command line console).
+	* The 2G.header is only suitable for use with the live installer (Gnome desktop).
+	* The files are *NOT* interchangeable.
 
 
-=== Creating a bootable OpenIndiana DVD
+### Creating a bootable OpenIndiana DVD
 
 * Obtain the software from the download site
 * Check MD5/SHA
 * Burn it to a DVD
 
 
-==== BSD
+#### BSD
 
 < Place holder for content >
 
 
-==== illumos/Solaris
+#### illumos/Solaris
 
 < Place holder for content >
 
 
-==== Mac OS-X
+#### Mac OS-X
 
 < Place holder for content >
 
 
-==== Windows
+#### Windows
 
 < Place holder for content >
 
 
-=== Creating a bootable OpenIndiana USB Flash Drive
+### Creating a bootable OpenIndiana USB Flash Drive
 
-[IMPORTANT]
-====
+**IMPORTANT:**
+
 * OpenIndiana Hipster does not yet support USB 3.0 devices.
-** Effectively this means it is not yet possible to install the operating system from a USB 3.0 device
-** When when attaching USB 2.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
-====
+	* Effectively this means it is not yet possible to install the operating system from a USB 3.0 device
+	* When when attaching USB 2.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
 
 The most reliable method is to use the Windows OpenSolaris USB creation tool.
 DD is not always reliable (either doesn't boot at all, or fails to load liveCD and falls back to system maintenance mode with KSH93 errors).
 
-// TODO
-// Break this section out into 3 primary parts - One for each type of creation method.
+<!--
+
+TODO:
+
+Break this section out into 3 primary parts - One for each type of creation method.
+
+-->
 
 
-==== Live Media Creation Methods
+#### Live Media Creation Methods
 
-// TODO
-// Add link for Solaris USBCOPY tool.
+<!--
+
+TODO:
+
+Add link for Solaris USBCOPY tool.
+
+-->
 
 
-|===
 | Operating System | Method 
-
+| --- | ---
 | BSD/Linux/OS X | DD
 | illumos/Solaris | usbcopy tool
 | Windows | OpenSolaris Live USB Creator
-|===
 
 
-==== BSD/Linux/OS X
+#### BSD/Linux/OS X
 
 < Place Holder for content >
 
-===== Prerequisites
+##### Prerequisites
 
 * USB flash drive - (2GB or larger)
 * Download the OpenIndiana USB Live Media installer
 * Download the appropriate OpenIndiana 1G or 2G header file
 
-[WARNING]
-====
+**WARNING:**
 * There are 2 unique USB header files (1G and 2G).
 * When creating a bootable flash drive, please ensure you have selected the correct file.
-** The 1G.header is only suitable for use with the text installer (Command line console).
-** The 2G.header is only suitable for use with the live installer (Gnome desktop).
-** The files are *NOT* interchangeable.
-====
+	* The 1G.header is only suitable for use with the text installer (Command line console).
+	* The 2G.header is only suitable for use with the live installer (Gnome desktop).
+	* The files are *NOT* interchangeable.
 
 Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
 
-===== Identifying the path to your USB device
+##### Identifying the path to your USB device
 
-|===
 | Operating system | Command | Device
-
+| --- | --- | ---
 | illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
 | Linux | `fdisk -l` | `/dev/sd*` 
 | FreeBSD | `camcontrol devlist` | `/dev/da*`
 | OS X | `diskutil list` | `/dev/disk*`
-|===
 
 
 [WARNING]
-====
+####
 * When issuing the USB copy command, be sure to specify the entire USB device. 
 * Do not including any partition or slice number (e.g. use `sda`, not `sda1`; `c0t0d0`, not `c0t0d0p1`).
 * Make sure you identify the correct storage device, as all data on the device will be erased.
@@ -281,37 +268,37 @@ Failure to use the correct USB header file can result in the USB drive either fa
 ** Use the mount command to list mounted filesystems. 
 ** If any filesystems are located on the USB storage device, they must be unmounted.
 ** Use `umount <path>` to unmount a filesystem, or `rmumount <path>` on illumos/Solaris, and `diskutil unmountDisk <path>` on OS X.
-====
+####
 
-===== Copying the Live Media to your Flash Drive
+##### Copying the Live Media to your Flash Drive
 
 Run the following command (as root or with appropriate privileges): 
 
-`cat 1G.header <live USB image file> | dd bs=1024k of=<path to raw USB storage device>`
+`cat 1G.header <live USB image file> | dd bs#1024k of#<path to raw USB storage device>`
 
 
-==== illumos/Solaris
+#### illumos/Solaris
 
 < Place holder for content >
 
-==== Windows
+#### Windows
 
 < Place Holder for content >
 
 
-== Testing Openindiana Using Live Media
+## Testing Openindiana Using Live Media
 
 The Live Media DVD and USB installers provide a graphical live environment where you can explore OpenIndiana and test the compatibility of your hardware.
 When using Live Media to explore OpenIndiana, no changes are made to your system, unless you explicitly choose to install OpenIndiana.
 
 Although it is possible to use it over a network with SSH X forwarding if you enable SSH.
 
-=== Booting OpenIndiana
+### Booting OpenIndiana
 
 < Place holder for section introduction  content >
 
 
-==== Booting Physical Hardware
+#### Booting Physical Hardware
 
 .OpenIndiana is picky about hardware
 * Intel socket 775 Gigabyte motherboard with ICH10 chipset - Kernel using from 40-80% cpu @ idle.
@@ -324,36 +311,36 @@ For the computer to boot from the media, you may need to specify the device by p
 Alternately, you may need to change the boot device order in your BIOS configuration.
 
 
-==== Booting Virtual Hardware
+#### Booting Virtual Hardware
 
 The most efficient way to boot a virtual machine is to boot directly from the DVD ISO file.
 Alternately, you may use host to guest DVD/USB passthrough to boot from physical media.
 
 
-===== Virtualbox
+##### Virtualbox
 
 For VirtualBox 3.2 or later: 
 
 "Use host I/O cache" must be enabled in the emulated storage controller used by the virtual machine to successfully boot OpenIndiana.
 
 
-===== Vmware Workstation Player
+##### Vmware Workstation Player
 
 < place holder for content >
 
 
-===== Vmware ESXI
+##### Vmware ESXI
 
 < place holder for content >
 
 
-=== The OpenIndiana Boot Menu
+### The OpenIndiana Boot Menu
 
 When you see a menu, press Enter to start OpenIndiana on your computer.
 As it runs, you will be prompted with a few questions.
 You should eventually be presented with a desktop. 
 
-=== Authenticating when using the OpenIndiana LiveDVD
+### Authenticating when using the OpenIndiana LiveDVD
 
 The user login for the text session is username 'jack' along with the password 'jack'.
 For administrative or elevated access, prepend your commands with `pfexec`.
@@ -361,48 +348,57 @@ You may also use the `sudo` command.
 
 You may obtain root using the `su` command along with the password 'openindiana'.
 
-=== Using the Device Driver Utility
+### Using the Device Driver Utility
 
 You can use the Device Driver Utility to check if your hardware requires additional drivers.
 
-== Preparing to Install OpenIndiana
+## Preparing to Install OpenIndiana
 
-// TODO
-// - Can OpenIndiana boot on a system with a UEFI BIOS?
-// - Does secure boot need to be disabled?
+<!--
+
+TODO:
+
+- Can OpenIndiana boot on a system with a UEFI BIOS?
+- Does secure boot need to be disabled?
+
+-->
 
 
 < Place Holder for section introduction content >
 
 
-=== Backing up data
+### Backing up data
 
 < Place holder for content >
 
 
-=== Deciding where to install OpenIndiana
+### Deciding where to install OpenIndiana
 
 < Place holder for content >
 
 
-=== Gathering Network Information
+### Gathering Network Information
 
 < Place holder for content >
 
 
-== Installing OpenIndiana
+## Installing OpenIndiana
 
 < Place Holder for content >
 
-// TODO
-// For some guidance writing this section:
-// http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html
+<!--
 
-// Installation videos:
-// https://www.youtube.com/watch?v=VVWP_5oAy3w
+TODO:
 
+For some guidance writing this section:
+http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html
 
-=== Installing OpenIndiana from Live Media
+Installation videos:
+https://www.youtube.com/watch?v#VVWP_5oAy3w
+
+-->
+
+### Installing OpenIndiana from Live Media
 
 To install OpenIndiana from Live Media, you have two options.
 
@@ -413,20 +409,20 @@ Each of these options is represented by a desktop icon.
 Select the appropriate installer option by clicking the corresponding desktop installer icon.
 
 
-==== GUI based Guided Install
+#### GUI based Guided Install
 
 < Place Holder for Content >
 
 
-==== Text based Guided Install
+#### Text based Guided Install
 
 The text based guided install start and runs within a command line console.
 Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
 
 [NOTE]
-====
+####
 The non-graphical text based bootable media installer also uses this very same _Text based Guided Install_.
-====
+####
 
 Start the Text based Guided Install by double clicking the Text based Guided Install icon.
 
@@ -444,10 +440,10 @@ When finished, press F2 to continue.
 
 
 [NOTE]
-====
+####
 Disregard the minimum and recommended sizes as they do not take into account periodic disk usage growth as the result of ZFS snapshots.
 To account for this, your disk should be at least 25GB or more.
-====
+####
 
 image::text_install/text_install3.png[GPT Warning]
 
@@ -510,11 +506,11 @@ Using the arrow keys navigate between the fields.
 Press F2 to continue.
 
 [NOTE]
-====
+####
 The regular user specified on this screen is granted the _root_ role.
 In effect this means by default (and without any further configuration) this user can perform administrative task by assuming the root role as needed.
 Also, after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
-====
+####
 
 image::text_install/text_install12.png[Installation Summary]
 
@@ -534,13 +530,13 @@ If you ran the installation from Live Media, can exit the installation by pressi
 Otherwise, you will want to reboot the system using the F8 key.
 
 
-=== Installing OpenIndiana using the Text Installer
+### Installing OpenIndiana using the Text Installer
 
 The text installer is not graphical nor does not have a live environment.
 When you boot from the text installer, it immediately begins the installation process using the previously described _Text based Guided Install_.
 
 
-== Troubleshooting Installations
+## Troubleshooting Installations
 
 * If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a "grub>" prompt, there may be an error in your copy of the installer, or it was created incorrectly.
 * If you see a "login:" prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware. 
@@ -555,15 +551,15 @@ When you boot from the text installer, it immediately begins the installation pr
 * OpenIndiana Hipster does not currently support USB3.
 * You cannot boot a USB thumbdrive installer from a USB3 port.
 
-== Using OpenIndiana
+## Using OpenIndiana
 
 <Place holder for section introduction content>
 
-=== Configuring Networking
+### Configuring Networking
 
 <Place holder for section introduction content>
 
-==== Command Line
+#### Command Line
 
 .Manual Configuration (static IP)
 
@@ -573,7 +569,7 @@ When you boot from the text installer, it immediately begins the installation pr
 
 * How to use NWAM (network auto magic)
 
-==== Desktop GUI
+#### Desktop GUI
 
 .Manual Configuration
 
@@ -588,31 +584,31 @@ When you boot from the text installer, it immediately begins the installation pr
 * Make sure the network auto magic 'Location' setting is configured as 'Automatic' and not 'NoNet'
 
 
-=== Video Card Support (3D)
+### Video Card Support (3D)
 
 Nearly all cards are supported for 2nd, but only Nvidia is supported for 3D.
 Work is progressing to provide support for AMD and Intel.
 
-==== Nvidia
+#### Nvidia
 * Talk about the expected behavior when booting the live CD from a system with an NVIDIA card.
 * Discuss procedure for adding an NVIDIA card to a system that was using VESA or some other non-3d video driver.
 * Troubleshooting - what logs to look at, manual configuration, etc. 
 * Walk through NVIDIA utility screens.
 
-==== AMD
+#### AMD
 
 * Currently no 3rd support, VESA driver only.
 
-==== Intel
+#### Intel
 
 * Still working to incorporate this into Hipster.
 
-=== How does one add a missing device driver?
+### How does one add a missing device driver?
 
 < Write about finding hardware id's, searching for drivers, installing, loading, /etc/driver_alias'es file. >
 
 
-=== How can the desktop be modified?
+### How can the desktop be modified?
 
 * Gnome walkthrough
 * Appearance applet 
@@ -620,7 +616,7 @@ Work is progressing to provide support for AMD and Intel.
 ** Configuring font anti-aliasing
 
 
-=== How does one keep the system updated?
+### How does one keep the system updated?
 
 Some notes and reference docs for writing the IPS section:
 
@@ -643,7 +639,7 @@ Some notes and reference docs for writing the IPS section:
 * `pkg update -v` will perform the update and then print a summary of what was updated.
 * `pkg history` will provide basic details for previous uses of the pkg command.
 
-=== How does one find and install more software?
+### How does one find and install more software?
 
 
 Tips for writing this section:
@@ -681,30 +677,30 @@ It can also be used for querying the contents of a repository.
 * `pkgrepo info -s <repo_URL>`
 * `pkgrepo list -s <repo_URL> <package_group>`
 
-=== Configuring a UPS
+### Configuring a UPS
 
 * NUT?
 
 
-=== How does one perform system backups?
+### How does one perform system backups?
 
 * Time Machine
 * ZFS exports
 * Bacula?
 
 
-=== How does one add additional users?
+### How does one add additional users?
 
 * Basic system administration
 * Basic Unix commands
 
 
-=== Working with storage and file systems
+### Working with storage and file systems
 
 
 <Place holder for section introduction content>
 
-==== How does one mount or import additional disks?
+#### How does one mount or import additional disks?
 
 
 * Talk about the ZFS import command.
@@ -717,40 +713,40 @@ It can also be used for querying the contents of a repository.
 * http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html
 
 
-==== How does one mirror their root zpool?
+#### How does one mirror their root zpool?
 
 * Adding a 2nd disk to the root pool
 
-==== How does one create additional zpools?
+#### How does one create additional zpools?
 
 * zpool create command
 ** Mirrors
 ** Raidz
 
-==== Modifying zpool settings and attributes
+#### Modifying zpool settings and attributes
 
 * zpool get/set commands
 
-==== Modifying zfs file system settings and attributes
+#### Modifying zfs file system settings and attributes
 
 * zfs get/set commands
 
-==== How does one create additional zfs datasets?
+#### How does one create additional zfs datasets?
 
 * zfs create command
 
-==== Configuring system swap
+#### Configuring system swap
 
 * zfs set command
 * swap -l
 
 
-=== Using OpenIndiana as a NAS
+### Using OpenIndiana as a NAS
 
 <place holder for section introduction content>
 
 
-==== Configuring OpenIndiana as a CIFS (Samba) Server
+#### Configuring OpenIndiana as a CIFS (Samba) Server
 
 .Home NAS setup steps
 * Get the hardware
@@ -792,7 +788,7 @@ storage                        498K   899G    19K  /storage
 
 Create your ZFS dataset to be shared via CIFS/SMB.
 
- # zfs create -o casesensitivity=mixed -o sharesmb=on storage/backup
+ # zfs create -o casesensitivity#mixed -o sharesmb#on storage/backup
 
 Start the CIFS service.
 
@@ -812,7 +808,7 @@ Reset the password for the local user accounts which will be used for remotely a
 
 Set the share name to be used for the CIFS/SMB share.
 
- # zfs set sharesmb=name=backup storage/backup
+ # zfs set sharesmb#name#backup storage/backup
 
 Change the ownership of ZFS dataset to the user account which will be used for remotely accessing the CIFS/SMB share.
 
@@ -821,23 +817,23 @@ Change the ownership of ZFS dataset to the user account which will be used for r
 Verify everything is all set to go.
 
  # sharemgr show -vp
-default nfs=()
-smb smb=()
-        * /var/smb/cvol  smb=() ""
-                  c$=/var/smb/cvol       smb=(abe="false" guestok="false")      "Default Share"
-zfs smb=()
-    zfs/storage/backup smb=()
-          backup=/storage/backup
+default nfs#()
+smb smb#()
+        * /var/smb/cvol  smb#() ""
+                  c$#/var/smb/cvol       smb#(abe#"false" guestok#"false")      "Default Share"
+zfs smb#()
+    zfs/storage/backup smb#()
+          backup#/storage/backup
 
 You can create additional CIFS datasets using the following 4 commands.
 
- # zfs create -o casesensitivity=mixed -o sharesmb=on <pool_name/dataset_name>
- # zfs set sharesmb=name=<new_share_name> <pool_name/dataset_name>
+ # zfs create -o casesensitivity#mixed -o sharesmb#on <pool_name/dataset_name>
+ # zfs set sharesmb#name#<new_share_name> <pool_name/dataset_name>
  # chown -R <user_account> <path_to_dataset>
  # sharemgr show -vp
 
 
-===== ConfiguringF CIFS/SMB linux client connectivity
+##### ConfiguringF CIFS/SMB linux client connectivity
 
 
 .Adding a remote share using the linux smbclient
@@ -861,17 +857,17 @@ You can create additional CIFS datasets using the following 4 commands.
 
 
 
-==== Configuring OpenIndiana as an NFS Server
+#### Configuring OpenIndiana as an NFS Server
 
 <Place holder for content>
 
 
-==== Configuring OpenIndiana as an ISCSI Target Server -(COMSTAR)
+#### Configuring OpenIndiana as an ISCSI Target Server -(COMSTAR)
 
 <Place holder for content>
 
 
-=== Getting OI to play Multimedia
+### Getting OI to play Multimedia
 
 * How to get OI to play a DVD
 * How to get flash player installed and working.
@@ -880,29 +876,29 @@ You can create additional CIFS datasets using the following 4 commands.
 * How to use the hidden `gstreamer-properties` configuration utility.
 
 
-=== Using OpenIndiana as a Media server, HTPC, etc.
+### Using OpenIndiana as a Media server, HTPC, etc.
 
-* http://forum.kodi.tv/showthread.php?tid=44315&page=2
+* http://forum.kodi.tv/showthread.php?tid#44315&page#2
 * http://lightsandshapes.com/plex-on-smartos.html
 
 
-=== Graphics workstation
+### Graphics workstation
 
 <Place holder for content>
 
 
-=== Desktop Publishing system, Etc.
+### Desktop Publishing system, Etc.
 
 <Place holder for content>
 
 
-=== Virtualization Storage Server
+### Virtualization Storage Server
 
 * Poor man's standalone ISCSI SAN linked to a 2nd machine running VMware ESXI (2 computers required)
 ** A variation of this would be to run OI as an ESXI guest with local storage hardware "passed through" to OI and then subsequently share ZFS volumes via  ISCSI with the ESXI host itself. In this configuration, OI effectively becomes a SAN (1 computer required)
 
 
-=== Virtualization Server
+### Virtualization Server
 
 * Qemu-KVM walkthrough (Does hipster even have this package?)
 ** Yes, KVM is the package name
@@ -931,7 +927,7 @@ You can check your processor for EPT support via the following link: http://ark.
 	<jeffpc> I'll have to give it a try at some point
 
 
-=== Zones - running web stuff in zone, development, etc.
+### Zones - running web stuff in zone, development, etc.
 
 * Need to mention some of the changes to zone management...e.g.. 
 ** sys-unconfig gone. 
@@ -939,7 +935,7 @@ You can check your processor for EPT support via the following link: http://ark.
 *** now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`. So a fair amount of stuff has changed there. 
 
 
-=== Clustering with Open HA Cluster
+### Clustering with Open HA Cluster
 
 See old sun docs
 
@@ -950,28 +946,28 @@ Also see:
 * http://zfs-create.blogspot.nl/
 
 
-== Developing with OpenIndiana
+## Developing with OpenIndiana
 
 [NOTE] 
 The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
 
 
-=== How can OI be used as a development platform?
+### How can OI be used as a development platform?
 
 <Place holder for content>
 
 
-=== What programming tools, languages, etc., are available?
+### What programming tools, languages, etc., are available?
 
 <Place holder for content>
 
 
-=== How can OI be used to further the development of OI itself?
+### How can OI be used to further the development of OI itself?
 
 <Place holder for content>
 
 
-== Software Development Testing
+## Software Development Testing
 
 < Place Holder >
 
