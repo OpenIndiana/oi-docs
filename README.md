@@ -4,7 +4,7 @@ A new home for OpenIndiana docs, made with ``mkdocs``.
 
 ## License
 
-This project is under the [PDL](https://www.openoffice.org/licenses/PDL.html) 
+This project is under the [PDL](https://www.openoffice.org/licenses/PDL.html)
 license, unless stated otherwise in individual files.
 
 ## Authors

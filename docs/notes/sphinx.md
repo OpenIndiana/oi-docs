@@ -16,7 +16,7 @@ Sphinx is a python based docs framework and uses RestructuredText as it's text m
 .Editing tools
 * As a text markup any text editor can be used.
 * There is a VIM plugin for RestructuredTEXT named RIV, which provides text folding, syntax highlighting, etc., but it's rather buggy.
-* Another available plugin is InstantRST which provides a realtime text parsing webserver to provide you realtime feedback for your edits. 
+* Another available plugin is InstantRST which provides a realtime text parsing webserver to provide you realtime feedback for your edits.
 
 
 === Tool chain installation
@@ -69,7 +69,7 @@ I'm not sure whether latex is available on Hipster.
 
 .Process your docs into HTML
 * Generate html output by executing the command `make html` from within the Sphinx `_build` directory.
-** Finished docs are found in the `_build/html` directory. 
+** Finished docs are found in the `_build/html` directory.
 ** Images, css, javascript, etc., are found in `_build/html/_static`
 ** Source RestructuredTEXT files are copied to `_build/html/_source`
 

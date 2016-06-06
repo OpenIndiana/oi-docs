@@ -57,7 +57,7 @@ Public relations is an important aspect of project management, even if it's limi
 
 === Software wish list to make the desktop more usable
 
-* The desktop is really what makes OpenIndiana Hipster unique among all the different illumos distributions. 
+* The desktop is really what makes OpenIndiana Hipster unique among all the different illumos distributions.
 ** The project should really capitalize on the desktop, and by extension include lots of GUI software.
 
 
@@ -171,9 +171,9 @@ It may also be helpful to modify the existing CSS to help improve the aesthetics
 .Possible suggestions
 * This would be very helpful for providing some consistency between different pages.
 ** Use horizontal lines (top and bottom) to separate code blocks from the text body.
-** Makes it easier to tell what is or isn't code. 
+** Makes it easier to tell what is or isn't code.
 Also provides for a more efficient use of space (don't have to use so many line breaks).
-* Develop standards for displaying certain types of information...e.g. code blocks, commands, tips, warnings, info, etc. 
+* Develop standards for displaying certain types of information...e.g. code blocks, commands, tips, warnings, info, etc.
 * consider whether it's possible to enable Wiki page navigation by placing breadcrumbs navigational elements within the page itself, rather than relying entirely on Wiki navigation menu in left hand navigation pane.
 
 
@@ -188,7 +188,7 @@ Also provides for a more efficient use of space (don't have to use so many line 
 While replacing the Wiki with some kind of continuous integration content management system would likely be the most ideal solution, there are still things which can be done to help improve the Wiki.
 
 .Clean up old user comments
-* Many, many comments from 2010 - 2012. 
+* Many, many comments from 2010 - 2012.
 ** Probably a good idea to clean these up and incorporated the information into the page as appropriate.
 ** Comments with such old timestamps suggests little site activity has occurred in last 4-5 years.
 
@@ -210,7 +210,7 @@ Improve the presentation of reference materials
 .Publishing man pages online
 * Start a discussion about getting the Hipster man pages published.
 ** illumos core man pages are available on illumos.org
-** OI specific man pages are not published. 
+** OI specific man pages are not published.
 
 [source, console]
 ----
@@ -238,19 +238,19 @@ But anything that is already good can be further improved.
 |===
 | Button label | URL points to
 
-| Get it 
+| Get it
 | Hipster Downloads
 
-| Install it 
+| Install it
 | Installation Guidance/Tutorials/Instructions
 
-| Use It 
+| Use It
 | Hipster Handbook
 
-| Discuss it 
+| Discuss it
 | OI Mailing lists/IRC, etc.
 
-| Extend It 
+| Extend It
 | Developer Handbook
 |===
 
