@@ -3,6 +3,9 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
+
+ - TODO.md
+travis
  - README.md
 2.0
 OpenIndiana
@@ -17,6 +20,7 @@ Spacelab
  - docs/contrib/github.md
 gh-pages
 Github
+https
  - docs/contrib/process.md
 e.g.
 Asciidoctor
