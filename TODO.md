@@ -4,5 +4,3 @@
 - [ ] make a CLA(Contributors License Agreement.)
 - [ ] Setup [travis](travis-ci.org) (probably via PR)
 - [ ] Fix typos
-
-# boop
