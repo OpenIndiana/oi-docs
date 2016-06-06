@@ -42,7 +42,7 @@ So, we treat the docs (and all other content) just as we would treat code (and u
 ## General Writing Tips
 
 * Write your docs by asking a question and then answering it.
-** Later turn the questions into sectional headings, etc.
+	* Later turn the questions into sectional headings, etc.
 * Use a thesaurus - e.g. https://www.powerthesaurus.org/
 * Couch read - via a phone or tablet, proof read what you previously wrote. - (puts you into the reader's shoes)
 
@@ -77,7 +77,7 @@ This is something you can make sense of without special tools (e.g. Docbook base
 ## Tips for Working with Asciidoctor
 
 * Use "Attributes" and name space them - e.g. `:uri-project: <url>` -(place these attributes at top of document)
-** Call your attributes in your docs like this: `{uri-project} [Project name]`
+	* Call your attributes in your docs like this: `{uri-project} [Project name]`
 * Use "Includes" - e.g. `include:: {uri-macros}/doc_to_import.asciidoc[]` - (allows you to pull in other docs into your docs)
 
 ## Asciidoctor Tools and Informational Links
@@ -99,7 +99,8 @@ This is something you can make sense of without special tools (e.g. Docbook base
 | https://pages.github.com/ | Publish from your github repo |
 | http://hubpress.io/ | Blog from your github repo - built in Asciidoctor support |
 
-[NOTE]
+**NOTE**
+
 In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".
 
 The Travis-CI build engine can even post the results of the build to IRC (as shown below from the Asciidoctor IRC channel).
