@@ -7,7 +7,7 @@ Below you will find a stylized link to each file along with a brief summary of i
 
 // OpenIndiana Content Creation
 === http://gist.asciidoctor.org/?github-makruger/openindiana-docs//content.adoc[OpenIndiana Content Creation]
-This page is a whiteboard of ideas, suggestions, and movitations for how to get started with content creation.
+This page is a whiteboard of ideas, suggestions, and motivations for how to get started with content creation.
 
 
 // Content Management - The BSD Approach

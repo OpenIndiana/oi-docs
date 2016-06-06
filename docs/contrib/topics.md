@@ -37,7 +37,7 @@ A good tutorial might be to write about installing OpenIndiana Hipster on an ISC
 Also can look at Oracle docs for reference: https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html
 
 
-=== Write some comparision tables
+=== Write some comparison tables
 
 * Provide some contrast/comparisons between OI and other illumos distros.
 * Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
@@ -50,7 +50,7 @@ Also can look at Oracle docs for reference: https://docs.oracle.com/cd/E26502_01
 
 === Write about Virtualization
 
-* add a page about running OI as a virtual guest in Virtualbox, vmware, KVM, talk about which provides the best hardware support, guest tools compatibility, other caveats, etc.
+* add a page about running OI as a virtual guest in Virtualbox, VMware, KVM, talk about which provides the best hardware support, guest tools compatibility, other caveats, etc.
 
 
 == Potentially Useful Documentation References

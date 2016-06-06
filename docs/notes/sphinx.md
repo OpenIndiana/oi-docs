@@ -56,7 +56,7 @@ I'm not sure whether latex is available on Hipster.
 ** `sphinx-quickstart`  (Note: For help on this, see the Sphinx website, which explains all the options.)
 
 .Writing your docs
-* Write your docs using RestructuredTEXT - (See the Sphinx webstie for guidance)
+* Write your docs using RestructuredTEXT - (See the Sphinx website for guidance)
 ** Sphinx docs use the .rst file name extension.
 * Add finished doc file names to the _Table of Contents_ (TOC) which is located in `Index.rst`.
 

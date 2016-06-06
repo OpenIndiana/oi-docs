@@ -35,7 +35,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 #### Handbook
 * Handbook - <https://www.freebsd.org/doc/handbook/book.html>
 * Red text used for hyperlinks
-* grey boxes used to delineate columns of information from each other.
+* gray boxes used to delineate columns of information from each other.
 * Each page has it's own navigational breadcrumbs (top and bottom, left and right)
 
 
