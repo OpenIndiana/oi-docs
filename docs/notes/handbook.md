@@ -24,6 +24,7 @@ Helpful resources for writing some of these sections
 -->
 
 
+
 # The OpenIndiana Handbook
 
 < Place Holder for future content >
@@ -62,9 +63,11 @@ As the FAQ evolves, try to keep this section in sync.
 Approximately every six months, the OpenIndiana project releases a snapshot of the Hipster rolling release branch.
 Ideally suited for both workstations and servers, simply choose the installer type which best serves your needs.
 
+
 | Workstation | Server
 | --- | ---
 | Live installer (Gnome desktop) | Text installer (command line console)
+
 
 For more information, see: <<Obtaining the software>>::
 
@@ -74,10 +77,12 @@ For more information, see: <<Obtaining the software>>::
 * For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
 * While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
 
+
 **CAUTION:**
 
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
+
 
 
 ## System Requirements
@@ -92,6 +97,7 @@ As the FAQ evolves, try to keep this section in sync.
 | CPU | Disk Space | Memory (RAM)
 | --- | --- | ---
 | 64 Bit | 20GB (or more) | 4GB (or more)
+
 
 
 ## Finding help and support
@@ -118,6 +124,7 @@ As the FAQ evolves, try to keep this section in sync.
 -->
 
 
+
 | Resource | URL
 | --- | ---
 | User Support IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
@@ -141,6 +148,7 @@ As the FAQ evolves, try to keep this section in sync.
 * [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
 * [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
 * [Torrents](http://dlc.openindiana.org/torrents/)
+
 
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
@@ -252,7 +260,7 @@ Failure to use the correct USB header file can result in the USB drive either fa
 | Operating system | Command | Device
 | --- | --- | ---
 | illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
-| Linux | `fdisk -l` | `/dev/sd*` 
+| Linux | `fdisk -l` | `/dev/sd*`
 | FreeBSD | `camcontrol devlist` | `/dev/da*`
 | OS X | `diskutil list` | `/dev/disk*`
 
@@ -265,16 +273,16 @@ Failure to use the correct USB header file can result in the USB drive either fa
 * Make sure no filesystems located on the device are mounted prior to the next step.
 ** Desktops may automatically mount removable devices.
 ** As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
-** Use the mount command to list mounted filesystems. 
+** Use the mount command to list mounted filesystems.
 ** If any filesystems are located on the USB storage device, they must be unmounted.
 ** Use `umount <path>` to unmount a filesystem, or `rmumount <path>` on illumos/Solaris, and `diskutil unmountDisk <path>` on OS X.
 ####
 
 ##### Copying the Live Media to your Flash Drive
 
-Run the following command (as root or with appropriate privileges): 
+Run the following command (as root or with appropriate privileges):
 
-`cat 1G.header <live USB image file> | dd bs#1024k of#<path to raw USB storage device>`
+`cat 1G.header <live USB image file> | dd bs=1024k of=<path to raw USB storage device>`
 
 
 #### illumos/Solaris
@@ -319,7 +327,7 @@ Alternately, you may use host to guest DVD/USB passthrough to boot from physical
 
 ##### Virtualbox
 
-For VirtualBox 3.2 or later: 
+For VirtualBox 3.2 or later:
 
 "Use host I/O cache" must be enabled in the emulated storage controller used by the virtual machine to successfully boot OpenIndiana.
 
@@ -338,7 +346,7 @@ For VirtualBox 3.2 or later:
 
 When you see a menu, press Enter to start OpenIndiana on your computer.
 As it runs, you will be prompted with a few questions.
-You should eventually be presented with a desktop. 
+You should eventually be presented with a desktop.
 
 ### Authenticating when using the OpenIndiana LiveDVD
 
@@ -539,8 +547,8 @@ When you boot from the text installer, it immediately begins the installation pr
 ## Troubleshooting Installations
 
 * If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a "grub>" prompt, there may be an error in your copy of the installer, or it was created incorrectly.
-* If you see a "login:" prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware. 
-** Please let us know via IRC or the mailing list if this happens. 
+* If you see a "login:" prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
+** Please let us know via IRC or the mailing list if this happens.
 ** When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
 ** If possible, also include the contents of the file `/var/log/Xorg.0.log`.
 
@@ -592,7 +600,7 @@ Work is progressing to provide support for AMD and Intel.
 #### Nvidia
 * Talk about the expected behavior when booting the live CD from a system with an NVIDIA card.
 * Discuss procedure for adding an NVIDIA card to a system that was using VESA or some other non-3d video driver.
-* Troubleshooting - what logs to look at, manual configuration, etc. 
+* Troubleshooting - what logs to look at, manual configuration, etc.
 * Walk through NVIDIA utility screens.
 
 #### AMD
@@ -611,7 +619,7 @@ Work is progressing to provide support for AMD and Intel.
 ### How can the desktop be modified?
 
 * Gnome walkthrough
-* Appearance applet 
+* Appearance applet
 ** Enabling Compiz
 ** Configuring font anti-aliasing
 
@@ -647,7 +655,7 @@ Tips for writing this section:
 * https://pkgsrc.joyent.com/
 * https://pkgsrc.joyent.com/install-on-illumos/
 
-* Clean up and consolidate information from website and wiki about where to find additional software. 
+* Clean up and consolidate information from website and wiki about where to find additional software.
 * Need to answer the questions - Where and how can I install more software?
 * Discuss the various package managers (PKGIN, IPS (PKG), etc.)
 * Discuss the various repos (opencsw, sfe, pkgsrc.joyent, etc.), what's available in them, and which might break compatibility, etc.
@@ -788,7 +796,7 @@ storage                        498K   899G    19K  /storage
 
 Create your ZFS dataset to be shared via CIFS/SMB.
 
- # zfs create -o casesensitivity#mixed -o sharesmb#on storage/backup
+ # zfs create -o casesensitivity=mixed -o sharesmb=on storage/backup
 
 Start the CIFS service.
 
@@ -808,7 +816,7 @@ Reset the password for the local user accounts which will be used for remotely a
 
 Set the share name to be used for the CIFS/SMB share.
 
- # zfs set sharesmb#name#backup storage/backup
+ # zfs set sharesmb=name=backup storage/backup
 
 Change the ownership of ZFS dataset to the user account which will be used for remotely accessing the CIFS/SMB share.
 
@@ -817,18 +825,18 @@ Change the ownership of ZFS dataset to the user account which will be used for r
 Verify everything is all set to go.
 
  # sharemgr show -vp
-default nfs#()
-smb smb#()
-        * /var/smb/cvol  smb#() ""
-                  c$#/var/smb/cvol       smb#(abe#"false" guestok#"false")      "Default Share"
-zfs smb#()
-    zfs/storage/backup smb#()
-          backup#/storage/backup
+default nfs=()
+smb smb=()
+        * /var/smb/cvol  smb=() ""
+                  c$=/var/smb/cvol       smb=(abe="false" guestok="false")      "Default Share"
+zfs smb=()
+    zfs/storage/backup smb=()
+          backup=/storage/backup
 
 You can create additional CIFS datasets using the following 4 commands.
 
- # zfs create -o casesensitivity#mixed -o sharesmb#on <pool_name/dataset_name>
- # zfs set sharesmb#name#<new_share_name> <pool_name/dataset_name>
+ # zfs create -o casesensitivity=mixed -o sharesmb=on <pool_name/dataset_name>
+ # zfs set sharesmb=name=<new_share_name> <pool_name/dataset_name>
  # chown -R <user_account> <path_to_dataset>
  # sharemgr show -vp
 
@@ -872,13 +880,13 @@ You can create additional CIFS datasets using the following 4 commands.
 * How to get OI to play a DVD
 * How to get flash player installed and working.
 * How to get VLC installed and working.
-* Codecs, etc. 
+* Codecs, etc.
 * How to use the hidden `gstreamer-properties` configuration utility.
 
 
 ### Using OpenIndiana as a Media server, HTPC, etc.
 
-* http://forum.kodi.tv/showthread.php?tid#44315&page#2
+* http://forum.kodi.tv/showthread.php?tid=44315&page=2
 * http://lightsandshapes.com/plex-on-smartos.html
 
 
@@ -929,10 +937,10 @@ You can check your processor for EPT support via the following link: http://ark.
 
 ### Zones - running web stuff in zone, development, etc.
 
-* Need to mention some of the changes to zone management...e.g.. 
-** sys-unconfig gone. 
+* Need to mention some of the changes to zone management...e.g..
+** sys-unconfig gone.
 ** sysding replaced syscfg
-*** now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`. So a fair amount of stuff has changed there. 
+*** now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`. So a fair amount of stuff has changed there.
 
 
 ### Clustering with Open HA Cluster
@@ -948,7 +956,7 @@ Also see:
 
 ## Developing with OpenIndiana
 
-[NOTE] 
+[NOTE]
 The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
 
 

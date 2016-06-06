@@ -13,7 +13,7 @@ Add a blurb about switching to hipster. Link to :http://wiki.openindiana.org/oi/
 
 
 
-# The OpenIndiana FAQ 
+# The OpenIndiana FAQ
 
 
 ## What is OpenIndiana?
@@ -36,7 +36,7 @@ The [illumos project](https://illumos.org) is the open source community which de
 Similar to a BSD `src` tree, illumos-gate includes the illumos kernel, along with many of the device drivers, core libraries, and system utilities.
 
 To form a complete distribution, the OpenIndiana project combines illumos-gate with [oi-userland](https://github.com/OpenIndiana/oi-userland), and with other free and open-source software.
-This melding of software from many different open-source projects is similar to how Linux distributions use the Linux kernel along with software from the GNU and various other open source projects. 
+This melding of software from many different open-source projects is similar to how Linux distributions use the Linux kernel along with software from the GNU and various other open source projects.
 
 
 ## How does OpenIndiana differ from OpenSolaris?
@@ -132,7 +132,7 @@ For this effort to succeed, we ask our user base to diligently bring security an
 
 
 
-* [Primary Mirror](http://dlc.openindiana.org/isos/hipster) 
+* [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
 * [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
 * [Torrents](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
 
@@ -180,7 +180,7 @@ The following IPS repositories are available:
 
 `pkg set-publisher -g repository_url repository_name`
 
-### Changing an existing publisher 
+### Changing an existing publisher
 
 `pkg set-publisher -G http://pkg.openindiana.org/hipster-2015 -g http://pkg.openindiana.org/hipster openindiana.org`
 
@@ -208,7 +208,7 @@ While somewhat dated now, these resources are largely still relevant.
 > In late 2009, the OpenSolaris project released a newer version of the OpenSolaris book collection.
 > An effort currently exists within the OpenIndiana community to revise and condense these titles into a more streamlined collection which more closely follows the development state of OpenIndiana Hipster.
 > The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
-> If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists. 
+> If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.
 
 
 ## How do I get involved with the OpenIndiana Project?
@@ -232,7 +232,7 @@ Here are just some of the many ways you may contribute:
 
 * Artwork
 * Development
-* Documentation - Handbook, Tutorials, News articles, etc.  
+* Documentation - Handbook, Tutorials, News articles, etc.
 * Evangelism - blogging about OpenIndiana, attending conferences, etc.
 * Packaging - oi-userland, 3rd party packaging (SFE, etc.)
 * Release engineering
@@ -254,7 +254,7 @@ If you would like to see SPARC become a supported platform, please help us by jo
 
 ### Historical SPARC releases
 
-In 2009, the OpenSolaris project released an [OpenSolaris text install ISO](http://dlc.openindiana.org/isos/opensolaris), and much more recently, there was work done by Adam Glasgall who produced an [unofficial SPARC text install ISO](http://neutron-star.mit.edu/OpenIndiana_Text_SPARC.iso) based on oi-dev-151-a8. 
+In 2009, the OpenSolaris project released an [OpenSolaris text install ISO](http://dlc.openindiana.org/isos/opensolaris), and much more recently, there was work done by Adam Glasgall who produced an [unofficial SPARC text install ISO](http://neutron-star.mit.edu/OpenIndiana_Text_SPARC.iso) based on oi-dev-151-a8.
 
 ### illumos distributions with SPARC releases
 
@@ -271,7 +271,7 @@ For production use on modern SPARC hardware, there is also commercial [Oracle So
 
 ## What are the licensing terms for OpenIndiana?
 
-OpenIndiana is composed of software from multiple different sources, each with its own licensing terms. 
+OpenIndiana is composed of software from multiple different sources, each with its own licensing terms.
 
 Here is a list of the most commonly used licenses:
 

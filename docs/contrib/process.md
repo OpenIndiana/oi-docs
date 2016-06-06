@@ -16,12 +16,12 @@ The basic workflow process for OpenIndiana Docs is simple:
 . https://help.github.com/articles/set-up-git/[Install and configure Git].
 . https://help.github.com/articles/fork-a-repo/[Fork the OpenIndiana Docs repository].
 . https://help.github.com/articles/fork-a-repo/#step-2-create-a-local-clone-of-your-fork[Clone your forked version of the OpenIndiana Docs repository].
-. https://help.github.com/articles/syncing-a-fork/[Add the OpenIndiana Docs repository as an _upstream_ repository]. 
+. https://help.github.com/articles/syncing-a-fork/[Add the OpenIndiana Docs repository as an _upstream_ repository].
 . Locate a document to change or decide where in the file hierarchy a new document should be created.
 . Implement your changes (e.g. create a new document or modify and existing document).
 . Implement or note any menu changes required to support your changes.
 . `git fetch` to pull in any available upstream changes.
-. Check to see whether upstream changes have affected your proposed changes. 
+. Check to see whether upstream changes have affected your proposed changes.
 . `git add` and `git commit` commit your changes.
 . `git push` your changes to your forked repository.
 . https://help.github.com/articles/using-pull-requests/[Send a pull request] to a content reviewer so your changes may be reviewed for inclusion into the OpenIndiana Docs master repository.
@@ -38,7 +38,7 @@ You can use the `--check` flag on the HAML executable to check for proper HAML s
 
 [source, console]
 ----
-$ haml --check index.html.haml 
+$ haml --check index.html.haml
 Syntax OK
 ----
 

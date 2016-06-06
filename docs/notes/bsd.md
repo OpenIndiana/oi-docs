@@ -11,7 +11,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 #### Website
 * website: <http://www.pcbsd.org/>
 * Well laid out, clutter free.
-* Download buttons are present right on home page. 
+* Download buttons are present right on home page.
 * Hosted on WordPress
 
 #### Handbook
@@ -24,7 +24,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 * Very simple [reStructuredText markup](http://docutils.sourceforge.net/rst.html) - Similar to ASCIIDOC or Creole
 
 
-### FreeBSD 
+### FreeBSD
 
 #### Website
 * website - <https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>
