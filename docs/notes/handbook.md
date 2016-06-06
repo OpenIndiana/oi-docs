@@ -256,7 +256,7 @@ DD is not always reliable (either doesn't boot at all, or fails to load liveCD a
 ** The files are *NOT* interchangeable.
 ====
 
-Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenace mode with KSH93 errors).
+Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
 
 ===== Identifying the path to your USB device
 
@@ -277,7 +277,7 @@ Failure to use the correct USB header file can result in the USB drive either fa
 * Make sure you identify the correct storage device, as all data on the device will be erased.
 * Make sure no filesystems located on the device are mounted prior to the next step.
 ** Desktops may automatically mount removable devices.
-** As nessessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
+** As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
 ** Use the mount command to list mounted filesystems. 
 ** If any filesystems are located on the USB storage device, they must be unmounted.
 ** Use `umount <path>` to unmount a filesystem, or `rmumount <path>` on illumos/Solaris, and `diskutil unmountDisk <path>` on OS X.
@@ -301,7 +301,7 @@ Run the following command (as root or with appropriate privileges):
 
 == Testing Openindiana Using Live Media
 
-The Live Media DVD and USB installers provide a graphical live enviroment where you can explore OpenIndiana and test the compatibility of your hardware.
+The Live Media DVD and USB installers provide a graphical live environment where you can explore OpenIndiana and test the compatibility of your hardware.
 When using Live Media to explore OpenIndiana, no changes are made to your system, unless you explicitly choose to install OpenIndiana.
 
 Although it is possible to use it over a network with SSH X forwarding if you enable SSH.
@@ -421,7 +421,7 @@ Select the appropriate installer option by clicking the corresponding desktop in
 ==== Text based Guided Install
 
 The text based guided install start and runs within a command line console.
-Navigation within the installer is performed by pressing specifically designated navition keys (F2, Tab, etc.).
+Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
 
 [NOTE]
 ====
@@ -528,7 +528,7 @@ Installation progress is measured by means of a status bar.
 
 image::text_install/text_install14.png[Installation Complete]
 
-After the installaton completes you are presented with a summary screen.
+After the installation completes you are presented with a summary screen.
 The installation logs are available by pressing the F4 key.
 If you ran the installation from Live Media, can exit the installation by pressing F9.
 Otherwise, you will want to reboot the system using the F8 key.
@@ -624,7 +624,7 @@ Work is progressing to provide support for AMD and Intel.
 
 Some notes and reference docs for writing the IPS section:
 
-* Be sure to provide walkthrous for both IPS and BEADMIN (as they work together).
+* Be sure to provide walkthroughs for both IPS and BEADMIN (as they work together).
 * http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-083-ips-basics-523756.html[Basics of Image Packaging System (IPS) - Oracle]
 * http://www.oracle.com/technetwork/server-storage/solaris11/documentation/ips-one-liners-032011-337775.pdf[IPS cheat sheet PDF - Oracle]
 
@@ -731,7 +731,7 @@ It can also be used for querying the contents of a repository.
 
 * zpool get/set commands
 
-==== Modifying zfs file system settings and atttributes
+==== Modifying zfs file system settings and attributes
 
 * zfs get/set commands
 
@@ -780,7 +780,7 @@ For help writing this section, see the following OpenSolaris references:
 * https://web.archive.org/web/20091124124935/http://wiki.genunix.org/wiki/index.php/What's_New_With_Solaris_CIFS[What's New With Solaris CIFS]
 * https://web.archive.org/web/20090725231658/http://wiki.genunix.org/wiki/index.php/CIFS_Technical_References[CIFS Technical References]
 
-Also have a look at the OpenSolaris CIFS Adminstration Guide:
+Also have a look at the OpenSolaris CIFS Administration Guide:
 
 * https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf
 
@@ -933,7 +933,7 @@ You can check your processor for EPT support via the following link: http://ark.
 
 === Zones - running web stuff in zone, development, etc.
 
-* Need to mention some of the changes to zone management...eg. 
+* Need to mention some of the changes to zone management...e.g.. 
 ** sys-unconfig gone. 
 ** sysding replaced syscfg
 *** now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`. So a fair amount of stuff has changed there. 

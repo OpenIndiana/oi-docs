@@ -48,7 +48,7 @@ Syntax OK
 Upon receipt of a pull request, the content reviewer performs the following steps:
 
 . Determines whether the changes are suitable as they are or require additional modifications (providing feedback to the originator as necessary).
-. Performs QA testing by running awestruct in development mode (generally applies only for changes to HAML pages).
+. Performs QA testing by running Awestruct in development mode (generally applies only for changes to HAML pages).
 . Upon acceptance, merges the pull request into the mainline branch.
 . Using the Awestruct framework, manually publishes the changes to the live website.
 

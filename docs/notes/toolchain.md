@@ -3,7 +3,7 @@
 
 === Introduction
 
-This document is a whiteboard for the development of ideas to begin the transistion to a continuous integration toolchain for documentation.
+This document is a whiteboard for the development of ideas to begin the transition to a continuous integration toolchain for documentation.
 The ideal model would be where all informational content (docs, blog posts, news, etc.) lives in github.
 This way, working with informational content is simply a matter of working with familiar tools and concepts.
 
@@ -102,7 +102,7 @@ This is something you can make sense of without special tools (e.g. Docbook base
 |===
 
 [NOTE]
-In order to use the Asciidoctor Chrome extention with local files, you must enable the plugin option "Allow access to file URLs".
+In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".
 
 The Travis-CI build engine can even post the results of the build to IRC (as shown below from the Asciidoctor IRC channel).
 
@@ -112,7 +112,7 @@ The Travis-CI build engine can even post the results of the build to IRC (as sho
 
 .Videos
 |===
-| URL | Desciption
+| URL | Description
 
 | https://www.youtube.com/watch?v=kyGJEVEjfAs | Write in AsciiDoc, Publish Everywhere!
 | https://www.youtube.com/watch?v=r6RXRi5pBXg | 7 Ways to Hack Your Brain to Write Fluently

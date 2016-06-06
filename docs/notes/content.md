@@ -73,7 +73,7 @@ A good tutorial might be to write about installing OpenIndiana Hipster on a SCSI
 Also can look at Oracle docs for reference: <https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html>
 
 
-#### Write some comparision tables
+#### Write some comparison tables
 * Provide some contrast/comparisons between OI and other illumos distros.
 * Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
 * Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)

@@ -56,7 +56,7 @@ We should consider converting the OpenSolaris books to some kind of simple and e
 * Using a text based markup would greatly lower the bar for working on the books.
 * For books for which we do not have the XML source, perhaps pandoc can be used to reconvert the HTML back to text markup.
 
-We need to create a fully automated toochain with the following features:
+We need to create a fully automated toolchain with the following features:
 
 * Source code stored on GitHub.
 * Commit hooks kick off an automated build (conversion to HTML5) and deployment of the books to their public location.
@@ -67,7 +67,7 @@ Another consideration is printing.
 
 * There should be printer friendly CSS used with the HTML pages.
 
-We need to eat our own dogfood.
+We need to eat our own dog food.
 
 * The entire editing and build process should be capable of being performed on multiple platforms, including OpenIndiana.
 

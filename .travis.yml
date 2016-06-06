@@ -1,0 +1,10 @@
+language: python
+python: "2.7"
+install:
+    - pip install mkdocs
+    - gem install mdl
+    - npm install markdown-spellcheck -g
+script:
+    - mdl -s markdownlint-rules.rb .
+    - mdspell --en-us -ran "**/*.md"
+    - mkdocs build
