@@ -14,7 +14,7 @@ Basic familiarity with:
 * GIT distributed version control
 * The Awestruct framework
 
-Most pages are written in Asciidoc text markup. 
+Most pages are written in Asciidoc text markup.
 The skill level required to work with these pages is minimal.
 Other pages (indexes, layouts, etc.) are composed in HAML.
 Modifying HAML pages requires basic front end web development skills.
