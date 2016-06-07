@@ -54,6 +54,7 @@ Asciidoctor also includes some of features found in documentation frameworks suc
 The Asciidoctor framework can be used for docs as well as for the production of other types of content (news stories, blog posts, etc.).
 
 ### System Characteristics
+
 * Easy to use (even easier than Sphinx)
 * TOC is easy to navigate (but not quite as clean as Sphinx)
 * Like Sphinx, produces a very professional looking end product.
@@ -62,6 +63,7 @@ The Asciidoctor framework can be used for docs as well as for the production of 
 * More flexible than Sphinx in that it can be used as part of a larger web content framework.
 
 ### Asciidoctor compared to Sphinx
+
 Both systems have their relative merits with advantages and disadvantages.
 For example if all you want to do is write and publish some docs, then Sphinx is a good choice.
 However, if you want to do a little more (like the Jenkins project is doing), then Asciidoctor is likely the better choice.
