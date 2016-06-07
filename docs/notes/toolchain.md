@@ -93,7 +93,7 @@ This is something you can make sense of without special tools (e.g. Docbook base
 | https://github.com/dagwieers/asciidoc-vim | Asciidoc Syntax highlighting for VIM |
 | https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia | Asciidoctor.js Live Preview plugin for Google Chrome Web Browser |
 | https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/ | Asciidoctor.js Live Preview plugin for Firefox Web Browser |
-| https://github.com/asciidoctor/asciidoctor-confluence | Confluenceplugin for Asciidoctor - (uploads to Confluence site) |
+| https://github.com/asciidoctor/asciidoctor-confluence | Confluence plugin for Asciidoctor - (uploads to Confluence site) |
 | http://gist.asciidoctor.org/ | Asciidoctor page renderer for GitHub Gist URL's |
 | https://travis-ci.org/ | Continuous Integration (similar to Jenkins, etc.) |
 | https://pages.github.com/ | Publish from your github repo |
