@@ -1,7 +1,7 @@
-## Documentation Team Processes
+# Documentation Team Processes
 
 
-### Introduction
+## Introduction
 
 The basic workflow process for OpenIndiana Docs is simple:
 
@@ -10,7 +10,7 @@ The basic workflow process for OpenIndiana Docs is simple:
 * Send a pull request.
 
 
-### General Content Contributor Process
+## General Content Contributor Process
 
 * [Sign up for a GitHub account](https://github.com/).
 * [Install and configure Git](https://help.github.com/articles/set-up-git/).
@@ -44,7 +44,7 @@ Syntax OK
 ```
 
 
-### The Content Review Process
+## The Content Review Process
 
 Upon receipt of a pull request, the content reviewer performs the following steps:
 
@@ -59,7 +59,7 @@ At this time the content reviewer performs the role of release manager, manually
 In the future OpenIndiana Docs will adopt a continuous integration model, where merging changes will automatically trigger a deployment of the website and all of it's contents.
 
 
-### Website Development Processes
+## Website Development Processes
 
 Community members performing the role of Website Developer work directly with the Awestruct framework to extend the capabilities and visual aspects of the OpenIndiana Docs website.
 Naturally most of their time will be spent running Awestruct in development mode.
