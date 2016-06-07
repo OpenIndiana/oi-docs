@@ -18,7 +18,7 @@ The source code used for the redistributable books is Solbook XML 3.5 (and in so
 * Solbook is a creation of Sun Microsystems and is a simplified subset of Docbook.
 * We have a conversion tool (written in JAVA) which can handle the conversion of Solbook XML 3.5 to HTML 4.5, but we do not have DTD's for any other XML versions (e.g 3.6).
 * Assuming the differences between the XML versions are not too great, we might be able to trick the java conversion tool by simply changing the version number within the DTD.
-** This is speculative and not yet been tried.
+    * This is speculative and not yet been tried.
 
 Its unclear whether the books found in the 2009.09.15 drop are inclusive of all the 2008.11 books.
 
@@ -101,7 +101,7 @@ Given the website's responsiveness, there is a good chance they're hosting stati
 
 ## Book Titles - 2009.09.15 OpenSolaris Docs Consolidation
 
-**[NOTE]**
+**NOTE**
 Some of these titles may have newer versions than what shipped as part of this consolidation.
 The OpenSolaris project had a development directory which contained a handful of the titles.
 For more information, see: <https://web.archive.org/web/20090415234443/http://dlc.sun.com/osol/docs/content/dev/>
@@ -186,4 +186,3 @@ Further information can be found on Archive.org (wayback machine).
 ## Other OpenSolaris Books
 
 * [Open HA Cluster 2009.06 Collection](https://web.archive.org/web/20100123170801/http://docs.sun.com/app/docs/coll/2509.1)
-
