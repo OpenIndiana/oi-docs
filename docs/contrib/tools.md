@@ -1,6 +1,6 @@
-== Documentation Team Tools
+# Documentation Team Tools
 
-=== Introduction
+## Introduction
 
 Unlike a CMS system where you are restricted to the confines of an integral editor, the OpenIndiana Docs website has no such restriction.
 Instead, content is authored using a simple text based markup.
@@ -24,13 +24,13 @@ Running Awestruct in development mode requires a locally installed Ruby developm
 For a complete list of Asciidoctor related content authoring tools, consult the table at the bottom of this page.
 
 
-=== What is Asciidoctor?
+## What is Asciidoctor?
 
 Asciidoctor is a modern, flexible, and feature rich content authoring framework inspired by Asciidoc.
 The Ruby based Asciidoctor can be used to author and publish content as HTML5, PDF, EPUB, Docbook5, slide shows, etc.
 
 
-=== Asciidoctor System Characteristics
+## Asciidoctor System Characteristics
 
 * Easy to use syntax.
 * Produces professional quality output.
@@ -38,14 +38,14 @@ The Ruby based Asciidoctor can be used to author and publish content as HTML5, P
 * Does not yet support chunked html, however authored content can be exported to Docbook5, where XSLT tools may be used to perform this task.
 
 
-=== Why a Text Markup Based Docs Framework?
+## Why a Text Markup Based Docs Framework?
 
 The primary advantage of using a text markup language is readability and flexibility.
 The raw code for your authored content is simple plain text.
 No need for special tools such as WYSIWYG XML editors, etc.
 
 
-=== Asciidoctor Authoring Tools and Informational Links
+## Asciidoctor Authoring Tools and Informational Links
 
 |===
 | URL | Description
