@@ -19,7 +19,7 @@ pages:
         - 'Tools': contrib/tools.md
         - 'Processes': contrib/process.md
         - 'Topics': contrib/topics.md
-        - 'Stylee': contrib/style.md
+        - 'Style': contrib/style.md
         - 'GitHub': contrib/github.md
         - 'Build': contrib/build.md
         - 'Site Theming': contrib/theme.md
