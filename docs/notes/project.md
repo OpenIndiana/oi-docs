@@ -109,7 +109,7 @@ Public relations is an important aspect of project management, even if it's limi
 
 ### File Storage
 
-* [dropbox](http://www.dropbox.com)
+* [Dropbox](http://www.dropbox.com)
 
 ### Graphics
 

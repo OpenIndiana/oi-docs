@@ -7,4 +7,4 @@
 - [ ] Modify MD007 to allow 4 spaces for an unordered list.
 - [ ] Replace docs\index.md so we have a new website front page
 - [ ] Work on contributors page so people know how to contribute by forking our work, installing and using mkdocs, markdown, manually running lint locally, etc.
-- [ ] Start looking at the handbook and how to best move forward making it useful, reoganising sections, pulling in content from the OI wiki, etc.
+- [ ] Start looking at the handbook and how to best move forward making it useful, reorganizing sections, pulling in content from the OI wiki, etc.
