@@ -15,15 +15,15 @@ pages:
         - 'Continuous Integration Content Management': notes/toolchain.md
         - 'Building oi-userland': notes/userland.md
 - Contrib:
-        - 'build': contrib/build.md
-        - 'OpenIndiana Docs GitHub Repository': contrib/github.md
-        - 'Documentation Team Processes': contrib/process.md
-        - 'publish': contrib/publish.md
-        - 'Documentation Team Roles': contrib/roles.md
-        - 'Documentation Team Style Guide': contrib/style.md
-        - 'Docs Site Theming and Design': contrib/theme.md
-        - 'Documentation Team Tools': contrib/tools.md
-        - 'Documentation Team Topics': contrib/topics.md
+        - 'Roles': contrib/roles.md
+        - 'Tools': contrib/tools.md
+        - 'Processes': contrib/process.md
+        - 'Topics': contrib/topics.md
+        - 'Stylee': contrib/style.md
+        - 'GitHub': contrib/github.md
+        - 'Build': contrib/build.md
+        - 'Site Theming': contrib/theme.md
+        - 'Site Publishomg': contrib/publish.md
 theme: spacelab
 extra:
         theme_inverse: true
