@@ -169,7 +169,6 @@ Running Awestruct in development mode requires a locally installed Ruby developm
 .HAML syntax checking
 You can use the `--check` flag on the HAML executable to check for proper HAML syntax without evaluating the Ruby code.
 
-[source, console]
 ```bash
 $ haml --check index.html.haml
 Syntax OK
