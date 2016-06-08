@@ -15,15 +15,7 @@ pages:
         - 'Continuous Integration Content Management': notes/toolchain.md
         - 'Building oi-userland': notes/userland.md
 - Contrib:
-        - 'Roles': contrib/roles.md
-        - 'Tools': contrib/tools.md
-        - 'Processes': contrib/process.md
-        - 'Topics': contrib/topics.md
-        - 'Style': contrib/style.md
-        - 'GitHub': contrib/github.md
-        - 'Build': contrib/build.md
-        - 'Site Theming': contrib/theme.md
-        - 'Site Publishomg': contrib/publish.md
+        - 'Getting started': contrib/index.md
 theme: spacelab
 extra:
         theme_inverse: true
