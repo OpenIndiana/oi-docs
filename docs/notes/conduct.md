@@ -1,5 +1,3 @@
-## OpenIndiana Code of Conduct
+# OpenIndiana Code of Conduct
 
-
-.TODO
-Develop an OpenIndiana Code of Conduct
+< Place Holder to Develop an OpenIndiana Code of Conduct >

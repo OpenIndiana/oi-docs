@@ -1,6 +1,6 @@
 # About OpenIndiana Docs (Demo 2.0)
 
-*This website is NOT an official OpenIndiana site*
+**This website is NOT an official OpenIndiana site**
 
 This site is a technology demonstration.
 The purpose of this site is examine various documentation frameworks to help determine which technology best suites the documentation needs of the OpenIndiana project.

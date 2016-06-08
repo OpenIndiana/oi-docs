@@ -813,7 +813,7 @@ Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.ora
 
 Start by listing available storage pools.
 
-```
+```bash
 # zfs list
 
 NAME                           USED  AVAIL  REFER  MOUNTPOINT
@@ -821,48 +821,48 @@ storage                        498K   899G    19K  /storage
 ```
 Create your ZFS dataset to be shared via CIFS/SMB.
 
-```
+```bash
 # zfs create -o casesensitivity=mixed -o sharesmb=on storage/backup
 ```
 Start the CIFS service.
 
-```
+```bash
 # svcadm enable -r smb/server
 ```
 
 Join the CIFS server to a workgroup.
 
-```
+```bash
 # smbadm join -w WORKGROUP
 ```
 
 Configure PAM authentication for the CIFS service.
 
-```
+```bash
 # echo "other password required pam_smb_passwd.so.1 nowarn" >> /etc/pam.conf
 ```
 
 Reset the password for the local user accounts which will be used for remotely accessing the CIFS/SMB share.
 
-```
+```bash
 # passwd <user_account>
 ```
 
 Set the share name to be used for the CIFS/SMB share.
 
-```
+```bash
 # zfs set sharesmb=name=backup storage/backup
 ```
 
 Change the ownership of ZFS dataset to the user account which will be used for remotely accessing the CIFS/SMB share.
 
-```
+```bash
 # chown -R <user_account> /storage/backup
 ```
 
 Verify everything is all set to go.
 
-```
+```bash
 # sharemgr show -vp
 
 default nfs=()
@@ -876,7 +876,7 @@ zfs smb=()
 
 You can create additional CIFS datasets using the following 4 commands.
 
-```
+```bash
 # zfs create -o casesensitivity=mixed -o sharesmb=on <pool_name/dataset_name>
 # zfs set sharesmb=name=<new_share_name> <pool_name/dataset_name>
 # chown -R <user_account> <path_to_dataset>

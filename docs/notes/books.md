@@ -60,7 +60,7 @@ We need to create a fully automated toolchain with the following features:
 
 * Source code stored on GitHub.
 * Commit hooks kick off an automated build (conversion to HTML5) and deployment of the books to their public location.
-	* We need to determine where to host the books - (e.g. OI website, Github pages, readthedocs.com, etc.)
+   * We need to determine where to host the books - (e.g. OI website, Github pages, readthedocs.com, etc.)
 * The docs maintenance process needs to be documented itself.
 
 Another consideration is printing.
@@ -80,17 +80,20 @@ In a nutshell, the trend is a move away from CMS systems.
 Everything is treated equally and managed using the very same tools.
 
 ### PC-PCD
+
 * The PC-BSD project looks to be hosting their website on a CMS (Wordpress).
 * The project uses the python based Sphinx documentation framework (which uses the Restructured Text markup language).
 * Documentation is self hosted (though most projects using Sphinx host using [Read The Docs](https://readthedocs.org/)).
 
 ### Jenkins
+
 * The Jenkins project is composed entirely of static HTML5 and uses Awestruct to _bake_ their website.
 * Their CSS framework is either Bootstrap, Foundation, or possibly even custom fabricated (it's not clear how they're doing it).
 * Asciidoctor is their markup language for all content (docs, blog posts, news, etc.).
 * All content is hosted on GitHub and continuous integration (automated build and deploy) is presumably via their own Jenkins CI.
 
 ### FreeBSD
+
 * It's unclear how the FreeBSD project is hosting their website.
 Given the website's responsiveness, there is a good chance they're hosting static HTML.
 * For documentation, the FreeBSD project uses Docbook 5 along with a semi-automated XML toolchain to validate and convert the source code to other formats.

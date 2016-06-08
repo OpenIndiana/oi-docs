@@ -9,12 +9,14 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 ### PCBSD
 
 #### Website
+
 * website: <http://www.pcbsd.org/>
 * Well laid out, clutter free.
 * Download buttons are present right on home page.
 * Hosted on WordPress
 
 #### Handbook
+
 * handbook: <http://web.pcbsd.org/doc-archive/10.2/html/pcbsd.html>
 * Nice intuitive navigation pane on left side - (Newer versions allow navigation pane to be toggled out of the way)
 * Clutter free as it only shows one section at a time.
@@ -27,12 +29,14 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 ### FreeBSD
 
 #### Website
+
 * website - <https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/>
 * well defined and well organized navigational dropdowns
 * Lots of color used to delineate one piece of information from another
 * Very consistent style used throughout entire website
 
 #### Handbook
+
 * Handbook - <https://www.freebsd.org/doc/handbook/book.html>
 * Red text used for hyperlinks
 * gray boxes used to delineate columns of information from each other.
@@ -42,6 +46,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 ## What can we learn from this?
 
 ### The BSD Websites
+
 * Both of the BSD websites are very fresh and modern.
 * Navigation is very straightforward and intuitive.
 * Information is clearly delineated.
@@ -50,6 +55,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 
 
 ### PCBSD Handbook
+
 * The PCBSD Project is using http://www.sphinx-doc.org/en/stable/index.html[Sphinx] for their handbook.
 * Python Project also uses restructuredtext based Sphinx for their documentation (you'll notice the similarities).
 * Skill level required for contributing to docs project is much lower than it would be for docbook
@@ -57,6 +63,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 * The PCBSD Handbook is hosted as static HTML.
 
 ### FreeBSD Handbook
+
 * The FreeBSD Project is using http://www.docbook.org/[Docbook] for their handbook.
 * Sun used solbook (derived from docbook).
 Redhat most likely uses Docbook as well.
@@ -85,6 +92,7 @@ Redhat most likely uses Docbook as well.
 
 
 #### Getting Started
+
 * Introduction
 * Installing FreeBSD
 * Unix Basics
@@ -93,6 +101,7 @@ Redhat most likely uses Docbook as well.
 
 
 #### Common Tasks
+
 * Desktop Applications
 * Multimedia
 * Configuring the FreeBSD Kernel
@@ -101,6 +110,7 @@ Redhat most likely uses Docbook as well.
 
 
 #### System Administration
+
 * Configuration and Tuning
 * FreeBSD Boot Process
 * Security
@@ -117,6 +127,7 @@ Redhat most likely uses Docbook as well.
 
 
 #### Network Communications
+
 * Serial communications
 * PPP
 * Electronic mail

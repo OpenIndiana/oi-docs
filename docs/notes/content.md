@@ -59,15 +59,15 @@ Most importantly, write about what interests you.
 #### ABI support
 
 * Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
-	* For more details, see: <http://openindiana.org/pipermail/oi-dev/2014-December/003496.html>
-	* We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
+    * For more details, see: <http://openindiana.org/pipermail/oi-dev/2014-December/003496.html>
+    * We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
 
 
 #### Installing OI onto an ISCSI exposed SCSI target
 
 A good tutorial might be to write about installing OpenIndiana Hipster on a SCSI target
 
-```
+```bash
 [14:50:02] <alp> does someone have some links on "installing OI on ISCSI" ?
 [14:57:40] <tsoome> alp get to illumos wiki, open projects loader -> ideas, from there you get link for jeffpc iscsi experiment
 [14:57:46] <tsoome> I did use it to play with ipxe+iscsi+loader
