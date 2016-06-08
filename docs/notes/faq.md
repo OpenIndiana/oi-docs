@@ -1,5 +1,6 @@
 <!--
-[TODO]
+
+TODO:
 
 Write a table where _included_ features of OpenIndiana are compared to _licensed_ features found in commercial software.
 - For example: Qemu-KVM | HyperV, Esxi, etc. , Zones | Docker, etc.
@@ -9,6 +10,7 @@ Have a look at the "Newbie FAQ" from hub.opensolaris.org
 - See: http://web.archive.org/web/20100111014254/http://hub.opensolaris.org/bin/view/Community+Group+documentation/newbie_faq
 Add a blurb about switching to hipster. Link to :http://wiki.openindiana.org/oi/Hipster#Hipster-switching
 - Link in download URL's for ISO's, etc.: See release notes:http://wiki.openindiana.org/oi/2016.04+Release+notes
+
 -->
 
 
@@ -48,7 +50,8 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 * Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.
 * XVM (XEN) has been replaced with the illumos-kvm port.
 
-[NOTE]
+**NOTES:**
+
 OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of ABI (binary) compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 Applications coded in the `C` language should continue to work normally.
 Therefore, this change only affects applications written in the `C++` language.
@@ -56,11 +59,13 @@ Therefore, this change only affects applications written in the `C++` language.
 ## How does OpenIndiana compare to BSD or Linux?
 
 <!--
-[TODO]
+
+TODO:
 
 Write a table providing a matrix comparing commands between BSD/Linux/OpenIndiana.
 See: https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris
 Also can look at old OpenSolaris website for ideas, suggestions, etc.
+
 -->
 
 All of these operating systems follow the Unix paradigm and contain tools and commands which bear a similar resemblance, although specific feature sets and command usage may be dissimilar.
@@ -130,8 +135,6 @@ For this effort to succeed, we ask our user base to diligently bring security an
 
 ## Where can I download OpenIndiana Hipster?
 
-
-
 * [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
 * [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
 * [Torrents](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
@@ -143,8 +146,8 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 ### USB 3.0 Support
 
 * OpenIndiana Hipster does not yet support USB 3.0 devices.
-	* Therefore, at this time it is not possible to install the operating system from a USB 3.0 device.
-	* When attaching USB 2.0 devices to your system, please ensure they are _NOT_ attached to a USB 3.0 port.
+    * Therefore, at this time it is not possible to install the operating system from a USB 3.0 device.
+    * When attaching USB 2.0 devices to your system, please ensure they are _NOT_ attached to a USB 3.0 port.
 
 
 ### Creating bootable USB Flash Drives
@@ -152,9 +155,9 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 * Creating a bootable flash drive requires the use of a header file.
 * There are 2 unique USB header files (1G and 2G).
 * Please ensure you have selected the correct file.
-	* The 1G.header is only suitable for use with the text installer (Command line console).
-	* The 2G.header is only suitable for use with the live installer (Gnome desktop).
-	* The files are _NOT_ interchangeable.
+    * The 1G.header is only suitable for use with the text installer (Command line console).
+    * The 2G.header is only suitable for use with the live installer (Gnome desktop).
+    * The files are _NOT_ interchangeable.
 
 
 ## What package manager does OpenIndiana use?
@@ -194,16 +197,16 @@ There are several resources which will assist you with learning to use OpenIndia
 While somewhat dated now, these resources are largely still relevant.
 
 * [Pro OpenSolaris](http://www.bookfinder.com/search/?keywords=1430218916&new=&used=&ebooks=&classic=&lang=en&st=sh&ac=qr&submit=)
-	* A gentle and well written introduction to OpenSolaris. It weighs in at 250 pages.
+    * A gentle and well written introduction to OpenSolaris. It weighs in at 250 pages.
 
 * [OpenSolaris Bible](http://www.bookfinder.com/search/?keywords=0470385480&new=&used=&ebooks=&classic=&lang=en&st=sh&ac=qr&submit=)
-	* A much larger and more comprehensive reference book of nearly 1000 Pages.
+    * A much larger and more comprehensive reference book of nearly 1000 Pages.
 
 * [The illumos bookshelf](https://illumos.org/books/)
-	* Updated for illumos, the illumos bookshelf consists of several original OpenSolaris advanced administration and development titles.
+    * Updated for illumos, the illumos bookshelf consists of several original OpenSolaris advanced administration and development titles.
 
 * [OpenSolaris 2008 Docs](http://www.linuxtopia.org/online_books/opensolaris_2008/index.html)
-	* Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.
+    * Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.
 
 > In late 2009, the OpenSolaris project released a newer version of the OpenSolaris book collection.
 > An effort currently exists within the OpenIndiana community to revise and condense these titles into a more streamlined collection which more closely follows the development state of OpenIndiana Hipster.

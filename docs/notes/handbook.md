@@ -1,4 +1,6 @@
 <!--
+TODO: Just some notes about things....
+
 
 Pre-installation caveats and considerations
 
@@ -68,7 +70,7 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | Live installer (Gnome desktop) | Text installer (command line console)
 
 
-**NOTE:**
+**NOTES:**
 
 * OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
 * For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
@@ -162,9 +164,9 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 * Creating a bootable flash drive requires the use of a header file.
 * There are 2 unique USB header files (1G and 2G).
 * Please ensure you have selected the correct file.
-	* The 1G.header is only suitable for use with the text installer (Command line console).
-	* The 2G.header is only suitable for use with the live installer (Gnome desktop).
-	* The files are *NOT* interchangeable.
+    * The 1G.header is only suitable for use with the text installer (Command line console).
+    * The 2G.header is only suitable for use with the live installer (Gnome desktop).
+    * The files are *NOT* interchangeable.
 
 
 ### Creating a bootable OpenIndiana DVD
@@ -303,11 +305,19 @@ Although it is possible to use it over a network with SSH X forwarding if you en
 
 #### Booting Physical Hardware
 
-.OpenIndiana is picky about hardware
-* Intel socket 775 Gigabyte motherboard with ICH10 chipset - Kernel using from 40-80% cpu @ idle.
-* Seems to work OK on Intel brand desktop board.
+<!--
+
+OpenIndiana can be pretty picky about hardware.
+Unsupported components can cause excessive CPU usage.
+
+For example:
+
+* Gigabyte motherboards with Intel socket 775 and ICH10 chipset don't work well with OI.
+    * Kernel using from 40-80% cpu @ idle.
+* Seems to work OK on Intel brand desktop motherboards though.
 * Works well with HP Zxxx class workstation hardware.
 
+-->
 
 Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your computer.
 For the computer to boot from the media, you may need to specify the device by pressing the boot order hotkey.
@@ -621,8 +631,8 @@ Work is progressing to provide support for AMD and Intel.
 
 * Gnome walkthrough
 * Appearance applet
-** Enabling Compiz
-** Configuring font anti-aliasing
+    * Enabling Compiz
+    * Configuring font anti-aliasing
 
 
 ### How does one keep the system updated?
@@ -634,15 +644,16 @@ Some notes and reference docs for writing the IPS section:
 * [IPS cheat sheet PDF - Oracle](http://www.oracle.com/technetwork/server-storage/solaris11/documentation/ips-one-liners-032011-337775.pdf)
 
 
-.Using pkg to list packages currently installed on the system
+#### Using pkg to list packages currently installed on the system
 
 < Place holder for content >
 
-.Using pkg to search for packages
+#### Using pkg to search for packages
 
 < Place holder for content >
 
-.Using pkg to update the system
+#### Using pkg to update the system
+
 * `pkg update -nv` will perform a dry run and list the changes which would have been made to the system.
 * `pkg update` will perform a normal update and print a very brief summary.
 * `pkg update -v` will perform the update and then print a summary of what was updated.
@@ -672,7 +683,7 @@ Given the limited number of IPS packages currently available, this is a pretty i
     * Also could look here (might be outdated): <http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml>
 * How to install flash player
 
-Using the pkg publisher and pkg set-publisher commands
+#### Using the pkg publisher and pkg set-publisher commands
 
 The `pkg publisher` command is used to add and remove remote repositories.
 
@@ -680,7 +691,7 @@ The `pkg publisher` command is used to add and remove remote repositories.
 * To add a repository, use `pkg set-publisher -O <Repository_URL> <Repository_Name>`
 
 
-Using the pkgrepo command
+#### Using the pkgrepo command
 
 The `pkgrepo` command is primarily used for creating and working with IPS repositories.
 It can also be used for querying the contents of a repository.

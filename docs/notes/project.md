@@ -6,9 +6,9 @@
 ## Improving the OpenIndiana Project
 
 
-**NOTE**
+**NOTES:**
 
-For expert community building guidance from a seasoned OpenSolaris veteran, see https://jimgrisanzio.wordpress.com/communities/[Jim Grisianzio's communities page].
+For expert community building guidance from a seasoned OpenSolaris veteran, see [Jim Grisianzio's communities page](https://jimgrisanzio.wordpress.com/communities/).
 
 
 ### Governance Board
@@ -28,30 +28,35 @@ Creating a formal code of conduct would be a healthy step towards ensuring harmo
 Public relations is an important aspect of project management, even if it's limited to updating 3rd party websites as to the current status of the project.
 
 ### 3rd party websites to keep updated
+
 * Distrowatch
     * For the next Distrowatch update, there is a mapping from DistroWatch to Hipster names:
-    * http://hub.openindiana.ninja/?q#content/distrowatch-openindiana-hipster-packages[here] - [alarcher]
-* http://opensolaris.linuxfreedom.com/ - didn't see OpenIndiana here anywhere (still showing OpenSolaris)
+    * <http://hub.openindiana.ninja/?q#content/distrowatch-openindiana-hipster-packages>
+* <http://opensolaris.linuxfreedom.com/> - didn't see OpenIndiana here anywhere (still showing OpenSolaris)
 * Unixmen
 * Slashdot
 * Phoronix
 
-# Hipster News
+### Hipster News
+
 * Current events with OI Hipster distro
 * OI/illumos news stories
 * Featured new packages
 * Tips and Tricks
 
 ### Download mirrors
+
 * Some of the currently listed mirrors are offline or outdated.
     * Need to update the landing pages for some of the mirrors.
 * Really need a North American mirror.
 
 ### Support forum
+
 * While the project as irc and ml, perhaps a forum would be helpful as well.
 
 
 ### Other Periodic Website Updates
+
 * Publish new pictures for the Community and update the Roadmap every 6 months
 
 
@@ -62,90 +67,108 @@ Public relations is an important aspect of project management, even if it's limi
 
 
 ### Alternate Desktops
-* http://mate-desktop.com/[Mate]
-* https://www.kde.org/[KDE]
-* https://github.com/linuxmint/Cinnamon[Cinnamon]
+
+* [Mate](http://mate-desktop.com/)
+* [KDE](https://www.kde.org/)
+* [Cinnamon](https://github.com/linuxmint/Cinnamon)
 
 ### Audio/Video Editing
-* http://www.audacityteam.org/[Audacity]
-* https://handbrake.fr/[Handbrake]
+
+* [Audacity](http://www.audacityteam.org/)
+* [Handbrake](https://handbrake.fr/)
 
 ### Benchmarking tools
-* http://www.phoronix-test-suite.com/[Phoronix Test Suite]
+
+* [Phoronix Test Suite](http://www.phoronix-test-suite.com/)
 
 ### Development tools
-* https://atom.io/[ATOM - Text Editor]
-* http://www.vim.org/[GVIM - Text Editor]
-* https://eclipse.org/[Eclipse - IDE]
-* http://meldmerge.org/[Meld - Diff Viewer]
-* https://www.sublimetext.com/3[Sublime - Text Editor]
+
+* [ATOM - Text Editor](https://atom.io/)
+* [GVIM - Text Editor](http://www.vim.org/)
+* [Eclipse - IDE](https://eclipse.org/)
+* [Meld - Diff Viewer](http://meldmerge.org/)
+* [Sublime - Text Editor](https://www.sublimetext.com/3)
 
 ### Desktop publishing
-* http://www.scribus.net/[Scribus]
-* https://inkscape.org/en/[Inkscape]
-* https://www.calligra.org/[Calligra Suite]
+
+* [Scribus](http://www.scribus.net/)
+* [Inkscape](https://inkscape.org/en/)
+* [Calligra Suite](https://www.calligra.org/)
 
 ### Ebook Tools
-* https://calibre-ebook.com/[Calibre]
+
+* [Calibre](https://calibre-ebook.com/)
 
 ### File Backup
-* https://www.code42.com/crashplan/[CrashPlan]
+
+* [CrashPlan](https://www.code42.com/crashplan/)
 
 ### File Sharing
-* http://deluge-torrent.org/[Deluge]
+
+* [Deluge](http://deluge-torrent.org/)
 
 ### File Storage
-* http://www.dropbox.com[dropbox]
+
+* [dropbox](http://www.dropbox.com)
 
 ### Graphics
-* https://www.blender.org/[Blender]
-* https://krita.org/[Krita]
-* http://www.xaraxtreme.org/[Xara]
-* http://www.povray.org/[POV-Ray]
-* http://www.radiance-online.org/[Radiance]
+
+* [Blender](https://www.blender.org/)
+* [Krita](https://krita.org/)
+* [Xara](http://www.xaraxtreme.org/)
+* [POV-Ray](http://www.povray.org/)
+* [Radiance](http://www.radiance-online.org/)
 
 ### Media Center
-* https://plex.tv/Plex[Media Server & Plex Home Theater (client)]
-* https://kodi.tv/[Kodi]
+
+* [Media Server & Plex Home Theater (client)](https://plex.tv/Plex)
+* [Kodi](https://kodi.tv/)
 
 ### Password Manager
-* http://keepass.info/[Keypass]
+
+* [Keypass](http://keepass.info/)
 
 ### Photography
-* http://www.darktable.org/[Darktable]
-* http://rawtherapee.com/[RawTherapee]
-* https://www.digikam.org/[Digikam]
-* http://hugin.sourceforge.net/[Hugin]
-* https://picasa.google.com/[Picasa]
+
+* [Darktable](http://www.darktable.org/)
+* [RawTherapee](http://rawtherapee.com/)
+* [Digikam](https://www.digikam.org/)
+* [Hugin](http://hugin.sourceforge.net/)
+* [Picasa](https://picasa.google.com/)
 
 ### Systems Automation
+
 * Puppet - Hipster repo has package - version 3.6.2
 
 ### System Monitoring
-* Nagios (outdated - but might be a starting point) - https://www.opencsw.org/package/nagios/
+
+* Nagios (outdated - but might be a starting point) - <https://www.opencsw.org/package/nagios/>
 
 ### Virtualization - OpenIndiana as a Host
-* https://virt-manager.org/[Virt-Manager]
-* http://www.ovirt.org/[O-virt]
-* https://www.virtualbox.org/[Virtualbox]
+
+* [Virt-Manager](https://virt-manager.org/)
+* [O-virt](http://www.ovirt.org/)
+* [Virtualbox](https://www.virtualbox.org/)
 
 ### Virtualization - OpenIndiana as a Guest
-* http://www.spice-space.org/[Native Spice Protocol Support for an OpenIndiana Guest OS]
-* https://my.vmware.com/web/vmware/details?productId#491&downloadGroup#VMTOOLS1000[Native Vmware tools support for an OpenIndiana Guest OS]
+
+* [Native Spice Protocol Support for an OpenIndiana Guest OS](http://www.spice-space.org/)
+* [Native Vmware tools support for an OpenIndiana Guest OS](https://my.vmware.com/web/vmware/details?productId#491&downloadGroup#VMTOOLS1000)
 * Native Virtualbox support for an OpenIndiana Guest OS.
 
 ### Web browsers
-* http://www.chromium.org/Home[Chromium]
+
+* [Chromium](http://www.chromium.org/Home)
 
 ### Suggestions for improving elements of the distro itself
+
 * Updated Custom desktop background for OI - Perhaps downloads from the website, or included in distro.
 * Updated Custom splash screen for grub (or Forth bootloader)
 * Updated "Welcome to OpenIndiana" desktop page.
-* Update the welcome HTML: https://github.com/OpenIndiana/openindiana-welcome/blob/master/data/html/en/index.html
+* Update the welcome HTML: <https://github.com/OpenIndiana/openindiana-welcome/blob/master/data/html/en/index.html>
 
 
 ### Wiki Improvements
-
 
 
 #### Wiki Usability on Mobile Devices
@@ -168,7 +191,8 @@ Should the Wiki be retained, it may be helpful to create a Wiki style guide.
 This would be very helpful by ensuring consistency between the different pages.
 It may also be helpful to modify the existing CSS to help improve the aesthetics of the site.
 
-.Possible suggestions
+##### Possible suggestions
+
 * This would be very helpful for providing some consistency between different pages.
     * Use horizontal lines (top and bottom) to separate code blocks from the text body.
     * Makes it easier to tell what is or isn't code.
@@ -178,22 +202,24 @@ Also provides for a more efficient use of space (don't have to use so many line 
 
 
 * Can look at other Illumos Wikis for ideas and inspiration
-    * https://Wiki.smartos.org/display/DOC/Doc+Team+Notes
-    * http://omnios.omniti.com/Wiki.php/WikiStart
-    * http://Wiki.illumos.org/display/illumos/illumos+Home
+    * <https://Wiki.smartos.org/display/DOC/Doc+Team+Notes>
+    * <http://omnios.omniti.com/Wiki.php/WikiStart>
+    * <http://Wiki.illumos.org/display/illumos/illumos+Home>
 
 
 #### Some notes for updating Wiki pages
 
 While replacing the Wiki with some kind of continuous integration content management system would likely be the most ideal solution, there are still things which can be done to help improve the Wiki.
 
-.Clean up old user comments
+##### Clean up old user comments
+
 * Many, many comments from 2010 - 2012.
     * Probably a good idea to clean these up and incorporated the information into the page as appropriate.
     * Comments with such old timestamps suggests little site activity has occurred in last 4-5 years.
 
 
-.Mark old pages for deprecation
+##### Mark old pages for deprecation
+
 * Go through the Wiki and mark content as obsolete.
 * Retain items of value and either pull them into the new handbook (if it's helpful for new users), or set it aside for reference when updating the OpenSolaris books.
 * Reorganize things which are not being moved.
@@ -203,11 +229,13 @@ While replacing the Wiki with some kind of continuous integration content manage
 
 Improve the presentation of reference materials
 
-.illumos and OpenIndiana HCL's
+#### illumos and OpenIndiana HCL's
+
 * Start a discussion about ways to improve and update this.
 * Illumos HLC: https://www.illumos.org/hcl/
 
-.Publishing man pages online
+#### Publishing man pages online
+
 * Start a discussion about getting the Hipster man pages published.
     * illumos core man pages are available on illumos.org
     * OI specific man pages are not published.
@@ -219,10 +247,11 @@ Improve the presentation of reference materials
 <alanc> yeah, I figured that's what you meant
 ```
 
-.Links to source code
+#### Links to source code
+
 * Talk about the links to the source code and what can be found in each repository.
-    * https://hg.openindiana.org/sustaining/
-    * https://hg.openindiana.org/upstream/
+    * <https://hg.openindiana.org/sustaining/>
+    * <https://hg.openindiana.org/upstream/>
 
 #### The future of OpenIndiana's web presence
 
@@ -245,21 +274,24 @@ But anything that is already good can be further improved.
 
 
 #### Favicon
+
 * Can we add the OI favicon to WordPress like we see on the Wiki?
 
 
 #### Mobile Devices
+
 *  Due to the dark blue color scheme, this menu is hard to see and easily missed.
     * Maybe we should put something on the front page mentioning the mobile menu which is available in the upper left hand corner.
     * Perhaps the color of the 3 bars mobile menu can be changed to white or something?
 
 
 #### Other Thoughts (in no particular order)
+
 * Add some links to the Community > Getting Involved page.
 * [#oi-dev IRC chat archives](http://echelog.com/logs/browse/oi-dev/)
 * [#openindiana IRC chat archives](http://echelog.com/logs/browse/openindiana/)
-* [oi-dev mailing list archives - http://openindiana.org/pipermail/oi-dev/
-* [openindiana mailing list archives] - http://openindiana.org/pipermail/openindiana-discuss/
+* [oi-dev mailing list archives] (http://openindiana.org/pipermail/oi-dev/)
+* [openindiana mailing list archives]( http://openindiana.org/pipermail/openindiana-discuss/)
 * twitter @openindiana
 <!-- [Already listed there but maybe it is more a matter of reorganizing the content for better readability - alarcher ] -->
 
@@ -288,4 +320,5 @@ But anything that is already good can be further improved.
 
 * Add list of mirrors, torrents, etc., to download page on website.
     * Need to find more places to mirror, preferably some in north america too.
-    * https://web.archive.org/web/20091223051956/http://www.opensolaris.com/get/index.jsp[Original list of mirrors]
+    * [Original list of mirrors](https://web.archive.org/web/20091223051956/http://www.opensolaris.com/get/index.jsp)
+

@@ -13,33 +13,34 @@ Here are a couple of end user quotes which serve as a reminder.
 
 ### A User Comment Posted to the OI Wiki in 2011
 
-[quote]
-Documentation such as a manual is essential in not just learning from, it tells everyone where the product is in the scheme of things.
-Referring to Oracle for documentation relating to OI just makes one have less confidence with OI itself.
-Look at the FreeBSD site documentation levels are really good and gives people confidence to try FreeBSD and its derivatives.
+>Documentation such as a manual is essential in not just learning from, it tells everyone where the product is in the scheme of things.
+>Referring to Oracle for documentation relating to OI just makes one have less confidence with OI itself.
+>Look at the FreeBSD site documentation levels are really good and gives people confidence to try FreeBSD and its derivatives.
 
 ### A User Comment Posted to the FreeBSD Forum in 2013
 
-[quote]
-FreeBSD has been around almost as long as Unix itself existed (not entirely true, but you get the idea) and same can be said for Solaris as it was.
-Yet the OpenSolaris group basically still has to prove themselves.
-For all I know (from a commercial point of view) they could be gone next month.
-That makes it a liability, especially in comparison to Sun being out of the picture and the love/hate relationship with Oracle.
+>FreeBSD has been around almost as long as Unix itself existed (not entirely true, but you get the idea) and same can be said for Solaris as it was.
+>Yet the OpenSolaris group basically still has to prove themselves.
+>For all I know (from a commercial point of view) they could be gone next month.
+>That makes it a liability, especially in comparison to Sun being out of the picture and the love/hate relationship with Oracle.
 
 
 #### Suggestions For How to Approach Content Creation for Larger Works
+
 While it's true there are some major projects that need love, helping out with one doesn't necessarily mean you have to write the entire thing yourself.
 * Pick a doc and tackle a single section.
 * Pick a doc and add in some TODO's where they are obviously needed.
 * Add new sectional placeholders where they are needed.
 
 #### Larger Works
+
 * FAQ
 * User Handbook
 * Developer Handbook
 * Updating the OpenSolaris books
 
 #### Smaller Works
+
 * Writing a news story
 * Writing a blog post
 * Writing a tutorial
@@ -56,12 +57,14 @@ Most importantly, write about what interests you.
 
 
 #### ABI support
+
 * Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
 	* For more details, see: <http://openindiana.org/pipermail/oi-dev/2014-December/003496.html>
 	* We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
 
 
 #### Installing OI onto an ISCSI exposed SCSI target
+
 A good tutorial might be to write about installing OpenIndiana Hipster on a SCSI target
 
 ```
@@ -74,6 +77,7 @@ Also can look at Oracle docs for reference: <https://docs.oracle.com/cd/E26502_0
 
 
 #### Write some comparison tables
+
 * Provide some contrast/comparisons between OI and other illumos distros.
 * Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
 * Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
@@ -83,6 +87,7 @@ Also can look at Oracle docs for reference: <https://docs.oracle.com/cd/E26502_0
 	* Oracle might have some inspiration as well - (just don't copy it verbatim)
 
 #### Write about Virtualization
+
 * add a page about running OI as a virtual guest in Virtualbox, vmware, KVM, talk about which provides the best hardware support, guest tools compatibility, other caveats, etc.
 
 ### Potentially Useful Documentation References

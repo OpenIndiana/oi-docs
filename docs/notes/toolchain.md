@@ -86,22 +86,22 @@ This is something you can make sense of without special tools (e.g. Docbook base
 
 | URL | Description |
 |------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| http://www.methods.co.nz/asciidoc/ | Asciidoc Language (the syntax) |
-| http://asciidoctor.org/ | Ruby based parser and tools |
-| http://discuss.asciidoctor.org/ | Asciidoctor support forum |
-| http://www.asciibinder.org/index.html | Asciibinder - (allows the construction of documents using _includes_) |
-| https://github.com/asciidoctor/asciidoctor-pdf | New Asciidoctor PDF generator (Alpha software) |
-| http://asciidocfx.com/ | Java based Asciidoc IDE |
-| https://github.com/dagwieers/asciidoc-vim | Asciidoc Syntax highlighting for VIM |
-| https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia | Asciidoctor.js Live Preview plugin for Google Chrome Web Browser |
-| https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/ | Asciidoctor.js Live Preview plugin for Firefox Web Browser |
-| https://github.com/asciidoctor/asciidoctor-confluence | Confluence plugin for Asciidoctor - (uploads to Confluence site) |
-| http://gist.asciidoctor.org/ | Asciidoctor page renderer for GitHub Gist URL's |
-| https://travis-ci.org/ | Continuous Integration (similar to Jenkins, etc.) |
-| https://pages.github.com/ | Publish from your github repo |
-| http://hubpress.io/ | Blog from your github repo - built in Asciidoctor support |
+| <http://www.methods.co.nz/asciidoc/> | Asciidoc Language (the syntax) |
+| <http://asciidoctor.org/> | Ruby based parser and tools |
+| <http://discuss.asciidoctor.org/> | Asciidoctor support forum |
+| <http://www.asciibinder.org/index.html> | Asciibinder - (allows the construction of documents using _includes_) |
+| <https://github.com/asciidoctor/asciidoctor-pdf> | New Asciidoctor PDF generator (Alpha software) |
+| <http://asciidocfx.com/> | Java based Asciidoc IDE |
+| <https://github.com/dagwieers/asciidoc-vim> | Asciidoc Syntax highlighting for VIM |
+| <https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia> | Asciidoctor.js Live Preview plugin for Google Chrome Web Browser |
+| <https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/> | Asciidoctor.js Live Preview plugin for Firefox Web Browser |
+| <https://github.com/asciidoctor/asciidoctor-confluence> | Confluence plugin for Asciidoctor - (uploads to Confluence site) |
+| <http://gist.asciidoctor.org/> | Asciidoctor page renderer for GitHub Gist URL's |
+| <https://travis-ci.org/> | Continuous Integration (similar to Jenkins, etc.) |
+| <https://pages.github.com/> | Publish from your github repo |
+| <http://hubpress.io/> | Blog from your github repo - built in Asciidoctor support |
 
-**NOTE**
+**NOTE:**
 
 In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".
 
@@ -115,5 +115,5 @@ The Travis-CI build engine can even post the results of the build to IRC (as sho
 
 | URL | Description |
 |---------------------------------------------|---------------------------------------------|
-| https://www.youtube.com/watch?v=kyGJEVEjfAs | Write in AsciiDoc, Publish Everywhere! |
-| https://www.youtube.com/watch?v=r6RXRi5pBXg | 7 Ways to Hack Your Brain to Write Fluently |
+| <https://www.youtube.com/watch?v=kyGJEVEjfAs> | Write in AsciiDoc, Publish Everywhere! |
+| <https://www.youtube.com/watch?v=r6RXRi5pBXg> | 7 Ways to Hack Your Brain to Write Fluently |
