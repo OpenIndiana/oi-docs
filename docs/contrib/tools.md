@@ -14,7 +14,7 @@ The OpenIndiana Docs website uses 2 principal technologies:
 
 Both technologies leverage the Ruby programming language.
 
-[NOTE]
+**NOTE**
 To assist with the content development process, it may be helpful to visualize your changes using a live preview.
 Asciidoctor live preview plugins are available for both Firefox and Chrome/Chromium.
 The AsciidocFX IDE also contains a live preview.
@@ -47,9 +47,9 @@ No need for special tools such as WYSIWYG XML editors, etc.
 
 ## Asciidoctor Authoring Tools and Informational Links
 
-|===
-| URL | Description
 
+| URL | Description
+|---|---|
 | http://www.methods.co.nz/asciidoc/ | Asciidoc Language (the syntax)
 | http://asciidoctor.org/ | Ruby based parser and tools
 | http://discuss.asciidoctor.org/ | Asciidoctor support forum
@@ -64,8 +64,7 @@ No need for special tools such as WYSIWYG XML editors, etc.
 | http://gist.asciidoctor.org/ | Asciidoctor page renderer for GitHub Gist URL's
 | https://travis-ci.org/ | Continuous Integration (similar to Jenkins, etc.)
 | https://pages.github.com/ | Publish from your github repo
-| http://hubpress.io/ | Blog from your github repo - built in Asciidoctor support
-|===
+| http://hubpress.io/ | Blog from your github repo - built in Asciidoctor support 
 
-[NOTE]
+**NOTE**
 In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".
