@@ -121,7 +121,7 @@ No need for special tools such as WYSIWYG XML editors, etc.
 | http://gist.asciidoctor.org/ | Asciidoctor page renderer for GitHub Gist URL's
 | https://travis-ci.org/ | Continuous Integration (similar to Jenkins, etc.)
 | https://pages.github.com/ | Publish from your github repo
-| http://hubpress.io/ | Blog from your github repo - built in Asciidoctor support 
+| http://hubpress.io/ | Blog from your github repo - built in Asciidoctor support
 
 **NOTE**
 In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".
