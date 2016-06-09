@@ -4,7 +4,6 @@
 
 ## Documentation Team Roles
 
-
 There are multiple ways community members can contribute to the OpenIndiana Documentation revitalization effort.
 These contributions fall into several different roles.
 Each role requires a different skill level.
@@ -158,7 +157,7 @@ The basic workflow process for OpenIndiana Docs is simple:
 * `git push` your changes to your forked repository.
 * [Send a pull request](https://help.github.com/articles/using-pull-requests/) to a content reviewer so your changes may be reviewed for inclusion into the OpenIndiana Docs master repository.
 
-**NOTE**
+#### NOTE:
 
 To assist with the content development process, it may be helpful to visualize your changes using a live preview.
 Asciidoctor live preview plugins are available for both Firefox and Chrome/Chromium.
@@ -170,6 +169,7 @@ Running Awestruct in development mode requires a locally installed Ruby developm
 You can use the `--check` flag on the HAML executable to check for proper HAML syntax without evaluating the Ruby code.
 
 [source, console]
+
 ```bash
 $ haml --check index.html.haml
 Syntax OK

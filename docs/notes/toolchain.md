@@ -43,7 +43,7 @@ So, we treat the docs (and all other content) just as we would treat code (and u
 
 * Write your docs by asking a question and then answering it.
     * Later turn the questions into sectional headings, etc.
-* Use a thesaurus - e.g. https://www.powerthesaurus.org/
+* Use a thesaurus - e.g. [https://www.powerthesaurus.org/](https://www.powerthesaurus.org/)
 * Couch read - via a phone or tablet, proof read what you previously wrote. - (puts you into the reader's shoes)
 
 ## What is Asciidoctor?
@@ -101,15 +101,15 @@ This is something you can make sense of without special tools (e.g. Docbook base
 | <https://pages.github.com/> | Publish from your github repo |
 | <http://hubpress.io/> | Blog from your github repo - built in Asciidoctor support |
 
-**NOTE:**
+#### NOTE:
 
 In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".
 
 The Travis-CI build engine can even post the results of the build to IRC (as shown below from the Asciidoctor IRC channel).
 
-	<travis-ci> asciidoctor/asciidoctor#2068 (master - cbf2ab0 : Dan Allen): The build passed.
-	<travis-ci> Change view : https://github.com/asciidoctor/asciidoctor/compare/6e41bee5dc42...cbf2ab0a9b78
-	<travis-ci> Build details : https://travis-ci.org/asciidoctor/asciidoctor/builds/114132261
+    <travis-ci> asciidoctor/asciidoctor#2068 (master - cbf2ab0 : Dan Allen): The build passed.
+    <travis-ci> Change view : https://github.com/asciidoctor/asciidoctor/compare/6e41bee5dc42...cbf2ab0a9b78
+    <travis-ci> Build details : https://travis-ci.org/asciidoctor/asciidoctor/builds/114132261
 
 ### Videos
 
