@@ -1,17 +1,7 @@
-# Welcome to MkDocs
-
-For full documentation visit [mkdocs.org](http://mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+ <div class="jumbotron">
+    <h1>Welcome to OpenIndiana Docs!</h1>
+</br> 
+    <p>Strait from the oven to the plate; Here you will find the very latest OpenIndiana Hipster end user systems documentation.</p> 
+</br>
+<p> - Hosted by OpenIndiana's very own Doc Team.
+  </div>
