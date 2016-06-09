@@ -81,10 +81,10 @@ Also can look at Oracle docs for reference: <https://docs.oracle.com/cd/E26502_0
 * Provide some contrast/comparisons between OI and other illumos distros.
 * Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
 * Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
-	* See: [example from old OSOL website](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
+    * See: [example from old OSOL website](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
 * Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
-	* For some inspiration, see the tables found on the SmartOS Wiki.
-	* Oracle might have some inspiration as well - (just don't copy it verbatim)
+    * For some inspiration, see the tables found on the SmartOS Wiki.
+    * Oracle might have some inspiration as well - (just don't copy it verbatim)
 
 #### Write about Virtualization
 

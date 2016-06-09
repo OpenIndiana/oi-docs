@@ -6,12 +6,17 @@
 
  - TODO.md
 travis
+CLA
+MD007
+index.md
+mkdocs
  - README.md
 2.0
 OpenIndiana
 PDL
 Seán
 Tubbs
+TODO
  - docs/about.md
 MkDocs
 CSS
@@ -318,6 +323,7 @@ sysding
 syscfg
 _url
 _name
+_holder
  - docs/notes/project.md
 Grisianzio's
 Distrowatch
@@ -344,6 +350,24 @@ pingbacks
 aggregator
 Epub
 america
+GVIM
+Scribus
+Inkscape
+Calligra
+Calibre
+CrashPlan
+Krita
+Xara
+POV-Ray
+Kodi
+Keypass
+Darktable
+RawTherapee
+Digikam
+Hugin
+Picasa
+Virt-Manager
+O-virt
  - docs/notes/sphinx.md
 InstantRST
 realtime
@@ -355,6 +379,7 @@ vundle
 rst
 css
 javascript
+http
  - docs/notes/toolchain.md
 AsciiDoc
 75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d
@@ -392,3 +417,50 @@ libs
 libtool
 pyc
 rebased
+ - docs/contrib/index.md
+Asciidoc
+Asciidoctor
+Awestruct
+HAML
+Howto's
+OSOL
+CMS
+Gedit
+Nano
+AsciidocFX
+HTML5
+EPUB
+Docbook5
+html
+XSLT
+Asciibinder
+Asciidoctor.js
+github
+repo
+e.g.
+OpenIndiana.org
+ABI
+Solaris
+OpenSolaris
+OI-Userland
+ISCSI
+illumos
+distros
+PCBSD
+freebsd
+userland
+SmartOS
+Virtualization
+Virtualbox
+VMware
+KVM
+www.opensolaris.org
+hub.opensolaris.org
+2010.03
+2008.11
+mdl
+https
+gh-pages
+Theming
+theming
+spacelab

@@ -56,7 +56,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 
 ### PCBSD Handbook
 
-* The PCBSD Project is using http://www.sphinx-doc.org/en/stable/index.html[Sphinx] for their handbook.
+* The PCBSD Project is using [Sphinx](http://www.sphinx-doc.org/en/stable/index.html) for their handbook.
 * Python Project also uses restructuredtext based Sphinx for their documentation (you'll notice the similarities).
 * Skill level required for contributing to docs project is much lower than it would be for docbook
 * The PCBSD handbook is searchable (Sphinx uses several javascripts to do this).
@@ -64,7 +64,7 @@ Here we take a quick look at PC-BSD and FreeBSD projects and examine their appro
 
 ### FreeBSD Handbook
 
-* The FreeBSD Project is using http://www.docbook.org/[Docbook] for their handbook.
+* The FreeBSD Project is using [Docbook](http://www.docbook.org/) for their handbook.
 * Sun used solbook (derived from docbook).
 Redhat most likely uses Docbook as well.
 * Skill level required to contribute to docs project is somewhat higher than it would be for restructuredtext based Sphinx.

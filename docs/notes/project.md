@@ -6,7 +6,7 @@
 ## Improving the OpenIndiana Project
 
 
-**NOTES:**
+#### NOTES:
 
 For expert community building guidance from a seasoned OpenSolaris veteran, see [Jim Grisianzio's communities page](https://jimgrisanzio.wordpress.com/communities/).
 
@@ -109,7 +109,7 @@ Public relations is an important aspect of project management, even if it's limi
 
 ### File Storage
 
-* [dropbox](http://www.dropbox.com)
+* [Dropbox](http://www.dropbox.com)
 
 ### Graphics
 
@@ -232,7 +232,7 @@ Improve the presentation of reference materials
 #### illumos and OpenIndiana HCL's
 
 * Start a discussion about ways to improve and update this.
-* Illumos HLC: https://www.illumos.org/hcl/
+* Illumos HLC: [https://www.illumos.org/hcl/](https://www.illumos.org/hcl/)
 
 #### Publishing man pages online
 
@@ -280,7 +280,7 @@ But anything that is already good can be further improved.
 
 #### Mobile Devices
 
-*  Due to the dark blue color scheme, this menu is hard to see and easily missed.
+* Due to the dark blue color scheme, this menu is hard to see and easily missed.
     * Maybe we should put something on the front page mentioning the mobile menu which is available in the upper left hand corner.
     * Perhaps the color of the 3 bars mobile menu can be changed to white or something?
 
@@ -290,7 +290,7 @@ But anything that is already good can be further improved.
 * Add some links to the Community > Getting Involved page.
 * [#oi-dev IRC chat archives](http://echelog.com/logs/browse/oi-dev/)
 * [#openindiana IRC chat archives](http://echelog.com/logs/browse/openindiana/)
-* [oi-dev mailing list archives] (http://openindiana.org/pipermail/oi-dev/)
+* [oi-dev mailing list archives](http://openindiana.org/pipermail/oi-dev/)
 * [openindiana mailing list archives]( http://openindiana.org/pipermail/openindiana-discuss/)
 * twitter @openindiana
 <!-- [Already listed there but maybe it is more a matter of reorganizing the content for better readability - alarcher ] -->

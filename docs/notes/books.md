@@ -1,6 +1,5 @@
 # The OpenSolaris Redistributable Books
 
-
 The 2009.09.15 docs drop consists of 41 books organized into several different collections.
 Obviously maintaining 41 different titles is no easy matter.
 Therefore, the number one thing we can do to improve the books is to consolidate them into a more manageable set of fewer volumes.
