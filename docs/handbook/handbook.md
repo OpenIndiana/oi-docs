@@ -68,7 +68,7 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 * For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
 * While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
 
-## CAUTION
+#### CAUTION:
 
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
@@ -172,7 +172,7 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 ### Creating a bootable OpenIndiana USB Flash Drive
 
-## IMPORTANT
+#### IMPORTANT:
 
 * OpenIndiana Hipster does not yet support USB 3.0 devices.
     * Effectively this means it is not yet possible to install the operating system from a USB 3.0 device
@@ -214,7 +214,7 @@ Add link for Solaris USBCOPY tool.
 * Download the OpenIndiana USB Live Media installer
 * Download the appropriate OpenIndiana 1G or 2G header file
 
-## WARNING
+#### WARNING:
 
 * There are 2 unique USB header files (1G and 2G).
 * When creating a bootable flash drive, please ensure you have selected the correct file.
@@ -233,7 +233,7 @@ Failure to use the correct USB header file can result in the USB drive either fa
 | FreeBSD | `camcontrol devlist` | `/dev/da*`
 | OS X | `diskutil list` | `/dev/disk*`
 
-## WARNING
+#### WARNING:
 
 * When issuing the USB copy command, be sure to specify the entire USB device.
 * Do not including any partition or slice number (e.g. use `sda`, not `sda1`; `c0t0d0`, not `c0t0d0p1`).
