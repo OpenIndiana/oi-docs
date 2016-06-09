@@ -1,38 +1,38 @@
 # Quick start for oi-userland
 
-## Clone the repository from OpenIndiana's Github, it is set as origin:
+### Clone the repository from OpenIndiana's Github, it is set as origin:
 
 ```bash
 git clone https://github.com/OpenIndiana/oi-userland.git
 cd oi-userland
 ```
 
-## Add your Github repository as remote:
+### Add your Github repository as remote:
 
 ```bash
 git remote add my_name https://github.com/my_name/oi-userland.git
 ```
 
-## Print for checking:
+### Print for checking:
 
 ```bash
 git remote -v
 ```
 
-## Initial setup including creation of local on-disk repository and check:
+### Initial setup including creation of local on-disk repository and check:
 
 ```bash
 gmake setup
 gmake check-environment
 ```
 
-## Every time you add or modify a component, create a new branch:
+### Every time you add or modify a component, create a new branch:
 
 ```bash
 git checkout -b my_feature
 ```
 
-## Keep this branch synchronized with origin/oi/hipster:
+### Keep this branch synchronized with origin/oi/hipster:
 
 ```bash
 git pull --rebase origin oi/hipster
@@ -40,14 +40,14 @@ git pull --rebase origin oi/hipster
 
 Your local branch is forwarded to the last commit of oi/hipster and your additional commits are kept on top of the stack.
 
-## A component consists of several files:
+### A component consists of several files:
 
 * `Makefile`: the recipe to build the software (in the `build/$MARCH` directory) and install it locally (to the `build/proto` directory)
 * `patches/`: directory containing patches applied before the configuration
 * `*.p5m`: manifests used to generate the IPS package
 * `$(COMPONENT_NAME).license`: file containing the licenses applicable to the software
 
-## Here is a list of important targets for `gmake`
+### Here is a list of important targets for `gmake`
 
 | Target | Description |
 |---|---|
@@ -59,7 +59,7 @@ Your local branch is forwarded to the last commit of oi/hipster and your additio
 | `sample-manifest` | generate an IPS manifest based on the files installed locally |
 | `publish` | generate dependencies and publish the package to the local repository |
 
-## First you need to make sure that `gmake prep` passes, so you can start by changing the component's metadata:
+### First you need to make sure that `gmake prep` passes, so you can start by changing the component's metadata:
 
 Example with `components/libjpeg6-ijg/Makefile`:
 
@@ -105,7 +105,7 @@ Run the first targets:
 If you do not have any patches, you can as well run `gmake prep` directly.
 
 
-## Patch, Build and install
+### Patch, Build and install
 
 The included .mk file depends on the build system, example:
 
@@ -145,7 +145,7 @@ It is now up to you to: patch, play with the configuration flags and such...
 Do not hesitate to look around to see how it is done in other components !
 
 
-## Prepare the IPS manifest
+### Prepare the IPS manifest
 
 When the `install` target passes, you can run:
 
@@ -169,7 +169,7 @@ For some components, specific rules need to be applied: they can be implemented 
 Some example can be found in the directory with the same name at the root directory of oi-userland.
 
 
-## Publish the package
+### Publish the package
 
 Run `gmake publish`: if the dependencies are resolved and the manifest is valid, your package is published to the local repository.
 You can then install your package locally and test it.
@@ -188,7 +188,7 @@ You can even rebuild the entire metadata:
 pkgrepo rebuild -s /path/to/my_repo
 ```
 
-## Submit your component
+### Submit your component
 
 Run `gmake clobber` then `gmake publish` to check that the component is publishing correctly.
 
