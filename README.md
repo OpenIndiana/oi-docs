@@ -11,6 +11,7 @@ license, unless stated otherwise in individual files.
 
 - [Theodore Seán Tubbs](https://github.com/AdrianKoshka)
 - [Michael Kruger](https://github.com/makruger)
+- [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope)
 
 ## Depends
 
