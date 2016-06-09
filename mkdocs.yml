@@ -5,16 +5,18 @@ pages:
 - Notes:
         - 'The OpenSolaris Redistributable Books': notes/books.md
         - 'Content Management - The BSD Approach': notes/bsd.md
-        - 'OpenIndiana Code of Conduct': notes/conduct.md
         - 'OpenIndiana Content Creation': notes/content.md
-        - 'OpenIndiana FAQ': notes/faq.md
         - 'OpenIndiana Handbook': notes/handbook.md
         - 'Improving the OpenIndiana Project': notes/project.md
         - 'GitHub Readme': notes/README.md
         - 'Building a Document Management Toolchain using Sphinx': notes/sphinx.md
         - 'Continuous Integration Content Management': notes/toolchain.md
-        - 'Building oi-userland': notes/userland.md
 - Contrib: contrib/index.md
+- FAQ: faq.md
+- Dev:
+        - 'Userland': dev/userland.md
+- Misc:
+        - 'Code of Conduct': misc/conduct.md
 
 theme: spacelab
 extra:
