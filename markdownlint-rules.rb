@@ -2,6 +2,11 @@ all
 exclude_tag :line_length
 
 exclude_rule 'MD033'
+exclude_rule 'MD040'
+exclude_rule 'MD001'
+exclude_rule 'MD007'
+exclude_rule 'MD005'
+exclude_rule 'MD024'
 #exclude_rule 'MD034'
 #exclude_rule 'MD040'
 #exclude_rule 'MD031'

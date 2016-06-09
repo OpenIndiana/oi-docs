@@ -1,45 +1,38 @@
 # Quick start for oi-userland
 
-
 ## Clone the repository from OpenIndiana's Github, it is set as origin:
-
 
 ```bash
 git clone https://github.com/OpenIndiana/oi-userland.git
 cd oi-userland
 ```
 
-##  Add your Github repository as remote:
-
+## Add your Github repository as remote:
 
 ```bash
 git remote add my_name https://github.com/my_name/oi-userland.git
 ```
 
-##  Print for checking: ###
-
+## Print for checking:
 
 ```bash
 git remote -v
 ```
 
-##  Initial setup including creation of local on-disk repository and check:
-
+## Initial setup including creation of local on-disk repository and check:
 
 ```bash
 gmake setup
 gmake check-environment
 ```
 
-##  Every time you add or modify a component, create a new branch:
-
+## Every time you add or modify a component, create a new branch:
 
 ```bash
 git checkout -b my_feature
 ```
 
-##  Keep this branch synchronized with origin/oi/hipster:
-
+## Keep this branch synchronized with origin/oi/hipster:
 
 ```bash
 git pull --rebase origin oi/hipster
@@ -47,16 +40,14 @@ git pull --rebase origin oi/hipster
 
 Your local branch is forwarded to the last commit of oi/hipster and your additional commits are kept on top of the stack.
 
-
-##  A component consists of several files:
+## A component consists of several files:
 
 * `Makefile`: the recipe to build the software (in the `build/$MARCH` directory) and install it locally (to the `build/proto` directory)
 * `patches/`: directory containing patches applied before the configuration
 * `*.p5m`: manifests used to generate the IPS package
 * `$(COMPONENT_NAME).license`: file containing the licenses applicable to the software
 
-
-##  Here is a list of important targets for `gmake`
+## Here is a list of important targets for `gmake`
 
 | Target | Description |
 |---|---|
@@ -68,27 +59,25 @@ Your local branch is forwarded to the last commit of oi/hipster and your additio
 | `sample-manifest` | generate an IPS manifest based on the files installed locally |
 | `publish` | generate dependencies and publish the package to the local repository |
 
-
-##  First you need to make sure that `gmake prep` passes, so you can start by changing the component's metadata:
+## First you need to make sure that `gmake prep` passes, so you can start by changing the component's metadata:
 
 Example with `components/libjpeg6-ijg/Makefile`:
 
-
 ```bash
-COMPONENT_NAME#		libjpeg6-ijg
-COMPONENT_VERSION#	6.0.2
+COMPONENT_NAME# libjpeg6-ijg
+COMPONENT_VERSION# 6.0.2
 LIBJPEG_API_VERSION# 6b
-COMPONENT_FMRI# 	image/library/libjpeg6-ijg
-COMPONENT_CLASSIFICATION#	System/Multimedia Libraries
-COMPONENT_PROJECT_URL#	http://www.ijg.org/
-COMPONENT_SUMMARY#	libjpeg - Independent JPEG Group library version 6b
-COMPONENT_SRC#		jpeg-$(LIBJPEG_API_VERSION)
-COMPONENT_ARCHIVE#	$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH#	\
+COMPONENT_FMRI# image/library/libjpeg6-ijg
+COMPONENT_CLASSIFICATION# System/Multimedia Libraries
+COMPONENT_PROJECT_URL# http://www.ijg.org/
+COMPONENT_SUMMARY# libjpeg - Independent JPEG Group library version 6b
+COMPONENT_SRC# jpeg-$(LIBJPEG_API_VERSION)
+COMPONENT_ARCHIVE# $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
+COMPONENT_ARCHIVE_HASH# \
  sha256:75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d
-COMPONENT_ARCHIVE_URL#	http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz
-COMPONENT_LICENSE#	IJG,GPLv2.0
-COMPONENT_LICENSE_FILE#	$(COMPONENT_NAME).license
+COMPONENT_ARCHIVE_URL# http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz
+COMPONENT_LICENSE# IJG,GPLv2.0
+COMPONENT_LICENSE_FILE# $(COMPONENT_NAME).license
 ```
 
 | Variable | Value | Comment |

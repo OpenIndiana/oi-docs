@@ -13,10 +13,7 @@ Add a blurb about switching to hipster. Link to :http://wiki.openindiana.org/oi/
 
 -->
 
-
-
 # The OpenIndiana FAQ
-
 
 ## What is OpenIndiana?
 
@@ -31,7 +28,6 @@ For a comprehensive history of the OpenSolaris project, see Jim Grisanzio's [Ope
 OpenIndiana obtains its name from Project Indiana, an open source effort by Sun Microsystems (now Oracle Corporation) to produce OpenSolaris, a community developed Unix-like distribution based on Sun Solaris.
 Project Indiana was led by Ian Murdock, founder of the Debian Linux Distribution.
 
-
 ## How are OpenIndiana and illumos related?
 
 The [illumos project](https://illumos.org) is the open source community which develops, maintains, and supports [illumos-gate](https://github.com/illumos/illumos-gate), the core software used by the OpenIndiana distribution.
@@ -39,7 +35,6 @@ Similar to a BSD `src` tree, illumos-gate includes the illumos kernel, along wit
 
 To form a complete distribution, the OpenIndiana project combines illumos-gate with [oi-userland](https://github.com/OpenIndiana/oi-userland), and with other free and open-source software.
 This melding of software from many different open-source projects is similar to how Linux distributions use the Linux kernel along with software from the GNU and various other open source projects.
-
 
 ## How does OpenIndiana differ from OpenSolaris?
 
@@ -50,7 +45,7 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 * Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.
 * XVM (XEN) has been replaced with the illumos-kvm port.
 
-**NOTES:**
+#### NOTES:
 
 OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of ABI (binary) compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 Applications coded in the `C` language should continue to work normally.
@@ -103,13 +98,13 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | Live installer (Gnome desktop) | Text installer (command line console)
 
 
-**NOTES:**
+#### NOTES:
 
 * OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
 * For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
 * While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
 
-**CAUTION:**
+#### CAUTION:
 
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
