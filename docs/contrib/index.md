@@ -1,4 +1,4 @@
-## Contributing to the OpenIndiana Documentation Project.
+# Contributing to the OpenIndiana Documentation Project.
 
 <!-- start roles.md -->
 
@@ -183,7 +183,7 @@ Upon receipt of a pull request, the content reviewer performs the following step
 . Upon acceptance, merges the pull request into the mainline branch.
 . Using the Awestruct framework, manually publishes the changes to the live website.
 
-**NOTE**
+#### NOTE:
 
 At this time the content reviewer performs the role of release manager, manually publishing approved changes.
 In the future OpenIndiana Docs will adopt a continuous integration model, where merging changes will automatically trigger a deployment of the website and all of it's contents.
@@ -220,7 +220,7 @@ For example, the primary OpenIndiana.org site now has a translation menu which n
 ### ABI support
 
 * Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
-    * For more details, see: http://openindiana.org/pipermail/oi-dev/2014-December/003496.html
+    * For more details, see: [http://openindiana.org/pipermail/oi-dev/2014-December/003496.html](http://openindiana.org/pipermail/oi-dev/2014-December/003496.html)
     * We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
 
 
@@ -235,7 +235,7 @@ A good tutorial might be to write about installing OpenIndiana Hipster on an ISC
 [14:57:46] <tsoome> I did use it to play with ipxe+iscsi+loader
 ```
 
-Also can look at Oracle docs for reference: https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html
+Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html](https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html)
 
 
 ### Write some comparison tables
@@ -243,7 +243,7 @@ Also can look at Oracle docs for reference: https://docs.oracle.com/cd/E26502_01
 * Provide some contrast/comparisons between OI and other illumos distros.
 * Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
 * Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
-    * See: https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris
+    * See: [https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
 * Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
     * For some inspiration, see the tables found on the SmartOS Wiki.
     * Oracle might have some inspiration as well - (just don't copy it verbatim)
@@ -260,7 +260,7 @@ Also can look at Oracle docs for reference: https://docs.oracle.com/cd/E26502_01
 * [docs from www.opensolaris.org](https://web.archive.org/web/20090823064740/http://www.opensolaris.org/os/community/documentation/) - [Internet Archive]
 * [docs from hub.opensolaris.org](https://web.archive.org/web/20100909110451/http://hub.opensolaris.org/bin/view/Main/documentation) - [Internet Archive]
 * [What's new for OSOL 2010.03](https://web.archive.org/web/20110702071619/http://cr.opensolaris.org/~gman/opensolaris-whats-new-2010-03) - [Internet Archive]
-* link to illumos graphics files: https://www.illumos.org/projects/site/files
+* link to illumos graphics files: [https://www.illumos.org/projects/site/files](https://www.illumos.org/projects/site/files)
 * [Getting Started With OpenSolaris 2008.11](https://web.archive.org/web/20110904232819/http://dlc.sun.com/osol/docs/downloads/minibook/en/820-7102-10-Eng-doc.pdf) - [Internet Archive - PDF]
 * [FreeBSD Documentation Project Primer for New Contributors](https://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/)
 
@@ -323,7 +323,7 @@ Development occurs in the master branch and the site is published to the gh-page
 The OpenIndiana Docs website is built using the Awestruct static site generator framework.
 CSS styling is managed through the use of a bootstrap derived CSS theming template.
 Bootstrap is a popular CSS framework which makes it easier to develop static websites using predefined HTML elements.
-This site uses the https://bootswatch.com/spacelab/[bootwatch spacelab] theme.
+This site uses the [bootwatch spacelab](https://bootswatch.com/spacelab/) theme.
 
 <!-- end theme.md -->
 
