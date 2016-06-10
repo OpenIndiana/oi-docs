@@ -6,5 +6,5 @@ install:
     - npm install markdown-spellcheck -g
 script:
     - mdl -s markdownlint-rules.rb .
-    - mdspell --en-us -ran "**/*.md"
+    - mdspell --en-us -x -n -ran "**/*.md"
     - mkdocs build
