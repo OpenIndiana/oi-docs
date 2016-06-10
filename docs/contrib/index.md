@@ -36,7 +36,7 @@ As needed, the content author consults with community members performing other r
 
 ### Content Reviewer
 
-The content reviewer effectively performs the roles of editorial reviewer, configuration manager, release manager, and as needed, doc team leader/trainer. 
+The content reviewer effectively performs the roles of editorial reviewer, configuration manager, release manager, and as needed, doc team leader/trainer.
 This person (or persons) would review pull request and provide editorial feedback to content creators.
 Helpful skills include good organization and people skills, as well as a knack for performing editorial reviews.
 
