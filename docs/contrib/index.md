@@ -1,6 +1,5 @@
-# Contributing to the OpenIndiana Documentation Project.
+# Contributing to OpenIndiana Docs
 
-<!-- start roles.md -->
 
 ## Documentation Team Roles
 
@@ -13,131 +12,97 @@ Each role requires a different skill level.
 Basic familiarity with:
 
 * Text editors
-* The Asciidoc text markup syntax (in particular the Asciidoctor version of it)
+* The Markdown text markup syntax
 * GIT distributed version control
-* The Awestruct framework
+* The MkDocs documentation framework
 
-Most pages are written in Asciidoc text markup.
+Pages are written in Markdown text markup.
 The skill level required to work with these pages is minimal.
-Other pages (indexes, layouts, etc.) are composed in HAML.
-Modifying HAML pages requires basic front end web development skills.
+If you can use a text editor, you can write docs with Markdown.
 
-### Content Creator
 
-The easiest way to help the docs revitalization effort is by writing content.
-The content creator would (as the title suggests) develop content to be hosted on the docs website.
-Content could include just about anything, news posts, tutorials, Howto's, or larger efforts such as the handbook or updating the OSOL books.
+### Content Author
 
-The nice thing about helping with content creation is the level of commitment is entirely up to the individual.
+The easiest way to help the docs revitalization effort is by authoring content.
+The content author would (as the title suggests) write content to be hosted on the OpenIndiana Docs website.
+Content can include just about anything, news posts, tutorials, Howto's, or larger efforts such as the handbook or updating the OSOL books.
+
+The nice thing about helping the project as a content author is the level of commitment is entirely up to you the individual.
 In other words, there is no requirement to get involved in anything major.
-In contrast, it would probably be better to start small and only later consider taking on something larger.
-Helpful skills would include a willingness to write and work as a team with content reviewers.
+In fact, it would be better to start small and only later consider taking on something larger.
+Helpful skills include a willingness to write and work as a team with content reviewers.
 
-As needed, the content writer consults with community members performing other roles.
+As needed, the content author consults with community members performing other roles.
 
 ### Content Reviewer
 
-The content reviewer would effectively perform the roles of editorial reviewer, configuration manager, release manager, and as needed, coaching others in their roles.
-This person would review pull request and provide editorial feedback to content creators.
-This role would also engage with the website developer to help place content appropriately as well as assist the website developer with site organization.
-As needed the content reviewer may also perform the role of quality assurance, by running the site in development mode to changes to HAML pages, menus, etc.
-Helpful skills would include good organization, people skills, as well as a knack for performing editorial reviews.
+The content reviewer effectively performs the roles of editorial reviewer, configuration manager, release manager, and as needed, doc team leader/trainer. 
+This person (or persons) would review pull request and provide editorial feedback to content creators.
+Helpful skills include good organization and people skills, as well as a knack for performing editorial reviews.
 
 
-### Website Developer
 
-The docs website developer would work with content creators and content reviewers helping to improve and extend site functionality and organization.
-This role requires front end web development skills and would be working directly with the Awestruct framework and its components.
-The website developer would also be working with Awestruct extensions, helpers, and  may also include working directly with the Awestruct API.
-Helpful skills would include experience with Ruby, HAML, HTML, CSS, Compass, SASS, etc.
-
-<!-- end roles.md  -->
-
-<!-- start tools.md -->
 ## Documentation Team Tools
 
-### Introduction
-
-Unlike a CMS system where you are restricted to the confines of an integral editor, the OpenIndiana Docs website has no such restriction.
-Instead, content is authored using a simple text based markup.
-Because you are working with plain text files, content may be authored using Atom, EMACS, Gedit, Nano, VIM, or any other text editor.
-The choice is yours; Use your favorite text editor.
 
 The OpenIndiana Docs website uses 2 principal technologies:
 
-* The Asciidoctor content authoring framework.
-* The Awestruct static site generator framework.
+* The MkDocs content authoring framework.
+* The Markdown text markup language.
 
-Both technologies leverage the Ruby programming language.
-
-**NOTE**
-To assist with the content development process, it may be helpful to visualize your changes using a live preview.
-Asciidoctor live preview plugins are available for both Firefox and Chrome/Chromium.
-The AsciidocFX IDE also contains a live preview.
-Some text editors (Atom, VIM, etc.) also include Asciidoc syntax highlighting.
-If your changes involve modifications to HAML pages, you'll likely want to preview your changes by running Awestruct in development mode.
-Running Awestruct in development mode requires a locally installed Ruby development environment.
-For a complete list of Asciidoctor related content authoring tools, consult the table at the bottom of this page.
+Both technologies leverage the Python programming language.
 
 
-### What is Asciidoctor?
+### What is MkDocs?
 
-Asciidoctor is a modern, flexible, and feature rich content authoring framework inspired by Asciidoc.
-The Ruby based Asciidoctor can be used to author and publish content as HTML5, PDF, EPUB, Docbook5, slide shows, etc.
+MkDocs is a modern, flexible, and feature rich content authoring framework and static website generator.
+The python based MkDocs framework publishes content as HTML5.
+In conjunction with the MkDocs-Pandoc module, content may also be published in the PDF and EPUB formats.
+
+Unlike a CMS system where you are restricted to the confines of an integral editor, the OpenIndiana Docs website has no such restriction.
+Here content is authored using a simple text based markup.
+Because you are working with plain text files, content may be authored using Atom, EMACS, Gedit, Nano, VIM, or any other text editor.
+The choice is yours; Use your favorite text editor.
 
 
-### Asciidoctor System Characteristics
+### MkDocs System Characteristics
 
-* Easy to use syntax.
+* Easy to use Markdown syntax.
 * Produces professional quality output.
-* Extensible - accepts plugins and can itself be used as plugin within other frameworks.
-* Does not yet support chunked html, however authored content can be exported to Docbook5, where XSLT tools may be used to perform this task.
+* Extensible - accepts plugins.
 
 
 ### Why a Text Markup Based Docs Framework?
 
 The primary advantage of using a text markup language is readability and flexibility.
 The raw code for your authored content is simple plain text.
-No need for special tools such as WYSIWYG XML editors, etc.
+No need work with special tools such as WYSIWYG XML editors, etc.
 
 
-### Asciidoctor Authoring Tools and Informational Links
+### MkDocs and Markdown Informational Links
 
 
 | URL | Description
-|---|---|
-| http://www.methods.co.nz/asciidoc/ | Asciidoc Language (the syntax)
-| http://asciidoctor.org/ | Ruby based parser and tools
-| http://discuss.asciidoctor.org/ | Asciidoctor support forum
-| http://www.asciibinder.org/index.html | Asciibinder - (allows the construction of documents using _includes_).
-| https://github.com/asciidoctor/asciidoctor-pdf | New Asciidoctor PDF generator (Alpha software)
-| http://asciidocfx.com/ | Java based Asciidoc IDE
-| https://github.com/dagwieers/asciidoc-vim | Asciidoc Syntax highlighting for VIM
-| https://github.com/asciidoc/vim-asciidoc | Possibly newer version of VIM Syntax highlighting plugin
-| https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia |Asciidoctor.js Live Preview plugin for Google Chrome Web Browser
-| https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/ | Asciidoctor.js Live Preview plugin for Firefox Web Browser
-| https://github.com/asciidoctor/asciidoctor-confluence | Confluence plugin for Asciidoctor - (uploads to Confluence site)
-| http://gist.asciidoctor.org/ | Asciidoctor page renderer for GitHub Gist URL's
-| https://travis-ci.org/ | Continuous Integration (similar to Jenkins, etc.)
-| https://pages.github.com/ | Publish from your github repo
-| http://hubpress.io/ | Blog from your github repo - built in Asciidoctor support
+|---|---
+| <http://www.mkdocs.org/> | MkDocs Content Authoring Framework
+| <https://pythonhosted.org/Markdown/> | Python implementation of Markdown
+| <http://spec.commonmark.org/0.25/> | The CommonMark Markdown Spec
+| <https://github.com/mivok/markdownlint> | Markdown Lint
+| <https://travis-ci.org/> | Continuous Integration (similar to Jenkins, etc.)
+| <https://pages.github.com/> | Publish from your github repo
 
-**NOTE**
-In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".
 
-<!-- end tools.md -->
 
-<!-- start process.md  -->
 
 ## Documentation Team Processes
 
 
-### Introduction
-
 The basic workflow process for OpenIndiana Docs is simple:
 
 * Fork the OpenIndiana Docs repository.
+* Add the upstream repository.
 * Make some changes.
+* Commit and push your changes.
 * Send a pull request.
 
 
@@ -157,19 +122,22 @@ The basic workflow process for OpenIndiana Docs is simple:
 * `git push` your changes to your forked repository.
 * [Send a pull request](https://help.github.com/articles/using-pull-requests/) to a content reviewer so your changes may be reviewed for inclusion into the OpenIndiana Docs master repository.
 
-#### NOTE:
 
-To assist with the content development process, it may be helpful to visualize your changes using a live preview.
-Asciidoctor live preview plugins are available for both Firefox and Chrome/Chromium.
-The AsciidocFX IDE also contains a live preview.
-If your changes involve modifications to HAML pages, you'll likely want to preview your changes by running Awestruct in development mode.
-Running Awestruct in development mode requires a locally installed Ruby development environment.
+### Visualizing your changes using live preview
 
-.HAML syntax checking
-You can use the `--check` flag on the HAML executable to check for proper HAML syntax without evaluating the Ruby code.
+To assist with the content authoring process, it may be helpful to visualize your changes using a live preview.
+
+To do this simply type: `mkdocs serve` and open your web browser to localhost port 8000.
+
+Some text editors (Atom, VIM, etc.) also include Markdown syntax highlighting natively (or offer it as a plugin).
+
+
+### Running Markdown Lint (locally)
+
+To check your authored content for spelling and syntax errors, you may wish to run Markdown Lint locally on your computer.
 
 ```bash
-$ haml --check index.html.haml
+$ mdl -c markdownlint-rules.rb <somefile.md>
 Syntax OK
 ```
 
@@ -189,15 +157,6 @@ At this time the content reviewer performs the role of release manager, manually
 In the future OpenIndiana Docs will adopt a continuous integration model, where merging changes will automatically trigger a deployment of the website and all of it's contents.
 
 
-### Website Development Processes
-
-Community members performing the role of Website Developer work directly with the Awestruct framework to extend the capabilities and visual aspects of the OpenIndiana Docs website.
-Naturally most of their time will be spent running Awestruct in development mode.
-Aside from this, the website development workflow follows the very same contributor process.
-
-<!-- end process.md   -->
-
-<!-- start topics.md  -->
 
 ## Documentation Team Topics
 
@@ -264,9 +223,6 @@ Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_0
 * [Getting Started With OpenSolaris 2008.11](https://web.archive.org/web/20110904232819/http://dlc.sun.com/osol/docs/downloads/minibook/en/820-7102-10-Eng-doc.pdf) - [Internet Archive - PDF]
 * [FreeBSD Documentation Project Primer for New Contributors](https://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/)
 
-<!-- end topics.md -->
-
-<!-- start style.md  -->
 
 ## Documentation Team Style Guide
 
@@ -280,9 +236,7 @@ Until then, the OpenSolaris Style Guide may be a helpful reference.
 
 * [OpenSolaris Documentation Style Guide](https://web.archive.org/web/20081207155129/http://opensolaris.org/os/community/documentation/files/OSOLDOCSG.pdf) - [Internet Archive - PDF]
 * [Rules for mdl(markdown linter](https://github.com/mivok/markdownlint/blob/master/docs/RULES.md)
-<!-- end style.md  -->
 
-<!-- start github.md  -->
 
 ## OpenIndiana Docs GitHub Repository
 
@@ -301,9 +255,6 @@ The repository consists of 2 branches:
 
 Development occurs in the master branch and the site is published to the gh-pages branch, where the content becomes available via GitHub Pages.
 
-<!-- end github.md -->
-
-<!-- start build.md  -->
 
 ## Docs Site Build Environment
 
@@ -312,28 +263,19 @@ Development occurs in the master branch and the site is published to the gh-page
 
 < Place Holder >
 
-<!-- end build.md -->
-
-<!-- start theme.md  -->
 
 ## Docs Site Theming and Design
 
-### Introduction
 
-The OpenIndiana Docs website is built using the Awestruct static site generator framework.
+The OpenIndiana Docs website is built using the MkDocs static site generator framework.
 CSS styling is managed through the use of a bootstrap derived CSS theming template.
 Bootstrap is a popular CSS framework which makes it easier to develop static websites using predefined HTML elements.
 This site uses the [bootwatch spacelab](https://bootswatch.com/spacelab/) theme.
 
-<!-- end theme.md -->
-
-<!-- start publish.md  -->
 
 ## Docs Site Publishing
 
 
-### Introduction
 
 < Place Holder for content >
 
-<!-- end publish.md -->
