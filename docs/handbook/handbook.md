@@ -158,9 +158,26 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 < Place holder for content >
 
-#### illumos/Solaris
+#### Illumos/Solaris
 
 < Place holder for content >
+
+#### Linux
+
+##### CLI
+
+```bash
+$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
+$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
+$ sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
+OI-hipster-gui-20160421.iso: OK
+$ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
+
+```
+##### GUI
+
+< Place holder for content >
+
 
 #### Mac OS-X
 
@@ -200,8 +217,7 @@ Add link for Solaris USBCOPY tool.
 
 | Operating System | Method
 | --- | ---
-| BSD/Linux/OS X | DD
-| illumos/Solaris | usbcopy tool
+
 | Windows | OpenSolaris Live USB Creator
 
 ## BSD/Linux/OS X
