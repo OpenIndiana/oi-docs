@@ -4,7 +4,7 @@ install:
     - pip install mkdocs
     - gem install mdl
     - npm install markdown-spellcheck -g
-script:
+cript:
     - mdl -s markdownlint-rules.rb .
-    - mdspell --en-us -ran "**/*.md"
+    - mdspell --en-us -x -n -ran "**/*.md"
     - mkdocs build

@@ -829,7 +829,7 @@ You can create additional CIFS datasets using the following 4 commands.
 
 ```
 
-##### ConfiguringF CIFS/SMB linux client connectivity
+##### Configuring CIFS/SMB linux client connectivity
 
 
 Adding a remote share using the linux smbclient
