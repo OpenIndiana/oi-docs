@@ -162,7 +162,7 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 < Place holder for content >
 
-#### Linux
+#### &#xf17c; Linux 
 
 ##### CLI
 
@@ -179,11 +179,11 @@ $ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
 < Place holder for content >
 
 
-#### Mac OS-X
+#### &#xf179; Mac OS-X
 
 < Place holder for content >
 
-#### Windows
+#### &#xf17a; Windows
 
 < Place holder for content >
 
@@ -220,7 +220,7 @@ Add link for Solaris USBCOPY tool.
 | Linux | ``dd`` |
 | OS X | ``dd`` |
 
-## BSD/Linux/OS X
+## &#xf17c; &#xf179; BSD/Linux/OS X
 
 ```bash
 $ cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
