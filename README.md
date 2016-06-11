@@ -17,6 +17,11 @@ license, unless stated otherwise in individual files.
 
 - ``mkdocs``
 
+### Depends for linting
+
+- [``mdl``](https://github.com/mivok/markdownlint)
+- [``mdspel``](https://www.npmjs.com/package/markdown-spellcheck)
+
 ## TODO
 
 A list of things that need to be done can be found [here](TODO.md)
