@@ -1,5 +1,5 @@
 <!--
-TODO: Just some notes about things....
+DOC TEAM NOTES: Just some notes about things....
 
 Pre-installation caveats and considerations
 
@@ -63,15 +63,17 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | Live installer (Gnome desktop) | Text installer (command line console)
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
-
-* OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
-* For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
-* While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
+<div class="well">
+OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
+For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
+While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
+</div>
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
-
+<div class="well">
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
+</div>
 
 ## System Requirements
 
@@ -116,7 +118,9 @@ As the FAQ evolves, try to keep this section in sync.
 | OpenIndiana Wiki | <http://wiki.openindiana.org>
 | OpenIndiana Bug Tracker | <http://www.illumos.org/projects/openindiana/issues>
 
-## Obtaining the software
+## Creating Bootable Media
+
+### Downloading the software
 
 <!--
 
@@ -125,28 +129,12 @@ As the FAQ evolves, try to keep this section in sync.
 
 -->
 
-### OpenIndiana Hipster Download Mirrors
-
 * [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
 * [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
 * [Torrents](http://dlc.openindiana.org/torrents/)
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
-### USB 3.0 Support
-
-* OpenIndiana Hipster does not yet support USB 3.0 devices.
-    * Therefore, at this time it is not possible to install the operating system from a USB 3.0 device.
-    * When attaching USB 2.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
-
-### Creating bootable USB Flash Drives
-
-* Creating a bootable flash drive requires the use of a header file.
-* There are 2 unique USB header files (1G and 2G).
-* Please ensure you have selected the correct file.
-    * The 1G.header is only suitable for use with the text installer (Command line console).
-    * The 2G.header is only suitable for use with the live installer (Gnome desktop).
-    * The files are *NOT* interchangeable.
 
 ### Creating a bootable OpenIndiana DVD
 
@@ -211,21 +199,41 @@ Windows GUI <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
 
 ### Creating a bootable OpenIndiana USB Flash Drive
 
-#### IMPORTANT:
+#### Prerequisites
 
-* OpenIndiana Hipster does not yet support USB 3.0 devices.
-    * Effectively this means it is not yet possible to install the operating system from a USB 3.0 device
-    * When when attaching USB 2.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
+* USB flash drive - (2GB or larger)
+* Download the OpenIndiana USB Live Media installer
+* Download the appropriate OpenIndiana 1G or 2G header file
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+At this time, creating a bootable flash drive requires the use of a header file.
 
-<!--
+- There are 2 unique USB header files (1G and 2G).
+- Please ensure you have selected the correct file.
+    - The 1G.header is only suitable for use with the text installer (Command line console).
+    - The 2G.header is only suitable for use with the live installer (Gnome desktop).
+    - The files are *NOT* interchangeable.
 
-TODO:
+Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
+</div>
 
-Break this section out into 3 primary parts - One for each type of creation method.
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+OpenIndiana Hipster does not yet support USB 3.0.
 
--->
+* When attaching backward compatible USB 3.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
+</div>
+
 #### Live Media Creation Methods
+
+| Operating System | Method |
+| --- | --- |
+| BSD | `dd` |
+| illumos/Solaris &#xf185; | `dd` |
+| Linux &#xf17c; | ``dd`` |
+| MAC OS X &#xf179; | ``dd`` |
+| Windows &#xf17a; | ``OpenSolaris Live USB Creator`` |
 
 <!--
 
@@ -235,15 +243,36 @@ Add link for Solaris USBCOPY tool.
 
 -->
 
-| Operating System | Method |
-| --- | --- |
-| Windows &#xf17a; | ``OpenSolaris Live USB Creator`` |
-| BSD | `dd` |
-| Linux &#xf17c; | ``dd`` |
-| MAC OS X &#xf179; | ``dd`` |
-| illumos/Solaris &#xf185; | `dd` |
+#### Identifying the path to your USB device
 
-#### BSD/Linux/OS X
+| Operating system | Command | Device
+| --- | --- | ---
+| BSD | `camcontrol devlist` | `/dev/da*`
+| illumos/Solaris &#xf185; | `rmformat -l` | `/dev/rdsk/c*t*d*`
+| Linux &#xf17c; | `lsblk` | `/dev/sd*`
+| MAC OS X &#xf179; | `diskutil list` | `/dev/disk*`
+| Windows &#xf17a; | |
+
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+When issuing the USB copy command, be sure to specify the entire USB device.
+
+- Do not including any partition or slice number.
+    - For example use `sda`, not `sda1`; `c0t0d0`, not `c0t0d0p1`.
+- Make sure you identify the correct storage device.
+    - All data on the device will be erased.
+- If any filesystems are located on the USB storage device, they must first be unmounted.
+    - Desktops may automatically mount removable devices.
+    - As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
+    - For Linux, use `umount <path>`.
+    - For illumos/Solaris use `rmumount <path>`.
+    - for MAC OS X use `diskutil unmountDisk <path>`.
+    - Verify using the `mount` command.
+</div>
+
+
+### BSD/Linux/OS X
 
 ```bash
 $ cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
@@ -252,56 +281,11 @@ $ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 # where "X" is the letter of your USB device
 ```
 
-
-#### Prerequisites
-
-* USB flash drive - (2GB or larger)
-* Download the OpenIndiana USB Live Media installer
-* Download the appropriate OpenIndiana 1G or 2G header file
-
-#### WARNING:
-
-* There are 2 unique USB header files (1G and 2G).
-* When creating a bootable flash drive, please ensure you have selected the correct file.
-    * The 1G.header is only suitable for use with the text installer (Command line console).
-    * The 2G.header is only suitable for use with the live installer (Gnome desktop).
-    * The files are *NOT* interchangeable.
-
-Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
-
-## Identifying the path to your USB device
-
-| Operating system | Command | Device
-| --- | --- | ---
-| FreeBSD | `camcontrol devlist` | `/dev/da*`
-| illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
-| Linux | `lsblk` | `/dev/sd*`
-| OS X | `diskutil list` | `/dev/disk*`
-
-
-#### WARNING:
-
-* When issuing the USB copy command, be sure to specify the entire USB device.
-* Do not including any partition or slice number (e.g. use `sda`, not `sda1`; `c0t0d0`, not `c0t0d0p1`).
-* Make sure you identify the correct storage device, as all data on the device will be erased.
-* Make sure no filesystems located on the device are mounted prior to the next step.
-    * Desktops may automatically mount removable devices.
-    * As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
-    * Use the mount command to list mounted filesystems.
-    * If any filesystems are located on the USB storage device, they must be unmounted.
-    * Use `umount <path>` to unmount a filesystem, or `rmumount <path>` on illumos/Solaris, and `diskutil unmountDisk <path>` on OS X.
-
-## Copying the Live Media to your Flash Drive
-
-Run the following command (as root or with appropriate privileges):
-
-`cat 1G.header <live USB image file> | dd bs=1024k of=<path to raw USB storage device>`
-
-## illumos/Solaris
+### illumos/Solaris
 
 < Place holder for content >
 
-## Windows
+### Windows
 
 < Place Holder for content >
 
@@ -434,8 +418,9 @@ The text based guided install start and runs within a command line console.
 Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-
+<div class="well">
 The non-graphical text based bootable media installer also uses this very same _Text based Guided Install_.
+</div>
 
 Start the Text based Guided Install by double clicking the Text based Guided Install icon.
 
@@ -452,9 +437,10 @@ If you have multiple disks, use the arrow keys to select the appropriate disk.
 When finished, press F2 to continue.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-
+<div class="well">
 Disregard the minimum and recommended sizes as they do not take into account periodic disk usage growth as the result of ZFS snapshots.
 To account for this, your disk should be at least 25GB or more.
+</div>
 
 ![GPT Warning](images/handbook/text_install/text_install3.png)
 
@@ -513,10 +499,11 @@ Using the arrow keys navigate between the fields.
 Press F2 to continue.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE**
-
+<div class="well">
 The regular user specified on this screen is granted the _root_ role.
 In effect this means by default (and without any further configuration) this user can perform administrative task by assuming the root role as needed.
 Also, after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
+</div>
 
 ![Installation Summary](images/handbook/text_install/text_install12.png)
 
@@ -993,9 +980,13 @@ Also see:
 
 ## Developing with OpenIndiana
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<!-- 
+
+DOC TEAM NOTE: 
 
 The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
+
+-->
 
 ## How can OI be used as a development platform?
 

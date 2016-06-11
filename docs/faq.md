@@ -100,16 +100,18 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
-
-* OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
-* For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
-* While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
+<div class="well">
+OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
+For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
+While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
+</div>
 
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
-
+<div class="well">
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
+</div>
 
 ## What are the recommended hardware specifications?
 
@@ -163,9 +165,12 @@ OpenIndiana uses the network based [Image Packaging System (IPS)](https://en.wik
 For those coming to OpenIndiana from BSD or Linux, the IPS package manager will be an easy transition.
 You may also continue to use the legacy `pkgadd/pkgrm` commands.
 
-> The OpenIndiana distribution provides a basic set of packages, along with some extras.
-> There are also 3rd party repositories which provide additional packages.
-> If you wish to contribute by helping to expand package availability, please read further down about how to get involved with the OpenIndiana project.
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<div class="well">
+The OpenIndiana distribution provides a basic set of packages, along with some extras.
+There are also 3rd party repositories which provide additional packages.
+If you wish to contribute by helping to expand package availability, please read further down about how to get involved with the OpenIndiana project.
+</div>
 
 The following IPS repositories are available:
 
@@ -205,10 +210,16 @@ While somewhat dated now, these resources are largely still relevant.
 * [OpenSolaris 2008 Docs](http://www.linuxtopia.org/online_books/opensolaris_2008/index.html)
     * Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.
 
-> In late 2009, the OpenSolaris project released a newer version of the OpenSolaris book collection.
-> An effort currently exists within the OpenIndiana community to revise and condense these titles into a more streamlined collection which more closely follows the development state of OpenIndiana Hipster.
-> The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
-> If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<div class="well">
+In late 2009, the OpenSolaris project released a newer version of the OpenSolaris book collection.
+
+An effort currently exists within the OpenIndiana community to revise and condense these titles into a more streamlined collection which more closely follows the development state of OpenIndiana Hipster.
+
+The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
+If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.
+</div>
 
 
 ## How do I get involved with the OpenIndiana Project?
