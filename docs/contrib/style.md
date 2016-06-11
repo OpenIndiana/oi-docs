@@ -17,6 +17,8 @@ Until then, the OpenSolaris Style Guide may be a helpful reference.
 
 Headers in markdown (much like HTML) come in various sizes.
 
+#### Code:
+
 ```markdown
 # First level header
 
@@ -28,8 +30,30 @@ Headers in markdown (much like HTML) come in various sizes.
 In this simple example you can see some headers have less hashes then others.
 The more hashes added, the smaller the header will be, for example.
 
+#### Rendered:
+
 # First level header
 
 ## Second level header
 
 ## Tirtiary level header
+
+### Lists
+
+####  Ordered lists
+
+Ordered or numbered lists are fairly simple to do in markdown.
+
+#### Code:
+
+```markdown
+1. First item
+2. Second item
+3. Third item
+```
+
+#### Rendered:
+
+1. First item
+2. Second item
+3. Third item
