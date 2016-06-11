@@ -277,7 +277,7 @@ Run the following command (as root or with appropriate privileges):
 
 < Place holder for content >
 
-## Windows
+## &#xf17a; Windows
 
 < Place Holder for content >
 
