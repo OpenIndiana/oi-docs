@@ -82,8 +82,8 @@ You should now see:
 
 ```bash
 remote -v
-origin    https://github.com/YOUR_USERNAME/website-2.0.git(fetch)
-origin    https://github.com/YOUR_USERNAME/website-2.0.git (push)
+origin    https://github.com/your-user-name/website-2.0.git(fetch)
+origin    https://github.com/your-user-name/website-2.0.git (push)
 upstream  https://github.com/makruger/website-2.0.git(fetch)
 upstream  https://github.com/makruger/website-2.0.git (push)
 ```
@@ -143,7 +143,7 @@ git push
 
 * Open your web browser to your forked copy of the OpenIndiana Docs repository.
 
-For example: <https://github.com/your-user-name/website-2.0>
+For example: `https://github.com/your-user-name/website-2.0`
 
 * Click the button for _New pull request_.
 * Add some notes about your change.
@@ -155,5 +155,6 @@ For example: <https://github.com/your-user-name/website-2.0>
 At this point someone with commit rights to the upstream repository will examine your changes.
 If no corrections are required, your changes will be accepted and merged into the upstream repository.
 
-Upon commit, travis-ci will automatically deploy the changes to GitHub pages.
+Upon commit, the content reviewer will manually publish your changes to GitHub pages.
+In the future, publishing will be fully automated using Travis-CI.
 
