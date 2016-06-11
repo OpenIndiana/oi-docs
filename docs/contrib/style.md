@@ -78,14 +78,19 @@ in specific steps.
 
 ##### Rendered
 
+###### Asterisk list
+
 * this
 * is
 * unordered
+
+###### Dash list
 
 - this
 - is
 - also
 - unordered
+
 
 #### Nested lists
 
@@ -106,10 +111,14 @@ in specific steps.
 
 ##### Rendered:
 
+###### Asterisk list
+
 * Markdown lists are:
     * awesome
     * amazing
     * really cool
+
+###### Dash list
 
 - Openindiana can run on:
     - Physical hardware
