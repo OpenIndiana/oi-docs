@@ -6,7 +6,12 @@ extra:
 pages:
 - Home: index.md
 - About: about.md
-- Contrib: contrib/index.md
+- Contrib: 
+        - 'Getting Started': contrib/getting-started.md
+        - 'Doc Team Tools' : contrib/tools.md
+        - 'Doc Team Style Guide': contrib/style.md
+        - 'Doc Team Roles': contrib/roles.md
+        - 'Doc Team Topics': contrib/topics.md 
 - Dev:
         - 'Userland': dev/userland.md
 - FAQ: faq.md
