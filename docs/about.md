@@ -13,10 +13,3 @@ This website and its content uses a number of different technologies:
 * Source code hosted in a [GitHub](https://github.com/makruger/website-2.0) repository.
 * Website hosted on [GitHub Pages](https://pages.github.com/)
 
-## Contributing
-
-If you would like to contribute to the further development of this website and its content, just ask on the IRC channels or mailing lists about how you may help.
-
-For additional details, including links to our GitHub source repositories, please see the OpenIndiana [Getting Involved](http://www.openindiana.org/community/getting-involved) page.
-
-

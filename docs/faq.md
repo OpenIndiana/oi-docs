@@ -47,10 +47,11 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
-
+<div class="well">
 OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of ABI (binary) compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 Applications coded in the `C` language should continue to work normally.
 Therefore, this change only affects applications written in the `C++` language.
+</div>
 
 ## How does OpenIndiana compare to BSD or Linux?
 
@@ -101,9 +102,10 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
 <div class="well">
-OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
-For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
-While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
+
+* OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
+* For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
+* While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
 </div>
 
 
@@ -141,23 +143,27 @@ For this effort to succeed, we ask our user base to diligently bring security an
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+OpenIndiana Hipster does not yet support USB 3.0.
 
-### USB 3.0 Support
+* When attaching backward compatible USB 3.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
+</div>
 
-* OpenIndiana Hipster does not yet support USB 3.0 devices.
-    * Therefore, at this time it is not possible to install the operating system from a USB 3.0 device.
-    * When attaching USB 2.0 devices to your system, please ensure they are _NOT_ attached to a USB 3.0 port.
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+At this time, creating a bootable flash drive requires the use of a header file.
 
+- There are 2 unique USB header files (1G and 2G).
+- Please ensure you have selected the correct file.
+    - The 1G.header is only suitable for use with the text installer (Command line console).
+    - The 2G.header is only suitable for use with the live installer (Gnome desktop).
+    - The files are *NOT* interchangeable.
 
-### Creating bootable USB Flash Drives
+Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
+</div>
 
-* Creating a bootable flash drive requires the use of a header file.
-* There are 2 unique USB header files (1G and 2G).
-* Please ensure you have selected the correct file.
-    * The 1G.header is only suitable for use with the text installer (Command line console).
-    * The 2G.header is only suitable for use with the live installer (Gnome desktop).
-    * The files are _NOT_ interchangeable.
-
+For further information about how to create a bootable OpenIndiana flash drive, consult the OpenIndiana Handbook.
 
 ## What package manager does OpenIndiana use?
 
