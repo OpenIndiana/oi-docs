@@ -8,8 +8,17 @@ The process for contributing to OpenIndiana Docs is simple and follows the very 
 
 ### Sign up for a [Github](https://github.com) account.
 
-* Install and configure Git
-    * See: <https://help.github.com/articles/set-up-git/>
+#### Install and configure Git
+
+* See: <https://help.github.com/articles/set-up-git/>
+
+or
+
+* Arch: `pacman -S git`
+* Centos/RHEL: `yum install git`
+* Debian/Ubuntu: `apt-get install git`
+* Fedora: `dnf install git`
+
 
 ### Install pip
 
