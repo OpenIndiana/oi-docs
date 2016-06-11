@@ -193,8 +193,11 @@ The following IPS repositories are available:
 
 ### Changing an existing publisher
 
-`pkg set-publisher -G http://pkg.openindiana.org/hipster-2015 -g http://pkg.openindiana.org/hipster openindiana.org`
-
+```bash
+pkg set-publisher \
+-G http://pkg.openindiana.org/hipster-2015 \
+-g http://pkg.openindiana.org/hipster openindiana.org
+```
 
 For further information consult the [OpenSolaris Image Packaging System Guide](http://www.linuxtopia.org/online_books/opensolaris_2008/IMGPACKAGESYS/html/docinfo.html) as well as the pkg(1) man page included with OpenIndiana Hipster.
 
