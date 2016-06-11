@@ -62,13 +62,13 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | --- | ---
 | Live installer (Gnome desktop) | Text installer (command line console)
 
-#### NOTE:
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
 
 * OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
 * For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
 * While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
 
-#### CAUTION:
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
@@ -162,9 +162,9 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 < Place holder for content >
 
-#### &#xf17c; Linux 
+#### Linux
 
-##### CLI
+Linux Console <i class="fa fa-linux fa-lg" aria-hidden="true"></i> 
 
 ```bash
 $ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
@@ -174,18 +174,40 @@ OI-hipster-gui-20160421.iso: OK
 $ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
 
 ```
-##### GUI
+
+Linux GUI <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
+
 
 < Place holder for content >
 
 
-#### &#xf179; Mac OS-X
+#### Mac OS-X
+
+MAC Console <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
+
 
 < Place holder for content >
 
-#### &#xf17a; Windows
+
+MAC GUI <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
+
 
 < Place holder for content >
+
+
+#### Windows
+
+Windows Console <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
+
+
+< Place holder for content >
+
+
+Windows GUI <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
+
+
+< Place holder for content >
+
 
 ### Creating a bootable OpenIndiana USB Flash Drive
 
@@ -215,12 +237,13 @@ Add link for Solaris USBCOPY tool.
 
 | Operating System | Method |
 | --- | --- |
-| Windows | ``OpenSolaris Live USB Creator`` |
+| Windows &#xf17a; | ``OpenSolaris Live USB Creator`` |
 | BSD | `dd` |
-| Linux | ``dd`` |
-| OS X | ``dd`` |
+| Linux &#xf17c; | ``dd`` |
+| MAC OS X &#xf179; | ``dd`` |
+| illumos/Solaris &#xf185; | `dd` |
 
-## &#xf17c; &#xf179; BSD/Linux/OS X
+#### BSD/Linux/OS X
 
 ```bash
 $ cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
@@ -230,7 +253,7 @@ $ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 ```
 
 
-## Prerequisites
+#### Prerequisites
 
 * USB flash drive - (2GB or larger)
 * Download the OpenIndiana USB Live Media installer
@@ -250,10 +273,11 @@ Failure to use the correct USB header file can result in the USB drive either fa
 
 | Operating system | Command | Device
 | --- | --- | ---
+| FreeBSD | `camcontrol devlist` | `/dev/da*`
 | illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
 | Linux | `lsblk` | `/dev/sd*`
-| FreeBSD | `camcontrol devlist` | `/dev/da*`
 | OS X | `diskutil list` | `/dev/disk*`
+
 
 #### WARNING:
 
@@ -277,7 +301,7 @@ Run the following command (as root or with appropriate privileges):
 
 < Place holder for content >
 
-## &#xf17a; Windows
+## Windows
 
 < Place Holder for content >
 
@@ -409,7 +433,7 @@ Select the appropriate installer option by clicking the corresponding desktop in
 The text based guided install start and runs within a command line console.
 Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
 
-#### NOTE:
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 
 The non-graphical text based bootable media installer also uses this very same _Text based Guided Install_.
 
@@ -427,7 +451,7 @@ If you have only a single disk, it is already selected.
 If you have multiple disks, use the arrow keys to select the appropriate disk.
 When finished, press F2 to continue.
 
-#### NOTE:
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 
 Disregard the minimum and recommended sizes as they do not take into account periodic disk usage growth as the result of ZFS snapshots.
 To account for this, your disk should be at least 25GB or more.
@@ -488,7 +512,7 @@ In this screen you are presented with several different fields to configure.
 Using the arrow keys navigate between the fields.
 Press F2 to continue.
 
-#### NOTE:
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE**
 
 The regular user specified on this screen is granted the _root_ role.
 In effect this means by default (and without any further configuration) this user can perform administrative task by assuming the root role as needed.
@@ -969,7 +993,7 @@ Also see:
 
 ## Developing with OpenIndiana
 
-#### NOTE:
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 
 The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
 

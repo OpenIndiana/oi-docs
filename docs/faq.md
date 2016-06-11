@@ -45,7 +45,8 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 * Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.
 * XVM (XEN) has been replaced with the illumos-kvm port.
 
-#### NOTES:
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
 
 OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of ABI (binary) compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 Applications coded in the `C` language should continue to work normally.
@@ -98,13 +99,14 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | Live installer (Gnome desktop) | Text installer (command line console)
 
 
-#### NOTES:
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
 
 * OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
 * For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
 * While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
 
-#### CAUTION:
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
