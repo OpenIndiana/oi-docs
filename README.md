@@ -15,7 +15,12 @@ license, unless stated otherwise in individual files.
 
 ## Depends
 
-- ``mkdocs``
+- [``mkdocs``](http://www.mkdocs.org/)
+
+### Depends for linting
+
+- [``mdl``](https://github.com/mivok/markdownlint)
+- [``mdspel``](https://www.npmjs.com/package/markdown-spellcheck)
 
 ## TODO
 
