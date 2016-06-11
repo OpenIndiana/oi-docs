@@ -62,7 +62,7 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | --- | ---
 | Live installer (Gnome desktop) | Text installer (command line console)
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
 For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
@@ -152,7 +152,7 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 #### Linux
 
-Linux Console <i class="fa fa-linux fa-lg" aria-hidden="true"></i> 
+Linux Console <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 
 ```bash
 $ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
@@ -665,7 +665,7 @@ Packages cannot be installed locally like RPM, instead you have to setup a local
 * How to compile your own software.
 I think there is an existing wiki page for this.
 Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
-    * Also could look here (might be outdated): 
+    * Also could look here (might be outdated):
     * <http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml>
 * How to install flash player
 
@@ -1000,9 +1000,9 @@ Also see:
 
 ## Developing with OpenIndiana
 
-<!-- 
+<!--
 
-DOC TEAM NOTE: 
+DOC TEAM NOTE:
 
 The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
 

@@ -76,6 +76,7 @@ git clone https://github.com/your-user-name/website-2.0.git
 cd website-2.0
 git remote add upstream https://github.com/makruger/website-2.0.git
 ```
+
 Verify things with `git remote -v`
 
 You should now see:
