@@ -62,29 +62,12 @@ The repository consists of 2 branches:
 * master
 * gh-pages
 
-Development occurs in the master branch and the site is published to the gh-pages branch, where the content becomes available via GitHub Pages.
-
-
-## Docs Site Build Environment
-
-
-### Introduction
-
-< Place Holder >
-
-
-## Docs Site Theming and Design
-
-
-The OpenIndiana Docs website is built using the MkDocs static site generator framework.
-CSS styling is managed through the use of a bootstrap derived CSS theming template.
-Bootstrap is a popular CSS framework which makes it easier to develop static websites using predefined HTML elements.
-This site uses the [bootwatch spacelab](https://bootswatch.com/spacelab/) theme.
+Development occurs in the master branch.
+The gh-pages branch is used to publish the site to GitHub pages.
 
 
 ## Docs Site Publishing
 
-
-
-< Place Holder for content >
+The OpenIndiana Docs website is at this time manually published by the site owner.
+Soon this will be fully automated using Travis-CI.
 
