@@ -36,11 +36,11 @@ The more hashes added, the smaller the header will be, for example.
 
 ## Second level header
 
-## Tirtiary level header
+## Tertiary level header
 
 ### Lists
 
-####  Ordered lists
+#### Ordered lists
 
 Ordered or numbered lists are fairly simple to do in markdown.
 
