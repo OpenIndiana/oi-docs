@@ -6,30 +6,43 @@ The process for contributing to OpenIndiana Docs is simple and follows the very 
 
 ## Prerequisites
 
-* Sign up for a [Github](https://github.com) account.
+### Sign up for a [Github](https://github.com) account.
+
 * Install and configure Git
     * See: <https://help.github.com/articles/set-up-git/>
-* Install pip
-    * Arch: `pacman -S python-pip`
-    * Centos/RHEL: `yum install python-pip`
-    * Debian/Ubuntu: `apt-get install python-pip`
-    * Fedora: `dnf install pythop-pip`
-* Install gem
-    * Arch: `pacman -S ruby`
-    * Centos/RHEL: `yum install rubygems`
-    * Debian/Ubuntu `apt-get install rubgems-integration`
-    * Fedora `dnf install rubygem-rails`
-* Install npm
-    * Arch: `pacman -S nodejs npm`
-    * Centos/RHEL: `yum install nodejs npm`
-    * Debian/Ubuntu: `apt-get install npm`
-    * Fedora: `dnf instal npm`
-* Install MkDocs (mkdocs)
-    * `pip install mkdocs`
-* Install Markdown Lint (mdl)
-    * `gem install mdl`
-* Optionally install Markdown-spellcheck (mdspell)
-    * `npm install markdown-spellcheck`
+
+### Install pip
+
+* Arch: `pacman -S python-pip`
+* Centos/RHEL: `yum install python-pip`
+* Debian/Ubuntu: `apt-get install python-pip`
+* Fedora: `dnf install pythop-pip`
+
+### Install gem
+
+* Arch: `pacman -S ruby`
+* Centos/RHEL: `yum install rubygems`
+* Debian/Ubuntu `apt-get install rubgems-integration`
+* Fedora `dnf install rubygem-rails`
+
+### Install npm
+
+* Arch: `pacman -S nodejs npm`
+* Centos/RHEL: `yum install nodejs npm`
+* Debian/Ubuntu: `apt-get install npm`
+* Fedora: `dnf instal npm`
+
+### Install MkDocs (mkdocs)
+
+* `pip install mkdocs`
+
+### Install Markdown Lint (mdl)
+
+* `gem install mdl`
+
+### Optionally install Markdown-spellcheck (mdspell)
+
+* `npm install markdown-spellcheck`
 
 
 ## Fork the OpenIndiana Docs repository
