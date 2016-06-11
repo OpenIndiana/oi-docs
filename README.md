@@ -10,8 +10,8 @@ license, unless stated otherwise in individual files.
 ## Authors
 
 - [Theodore Seán Tubbs](https://github.com/AdrianKoshka)
-- [Michael Kruger](https://github.com/makruger)
 - [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope)
+- [Michael Kruger](https://github.com/makruger)
 
 ## Depends
 
