@@ -15,7 +15,7 @@ license, unless stated otherwise in individual files.
 
 ## Depends
 
-- ``mkdocs``
+- [``mkdocs``](http://www.mkdocs.org/)
 
 ### Depends for linting
 
