@@ -158,9 +158,26 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 < Place holder for content >
 
-#### illumos/Solaris
+#### Illumos/Solaris
 
 < Place holder for content >
+
+#### Linux
+
+##### CLI
+
+```bash
+$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
+$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
+$ sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
+OI-hipster-gui-20160421.iso: OK
+$ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
+
+```
+##### GUI
+
+< Place holder for content >
+
 
 #### Mac OS-X
 
@@ -178,8 +195,6 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
     * Effectively this means it is not yet possible to install the operating system from a USB 3.0 device
     * When when attaching USB 2.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
 
-The most reliable method is to use the Windows OpenSolaris USB creation tool.
-DD is not always reliable (either doesn't boot at all, or fails to load liveCD and falls back to system maintenance mode with KSH93 errors).
 
 <!--
 
@@ -198,15 +213,22 @@ Add link for Solaris USBCOPY tool.
 
 -->
 
-| Operating System | Method
-| --- | ---
-| BSD/Linux/OS X | DD
-| illumos/Solaris | usbcopy tool
-| Windows | OpenSolaris Live USB Creator
+| Operating System | Method |
+| --- | --- |
+| Windows | ``OpenSolaris Live USB Creator`` |
+| BSD | `dd` |
+| Linux | ``dd`` |
+| OS X | ``dd`` |
 
 ## BSD/Linux/OS X
 
-< Place Holder for content >
+```bash
+$ cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
+# or if you have a live image larger then 1G
+$ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
+# where "X" is the letter of your USB device
+```
+
 
 ## Prerequisites
 
@@ -229,7 +251,7 @@ Failure to use the correct USB header file can result in the USB drive either fa
 | Operating system | Command | Device
 | --- | --- | ---
 | illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
-| Linux | `fdisk -l` | `/dev/sd*`
+| Linux | `lsblk` | `/dev/sd*`
 | FreeBSD | `camcontrol devlist` | `/dev/da*`
 | OS X | `diskutil list` | `/dev/disk*`
 
