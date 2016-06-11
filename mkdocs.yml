@@ -11,10 +11,13 @@ pages:
         - 'Doc Team Tools' : contrib/tools.md
         - 'Doc Team Roles': contrib/roles.md
         - 'Doc Team Style Guide': contrib/style.md
-- FAQ: faq.md
-- Handbook: handbook/handbook.md
-- Misc:
-        - 'Code of Conduct': misc/conduct.md
+- Docs:
+        - 'OpenIndiana FAQ': faq.md
+        - 'OpenIndiana Handbook': handbook/handbook.md
+        - Misc:
+                - 'Code of Conduct': misc/conduct.md
+        - Dev:
+                - 'Building oi-userland': dev/userland.md
 - Notes:
         - 'The OpenSolaris Redistributable Books': notes/books.md
         - 'Content Management - The BSD Approach': notes/bsd.md
@@ -24,5 +27,3 @@ pages:
         - 'Building a Document Management Toolchain using Sphinx': notes/sphinx.md
         - 'Continuous Integration Content Management': notes/toolchain.md
         - 'Topics to write about': notes/topics.md 
-- Dev:
-        - 'Userland': dev/userland.md
