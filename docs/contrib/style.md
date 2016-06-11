@@ -44,7 +44,7 @@ The more hashes added, the smaller the header will be, for example.
 
 Ordered or numbered lists are fairly simple to do in markdown.
 
-#### Code:
+##### Code:
 
 ```markdown
 1. First item
@@ -52,8 +52,65 @@ Ordered or numbered lists are fairly simple to do in markdown.
 3. Third item
 ```
 
-#### Rendered:
+##### Rendered:
 
 1. First item
 2. Second item
 3. Third item
+
+#### Unordered lists
+
+Unordered lists are great for general lists that don't need to be done
+in specific steps.
+
+##### Code:
+
+```markdown
+* this
+* is
+* unordered
+
+- this
+- is
+- also
+- unordered
+```
+
+##### Rendered
+
+* this
+* is
+* unordered
+
+- this
+- is
+- also
+- unordered
+
+#### Nested lists
+
+##### Code:
+
+```markdown
+
+* Markdown lists are:
+    * awesome
+    * amazing
+    * really cool
+
+- Openindiana can run on:
+   - Physical hardware
+   - Virtual hardware
+
+```
+
+##### Rendered:
+
+* Markdown lists are:
+    * awesome
+    * amazing
+    * really cool
+
+- Openindiana can run on:
+    - Physical hardware
+    - Virtual hardware
