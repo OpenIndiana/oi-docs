@@ -9,11 +9,8 @@ pages:
 - Contrib: 
         - 'Getting Started': contrib/getting-started.md
         - 'Doc Team Tools' : contrib/tools.md
-        - 'Doc Team Style Guide': contrib/style.md
         - 'Doc Team Roles': contrib/roles.md
-        - 'Doc Team Topics': contrib/topics.md 
-- Dev:
-        - 'Userland': dev/userland.md
+        - 'Doc Team Style Guide': contrib/style.md
 - FAQ: faq.md
 - Handbook: handbook/handbook.md
 - Misc:
@@ -26,3 +23,6 @@ pages:
         - 'GitHub Readme': notes/README.md
         - 'Building a Document Management Toolchain using Sphinx': notes/sphinx.md
         - 'Continuous Integration Content Management': notes/toolchain.md
+        - 'Topics to write about': notes/topics.md 
+- Dev:
+        - 'Userland': dev/userland.md
