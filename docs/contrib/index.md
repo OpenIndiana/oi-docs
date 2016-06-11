@@ -1,6 +1,125 @@
 # Contributing to OpenIndiana Docs
 
 
+The process for contributing to OpenIndiana Docs is simple and follows the very same practices used in the creation of the OpenIndiana distribution.
+
+
+## Prerequisites
+
+* Sign up for a [Github](https://github.com) account.
+* Install and configure Git
+    * See: <https://help.github.com/articles/set-up-git/>
+* Install MkDocs 
+    * `pip install mkdocs`
+
+
+## Getting Started
+
+
+### Fork the OpenIndiana Docs repository
+
+* Open your web browser and sign into [Github](https://www.github.com)
+* Browse to <https://github.com/makruger/website-2.0>
+* Click the **Fork** button found in the upper right hand corner of the page.
+    * Forking creates a server side clone of the upstream repository.
+
+
+### Create a local clone of your fork
+
+```bash
+git clone https://github.com/your-user-name/website-2.0.git
+```
+
+
+### Add the upstream repository
+
+```bash
+cd website-2.0
+git remote add upstream https://github.com/makruger/website-2.0.git
+```
+Verify things with `git remote -v`
+
+You should now see:
+
+```bash
+remote -v
+origin    https://github.com/YOUR_USERNAME/website-2.0.git(fetch)
+origin    https://github.com/YOUR_USERNAME/website-2.0.git (push)
+upstream  https://github.com/makruger/website-2.0.git(fetch)
+upstream  https://github.com/makruger/website-2.0.git (push)
+```
+
+
+### Sync and merge changes from the upstream repository
+
+Periodically you will want to _rebase_ your local copy by bringing in changes from the upstream repository.
+
+```bash
+git fetch upstream
+git checkout master
+git merge upstream/master
+```
+
+
+### Make some changes.
+
+Open your favorite text editor and begin authoring content.
+
+For example: `vim somefile.md`
+
+Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
+
+
+### Visualize your changes using live preview
+
+To assist with the content authoring process, it may be helpful to visualize your changes using a live preview.
+
+* From the root of the website-2.0 folder:
+    * Type: `mkdocs serve`
+    * Open your web browser to 127.0.0.1:8000.
+
+To shut down the live preview web server, use [CTRL] + [C].
+
+### Running Markdown Lint (locally)
+
+To check your changes for spelling and syntax errors, you may wish to run Markdown Lint locally on your computer.
+
+```bash
+$ mdl -c markdownlint-rules.rb <somefile.md>
+Syntax OK
+```
+
+
+### Commit and push your changes.
+
+```bash
+git status
+git add some-file-you-just-edited
+git commit -m 'your commit message'
+git push
+```
+
+
+### Send a pull request.
+
+* Open your web browser to your forked copy of the OpenIndiana Docs repository.
+
+For example: <https://github.com/your-user-name/website-2.0>
+
+* Click the button for _New pull request_.
+* Add some notes about your change.
+* Submit your PR (pull request).
+
+
+### What happens next?
+
+At this point someone with commit rights to the upstream repository will examine your changes.
+If no corrections are required, your changes will be accepted and merged into the upstream repository.
+
+Upon commit, travis-ci will automatically deploy the changes to GitHub pages.
+
+
+
 ## Documentation Team Roles
 
 There are multiple ways community members can contribute to the OpenIndiana Documentation revitalization effort.
@@ -93,53 +212,6 @@ No need work with special tools such as WYSIWYG XML editors, etc.
 
 
 
-
-## Documentation Team Processes
-
-
-The basic workflow process for OpenIndiana Docs is simple:
-
-* Fork the OpenIndiana Docs repository.
-* Add the upstream repository.
-* Make some changes.
-* Commit and push your changes.
-* Send a pull request.
-
-
-### General Content Contributor Process
-
-* [Sign up for a GitHub account](https://github.com/).
-* [Install and configure Git](https://help.github.com/articles/set-up-git/).
-* [Fork the OpenIndiana Docs repository](https://help.github.com/articles/fork-a-repo/).
-* [Clone your forked version of the OpenIndiana Docs repository](https://help.github.com/articles/fork-a-repo/#step-2-create-a-local-clone-of-your-fork).
-* [Add the OpenIndiana Docs repository as an _upstream_ repository](https://help.github.com/articles/syncing-a-fork/).
-* Locate a document to change or decide where in the file hierarchy a new document should be created.
-* Implement your changes (e.g. create a new document or modify and existing document).
-* Implement or note any menu changes required to support your changes.
-* `git fetch` to pull in any available upstream changes.
-* Check to see whether upstream changes have affected your proposed changes.
-* `git add` and `git commit` commit your changes.
-* `git push` your changes to your forked repository.
-* [Send a pull request](https://help.github.com/articles/using-pull-requests/) to a content reviewer so your changes may be reviewed for inclusion into the OpenIndiana Docs master repository.
-
-
-### Visualizing your changes using live preview
-
-To assist with the content authoring process, it may be helpful to visualize your changes using a live preview.
-
-To do this simply type: `mkdocs serve` and open your web browser to localhost port 8000.
-
-Some text editors (Atom, VIM, etc.) also include Markdown syntax highlighting natively (or offer it as a plugin).
-
-
-### Running Markdown Lint (locally)
-
-To check your authored content for spelling and syntax errors, you may wish to run Markdown Lint locally on your computer.
-
-```bash
-$ mdl -c markdownlint-rules.rb <somefile.md>
-Syntax OK
-```
 
 
 ### The Content Review Process
