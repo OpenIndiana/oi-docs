@@ -258,17 +258,17 @@ Add link for Solaris USBCOPY tool.
 <div class="well">
 When issuing the USB copy command, be sure to specify the entire USB device.
 
-- Do not including any partition or slice number.
-    - For example use `sda`, not `sda1`; `c0t0d0`, not `c0t0d0p1`.
-- Make sure you identify the correct storage device.
-    - All data on the device will be erased.
-- If any filesystems are located on the USB storage device, they must first be unmounted.
-    - Desktops may automatically mount removable devices.
-    - As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
-    - For Linux, use `umount <path>`.
-    - For illumos/Solaris use `rmumount <path>`.
-    - for MAC OS X use `diskutil unmountDisk <path>`.
-    - Verify using the `mount` command.
+* Do not including any partition or slice number.
+    * For example use `sda`, not `sda1`; `c0t0d0`, not `c0t0d0p1`.
+* Make sure you identify the correct storage device.
+    * All data on the device will be erased.
+* If any filesystems are located on the USB storage device, they must first be unmounted.
+    * Desktops may automatically mount removable devices.
+    * As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
+    * For Linux, use `umount <path>`.
+    * For illumos/Solaris use `rmumount <path>`.
+    * for MAC OS X use `diskutil unmountDisk <path>`.
+    * Verify using the `mount` command.
 </div>
 
 
@@ -612,19 +612,28 @@ Work is progressing to provide support for AMD and Intel.
 
 ### How does one keep the system updated?
 
+<!--
+
 Some notes and reference docs for writing the IPS section:
 
 * Be sure to provide walkthroughs for both IPS and BEADMIN (as they work together).
 * [Basics of Image Packaging System (IPS) - Oracle](http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-083-ips-basics-523756.html)
 * [IPS cheat sheet PDF - Oracle](http://www.oracle.com/technetwork/server-storage/solaris11/documentation/ips-one-liners-032011-337775.pdf)
 
+-->
+
+< Place holder for content >
+
+
 #### Using pkg to list packages currently installed on the system
 
 < Place holder for content >
 
+
 #### Using pkg to search for packages
 
 < Place holder for content >
+
 
 #### Using pkg to update the system
 
@@ -633,8 +642,10 @@ Some notes and reference docs for writing the IPS section:
 * `pkg update -v` will perform the update and then print a summary of what was updated.
 * `pkg history` will provide basic details for previous uses of the pkg command.
 
+
 ### How does one find and install more software?
 
+<!--
 
 Tips for writing this section:
 
@@ -654,8 +665,14 @@ Packages cannot be installed locally like RPM, instead you have to setup a local
 * How to compile your own software.
 I think there is an existing wiki page for this.
 Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
-    * Also could look here (might be outdated): <http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml>
+    * Also could look here (might be outdated): 
+    * <http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml>
 * How to install flash player
+
+-->
+
+< Place Holder for Content >
+
 
 #### Using the pkg publisher and pkg set-publisher commands
 
@@ -672,6 +689,7 @@ It can also be used for querying the contents of a repository.
 
 * `pkgrepo info -s <repo_URL>`
 * `pkgrepo list -s <repo_URL> <package_group>`
+
 
 ### Configuring a UPS
 
@@ -767,6 +785,7 @@ TODO:
 * `passwd` - change login password and password attributes
 * `chown` - change file ownership
 
+<!--
 
 For a variation of configuring a home NAS - this could be done virtually as well
 
@@ -784,6 +803,7 @@ For help writing this section, see the following OpenSolaris references:
 
 Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf)
 
+-->
 
 Start by listing available storage pools.
 
