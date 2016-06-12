@@ -8,6 +8,11 @@ The OpenIndiana Docs website uses 2 principal technologies:
 
 Both technologies leverage the Python programming language.
 
+## Why a Text Markup Based Docs Framework?
+
+The primary advantage of using a text markup language is readability and flexibility.
+The raw code for your authored content is simple plain text.
+No need work with special tools such as WYSIWYG XML editors, etc.
 
 ## What is MkDocs?
 
@@ -26,13 +31,6 @@ The choice is yours; Use your favorite text editor.
 * Easy to use Markdown syntax.
 * Produces professional quality output.
 * Extensible - accepts plugins.
-
-
-## Why a Text Markup Based Docs Framework?
-
-The primary advantage of using a text markup language is readability and flexibility.
-The raw code for your authored content is simple plain text.
-No need work with special tools such as WYSIWYG XML editors, etc.
 
 
 ## MkDocs and Markdown Informational Links

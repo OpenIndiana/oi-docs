@@ -251,7 +251,7 @@ Add link for Solaris USBCOPY tool.
 | illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
 | Linux | `lsblk` | `/dev/sd*`
 | MAC OS X | `diskutil list` | `/dev/disk*`
-| Windows | |
+| Windows | N/A | N/A
 
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**

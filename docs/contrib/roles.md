@@ -33,19 +33,18 @@ In fact, it would be better to start small and only later consider taking on som
 
 Helpful skills include a willingness to write and work as a team with content reviewers.
 
-As needed, the content author consults with community members performing other roles.
 
 ## Content Reviewer
 
-The content reviewer effectively performs the roles of:
+The content reviewer wears multiple hats and effectively performs the roles of:
 
 * Editorial reviewer
 * Configuration manager
 * Release manager
 * Doc team leader/trainer.
 
-This person (or persons) would review pull request and provide editorial feedback to content creators.
-Helpful skills include good organization and people skills, as well as a knack for performing editorial reviews.
+This person (or persons) would review pull request and provide editorial feedback to the content authors.
+Helpful skills include diplomacy, good organizational abilities, as well as a knack for performing editorial reviews.
 
 
 ## The Content Review Process
@@ -56,12 +55,12 @@ Upon receipt of a pull request, the content reviewer performs the following step
 * If changes are extensive or involve inline html, the content reviewer may clone your repository to perform QA testing.
 * QA testing is performed by running MkDocs in development mode.
 * Upon acceptance, merges the pull request into the mainline branch.
-* Using the Awestruct framework, manually publishes the changes to the live website.
+* Using the Mkdocs framework, manually publishes the changes to the live website.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-At this time the content reviewer performs the role of release manager, manually publishing approved changes.
-In the future OpenIndiana Docs will adopt a continuous integration model, where merging changes will automatically trigger a deployment of the website and all of it's contents.
+At this time the content reviewer manually publishes approved changes.
+In the future this will be fully automated using Travis-ci, where merging changes will automatically trigger a deployment of the website and all of it's contents.
 </div>
 
 
