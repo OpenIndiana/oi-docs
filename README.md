@@ -1,4 +1,4 @@
-# Website 2.0 [![Build Status](https://travis-ci.org/AdrianKoshka/website-2.0.svg?branch=master)](https://travis-ci.org/AdrianKoshka/website-2.0)
+# Website 2.0 [![Build Status](https://travis-ci.org/makruger/website-2.0.svg?branch=master)](https://travis-ci.org/makruger/website-2.0)
 
 A new home for OpenIndiana docs, made with ``mkdocs``.
 
@@ -9,9 +9,9 @@ license, unless stated otherwise in individual files.
 
 ## Authors
 
-- [Theodore Seán Tubbs](https://github.com/AdrianKoshka)
 - [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope)
 - [Michael Kruger](https://github.com/makruger)
+- [Theodore Seán Tubbs](https://github.com/AdrianKoshka)
 
 ## Depends
 

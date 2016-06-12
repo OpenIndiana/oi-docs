@@ -82,7 +82,7 @@ COMPONENT_LICENSE_FILE# $(COMPONENT_NAME).license
 
 | Variable | Value | Comment |
 |---|---|---|
-| COMPONENT_NAME | libjpeg6-ijg | Use the same name as in SFE or other illumos userlands if applicable, otherwise follow Debian |
+| COMPONENT_NAME | libjpeg6-ijg | Use the same name as in SFE or other Illumos userlands if applicable, otherwise follow Debian |
 | COMPONENT_VERSION | 6.0.2 | Should be numerical only, not letters |
 | LIBJPEG_API_VERSION | 6b | Local variable declared in the Makefile should be prefixed with the component's name |
 | COMPONENT_FMRI | image/library/libjpeg6-ijg | Follow the convention for the FMRI, check a similar component |

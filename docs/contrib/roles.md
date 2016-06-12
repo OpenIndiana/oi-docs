@@ -24,7 +24,7 @@ The easiest way to help the docs revitalization effort is by authoring content.
 The content author would (as the title suggests) write content to be hosted on the OpenIndiana Docs website.
 Content can include just about anything, news posts, tutorials, Howto's, or larger efforts such as the handbook or updating the OSOL books.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 The nice thing about helping the project as a content author is the level of commitment is entirely up to you the individual.
 In other words, there is no requirement to get involved in anything major.
@@ -58,7 +58,7 @@ Upon receipt of a pull request, the content reviewer performs the following step
 * Upon acceptance, merges the pull request into the mainline branch.
 * Using the Awestruct framework, manually publishes the changes to the live website.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 At this time the content reviewer performs the role of release manager, manually publishing approved changes.
 In the future OpenIndiana Docs will adopt a continuous integration model, where merging changes will automatically trigger a deployment of the website and all of it's contents.

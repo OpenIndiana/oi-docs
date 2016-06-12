@@ -17,7 +17,7 @@ Add a blurb about switching to hipster. Link to :http://wiki.openindiana.org/oi/
 
 ## What is OpenIndiana?
 
-The OpenIndiana project is the open source community which develops, maintains, and supports the [OpenIndiana](https://en.wikipedia.org/wiki/OpenIndiana) distribution, an [illumos](https://en.wikipedia.org/wiki/Illumos) based Unix-like operating system derived from OpenSolaris.
+The OpenIndiana project is the open source community which develops, maintains, and supports the [OpenIndiana](https://en.wikipedia.org/wiki/OpenIndiana) distribution, an [Illumos](https://en.wikipedia.org/wiki/Illumos) based Unix-like operating system derived from OpenSolaris.
 The purpose of the OpenIndiana Project is to ensure the continued availability of an openly developed distribution based on OpenSolaris.
 The OpenIndiana project is also a continuation of the collaborative effort and community spirit of the [OpenSolaris project](https://en.wikipedia.org/wiki/OpenSolaris).
 
@@ -28,9 +28,9 @@ For a comprehensive history of the OpenSolaris project, see Jim Grisanzio's [Ope
 OpenIndiana obtains its name from Project Indiana, an open source effort by Sun Microsystems (now Oracle Corporation) to produce OpenSolaris, a community developed Unix-like distribution based on Sun Solaris.
 Project Indiana was led by Ian Murdock, founder of the Debian Linux Distribution.
 
-## How are OpenIndiana and illumos related?
+## How are OpenIndiana and Illumos related?
 
-The [illumos project](https://illumos.org) is the open source community which develops, maintains, and supports [illumos-gate](https://github.com/illumos/illumos-gate), the core software used by the OpenIndiana distribution.
+The [Illumos project](https://illumos.org) is the open source community which develops, maintains, and supports [illumos-gate](https://github.com/illumos/illumos-gate), the core software used by the OpenIndiana distribution.
 Similar to a BSD `src` tree, illumos-gate includes the illumos kernel, along with many of the device drivers, core libraries, and system utilities.
 
 To form a complete distribution, the OpenIndiana project combines illumos-gate with [oi-userland](https://github.com/OpenIndiana/oi-userland), and with other free and open-source software.
@@ -46,7 +46,7 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 * XVM (XEN) has been replaced with the illumos-kvm port.
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of ABI (binary) compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 Applications coded in the `C` language should continue to work normally.
@@ -100,7 +100,7 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | Live installer (Gnome desktop) | Text installer (command line console)
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 * OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
@@ -171,7 +171,7 @@ OpenIndiana uses the network based [Image Packaging System (IPS)](https://en.wik
 For those coming to OpenIndiana from BSD or Linux, the IPS package manager will be an easy transition.
 You may also continue to use the legacy `pkgadd/pkgrm` commands.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 The OpenIndiana distribution provides a basic set of packages, along with some extras.
 There are also 3rd party repositories which provide additional packages.
@@ -220,7 +220,7 @@ While somewhat dated now, these resources are largely still relevant.
     * Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:** 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 In late 2009, the OpenSolaris project released a newer version of the OpenSolaris book collection.
 

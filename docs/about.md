@@ -1,9 +1,10 @@
 # About OpenIndiana Docs (Demo 2.0)
 
-#### This website is NOT an official OpenIndiana site
 
-This site is a technology demonstration.
-The purpose of this site is examine various documentation frameworks to help determine which technology best suites the documentation needs of the OpenIndiana project.
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **This website is NOT an official OpenIndiana site**
+<div class="well">
+The purpose of this technology demonstration website is to examine the Mkdocs framework and the Markdown text markup language to help determine whether these technologies suite the needs of the OpenIndiana project.
+</div>
 
 This website and its content uses a number of different technologies:
 
