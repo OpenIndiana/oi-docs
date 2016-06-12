@@ -230,10 +230,10 @@ OpenIndiana Hipster does not yet support USB 3.0.
 | Operating System | Method |
 | --- | --- |
 | BSD | `dd` |
-| illumos/Solaris &#xf185; | `dd` |
-| Linux &#xf17c; | ``dd`` |
-| MAC OS X &#xf179; | ``dd`` |
-| Windows &#xf17a; | ``OpenSolaris Live USB Creator`` |
+| illumos/Solaris | `dd` |
+| Linux | ``dd`` |
+| MAC OS X | ``dd`` |
+| Windows | ``OpenSolaris Live USB Creator`` |
 
 <!--
 
@@ -248,10 +248,10 @@ Add link for Solaris USBCOPY tool.
 | Operating system | Command | Device
 | --- | --- | ---
 | BSD | `camcontrol devlist` | `/dev/da*`
-| illumos/Solaris &#xf185; | `rmformat -l` | `/dev/rdsk/c*t*d*`
-| Linux &#xf17c; | `lsblk` | `/dev/sd*`
-| MAC OS X &#xf179; | `diskutil list` | `/dev/disk*`
-| Windows &#xf17a; | |
+| illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
+| Linux | `lsblk` | `/dev/sd*`
+| MAC OS X | `diskutil list` | `/dev/disk*`
+| Windows | |
 
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**

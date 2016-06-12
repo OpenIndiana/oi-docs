@@ -9,8 +9,8 @@ The purpose of this technology demonstration website is to examine the Mkdocs fr
 This website and its content uses a number of different technologies:
 
 * Page content written in the [Markdown](https://daringfireball.net/projects/markdown/) text markup language.
-* Text markup transformed to HTML &#xf13b; using the [MkDocs](http://www.mkdocs.org/) documentation framework/static site generator.
-* Website styled using the [Bootstrap](http://getbootstrap.com/) CSS &#xf13c; framework (more specifically the [Bootswatch](https://bootswatch.com/) Spacelab theme).
-* Source code hosted in a [GitHub](https://github.com/makruger/website-2.0) &#xf09b; repository.
+* Text markup transformed to HTML using the [MkDocs](http://www.mkdocs.org/) documentation framework/static site generator.
+* Website styled using the [Bootstrap](http://getbootstrap.com/) CSS framework (more specifically the [Bootswatch](https://bootswatch.com/) Spacelab theme).
+* Source code hosted in a [GitHub](https://github.com/makruger/website-2.0) repository.
 * Website hosted on [GitHub Pages](https://pages.github.com/)
 
