@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o errexit -o nounset
+set -o errexit
 
 if ! [[ "$TRAVIS_PULL_REQUEST" = "false" && "$TRAVIS_BRANCH" = "master" ]]; then
     echo -e "Skipping site push (TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST TRAVIS_BRANCH=$TRAVIS_BRANCH)\n"
