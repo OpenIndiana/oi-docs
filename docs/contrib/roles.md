@@ -60,7 +60,7 @@ Upon receipt of a pull request, the content reviewer performs the following step
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 At this time the content reviewer manually publishes approved changes.
-In the future this will be fully automated using Travis-ci, where merging changes will automatically trigger a deployment of the website and all of it's contents.
+In the future this will be fully automated using Travis-ci, where merging changes will trigger a deployment of the website and all of it's contents.
 </div>
 
 

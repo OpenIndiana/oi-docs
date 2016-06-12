@@ -1,6 +1,6 @@
 # Getting Started with OpenIndiana Docs
 
-The process for contributing to OpenIndiana Docs is simple and follows the very same practices used in the creation of the OpenIndiana distribution.
+The process for contributing to OpenIndiana Docs is simple and follows the same best practices used in the development of the OpenIndiana distribution.
 
 ## Prerequisites
 

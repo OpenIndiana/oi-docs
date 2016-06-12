@@ -14,11 +14,33 @@ Additionally, you may find the following resources helpful:
 
 ## Getting started with Markdown
 
+### Italics and bold text
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+This is plain text
+
+_This is italic text_
+
+**This is bold text**
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+This is plain text
+
+_This is italic text_
+
+**This is bold text**
+</div>
+
 ### Headers
 
 Headers in markdown (much like HTML) come in various sizes.
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 # First level header
@@ -45,7 +67,7 @@ The more hashes added, the smaller the header will be, for example.
 
 Ordered or numbered lists are fairly simple to do in markdown.
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 1. First item
@@ -66,7 +88,7 @@ Ordered or numbered lists are fairly simple to do in markdown.
 Unordered lists are great for general lists that don't need to be done
 in specific steps.
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 * this
@@ -84,7 +106,7 @@ in specific steps.
 
 ### Nested lists
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 * Markdown lists are:
@@ -104,7 +126,7 @@ in specific steps.
 
 ### Tables
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 | Table Header 1 | Table Header 2
@@ -123,9 +145,9 @@ in specific steps.
 
 </div>
 
-### URL's
+### External URL's
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 [The OpenIndiana Website](http://www.openindiana.org)
@@ -143,6 +165,29 @@ or (bare url's)
 or (bare url's)
 
 <http://www.openindiana.org>
+</div>
+
+
+### Internal URL's
+
+Internal URL's operate a little differently than external URL's.
+Simply specify the relative path to the document.
+You can even target a specific section of the document.
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+[The OpenIndiana Handbook](../handbook/handbook.md)
+
+[Handbook - Finding Help and Support](../handbook/handbook.md#finding-help-and-support)
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+[The OpenIndiana Handbook](../handbook/handbook.md)
+
+[Handbook - Finding Help and Support](../handbook/handbook.md#finding-help-and-support)
+
 </div>
 
 ### Code blocks
@@ -150,7 +195,7 @@ or (bare url's)
 Code blocks are created by "fencing" the block of code using three (3) backtick marks.
 For the purpose of syntax highlighting, you may also specify the programming language.
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 #!/bin/bash
@@ -177,7 +222,7 @@ In addition to Markdown plain text markup, the Mkdocs frameworks also supports t
 For example, sometimes you may find Markdown doesn't do quite what you need to do.
 In these cases you may include some in-line HTML.
 
-**Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 <!-- This is a single line comment -->
@@ -189,8 +234,9 @@ lines
 -->
 ```
 
-Comments are not rendered as HTML, but are very useful for adding hidden TODO lists, or other useful notes.
-This is primarily for internal use by members of the OpenIndiana documentation team.
+Comments are meant to be hidden, so they not rendered as HTML.
+You'll likely find them very useful for adding TODO lists, or other useful notes.
+Comments are primarily for internal use by members of the OpenIndiana documentation team.
 
 ### In-line HTML - Advanced
 
@@ -200,7 +246,7 @@ The OpenIndiana Docs website uses a CSS theme derived from Bootstrap.
 More specifically it uses the Spacelab theme from Bootswatch.
 This means elements from the Bootstrap framework may be used in-line right along with Markdown text markup.
 
-In many of the examples on this page, Bootstrap HTML wells were used.
+In many of the examples on this page, Bootstrap HTML _wells_ were used.
 
 You can find a complete list of available HTML elements here: <https://bootswatch.com/spacelab/>
 

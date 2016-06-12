@@ -53,7 +53,7 @@ The choice is yours; Use your favorite text editor.
 As the OpenIndiana Docs website is still a proof of concept technology demonstration, its Github repository remains under the private control of the original author.
 If the concept is approved for inclusion under OpenIndiana GitHub organizational umbrella, then it will have an official repository.
 
-Meanwhile, you can find the OpenIndiana Docs repository here: [https://github.com/makruger/website](https://github.com/makruger/website)
+Meanwhile, you can find the OpenIndiana Docs repository here: [https://github.com/makruger/website](https://github.com/makruger/website-2.0)
 
 The repository consists of 2 branches:
 
@@ -66,6 +66,6 @@ The gh-pages branch is used to publish the site to GitHub pages.
 
 ## Docs Site Publishing
 
-The OpenIndiana Docs website is at this time manually published by the site owner.
+At this time, the OpenIndiana Docs website is manually published by the site owner.
 Soon this will be fully automated using Travis-CI.
 
