@@ -1,10 +1,15 @@
 language: python
-python: "2.7"
+python: '2.7'
 install:
-    - pip install mkdocs
-    - gem install mdl
-    - npm install markdown-spellcheck -g
+- pip install mkdocs
+- gem install mdl
+- npm install markdown-spellcheck -g
 script:
-    - mdl -s markdownlint-rules.rb .
-    - mdspell --en-us -x -n -ran "**/*.md"
-    - mkdocs build
+- mdl -s markdownlint-rules.rb .
+- mdspell --en-us -x -n -ran "**/*.md"
+- mkdocs build
+after_success:
+- "./deploy.sh"
+env:
+  global:
+  - secure: aYwRbMDSc9XPgLnx8XQNlibygl+AiyksrOpoP/vGUHadBhRG6EB9W0YCjMTfRA8+tkEHUFUZ4driubH4Rr4HetEf6yAZv/gzfeL8muQGoZCmlpBqyaYAL/LdxAz3/yogGq6dZaGoQkNVskxrDdfZGS/60MWn7cDZCHrR75gw7wlhEsow7r3st0FiTExjLDxahxoUEhBMLp8tTJ7HCoZ5zRTsAHLqQLXF5iaMETL7+IXgslAd6HDinu2dJhjoGRWMsQvx8DNrB4AHO2bNiBU9v+qXigKxTg9R8SOL6ehxpahvapuHQuaLeJ2bKiIs3EH5suLQfjGMfEfb6UhJfnXXKX0BC+fKfpessfRQH2nQLkyJ7mP0TwmTnogQekKM/rsethHIYGZWpdkkNxYbAd42xn8tcfhdhVv9CqyRpqlEmsKGk46n6BLGZoMftJsds+1lfdIqeyXwrnGdlegUX09mxWg5uZQ8W92Rt0kdGG6Ult+imqUNIoEV/u9imyFINuLKBYmX18YJmUVohfU7UnyU3DFvzNUK6MzJPmkDDSxdKrxpJ8FPvLQdMfbEfhANqEG7jP3Ztad5i4I8DMS0fs4BvyTT3cllr59OhzIzF1ETZCu8VObJ5GMuWax9FXAxlG33KZrIpZOXkaoZw7N0DhtUCQjQUp/Km6Suc30xXmr8aBI=
