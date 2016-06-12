@@ -1,50 +1,73 @@
 # Documentation Team Style Guide
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 
-### Introduction
+This style guide provides a brief introduction to the Markdown text markup syntax.
 
-The OpenIndiana Style Guide is at this time a blank page.
-Consider helping to create this important document.
+Additionally, you may find the following resources helpful:
 
-Until then, the OpenSolaris Style Guide may be a helpful reference.
+* [The Commonmark Markdown Standard](http://spec.commonmark.org/0.25/)
+* [Rules for mdl (Markdown Linter)](https://github.com/mivok/markdownlint/blob/master/docs/RULES.md)
+* [Documentation Style Guide for OpenSolaris](https://web.archive.org/web/20081207155129/http://opensolaris.org/os/community/documentation/files/OSOLDOCSG.pdf) - Internet Archive - PDF (270 pages)
+</div>
 
-* [OpenSolaris Documentation Style Guide](https://web.archive.org/web/20081207155129/http://opensolaris.org/os/community/documentation/files/OSOLDOCSG.pdf) - [Internet Archive - PDF]
-* [Rules for mdl(markdown linter](https://github.com/mivok/markdownlint/blob/master/docs/RULES.md)
+## Getting started with Markdown
 
-## Getting started with markdown
+### Italics and bold text
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+This is plain text
+
+_This is italic text_
+
+**This is bold text**
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+This is plain text
+
+_This is italic text_
+
+**This is bold text**
+</div>
 
 ### Headers
 
 Headers in markdown (much like HTML) come in various sizes.
 
-#### Code:
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 # First level header
 
 ## Second level headers
 
-### Tirtiary level header
+### Tertiary level header
 ```
 
 In this simple example you can see some headers have less hashes then others.
 The more hashes added, the smaller the header will be, for example.
 
-#### Rendered:
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
 
 # First level header
 
 ## Second level header
 
-## Tertiary level header
+### Tertiary level header
+</div>
 
-### Lists
-
-#### Ordered lists
+### Ordered lists
 
 Ordered or numbered lists are fairly simple to do in markdown.
 
-##### Code:
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 1. First item
@@ -52,74 +75,187 @@ Ordered or numbered lists are fairly simple to do in markdown.
 3. Third item
 ```
 
-##### Rendered:
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
 
 1. First item
 2. Second item
 3. Third item
+</div>
 
-#### Unordered lists
+### Unordered lists
 
 Unordered lists are great for general lists that don't need to be done
 in specific steps.
 
-##### Code:
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
 * this
 * is
 * unordered
-
-- this
-- is
-- also
-- unordered
 ```
 
-##### Rendered
-
-###### Asterisk list
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
 
 * this
 * is
 * unordered
+</div>
 
-###### Dash list
+### Nested lists
 
-- this
-- is
-- also
-- unordered
-
-
-#### Nested lists
-
-##### Code:
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
-
 * Markdown lists are:
     * awesome
     * amazing
     * really cool
-
-- Openindiana can run on:
-   - Physical hardware
-   - Virtual hardware
-
 ```
 
-##### Rendered:
-
-###### Asterisk list
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
 
 * Markdown lists are:
     * awesome
     * amazing
     * really cool
+</div>
 
-###### Dash list
+### Tables
 
-- Openindiana can run on:
-    - Physical hardware
-    - Virtual hardware
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+| Table Header 1 | Table Header 2
+| --- | ---
+| Row 1, Column 1 | Row 1, Column 2
+| Row 2, Column 1 | Row 2, Column 2
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+| Table Header 1 | Table Header 2
+| --- | ---
+| Row 1, Column 1 | Row 1, Column 2
+| Row 2, Column 1 | Row 2, Column 2
+
+</div>
+
+### External URL's
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+[The OpenIndiana Website](http://www.openindiana.org)
+
+or (bare url's)
+
+<http://www.openindiana.org>
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+[The OpenIndiana Website](http://www.openindiana.org)
+
+or (bare url's)
+
+<http://www.openindiana.org>
+</div>
+
+
+### Internal URL's
+
+Internal URL's operate a little differently than external URL's.
+Simply specify the relative path to the document.
+You can even target a specific section of the document.
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+[The OpenIndiana Handbook](../handbook/handbook.md)
+
+[Handbook - Finding Help and Support](../handbook/handbook.md#finding-help-and-support)
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+[The OpenIndiana Handbook](../handbook/handbook.md)
+
+[Handbook - Finding Help and Support](../handbook/handbook.md#finding-help-and-support)
+
+</div>
+
+### Code blocks
+
+Code blocks are created by "fencing" the block of code using three (3) backtick marks.
+For the purpose of syntax highlighting, you may also specify the programming language.
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+#!/bin/bash
+  if [ "foo" = "foo" ]; then
+    echo expression evaluated as true
+  fi
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+```bash
+#!/bin/bash
+  if [ "foo" = "foo" ]; then
+    echo expression evaluated as true
+  fi
+```
+
+</div>
+
+### In-line HTML
+
+In addition to Markdown plain text markup, the Mkdocs frameworks also supports the inclusion of in-line HTML.
+For example, sometimes you may find Markdown doesn't do quite what you need to do.
+In these cases you may include some in-line HTML.
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+<!-- This is a single line comment -->
+
+<!--
+This comment
+spans multiple
+lines
+-->
+```
+
+Comments are meant to be hidden, so they not rendered as HTML.
+You'll likely find them very useful for adding TODO lists, or other useful notes.
+Comments are primarily for internal use by members of the OpenIndiana documentation team.
+
+### In-line HTML - Advanced
+
+#### Bootstrap elements
+
+The OpenIndiana Docs website uses a CSS theme derived from Bootstrap.
+More specifically it uses the Spacelab theme from Bootswatch.
+This means elements from the Bootstrap framework may be used in-line right along with Markdown text markup.
+
+In many of the examples on this page, Bootstrap HTML _wells_ were used.
+
+You can find a complete list of available HTML elements here: <https://bootswatch.com/spacelab/>
+
+For further information about how to use the Bootstrap framework, see here: <http://www.w3schools.com/bootstrap/default.asp>
+
+#### Font Awesome elements
+
+Font Awesome is a collection of web icons which may be used within the MkDocs framework.
+
+In many of the examples on this page, Font Awesome icons were employed.
+
+For further information about how to use Font Awesome web icons, see here: <http://fontawesome.io/>

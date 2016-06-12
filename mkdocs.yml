@@ -5,14 +5,16 @@ extra:
         theme_inverse: true
 pages:
 - Home: index.md
-- About: about.md
+- About: 
+        - 'About OpenIndiana Docs': misc/about.md
+        - 'Public Documentation License': misc/pdl.md
 - Contrib: 
         - 'Getting Started': contrib/getting-started.md
         - 'Doc Team Tools' : contrib/tools.md
         - 'Doc Team Roles': contrib/roles.md
         - 'Doc Team Style Guide': contrib/style.md
 - Docs:
-        - 'OpenIndiana FAQ': faq.md
+        - 'OpenIndiana FAQ': misc/faq.md
         - 'OpenIndiana Handbook': handbook/handbook.md
         - Misc:
                 - 'Code of Conduct': misc/conduct.md

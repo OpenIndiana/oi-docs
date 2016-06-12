@@ -8,6 +8,11 @@ The OpenIndiana Docs website uses 2 principal technologies:
 
 Both technologies leverage the Python programming language.
 
+## Why a Text Markup Based Docs Framework?
+
+The primary advantage of using a text markup language is readability and flexibility.
+The raw code for your authored content is simple plain text.
+No need work with special tools such as WYSIWYG XML editors, etc.
 
 ## What is MkDocs?
 
@@ -26,13 +31,6 @@ The choice is yours; Use your favorite text editor.
 * Easy to use Markdown syntax.
 * Produces professional quality output.
 * Extensible - accepts plugins.
-
-
-## Why a Text Markup Based Docs Framework?
-
-The primary advantage of using a text markup language is readability and flexibility.
-The raw code for your authored content is simple plain text.
-No need work with special tools such as WYSIWYG XML editors, etc.
 
 
 ## MkDocs and Markdown Informational Links
@@ -55,7 +53,7 @@ No need work with special tools such as WYSIWYG XML editors, etc.
 As the OpenIndiana Docs website is still a proof of concept technology demonstration, its Github repository remains under the private control of the original author.
 If the concept is approved for inclusion under OpenIndiana GitHub organizational umbrella, then it will have an official repository.
 
-Meanwhile, you can find the OpenIndiana Docs repository here: [https://github.com/makruger/website](https://github.com/makruger/website)
+Meanwhile, you can find the OpenIndiana Docs repository here: [https://github.com/makruger/website](https://github.com/makruger/website-2.0)
 
 The repository consists of 2 branches:
 
@@ -68,6 +66,6 @@ The gh-pages branch is used to publish the site to GitHub pages.
 
 ## Docs Site Publishing
 
-The OpenIndiana Docs website is at this time manually published by the site owner.
+At this time, the OpenIndiana Docs website is manually published by the site owner.
 Soon this will be fully automated using Travis-CI.
 
