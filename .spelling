@@ -42,6 +42,12 @@ Awestruct
  - docs/contrib/style.md
 OpenSolaris
 Openindiana
+Commonmark
+url's
+backtick
+CSS
+Spacelab
+Bootswatch
  - docs/contrib/theme.md
 Theming
 theming
@@ -676,6 +682,25 @@ http
 VMware
 e.g.
 DNS
+illumos
+Grisanzio's
+oi-dev-151x
+20GB
+4GB
+openindiana
+irc.freenode.net
+oi-dev
+Bootable
+Vim.org
+OSDISC.COM
+bootable
+Solaris
+1G
+2G
+ISCSI
+COMSTAR
+KVM
+SMF
  - docs/contrib/getting-started.md
 Github
 Centos
@@ -691,3 +716,34 @@ travis-ci
 _01
 E29008
 iscsi-1
+ - docs/misc/faq.md
+Microsystems
+Murdock
+XVM
+XEN
+illumos-kvm
+ABI
+DTrace
+FMA
+Multiprotocol
+Virtualized
+RBAC
+IPMP
+Multipathing
+DLMP
+bugfix
+openindiana.org
+localhostoih
+SPARC
+Glasgall
+oi-dev-151-a8
+Dilos
+OpenSCXE
+Tribblix
+CDDL-1
+ - docs/misc/pdl.md
+sublicense
+sublicensees
+sublicenses
+U.S.
+CFR
