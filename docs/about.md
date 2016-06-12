@@ -8,8 +8,6 @@ The purpose of this technology demonstration website is to examine the Mkdocs fr
 
 This website and its content uses a number of different technologies:
 
-Test content cause reasnos.
-
 * Page content written in the [Markdown](https://daringfireball.net/projects/markdown/) text markup language.
 * Text markup transformed to HTML using the [MkDocs](http://www.mkdocs.org/) documentation framework/static site generator.
 * Website styled using the [Bootstrap](http://getbootstrap.com/) CSS framework (more specifically the [Bootswatch](https://bootswatch.com/) Spacelab theme).
