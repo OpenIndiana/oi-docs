@@ -8,7 +8,7 @@ fi
 
 git config user.name "Travis Build"
 echo "Updating remotes..."
-git remote add deploy "https://$GH_TOKEN@github.com/shaggytwodope/website-2.0.git" || echo "Remote deploy already exists:"
+git remote add deploy "https://$GH_TOKEN@github.com/makruger/website-2.0.git" || echo "Remote deploy already exists:"
 git remote -v
 
 echo "Running mkdocs gh-deploy"
