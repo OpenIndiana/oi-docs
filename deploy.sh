@@ -6,6 +6,11 @@ if ! [[ "$TRAVIS_PULL_REQUEST" = "false" && "$TRAVIS_BRANCH" = "master" ]]; then
     exit 0
 fi
 
+if [ -z "$GH_TOKEN" ]; then
+    echo -e  "\$GH_TOKEN environment variable not set, or not repo owner."
+    exit 0
+fi
+
 git config user.name "Travis Build"
 echo "Updating remotes..."
 git remote add deploy "https://$GH_TOKEN@github.com/makruger/website-2.0.git" || echo "Remote deploy already exists:"
