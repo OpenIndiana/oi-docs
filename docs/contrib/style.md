@@ -154,9 +154,9 @@ For the purpose of syntax highlighting, you may also specify the programming lan
 
 ```markdown
 #!/bin/bash
-	if [ "foo" = "foo" ]; then
-		echo expression evaluated as true
-	fi
+  if [ "foo" = "foo" ]; then
+    echo expression evaluated as true
+  fi
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
@@ -164,10 +164,11 @@ For the purpose of syntax highlighting, you may also specify the programming lan
 
 ```bash
 #!/bin/bash
-	if [ "foo" = "foo" ]; then
-		echo expression evaluated as true
-	fi
+  if [ "foo" = "foo" ]; then
+    echo expression evaluated as true
+  fi
 ```
+
 </div>
 
 ### In-line HTML
