@@ -12,7 +12,7 @@ The process for contributing to OpenIndiana Docs is simple and follows the same 
 * Centos/RHEL: `yum install git`
 * Debian/Ubuntu: `apt-get install git`
 * Fedora: `dnf install git`
-* OpenIndiana `pkg install git`
+* OpenIndiana: `pkg install git`
 
 or see: <https://help.github.com/articles/set-up-git/>
 
@@ -22,7 +22,7 @@ or see: <https://help.github.com/articles/set-up-git/>
 * Centos/RHEL: `yum install python-pip`
 * Debian/Ubuntu: `apt-get install python-pip`
 * Fedora: `dnf install pythop-pip`
-* OpenIndiana `pkg install pip`
+* OpenIndiana: `pkg install pip`
 
 #### Install gem
 
@@ -30,7 +30,7 @@ or see: <https://help.github.com/articles/set-up-git/>
 * Centos/RHEL: `yum install rubygems`
 * Debian/Ubuntu `apt-get install rubgems-integration`
 * Fedora `dnf install rubygem-rails`
-* OpenIndiana - Installed by default as part of Ruby
+* OpenIndiana: Installed by default as part of Ruby
 
 #### Install npm
 
@@ -38,7 +38,7 @@ or see: <https://help.github.com/articles/set-up-git/>
 * Centos/RHEL: `yum install nodejs npm`
 * Debian/Ubuntu: `apt-get install npm`
 * Fedora: `dnf install npm`
-* OpenIndiana `pkg install nodejs`
+* OpenIndiana: `pkg install nodejs`
 
 #### Install MkDocs (mkdocs)
 
