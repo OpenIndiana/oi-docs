@@ -109,9 +109,9 @@ For example: `vim somefile.md`
 
 Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<!-- NOTE: --> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING: **
 <div class="well">
-Don't do any work on the gh-pages branch as it gets deleted each commit or merge to master.
+Don't perform any work on the gh-pages branch, as it gets deleted each commit or merge to master.
 </div>
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
