@@ -701,6 +701,8 @@ ISCSI
 COMSTAR
 KVM
 SMF
+1G.header
+2G.header
  - docs/contrib/getting-started.md
 Github
 Centos
