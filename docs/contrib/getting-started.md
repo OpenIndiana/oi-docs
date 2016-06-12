@@ -165,6 +165,5 @@ For example: `https://github.com/your-user-name/website-2.0`
 At this point someone with commit rights to the upstream repository will examine your changes.
 If no corrections are required, your changes will be accepted and merged into the upstream repository.
 
-Upon commit, the content reviewer will manually publish your changes to GitHub pages.
-In the future, publishing will be fully automated using Travis-CI.
+Upon commit, publishing occurs automatically using Travis-CI.
 

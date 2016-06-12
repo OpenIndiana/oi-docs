@@ -66,6 +66,5 @@ The gh-pages branch is used to publish the site to GitHub pages.
 
 ## Docs Site Publishing
 
-At this time, the OpenIndiana Docs website is manually published by the site owner.
-Soon this will be fully automated using Travis-CI.
+At this time, the OpenIndiana Docs website is automically published by using Travis-CI.
 
