@@ -116,7 +116,7 @@ website-2.0/
 └── TODO.md
 ```
 
-| Resource | Description 
+| Resource | Description
 | --- | ---
 | website-2.0/ | site root folder
 | deploy.sh | site deployment script
@@ -147,7 +147,7 @@ docs/
 └── notes/
 ```
 
-| Resource | Description 
+| Resource | Description
 | --- | ---
 | contrib/ | Contributor guidance docs
 | dev/ | Development oriented docs
