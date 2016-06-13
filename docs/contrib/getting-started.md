@@ -116,7 +116,7 @@ Don't perform any work on the gh-pages branch, as it gets deleted each commit or
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Major changes should be done on a seperate branch, appropriately named to reflect the changes being made.
+Major changes should be done on a separate branch, appropriately named to reflect the changes being made.
 </div>
 
 ## Visualize your changes using live preview
