@@ -12,6 +12,7 @@ license, unless stated otherwise in individual files.
 - [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope)
 - [Michael Kruger](https://github.com/makruger)
 - [Theodore Seán Tubbs](https://github.com/AdrianKoshka)
+- [/u/127b](https://www.reddit.com/user/127b)
 
 ## Depends
 

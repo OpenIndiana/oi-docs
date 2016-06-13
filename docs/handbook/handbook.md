@@ -559,7 +559,96 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 
 #### Manual Configuration (static IP)
 
-* How to configure a static IP, etc.
+
+```bash
+:~$ sudo svcadm disable physical:nwam
+```
+
+Define in your IP/hostname ```/etc/hosts```, if not already, an entry for this host. For example:
+
+```bash
+192.168.1.22 hostname hostname.local localhost loghost
+# Subsittude 192.168.1.22 for YOUR IP
+```
+
+Enable the default physical service with ```svcadm``` and configure the ```interface```:
+
+```bash
+:~$ sudo svcadm enable physical:default
+```
+
+Configure interface with ipadm:
+
+```bash
+:~$ sudo ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
+```
+
+If you do not know what the interface name is (bge0 in this case); then type in
+
+```bash
+:~$ dladm show-link
+```
+
+or:
+
+```bash
+:~$ kstat -c net | grep net
+
+# look for hme0, bge0, e1000g0 or soemthing that resembles the driver in use.
+```
+
+Add gateway
+
+```bash
+:~$ sudo route -p add default 192.168.1.121
+```
+
+or
+
+```bash
+:~$ sudo nano /etc/defaultrouter
+
+# Enter in your gateways IP
+```
+
+Set DNS server(s)
+
+```bash
+:~$ sudo nano /etc/resolv.conf
+# Enter in the DNS server IP(s)
+nameserver 192.168.1.121
+```
+
+or
+
+```bash
+
+:~$ sudo echo 'nameserver 192.168.1.121' >> /etc/resolv.conf
+
+```
+
+Set the workgroup
+
+```bash
+:~$ sudo smbadm join -w workgroupname
+```
+
+Restart
+
+```bash
+:~$ sudo reboot
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+IF you cannot ping an external IP (e.g. google.com) run this command and try again.
+</div>
+
+```bash
+:~$ sudo cp /etc/nsswitch.dns /etc/nsswitch.conf
+```
+
+credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b)
 
 #### Automatic Configuration (NWAM)
 
