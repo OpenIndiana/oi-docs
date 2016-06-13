@@ -18,6 +18,7 @@ Seán
 Tubbs
 TODO
 ShaggyTwoDope
+127b
  - docs/about.md
 MkDocs
 CSS
@@ -703,6 +704,10 @@ KVM
 SMF
 1G.header
 2G.header
+hostname
+ipadm
+bge0
+google.com
  - docs/contrib/getting-started.md
 Github
 Centos
@@ -714,6 +719,7 @@ rebase
 natively
 CTRL
 travis-ci
+gh-pages
  - docs/notes/topics.md
 _01
 E29008
