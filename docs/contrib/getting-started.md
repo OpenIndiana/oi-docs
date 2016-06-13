@@ -169,8 +169,17 @@ Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlightin
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Major changes should be done on a separate branch, appropriately named to reflect the changes being made.
+Major changes should be performed within a separate branch, appropriately named to reflect the changes being made.
 </div>
+
+For a list of subject to write about:
+
+* See the site TODO list.
+* Have a look at the site Github issues list.
+* See the [Topics](../notes/topics.md) for a list of suggestions.
+* Write a new tutorial, or complete a small section of the handbook, etc.
+* Consult with other doc team contributors for even more ideas.
+
 
 ## Visualize your changes using live preview
 
@@ -184,12 +193,18 @@ To shut down the live preview web server, use [CTRL] + [C].
 
 ## Running Markdown Lint (locally)
 
-To check your changes for spelling and syntax errors, you may wish to run Markdown Lint locally on your computer.
+Markdown Lint is used to check your changes for Markdown syntax errors.
+Prior to submitting a pull request (PR), please consider running Markdown Lint locally on your computer.
+
+From the root site folder (website-2.0) execute the following command:
 
 ```bash
-$ mdl -c markdownlint-rules.rb <somefile.md>
-Syntax OK
+mdl -s markdownlint-rules.rb .
 ```
+
+Markdown Lint will automatically traverse the entire folder structure looking for problems.
+Alternately you may also run `mdl` on a specific file.
+Simply replace the period (.) with the path to the file.
 
 
 ## Commit and push your changes.
