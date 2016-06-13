@@ -100,6 +100,63 @@ git checkout master
 git merge upstream/master
 ```
 
+## OpenIndiana Docs site structure (master branch)
+
+All site development occurs within the master branch.
+
+```markdown
+website-2.0/
+├── deploy.sh
+├── docs/
+├── link_validator.py
+├── markdownlint-rules.rb
+├── mkdocs.yml
+├── README.md
+├── site/
+└── TODO.md
+```
+
+| Resource | Description 
+| --- | ---
+| website-2.0/ | site root folder
+| deploy.sh | site deployment script
+| docs/ | documentation root folder
+| link_validator.py | URL validation script
+| markdownlint-rules.rb | Markdown Lint configuration
+| mkdocs.yml | Site and menu configuration
+| README.md | Git readme
+| site/ | Live preview folder (no edits)
+
+<!-- NOTE: --> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING:**
+<div class="well">
+
+* Please do **NOT** perform any work within the master branch site folder.
+    * This is a temporary folder created by MkDocs when the site is run locally in preview mode.
+* Also, please do **NOT** perform any work within the gh-pages branch.
+    * The gh-branch is destroyed and rebuild each time the site is deployed to GitHub pages.
+</div>
+
+```markdown
+docs/
+├── contrib/
+├── dev/
+├── favicon.ico
+├── handbook/
+├── index.md
+├── misc/
+└── notes/
+```
+
+| Resource | Description 
+| --- | ---
+| contrib/ | Contributor guidance docs
+| dev/ | Development oriented docs
+| favicon.ico | Site favicon icon
+| handbook/ | OpenIndiana handbook docs
+| index.md | Site front page
+| misc/ | Miscellaneous docs
+| notes | Doc team reference notes
+
 
 ## Make some changes.
 
@@ -109,10 +166,6 @@ For example: `vim somefile.md`
 
 Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
 
-<!-- NOTE: --> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING: **
-<div class="well">
-Don't perform any work on the gh-pages branch, as it gets deleted each commit or merge to master.
-</div>
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">

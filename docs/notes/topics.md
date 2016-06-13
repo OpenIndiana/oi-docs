@@ -1,29 +1,29 @@
-# Documentation Team Topics
+# Topics to write about
+
+The goal of this page is to provide a TODO list of things which need to be documented.
+Topics will be organized first by page and then by topic.
+
+The second level headers will indicate the page.
+Third level headers will indicate topics, etc.
+
+It might be easier to first populate this page with 3rd level subject headers and then later come back and assign pages.
+
+## Code of Conduct page
+
+### Helpful resources for writing this page
+
+[How to protect your open source project from poisonous people](https://www.youtube.com/watch?v=Q52kFL8zVoM) - Video
+[Assholes are ruining your project](http://www.slideshare.net/dberkholz/assholes-are-ruining-your-project) - Slideshare
 
 
-## Introduction
-
-This is just a short list of some suggested subjects to write about.
-Please don't limit yourself to this small list.
-Write about anything you want.
-Most importantly, write about what interests you or what you think may interest others.
-Look through the existing docs for TODO's and tackle one of them.
-Write some new TODO's.
-
-## Translations
-
-Consider helping to translate important documents and website pages.
-For example, the primary OpenIndiana.org site now has a translation menu which needs populating.
-
-
-## ABI support
+### ABI support
 
 * Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
     * For more details, see: [http://openindiana.org/pipermail/oi-dev/2014-December/003496.html](http://openindiana.org/pipermail/oi-dev/2014-December/003496.html)
     * We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
 
 
-## Installing OI onto an ISCSI exposed SCSI target
+### Installing OI onto an ISCSI exposed SCSI target
 
 A good tutorial might be to write about installing OpenIndiana Hipster on an ISCSI target.
 
@@ -37,7 +37,7 @@ A good tutorial might be to write about installing OpenIndiana Hipster on an ISC
 Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html](https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html)
 
 
-## Write some comparison tables
+### Write some comparison tables
 
 * Provide some contrast/comparisons between OI and other illumos distros.
 * Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
@@ -48,12 +48,12 @@ Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_0
     * Oracle might have some inspiration as well - (just don't copy it verbatim)
 
 
-## Write about Virtualization
+### Write about Virtualization
 
 * add a page about running OI as a virtual guest in Virtualbox, VMware, KVM, talk about which provides the best hardware support, guest tools compatibility, other caveats, etc.
 
 
-## Potentially Useful Documentation References
+### Potentially Useful Documentation References
 
 * [OpenSolaris Documentation Style Guide](https://web.archive.org/web/20081207155129/http://opensolaris.org/os/community/documentation/files/OSOLDOCSG.pdf) - [Internet Archive - PDF]
 * [docs from www.opensolaris.org](https://web.archive.org/web/20090823064740/http://www.opensolaris.org/os/community/documentation/) - [Internet Archive]
