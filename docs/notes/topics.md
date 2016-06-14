@@ -12,8 +12,22 @@ It might be easier to first populate this page with 3rd level subject headers an
 
 ### Helpful resources for writing this page
 
-[How to protect your open source project from poisonous people](https://www.youtube.com/watch?v=Q52kFL8zVoM) - Video
-[Assholes are ruining your project](http://www.slideshare.net/dberkholz/assholes-are-ruining-your-project) - Slideshare
+* [How to protect your open source project from poisonous people](https://www.youtube.com/watch?v=Q52kFL8zVoM) - Video
+* [Assholes are ruining your project](http://www.slideshare.net/dberkholz/assholes-are-ruining-your-project) - Slideshare
+
+Proposed rules:
+
+* No filibustering - <https://en.wikipedia.org/wiki/Filibuster>
+    * Filibustering occurs when someone replies to every post in a mailing list thread.
+    * Gives the impression there is more opposition to a new idea or concept than there really is.
+    * Monopolizes everyone's time, drains everyone's energy, and prevents decisions from moving forward.
+
+* How to prevent filibustering -
+    * Limit the number of replies in a thread.
+    * Ask the filibusterer to compose their thought and reply with a single response (no extended discussion allowed).
+
+* No open hostility.
+* No repeated rehashing of closed (decided) issues.
 
 
 ### ABI support
