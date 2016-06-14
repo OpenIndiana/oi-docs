@@ -1,6 +1,5 @@
 # Documentation Team Tools
 
-
 The OpenIndiana Docs website uses 2 principal technologies:
 
 * The MkDocs content authoring framework.
@@ -8,11 +7,17 @@ The OpenIndiana Docs website uses 2 principal technologies:
 
 Both technologies leverage the Python programming language.
 
+
 ## Why a Text Markup Based Docs Framework?
 
-The primary advantage of using a text markup language is readability and flexibility.
+The primary advantage of using a text markup language is:
+
+* Readability
+* Flexibility
+
 The raw code for your authored content is simple plain text.
-No need work with special tools such as WYSIWYG XML editors, etc.
+No need for special tools such as WYSIWYG XML editors, etc.
+
 
 ## What is MkDocs?
 
@@ -23,7 +28,7 @@ In conjunction with the MkDocs-Pandoc module, content may also be published in t
 Unlike a CMS system where you are restricted to the confines of an integral editor, the OpenIndiana Docs website has no such restriction.
 Here content is authored using a simple text based markup.
 Because you are working with plain text files, content may be authored using Atom, EMACS, Gedit, Nano, VIM, or any other text editor.
-The choice is yours; Use your favorite text editor.
+The choice is yours; Use your favorite editor.
 
 
 ## MkDocs System Characteristics
@@ -35,7 +40,6 @@ The choice is yours; Use your favorite text editor.
 
 ## MkDocs and Markdown Informational Links
 
-
 | URL | Description
 |---|---
 | <http://www.mkdocs.org/> | MkDocs Content Authoring Framework
@@ -46,9 +50,7 @@ The choice is yours; Use your favorite text editor.
 | <https://pages.github.com/> | Publish from your github repo
 
 
-
 ## The OpenIndiana Docs GitHub Repository
-
 
 As the OpenIndiana Docs website is still a proof of concept technology demonstration, its Github repository remains under the private control of the original author.
 If the concept is approved for inclusion under OpenIndiana GitHub organizational umbrella, then it will have an official repository.
@@ -66,5 +68,7 @@ The gh-pages branch is used to publish the site to GitHub pages.
 
 ## Docs Site Publishing
 
-At this time, the OpenIndiana Docs website is automatically published by using Travis-CI.
+Following the best practices of continuous integration, the OpenIndiana Docs website is fully automated using Travis-CI.
+Upon a commit to the site GitHub repository, Travis-CI immediately performs a series of validation tests.
+If the validation tests pass, then the website is automatically published to Github Pages.
 

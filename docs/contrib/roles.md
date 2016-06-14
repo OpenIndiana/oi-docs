@@ -52,15 +52,7 @@ Helpful skills include diplomacy, good organizational abilities, as well as a kn
 Upon receipt of a pull request, the content reviewer performs the following steps:
 
 * Determines whether the changes are suitable as they are or require additional modifications (providing feedback to the originator as necessary).
-* If changes are extensive or involve inline html, the content reviewer may clone your repository to perform QA testing.
+* If changes are extensive or involve inline html, the content reviewer may check out your pull request (PR) to perform QA testing.
 * QA testing is performed by running MkDocs in development mode.
 * Upon acceptance, merges the pull request into the mainline branch.
-* Using the Mkdocs framework, manually publishes the changes to the live website.
-
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-At this time the content reviewer manually publishes approved changes.
-In the future this will be fully automated using Travis-ci, where merging changes will trigger a deployment of the website and all of it's contents.
-</div>
-
-
+* Upon merge, the site is automatically published via Travis-CI.
