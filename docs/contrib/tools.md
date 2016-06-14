@@ -1,12 +1,26 @@
 # Documentation Team Tools
 
-The OpenIndiana Docs website uses 2 principal technologies:
+The OpenIndiana Docs website uses 2 principal technologies and several ancillary technologies:
+
+#### Pricipal technologies:
 
 * The MkDocs content authoring framework.
 * The Markdown text markup language.
 
 Both technologies leverage the Python programming language.
 
+#### Ancillary techologies:
+ 
+ * GitHub - GIT repository hosting
+ * GitHub Pages - Website publishing from a GitHub repository
+ * GIT - Distributed version control
+ * Travis-CI - Continuous Integration toolset
+
+## Why use GIT distributed version control for docs?
+
+* Integrity - You can roll back to previous versions
+* Mobility - You can edit docs anywhere, no Internet connection required
+* Consistency - Docs are treated just like code
 
 ## Why a Text Markup Based Docs Framework?
 
