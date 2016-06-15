@@ -232,7 +232,7 @@ or if you would like a more permanent solution, you can enable spell checking in
 to your ``.vimrc``
 
 
-Misspelled words will now be highlighted (colour varies dependent on your .Xresources file)
+Misspelled words will now be highlighted (color varies dependent on your .Xresources file)
 
 ### Keyboard shortcuts for spell checking in ``vim``
 
