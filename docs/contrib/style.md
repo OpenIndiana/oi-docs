@@ -13,7 +13,7 @@ Until then, you may find the following resource helpful:
 
 ## Style recommendations
 
-* Document titles - Fist letter of each work capitalized.
-* Sectional titles - First letter of first work capitalized.
-* One (1) space between sectional title and beginning of text.
+* Document titles - First letter of each word capitalized.
+* Sectional titles - First letter of first word capitalized.
+* One (1) space between sectional titles and beginning of text.
 * Two spaces after last line of text and beginning of next sectional title.
