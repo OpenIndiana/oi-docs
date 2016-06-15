@@ -257,7 +257,7 @@ In many of the examples on this page, Font Awesome icons were employed.
 For further information about how to use Font Awesome web icons, see here: <http://fontawesome.io/>
 
 
-### Further reading 
+### Further reading
 
 * [The Commonmark Markdown Standard](http://spec.commonmark.org/0.25/)
 * [Rules for mdl (Markdown Linter)](https://github.com/mivok/markdownlint/blob/master/docs/RULES.md)
