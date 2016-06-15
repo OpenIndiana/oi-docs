@@ -212,7 +212,7 @@ Markdown spell check or ``mdspell`` is used to check for spelling errors.
 Prior to submitting a PR, please consider running ``mdspell`` locally on your computer.
 
 ```bash
-$ mdspell --en-us -x -n -ran "**/*.md"
+mdspell --en-us -x -n -ran "**/*.md"
 ```
 
 ``mdspell`` will automatically crawl the entire folder structure looking for spelling mistakes.
