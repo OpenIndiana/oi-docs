@@ -206,6 +206,42 @@ Markdown Lint will automatically traverse the entire folder structure looking fo
 Alternately you may also run `mdl` on a specific file.
 Simply replace the period (.) with the path to the file.
 
+## Running Markdown spell check (locally)
+
+Markdown spell check or ``mdspell`` is used to check for spelling errors.
+Prior to submitting a PR, please consider running ``mdspell`` locally on your computer.
+
+```bash
+$ mdspell --en-us -x -n -ran "**/*.md"
+```
+
+``mdspell`` will automatically crawl the entire folder structure looking for spelling mistakes.
+Alternatively you may also run ``mdspell`` on a specific file. Simply replace ``"**/*.md"`` with the path to the file.
+
+## Enabling spell checking in ``vim``
+
+You can invoke spell checking in your current session by inputting the command:
+
+```:set spell spelllang=en_us```
+
+or if you would like a more permanent solution, you can enable spell checking in you ``.vimrc`` by adding the line:
+
+```set spelllang=en_us```
+
+
+to your ``.vimrc``
+
+
+Misspelled words will now be highlighted (colour varies dependent on your .Xresources file)
+
+### Keyboard shortcuts for spell checking in ``vim``
+
+* ``]s`` to find the previously misspelled word.
+* ``[s`` to find the next misspelled word.
+* with the cursor at the beginning of a word use ``zg`` to bring up a list of suggested replacements.
+* ``zg`` will add a word to the local dictionary exception file.
+* ``zw`` to mark a word as incorrect.
+
 
 ## Commit and push your changes.
 
