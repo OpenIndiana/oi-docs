@@ -1,5 +1,6 @@
 site_name: OpenIndiana Docs (Demo 2.0)
 site_favicon: favicon.ico
+repo_url: https://github.com/makruger/website-2.0
 theme: spacelab
 extra:
         theme_inverse: true
@@ -12,12 +13,12 @@ pages:
         - 'Getting Started': contrib/getting-started.md
         - 'Doc Team Tools' : contrib/tools.md
         - 'Doc Team Roles': contrib/roles.md
+        - 'Markdown Syntax Guide': contrib/markdown.md
         - 'Doc Team Style Guide': contrib/style.md
 - Docs:
         - 'OpenIndiana FAQ': misc/faq.md
         - 'OpenIndiana Handbook': handbook/handbook.md
-        - Misc:
-                - 'Code of Conduct': misc/conduct.md
+        - 'Code of Conduct': misc/conduct.md
         - Dev:
                 - 'Building oi-userland': dev/userland.md
 - Notes:
@@ -29,3 +30,9 @@ pages:
         - 'Building a Document Management Toolchain using Sphinx': notes/sphinx.md
         - 'Continuous Integration Content Management': notes/toolchain.md
         - 'Topics to write about': notes/topics.md 
+
+markdown_extensions:
+        - admonition:
+
+copyright: Copyright &copy; 2016 <a href="http://www.openindiana.org">The OpenIndiana Docs Team</a>
+
