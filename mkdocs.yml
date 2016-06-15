@@ -19,6 +19,13 @@ pages:
         - 'OpenIndiana FAQ': misc/faq.md
         - 'OpenIndiana Handbook': handbook/handbook.md
         - 'Code of Conduct': misc/conduct.md
+        - Books:
+                - 'OSOL Books': books/index.md
+                - 'Basic Administration': books/basic.md
+                - 'Advanced Administration': books/advanced.md
+                - 'Solaris Express Administration': books/express.md
+                - 'Trusted Extensions Administration': books/trusted.md
+                - 'Development Titles': books/develop.md
         - Dev:
                 - 'Building oi-userland': dev/userland.md
 - Notes:
