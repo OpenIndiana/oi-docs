@@ -238,9 +238,9 @@ Misspelled words will now be highlighted (color varies dependent on your .Xresou
 
 * ``]s`` to find the previously misspelled word.
 * ``[s`` to find the next misspelled word.
-* with the cursor at the beginning of a word use ``zg`` to bring up a list of suggested replacements.
+* With the cursor at the beginning of a word, use ``z=`` to bring up a list of suggested replacements.
 * ``zg`` will add a word to the local dictionary exception file.
-* ``zw`` to mark a word as incorrect.
+* ``zw`` is used to mark a word as incorrect.
 
 
 ## Commit and push your changes.
