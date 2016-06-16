@@ -2,6 +2,7 @@ site_name: OpenIndiana Docs (Demo 2.0)
 site_favicon: favicon.ico
 repo_url: https://github.com/makruger/website-2.0
 theme: spacelab
+google_analytics: ['UA-77447740-2', 'auto']
 extra:
         theme_inverse: true
 pages:
