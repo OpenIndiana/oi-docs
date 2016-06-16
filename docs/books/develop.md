@@ -1,22 +1,7 @@
-
-// vim: set syntax=asciidoc:
-
-// Start of document parameters
-
-:toc: macro
-:icons: font
-:linkattrs:
-:awestruct-layout: asciidoctor
-
-// End of document parameters
-
-== Development
+# Development
 
 
-toc::[levels=2]
-
-
-=== Solaris Dynamic Tracing Guide
+## Solaris Dynamic Tracing Guide
 
 [cols="1,4"]
 |===
@@ -68,7 +53,7 @@ Updated by the illumos project, you can find the revised version here:
 http://dtrace.org/guide/preface.html[Dynamic Tracing Guide, role="external", window="_blank"]
 
 
-=== Solaris Modular Debugger Guide
+## Solaris Modular Debugger Guide
 
 [cols="1,4"]
 |===
@@ -105,7 +90,7 @@ Updated by the illumos project, you can find the revised version here:
 https://illumos.org/content/mdb/preface.html[Modular Debugger Guide, role="external", window="_blank"]
 
 
-=== Device Driver Tutorial
+## Device Driver Tutorial
 
 [cols="1,4"]
 |===
@@ -142,7 +127,7 @@ a| To write device drivers for the Solaris OS, you should have the following bac
 - Be familiar with a UNIX® shell
 - Understand the basics of UNIX system and I/O architecture
 
-The most important information you need to have to write a device driver are the characteristics of the device. 
+The most important information you need to have to write a device driver are the characteristics of the device.
 Get a detailed specification for the device you want to drive.
 
 Experience with Solaris OS compilers, debuggers, and other tools will be very helpful to you.
@@ -151,7 +136,7 @@ These topics are discussed in this tutorial.
 |===
 
 
-=== Writing Device Drivers
+## Writing Device Drivers
 
 [cols="1,4"]
 |===
@@ -201,7 +186,7 @@ Updated by the illumos project, you can find the revised version here:
 https://illumos.org/content/wdd/preface.html[Writing Device Drivers, role="external", window="_blank"]
 
 
-=== Application Packaging Developer's Guide
+## Application Packaging Developer's Guide
 
 [cols="1,4"]
 |===
@@ -225,7 +210,7 @@ Though much of the book is directed towards novice package developers, it also c
 |===
 
 
-=== OpenSolaris Distribution Constructor Guide
+## OpenSolaris Distribution Constructor Guide
 
 [cols="1,4"]
 |===
@@ -247,7 +232,7 @@ Though much of the book is directed towards novice package developers, it also c
 |===
 
 
-=== Memory and Thread Placement Optimization Developer's Guide
+## Memory and Thread Placement Optimization Developer's Guide
 
 [cols="1,4"]
 |===
@@ -271,11 +256,11 @@ The programming interfaces and tools that are described in this book give the de
 
 [NOTE]
 This title is available in a more recent version.
-Updated by the illumos project, you can find the revised version here: 
+Updated by the illumos project, you can find the revised version here:
 https://illumos.org/content/lgrps/preface.html[Memory and Thread Placement Optimization Developer's Guide, role="external", window="_blank"]
 
 
-=== Solaris Containers: Resource Management and Solaris Zones Developer's Guide
+## Solaris Containers: Resource Management and Solaris Zones Developer's Guide
 
 [cols="1,4"]
 |===
@@ -298,7 +283,7 @@ This book provides programming examples and a discussion of programming issues t
 |===
 
 
-=== Solaris Trusted Extensions Developer's Guide
+## Solaris Trusted Extensions Developer's Guide
 
 [cols="1,4"]
 |===

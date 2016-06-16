@@ -1,22 +1,7 @@
-
-// vim: set syntax=asciidoc:
-
-// Start of document parameters
-
-:toc: macro
-:icons: font
-:linkattrs:
-:awestruct-layout: asciidoctor
-
-// End of document parameters
-
-== Basic Systems Administration
+# Basic Systems Administration
 
 
-toc::[level=2]
-
-
-=== Getting Started with OpenSolaris
+## Getting Started with OpenSolaris
 
 [cols="1,4"]
 |===
@@ -39,12 +24,12 @@ This guide is intended to help you install and set up the free binary distributi
 |===
 
 
-=== System Administration Guide: Basic Administration
+## System Administration Guide: Basic Administration
 
 [cols="1,4"]
 |===
 
-| Document Link 
+| Document Link
 | link:./content/SYSADV1/html/sysadv1.html[System Administration Guide: Basic Administration, role="external", window="_blank"]
 
 | Topics

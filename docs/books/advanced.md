@@ -1,22 +1,8 @@
-
-// vim: set syntax=asciidoc:
-
-// Start of document parameters
-
-:toc: macro
-:icons: font
-:linkattrs:
-:awestruct-layout: asciidoctor
-
-// End of document parameters
-
-== Intermediate & Advanced Systems Administration
+# Intermediate & Advanced Systems Administration
 
 
-toc::[levels=2]
 
-
-=== OpenSolaris Managing Boot Environments
+## OpenSolaris Managing Boot Environments
 
 [cols="1,4"]
 |===
@@ -42,7 +28,7 @@ Use the beadm(1M) utility or the Package Manager to administer additional boot e
 |===
 
 
-=== OpenSolaris 2009.06 Image Packaging System Guide
+## OpenSolaris 2009.06 Image Packaging System Guide
 
 [cols="1,4"]
 |===
@@ -85,7 +71,7 @@ With the IPS publication tools, developers can perform the following:
 |===
 
 
-=== Solaris CIFS Administration Guide
+## Solaris CIFS Administration Guide
 
 [cols="1,4"]
 |===
@@ -113,7 +99,7 @@ The Solaris CIFS client chapter also includes tasks to be performed by a system 
 |===
 
 
-=== Solaris ZFS Administration Guide
+## Solaris ZFS Administration Guide
 
 [cols="1,4"]
 |===
@@ -143,7 +129,7 @@ a| - ZFS storage pool and file system creation and management
 |===
 
 
-=== OpenSolaris Automated Installer Guide
+## OpenSolaris Automated Installer Guide
 
 [cols="1,4"]
 |===
@@ -166,7 +152,7 @@ The automated installer performs essentially “hands-free” network installati
 |===
 
 
-=== System Administration Guide: Advanced Administration
+## System Administration Guide: Advanced Administration
 
 [cols="1,4"]
 |===
@@ -194,7 +180,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== System Administration Guide: Devices and File Systems
+== System Administration Guide: Devices and File Systems
 
 [cols="1,4"]
 |===
@@ -221,7 +207,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== System Administration Guide: IP Services
+## System Administration Guide: IP Services
 
 [cols="1,4"]
 |===
@@ -254,7 +240,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== System Administration Guide: Network Services
+## System Administration Guide: Network Services
 
 [cols="1,4"]
 |===
@@ -283,7 +269,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)
+## System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)
 
 [cols="1,4"]
 |===
@@ -308,7 +294,7 @@ To use this book, you should have a firm understanding of UNIX® networking and 
 |===
 
 
-=== System Administration Guide: Solaris Printing
+## System Administration Guide: Solaris Printing
 
 [cols="1,4"]
 |===
@@ -334,7 +320,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== System Administration Guide: Security Services
+## System Administration Guide: Security Services
 
 [cols="1,4"]
 |===
@@ -367,7 +353,7 @@ Attending training courses in UNIX system administration might be helpful.
 |===
 
 
-=== System Administration Guide: Virtualization Using the Solaris Operating System
+## System Administration Guide: Virtualization Using the Solaris Operating System
 
 [cols="1,4"]
 |===
@@ -392,7 +378,7 @@ To use this book, you should have at least one to two years of UNIX® system adm
 |===
 
 
-=== Solaris Volume Manager Administration Guide
+## Solaris Volume Manager Administration Guide
 
 [cols="1,4"]
 |===
@@ -421,7 +407,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Tunable Parameters Reference Manual
+## Solaris Tunable Parameters Reference Manual
 
 [cols="1,4"]
 |===

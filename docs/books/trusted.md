@@ -1,22 +1,7 @@
-
-// vim: set syntax=asciidoc:
-
-// Start of document parameters
-
-:toc: macro
-:icons: font
-:linkattrs:
-:awestruct-layout: asciidoctor
-
-// End of document parameters
-
-== Trusted Extensions Systems Administration
+# Trusted Extensions Systems Administration
 
 
-toc::[levels=2]
-
-
-=== Solaris Trusted Extensions Installation and Configuration
+## Solaris Trusted Extensions Installation and Configuration
 
 [cols="1,4"]
 |===
@@ -42,12 +27,12 @@ This book is for knowledgeable system administrators and security administrators
 The level of trust that is required by your site security policy, and your level of expertise, determines who can perform the configuration tasks.
 
 |Requirements
-|Successfully configuring Trusted Extensions on a system in a way that is consistent with site security requires understanding the security features of Trusted Extensions and your site security policy. 
+|Successfully configuring Trusted Extensions on a system in a way that is consistent with site security requires understanding the security features of Trusted Extensions and your site security policy.
 Before you install the Solaris Trusted Extensions packages, read _Chapter 1, Security Planning for Trusted Extensions_ for information about how to ensure site security when configuring the software.
 |===
 
 
-=== Solaris Trusted Extensions User's Guide
+## Solaris Trusted Extensions User's Guide
 
 [cols="1,4"]
 |===
@@ -81,7 +66,7 @@ You must also be familiar with the security policy of your organization.
 |===
 
 
-=== Solaris Trusted Extensions Administrator's Procedures
+## Solaris Trusted Extensions Administrator's Procedures
 
 [cols="1,4"]
 |===
@@ -118,7 +103,7 @@ In addition, administrators should understand the following:
 |===
 
 
-=== Solaris Trusted Extensions Label Administration
+## Solaris Trusted Extensions Label Administration
 
 [cols="1,4"]
 |===
@@ -147,11 +132,11 @@ This book is for definers and implementers.
 
 | Requirements
 | The security administrator who implements the labels should be familiar with Solaris administration.
-The necessary level of knowledge can be acquired through training and documentation. 
+The necessary level of knowledge can be acquired through training and documentation.
 |===
 
 
-=== Solaris Trusted Extensions Transition Guide
+## Solaris Trusted Extensions Transition Guide
 
 [cols="1,4"]
 |===

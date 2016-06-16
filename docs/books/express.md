@@ -1,22 +1,7 @@
-
-// vim: set syntax=asciidoc:
-
-// Start of document parameters
-
-:toc: macro
-:icons: font
-:linkattrs:
-:awestruct-layout: asciidoctor
-
-// End of document parameters
-
-== Solaris Express Systems Administration
+# Solaris Express Systems Administration
 
 
-toc::[levels=2]
-
-
-=== Solaris Express Developer Edition What's New
+## Solaris Express Developer Edition What's New
 
 [cols="1,4"]
 |===
@@ -39,7 +24,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Developer Edition Release Notes
+## Solaris Express Developer Edition Release Notes
 
 [cols="1,4"]
 |===
@@ -63,7 +48,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Installation Guide: Planning for Installation and Upgrade
+## Solaris Express Installation Guide: Planning for Installation and Upgrade
 
 [cols="1,4"]
 |===
@@ -94,7 +79,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Installation Guide: Basic Installations
+## Solaris Express Installation Guide: Basic Installations
 
 [cols="1,4"]
 |===
@@ -120,7 +105,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Developer Edition Installation Guide: Laptop Installations
+## Solaris Express Developer Edition Installation Guide: Laptop Installations
 
 [cols="1,4"]
 |===
@@ -143,7 +128,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Installation Guide: Network-Based Installations
+## Solaris Express Installation Guide: Network-Based Installations
 
 [cols="1,4"]
 |===
@@ -169,7 +154,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Installation Guide: Solaris Flash Archives (Creation and Installation)
+## Solaris Express Installation Guide: Solaris Flash Archives (Creation and Installation)
 
 [cols="1,4"]
 |===
@@ -195,7 +180,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Installation Guide: Solaris Live Upgrade and Upgrade Planning
+## Solaris Express Installation Guide: Solaris Live Upgrade and Upgrade Planning
 
 [cols="1,4"]
 |===
@@ -224,7 +209,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Installation Guide: Custom JumpStart and Advanced Installations
+## Solaris Express Installation Guide: Custom JumpStart and Advanced Installations
 
 [cols="1,4"]
 |===
@@ -254,7 +239,7 @@ Attending UNIX system administration training courses might be helpful.
 |===
 
 
-=== Solaris Express Package List
+## Solaris Express Package List
 
 [cols="1,4"]
 |===
