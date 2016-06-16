@@ -623,7 +623,7 @@ or
 
 ```bash
 
-:~$ sudo echo 'nameserver 192.168.1.121' >> /etc/resolv.conf
+:~$ sudo sh -c 'echo "nameserver 192.168.1.121" >> /etc/resolv.conf'
 
 ```
 
