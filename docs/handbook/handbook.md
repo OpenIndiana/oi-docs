@@ -627,12 +627,6 @@ or
 
 ```
 
-Set the workgroup
-
-```bash
-:~$ sudo smbadm join -w workgroupname
-```
-
 Restart
 
 ```bash
