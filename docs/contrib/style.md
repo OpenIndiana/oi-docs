@@ -17,4 +17,4 @@ Until then, you may find the following resource helpful:
 * Sectional titles - First letter of first word capitalized.
 * One (1) space between sectional titles and beginning of text.
 * Two spaces after last line of text and beginning of next sectional title.
-* One sentence per line (the only exception to this is where you need multiple sentenances to fit into a single table cell).
+* One sentence per line (the only exception to this is where you need multiple sentences to fit into a single table cell).
