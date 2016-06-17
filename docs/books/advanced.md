@@ -36,119 +36,53 @@
 
 ## Solaris ZFS Administration Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/ZFSADMIN/html/zfsadmin.html[Solaris ZFS Administration Guide, role="external", window="_blank"]
-
-| Topics
-a| - ZFS storage pool and file system creation and management
-- Snapshots
-- Clones
-- Backups
-- Using access control lists (ACLs) to protect ZFS files
-- Using ZFS on a Solaris system with zones installed
-- Emulated volumes
-- Troubleshooting
-- Data recovery
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| This guide is intended for anyone who is interested in setting up and managing Solaris ZFS file systems.
-
-| Requirements
-| Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
-|===
+| Item | Details
+| --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/ZFSADMIN/html/zfsadmin.html" target="_blank">Solaris ZFS Administration Guide</a>
+| Topics | <ul><li>ZFS storage pool and file system creation and management</li><li>Snapshots</li><li>Clones</li><li>Backups</li><li>Using access control lists (ACLs) to protect ZFS files</li><li>Using ZFS on a Solaris system with zones installed</li><li>Emulated volumes</li><li>Troubleshooting</li><li>Data recovery
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | This guide is intended for anyone who is interested in setting up and managing Solaris ZFS file systems.
+| Requirements | Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
 
 
 ## OpenSolaris Automated Installer Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/AIinstall/html/solarisinstall.html[OpenSolaris Automated Installer Guide, role="external", window="_blank"]
-
-| Topics
-| If you want to install the OpenSolaris operating system (OS) on multiple client systems on a network, you can use the automated installer (AI) to accomplish that task.
-The automated installer performs essentially “hands-free” network installations of the OpenSolaris OS.
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.
-
-| Requirements
-| Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
-|===
+| Item | Details
+| --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/AIinstall/html/solarisinstall.html" target="_blank">OpenSolaris Automated Installer Guide</a>
+| Topics | If you want to install the OpenSolaris operating system (OS) on multiple client systems on a network, you can use the automated installer (AI) to accomplish that task. The automated installer performs essentially “hands-free” network installations of the OpenSolaris OS.
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.
+| Requirements | Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
 
 
 ## System Administration Guide: Advanced Administration
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/SYSADV2/html/sysadv2.html[System Administration Guide: Advanced Administration, role="external", window="_blank"]
-
-| Topics
-a| - Terminals and modems
-- System resources (disk quotas, accounting, and crontabs)
-- System processes
-- Troubleshooting Solaris software problems
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.
-
-| Requirements
-| This book assumes that you have installed the SunOS™ Solaris Operating System.
-It also assumes that you have set up any networking software that you plan to use.
-To use this book, you should have 1-2 years of UNIX® system administration experience.
-Attending UNIX system administration training courses might be helpful.
-|===
+| Item | Details
+| --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV2/html/sysadv2.html" target="_blank">System Administration Guide: Advanced Administration</a>
+| Topics | <ul><li>Terminals and modems</li><li>System resources (disk quotas, accounting, and crontabs)</li><li>System processes</li><li>Troubleshooting Solaris software problems
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.
+| Requirements | This book assumes that you have installed the SunOS™ Solaris Operating System. It also assumes that you have set up any networking software that you plan to use. To use this book, you should have 1-2 years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.
 
 
-== System Administration Guide: Devices and File Systems
+## System Administration Guide: Devices and File Systems
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/SAGDFS/html/sagdfs.html[System Administration Guide: Devices and File Systems, role="external", window="_blank"]
-
-| Topics
-a| - Removable media
-- Disks and devices
-- File systems
-- Backing up and restoring data
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| This book is intended for anyone responsible for administering one or more systems running the Solaris release.
-
-| Requirements
-| This book assumes you have installed the SunOS 5.11 Operating System and set up all the networking software that you plan to use.
-To use this book, you should have 1–2 years of UNIX® system administration experience.
-Attending UNIX system administration training courses might be helpful.
-|===
+| Item | Details
+| --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/SAGDFS/html/sagdfs.html" target="_blank">System Administration Guide: Devices and File Systems</a>
+| Topics | <ul><li>Disks and devices</li><li>File systems</li><li>Backing up and restoring data
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | This book is intended for anyone responsible for administering one or more systems running the Solaris release.
+| Requirements | This book assumes you have installed the SunOS 5.11 Operating System and set up all the networking software that you plan to use. To use this book, you should have 1–2 years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.
 
 
 ## System Administration Guide: IP Services
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/SYSADV3/html/sysadv3.html[System Administration Guide: IP Services, role="external", window="_blank"]
+| Item | Details
+| --- | ---
+| Document Link | /SYSADV3/html/sysadv3.html[System Administration Guide: IP Services, role="external", window="_blank"]
 
 | Topics
 a| - TCP/IP network administration
@@ -172,16 +106,13 @@ a| - TCP/IP network administration
 You should be ready to configure your network or ready to configure any networking software that is required on your network.
 To use this book, you should have at least two years of UNIX® system administration experience.
 Attending UNIX system administration training courses might be helpful.
-|===
 
 
 ## System Administration Guide: Network Services
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/SYSADV4/html/sysadv4.html[System Administration Guide: Network Services, role="external", window="_blank"]
+| Item | Details
+| --- | ---
+| Document Link | /SYSADV4/html/sysadv4.html[System Administration Guide: Network Services, role="external", window="_blank"]
 
 | Topics
 a| - Web cache servers
@@ -201,14 +132,12 @@ a| - Web cache servers
 | This book assumes that you have already installed the SunOS™ 5.10 operating system, and you have set up any networking software that you plan to use.
 To use this book, you should have one to two years of UNIX® system administration experience.
 Attending UNIX system administration training courses might be helpful.
-|===
 
 
 ## System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)
 
-[cols="1,4"]
-|===
-
+| Item | Details
+| --- | ---
 | Document Link
 | link:./content/SYSADV5/html/sysadv5.html["System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)", role="external", window="_blank"]
 
@@ -226,14 +155,12 @@ a| - DNS
 | Requirements
 | Although this book introduces networking concepts relevant to Solaris naming and directory services, it explains neither the networking fundamentals nor the administration tools in the Solaris OS.
 To use this book, you should have a firm understanding of UNIX® networking and systems administration fundamentals.
-|===
 
 
 ## System Administration Guide: Solaris Printing
 
-[cols="1,4"]
-|===
-
+| Item | Details
+| --- | ---
 | Document Link
 | link:./content/SYSADPRTSVCS/html/sysadprtsvcs.html[System Administration Guide: Solaris Printing, role="external", window="_blank"]
 
@@ -252,14 +179,12 @@ a| - Solaris printing topics and tasks
 It also assumes that you have set up any networking software that you plan to use.
 To use this book, you should have 1-2 years of UNIX® system administration experience.
 Attending UNIX system administration training courses might be helpful.
-|===
 
 
 ## System Administration Guide: Security Services
 
-[cols="1,4"]
-|===
-
+| Item | Details
+| --- | ---
 | Document Link
 | link:./content/SYSADV6/html/sysadv6.html[System Administration Guide: Security Services, role="external", window="_blank"]
 
@@ -285,14 +210,12 @@ a| - Auditing
 | Requirements
 | To use this book, you should have more than two years of UNIX® system administration experience.
 Attending training courses in UNIX system administration might be helpful.
-|===
 
 
 ## System Administration Guide: Virtualization Using the Solaris Operating System
 
-[cols="1,4"]
-|===
-
+| Item | Details
+| --- | ---
 | Document Link
 | link:./content/SYSADRM/html/sysadrm.html[System Administration Guide: Virtualization Using the Solaris Operating System, role="external", window="_blank"]
 
@@ -310,14 +233,12 @@ a| - Resource management features, which enable you to control how applications 
 | Requirements
 | This book assumes that you have already installed the operating system and set up any networking software that you plan to use.
 To use this book, you should have at least one to two years of UNIX® system administration experience.
-|===
 
 
 ## Solaris Volume Manager Administration Guide
 
-[cols="1,4"]
-|===
-
+| Item | Details
+| --- | ---
 | Document Link
 | link:./content/LOGVOLMGRADMIN/html/logvolmgradmin.html[Solaris Volume Manager Administration Guide, role="external", window="_blank"]
 
@@ -339,14 +260,12 @@ a| System and storage administrators can use this book to identify:
 It also assumes that you have set up any networking software that you plan to use.
 To use this book, you should have 1-2 years of UNIX® system administration experience.
 Attending UNIX system administration training courses might be helpful.
-|===
 
 
 ## Solaris Tunable Parameters Reference Manual
 
-[cols="1,4"]
-|===
-
+| Item | Details
+| --- | ---
 | Document Link
 | link:./content/SOLTUNEPARAMREF/html/soltuneparamref.html[Solaris Tunable Parameters Reference Manual, role="external", window="_blank"]
 
@@ -363,5 +282,4 @@ This manual does not provide tunable parameter information about the CDE, GNOME,
 | Requirements
 | To use this book, you should have more than two years of UNIX® system administration experience.
 Attending training courses in UNIX system administration might be helpful.
-|===
 
