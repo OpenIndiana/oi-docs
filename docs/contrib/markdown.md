@@ -48,6 +48,7 @@ The more hashes added, the smaller the header will be, for example.
 ## Second level header
 
 ### Tertiary level header
+
 </div>
 
 
@@ -235,6 +236,31 @@ Comments are primarily for internal use by members of the OpenIndiana documentat
 
 ### In-line HTML - Advanced
 
+
+#### Using HTML within Markdown tables
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+| Item | Description
+| --- | ---
+| Item 1 | This is a single line description
+| Item 2 | This is a multi line description with an unordered list:<ul><li>First item</li><li>Second item</li></ul>Lets add another paragraph to that.</p> And here it is.
+| Item 3 | We can also use multiple sentences within tables. Here is the second sentence. And here is a third.
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+| Item | Description
+| --- | ---
+| Item 1 | This is a single line description
+| Item 2 | This is a multi line description with an unordered list:<ul><li>First item</li><li>Second item</li></ul>Lets add another paragraph to that.</p> And here it is.
+| Item 3 | We can also use multiple sentences within tables. Here is the second sentence. And here is a third.
+
+</div>
+
+
 #### Bootstrap elements
 
 The OpenIndiana Docs website uses a CSS theme derived from Bootstrap.
@@ -255,28 +281,6 @@ Font Awesome is a collection of web icons which may be used within the MkDocs fr
 In many of the examples on this page, Font Awesome icons were employed.
 
 For further information about how to use Font Awesome web icons, see here: <http://fontawesome.io/>
-
-
-#### Using HTML within Markdown tables
-
-**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
-
-```markdown
-| Item | Description
-| --- | ---
-| Item 1 | This is a single line description
-| Item 2 | This is a multiline description with list items:<ul><li>List item 1</li><li>List item 2</li></ul>Lets add another paragraph too!</p> And here it is.
-| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well.
-```
-
-**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
-| Item | Description
-| --- | ---
-| Item 1 | This is a single line description
-| Item 2 | This is a multiline description with list items:<ul><li>List item 1</li><li>List item 2</li></ul>Lets add another paragraph too!</p> And here it is.
-| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well.
-</div>
 
 
 ### Further reading
