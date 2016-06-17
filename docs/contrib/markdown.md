@@ -257,6 +257,28 @@ In many of the examples on this page, Font Awesome icons were employed.
 For further information about how to use Font Awesome web icons, see here: <http://fontawesome.io/>
 
 
+#### Using HTML within Markdown tables
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+| Item | Description
+| --- | ---
+| Item 1 | This is a single line description
+| Item 2 | This is a multiline description with list items:<ul><li>List item 1</li><li>List item 2</li></ul>Lets add another paragraph too!</p> And here it is.
+| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well. 
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+| Item | Description
+| --- | ---
+| Item 1 | This is a single line description
+| Item 2 | This is a multiline description with list items:<ul><li>List item 1</li><li>List item 2</li></ul>Lets add another paragraph too!</p> And here it is.
+| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well. 
+</div>
+
+
 ### Further reading
 
 * [The Commonmark Markdown Standard](http://spec.commonmark.org/0.25/)
