@@ -1,102 +1,37 @@
 # Intermediate & Advanced Systems Administration
 
 
-
 ## OpenSolaris Managing Boot Environments
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/snapupgrade/html/solarisinstall.html[OpenSolaris Managing Boot Environments, role="external", window="_blank"]
-
-| Topics
-| A boot environment is a bootable instance of an OpenSolaris™ operating system image plus any other application software packages installed into that image.
-System administrators can maintain multiple boot environments on their systems, and each boot environment can have different software versions installed.
-
-Upon the initial installation of OpenSolaris onto a system, a boot environment is created.
-Use the beadm(1M) utility or the Package Manager to administer additional boot environments on your system.
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| This book is intended for anyone responsible for administering one or more systems running the OpenSolaris operating system.
-
-| Requirements
-| Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
-|===
+| Item | Details
+| --- | ---
+| Document Link | link:./content/snapupgrade/html/solarisinstall.html[OpenSolaris Managing Boot Environments, role="external", window="_blank"]
+| Topics | A boot environment is a bootable instance of an OpenSolaris™ operating system image plus any other application software packages installed into that image. System administrators can maintain multiple boot environments on their systems, and each boot environment can have different software versions installed. Upon the initial installation of OpenSolaris onto a system, a boot environment is created. Use the beadm(1M) utility or the Package Manager to administer additional boot environments on your system.
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | This book is intended for anyone responsible for administering one or more systems running the OpenSolaris operating system.
+| Requirements | Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
 
 
 ## OpenSolaris 2009.06 Image Packaging System Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/IMGPACKAGESYS/html/ips.html[OpenSolaris 2009.06 Image Packaging System Guide, role="external", window="_blank"]
-
-| Topics
-a| The Image Packaging System, pkg(5), is a framework that provides for software lifecycle management such as installation, upgrade, and removal of packages.
-IPS also provides users the ability to create their own software packages, create and manage packaging repositories, and mirror existing packaging repositories.
-
-With IPS, users can perform the following tasks:
-
-- Create and manage images
-
-- Install new packages and update existing packages
-
-- Manage and search the software on your system
-
-With the IPS publication tools, developers can perform the following:
-
-- Create and manage packaging repositories
-
-- Create and publish packages to a packaging repository
-
-- Provide a content mirror for an existing packaging repository
-
-- Retrieve the contents of an existing package from a packaging repository
-
-- Republish the contents of an existing package to a packaging repository
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| This book is intended for system administrators, end users, and developers.
-
-| Requirements
-| Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
-|===
+| Item | Details
+| --- | ---
+| Document Link | link:./content/IMGPACKAGESYS/html/ips.html[OpenSolaris 2009.06 Image Packaging System Guide, role="external", window="_blank"]
+| Topics  | The Image Packaging System, pkg(5), is a framework that provides for software lifecycle management such as installation, upgrade, and removal of packages. IPS also provides users the ability to create their own software packages, create and manage packaging repositories, and mirror existing packaging repositories.</p>With IPS, users can perform the following tasks: <ul><li>Create and manage images</li><li>Install new packages and update existing packages</li><li>Manage and search the software on your system</li></ul></p> With the IPS publication tools, developers can perform the following: <ul><li>Create and manage packaging repositories</li><li>Create and publish packages to a packaging repository</li><li>Provide a content mirror for an existing packaging repository</li><li>Retrieve the contents of an existing package from a packaging repository</li><li>Republish the contents of an existing package to a packaging repository
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | This book is intended for system administrators, end users, and developers.
+| Requirements | Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
 
 
 ## Solaris CIFS Administration Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/SSMBAG/html/ssmbag.html[Solaris CIFS Administration Guide, role="external", window="_blank"]
-
-| Topics
-a| - Solaris CIFS service, which enables you to configure a Solaris system to make CIFS shares available to CIFS clients.
-- Native identity mapping services, which enables you to map user and group identities between Solaris systems and Windows systems.
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| This book is intended for system administrators and end users.
-Both Solaris and Windows system administrators can use this information to configure and integrate the Solaris CIFS service into a Windows environment.
-
-In addition, system administrators can configure the identity mapping service.
-Finally, the chapter about the Solaris CIFS client is primarily intended for Solaris users who would like to mount CIFS shares.
-The Solaris CIFS client chapter also includes tasks to be performed by a system administrator.
-
-| Requirements
-| Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
-|===
+| Item | Details
+| --- | ---
+| Document Link | link:./content/SSMBAG/html/ssmbag.html[Solaris CIFS Administration Guide, role="external", window="_blank"]
+| Topics | <ul><li>Solaris CIFS service, which enables you to configure a Solaris system to make CIFS shares available to CIFS clients.</li><li>Native identity mapping services, which enables you to map user and group identities between Solaris systems and Windows systems.</ul></li>
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | This book is intended for system administrators and end users. Both Solaris and Windows system administrators can use this information to configure and integrate the Solaris CIFS service into a Windows environment.</p>In addition, system administrators can configure the identity mapping service. Finally, the chapter about the Solaris CIFS client is primarily intended for Solaris users who would like to mount CIFS shares. The Solaris CIFS client chapter also includes tasks to be performed by a system administrator.
+| Requirements | Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
 
 
 ## Solaris ZFS Administration Guide
