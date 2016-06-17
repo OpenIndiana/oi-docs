@@ -14,14 +14,14 @@ For ease of use, the titles have been organized by subject matter and grouped ac
 For each title, a brief synopsis has been provided.
 Otherwise, the books are exactly as originally published.
 No editing of any kind has been performed on any of the titles.
-This documentation collection has been released under the link:./pdl.html[Public Documentation License (PDL)].
+This documentation collection has been released under the [Public Documentation License (PDL)](../misc/pdl.md).
 
 
 
 ## Titles Updated by the illumos Project
 
 Several of the development related titles were updated in the early days of the illumos project.
-The illumos updated titles can be found here: https://illumos.org/books/
+The illumos updated titles can be found here: <https://illumos.org/books/>
 
 
 ## Book Categories
@@ -40,9 +40,9 @@ When using these books, please bear in mind:
 * Although vast portions of these books are still relevant, significant divergence has occurred between OpenIndiana Hipster and OpenSolaris/Solaris Express.
 * Some of the books in this collection reference publications which were either never open-sourced by Sun Microsystems or never released by the OpenSolaris Project.
 **  For example, the _OpenSolaris Developer's Reference Guide_ was never released as part of this collection.
-  However, the illumos project has published a similar title: https://illumos.org/books/dev/[The illumos Developer's Guide]
+  However, the illumos project has published a similar title: [The illumos Developer's Guide](https://illumos.org/books/dev/)
 * There are lots of broken links to OpenSolaris.org and Sun Microsystems.
-* In some cases, it may be possible to follow broken links by using the https://archive.org/web/[Internet Archive Wayback Machine].
+* In some cases, it may be possible to follow broken links by using the [Internet Archive Wayback Machine](https://archive.org/web/).
 
 
 ## The OpenIndiana Project's Documentation Update Effort
