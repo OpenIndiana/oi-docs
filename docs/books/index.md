@@ -26,18 +26,12 @@ The illumos updated titles can be found here: https://illumos.org/books/
 
 ## Book Categories
 
-|===
+* [Basic Systems Administration](./basic.md)
+* [Intermediate & Advanced Systems Administration](./advanced.md)
+* [Solaris Express Systems Administration](./express.md)
+* [Trusted Extensions Systems Administration](./trusted.md)
+* [Development](./develop.md)
 
-| link:./basic.html[Basic Systems Administration]
-
-| link:./advanced.html[Intermediate & Advanced Systems Administration]
-
-| link:./express.html[Solaris Express Systems Administration]
-
-| link:./trusted.html[Trusted Extensions Systems Administration]
-
-| link:./develop.html[Development]
-|===
 
 
 When using these books, please bear in mind:
@@ -56,20 +50,11 @@ When using these books, please bear in mind:
 An effort currently exists within the OpenIndiana community to revise the OpenSolaris redistributable books.
 If you wish to participate in this effort, please indicate your interest in one or more of the following ways:
 
-
-|===
 | Resource | URL
+| --- |---
+| User Support IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
+| Development IRC channel | [#oi-dev on irc.freenode.net](irc://irc.freenode.net/oi-dev)
+| Documentation IRC channel | [#oi-documentation on irc.freenode.net](irc://irc.freenode.net/oi-documentation)
+| OpenIndiana Mailing Lists | <http://openindiana.org/mailman>
 
-| User Support IRC channel
-| irc://irc.freenode.net/openindiana[#openindiana on irc.freenode.net]
-
-| Development IRC channel
-| irc://irc.freenode.net/oi-dev[#oi-dev on irc.freenode.net]
-
-| Documentation IRC channel
-| irc://irc.freenode.net/oi-documentation[#oi-documentation on irc.freenode.net]
-
-| OpenIndiana Mailing Lists
-| http://openindiana.org/mailman
-|===
 
