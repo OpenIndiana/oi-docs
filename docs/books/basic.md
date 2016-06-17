@@ -3,11 +3,8 @@
 
 ## Getting Started with OpenSolaris
 
-[cols="1,4"]
-|===
 
-| Document Link
-| link:./content/getstart/html/solarisinstall.html[Getting Started With OpenSolaris, role="external", window="_blank"]
+Document Link: <a href="http://dlc.openindiana.org/docs/osol/20090715/getstart/html/solarisinstall.html" target="_blank">Getting Started With OpenSolaris</a>
 
 | Topics
 | The guide provides an introduction to the OpenSolaris™ operating system, as well as instructions for installing the current OpenSolaris release on your system.
@@ -26,11 +23,9 @@ This guide is intended to help you install and set up the free binary distributi
 
 ## System Administration Guide: Basic Administration
 
-[cols="1,4"]
-|===
 
-| Document Link
-| link:./content/SYSADV1/html/sysadv1.html[System Administration Guide: Basic Administration, role="external", window="_blank"]
+Document Link: <a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV1/html/sysadv1.html" target="_blank">System Administration Guide: Basic Administration</a>
+
 
 | Topics
 a| - User accounts and groups +
