@@ -266,7 +266,7 @@ For further information about how to use Font Awesome web icons, see here: <http
 | --- | ---
 | Item 1 | This is a single line description
 | Item 2 | This is a multiline description with list items:<ul><li>List item 1</li><li>List item 2</li></ul>Lets add another paragraph too!</p> And here it is.
-| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well. 
+| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
@@ -275,7 +275,7 @@ For further information about how to use Font Awesome web icons, see here: <http
 | --- | ---
 | Item 1 | This is a single line description
 | Item 2 | This is a multiline description with list items:<ul><li>List item 1</li><li>List item 2</li></ul>Lets add another paragraph too!</p> And here it is.
-| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well. 
+| Item 3 | Another single line description. And here is a second sentence. And a third sentence as well.
 </div>
 
 
