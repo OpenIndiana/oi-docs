@@ -1,51 +1,14 @@
 # Development
 
-
 ## Solaris Dynamic Tracing Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/DYNMCTRCGGD/html/dynmctrcggd.html[Solaris Dynamic Tracing Guide, role="external", window="_blank"]
-
-| Topics
-| DTrace is a comprehensive dynamic tracing framework for the Solaris™ Operating System.
-DTrace provides a powerful infrastructure to permit administrators, developers, and service personnel to concisely answer arbitrary questions about the behavior of the operating system and user programs.
-
-The Solaris Dynamic Tracing Guide describes how to use DTrace to observe, debug, and tune system behavior.
-This book also includes a complete reference for bundled DTrace observability tools and the D programming language.
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-a| If you have ever wanted to understand the behavior of your system, DTrace is the tool for you.
-DTrace is a comprehensive dynamic tracing facility that is built into Solaris.
-The DTrace facility can be used to examine the behavior of user programs.
-The DTrace facility can also be used to examine the behavior of the operating system.
-
-DTrace can be used by system administrators or application developers, and is suitable for use with live production systems.
-DTrace will allow you to explore your system to understand how it works, track down performance problems across many layers of software, or locate the cause of aberrant behavior.
-
-As you'll see, DTrace lets you create your own custom programs to dynamically instrument the system and provide immediate, concise answers to arbitrary questions you can formulate using the DTrace `D` programming language.
-
-DTrace allows all Solaris users to:
-
-- Dynamically enable and manage thousands of probes
-- Dynamically associate logical predicates and actions with probes
-- Dynamically manage trace buffers and buffer policies
-- Display and examine trace data from the live system or a crash dump
-
-DTrace allows Solaris developers and administrators to:
-
-- Implement custom scripts that use the DTrace facility
-- Implement layered tools that use DTrace to retrieve trace data
-
-| Requirements
-a| Basic familiarity with a programming language such as `C` or a scripting language such as `awk(1)` or `perl(1)` will help you learn DTrace and the `D` programming language faster, but you need not be an expert in any of these areas.
-If you have never written a program or script before in any language, Related Information provides references to other documents you might find useful.
-|===
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/DYNMCTRCGGD/html/dynmctrcggd.html" target="_blank">Solaris Dynamic Tracing Guide</a>
+| Topics| DTrace is a comprehensive dynamic tracing framework for the Solaris™ Operating System. DTrace provides a powerful infrastructure to permit administrators, developers, and service personnel to concisely answer arbitrary questions about the behavior of the operating system and user programs.</p>The Solaris Dynamic Tracing Guide describes how to use DTrace to observe, debug, and tune system behavior. This book also includes a complete reference for bundled DTrace observability tools and the `D` programming language.
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | If you have ever wanted to understand the behavior of your system, DTrace is the tool for you. DTrace is a comprehensive dynamic tracing facility that is built into Solaris. The DTrace facility can be used to examine the behavior of user programs. The DTrace facility can also be used to examine the behavior of the operating system.</p>DTrace can be used by system administrators or application developers, and is suitable for use with live production systems. DTrace will allow you to explore your system to understand how it works, track down performance problems across many layers of software, or locate the cause of aberrant behavior. </p>As you'll see, DTrace lets you create your own custom programs to dynamically instrument the system and provide immediate, concise answers to arbitrary questions you can formulate using the DTrace `D` programming language. </p>DTrace allows all Solaris users to:<ul><li>Dynamically enable and manage thousands of probes</li><li>Dynamically associate logical predicates and actions with probes</li><li>Dynamically manage trace buffers and buffer policies</li><li>Display and examine trace data from the live system or a crash dump</li></ul></p>DTrace allows Solaris developers and administrators to:<ul><li>Implement custom scripts that use the DTrace facility</li><li>Implement layered tools that use DTrace to retrieve trace data</li></ul>
+| Requirements | Basic familiarity with a programming language such as `C` or a scripting language such as `awk(1)` or `perl(1)` will help you learn DTrace and the `D` programming language faster, but you need not be an expert in any of these areas. If you have never written a program or script before in any language, Related Information provides references to other documents you might find useful.
 
 [NOTE]
 This title is available in a more recent version.
@@ -55,34 +18,13 @@ http://dtrace.org/guide/preface.html[Dynamic Tracing Guide, role="external", win
 
 ## Solaris Modular Debugger Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/MODDEBUG/html/moddebug.html[Solaris Modular Debugger Guide, role="external", window="_blank"]
-
-| Topics
-| The Modular Debugger (MDB) is a highly extensible, general purpose debugging tool for the Solaris™ Operating System (Solaris OS).
-The Solaris Modular Debugger Guide describes how to use MDB to debug complex software systems, with a particular emphasis on the facilities available for debugging the Solaris kernel and associated device drivers and modules.
-It also includes a complete reference for and discussion of the MDB language syntax, debugger features, and MDB Module Programming API.
-
-| Relevancy to OpenIndiana Hipster
-| To be determined
-
-| Target Audience
-| If you were a detective and were investigating at the scene of a crime, you might interview the witnesses and ask them to describe what happened and who they saw.
-However, if there were no witnesses or these descriptions proved insufficient, you might consider collecting fingerprints and forensic evidence that could be examined for DNA to help solve the case.
-
-Often, software program failures divide into analogous categories: problems that can be solved with source-level debugging tools, and problems that require low-level debugging facilities, examination of core files, and knowledge of assembly language to diagnose and correct.
-MDB facilitates analysis of this second class of problems.
-
-MDB is most useful when you are programming a complex low-level software system such as an operating system.
-The MDB debugging framework allows you to construct your own custom analysis tools to aid in the diagnosis of these low-level problems.
-MDB also provides a powerful set of built-in commands that enable you to analyze the state of your program at the assembly language level.
-
-| Requirements
-| Familiarity with assembly language programming and debugging
-|===
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/MODDEBUG/html/moddebug.html" target="_blank">Solaris Modular Debugger Guide</a>
+| Topics | The Modular Debugger (MDB) is a highly extensible, general purpose debugging tool for the Solaris™ Operating System (Solaris OS). The Solaris Modular Debugger Guide describes how to use MDB to debug complex software systems, with a particular emphasis on the facilities available for debugging the Solaris kernel and associated device drivers and modules. It also includes a complete reference for and discussion of the MDB language syntax, debugger features, and MDB Module Programming API.
+| Relevancy to OpenIndiana Hipster | To be determined
+| Target Audience | If you were a detective and were investigating at the scene of a crime, you might interview the witnesses and ask them to describe what happened and who they saw. However, if there were no witnesses or these descriptions proved insufficient, you might consider collecting fingerprints and forensic evidence that could be examined for DNA to help solve the case.</p>Often, software program failures divide into analogous categories: problems that can be solved with source-level debugging tools, and problems that require low-level debugging facilities, examination of core files, and knowledge of assembly language to diagnose and correct.</p>MDB facilitates analysis of this second class of problems.</p>MDB is most useful when you are programming a complex low-level software system such as an operating system. The MDB debugging framework allows you to construct your own custom analysis tools to aid in the diagnosis of these low-level problems. MDB also provides a powerful set of built-in commands that enable you to analyze the state of your program at the assembly language level.
+| Requirements | Familiarity with assembly language programming and debugging
 
 [NOTE]
 This title is available in a more recent version.
@@ -92,12 +34,9 @@ https://illumos.org/content/mdb/preface.html[Modular Debugger Guide, role="exter
 
 ## Device Driver Tutorial
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/DRIVERTUT/html/drivertut.html[Device Driver Tutorial, role="external", window="_blank"]
-
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/DRIVERTUT/html/drivertut.html" target="_blank">Device Driver Tutorial</a>
 | Topics
 | This Device Driver Tutorial is a hands-on guide that shows you how to develop a simple device driver for the Solaris™ Operating System (Solaris OS).
 Device Driver Tutorial also explains how device drivers work in the Solaris OS.
@@ -133,17 +72,13 @@ Get a detailed specification for the device you want to drive.
 Experience with Solaris OS compilers, debuggers, and other tools will be very helpful to you.
 You also need to understand where the file system fits with the kernel and the application layer.
 These topics are discussed in this tutorial.
-|===
 
 
 ## Writing Device Drivers
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/DRIVER/html/driver.html[Writing Device Drivers, role="external", window="_blank"]
-
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/DRIVER/html/driver.html" target="_blank">Writing Device Drivers</a>
 | Topics
 a| Writing Device Drivers provides information on developing drivers for:
 
@@ -178,7 +113,6 @@ Overview information is provided, but the book is not intended to serve as a gen
 
 | Requirements
 | To be determined
-|===
 
 [NOTE]
 This title is available in a more recent version.
@@ -188,12 +122,9 @@ https://illumos.org/content/wdd/preface.html[Writing Device Drivers, role="exter
 
 ## Application Packaging Developer's Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/PACKINSTALL/html/packinstall.html[Application Packaging Developer's Guide, role="external", window="_blank"]
-
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/PACKINSTALL/html/packinstall.html" target="_blank">Application Packaging Developer's Guide</a>
 | Topics
 | The Application Packaging Developers Guide provides step-by-step instructions and relevant background information for designing, building, and verifying packages.
 This guide also includes advanced techniques that you might find helpful during the package creation process.
@@ -207,17 +138,13 @@ Though much of the book is directed towards novice package developers, it also c
 
 | Requirements
 | To be determined
-|===
 
 
 ## OpenSolaris Distribution Constructor Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/DistroConst/html/distroconst.html[OpenSolaris Distribution Constructor Guide, role="external", window="_blank"]
-
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/content/DistroConst/html/distroconst.html" target="_blank">OpenSolaris Distribution Constructor Guide</a>
 | Topics
 | The distribution constructor is a tool that application developers can use to build their own custom OpenSolaris™ image which they can then distribute to their contacts and customers.
 
@@ -229,17 +156,13 @@ Though much of the book is directed towards novice package developers, it also c
 
 | Requirements
 | To be determined
-|===
 
 
 ## Memory and Thread Placement Optimization Developer's Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/MTPODG/html/mtpodg.html[Memory and Thread Placement Optimization Developer's Guide, role="external", window="_blank"]
-
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/MTPODG/html/mtpodg.html" target="_blank">Memory and Thread Placement Optimization Developer's Guide</a>
 | Topics
 | The Memory and Thread Placement Optimization Developer's Guide provides information on locality groups and the technologies that are available to optimize the use of computing resources in the Solaris operating system.
 
@@ -252,7 +175,6 @@ The programming interfaces and tools that are described in this book give the de
 
 | Requirements
 | To be determined
-|===
 
 [NOTE]
 This title is available in a more recent version.
@@ -262,12 +184,9 @@ https://illumos.org/content/lgrps/preface.html[Memory and Thread Placement Optim
 
 ## Solaris Containers: Resource Management and Solaris Zones Developer's Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/RSCMGRDEVGD/html/rscmgrdevgd.html[Solaris Containers: Resource Management and Solaris Zones Developer's Guide, role="external", window="_blank"]
-
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/content/RSCMGRDEVGD/html/rscmgrdevgd.html" target="_blank">Solaris Containers: Resource Management and Solaris Zones Developer's Guide</a>
 | Topics
 | The Solaris Containers: Resource Management and Solaris Zones Developer's Guide describes how to write applications that partition and manage system resources and discusses which APIs to use.
 This book provides programming examples and a discussion of programming issues to consider when writing an application.
@@ -280,17 +199,13 @@ This book provides programming examples and a discussion of programming issues t
 
 | Requirements
 | To be determined
-|===
 
 
 ## Solaris Trusted Extensions Developer's Guide
 
-[cols="1,4"]
-|===
-
-| Document Link
-| link:./content/TRSOLDEV/html/trsoldev.html[Solaris Trusted Extensions Developer's Guide, role="external", window="_blank"]
-
+| Item | Details
+|  --- | ---
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/content/TRSOLDEV/html/trsoldev.html" target="_blank">Solaris Trusted Extensions Developer's Guide</a>
 | Topics
 | Describes how to develop applications with Solaris Trusted Extensions.
 
@@ -304,5 +219,4 @@ The Solaris Trusted Extensions Developer's Guide describes how to use the applic
 
 | Requirements
 | Readers must be familiar with UNIX® programming and understand security policy concepts.
-|===
 
