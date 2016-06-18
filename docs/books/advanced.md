@@ -82,7 +82,7 @@
 
 | Item | Details
 | --- | ---
-| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV3/html/sysadv3.html" targe=_blank">System Administration Guide: IP Services</a>
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV3/html/sysadv3.html" target=_blank">System Administration Guide: IP Services</a>
 | Topics | <ul><li>TCP/IP network administration</li><li>IPv4 and IPv6 address administration</li><li>DHCP</li><li>IPsec</li><li>IKE</li><li>Solaris IP filter</li><li>Mobile IP</li><li>IP network multipathing (IPMP)</li><li>IPQoS</li></ul>
 | Relevancy to OpenIndiana Hipster | To be determined
 | Target Audience | This book is intended for anyone responsible for administering systems that run the Solaris OS release, which are configured in a network.
