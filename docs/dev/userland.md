@@ -9,7 +9,7 @@ The Original Documentation is _________________.
 The Initial Writer of the Original Documentation is Aurelien Larcher Copyright (C) 2016 [Insert year(s)].
 All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
 
-Contributor(s): Johnathan Jenkins, Michael Kruger, Theodore Seán Tubbs 
+Contributor(s): Johnathan Jenkins, Michael Kruger, Theodore Seán Tubbs
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).

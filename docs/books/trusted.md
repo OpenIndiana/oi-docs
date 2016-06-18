@@ -1,4 +1,5 @@
 <!--
+
 The contents of this Documentation are subject to the Public Documentation License Version 1.01
 (the "License"); you may only use this Documentation if you comply with the terms of this License.
 A copy of the License is available at http://illumos.org/license/PDL.
@@ -12,6 +13,7 @@ Contributor(s): ______________________________________.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
 -->
 
 # Trusted Extensions Systems Administration
@@ -24,7 +26,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 | Topics | **This book is Obsolete**</p>Describes how to plan for, install, and configure Solaris Trusted Extensions for the Solaris 10 11/06 and Solaris 10 8/07 releases of Trusted Extensions.</p>The Solaris Trusted Extensions Installation and Configuration guide provides procedures for configuring Solaris™ Trusted Extensions on the Solaris Operating System. This guide also describes preparing the Solaris system to support a secure installation of Solaris Trusted Extensions.
 | Relevancy to OpenIndiana Hipster | To be determined
 | Target Audience | Administrators, developers</p>This book is for knowledgeable system administrators and security administrators who are installing Trusted Extensions software. The level of trust that is required by your site security policy, and your level of expertise, determines who can perform the configuration tasks.
-
 | Requirements | Successfully configuring Trusted Extensions on a system in a way that is consistent with site security requires understanding the security features of Trusted Extensions and your site security policy. Before you install the Solaris Trusted Extensions packages, read _Chapter 1, Security Planning for Trusted Extensions_ for information about how to ensure site security when configuring the software.
 
 
