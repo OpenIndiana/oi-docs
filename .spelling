@@ -70,6 +70,7 @@ MkDocs-Pandoc
 CommonMark
 https
 gh-pages
+toolset
  - docs/contrib/topics.md
 TODO's
 OpenIndiana.org
@@ -721,10 +722,22 @@ natively
 CTRL
 travis-ci
 gh-pages
+deploy.sh
+_validator.py
+markdownlint-rules
+rb
+mkdocs.yml
+README.md
+readme
+gh-branch
+dev
+favicon.ico
+favicon
  - docs/notes/topics.md
 _01
 E29008
 iscsi-1
+Slideshare
  - docs/misc/faq.md
 Microsystems
 Murdock
@@ -756,3 +769,78 @@ sublicensees
 sublicenses
 U.S.
 CFR
+ - docs/books/advanced.md
+OpenSolaris
+bootable
+beadm
+1M
+Solaris
+lifecycle
+IPS
+CIFS
+ZFS
+ACLs
+crontabs
+SunOS
+href
+_blank
+TCP
+IPv4
+IPv6
+DHCP
+IPsec
+multipathing
+IPMP
+IPQoS
+NFS
+Autofs
+SLP
+PPP
+DNS
+NIS
+LDAP
+Kerberos
+RBAC
+SASL
+Virtualization
+virtualizes
+xVM
+hypervisor
+CDE
+ - docs/books/develop.md
+DTrace
+illumos
+MDB
+HBA
+reentrant
+DDI
+DKI
+endianness
+DMA
+64-bit
+CPUs
+APIs
+ISVs
+ - docs/books/express.md
+runtime
+SPARC
+x86
+JumpStart
+ - docs/books/index.md
+Redistributable
+Microsystems
+OpenSolaris.org
+Wayback
+redistributable
+openindiana
+irc.freenode.net
+oi-dev
+ - docs/books/trusted.md
+encodings
+ - docs/contrib/markdown.md
+url's
+backtick
+CSS
+Spacelab
+Bootswatch
+Commonmark

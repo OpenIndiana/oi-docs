@@ -28,7 +28,7 @@ The OpenIndiana Docs website uses 2 principal technologies and several ancillary
 Both technologies leverage the Python programming language.
 
 
-#### Ancillary techologies:
+#### Ancillary technologies:
 
 * GitHub - GIT repository hosting
 * GitHub Pages - Website publishing from a GitHub repository
