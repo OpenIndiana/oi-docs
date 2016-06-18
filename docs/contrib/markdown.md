@@ -1,3 +1,13 @@
+<!--
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)]. All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)]. All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+-->
+
 # Markdown Syntax Guide
 
 ### Italics and bold text
@@ -35,6 +45,12 @@ Headers in markdown (much like HTML) come in various sizes.
 ## Second level headers
 
 ### Tertiary level header
+
+#### Fourth level header
+
+##### Fifth level header
+
+###### Sixth level heaer
 ```
 
 In this simple example you can see some headers have less hashes then others.
@@ -48,6 +64,12 @@ The more hashes added, the smaller the header will be, for example.
 ## Second level header
 
 ### Tertiary level header
+
+#### Fourth level header
+
+##### Fith level header
+
+###### Sixth level header
 
 </div>
 
