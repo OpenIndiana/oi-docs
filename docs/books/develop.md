@@ -28,10 +28,11 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 | Target Audience | If you have ever wanted to understand the behavior of your system, DTrace is the tool for you. DTrace is a comprehensive dynamic tracing facility that is built into Solaris. The DTrace facility can be used to examine the behavior of user programs. The DTrace facility can also be used to examine the behavior of the operating system.</p>DTrace can be used by system administrators or application developers, and is suitable for use with live production systems. DTrace will allow you to explore your system to understand how it works, track down performance problems across many layers of software, or locate the cause of aberrant behavior. </p>As you'll see, DTrace lets you create your own custom programs to dynamically instrument the system and provide immediate, concise answers to arbitrary questions you can formulate using the DTrace `D` programming language. </p>DTrace allows all Solaris users to:<ul><li>Dynamically enable and manage thousands of probes</li><li>Dynamically associate logical predicates and actions with probes</li><li>Dynamically manage trace buffers and buffer policies</li><li>Display and examine trace data from the live system or a crash dump</li></ul></p>DTrace allows Solaris developers and administrators to:<ul><li>Implement custom scripts that use the DTrace facility</li><li>Implement layered tools that use DTrace to retrieve trace data</li></ul>
 | Requirements | Basic familiarity with a programming language such as `C` or a scripting language such as `awk(1)` or `perl(1)` will help you learn DTrace and the `D` programming language faster, but you need not be an expert in any of these areas. If you have never written a program or script before in any language, Related Information provides references to other documents you might find useful.
 
-[NOTE]
-This title is available in a more recent version.
-Updated by the illumos project, you can find the revised version here:
-http://dtrace.org/guide/preface.html[Dynamic Tracing Guide, role="external", window="_blank"]
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Updated by the illumos project, this title is available in a more recent version:
+<a href="http://dtrace.org/guide/preface.html" target="_blank">Dynamic Tracing Guide</a>
+</div>
 
 
 ## Solaris Modular Debugger Guide
@@ -47,8 +48,7 @@ http://dtrace.org/guide/preface.html[Dynamic Tracing Guide, role="external", win
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 Updated by the illumos project, this title is available in a more recent version:
-
-[Modular Debugger Guide](https://illumos.org/content/mdb/preface.html)
+<a href="https://illumos.org/books/mdb/preface.html" target="_blank">Modular Debugger Guide</a>
 </div>
 
 ## Device Driver Tutorial
@@ -75,8 +75,7 @@ Updated by the illumos project, this title is available in a more recent version
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 Updated by the illumos project, this title is available in a more recent version:
-
-[Writing Device Drivers](https://illumos.org/content/wdd/preface.html)
+<a href="https://illumos.org/books/wdd/preface.html" target="_blank">Writing Device Drivers</a>
 </div>
 
 ## Application Packaging Developer's Guide
@@ -114,8 +113,7 @@ Updated by the illumos project, this title is available in a more recent version
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 Updated by the illumos project, this title is available in a more recent version:
-
-[Memory and Thread Placement Optimization Developer's Guide](https://illumos.org/content/lgrps/preface.html)
+<a href="https://illumos.org/books/lgrps/preface.html" target="_blank">Memory and Thread Placement Optimization Developer's Guide</a>
 </div>
 
 ## Solaris Containers: Resource Management and Solaris Zones Developer's Guide
