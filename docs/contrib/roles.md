@@ -16,7 +16,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Documentation Team Roles
+# Contributor Roles
 
 There are multiple ways community members can contribute to the OpenIndiana Documentation revitalization effort.
 These contributions fall into several different roles.
