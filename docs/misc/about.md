@@ -53,7 +53,5 @@ To this end, the team looked at several documentation oriented static site gener
 ## Providing feedback
 
 The OpenIndiana Docs website uses GitHub issues to manage development tasks and provide a venue to discuss changes.
-To make a suggestion or report a bug, please open an issue on GitHub.
-
-[Report an issue on GitHub](https://github.com/makruger/website-2.0/issues)
+To make a suggestion or report a bug, please [open an issue on GitHub](https://github.com/makruger/website-2.0/issues).
 
