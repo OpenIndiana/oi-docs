@@ -148,7 +148,7 @@ website-2.0/
 <!-- NOTE: --> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING:**
 <div class="well">
 
-* Please do **NOT** perform any work within the master branch site folder.
+* Please do **NOT** perform any work within the `site/` folder.
     * This is a temporary folder created by MkDocs when the site is run locally in preview mode.
 * Also, please do **NOT** perform any work within the gh-pages branch.
     * The gh-branch is destroyed and rebuild each time the site is deployed to GitHub pages.
@@ -198,7 +198,7 @@ For a list of subject to write about:
 * Write a new tutorial, or complete a small section of the handbook, etc.
 * Consult with other doc team contributors for even more ideas.
 
-## Adding new docs to the site menu
+## Adding new pages to the site menu
 
 Site configuration settings and menus are located in `mkdocs.yml`.
 To add a page to the menu, simply add a line to this file.
