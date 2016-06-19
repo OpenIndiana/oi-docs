@@ -198,6 +198,25 @@ For a list of subject to write about:
 * Write a new tutorial, or complete a small section of the handbook, etc.
 * Consult with other doc team contributors for even more ideas.
 
+## Adding new docs to the site menu
+
+Site configuration settings and menus are located in `mkdocs.yml`.
+To add a page to the menu, simply add a line to this file.
+See the code snippet below for examples.
+
+```markdown
+- Docs:
+        - 'OpenIndiana Code of Conduct': misc/conduct.md
+        - 'OpenIndiana FAQ': misc/faq.md
+        - 'OpenIndiana Handbook': handbook/handbook.md
+        - OpenSolaris Books:
+                - 'Book Index': books/index.md
+                - 'Basic Administration': books/basic.md
+                - 'Advanced Administration': books/advanced.md
+                - 'Solaris Express Administration': books/express.md
+                - 'Trusted Extensions Administration': books/trusted.md
+                - 'Development Titles': books/develop.md
+```
 
 ## Visualize your changes using live preview
 
