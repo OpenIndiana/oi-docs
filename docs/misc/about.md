@@ -32,3 +32,19 @@ This website and its content uses a number of different technologies:
 * Source code hosted in a [GitHub](https://github.com/makruger/website-2.0) repository.
 * Website hosted on [GitHub Pages](https://pages.github.com/)
 
+
+## History of OpenIndiana Docs
+
+The current documentation revitalization effort began in late 2015.
+For some time the project recognized it needed to do a better job of organizing and presenting end user documentation.
+This effort began by looking at the current state of the documentation, looking at the tools used in its creation, and then looked around at what other projects where doing.
+
+The goals of the documentation effort were to:
+
+* Simplify the documentation process by lowering the bar to entry.
+* Provide professional looking and technically accurate information.
+* Rewrite the OpenIndiana FAQ and Handbook, as well as provide tutorials.
+* Increase participation in the documentation efforts. 
+* Treat docs like code (for example: using version control, continuous integration, etc.)
+
+To this end, the team looked at several documentation oriented static site generators and settled on MkDocs for its simplicity, ease of use, and professional looking output.
