@@ -75,7 +75,7 @@ The more hashes added, the smaller the header will be, for example.
 
 #### Fourth level header
 
-##### Fith level header
+##### Fifth level header
 
 ###### Sixth level header
 
