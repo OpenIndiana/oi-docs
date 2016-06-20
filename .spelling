@@ -352,6 +352,8 @@ _holder
 Xorg
  - docs/handbook/network-communications.md
 PPPoE
+ - docs/handbook/system-administration.md
+Dtrace
  - docs/notes/project.md
 Grisianzio's
 Distrowatch
