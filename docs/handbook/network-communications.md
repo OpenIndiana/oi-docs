@@ -16,3 +16,31 @@ Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
 
 -->
+
+# Network Communication
+
+< placeholder >
+
+## PPP
+
+< placeholder >
+
+### PPPoE
+
+< placeholder >
+
+## Email
+
+< placeholder >
+
+## Firewalls
+
+< placeholder >
+
+## Advanced Networking
+
+< placeholder >
+
+## Crossbow
+
+< placeholder >
