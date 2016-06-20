@@ -31,7 +31,7 @@ Import and validate (compare with FAQ, etc.): [old handbook intro](http://wiki.o
 
 ## Installing Applications
 
-Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet) 
+Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet)
 
 
 ## Xorg
