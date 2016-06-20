@@ -16,3 +16,45 @@ Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
 
 -->
+
+# System Administration
+
+< placeholder >
+
+## Configuring and Tuning
+
+< placeholder >
+
+## Illumos Boot Process
+
+< placeholder >
+
+## Security
+
+< placeholder >
+
+## Zones
+
+< placeholder >
+
+## Storage
+
+< placeholder >
+
+## ZFS
+
+< placeholder >
+
+## Virtualization
+
+< placeholder >
+
+## Localization
+
+< placeholder >
+
+## Updating and Upgrading
+
+< placeholder >
+
+## Dtrace

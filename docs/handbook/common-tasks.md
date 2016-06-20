@@ -16,3 +16,19 @@ Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
 
 -->
+
+# Common Tasks
+
+< placeholder >
+
+## Desktop Applications
+
+< placeholder >
+
+## Multimedia
+
+< placeholder >
+
+## Printing
+
+< placeholder >
