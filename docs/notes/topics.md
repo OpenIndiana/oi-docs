@@ -27,6 +27,27 @@ Third level headers will indicate topics, etc.
 It might be easier to first populate this page with 3rd level subject headers and then later come back and assign pages.
 
 
+## Handbook - Getting Started
+
+Import first section of Wiki page: <http://wiki.openindiana.org/oi/Using+OpenIndiana+-+Technical+FAQ>
+
+
+## Handbook - Common Tasks
+
+< Place Holder >
+
+
+## Handbook - Systems Administration
+
+< Place Holder >
+
+
+## Handbook - Network Communications
+
+< Place Holder >
+
+
+
 ### ABI support
 
 * Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.

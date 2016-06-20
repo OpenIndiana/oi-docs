@@ -19,7 +19,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Getting started
 
-< placeholder >
+Import and validate (compare with FAQ, etc.): [old handbook intro](http://wiki.openindiana.org/oi/1.+Introduction)
 
 ## Introduction
 
@@ -31,7 +31,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Installing Applications
 
-< placeholder >
+Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet) 
+
 
 ## Xorg
 
