@@ -26,6 +26,12 @@ Third level headers will indicate topics, etc.
 
 It might be easier to first populate this page with 3rd level subject headers and then later come back and assign pages.
 
+Reference sites:
+
+* [OpenSolaris.org](https://web.archive.org/web/20090819174546/http://opensolaris.org/os/)
+* [OpenSolaris Projects](https://web.archive.org/web/20090817114142/http://opensolaris.org/os/projects#portal)
+* [OpenSolaris Communities](https://web.archive.org/web/20090605190426/http://opensolaris.org/os/communities/#portal)
+
 ## FAQ
 
 Have a look at the following resources for ideas and inspiration for writing new content:
@@ -60,8 +66,11 @@ Have a look at the following resources for ideas and inspiration for writing new
 
 ## Handbook - Network Communications
 
-< Place Holder >
+Have a look at the following resources for ideas and inspiration for writing new content:
 
+* [COMSTAR info](http://web.archive.org/web/20090514083449/http://wikis.sun.com/display/OpenSolarisInfo/COMSTAR+Administration)
+* [Crossbow info](https://web.archive.org/web/20090719072357/http://www.opensolaris.org/os/project/crossbow)
+* 
 
 
 ### ABI support
