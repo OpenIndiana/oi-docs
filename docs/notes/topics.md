@@ -35,6 +35,8 @@ Have a look at the [OpenSolaris FAQ](https://web.archive.org/web/20091001032442/
 
 Import first section of Wiki page: <http://wiki.openindiana.org/oi/Using+OpenIndiana+-+Technical+FAQ>
 
+Have a look at [OpenSolaris Automated Installer Guide](https://web.archive.org/web/20100401021842/http://www.opensolaris.com/use/Auto_Installer.pdf) to see if it contains anything still useful which we can use for the new handbook.
+
 
 ## Handbook - Common Tasks
 
