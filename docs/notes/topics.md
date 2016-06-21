@@ -70,7 +70,6 @@ Have a look at the following resources for ideas and inspiration for writing new
 * [OpenSolaris ZFS Community](https://web.archive.org/web/20091023025359/http://opensolaris.org/os/community/zfs/)
 * [OpenSolaris SMF Community](https://web.archive.org/web/20090602164813/http://opensolaris.org/os/community/smf/)
 * [OpenSolaris SMF FAQ](https://web.archive.org/web/20090603223153/http://opensolaris.org/os/community/smf/faq)
-* 
 
 ## Handbook - Network Communications
 
@@ -78,7 +77,6 @@ Have a look at the following resources for ideas and inspiration for writing new
 
 * [COMSTAR info](http://web.archive.org/web/20090514083449/http://wikis.sun.com/display/OpenSolarisInfo/COMSTAR+Administration)
 * [Crossbow info](https://web.archive.org/web/20090719072357/http://www.opensolaris.org/os/project/crossbow)
-* 
 
 
 ### ABI support
