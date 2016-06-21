@@ -135,7 +135,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 | --- | ---
 | Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADPRTSVCS/html/sysadprtsvcs.html" target="_blank">System Administration Guide: Solaris Printing</a>
 | Topics | <ul><li>Solaris printing topics and tasks</li><li>Using services, tools, protocols, and technologies to set up and administer printing services and printers</li></ul>
-| Relevancy to OpenIndiana Hipster | To be determined
+| Relevancy to OpenIndiana Hipster | This book is now **Obsolete** NOTES: The Common UNIX Printing System (CUPS) has been selected as the default print service, replacing the LP print service, in OpenSolaris 2010.03. CUPS support includes a web and graphical interface to manage your printing environment. A system that is running CUPS becomes a host that can accept print requests from client systems, process those requests, and then send them to the appropriate printer. To facilitate CUPS support, a new print-service command has been introduced that provides a mechanism for switching between CUPS print service and the LP print service, including 2 new SMF services.
 | Target Audience | This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.
 | Requirements | This book assumes that you have installed the SunOS™ Solaris Operating System. It also assumes that you have set up any networking software that you plan to use. To use this book, you should have 1-2 years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.
 
