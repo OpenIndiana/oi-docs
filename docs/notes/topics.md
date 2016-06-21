@@ -26,6 +26,10 @@ Third level headers will indicate topics, etc.
 
 It might be easier to first populate this page with 3rd level subject headers and then later come back and assign pages.
 
+## FAQ
+
+Have a look at the [OpenSolaris FAQ](https://web.archive.org/web/20091001032442/http://www.opensolaris.com/learn/faq/) to see if it contains anything which we could use to enhance the OI FAQ.
+
 
 ## Handbook - Getting Started
 
