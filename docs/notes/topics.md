@@ -45,7 +45,7 @@ Have a look at [OpenSolaris Automated Installer Guide](https://web.archive.org/w
 
 ## Handbook - Systems Administration
 
-< Place Holder >
+Have a look at [OpenSolaris CIFS guide](https://web.archive.org/web/20100215043517/http://www.opensolaris.com/use/CIFS.pdf) to see if it contains anything useful we can use for the new handbook.
 
 
 ## Handbook - Network Communications
