@@ -32,6 +32,8 @@ Reference sites:
 * [OpenSolaris Projects](https://web.archive.org/web/20090817114142/http://opensolaris.org/os/projects#portal)
 * [OpenSolaris Communities](https://web.archive.org/web/20090605190426/http://opensolaris.org/os/communities/#portal)
 
+NOTE: When clicking some of the links found within these resources, it may be nessessary to removed the ';jsessionid=xxx' from the end of the url. Otherwise the wayback machine will report a 'not found' error message.
+
 ## FAQ
 
 Have a look at the following resources for ideas and inspiration for writing new content:
@@ -63,6 +65,12 @@ Have a look at the following resources for ideas and inspiration for writing new
 * [OpenSolaris CIFS guide](https://web.archive.org/web/20100215043517/http://www.opensolaris.com/use/CIFS.pdf)
 * [Linux to Solaris Administrators Guide](https://web.archive.org/web/20100401023944/http://www.sun.com/software/solaris/sysadmin_guide.pdf)
 * [Linux to Solaris Network Administrators Guide](https://web.archive.org/web/20090806172933/http://www.opensolaris.com/use/network_administration.pdf)
+* [OpenSolaris Zones Community](https://web.archive.org/web/20090929063222/http://opensolaris.org/os/community/zones/)
+* [OpenSolaris Zones FAQ](https://web.archive.org/web/20090922001159/http://opensolaris.org/os/community/zones/faq/)
+* [OpenSolaris ZFS Community](https://web.archive.org/web/20091023025359/http://opensolaris.org/os/community/zfs/)
+* [OpenSolaris SMF Community](https://web.archive.org/web/20090602164813/http://opensolaris.org/os/community/smf/)
+* [OpenSolaris SMF FAQ](https://web.archive.org/web/20090603223153/http://opensolaris.org/os/community/smf/faq)
+* 
 
 ## Handbook - Network Communications
 
