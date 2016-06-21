@@ -31,7 +31,6 @@ It might be easier to first populate this page with 3rd level subject headers an
 Have a look at the following resources for ideas and inspiration for writing new content:
 
 * [OpenSolaris FAQ](https://web.archive.org/web/20091001032442/http://www.opensolaris.com/learn/faq/)
-
 * [OpenSolaris Newbie FAQ](https://web.archive.org/web/20090909080957/http://opensolaris.org/os/community/documentation/newbie_faq/)
 
 
@@ -56,8 +55,8 @@ Have a look at the following resources for ideas and inspiration for writing new
 Have a look at the following resources for ideas and inspiration for writing new content:
 
 * [OpenSolaris CIFS guide](https://web.archive.org/web/20100215043517/http://www.opensolaris.com/use/CIFS.pdf)
-
 * [Linux to Solaris Administrators Guide](https://web.archive.org/web/20100401023944/http://www.sun.com/software/solaris/sysadmin_guide.pdf)
+* [Linux to Solaris Network Administrators Guide](https://web.archive.org/web/20090806172933/http://www.opensolaris.com/use/network_administration.pdf)
 
 ## Handbook - Network Communications
 
