@@ -55,8 +55,14 @@ Have a look at the following resources for ideas and inspiration for writing new
 
 ## Handbook - Common Tasks
 
-< Place Holder >
+### CUPS Printing
 
+The Common UNIX Printing System (CUPS) has been selected as the default print service, replacing the LP print service, in OpenSolaris 2010.03.
+CUPS support includes a web and graphical interface to manage your printing environment.
+A system that is running CUPS becomes a host that can accept print requests from client systems, process those requests, and then send them to the appropriate printer.
+To facilitate CUPS support, a new print-service command has been introduced that provides a mechanism for switching between CUPS print service and the LP print service, including 2 new SMF services.
+
+Doc team Note: The guidance provided by the OSOL printing book is now obsolete as CUPS replaced the old Solaris printing subsystem found in OpenSolaris 2009.06. 
 
 ## Handbook - Systems Administration
 
