@@ -28,14 +28,22 @@ It might be easier to first populate this page with 3rd level subject headers an
 
 ## FAQ
 
-Have a look at the [OpenSolaris FAQ](https://web.archive.org/web/20091001032442/http://www.opensolaris.com/learn/faq/) to see if it contains anything which we could use to enhance the OI FAQ.
+Have a look at the following resources for ideas and inspiration for writing new content:
+
+* [OpenSolaris FAQ](https://web.archive.org/web/20091001032442/http://www.opensolaris.com/learn/faq/)
+
+* [OpenSolaris Newbie FAQ](https://web.archive.org/web/20090909080957/http://opensolaris.org/os/community/documentation/newbie_faq/)
 
 
 ## Handbook - Getting Started
 
 Import first section of Wiki page: <http://wiki.openindiana.org/oi/Using+OpenIndiana+-+Technical+FAQ>
 
-Have a look at [OpenSolaris Automated Installer Guide](https://web.archive.org/web/20100401021842/http://www.opensolaris.com/use/Auto_Installer.pdf) to see if it contains anything still useful which we can use for the new handbook.
+Have a look at the following resources for ideas and inspiration for writing new content:
+
+* [OpenSolaris Automated Installer Guide](https://web.archive.org/web/20100401021842/http://www.opensolaris.com/use/Auto_Installer.pdf)
+* [Linux Versus OpenSolaris](https://web.archive.org/web/20090824053055/http://opensolaris.org/os/project/czosug/events_archive/czosug_muni_20090228_OpenSolaris_and_Linux_Basic_Comparison.pdf)
+* [IPS versus apt - from IPS guide](https://web.archive.org/web/20090924031858/http://dlc.sun.com/osol/docs/content/2009.06/IMGPACKAGESYS/giksz.html)
 
 
 ## Handbook - Common Tasks
@@ -45,8 +53,11 @@ Have a look at [OpenSolaris Automated Installer Guide](https://web.archive.org/w
 
 ## Handbook - Systems Administration
 
-Have a look at [OpenSolaris CIFS guide](https://web.archive.org/web/20100215043517/http://www.opensolaris.com/use/CIFS.pdf) to see if it contains anything useful we can use for the new handbook.
+Have a look at the following resources for ideas and inspiration for writing new content:
 
+* [OpenSolaris CIFS guide](https://web.archive.org/web/20100215043517/http://www.opensolaris.com/use/CIFS.pdf)
+
+* [Linux to Solaris Administrators Guide](https://web.archive.org/web/20100401023944/http://www.sun.com/software/solaris/sysadmin_guide.pdf)
 
 ## Handbook - Network Communications
 
