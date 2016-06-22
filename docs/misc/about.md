@@ -53,8 +53,8 @@ As a result of the aforementioned exercises, the team established the following 
 * Provide well organized, technically accurate information in an aesthetically pleasing way.
 * Treat docs like code (for example: using version control, continuous integration, etc.)
 * Migrate all existing and future documentation to a simple text based markup.
-    * No more XML editors. 
-    * No more CMS systems to maintain (or databases to backup). 
+    * No more XML editors.
+    * No more CMS systems to maintain (or databases to backup).
     * No more suffering the constraints of embedded web editors.
 * Deploy documentation via a static website generator and employ a dynamic _mobile first_ CSS framework.
 
