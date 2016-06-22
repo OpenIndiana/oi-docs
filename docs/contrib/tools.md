@@ -43,7 +43,7 @@ Both technologies leverage the Python programming language.
 * Consistency - Docs are treated just like code
 
 
-## Why a Text Markup Based Docs Framework?
+## Why a text markup based docs framework?
 
 The primary advantage of using a text markup language is:
 
@@ -66,14 +66,14 @@ Because you are working with plain text files, content may be authored using Ato
 The choice is yours; Use your favorite editor.
 
 
-## MkDocs System Characteristics
+## MkDocs system characteristics
 
 * Easy to use Markdown syntax.
 * Produces professional quality output.
 * Extensible - accepts plugins.
 
 
-## MkDocs and Markdown Informational Links
+## MkDocs and Markdown informational links
 
 | URL | Description
 |---|---
@@ -85,7 +85,7 @@ The choice is yours; Use your favorite editor.
 | <https://pages.github.com/> | Publish from your github repo
 
 
-## The OpenIndiana Docs GitHub Repository
+## The OpenIndiana Docs GitHub repository
 
 As the OpenIndiana Docs website is still a proof of concept technology demonstration, its Github repository remains under the private control of the original author.
 If the concept is approved for inclusion under OpenIndiana GitHub organizational umbrella, then it will have an official repository.
@@ -101,7 +101,7 @@ Development occurs in the master branch.
 The gh-pages branch is used to publish the site to GitHub pages.
 
 
-## Docs Site Publishing
+## Docs site publishing
 
 Following the best practices of continuous integration, the OpenIndiana Docs website is fully automated using Travis-CI.
 Upon a commit to the site GitHub repository, Travis-CI immediately performs a series of validation tests.
