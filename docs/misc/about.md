@@ -41,20 +41,24 @@ Just as important, it also recognized how documentation needed to more accuratel
 
 The docs team began by looking at:
 
-* The current state of the OpenIndiana documentation.
-* The Methods and toolsets used to create past and present documentation.
+* The current state of the OpenIndiana project's documentation.
+* The methods and toolkits used to create past and present documentation.
 * How other projects where approaching their systems documentation efforts.
 
 ## Documentation revitalization effort goals
 
-As a result of the aforemented exercises, the team established the following goals:
+As a result of the aforementioned exercises, the team established the following goals:
 
-* Lower the bar of entry for contributor participation by simplifying the documentation process.
-* Provide well organized, technically accurate information in an aestetically pleasing way.
+* Increase participation and lower the bar of entry by simplifying the documentation process.
+* Provide well organized, technically accurate information in an aesthetically pleasing way.
 * Treat docs like code (for example: using version control, continuous integration, etc.)
-* Increase community participation in the documentation efforts.
+* Migrate all existing and future documentation to a simple text based markup.
+    * No more XML editors. 
+    * No more CMS systems to maintain (or databases to backup). 
+    * No more suffering the constraints of embedded web editors.
+* Deploy documentation via a static website generator and employ a dynamic _mobile first_ CSS framework.
 
-To this end, the team looked at several documentation oriented static site generators and selected MkDocs for its simplicity, ease of use, and professional looking output.
+To this end, the team looked at several documentation oriented static site generators and selected MkDocs for its simplicity, ease of use, and professional quality output.
 
 
 ## Providing feedback
