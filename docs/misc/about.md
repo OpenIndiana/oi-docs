@@ -49,7 +49,7 @@ The docs team began by looking at:
 
 As a result of the aforemented exercises, the team established the following goals:
 
-* Lower the bar of entry for contributor participation by simplifying the documentation process. 
+* Lower the bar of entry for contributor participation by simplifying the documentation process.
 * Provide well organized, technically accurate information in an aestetically pleasing way.
 * Treat docs like code (for example: using version control, continuous integration, etc.)
 * Increase community participation in the documentation efforts.
