@@ -62,7 +62,11 @@ CUPS support includes a web and graphical interface to manage your printing envi
 A system that is running CUPS becomes a host that can accept print requests from client systems, process those requests, and then send them to the appropriate printer.
 To facilitate CUPS support, a new print-service command has been introduced that provides a mechanism for switching between CUPS print service and the LP print service, including 2 new SMF services.
 
-Doc team Note: The guidance provided by the OSOL printing book is now obsolete as CUPS replaced the old Solaris printing subsystem found in OpenSolaris 2009.06. 
+Doc team Note: The guidance provided by the OSOL printing administration book is largely obsolete (but parts may still be valid) as CUPS replaced the old Solaris printing subsystem found in OpenSolaris 2009.06.
+However, OpenIndiana has 2 print subsystems (CUPS and LP).
+They are managed by the `print-service` command, which allows you to designate the active print subsystem.
+See the print-services (1M) man page for more information.
+In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
 
 ## Handbook - Systems Administration
 
