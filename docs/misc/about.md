@@ -37,16 +37,22 @@ This website and its content uses a number of different technologies:
 
 The current documentation revitalization effort began in late 2015.
 For some time the project recognized it needed to do a better job of organizing and presenting end user documentation.
-Just as important, it also recognized that documentation needed to accurately follow the development state of OpenIndiana Hipster.
-This effort began by looking at the current state of the documentation, looking at the tools used in its creation, and then looked around at what other projects where doing.
+Just as important, it also recognized how documentation needed to more accurately follow the development state of OpenIndiana Hipster.
+
+The docs team began by looking at:
+
+* The current state of the OpenIndiana documentation.
+* The Methods and toolsets used to create past and present documentation.
+* How other projects where approaching their systems documentation efforts.
 
 ## Documentation revitalization effort goals
 
-* Simplify the documentation process.
-* Lower the bar of entry for contributor participation.
-* Provide professional looking and technically accurate information.
+As a result of the aforemented exercises, the team established the following goals:
+
+* Lower the bar of entry for contributor participation by simplifying the documentation process. 
+* Provide well organized, technically accurate information in an aestetically pleasing way.
 * Treat docs like code (for example: using version control, continuous integration, etc.)
-* Increase participation in the documentation efforts.
+* Increase community participation in the documentation efforts.
 
 To this end, the team looked at several documentation oriented static site generators and selected MkDocs for its simplicity, ease of use, and professional looking output.
 
