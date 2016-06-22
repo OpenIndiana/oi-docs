@@ -36,13 +36,10 @@ pages:
                 - 'Building oi-userland': dev/userland.md
 
 - Notes:
-        - 'The OpenSolaris Redistributable Books': notes/books.md
-        - 'Content Management - The BSD Approach': notes/bsd.md
         - 'OpenIndiana Content Creation': notes/content.md
+        - 'Content Management - The BSD Approach': notes/bsd.md
         - 'Improving the OpenIndiana Project': notes/project.md
-        - 'GitHub Readme': notes/README.md
-        - 'Building a Document Management Toolchain using Sphinx': notes/sphinx.md
-        - 'Continuous Integration Content Management': notes/toolchain.md
+        - 'The OpenSolaris Redistributable Books': notes/books.md
 
 markdown_extensions:
         - admonition:
