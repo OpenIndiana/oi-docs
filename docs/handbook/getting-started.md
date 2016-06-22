@@ -242,7 +242,7 @@ $ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 ### Windows
 
 < Place Holder for content >
-<!-- -->
+
 
 ## Testing Openindiana Using Live Media
 
@@ -250,6 +250,89 @@ The Live Media DVD and USB installers provide a graphical live environment where
 When using Live Media to explore OpenIndiana, no changes are made to your system, unless you explicitly choose to install OpenIndiana.
 
 Although it is possible to use it over a network with SSH X forwarding if you enable SSH.
+
+
+## Booting OpenIndiana
+
+< Place holder for section introduction  content >
+
+#### Booting Physical Hardware
+
+<!--
+
+OpenIndiana can be pretty picky about hardware.
+Unsupported components can cause excessive CPU usage.
+
+For example:
+
+* Gigabyte motherboards with Intel socket 775 and ICH10 chipset don't work well with OI.
+    * Kernel using from 40-80% cpu @ idle.
+* Seems to work OK on Intel brand desktop motherboards though.
+* Works well with HP Zxxx class workstation hardware.
+
+-->
+
+Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your computer.
+For the computer to boot from the media, you may need to specify the device by pressing the boot order hotkey.
+Alternately, you may need to change the boot device order in your BIOS configuration.
+
+#### Booting Virtual Hardware
+
+The most efficient way to boot a virtual machine is to boot directly from the DVD ISO file.
+Alternately, you may use host to guest DVD/USB passthrough to boot from physical media.
+
+##### Virtualbox
+
+For VirtualBox 3.2 or later:
+
+"Use host I/O cache" must be enabled in the emulated storage controller used by the virtual machine to successfully boot OpenIndiana.
+
+##### Vmware Workstation Player
+
+< place holder for content >
+
+##### Vmware ESXI
+
+< place holder for content >
+
+
+### The OpenIndiana Boot Menu
+
+When you see a menu, press Enter to start OpenIndiana on your computer.
+As it runs, you will be prompted with a few questions.
+You should eventually be presented with a desktop.
+
+### Authenticating when using the OpenIndiana LiveDVD
+
+The user login for the text session is username 'jack' along with the password 'jack'.
+For administrative or elevated access, prepend your commands with `pfexec`.
+You may also use the `sudo` command.
+
+You may obtain root using the `su` command along with the password 'openindiana'.
+
+### Using the Device Driver Utility
+
+You can use the Device Driver Utility to check if your hardware requires additional drivers.
+
+## Preparing to Install OpenIndiana
+
+< Place Holder for section introduction content >
+
+### Backing up data
+
+< Place holder for content >
+
+### Deciding where to install OpenIndiana
+
+< Place holder for content >
+
+### Gathering Network Information
+
+< Place holder for content >
+
+## Installing OpenIndiana
+
+< Place Holder for content >
 
 
 ## Installing Applications
