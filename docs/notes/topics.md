@@ -52,6 +52,16 @@ Have a look at the following resources for ideas and inspiration for writing new
 * [Linux Versus OpenSolaris](https://web.archive.org/web/20090824053055/http://opensolaris.org/os/project/czosug/events_archive/czosug_muni_20090228_OpenSolaris_and_Linux_Basic_Comparison.pdf)
 * [IPS versus apt - from IPS guide](https://web.archive.org/web/20090924031858/http://dlc.sun.com/osol/docs/content/2009.06/IMGPACKAGESYS/giksz.html)
 
+#### Write some comparison tables
+
+* Provide some contrast/comparisons between OI and other illumos distros.
+* Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
+* Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
+    * See: [https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
+* Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
+    * For some inspiration, see the tables found on the SmartOS Wiki.
+    * Oracle might have some inspiration as well - (just don't copy it verbatim)
+
 
 ## Handbook - Common Tasks
 
@@ -68,6 +78,7 @@ They are managed by the `print-service` command, which allows you to designate t
 See the print-services (1M) man page for more information.
 In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
 
+
 ## Handbook - Systems Administration
 
 Have a look at the following resources for ideas and inspiration for writing new content:
@@ -81,6 +92,19 @@ Have a look at the following resources for ideas and inspiration for writing new
 * [OpenSolaris SMF Community](https://web.archive.org/web/20090602164813/http://opensolaris.org/os/community/smf/)
 * [OpenSolaris SMF FAQ](https://web.archive.org/web/20090603223153/http://opensolaris.org/os/community/smf/faq)
 
+
+#### ABI support
+
+* Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
+    * For more details, see: [http://openindiana.org/pipermail/oi-dev/2014-December/003496.html](http://openindiana.org/pipermail/oi-dev/2014-December/003496.html)
+    * We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
+
+
+#### Write about Virtualization
+
+* add a page about running OI as a virtual guest in Virtualbox, VMware, KVM, talk about which provides the best hardware support, guest tools compatibility, other caveats, etc.
+
+
 ## Handbook - Network Communications
 
 Have a look at the following resources for ideas and inspiration for writing new content:
@@ -89,17 +113,9 @@ Have a look at the following resources for ideas and inspiration for writing new
 * [Crossbow info](https://web.archive.org/web/20090719072357/http://www.opensolaris.org/os/project/crossbow)
 
 
-### ABI support
-
-* Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
-    * For more details, see: [http://openindiana.org/pipermail/oi-dev/2014-December/003496.html](http://openindiana.org/pipermail/oi-dev/2014-December/003496.html)
-    * We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
-
-
-### Installing OI onto an ISCSI exposed SCSI target
+#### Installing OI onto an ISCSI exposed SCSI target
 
 A good tutorial might be to write about installing OpenIndiana Hipster on an ISCSI target.
-
 
 ```bash
 [14:50:02] <alp> does someone have some links on "installing OI on ISCSI" ?
@@ -108,22 +124,6 @@ A good tutorial might be to write about installing OpenIndiana Hipster on an ISC
 ```
 
 Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html](https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html)
-
-
-### Write some comparison tables
-
-* Provide some contrast/comparisons between OI and other illumos distros.
-* Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
-* Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
-    * See: [https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
-* Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
-    * For some inspiration, see the tables found on the SmartOS Wiki.
-    * Oracle might have some inspiration as well - (just don't copy it verbatim)
-
-
-### Write about Virtualization
-
-* add a page about running OI as a virtual guest in Virtualbox, VMware, KVM, talk about which provides the best hardware support, guest tools compatibility, other caveats, etc.
 
 
 ### Potentially Useful Documentation References
@@ -135,4 +135,3 @@ Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_0
 * link to illumos graphics files: [https://www.illumos.org/projects/site/files](https://www.illumos.org/projects/site/files)
 * [Getting Started With OpenSolaris 2008.11](https://web.archive.org/web/20110904232819/http://dlc.sun.com/osol/docs/downloads/minibook/en/820-7102-10-Eng-doc.pdf) - [Internet Archive - PDF]
 * [FreeBSD Documentation Project Primer for New Contributors](https://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/)
-
