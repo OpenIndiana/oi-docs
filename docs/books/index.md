@@ -35,13 +35,13 @@ No editing of any kind has been performed on any of the titles.
 This documentation collection has been released under the [Public Documentation License (PDL)](../misc/pdl.md).
 
 
-## Titles Updated by the illumos Project
+## Titles updated by the illumos Project
 
 Several of the development related titles were updated in the early days of the illumos project.
 The illumos updated titles can be found here: <https://illumos.org/books/>
 
 
-## Book Categories
+## Book categories
 
 * [Basic Systems Administration](./basic.md)
 * [Intermediate & Advanced Systems Administration](./advanced.md)
@@ -61,9 +61,14 @@ When using these books, please bear in mind:
 * In some cases, it may be possible to follow broken links by using the [Internet Archive Wayback Machine](https://archive.org/web/).
 
 
-## The OpenIndiana Project's Documentation Update Effort
+## The OpenIndiana documentation revitalization effort
 
-An effort currently exists within the OpenIndiana community to revise the OpenSolaris redistributable books.
+An effort currently exists within the OpenIndiana community to:
+
+* Review the OpenSolaris redistributable books.
+* Determine the relevancy of each book in comparison to the current development state of OpenIndiana Hipster.
+* Compose lists of errata as required.
+
 If you wish to participate in this effort, please indicate your interest in one or more of the following ways:
 
 | Resource | URL
