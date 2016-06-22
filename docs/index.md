@@ -4,5 +4,5 @@
   </br>
     <p>Strait from the oven to the plate; Here you will find the very latest OpenIndiana Hipster systems documentation.</p>
   </br>
-  <p> - Hosted by the OpenIndiana Doc Team.
+  <p> - Hosted by the OpenIndiana Docs Team.
 </div>
