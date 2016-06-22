@@ -29,24 +29,26 @@ It applies to all "collaborative space", which is defined as community communica
 * We recognize our public actions determine the public perception of the project.
 
 
-## Core Expectations:
+## Core expectations:
 
 * Participants must ensure their language and actions are free from personal attacks and disparaging personal remarks.
 * When interpreting the words and actions of others, participants should always assume good intentions.
-* Participants who disrupt the collaborative space, or participate in a pattern of behavior which could be considered harassment, will not be tolerated.
-* Violations of the CoC should only be reported to the maintainers via direct messages on IRC, twitter, or via E-mail and will be handled confidentially.
-    * Neither reporters nor reported persons will, or should be, be made public.
 
 
 ## What will not be tolerated:
 
 * Open hostility, and or abusive language.
 * Repeated complaining (rehashing) of closed (decided) issues.
+* Participants who disrupt the collaborative space, or participate in a pattern of behavior which could be considered harassment.
 * Filibustering - <https://en.wikipedia.org/wiki/Filibuster>
     * Filibustering occurs when someone replies to every post in a mailing list thread.
     * Gives the impression there is more opposition to a new idea or concept than there really is.
     * Monopolizes everyone's time, drains everyone's energy, and prevents decisions from moving forward.
 
+## Reporting violations:
+
+* Violations of the CoC should only be reported to the maintainers via direct messages on IRC, twitter, or via E-mail and will be handled confidentially.
+    * Neither reporters nor reported persons will, or should be, be made public.
 
 #### Sources
 
