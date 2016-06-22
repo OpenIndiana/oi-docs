@@ -16,9 +16,9 @@ pages:
         - 'Getting Started': contrib/getting-started.md
         - 'Contributor Tools' : contrib/tools.md
         - 'Contributor Roles': contrib/roles.md
-        - 'Markdown Syntax Guide': contrib/markdown.md
-        - 'Contributor Style Guide': contrib/style.md
         - 'Contributor Topics': contrib/topics.md 
+        - 'Contributor Style Guide': contrib/style.md
+        - 'Markdown Syntax Guide': contrib/markdown.md
 
 - Docs:
         - 'OpenIndiana Code of Conduct': misc/conduct.md
