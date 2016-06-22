@@ -18,6 +18,7 @@ pages:
         - 'Contributor Roles': contrib/roles.md
         - 'Markdown Syntax Guide': contrib/markdown.md
         - 'Contributor Style Guide': contrib/style.md
+        - 'Contributor Topics': contrib/topics.md 
 
 - Docs:
         - 'OpenIndiana Code of Conduct': misc/conduct.md
@@ -42,7 +43,6 @@ pages:
         - 'GitHub Readme': notes/README.md
         - 'Building a Document Management Toolchain using Sphinx': notes/sphinx.md
         - 'Continuous Integration Content Management': notes/toolchain.md
-        - 'Topics to write about': notes/topics.md 
 
 markdown_extensions:
         - admonition:

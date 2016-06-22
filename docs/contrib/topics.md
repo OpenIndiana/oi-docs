@@ -16,15 +16,11 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Topics to write about
+# Contributor Topics 
 
 The goal of this page is to provide a TODO list of things which need to be documented.
 Topics will be organized first by page and then by topic.
 
-The second level headers will indicate the page.
-Third level headers will indicate topics, etc.
-
-It might be easier to first populate this page with 3rd level subject headers and then later come back and assign pages.
 
 #### Potentially useful reference information
 
