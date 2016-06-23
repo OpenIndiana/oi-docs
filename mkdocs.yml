@@ -23,6 +23,7 @@ pages:
         - 'OpenIndiana Code of Conduct': misc/conduct.md
         - 'OpenIndiana FAQ': misc/faq.md
         - 'OpenIndiana Handbook':
+                - 'Appendix': handbook/appendix.md
                 - 'Handbook (original)': handbook/handbook.md
                 - 'Getting Started': handbook/getting-started.md
         - OpenSolaris Books:
