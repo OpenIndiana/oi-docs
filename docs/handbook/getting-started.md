@@ -246,7 +246,7 @@ $ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 
 ### Windows
 
-< Place Holder for content >
+Doc Team Note: The FreeBSD project recommends [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) to write USB keys on the Windows operating system. This is a more modern application than the old "OpenSolaris Live USB creator" utility. We'll need to test this to ensure this works with the OpenIndiana USB images.
 
 
 ## Testing Openindiana Using Live Media
