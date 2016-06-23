@@ -16,12 +16,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# TODO
-
-< Place holder for notes >
-
-
-## Improving the OpenIndiana Project
+# Improving the OpenIndiana Project
 
 
 #### NOTES:
