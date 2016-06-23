@@ -27,8 +27,28 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Multimedia
 
-< placeholder >
+### Getting OI to play Multimedia
+
+* How to get OI to play a DVD
+* How to get flash player installed and working.
+* How to get VLC installed and working.
+* Codecs, etc.
+* How to use the hidden `gstreamer-properties` configuration utility.
+
+### Using OpenIndiana as a Media server, HTPC, etc.
+
+* <http://forum.kodi.tv/showthread.php?tid=44315&page=2>
+* <http://lightsandshapes.com/plex-on-smartos.html>
 
 ## Printing
 
 < placeholder >
+
+### Graphics workstation
+
+< Place holder for content >
+
+
+### Desktop Publishing system, Etc.
+
+< Place holder for content >

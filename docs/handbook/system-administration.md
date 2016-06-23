@@ -35,7 +35,13 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Zones
 
-< placeholder >
+### Zones - running web stuff in zone, development, etc.
+
+* Need to mention some of the changes to zone management...e.g..
+    * sys-unconfig gone.
+    * sysding replaced syscfg
+        * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`. So a fair amount of stuff has changed there.
+
 
 ## Storage
 
@@ -47,7 +53,41 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Virtualization
 
-< placeholder >
+### Virtualization Storage Server
+
+* Poor man's standalone ISCSI SAN linked to a 2nd machine running VMware ESXI (2 computers required)
+    * A variation of this would be to run OI as an ESXI guest with local storage hardware "passed through" to OI and then subsequently share ZFS volumes via  ISCSI with the ESXI host itself. In this configuration, OI effectively becomes a SAN (1 computer required)
+
+
+### Virtualization Server
+
+* Qemu-KVM walkthrough (Does hipster even have this package?)
+    * Yes, KVM is the package name
+* Using VIRSH, Virt-manager, etc. (Does hipster [or any illumos distro for that matter] even have virsh or Virt-manager)
+    * If not, what tools are used to manage the Joyant KVM port (VMADM perhaps?)
+    * Virtualbox walkthrough - ditto...is there a package available?
+
+* illumos KVM port does not support AMD processors.
+* Intel processors require EPT support.
+
+In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon support EPT.
+Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
+
+You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
+
+* Hipster is currently testing a new package for managing KVM instances as SMF services.
+
+```
+<leoric> Testers needed! pkg://userland/system/qemu/kvmadm@0.10.3,5.11-2015.0.2.0:20160322T212709Z
+<leoric> jeffpc: I know, you like kvm :)
+<jeffpc> heh
+<jeffpc> leoric: is there documentation for it?
+<leoric> https://github.com/hadfl/kvmadm/blob/master/doc/kvmadm.pod
+<jeffpc> oh, is it http://www.kvmadm.org/ ?
+<leoric> yes
+<jeffpc> interesting
+<jeffpc> I'll have to give it a try at some point
+```
 
 ## Localization
 
@@ -143,7 +183,76 @@ It can also be used for querying the contents of a repository.
 
 ## Configuring Networking
 
+### Configuring a UPS
+
+* NUT?
+
+
+### How does one perform system backups?
+
+* Time Machine
+* ZFS exports
+* Bacula?
+
+
+### How does one add additional users?
+
+* Basic system administration
+* Basic Unix commands
+
+
+### Working with storage and file systems
+
+
 < Place holder for section introduction content >
+
+#### How does one mount or import additional disks?
+
+<!--
+
+TODO:
+
+* Talk about the ZFS import command.
+* Need a walkthrough of mounting options for other filesystems...NTFS, FAT, UFS, etc.
+
+-->
+
+#### commands used
+
+* `mount`
+
+#### NTFS support - 3rd party
+
+* [http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html](http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html)
+
+
+#### How does one mirror their root zpool?
+
+* Adding a 2nd disk to the root pool
+
+#### How does one create additional zpools?
+
+* zpool create command
+    * Mirrors
+    * Raidz
+
+#### Modifying zpool settings and attributes
+
+* zpool get/set commands
+
+#### Modifying zfs file system settings and attributes
+
+* zfs get/set commands
+
+#### How does one create additional zfs datasets?
+
+* zfs create command
+
+#### Configuring system swap
+
+* zfs set command
+* swap -l
+
 
 ### Command Line
 
@@ -253,3 +362,12 @@ credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b
 * Make sure the network auto magic 'Location' setting is configured as 'Automatic' and not 'NoNet'
 
 
+## Clustering with Open HA Cluster
+
+See old sun docs
+
+* <http://docs.oracle.com/cd/E19735-01/>
+
+Also see:
+
+* <http://zfs-create.blogspot.nl/>
