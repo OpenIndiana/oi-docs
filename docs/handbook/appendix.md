@@ -1,4 +1,4 @@
-# Appendix
+# Appendix - (Draft) - work in progress
 
 ## Developing with OpenIndiana
 
