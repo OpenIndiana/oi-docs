@@ -123,7 +123,7 @@ $ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
 ```
 
 **Linux GUI** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
-
+<div class="well">
 There are many different CD/DVD writer applications available for Linux.
 
 | Desktop | Application
@@ -132,22 +132,21 @@ There are many different CD/DVD writer applications available for Linux.
 | KDE | K3B
 
 Other desktops may offer additional choices.
-Please consult the help documentation for your Linux distribution.
-
+For further information, please consult the help documentation for your Linux distribution.
+</div>
 
 #### Mac OS-X
 
-MAC Console <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
+**MAC Console** <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
 
 
 < Place holder for content >
 
 
-MAC GUI <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
-
-
-< Place holder for content >
-
+**MAC GUI** <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
+<div class="well">
+Applications > Utilities > Disk Utility
+</div>
 
 #### Windows
 
