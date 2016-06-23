@@ -25,7 +25,6 @@ pages:
         - 'OpenIndiana FAQ': misc/faq.md
         - 'OpenIndiana Handbook':
                 - 'Appendix': handbook/appendix.md
-                - 'Handbook (original)': handbook/handbook.md
                 - 'Getting Started': handbook/getting-started.md
         - OpenSolaris Books:
                 - 'Book Index': books/index.md
