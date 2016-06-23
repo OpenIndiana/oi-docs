@@ -477,8 +477,8 @@ When you boot from the text installer, it immediately begins the installation pr
 
 ## Troubleshooting Installations
 
-* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a "grub>" prompt, there may be an error in your copy of the installer, or it was created incorrectly.
-* If you see a "login:" prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
+* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a ``grub>`` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
+* If you see a ``login:`` prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
     * Please let us know via IRC or the mailing list if this happens.
     * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
     * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
