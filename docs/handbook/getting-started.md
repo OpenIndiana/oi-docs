@@ -259,7 +259,11 @@ Although it is possible to use it over a network with SSH X forwarding if you en
 
 ## Booting OpenIndiana
 
-< Place holder for section introduction  content >
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+OpenIndiana does not yet support UEFI (Unified Extensible Firmware Interface) or secure boot.
+These technologies must be disabled prior to booting an OpenIndiana DVD or USB stick.
+</div>
 
 #### Booting Physical Hardware
 
