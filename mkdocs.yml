@@ -24,8 +24,11 @@ pages:
         - 'OpenIndiana Code of Conduct': misc/conduct.md
         - 'OpenIndiana FAQ': misc/faq.md
         - 'OpenIndiana Handbook':
-                - 'Appendix': handbook/appendix.md
                 - 'Getting Started': handbook/getting-started.md
+                - 'Common Tasks': handbook/common-tasks.md
+                - 'Systems Administration': handbook/systems-administration.md
+                - 'Network Communications': handbook/network-communications.md
+                - 'Appendix': handbook/appendix.md
         - OpenSolaris Books:
                 - 'Book Index': books/index.md
                 - 'Basic Administration': books/basic.md
