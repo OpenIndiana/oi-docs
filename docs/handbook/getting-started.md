@@ -141,16 +141,20 @@ MAC GUI <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
 
 Windows Console <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
 
+Isoburn is Windows GUI utility which can be launched via the command prompt as follows:
 
-< Place holder for content >
+`ISOBURN.EXE [/Q] [<drive letter>:] <disk image file name>`
 
 
 Windows GUI <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
 
+From within Windows Explorer:
 
-< Place holder for content >
+* Browse to and select the ISO image file
+* Right click the ISO image file
+* From the right click menu, select "Burn Disk Image"
 
-<!-- -->
+
 ## Creating a bootable OpenIndiana USB Flash Drive
 
 #### Prerequisites
