@@ -57,6 +57,88 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 < placeholder >
 
+<!--
+### How does one keep the system updated?
+
+<!--
+
+Some notes and reference docs for writing the IPS section:
+
+* Be sure to provide walkthroughs for both IPS and BEADMIN (as they work together).
+* [Basics of Image Packaging System (IPS) - Oracle](http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-083-ips-basics-523756.html)
+* [IPS cheat sheet PDF - Oracle](http://www.oracle.com/technetwork/server-storage/solaris11/documentation/ips-one-liners-032011-337775.pdf)
+
+-->
+
+< Place holder for content >
+
+
+#### Using pkg to list packages currently installed on the system
+
+< Place holder for content >
+
+
+#### Using pkg to search for packages
+
+< Place holder for content >
+
+
+#### Using pkg to update the system
+
+* `pkg update -nv` will perform a dry run and list the changes which would have been made to the system.
+* `pkg update` will perform a normal update and print a very brief summary.
+* `pkg update -v` will perform the update and then print a summary of what was updated.
+* `pkg history` will provide basic details for previous uses of the pkg command.
+
+
+### How does one find and install more software?
+
+
+Tips for writing this section:
+
+* <https://pkgsrc.joyent.com/>
+* <https://pkgsrc.joyent.com/>
+* <https://pkgsrc.joyent.com/install-on-illumos/>
+
+* Clean up and consolidate information from website and wiki about where to find additional software.
+* Need to answer the questions - Where and how can I install more software?
+* Discuss the various package managers (PKGIN, IPS (PKG), etc.)
+* Discuss the various repos (opencsw, sfe, pkgsrc.joyent, etc.), what's available in them, and which might break compatibility, etc.
+* What is SFE? How does it differ from other repos?
+* Add a page for popular available software with descriptions, etc.
+* When they say IPS is network centric, they're not kidding;
+Packages cannot be installed locally like RPM, instead you have to setup a local network repository.
+    * See: <http://serverfault.com/questions/348139/how-to-manually-download-individual-files-from-the-openindiana-or-solaris-pkg>
+* How to additional repos, etc.
+* How to compile your own software.
+I think there is an existing wiki page for this.
+Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
+    * Also could look here (might be outdated):
+    * <http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml>
+* How to install flash player
+
+-->
+
+< Place Holder for Content >
+
+
+#### Using the pkg publisher and pkg set-publisher commands
+
+The `pkg publisher` command is used to add and remove remote repositories.
+
+* `pkg publisher` - lists all the repositories configured on the system.
+* To add a repository, use `pkg set-publisher -O <Repository_URL> <Repository_Name>`
+
+
+#### Using the pkgrepo command
+
+The `pkgrepo` command is primarily used for creating and working with IPS repositories.
+It can also be used for querying the contents of a repository.
+
+* `pkgrepo info -s <repo_URL>`
+* `pkgrepo list -s <repo_URL> <package_group>`
+
+
 ## Dtrace
 
 ## Configuring Networking
