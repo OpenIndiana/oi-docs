@@ -332,8 +332,174 @@ You can use the Device Driver Utility to check if your hardware requires additio
 
 ## Installing OpenIndiana
 
+
 < Place Holder for content >
 
+<!--
+
+TODO:
+
+For some guidance writing this section:
+http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html
+
+Installation videos:
+https://www.youtube.com/watch?v#VVWP_5oAy3w
+
+-->
+
+### Installing OpenIndiana from Live Media
+
+To install OpenIndiana from Live Media, you have two options.
+
+* GUI based guided install.
+* Text based guided install.
+
+Each of these options is represented by a desktop icon.
+Select the appropriate installer option by clicking the corresponding desktop installer icon.
+
+#### GUI based Guided Install
+
+< Place Holder for Content >
+
+#### Text based Guided Install
+
+The text based guided install start and runs within a command line console.
+Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+The non-graphical text based bootable media installer also uses this very same _Text based Guided Install_.
+</div>
+
+Start the Text based Guided Install by double clicking the Text based Guided Install icon.
+
+![Welcome Screen](images/handbook/text_install/text_install1.png)
+
+When you begin the Text based Guided Install, you are presented with the welcome screen.
+Press F2 to continue.
+
+![Disks](images/handbook/text_install/text_install2.png)
+
+The installer identifies the disks which are available for installation.
+If you have only a single disk, it is already selected.
+If you have multiple disks, use the arrow keys to select the appropriate disk.
+When finished, press F2 to continue.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Disregard the minimum and recommended sizes as they do not take into account periodic disk usage growth as the result of ZFS snapshots.
+To account for this, your disk should be at least 25GB or more.
+</div>
+
+![GPT Warning](images/handbook/text_install/text_install3.png)
+
+If your disk contains a GPT disk label, the entire disk will be reformatted.
+This warning serves as your advisory.
+If this is acceptable, press F2 to continue.
+Otherwise use the arrow keys to select cancel.
+
+![Fdisk Partitions](images/handbook/text_install/text_install4.png)
+
+In this screen you are presented with the choice of how to partition the disk.
+You may select to use an EFI partition (which uses the entire disk), or you may choose to create MBR partitions.
+Using the arrow keys select the appropriate choice and press F2 to continue.
+
+![Network 1](images/handbook/text_install/text_install5.png)
+
+Specify the computer name you wish to use.
+By default the computer name is _openindiana_.
+
+![Network 2](images/handbook/text_install/text_install6.png)
+
+This screen is the same as as the previous.
+We have illustrated it twice to help clarify the 2 distinct configuration tasks which need to be completed on the screen.
+
+After configuring the computer name, now you need to decide whether to automatically configure networking (DHCP), or leave network unconfigured.
+Use the arrow keys to select your choice.
+Press the F2 key to continue.
+
+![Time Zone - Region](images/handbook/text_install/text_install7.png)
+
+In this screen (and the following 2 screens) you will configure your time zone.
+If you select UTC/GMT, you will only be presented with this single screen.
+Using the arrow keys select the appropriate region.
+Press F2 to continue.
+
+![Time Zone - Location](images/handbook/text_install/text_install8.png)
+
+Using the arrow keys, select your time zone location.
+Press F2 to continue.
+
+![Time Zone](images/handbook/text_install/text_install9.png)
+
+Using the arrow keys, select the appropriate time zone.
+Press F2 to continue.
+
+![Date and Time](images/handbook/text_install/text_install10.png)
+
+In this screen you may configure the date and time.
+Using the arrow keys navigate between the fields.
+Press F2 to continue.
+
+![Users](images/handbook/text_install/text_install11.png)
+
+In this screen you are presented with several different fields to configure.
+Using the arrow keys navigate between the fields.
+Press F2 to continue.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE**
+<div class="well">
+The regular user specified on this screen is granted the _root_ role.
+In effect this means by default (and without any further configuration) this user can perform administrative task by assuming the root role as needed.
+Also, after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
+</div>
+
+![Installation Summary](images/handbook/text_install/text_install12.png)
+
+Now that you have completed the installation configuration, you are presented with an _Installation Summary_.
+If these configuration settings are correct, begin the installation by pressing the F2 key.
+
+![Transferring Contents](images/handbook/text_install/text_install13.png)
+
+Installation progress is measured by means of a status bar.
+
+![Installation Complete](images/handbook/text_install/text_install14.png)
+
+After the installation completes you are presented with a summary screen.
+The installation logs are available by pressing the F4 key.
+If you ran the installation from Live Media, can exit the installation by pressing F9.
+Otherwise, you will want to reboot the system using the F8 key.
+
+### Installing OpenIndiana using the Text Installer
+
+The text installer is not graphical nor does not have a live environment.
+When you boot from the text installer, it immediately begins the installation process using the previously described _Text based Guided Install_.
+
+## Troubleshooting Installations
+
+* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a "grub>" prompt, there may be an error in your copy of the installer, or it was created incorrectly.
+* If you see a "login:" prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
+    * Please let us know via IRC or the mailing list if this happens.
+    * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
+    * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
+
+<!--
+
+TODO:
+
+Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in this document.
+
+-->
+
+### USB 3.0 issues
+
+* OpenIndiana Hipster does not currently support USB3.
+* You cannot boot a USB thumbdrive installer from a USB3 port.
+
+
+## Using OpenIndiana
+
+< placeholder >
 
 ## Installing Applications
 
