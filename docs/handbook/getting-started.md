@@ -98,7 +98,12 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 #### BSD
 
-< Place holder for content >
+```bash
+cdrecord dev=device imagefile.iso
+```
+
+Note: Use the `cdrecord -scanbus` command to locate your CD/DVD writer device.
+
 
 #### Illumos/Solaris
 
