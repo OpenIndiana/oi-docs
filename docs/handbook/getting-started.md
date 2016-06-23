@@ -106,7 +106,7 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 #### Linux
 
-Linux Console <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
+**Linux Console** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 
 ```bash
 $ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
@@ -117,10 +117,17 @@ $ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
 
 ```
 
-Linux GUI <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
+**Linux GUI** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 
+There are many different CD/DVD writer applications available for Linux.
 
-< Place holder for content >
+| Desktop | Application
+| --- | ---
+| GNOME | Brasero
+| KDE | K3B
+
+Other desktops may offer additional choices.
+Please consult the help documentation for your Linux distribution.
 
 
 #### Mac OS-X
