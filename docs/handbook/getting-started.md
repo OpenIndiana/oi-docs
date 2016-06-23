@@ -507,5 +507,36 @@ Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+
 
 
 ## Xorg
-
 < placeholder >
+
+### Video Card Support (3D)
+
+Nearly all cards are supported for 2nd, but only Nvidia is supported for 3D.
+Work is progressing to provide support for AMD and Intel.
+
+#### Nvidia
+
+* Talk about the expected behavior when booting the live CD from a system with an NVIDIA card.
+* Discuss procedure for adding an NVIDIA card to a system that was using VESA or some other non-3d video driver.
+* Troubleshooting - what logs to look at, manual configuration, etc.
+* Walk through NVIDIA utility screens.
+
+#### AMD
+
+* Currently no 3rd support, VESA driver only.
+
+#### Intel
+
+* Still working to incorporate this into Hipster.
+
+### How does one add a missing device driver?
+
+< Write about finding hardware id's, searching for drivers, installing, loading, /etc/driver_alias'es file. >
+
+### How can the desktop be modified?
+
+* Gnome walkthrough
+* Appearance applet
+    * Enabling Compiz
+    * Configuring font anti-aliasing
+
