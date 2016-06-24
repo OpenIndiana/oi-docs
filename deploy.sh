@@ -13,7 +13,7 @@ fi
 
 git config user.name "Travis Build"
 echo "Updating remotes..."
-git remote add deploy "https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git" || echo "Remote deploy already exists:"
+git remote add deploy "https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git" &>/dev/null || echo "Remote deploy already exists:"
 git remote -v
 
 echo "Running mkdocs gh-deploy"
