@@ -1,4 +1,4 @@
-# Website 2.0 [![Build Status](https://travis-ci.org/makruger/website-2.0.svg?branch=master)](https://travis-ci.org/makruger/website-2.0)
+# OI-DOCS [![Build Status](https://travis-ci.org/makruger/website-2.0.svg?branch=master)](https://travis-ci.org/makruger/website-2.0)
 
 TEST LINE
 
