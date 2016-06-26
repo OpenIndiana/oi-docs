@@ -13,13 +13,10 @@ after_success:
   - >-
     if ! [[ "${TRAVIS_PULL_REQUEST}" = "false"  && "${TRAVIS_BRANCH}" = "master"
     ]]; then exit 0; fi
-  - >-
-    git remote add deploy
-    https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git
-  - >-
-    git remote -v
+  - 'git remote add deploy https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git'
+  - git remote -v
   - mkdocs gh-deploy -v --clean --remote-name deploy --remote-branch gh-pages
 env:
   global:
     - secure: >-
-        Ski71s2whA7AYvPdhf4ZBpze3mNOpSmRlRjKTQt4xw7z8WDPAacvm5QlU26HtClpWeGkaJbW/2cizBKX9IrvGvJEjqlxU8Hjpn8oUa5o/dbPBf1GoYMplNL2Ki8Pe/a6rl8ym2o7aK1PeC1HXfDKgUAzhyy/Znl66x5oJp1GNPJVQ1MKTtXRqo5/iTuhtn7qmzhTae7mYRkyrTvadQbGbst4B9NnnAeEqw6iZrEtaNCU2WsCKSsY4Y8ogXCao9WgtozmcWuxxgEgpksJeL6oxq7FApq+kgGR73CFJP53IPmp5NyUAgwV0bSVtokzaPkIssXIsjAOqKOhdP+oxpykpiQNtWhaapfPGEQWM2/SvnQoRRLcmiuUXGOYWyi2pdl/vSMD+GtR7V0m19KBicNrJ0YMO3nzXJljlWFxJ9PzSq35Oqxao3oY0dVJgGUiCtLk9FLUoONiwWOpAail82U6ca+i/B8yumMPhMcSkEgP86p/Y4PXlhm+HVGtqWueLw2AtlW1UIbolJosAWqxOosmFeCcYt0/UuSWWU+nWrcoKSpIjZ7VfHAAVZ9ZticYlH/vu371H2eqbFbh5qfu2Ju0Fb481IYrSOmrgVx4zpagsvCsdCxBUGCnVBy+JZ9QvBXt60eW4opqIngY4fvfOzKNj4xKtYTWHjPXWoAYi8l3RuM=
+        Mr7L6E5U84xweYEKfewv42f5/ZxRWJwWYzAt1A4lAu+EZjy58xEh1uFW78PfkFFX98ij4H3t34mNa5GkL7D69FnvGJmnhbsTFUJKmcRpBzATJk6ztqF3l8jSZN+3cm10s1WfUicuegNA0o/JL0m7gomWJSGo9BzfunPP4KJj4EdnrdRJC5Pn7n9/HiVyFbO/tNnLkCcFmH8AMVcYfiG9HbXuad4qjY6K60EhksWEboc31E0/92crUxj8vNuteJIYXVAHOv/v78ST+CLfmHHjqp4fiWGbWa9/KH3iiWIqIjSk9eReNFou0yK2tNh8YYXgotd8HjSbcQSp/XcWGI5/f1r6iYwup2297aQgbvOWZOIuKqoqiJ8XyLLDtp/EupOr2NevqswPjXXkqcqgXIhA6GinIv1xoXustnpeyR2rCy8qm91k3v+AakahUc0MAhhNr0UKicInlcnji+p51EWThWi+5xDLth1UtG8M3kJDA+OiZ7h/Grj/8oTLaIB5ZdSbWWwo3KCd5ikq1Z0B8Z/wj+8fdQ9rAQlizM/ZQhHCh3pIwHvsKVN2fze1Rqk3BiAnSVfoeZHM/fzHtzsYZmMelDwMKLXc91L5t4mzL9YTgAyvy5qx3ywcgprFTzLXExRnGU/vsaBbHuRXJ8t9CxWL74fDOWgbDvrVsD59CaDKe9c=
