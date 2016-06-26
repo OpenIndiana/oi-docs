@@ -14,6 +14,7 @@ class Result(Enum):
     ERROR = 2
 
 
+SITE_URL = "http://openindiana.github.com/oi-docs/"
 ACCEPTED_PROTOCOLS = ["http", "https", "ftp"]
 
 log = logging.getLogger(__name__)
@@ -130,7 +131,7 @@ def main():
     #     exit(1)
     # check(args[0])
     log.setLevel(logging.DEBUG)
-    check("http://makruger.github.io/website-2.0/")
+    check(SITE_URL)
 
 if __name__ == "__main__":
     main()
