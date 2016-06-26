@@ -24,9 +24,6 @@ Therefore, the number one thing we can do to improve the books is to consolidate
 In reviewing these books, there looks to be some crossover between titles.
 For example, it might be possible to merge the Solaris Express collection into the Systems Administration collection, etc.
 
-[NOTE]
-To view this doc in it's final rendered form, click the following link:
-<http://gist.asciidoctor.org/?github-makruger/openindiana-docs//books.asciidoc>
 
 ## Current Situation
 

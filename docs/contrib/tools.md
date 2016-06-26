@@ -87,12 +87,7 @@ The choice is yours; Use your favorite editor.
 
 ## The OpenIndiana Docs GitHub repository
 
-As the OpenIndiana Docs website is still a proof of concept technology demonstration, its Github repository remains under the private control of the original author.
-If the concept is approved for inclusion under OpenIndiana GitHub organizational umbrella, then it will have an official repository.
-
-Meanwhile, you can find the OpenIndiana Docs repository here: [https://github.com/makruger/website](https://github.com/makruger/website-2.0)
-
-The repository consists of 2 branches:
+The OpenIndiana Docs repository: [https://github.com/OpenIndiana/oi-docs](https://github.com/OpenIndiana/oi-docs) consists of 2 branches:
 
 * master
 * gh-pages

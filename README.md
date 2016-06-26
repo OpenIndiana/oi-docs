@@ -1,4 +1,4 @@
-# Website 2.0 [![Build Status](https://travis-ci.org/makruger/website-2.0.svg?branch=master)](https://travis-ci.org/makruger/website-2.0)
+# OpenIndiana Docs [![Build Status](https://travis-ci.org/OpenIndiana/oi-docs.svg?branch=master)](https://travis-ci.org/OpenIndiana/oi-docs)
 
 A new home for OpenIndiana docs, made with ``mkdocs``.
 
@@ -23,6 +23,3 @@ license, unless stated otherwise in individual files.
 - [``mdl``](https://github.com/mivok/markdownlint)
 - [``mdspel``](https://www.npmjs.com/package/markdown-spellcheck)
 
-## TODO
-
-A list of things that need to be done can be found [here](TODO.md)
