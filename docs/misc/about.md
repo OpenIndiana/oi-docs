@@ -23,7 +23,7 @@ This website and its content uses a number of different technologies:
 * Page content written in the [Markdown](https://daringfireball.net/projects/markdown/) text markup language.
 * Text markup transformed to HTML using the [MkDocs](http://www.mkdocs.org/) documentation framework/static site generator.
 * Website styled using the [Bootstrap](http://getbootstrap.com/) CSS framework (more specifically the [Bootswatch](https://bootswatch.com/) Spacelab theme).
-* Source code hosted in a [GitHub](https://github.com/makruger/website-2.0) repository.
+* Source code hosted in a [GitHub](https://github.com/openindiana/oi-docs) repository.
 * Website hosted on [GitHub Pages](https://pages.github.com/)
 
 
@@ -55,6 +55,5 @@ To this end, the team looked at several documentation oriented static site gener
 
 ## Providing feedback
 
-The OpenIndiana Docs website uses GitHub issues to manage development tasks and provide a venue to discuss changes.
-To make a suggestion or report a bug, please [open an issue on GitHub](https://github.com/makruger/website-2.0/issues).
+To make a suggestion or report a bug, please make your request on the #openindiana or #oi-dev IRC channels, or alternately via the OpenIndiana mailing lists.
 
