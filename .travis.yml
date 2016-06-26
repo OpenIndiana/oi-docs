@@ -15,8 +15,11 @@ after_success:
     ]]; then exit 0; fi
   - 'git remote add deploy https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git'
   - git remote -v
+  - git config user.name "Travis Build"
   - mkdocs gh-deploy -v --clean --remote-name deploy --remote-branch gh-pages
 env:
   global:
     - secure: >-
         Mr7L6E5U84xweYEKfewv42f5/ZxRWJwWYzAt1A4lAu+EZjy58xEh1uFW78PfkFFX98ij4H3t34mNa5GkL7D69FnvGJmnhbsTFUJKmcRpBzATJk6ztqF3l8jSZN+3cm10s1WfUicuegNA0o/JL0m7gomWJSGo9BzfunPP4KJj4EdnrdRJC5Pn7n9/HiVyFbO/tNnLkCcFmH8AMVcYfiG9HbXuad4qjY6K60EhksWEboc31E0/92crUxj8vNuteJIYXVAHOv/v78ST+CLfmHHjqp4fiWGbWa9/KH3iiWIqIjSk9eReNFou0yK2tNh8YYXgotd8HjSbcQSp/XcWGI5/f1r6iYwup2297aQgbvOWZOIuKqoqiJ8XyLLDtp/EupOr2NevqswPjXXkqcqgXIhA6GinIv1xoXustnpeyR2rCy8qm91k3v+AakahUc0MAhhNr0UKicInlcnji+p51EWThWi+5xDLth1UtG8M3kJDA+OiZ7h/Grj/8oTLaIB5ZdSbWWwo3KCd5ikq1Z0B8Z/wj+8fdQ9rAQlizM/ZQhHCh3pIwHvsKVN2fze1Rqk3BiAnSVfoeZHM/fzHtzsYZmMelDwMKLXc91L5t4mzL9YTgAyvy5qx3ywcgprFTzLXExRnGU/vsaBbHuRXJ8t9CxWL74fDOWgbDvrVsD59CaDKe9c=
+    - secure: >-
+        p587VAparzjJGuI43uY+31CTSnfi3MTXP6YtD2yQ8NGTyhHUErRQ+wDgiC2ozQ7xucblglup0Lyiht46JPqPKTE+oofen2Ik+jcqxNbfpVj6z3x5JsS/UQzVkSTIWuej55Rr21hmPr7FhkRW2qTZbfpqPAKAJCgcdix0uW71CnEFXarivtg/rSsIiwt0me3IP3ePOumRMQiN4pLdro9XIcF1YJC8T/31fGPcmAa75ZBxTZXKwVEFWvBucRkyA592fzWBkfIQXJyykDkuSfASKW+IpRzef3pmxvoAthNQT+PcgupnTa7KAxO0dbL41xCnqgGvxVivM47G0VemLkdsVRU6oKNIkPezsMxF59j9kgAVntepltDJTVFIjivKYVvmVcCviqXK1GLgid32KFKO8T5nR4zsrTkB4uTyH/idq9J3UQCrGVhMZm+B4aJBAi+mkih4OQFfOVEKGC8XEZUnL2XKETbohfUnpLc4Gbx5TBFXN2rp9v34HkFOADKmMlaioH4Y87rt26yQsUEq9fvFaHnbjmXiJe/LfnIU8qLOSzhxWV/FJiHDS9hQrROKbnpySmHRsIboLD+36wvRjRHMtmZAnL+4B8HSHuJXmlQUjbhQVuAK1438idy9/aZA2nPizlhAHr+iwt5eVW6SF6ZYa4KYmtyNSBv30svsw7WdxXc=
