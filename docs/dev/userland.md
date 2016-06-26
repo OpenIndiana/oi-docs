@@ -18,6 +18,10 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Quick start for oi-userland
 
+### Install OpenIndiana
+Before working on oi-userland, you need to install OpenIndiana.
+
+
 ### Clone the repository from OpenIndiana's Github, it is set as origin:
 
 ```bash
