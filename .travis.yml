@@ -10,7 +10,9 @@ script:
   - mkdocs build
   - ./link_validator.py
 after_success:
-  - exec ./deploy.sh
+  - if ! [[ "${TRAVIS_PULL_REQUEST}" = "false"  && "${TRAVIS_BRANCH}" = "master" ]]; then exit 0; fi
+  - git remote add deploy "https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git";
+  - mkdocs gh-deploy -v --clean --remote-name deploy 
 env:
   global:
     - secure: >-
