@@ -10,10 +10,14 @@ script:
   - mkdocs build
   - ./link_validator.py
 after_success:
-  - if ! [[ "${TRAVIS_PULL_REQUEST}" = "false"  && "${TRAVIS_BRANCH}" = "master" ]]; then exit 0; fi
-  - git remote add deploy "https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git";
-  - mkdocs gh-deploy -v --clean --remote-name deploy 
+  - >-
+    if ! [[ "${TRAVIS_PULL_REQUEST}" = "false"  && "${TRAVIS_BRANCH}" = "master"
+    ]]; then exit 0; fi
+  - >-
+    git remote add deploy
+    "https://${GH_TOKEN}@github.com/OpenIndiana/oi-docs.git";
+  - mkdocs gh-deploy -v --clean --remote-name deploy
 env:
   global:
     - secure: >-
-        hmzZqs+gxLRQcWmUp/hQqE6GMaYSdQl7sgPomGwo4c7eeVm+sJip0w5jWSGW01Rl+uecxFaUnGQgf6Dry+F/s03stDxez9TYTFcFC2MtZAk7Tz/dxV9x3JN/9bXuSMKQ58Oujr+orj0vEJeiQLZNl4gHtuT34l9vJKJcKCDrVPPZ0ec97jR0lBTsaW1BkEMtmRsRSSGrAPcG470rXdcEVa4ZS0EMx6v9tSzsA+kLPs8twqhw9D0y+kPMXpAeDjy7jpxJWTe4MDq/oQQyinH9yz+gdEg5nNgwElLdKjItB1MBc2qBKR4OY/sPEn6StBlVPis9vDutC3WgTUPf0/ZeU9Jaxu7aHYTAlVyyAKjJPWUqMbFnQ8eofENpatL3TBB8VcwdP/cqwSpsRB311t1iqFzAxOYNJfIJTkRu9XEG9ZDGGK+RElgLe7cH9XXcBcUzzWejS1Jj7gR9Mn/GsN9jFNPkLotlMLM/39kw8a8gfdLHcuIQOe25EKr7QcS0C97rEd8znRfuPD9RuIsa4IamdDpaHI5EJX2g/1MpWVC9EZOAGb3oTsdH1QGxSA9/ULng4XQcFNMZlsKYz1hRqTZjN4SNXfBIzlG9u1hRCS760v47KZZGoArg6TRoSIX24WYj+yx0stDn4LmSuDIu7cNx9LM107sNDDaZO7y+PSHrBq8=
+        Ski71s2whA7AYvPdhf4ZBpze3mNOpSmRlRjKTQt4xw7z8WDPAacvm5QlU26HtClpWeGkaJbW/2cizBKX9IrvGvJEjqlxU8Hjpn8oUa5o/dbPBf1GoYMplNL2Ki8Pe/a6rl8ym2o7aK1PeC1HXfDKgUAzhyy/Znl66x5oJp1GNPJVQ1MKTtXRqo5/iTuhtn7qmzhTae7mYRkyrTvadQbGbst4B9NnnAeEqw6iZrEtaNCU2WsCKSsY4Y8ogXCao9WgtozmcWuxxgEgpksJeL6oxq7FApq+kgGR73CFJP53IPmp5NyUAgwV0bSVtokzaPkIssXIsjAOqKOhdP+oxpykpiQNtWhaapfPGEQWM2/SvnQoRRLcmiuUXGOYWyi2pdl/vSMD+GtR7V0m19KBicNrJ0YMO3nzXJljlWFxJ9PzSq35Oqxao3oY0dVJgGUiCtLk9FLUoONiwWOpAail82U6ca+i/B8yumMPhMcSkEgP86p/Y4PXlhm+HVGtqWueLw2AtlW1UIbolJosAWqxOosmFeCcYt0/UuSWWU+nWrcoKSpIjZ7VfHAAVZ9ZticYlH/vu371H2eqbFbh5qfu2Ju0Fb481IYrSOmrgVx4zpagsvCsdCxBUGCnVBy+JZ9QvBXt60eW4opqIngY4fvfOzKNj4xKtYTWHjPXWoAYi8l3RuM=
