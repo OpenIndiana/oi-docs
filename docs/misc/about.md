@@ -16,13 +16,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# About OpenIndiana Docs (Demo 2.0)
-
-
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **This website is NOT an official OpenIndiana site**
-<div class="well">
-The purpose of this technology demonstration website is to examine the Mkdocs framework (and its Markdown text markup language) to determine whether these technologies suit the needs of the OpenIndiana project.
-</div>
+# About OpenIndiana Docs
 
 This website and its content uses a number of different technologies:
 

@@ -75,8 +75,7 @@ Verify your installation with `mkdocs --version`
 
 ## Fork the OpenIndiana Docs repository
 
-* Open your web browser and sign into [Github](https://www.github.com)
-* Browse to <https://github.com/makruger/website-2.0>
+* Open your web browser to the [OpenIndiana Docs GitHub Repository](https://github.com/OpenIndiana/oi-docs).
 * Click the **Fork** button found in the upper right hand corner of the page.
     * Forking creates a server side clone of the upstream repository.
 
@@ -84,15 +83,15 @@ Verify your installation with `mkdocs --version`
 ## Create a local clone of your fork
 
 ```bash
-git clone https://github.com/your-user-name/website-2.0.git
+git clone https://github.com/YOUR-USER-NAME/oi-docs.git
 ```
 
 
 ## Add the upstream repository
 
 ```bash
-cd website-2.0
-git remote add upstream https://github.com/makruger/website-2.0.git
+cd oi-docs
+git remote add upstream https://github.com/OpenIndiana/oi-docs.git
 ```
 
 Verify things with `git remote -v`
@@ -100,11 +99,10 @@ Verify things with `git remote -v`
 You should now see:
 
 ```bash
-remote -v
-origin    https://github.com/your-user-name/website-2.0.git(fetch)
-origin    https://github.com/your-user-name/website-2.0.git (push)
-upstream  https://github.com/makruger/website-2.0.git(fetch)
-upstream  https://github.com/makruger/website-2.0.git (push)
+origin  https://github.com/YOUR-USER-NAME/oi-docs.git (fetch)
+origin  https://github.com/YOUR-USER-NAME/oi-docs.git (push)
+upstream        https://github.com/OpenIndiana/oi-docs.git (fetch)
+upstream        https://github.com/OpenIndiana/oi-docs.git (push)
 ```
 
 
@@ -113,9 +111,7 @@ upstream  https://github.com/makruger/website-2.0.git (push)
 Periodically you will want to _rebase_ your local copy by bringing in changes from the upstream repository.
 
 ```bash
-git fetch upstream
-git checkout master
-git merge upstream/master
+git pull upstream master
 ```
 
 ## OpenIndiana Docs site structure (master branch)
@@ -123,21 +119,18 @@ git merge upstream/master
 All site development occurs within the master branch.
 
 ```markdown
-website-2.0/
-├── deploy.sh
+oi-docs/
 ├── docs/
 ├── link_validator.py
 ├── markdownlint-rules.rb
 ├── mkdocs.yml
 ├── README.md
 ├── site/
-└── TODO.md
 ```
 
 | Resource | Description
 | --- | ---
-| website-2.0/ | site root folder
-| deploy.sh | site deployment script
+| oi-docs/ | site root folder
 | docs/ | documentation root folder
 | link_validator.py | URL validation script
 | markdownlint-rules.rb | Markdown Lint configuration
@@ -252,32 +245,29 @@ Prior to submitting a PR, please consider running ``mdspell`` locally on your co
 mdspell --en-us -x -n -ran "**/*.md"
 ```
 
-``mdspell`` will automatically crawl the entire folder structure looking for spelling mistakes.
-Alternatively you may also run ``mdspell`` on a specific file. Simply replace ``"**/*.md"`` with the path to the file.
+`mdspell` will automatically crawl the entire folder structure looking for spelling mistakes.
+Alternatively you may also run `mdspell` on a specific file. Simply replace `"**/*.md"` with the path to the file.
 
-## Enabling spell checking in ``vim``
+## Enabling spell checking in vim
 
 You can invoke spell checking in your current session by inputting the command:
 
-```:set spell spelllang=en_us```
+`:set spell spelllang=en_us`
 
-or if you would like a more permanent solution, you can enable spell checking in you ``.vimrc`` by adding the line:
+If you would like a more permanent solution, enable spell checking in your `.vimrc` by adding the line:
 
-```set spelllang=en_us```
-
-
-to your ``.vimrc``
+`set spelllang=en_us`
 
 
 Misspelled words will now be highlighted (color varies dependent on your .Xresources file)
 
-### Keyboard shortcuts for spell checking in ``vim``
+### Keyboard shortcuts for spell checking in vim
 
-* ``]s`` to find the previously misspelled word.
-* ``[s`` to find the next misspelled word.
-* With the cursor at the beginning of a word, use ``z=`` to bring up a list of suggested replacements.
-* ``zg`` will add a word to the local dictionary exception file.
-* ``zw`` is used to mark a word as incorrect.
+* `]s` to find the previously misspelled word.
+* `[s` to find the next misspelled word.
+* With the cursor at the beginning of a word, use `z=` to bring up a list of suggested replacements.
+* `zg` will add a word to the local dictionary exception file.
+* `zw` is used to mark a word as incorrect.
 
 
 ## Commit and push your changes.
@@ -294,7 +284,7 @@ git push
 
 * Open your web browser to your forked copy of the OpenIndiana Docs repository.
 
-For example: `https://github.com/your-user-name/website-2.0`
+For example: `https://github.com/your-user-name/oi-docs`
 
 * Click the button for _New pull request_.
 * Add some notes about your change.
