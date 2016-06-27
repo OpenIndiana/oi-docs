@@ -48,7 +48,7 @@ It applies to all "collaborative space", which is defined as community communica
 ## Reporting violations:
 
 * Violations of the CoC should only be reported to the maintainers via direct messages on IRC, twitter, or via E-mail and will be handled confidentially.
-    * Neither reporters nor reported persons will, or should be, be made public.
+    * Neither reporters nor reported persons will, or should be, made public.
 
 #### Sources
 

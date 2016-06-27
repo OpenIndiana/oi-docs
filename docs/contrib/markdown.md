@@ -200,16 +200,16 @@ You can even target a specific section of the document.
 **Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
 ```markdown
-[The OpenIndiana Handbook](../handbook/handbook.md)
+[The OpenIndiana Handbook - getting started](../handbook/getting-started.md)
 
-[Handbook - Finding Help and Support](../handbook/handbook.md#finding-help-and-support)
+[Handbook - Appendix - Finding Help and Support](../handbook/appendix.md#finding-help-and-support)
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
 <div class="well">
-[The OpenIndiana Handbook](../handbook/handbook.md)
+[The OpenIndiana Handbook - getting started](../handbook/getting-started.md)
 
-[Handbook - Finding Help and Support](../handbook/handbook.md#finding-help-and-support)
+[Handbook - Appendix - Finding Help and Support](../handbook/appendix.md#finding-help-and-support)
 
 </div>
 
