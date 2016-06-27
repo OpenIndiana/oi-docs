@@ -181,7 +181,7 @@ At this time, creating a bootable flash drive requires the use of a header file.
 Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
 </div>
 
-For further information about how to create a bootable OpenIndiana flash drive, consult the [OpenIndiana Handbook](../handbook/handbook.md#creating-a-bootable-openindiana-usb-flash-drive).
+For further information about how to create a bootable OpenIndiana flash drive, consult the [OpenIndiana Handbook](../handbook/getting-started.md#creating-a-bootable-openindiana-usb-flash-drive).
 
 ## What package manager does OpenIndiana use?
 

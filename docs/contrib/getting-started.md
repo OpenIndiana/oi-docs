@@ -187,7 +187,7 @@ For a list of subject to write about:
 
 * See the site TODO list.
 * Have a look at the site Github issues list.
-* See the [Topics](../notes/topics.md) for a list of suggestions.
+* See the [Topics](topics.md) page for a list of suggestions and TODO's.
 * Write a new tutorial, or complete a small section of the handbook, etc.
 * Consult with other doc team contributors for even more ideas.
 
