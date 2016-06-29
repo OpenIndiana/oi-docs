@@ -50,7 +50,7 @@ Topics will be organized first by page and then by topic.
 
 #### Potentially useful reference information
 
-NOTE: When clicking some of the links found within these resources, it may be nessessary to removed the ';jsessionid=xxx' from the end of the url. Otherwise the wayback machine will report a 'not found' error message.
+NOTE: When clicking some of the links found within these resources, it may be necessary to removed the ';jsessionid=xxx' from the end of the URL. Otherwise the wayback machine will report a 'not found' error message.
 
 * [OpenSolaris.org](https://web.archive.org/web/20090819174546/http://opensolaris.org/os/)
 * [OpenSolaris Projects](https://web.archive.org/web/20090817114142/http://opensolaris.org/os/projects#portal)

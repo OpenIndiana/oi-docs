@@ -73,7 +73,7 @@ As the FAQ evolves, try to keep this section in sync.
 | 64 Bit | 20GB (or more) | 4GB (or more)
 
 
-## Preperation for Installing OpenIndiana Hipster
+## Preparation for Installing OpenIndiana Hipster
 
 ### Downloading the software
 
