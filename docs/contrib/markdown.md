@@ -49,8 +49,8 @@ Headers in markdown (much like HTML) come in various sizes.
 
 ```markdown
 # First level header
-## Second level headers
-### Tertiary level header
+## Second level header
+### Third level header
 #### Fourth level header
 ##### Fifth level header
 ###### Sixth level header
@@ -64,7 +64,7 @@ The more hashes added, the smaller the header will be, for example.
 
 <h1>First level header</h1>
 <h2>Second level header</h2>
-<h3>Tertiary level header</h3>
+<h3>Third level header</h3>
 <h4>Fourth level header</h4>
 <h5>Fifth level header</h5>
 <h6>Sixth level header</h6>
