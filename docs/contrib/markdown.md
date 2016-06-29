@@ -49,16 +49,11 @@ Headers in markdown (much like HTML) come in various sizes.
 
 ```markdown
 # First level header
-
 ## Second level headers
-
 ### Tertiary level header
-
 #### Fourth level header
-
 ##### Fifth level header
-
-###### Sixth level heaer
+###### Sixth level header
 ```
 
 In this simple example you can see some headers have less hashes then others.
@@ -67,17 +62,12 @@ The more hashes added, the smaller the header will be, for example.
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
 <div class="well">
 
-# First level header
-
-## Second level header
-
-### Tertiary level header
-
-#### Fourth level header
-
-##### Fifth level header
-
-###### Sixth level header
+<h1>First level header</h1>
+<h2>Second level header</h2>
+<h3>Tertiary level header</h3>
+<h4>Fourth level header</h4>
+<h5>Fifth level header</h5>
+<h6>Sixth level header</h6>
 
 </div>
 
@@ -221,15 +211,14 @@ For the purpose of syntax highlighting, you may also specify the programming lan
 
 **Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
-```markdown
-#!/bin/bash
-  if [ "foo" = "foo" ]; then
-    echo expression evaluated as true
-  fi
-```
+    ```markdown
+    #!/bin/bash
+      if [ "foo" = "foo" ]; then
+        echo expression evaluated as true
+      fi
+    ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 ```bash
 #!/bin/bash
@@ -237,8 +226,6 @@ For the purpose of syntax highlighting, you may also specify the programming lan
     echo expression evaluated as true
   fi
 ```
-
-</div>
 
 
 ### In-line HTML
