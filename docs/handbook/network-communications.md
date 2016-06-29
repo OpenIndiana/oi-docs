@@ -152,10 +152,10 @@ You can create additional CIFS datasets using the following 4 commands.
 
 ```
 
-##### Configuring CIFS/SMB linux client connectivity
+##### Configuring CIFS/SMB Linux client connectivity
 
 
-Adding a remote share using the linux smbclient
+Adding a remote share using the Linux smbclient
 
 * [Accessing an SMB Share With Linux Machines](http://www.tldp.org/HOWTO/SMB-HOWTO-8.html)
 

@@ -79,5 +79,5 @@ it's software.
 <!-- The OpenIndiana Handbook -->
 ## [The OpenIndiana Handbook](http://gist.asciidoctor.org/?github-makruger/openindiana-docs//handbook.adoc)
 The OpenIndiana Handbook - Still a work in progress.
-This document is a basic HOWTO guide for new users unfamiliar with OpenIndinana
+This document is a basic HOWTO guide for new users unfamiliar with OpenIndiana
 Hipster.

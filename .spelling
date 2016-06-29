@@ -92,6 +92,12 @@ www.opensolaris.org
 hub.opensolaris.org
 2010.03
 2008.11
+jsessionid
+wayback
+e.g.
+http
+_01
+iscsi-1
  - docs/index.md
 mkdocs.org
  - docs/notes/README.md
@@ -136,6 +142,8 @@ Archive.org
 wayback
 2008
 COMSTAR
+toolchain
+Asciidoctor
  - docs/notes/bsd.md
 WordPress
 reStructuredText
@@ -350,8 +358,42 @@ _name
 _holder
  - docs/handbook/getting-started.md
 Xorg
+Grisanzio's
+oi-dev-151x
+Vim.org
+OSDISC.COM
+Brasero
+Isoburn
+1G.header
+2G.header
+filesystems
+Unmount
+Win32
+Imager
+chipset
+cpu
+Zxxx
+passthrough
+VirtualBox
+Vmware
+LiveDVD
+prepend
+unconfigured
+thumbdrive
+pgk
+Nvidia
+non-3d
+_alias'es
+walkthrough
+Compiz
  - docs/handbook/network-communications.md
 PPPoE
+dataset
+workgroup
+datasets
+smbclient
+checkbox
+_holder
  - docs/handbook/system-administration.md
 Dtrace
  - docs/notes/project.md
@@ -739,6 +781,9 @@ gh-branch
 dev
 favicon.ico
 favicon
+MkDocs
+mkdocs
+index.md
  - docs/notes/topics.md
 _01
 E29008
@@ -813,6 +858,14 @@ virtualizes
 xVM
 hypervisor
 CDE
+2009.06
+5.11
+10
+5.10
+lp
+2010.03
+SMF
+11.0
  - docs/books/develop.md
 DTrace
 illumos
@@ -841,8 +894,13 @@ redistributable
 openindiana
 irc.freenode.net
 oi-dev
+41
+2009
  - docs/books/trusted.md
 encodings
+11
+06
+07
  - docs/contrib/markdown.md
 url's
 backtick
@@ -850,3 +908,53 @@ CSS
 Spacelab
 Bootswatch
 Commonmark
+ - docs/handbook/common-tasks.md
+Codecs
+ - docs/handbook/systems-administration.md
+sys-unconfig
+sysding
+syscfg
+Qemu-KVM
+Virt-manager
+distro
+virsh
+Joyent
+i3
+i5
+i7
+Xeon
+Core2duo
+Core2Quad
+virtualization
+repos
+opencsw
+sfe
+pkgsrc.joyent
+pkgrepo
+Dtrace
+Bacula
+zpool
+zpools
+Raidz
+zfs
+hostname
+ipadm
+bge0
+google.com
+ - docs/misc/about.md
+toolkits
+ - docs/misc/conduct.md
+CoC
+Project-FiFo
+ - docs/retired/sphinx.md
+InstantRST
+realtime
+webserver
+Vundle
+vimrc
+vundle
+rst
+css
+javascript
+ - docs/retired/toolchain.md
+AsciiDoc

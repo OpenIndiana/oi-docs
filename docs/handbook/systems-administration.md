@@ -64,7 +64,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 * Qemu-KVM walkthrough (Does hipster even have this package?)
     * Yes, KVM is the package name
 * Using VIRSH, Virt-manager, etc. (Does hipster [or any illumos distro for that matter] even have virsh or Virt-manager)
-    * If not, what tools are used to manage the Joyant KVM port (VMADM perhaps?)
+    * If not, what tools are used to manage the Joyent KVM port (VMADM perhaps?)
     * Virtualbox walkthrough - ditto...is there a package available?
 
 * illumos KVM port does not support AMD processors.
