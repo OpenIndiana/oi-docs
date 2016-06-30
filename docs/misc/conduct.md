@@ -47,5 +47,5 @@ It applies to all "collaborative space", which is defined as community communica
 #### Sources
 
 * Adopted from the [Project-FiFo Code of Conduct](https://project-fifo.net/coc.html).
-* Further inspiration derived from the [FreeBSD Coded of Conduct](https://www.freebsd.org/internal/code-of-conduct.html).
+* Further inspiration derived from the [FreeBSD Code of Conduct](https://www.freebsd.org/internal/code-of-conduct.html).
 
