@@ -394,12 +394,12 @@ The non-graphical text based bootable media installer also uses this very same _
 
 Start the Text based Guided Install by double clicking the Text based Guided Install icon.
 
-![Welcome Screen](images/handbook/text_install/text_install1.png)
+![Welcome Screen](images/text_install/text_install1.png)
 
 When you begin the Text based Guided Install, you are presented with the welcome screen.
 Press F2 to continue.
 
-![Disks](images/handbook/text_install/text_install2.png)
+![Disks](images/text_install/text_install2.png)
 
 The installer identifies the disks which are available for installation.
 If you have only a single disk, it is already selected.
@@ -412,25 +412,25 @@ Disregard the minimum and recommended sizes as they do not take into account per
 To account for this, your disk should be at least 25GB or more.
 </div>
 
-![GPT Warning](images/handbook/text_install/text_install3.png)
+![GPT Warning](images/text_install/text_install3.png)
 
 If your disk contains a GPT disk label, the entire disk will be reformatted.
 This warning serves as your advisory.
 If this is acceptable, press F2 to continue.
 Otherwise use the arrow keys to select cancel.
 
-![Fdisk Partitions](images/handbook/text_install/text_install4.png)
+![Fdisk Partitions](images/text_install/text_install4.png)
 
 In this screen you are presented with the choice of how to partition the disk.
 You may select to use an EFI partition (which uses the entire disk), or you may choose to create MBR partitions.
 Using the arrow keys select the appropriate choice and press F2 to continue.
 
-![Network 1](images/handbook/text_install/text_install5.png)
+![Network 1](images/text_install/text_install5.png)
 
 Specify the computer name you wish to use.
 By default the computer name is _openindiana_.
 
-![Network 2](images/handbook/text_install/text_install6.png)
+![Network 2](images/text_install/text_install6.png)
 
 This screen is the same as as the previous.
 We have illustrated it twice to help clarify the 2 distinct configuration tasks which need to be completed on the screen.
@@ -439,30 +439,30 @@ After configuring the computer name, now you need to decide whether to automatic
 Use the arrow keys to select your choice.
 Press the F2 key to continue.
 
-![Time Zone - Region](images/handbook/text_install/text_install7.png)
+![Time Zone - Region](images/text_install/text_install7.png)
 
 In this screen (and the following 2 screens) you will configure your time zone.
 If you select UTC/GMT, you will only be presented with this single screen.
 Using the arrow keys select the appropriate region.
 Press F2 to continue.
 
-![Time Zone - Location](images/handbook/text_install/text_install8.png)
+![Time Zone - Location](images/text_install/text_install8.png)
 
 Using the arrow keys, select your time zone location.
 Press F2 to continue.
 
-![Time Zone](images/handbook/text_install/text_install9.png)
+![Time Zone](images/text_install/text_install9.png)
 
 Using the arrow keys, select the appropriate time zone.
 Press F2 to continue.
 
-![Date and Time](images/handbook/text_install/text_install10.png)
+![Date and Time](images/text_install/text_install10.png)
 
 In this screen you may configure the date and time.
 Using the arrow keys navigate between the fields.
 Press F2 to continue.
 
-![Users](images/handbook/text_install/text_install11.png)
+![Users](images/text_install/text_install11.png)
 
 In this screen you are presented with several different fields to configure.
 Using the arrow keys navigate between the fields.
@@ -475,16 +475,16 @@ In effect this means by default (and without any further configuration) this use
 Also, after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
 </div>
 
-![Installation Summary](images/handbook/text_install/text_install12.png)
+![Installation Summary](images/text_install/text_install12.png)
 
 Now that you have completed the installation configuration, you are presented with an _Installation Summary_.
 If these configuration settings are correct, begin the installation by pressing the F2 key.
 
-![Transferring Contents](images/handbook/text_install/text_install13.png)
+![Transferring Contents](images/text_install/text_install13.png)
 
 Installation progress is measured by means of a status bar.
 
-![Installation Complete](images/handbook/text_install/text_install14.png)
+![Installation Complete](images/text_install/text_install14.png)
 
 After the installation completes you are presented with a summary screen.
 The installation logs are available by pressing the F4 key.
