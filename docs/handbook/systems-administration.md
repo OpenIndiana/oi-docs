@@ -19,7 +19,25 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # System Administration - (Draft) - work in progress
 
-< placeholder >
+< place holder >
+
+### Configuring a UPS
+
+* NUT?
+
+
+### How does one perform system backups?
+
+* Time Machine
+* ZFS exports
+* Bacula?
+
+
+### How does one add additional users?
+
+* Basic system administration
+* Basic Unix commands
+
 
 ## Configuring and Tuning
 
@@ -45,11 +63,57 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Storage
 
-< placeholder >
+< Place holder for section introduction content >
 
-## ZFS
+### How does one mount or import additional disks?
 
-< placeholder >
+<!--
+
+TODO:
+
+* Talk about the ZFS import command.
+* Need a walkthrough of mounting options for other filesystems...NTFS, FAT, UFS, etc.
+
+-->
+
+#### commands used
+
+* `mount`
+
+### NTFS support - 3rd party
+
+* [http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html](http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html)
+
+
+### ZFS
+
+#### How does one mirror their root zpool?
+
+* Adding a 2nd disk to the root pool
+
+#### How does one create additional zpools?
+
+* zpool create command
+    * Mirrors
+    * Raidz
+
+#### Modifying zpool settings and attributes
+
+* zpool get/set commands
+
+#### Modifying zfs file system settings and attributes
+
+* zfs get/set commands
+
+#### How does one create additional zfs datasets?
+
+* zfs create command
+
+#### Configuring system swap
+
+* zfs set command
+* swap -l
+
 
 ## Virtualization
 
@@ -181,96 +245,28 @@ It can also be used for querying the contents of a repository.
 
 ## Dtrace
 
+< Place Holder >
+
 ## Configuring Networking
 
-### Configuring a UPS
-
-* NUT?
+< Place Holder >
 
 
-### How does one perform system backups?
-
-* Time Machine
-* ZFS exports
-* Bacula?
-
-
-### How does one add additional users?
-
-* Basic system administration
-* Basic Unix commands
-
-
-### Working with storage and file systems
-
-
-< Place holder for section introduction content >
-
-#### How does one mount or import additional disks?
-
-<!--
-
-TODO:
-
-* Talk about the ZFS import command.
-* Need a walkthrough of mounting options for other filesystems...NTFS, FAT, UFS, etc.
-
--->
-
-#### commands used
-
-* `mount`
-
-#### NTFS support - 3rd party
-
-* [http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html](http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html)
-
-
-#### How does one mirror their root zpool?
-
-* Adding a 2nd disk to the root pool
-
-#### How does one create additional zpools?
-
-* zpool create command
-    * Mirrors
-    * Raidz
-
-#### Modifying zpool settings and attributes
-
-* zpool get/set commands
-
-#### Modifying zfs file system settings and attributes
-
-* zfs get/set commands
-
-#### How does one create additional zfs datasets?
-
-* zfs create command
-
-#### Configuring system swap
-
-* zfs set command
-* swap -l
-
-
-### Command Line
-
-#### Manual Configuration (static IP)
+### Manual Configuration (static IP)
 
 
 ```bash
 :~$ sudo svcadm disable physical:nwam
 ```
 
-Define in your IP/hostname ```/etc/hosts```, if not already, an entry for this host. For example:
+Define in your IP/hostname `/etc/hosts`, if not already, an entry for this host. For example:
 
 ```bash
 192.168.1.22 hostname hostname.local localhost loghost
 # Subsittude 192.168.1.22 for YOUR IP
 ```
 
-Enable the default physical service with ```svcadm``` and configure the ```interface```:
+Enable the default physical service with `svcadm` and configure the `interface`:
 
 ```bash
 :~$ sudo svcadm enable physical:default
@@ -343,11 +339,13 @@ IF you cannot ping an external IP (e.g. google.com) run this command and try aga
 
 credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b)
 
-#### Automatic Configuration (NWAM)
+### Automatic Configuration (NWAM)
 
 * How to use NWAM (network auto magic)
 
 ### Desktop GUI
+
+< Place Holder >
 
 #### Manual Configuration
 
