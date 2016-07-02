@@ -58,7 +58,7 @@ This melding of software from many different open-source projects is similar to 
 
 Some of the differences between OpenIndiana and OpenSolaris can be characterized as follows:
 
-* Sun/Oracle's proprietary OS/NET consolidation has been replaced with [illumos-gate](https://github.com/OpenIndiana/illumos-gate).
+* Sun's OS/NET consolidation (closed by Oracle) has been replaced with [illumos-gate](https://github.com/OpenIndiana/illumos-gate).
 * Many of the original OpenSolaris software consolidations have been reorganized into a single oi-userland consolidation.
 * Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.
 * XVM (XEN) has been replaced with the illumos-kvm port.
@@ -137,8 +137,18 @@ While every package is tested to ensure stability, caution is nevertheless warra
 
 | CPU | Disk Space | Memory (RAM)
 | --- | --- | ---
-| 64 Bit | 20GB (or more) | 4GB (or more)
+| 64 Bit | 20GB (or more) | 2GB (or more)
 
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+* For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
+* For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
+* The default size of the OpenIndiana swap file is 50% of installed memory.
+    * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
+
+</div>
 
 ## Does OpenIndiana support internationalization and localization?
 

@@ -36,6 +36,13 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 < place holder >
 
+### How can the desktop be modified?
+
+* Gnome walkthrough
+* Appearance applet
+    * Enabling Compiz
+    * Configuring font anti-aliasing
+
 
 ## Multimedia
 

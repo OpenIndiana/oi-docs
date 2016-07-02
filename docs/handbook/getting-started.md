@@ -271,57 +271,61 @@ Although it is possible to use it over a network with SSH X forwarding if you en
 
 ## Booting OpenIndiana
 
+Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your computer.
+When you see the boot menu, press the enter key to start OpenIndiana on your computer.
+As it runs, you will be prompted with a few questions.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+For the computer to boot from the media, you may need to specify the device by pressing the boot order hotkey.
+Alternately, you may need to change the boot device order in your BIOS configuration.
+
+</div>
+
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
+
 OpenIndiana does not yet support UEFI (Unified Extensible Firmware Interface) or secure boot.
 These technologies must be disabled prior to booting an OpenIndiana DVD or USB stick.
+
 </div>
+
 
 #### Booting Physical Hardware
 
-<!--
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
 
-OpenIndiana can be pretty picky about hardware.
-Unsupported components can cause excessive CPU usage.
+Booting OpenIndiana on unsupported hardware may cause excessive CPU usage, instability, or other problems.
 
-For example:
+Please be sure to consult the hardware compatibility list (HCL):
+
+* [Illumos HLC](https://www.illumos.org/hcl/)
+* [OpenIndiana HCL - components](http://wiki.openindiana.org/oi/Components)
+* [OpenIndiana HCL - systems](http://wiki.openindiana.org/oi/Systems)
+
+</div>
+
+**DOC TEAM NOTE:**
 
 * Gigabyte motherboards with Intel socket 775 and ICH10 chipset don't work well with OI.
-    * Kernel using from 40-80% cpu @ idle.
+    * Kernel CPU usage can range from 40-80% cpu @ idle.
 * Seems to work OK on Intel brand desktop motherboards though.
 * Works well with HP Zxxx class workstation hardware.
 
--->
-
-Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your computer.
-For the computer to boot from the media, you may need to specify the device by pressing the boot order hotkey.
-Alternately, you may need to change the boot device order in your BIOS configuration.
 
 #### Booting Virtual Hardware
 
 The most efficient way to boot a virtual machine is to boot directly from the DVD ISO file.
 Alternately, you may use host to guest DVD/USB passthrough to boot from physical media.
 
-##### Virtualbox
+| Hypervisor | Configuration Notes
+| --- | ---
+| Virtualbox | OS type = Solaris 11 64-bit
+| Vmware player | OS type = Solaris 11 64-bit
+| KVM | OS type = Sun OpenSolaris
 
-For VirtualBox 3.2 or later:
-
-"Use host I/O cache" must be enabled in the emulated storage controller used by the virtual machine to successfully boot OpenIndiana.
-
-##### Vmware Workstation Player
-
-< place holder for content >
-
-##### Vmware ESXI
-
-< place holder for content >
-
-
-### The OpenIndiana Boot Menu
-
-When you see a menu, press Enter to start OpenIndiana on your computer.
-As it runs, you will be prompted with a few questions.
-You should eventually be presented with a desktop.
 
 ### Authenticating when using the OpenIndiana LiveDVD
 
@@ -331,42 +335,43 @@ You may also use the `sudo` command.
 
 You may obtain root using the `su` command along with the password 'openindiana'.
 
+
 ### Using the Device Driver Utility
 
-You can use the Device Driver Utility to check if your hardware requires additional drivers.
+Available from the LiveDVD, the _Device Driver Utility_ allows you to check whether your hardware requires additional drivers.
+
 
 ## Preparing to Install OpenIndiana
 
 < Place Holder for section introduction content >
 
+
 ### Backing up data
 
 < Place holder for content >
+
 
 ### Deciding where to install OpenIndiana
 
 < Place holder for content >
 
+
 ### Gathering Network Information
 
 < Place holder for content >
 
+
 ## Installing OpenIndiana
 
 
-< Place Holder for content >
-
-<!--
-
-TODO:
+**DOC TEAM NOTE:**
 
 For some guidance writing this section:
-http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html
 
-Installation videos:
-https://www.youtube.com/watch?v#VVWP_5oAy3w
+Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
 
--->
+Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
+
 
 ### Installing OpenIndiana from Live Media
 
@@ -378,9 +383,11 @@ To install OpenIndiana from Live Media, you have two options.
 Each of these options is represented by a desktop icon.
 Select the appropriate installer option by clicking the corresponding desktop installer icon.
 
+
 #### GUI based Guided Install
 
 < Place Holder for Content >
+
 
 #### Text based Guided Install
 
@@ -493,8 +500,14 @@ Otherwise, you will want to reboot the system using the F8 key.
 
 ### Installing OpenIndiana using the Text Installer
 
-The text installer is not graphical nor does not have a live environment.
-When you boot from the text installer, it immediately begins the installation process using the previously described _Text based Guided Install_.
+The text installer is not graphical nor does it have a live environment.
+When you boot from the text installer, you have the following choices:
+
+* Install OpenIndiana
+* Spawn a shell to be used as a rescue disk.
+
+The text installer installation process uses the previously described _Text based Guided Install_.
+
 
 ## Troubleshooting Installations
 
@@ -504,15 +517,12 @@ When you boot from the text installer, it immediately begins the installation pr
     * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
     * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
 
-<!--
-
-TODO:
-
-Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in this document.
-
--->
 
 ### USB 3.0 issues
+
+**DOC TEAM NOTE:**
+
+Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in the handbook, FAQ, etc.
 
 * OpenIndiana Hipster does not currently support USB3.
 * You cannot boot a USB thumbdrive installer from a USB3 port.
@@ -520,7 +530,8 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 
 ## Using OpenIndiana
 
-< placeholder >
+< place holder >
+
 
 ## Installing Applications
 
@@ -528,12 +539,15 @@ Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+
 
 
 ## Xorg
+
 < placeholder >
+
 
 ### Video Card Support (3D)
 
 Nearly all cards are supported for 2nd, but only Nvidia is supported for 3D.
 Work is progressing to provide support for AMD and Intel.
+
 
 #### Nvidia
 
@@ -542,22 +556,19 @@ Work is progressing to provide support for AMD and Intel.
 * Troubleshooting - what logs to look at, manual configuration, etc.
 * Walk through NVIDIA utility screens.
 
+
 #### AMD
 
 * Currently no 3rd support, VESA driver only.
+
 
 #### Intel
 
 * Still working to incorporate this into Hipster.
 
+
 ### How does one add a missing device driver?
 
 < Write about finding hardware id's, searching for drivers, installing, loading, /etc/driver_alias'es file. >
 
-### How can the desktop be modified?
-
-* Gnome walkthrough
-* Appearance applet
-    * Enabling Compiz
-    * Configuring font anti-aliasing
 
