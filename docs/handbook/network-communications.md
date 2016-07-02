@@ -19,43 +19,48 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Network Communications - (Draft) - work in progress
 
+< Place holder for content >
+
+
 ## PPP
+
+< Place holder for content >
+
 
 ## PPPoE
 
+< Place holder for content >
+
+
 ## Email
+
+< Place holder for content >
+
+
+## WWW server
+
+* Apache
+* nginx
+
 
 ## Firewalls
 
+* IP packet filtering (IPF)
+
+
 ## Advanced Networking
 
+< Place holder for content >
+
+
 ## Crossbow
+
+< Place holder for content >
 
 
 ## Using OpenIndiana as a NAS
 
-< place holder for section introduction content >
-
-
-#### Configuring OpenIndiana as a CIFS (Samba) Server
-
-##### Home NAS setup steps
-
-* Get the hardware
-* Assemble the hardware
-* Install OpenIndiana
-* Configure OpenIndiana
-* Configure Windows
-
-##### commands used
-
-* `sharemgr` - configure and manage file sharing
-* `smbadm` - configure and manage CIFS local groups and users, and manage domain membership
-* `zfs` - configures ZFS file systems
-* `passwd` - change login password and password attributes
-* `chown` - change file ownership
-
-<!--
+DOC TEAM NOTES:
 
 For a variation of configuring a home NAS - this could be done virtually as well
 
@@ -73,7 +78,22 @@ For help writing this section, see the following OpenSolaris references:
 
 Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf)
 
--->
+
+### Configuring OpenIndiana as a CIFS (Samba) Server
+
+< place holder for section introduction content >
+
+
+#### Commands used
+
+* `sharemgr` - configure and manage file sharing
+* `smbadm` - configure and manage CIFS local groups and users, and manage domain membership
+* `zfs` - configures ZFS file systems
+* `passwd` - change login password and password attributes
+* `chown` - change file ownership
+
+
+#### Configuration steps
 
 Start by listing available storage pools.
 
@@ -152,14 +172,17 @@ You can create additional CIFS datasets using the following 4 commands.
 
 ```
 
-##### Configuring CIFS/SMB Linux client connectivity
+#### Configuring CIFS/SMB Linux client connectivity
+
+< place holder >
 
 
-Adding a remote share using the Linux smbclient
+##### Adding a remote share using the Linux smbclient
 
 * [Accessing an SMB Share With Linux Machines](http://www.tldp.org/HOWTO/SMB-HOWTO-8.html)
 
-Adding a remote share using the KDE Dolphin file manager GUI
+
+##### Adding a remote share using the KDE Dolphin file manager GUI
 
 * In the left hand pane click _Network_
 * In the right hand pane click _Add Network Folder_
@@ -172,19 +195,21 @@ Adding a remote share using the KDE Dolphin file manager GUI
 * You'll be prompted for a remote username and password
 * Ensure the checkbox is marked to save credentials or you'll be asked for everything you do.
 
-Adding a remote share using a Windows client
 
-* < place_holder >
+##### Adding a remote share using a Windows client
 
-
-
-#### Configuring OpenIndiana as an NFS Server
-
-< Place holder for content >
+< place holder >
 
 
-#### Configuring OpenIndiana as an ISCSI Target Server -(COMSTAR)
+### Configuring OpenIndiana as an NFS server
 
 < Place holder for content >
 
 
+### Configuring OpenIndiana as an NIS server
+
+< Place holder for content >
+
+### Configuring OpenIndiana as an LDAP server
+
+< Place holder for content >
