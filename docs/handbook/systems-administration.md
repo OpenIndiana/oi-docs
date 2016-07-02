@@ -64,7 +64,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Zones
 
-DOC TEAM NOTES TO WRITE ABOUT:
+**DOC TEAM NOTES TO WRITE ABOUT:**
 
 * Need to mention some of the changes to zone management...e.g..
     * sys-unconfig gone.
@@ -79,12 +79,12 @@ DOC TEAM NOTES TO WRITE ABOUT:
 
 ### Mounting file systems
 
-DOC TEAM NOTES TO WRITE ABOUT:
+**DOC TEAM NOTES TO WRITE ABOUT:**
 
 * Need a walkthrough of mounting options for other filesystems...NTFS, FAT, UFS, etc.
 
 
-### Configuring OpenIndiana as an ISCSI Target Server -(COMSTAR)
+### Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
 
 < Place holder for content >
 
@@ -96,13 +96,16 @@ DOC TEAM NOTES TO WRITE ABOUT:
 
 ### System backups
 
-The primary backup software is [Borg Backup](https://borgbackup.readthedocs.io/en/stable/).
-Borg is a client/server backup solution and installed using the following command: `pkg install borg-34`.
+OpenIndiana offers several backup solutions.
+Here are just a few of them:
 
-Additional options include:
-
+* [Areca](http://www.areca-backup.org/)
+* [Borg Backup](https://borgbackup.readthedocs.io/en/stable/)
+* [Bacula](http://blog.bacula.org/)
 * Time-Slider
+* [rdiff-backup](http://www.nongnu.org/rdiff-backup/)
 * Rsync
+* [Zeta](http://www.zetta.net/)
 * ZFS exports
 * cpio
 * tar, zip, etc.
@@ -116,21 +119,21 @@ Additional options include:
 #### Importing ZFS disks
 
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * Talk about the ZFS import command.
 
 
 #### How does one mirror their root zpool?
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * Adding a 2nd disk to the root pool
 
 
 #### How does one create additional zpools?
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * zpool create command
     * Mirrors
@@ -139,28 +142,28 @@ DOC TEAM TOPICS TO WRITE ABOUT:
 
 #### Modifying zpool settings and attributes
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * zpool get/set commands
 
 
 #### Modifying zfs file system settings and attributes
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * zfs get/set commands
 
 
 #### How does one create additional zfs datasets?
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * zfs create command
 
 
 #### Configuring system swap
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * zfs set command
 * swap -l
@@ -171,29 +174,26 @@ DOC TEAM TOPICS TO WRITE ABOUT:
 < Place holder >
 
 
-### Virtualization Storage Server
+### OpenIndiana as a virtualization host server
 
-* Poor man's standalone ISCSI SAN linked to a 2nd machine running VMware ESXI (2 computers required)
-    * A variation of this would be to run OI as an ESXI guest with local storage hardware "passed through" to OI and then subsequently share ZFS volumes via  ISCSI with the ESXI host itself. In this configuration, OI effectively becomes a SAN (1 computer required)
+**DOC TEAM TOPICS TO WRITE ABOUT:**
+
+* Qemu-KVM (KVM) walkthrough
+    * illumos KVM port does not support AMD processors.
+    * Intel processors require EPT support.
+* Virtualbox walkthrough 
+    * There is no package for this yet, but folks do have it working, see the wiki for details.
 
 
-### Virtualization Server
+**DOC TEAM NOTES:**
 
-* Qemu-KVM walkthrough (Does hipster even have this package?)
-    * Yes, KVM is the package name
-* Using VIRSH, Virt-manager, etc. (Does hipster [or any illumos distro for that matter] even have virsh or Virt-manager)
-    * If not, what tools are used to manage the Joyent KVM port (VMADM perhaps?)
-    * Virtualbox walkthrough - ditto...is there a package available?
-
-* illumos KVM port does not support AMD processors.
-* Intel processors require EPT support.
-
-In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon support EPT.
+In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
 Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
-
 You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
 
 * Hipster is currently testing a new package for managing KVM instances as SMF services.
+    * [kvmadm](http://www.kvmadm.org/)
+* virtlib is on the roadmap for the next release and will open the door for virsh, and likely virt-manager as well.
 
 ```
 <leoric> Testers needed! pkg://userland/system/qemu/kvmadm@0.10.3,5.11-2015.0.2.0:20160322T212709Z
@@ -211,10 +211,11 @@ You can check your processor for EPT support via the following link: <http://ark
 
 < place holder >
 
+
 ## Updating and Upgrading
 
 
-DOC TEAM TOPICS TO WRITE ABOUT:
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
 * Be sure to provide walkthroughs for both IPS and BEADMIN (as they work together).
 * [Basics of Image Packaging System (IPS) - Oracle](http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-083-ips-basics-523756.html)
@@ -242,35 +243,32 @@ DOC TEAM TOPICS TO WRITE ABOUT:
 
 ### How does one find and install more software?
 
+**DOC TEAM TOPICS TO WRITE ABOUT:**
 
-Tips for writing this section:
-
-* <https://pkgsrc.joyent.com/>
 * <https://pkgsrc.joyent.com/>
 * <https://pkgsrc.joyent.com/install-on-illumos/>
 
-* Clean up and consolidate information from website and wiki about where to find additional software.
 * Need to answer the questions - Where and how can I install more software?
 * Discuss the various package managers (PKGIN, IPS (PKG), etc.)
 * Discuss the various repos (opencsw, sfe, pkgsrc.joyent, etc.), what's available in them, and which might break compatibility, etc.
-* What is SFE? How does it differ from other repos?
-* Add a page for popular available software with descriptions, etc.
+* Describe SFE (SPEC FILES EXTRA) and how it differs from OI and other repos.
 * When they say IPS is network centric, they're not kidding;
 Packages cannot be installed locally like RPM, instead you have to setup a local network repository.
-    * See: <http://serverfault.com/questions/348139/how-to-manually-download-individual-files-from-the-openindiana-or-solaris-pkg>
-* How to additional repos, etc.
+    * See: [this link](http://serverfault.com/questions/348139/how-to-manually-download-individual-files-from-the-openindiana-or-solaris-pkg)
+* How to add additional repos, etc.
 * How to compile your own software.
-I think there is an existing wiki page for this.
-Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
+    * I think there is an existing wiki page for this.
+    * Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
     * Also could look here (might be outdated):
-    * <http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml>
-* How to install flash player
+    * [web link](http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml)
 
-
-< Place Holder for Content >
 
 
 ### Using the pkg publisher and pkg set-publisher commands
+
+**DOC TEAM NOTE:**
+See the FAQ for the updated command.
+The -O switch is no longer used.
 
 The `pkg publisher` command is used to add and remove remote repositories.
 
