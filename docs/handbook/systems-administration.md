@@ -21,39 +21,50 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 < place holder >
 
+
+## Configuring and Tuning
+
+< place holder >
+
+
 ### Configuring a UPS
 
 * NUT?
 
 
-### How does one perform system backups?
+### Fault management (FMA)
 
-* Time Machine
-* ZFS exports
-* Bacula?
+< place holder >
 
 
-### How does one add additional users?
+### Service management (SMF)
 
-* Basic system administration
-* Basic Unix commands
+< place holder >
 
 
-## Configuring and Tuning
+### Systems logging and monitoring
 
-< placeholder >
+< place holder >
 
-## Illumos Boot Process
 
-< placeholder >
+## Illumos boot process
+
+< place holder >
+
 
 ## Security
 
-< placeholder >
+< place holder >
+
+
+### Role based access control (RBAC)
+
+< place holder >
+
 
 ## Zones
 
-### Zones - running web stuff in zone, development, etc.
+DOC TEAM NOTES TO WRITE ABOUT:
 
 * Need to mention some of the changes to zone management...e.g..
     * sys-unconfig gone.
@@ -63,59 +74,102 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Storage
 
-< Place holder for section introduction content >
+< place holder >
 
-### How does one mount or import additional disks?
 
-<!--
+### Mounting file systems
 
-TODO:
+DOC TEAM NOTES TO WRITE ABOUT:
 
-* Talk about the ZFS import command.
 * Need a walkthrough of mounting options for other filesystems...NTFS, FAT, UFS, etc.
 
--->
 
-#### commands used
+### Configuring OpenIndiana as an ISCSI Target Server -(COMSTAR)
 
-* `mount`
+< Place holder for content >
+
 
 ### NTFS support - 3rd party
 
 * [http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html](http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html)
 
 
+### System backups
+
+The primary backup software is [Borg Backup](https://borgbackup.readthedocs.io/en/stable/).
+Borg is a client/server backup solution and installed using the following command: `pkg install borg-34`.
+
+Additional options include:
+
+* Time-Slider
+* Rsync
+* ZFS exports
+* cpio
+* tar, zip, etc.
+
+
 ### ZFS
+
+< place holder >
+
+
+#### Importing ZFS disks
+
+
+DOC TEAM TOPICS TO WRITE ABOUT:
+
+* Talk about the ZFS import command.
+
 
 #### How does one mirror their root zpool?
 
+DOC TEAM TOPICS TO WRITE ABOUT:
+
 * Adding a 2nd disk to the root pool
 
+
 #### How does one create additional zpools?
+
+DOC TEAM TOPICS TO WRITE ABOUT:
 
 * zpool create command
     * Mirrors
     * Raidz
 
+
 #### Modifying zpool settings and attributes
+
+DOC TEAM TOPICS TO WRITE ABOUT:
 
 * zpool get/set commands
 
+
 #### Modifying zfs file system settings and attributes
+
+DOC TEAM TOPICS TO WRITE ABOUT:
 
 * zfs get/set commands
 
+
 #### How does one create additional zfs datasets?
+
+DOC TEAM TOPICS TO WRITE ABOUT:
 
 * zfs create command
 
+
 #### Configuring system swap
+
+DOC TEAM TOPICS TO WRITE ABOUT:
 
 * zfs set command
 * swap -l
 
 
 ## Virtualization
+
+< Place holder >
+
 
 ### Virtualization Storage Server
 
@@ -155,39 +209,30 @@ You can check your processor for EPT support via the following link: <http://ark
 
 ## Localization
 
-< placeholder >
+< place holder >
 
 ## Updating and Upgrading
 
-< placeholder >
 
-<!--
-### How does one keep the system updated?
-
-<!--
-
-Some notes and reference docs for writing the IPS section:
+DOC TEAM TOPICS TO WRITE ABOUT:
 
 * Be sure to provide walkthroughs for both IPS and BEADMIN (as they work together).
 * [Basics of Image Packaging System (IPS) - Oracle](http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-083-ips-basics-523756.html)
 * [IPS cheat sheet PDF - Oracle](http://www.oracle.com/technetwork/server-storage/solaris11/documentation/ips-one-liners-032011-337775.pdf)
 
--->
+
+
+### Using pkg to list packages currently installed on the system
 
 < Place holder for content >
 
 
-#### Using pkg to list packages currently installed on the system
+### Using pkg to search for packages
 
 < Place holder for content >
 
 
-#### Using pkg to search for packages
-
-< Place holder for content >
-
-
-#### Using pkg to update the system
+### Using pkg to update the system
 
 * `pkg update -nv` will perform a dry run and list the changes which would have been made to the system.
 * `pkg update` will perform a normal update and print a very brief summary.
@@ -221,12 +266,11 @@ Given the limited number of IPS packages currently available, this is a pretty i
     * <http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml>
 * How to install flash player
 
--->
 
 < Place Holder for Content >
 
 
-#### Using the pkg publisher and pkg set-publisher commands
+### Using the pkg publisher and pkg set-publisher commands
 
 The `pkg publisher` command is used to add and remove remote repositories.
 
@@ -234,7 +278,7 @@ The `pkg publisher` command is used to add and remove remote repositories.
 * To add a repository, use `pkg set-publisher -O <Repository_URL> <Repository_Name>`
 
 
-#### Using the pkgrepo command
+### Using the pkgrepo command
 
 The `pkgrepo` command is primarily used for creating and working with IPS repositories.
 It can also be used for querying the contents of a repository.
@@ -246,6 +290,7 @@ It can also be used for querying the contents of a repository.
 ## Dtrace
 
 < Place Holder >
+
 
 ## Configuring Networking
 
@@ -339,21 +384,26 @@ IF you cannot ping an external IP (e.g. google.com) run this command and try aga
 
 credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b)
 
+
 ### Automatic Configuration (NWAM)
 
 * How to use NWAM (network auto magic)
+
 
 ### Desktop GUI
 
 < Place Holder >
 
+
 #### Manual Configuration
 
 < Place Holder >
 
+
 #### Automatic Configuration
 
 < Place Holder >
+
 
 #### Troubleshooting
 

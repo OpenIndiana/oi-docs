@@ -19,36 +19,82 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Common Tasks - (Draft) - work in progress
 
-< placeholder >
+< place holder >
 
-## Desktop Applications
 
-< placeholder >
+## Basic UNIX commands
+
+< place holder >
+
+
+## Basic system administration
+
+* Adding users, etc.
+
+
+## Desktop applications
+
+< place holder >
+
 
 ## Multimedia
 
-### Getting OI to play Multimedia
+< place holder >
+
+
+### Pulse Audio configuration
+
+DOC TEAM ITEMS TO WRITE ABOUT:
+
+* How to use the hidden `gstreamer-properties` configuration utility.
+* Pulse Audio configuration
+
+
+### MP3 and CD audio support
+
+DOC TEAM ITEMS TO WRITE ABOUT:
+
+* Codecs, etc.
+* Rythembox (audio player)
+* Sound Juicer (CD ripper)
+
+
+### Video support
+
+DOC TEAM ITEMS TO WRITE ABOUT:
 
 * How to get OI to play a DVD
 * How to get flash player installed and working.
 * How to get VLC installed and working.
-* Codecs, etc.
-* How to use the hidden `gstreamer-properties` configuration utility.
+* Totem (video player)
 
-### Using OpenIndiana as a Media server, HTPC, etc.
+
+### Using OpenIndiana as a media server, HTPC, etc.
+
+DOC TEAM ITEMS TO WRITE ABOUT:
 
 * <http://forum.kodi.tv/showthread.php?tid=44315&page=2>
 * <http://lightsandshapes.com/plex-on-smartos.html>
 
+
 ## Printing
 
-< placeholder >
+DOC TEAM ITEMS TO WRITE ABOUT:
 
-### Graphics workstation
+* OI uses CUPS as the primary print system.
+* GNOME print manager (`system-config-printer`)
 
-< Place holder for content >
+See the additional information about printing in contrib/topics.md
+Also see the deprecation comments in the OSOL printing guide.
 
 
-### Desktop Publishing system, Etc.
+## Graphics workstation
+
+DOC TEAM ITEMS TO WRITE ABOUT:
+
+* GIMP
+
+
+## Desktop Publishing system, Etc.
 
 < Place holder for content >
