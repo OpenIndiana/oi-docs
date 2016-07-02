@@ -181,7 +181,7 @@ Here are just a few of them:
 * Qemu-KVM (KVM) walkthrough
     * illumos KVM port does not support AMD processors.
     * Intel processors require EPT support.
-* Virtualbox walkthrough 
+* Virtualbox walkthrough
     * There is no package for this yet, but folks do have it working, see the wiki for details.
 
 
