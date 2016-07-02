@@ -366,7 +366,7 @@ Available from the LiveDVD, the _Device Driver Utility_ allows you to check whet
 
 **DOC TEAM NOTE:**
 
-For some guidance writing this section: 
+For some guidance writing this section:
 
 Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
 
