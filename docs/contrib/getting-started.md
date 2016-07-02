@@ -60,7 +60,8 @@ or see: <https://help.github.com/articles/set-up-git/>
 
 #### Install MkDocs (mkdocs)
 
-* `pip install mkdocs`
+* Most operating systems: `pip install mkdocs`
+* OpenIndiana: `pip-2.7 install mkdocs`
 
 Verify your installation with `mkdocs --version`
 
