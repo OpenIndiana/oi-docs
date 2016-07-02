@@ -57,9 +57,10 @@ As the FAQ evolves, try to keep this section in sync.
 
 | Resource | URL
 | --- | ---
-| User Support IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
-| Development IRC channel | [#oi-dev on irc.freenode.net](irc://irc.freenode.net/oi-dev)
-| Documentation IRC channel | [#oi-documentation on irc.freenode.net](irc://irc.freenode.net/oi-documentation)
-| OpenIndiana Mailing Lists | <http://openindiana.org/mailman>
+| User Support IRC channel | <ul><li>[#openindiana (irc.freenode.net)](irc://irc.freenode.net/openindiana)</li><li>[channel logs (echelog)](http://echelog.com/logs/browse/openindiana/)</li></ul>
+| Development IRC channel | <ul><li>[#oi-dev (irc.freenode.net)](irc://irc.freenode.net/oi-dev)</li><li>[channel logs (echelog)](http://echelog.com/logs/browse/oi-dev/)</li></ul>
+| Documentation IRC channel | [#oi-documentation (irc.freenode.net)](irc://irc.freenode.net/oi-documentation)
+| User Support Mailing List | <ul><li>[openindiana-discuss](http://openindiana.org/mailman/listinfo/openindiana-discuss)</li><li>[openindiana-discuss archives](http://openindiana.org/pipermail/openindiana-discuss/)</li></ul>
+| Development Mailing List | <ul><li>[oi-dev](http://openindiana.org/mailman/listinfo/oi-dev)</li><li>[oi-dev archives](http://openindiana.org/pipermail/oi-dev/)</li></ul>
 | OpenIndiana Wiki | <http://wiki.openindiana.org>
 | OpenIndiana Bug Tracker | <http://www.illumos.org/projects/openindiana/issues>
