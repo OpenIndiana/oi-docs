@@ -70,10 +70,39 @@ As the FAQ evolves, try to keep this section in sync.
 
 | CPU | Disk Space | Memory (RAM)
 | --- | --- | ---
-| 64 Bit | 20GB (or more) | 4GB (or more)
+| 64 Bit | 20GB (or more) | 2GB (or more)
+
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+* For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
+* For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
+* The default size of the OpenIndiana swap file is 50% of installed memory.
+    * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
+
+</div>
 
 
 ## Preparation for Installing OpenIndiana Hipster
+
+< Place holder for content >
+
+
+### Backing up data
+
+< Place holder for content >
+
+
+### Deciding where to install OpenIndiana
+
+< Place holder for content >
+
+
+### Gathering Network Information
+
+< Place holder for content >
+
 
 ### Downloading the software
 
@@ -340,26 +369,6 @@ You may obtain root using the `su` command along with the password 'openindiana'
 ### Using the Device Driver Utility
 
 Available from the LiveDVD, the _Device Driver Utility_ allows you to check whether your hardware requires additional drivers.
-
-
-## Preparing to Install OpenIndiana
-
-< Place Holder for section introduction content >
-
-
-### Backing up data
-
-< Place holder for content >
-
-
-### Deciding where to install OpenIndiana
-
-< Place holder for content >
-
-
-### Gathering Network Information
-
-< Place holder for content >
 
 
 ## Installing OpenIndiana

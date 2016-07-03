@@ -166,8 +166,7 @@ For this effort to succeed, we ask our user base to diligently bring security an
 
 * [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
 * [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
-* [Torrents](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
-
+* [Torrents](http://dlc.openindiana.org/torrents/)
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
