@@ -408,8 +408,52 @@ Select the appropriate installer option by clicking the corresponding desktop in
 
 #### GUI based Guided Install
 
-< Place Holder for Content >
+![Select keyboard layout](./images/gui_install/SKL.png)
 
+This menu in the boot process is for selecting your ``keyboard layout``,
+(e.g. 47 for US-English, 46 for UK-English, etc).
+
+![Select display language](./images/gui_install/SDL.png)
+
+While this menu is for setting the ``display language``
+(i.e. what language the user-interface is in)
+
+![First Install Screen](./images/gui_install/OGI.png)
+
+As soon as the desktop loads, click the ``Install OpenIndiana`` icon and this
+window will appear, click next. (if you get error dialogue boxes, just close
+them)
+
+![Disk Menu](./images/gui_install/SIL.png)
+
+Here you can just select ``Use the whole disk`` if you're only going to install
+OpenIndiana on this system, otherwise you can Selection ``Partition the disk``
+and partition it accordingly.
+
+![Time Zone, Date and Time](./images/gui_install/SDAT.png)
+
+On this screen you select your region, location, time zone, date, time, and
+whether you want 24 hour or 12 hour time.
+
+![Locale](./images/gui_install/SL.png)
+
+This screen is for setting up the ``locale`` which controls things like default
+language support, date formats, etc.
+
+![Users](./images/gui_install/SMUD.png)
+
+Enter your ``root password``, your ``real name``, ``username`` and your users
+``password``, Also set a ``hostname`` (computer-name).
+
+![Waiting game](./images/gui_install/ISS.png)
+
+The ``OS`` is now installing.
+Go make a cup of coffee, or something! It might be a while.
+
+![Ding, OS is ready](./images/gui_install/FIS.png)
+
+Your installation of OpenIndiana installed correctly,
+You can now reboot into your new shiny system!
 
 #### Text based Guided Install
 
