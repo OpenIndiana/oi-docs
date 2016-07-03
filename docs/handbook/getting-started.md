@@ -319,12 +319,13 @@ Please be sure to consult the hardware compatibility list (HCL):
 
 The most efficient way to boot a virtual machine is to boot directly from the DVD ISO file.
 Alternately, you may use host to guest DVD/USB passthrough to boot from physical media.
+See the notes below for optimizing OpenIndiana for several popular hypervisors.
 
 | Hypervisor | Configuration Notes
 | --- | ---
 | Virtualbox | OS type = Solaris 11 64-bit
 | Vmware player | OS type = Solaris 11 64-bit
-| KVM | OS type = Sun OpenSolaris
+| KVM | <ul><li>OS type = Sun OpenSolaris</li><li>Remove USB Tablet</li><li>NIC = e1000</li><li>sound = AC97</li><li>Processor = Copy host CPU configuration</li><li>Disable CPU feature _'xsave'_</li><li>Video = QXL</li></ul>
 
 
 ### Authenticating when using the OpenIndiana LiveDVD
