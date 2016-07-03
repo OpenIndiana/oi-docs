@@ -47,15 +47,18 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-OpenIndiana releases from the legacy oi-dev-151x branch are no longer maintained.
-For those desiring to upgrade from legacy installations, Hipster IPS repositories are available.
-While upgrades from the legacy branch are possible, the most trouble free method is to perform a clean install.
+
+* The legacy oi-dev-151x branch is no longer maintained.
+* While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.
+
 </div>
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
+
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
+
 </div>
 
 
@@ -70,10 +73,39 @@ As the FAQ evolves, try to keep this section in sync.
 
 | CPU | Disk Space | Memory (RAM)
 | --- | --- | ---
-| 64 Bit | 20GB (or more) | 4GB (or more)
+| 64 Bit | 20GB (or more) | 2GB (or more)
+
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+* For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
+* For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
+* The default size of the OpenIndiana swap file is 50% of installed memory.
+    * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
+
+</div>
 
 
 ## Preparation for Installing OpenIndiana Hipster
+
+< Place holder for content >
+
+
+### Backing up data
+
+< Place holder for content >
+
+
+### Deciding where to install OpenIndiana
+
+< Place holder for content >
+
+
+### Gathering Network Information
+
+< Place holder for content >
+
 
 ### Downloading the software
 
@@ -124,6 +156,7 @@ $ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
 
 **Linux GUI** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 <div class="well">
+
 There are many different CD/DVD writer applications available for Linux.
 
 | Desktop | Application
@@ -133,6 +166,7 @@ There are many different CD/DVD writer applications available for Linux.
 
 Other desktops may offer additional choices.
 For further information, please consult the help documentation for your Linux distribution.
+
 </div>
 
 #### Mac OS-X
@@ -146,7 +180,9 @@ growisofs -Z /dev/dvdrw=image.iso
 
 **MAC GUI** <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
 <div class="well">
+
 Applications > Utilities > Disk Utility
+
 </div>
 
 #### Windows
@@ -161,16 +197,19 @@ ISOBURN.EXE [/Q] [<drive letter>:] <disk image file name>
 
 **Windows GUI** <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
 <div class="well">
+
 From within Windows Explorer:
 
 * Browse to and select the ISO image file
 * Right click the ISO image file
 * From the right click menu, select "Burn Disk Image"
+
 </div>
+
 
 ## Creating a bootable OpenIndiana USB Flash Drive
 
-#### Prerequisites
+### Prerequisites
 
 * USB flash drive - (2GB or larger)
 * Download the OpenIndiana USB Live Media installer
@@ -178,6 +217,7 @@ From within Windows Explorer:
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
+
 At this time, creating a bootable flash drive requires the use of a header file.
 
 - There are 2 unique USB header files (1G and 2G).
@@ -187,32 +227,18 @@ At this time, creating a bootable flash drive requires the use of a header file.
     - The files are *NOT* interchangeable.
 
 Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
+
 </div>
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
+
 OpenIndiana Hipster does not yet support USB 3.0.
 
 * When attaching backward compatible USB 3.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
+
 </div>
 
-#### Live Media Creation Methods
-
-| Operating System | Method |
-| --- | --- |
-| BSD | `dd` |
-| illumos/Solaris | `dd` |
-| Linux | ``dd`` |
-| MAC OS X | ``dd`` |
-| Windows | ``OpenSolaris Live USB Creator`` |
-
-<!--
-
-TODO:
-
-Add link for Solaris USBCOPY tool.
-
--->
 
 #### Identifying the path to your USB device
 
@@ -227,6 +253,7 @@ Add link for Solaris USBCOPY tool.
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
+
 When issuing the USB copy command, be sure to specify the entire USB device.
 
 * Do not including any partition or slice number.
@@ -240,25 +267,32 @@ When issuing the USB copy command, be sure to specify the entire USB device.
     * For illumos/Solaris use `rmumount <path>`.
     * for MAC OS X use `diskutil unmountDisk <path>`.
     * Verify using the `mount` command.
+
 </div>
 
 
-### BSD/Linux/OS X
+### BSD/illumos/Solaris/Linux/OS X
 
 ```bash
 $ cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
-# or if you have a live image larger then 1G
+```
+
+For live images larger than 1GB, use the following command instead.
+
+```bash
 $ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
+
 # where "X" is the letter of your USB device
 ```
 
-### illumos/Solaris
-
-< Place holder for content >
 
 ### Windows
 
-Doc Team Note: The FreeBSD project recommends [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) to write USB keys on the Windows operating system. This is a more modern application than the old "OpenSolaris Live USB creator" utility. We'll need to test this to ensure this works with the OpenIndiana USB images.
+**Doc Team Note:**
+
+The FreeBSD project recommends [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) to write USB keys on the Windows operating system.
+This is a more modern application than the old "OpenSolaris Live USB creator" utility.
+We'll need to test this to ensure this works with the OpenIndiana USB images.
 
 
 ## Testing Openindiana Using Live Media
@@ -340,26 +374,6 @@ You may obtain root using the `su` command along with the password 'openindiana'
 ### Using the Device Driver Utility
 
 Available from the LiveDVD, the _Device Driver Utility_ allows you to check whether your hardware requires additional drivers.
-
-
-## Preparing to Install OpenIndiana
-
-< Place Holder for section introduction content >
-
-
-### Backing up data
-
-< Place holder for content >
-
-
-### Deciding where to install OpenIndiana
-
-< Place holder for content >
-
-
-### Gathering Network Information
-
-< Place holder for content >
 
 
 ## Installing OpenIndiana
