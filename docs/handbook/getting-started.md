@@ -17,7 +17,14 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Getting started - (Draft) - work in progress
+# OpenIndiana Handbook - Getting started
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+This document is a work in progress (draft).
+
+</div>
 
 Import and validate (compare with FAQ, etc.): [old handbook intro](http://wiki.openindiana.org/oi/1.+Introduction)
 

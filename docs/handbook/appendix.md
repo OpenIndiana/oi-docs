@@ -1,8 +1,19 @@
-# Appendix - (Draft) - work in progress
+# OpenIndiana Handbook - Appendix
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+This document is a work in progress (draft).
+
+</div>
+
+< place holder for introduction content >
+
 
 ## Finding help and support
 
 < Place Holder for section Introduction Content >
+
 
 ### Local system command line help
 
@@ -11,6 +22,7 @@
 * info - read Info documents
 * locate - find files by name
 * man - an interface to the on-line reference manuals
+
 
 ### Web based support resources
 
@@ -29,6 +41,7 @@ We may want to revisit the FAQ and pull these changes over.
 | Development Mailing List | <ul><li>[oi-dev](http://openindiana.org/mailman/listinfo/oi-dev)</li><li>[oi-dev archives](http://openindiana.org/pipermail/oi-dev/)</li></ul>
 | OpenIndiana Wiki | <http://wiki.openindiana.org>
 | OpenIndiana Bug Tracker | <http://www.illumos.org/projects/openindiana/issues>
+
 
 ## Developing with OpenIndiana
 
