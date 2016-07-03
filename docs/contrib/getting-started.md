@@ -50,11 +50,11 @@ or see: <https://help.github.com/articles/set-up-git/>
 * Fedora `dnf install rubygem-rails`
 * OpenIndiana: Installed by default as part of Ruby
 
-#### Install npm
+#### Install npm - Optional
 
 * Arch: `pacman -S nodejs npm`
 * Centos/RHEL: `yum install nodejs npm`
-* Debian/Ubuntu: `apt-get install npm`
+* Debian/Ubuntu: `apt-get install nodejs-legacy`
 * Fedora: `dnf install npm`
 * OpenIndiana: `pkg install nodejs`
 
@@ -69,7 +69,7 @@ Verify your installation with `mkdocs --version`
 
 * `gem install mdl`
 
-#### Optionally install Markdown-spellcheck (mdspell)
+#### Install Markdown-spellcheck (mdspell) - Optional
 
 * `npm install markdown-spellcheck`
 
