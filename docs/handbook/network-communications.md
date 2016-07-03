@@ -17,9 +17,16 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Network Communications - (Draft) - work in progress
+# OpenIndiana Handbook - Network Communications
 
-< Place holder for content >
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+This document is a work in progress (draft).
+
+</div>
+
+< Place holder for Introduction content >
 
 
 ## PPP

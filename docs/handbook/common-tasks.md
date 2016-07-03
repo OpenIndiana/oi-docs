@@ -17,9 +17,16 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Common Tasks - (Draft) - work in progress
+# OpenIndiana Handbook - Common Tasks
 
-< place holder >
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+This document is a work in progress (draft).
+
+</div>
+
+< place holder for introduction content >
 
 
 ## Basic UNIX commands
