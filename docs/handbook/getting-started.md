@@ -594,11 +594,6 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 * You cannot boot a USB thumbdrive installer from a USB3 port.
 
 
-## Using OpenIndiana
-
-< place holder >
-
-
 ## Installing Applications
 
 Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet)
