@@ -62,10 +62,23 @@ Public relations is an important aspect of project management, even if it's limi
 * Some of the currently listed mirrors are offline or outdated.
     * Need to update the landing pages for some of the mirrors.
 * Really need a North American mirror.
+* Provide more ways of trying out oi
+    * Vagrant box for virtualbox is done
+    * KVM and VMware are still needed
+
+### Package submission and maintenance
+
+* Make contributing and maintaining packages super easy - it should be dead simple to add new package
+
+
+### OS Modernizations
+
+* Modernize our base system - cron, syslog, mta etc so people get a software they are expected to find on any modern linux distro
+
 
 ### Support forum
 
-* While the project as irc and ml, perhaps a forum would be helpful as well.
+* While the project as irc and ml, perhaps a user forum would be helpful as well.
 
 
 ### Other Periodic Website Updates

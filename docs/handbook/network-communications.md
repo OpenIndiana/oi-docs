@@ -209,10 +209,38 @@ You can create additional CIFS datasets using the following 4 commands.
 < Place holder for content >
 
 
-### Configuring OpenIndiana as an NIS server
+## Configuring OpenIndiana as an NIS server
 
 < Place holder for content >
 
-### Configuring OpenIndiana as an LDAP server
+
+## Configuring OpenIndiana as an LDAP server
 
 < Place holder for content >
+
+
+## Configuring OpenIndiana as a DHCP server
+
+< Place holder for content >
+
+
+## Configuring OpenIndiana as an FTP server
+
+< Place holder for content >
+
+
+## Configuring OpenIndiana as a DNS server
+
+< Place holder for content >
+
+
+## Configuring OpenIndiana as a NTP server
+
+< Place holder for content >
+
+
+## Configuring OpenIndiana as a INETD server
+
+< Place holder for content >
+
+
