@@ -38,6 +38,7 @@ This is plain text
 _This is italic text_
 
 **This is bold text**
+
 </div>
 
 
@@ -90,6 +91,7 @@ Ordered or numbered lists are fairly simple to do in markdown.
 1. First item
 2. Second item
 3. Third item
+
 </div>
 
 
@@ -112,6 +114,7 @@ in specific steps.
 * this
 * is
 * unordered
+
 </div>
 
 
@@ -133,6 +136,7 @@ in specific steps.
     * awesome
     * amazing
     * really cool
+
 </div>
 
 
@@ -178,6 +182,7 @@ or (bare url's)
 or (bare url's)
 
 <http://www.openindiana.org>
+
 </div>
 
 
@@ -197,9 +202,45 @@ You can even target a specific section of the document.
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
 <div class="well">
+
 [The OpenIndiana Handbook - getting started](../handbook/getting-started.md)
 
 [Handbook - Appendix - Finding Help and Support](../handbook/appendix.md#finding-help-and-support)
+
+</div>
+
+### Images
+
+Specify the relative path to the image, just like an internal URL.
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+![openindiana logo](../Openindiana.png)
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+![openindiana logo](../Openindiana.png)
+
+</div>
+
+
+### Block quotes
+
+**Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
+
+```markdown
+> This is a block quote.
+> And here is the 2nd line of the quote.
+```
+
+**Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well">
+
+> This is a block quote.
+> And here is the 2nd line of the quote.
 
 </div>
 
