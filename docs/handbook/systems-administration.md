@@ -112,7 +112,7 @@ Here are just a few of them:
 * Time-Slider
 * [rdiff-backup](http://www.nongnu.org/rdiff-backup/)
 * Rsync
-* [Zeta](http://www.zetta.net/)
+* [Zetaback](https://labs.omniti.com/labs/zetaback)
 * ZFS exports
 * cpio
 * tar, zip, etc.
