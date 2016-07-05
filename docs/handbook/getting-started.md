@@ -181,8 +181,8 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 Download Example:
 
 ```bash
-$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
-$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
 ```
 
 ### Checking the MD5/SHA
@@ -190,7 +190,7 @@ $ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha2
 Checksum Verification Example:
 
 ```bash
-$ sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
+sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
 OI-hipster-gui-20160421.iso: OK
 ```
 
@@ -224,7 +224,7 @@ Use the application specific to your desktop (Brasero, K3B, etc.)
 **Linux Console** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 
 ```bash
-$ wodim -v dev=device -dao imagefile.iso
+wodim -v dev=device -dao imagefile.iso
 ```
 
 **Linux GUI** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
@@ -300,7 +300,7 @@ At this time, creating a bootable flash drive requires the use of a header file.
 * Please ensure you have selected the correct file.
     * The 1G.header is only suitable for use with the text installer (Command line console).
     * The 2G.header is only suitable for use with the live installer (Gnome desktop).
-    * The files are *NOT* interchangeable.
+    - The files are **NOT** interchangeable.
 
 Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
 
@@ -448,13 +448,13 @@ The default is English.
 
 ### The live media desktop
 
-![live desktop](./images/live_desktop/live_desktop.png) 
+![live desktop](./images/live_desktop/live_desktop.png)
 
 The Live Media DVD and USB installers provide a graphical live environment where you can explore OpenIndiana and test the compatibility of your hardware.
 When using Live Media, no changes are made to your system unless you explicitly choose to install OpenIndiana.
 
 
-### Live media authentication 
+### Live media authentication
 
 The user login for the live media session is `jack` along with the password `jack`.
 For administrative or elevated access, prepend your commands with `sudo`.
