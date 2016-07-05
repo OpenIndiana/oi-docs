@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# OpenIndiana Handbook - Getting started
+# OpenIndiana Handbook - Getting Started
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -36,7 +36,7 @@ The OpenIndiana project is also a continuation of the collaborative effort and c
 
 For a comprehensive history of the OpenSolaris project, see Jim Grisanzio's [OpenSolaris timeline](https://jimgrisanzio.wordpress.com/opensolaris/).
 
-## OpenIndiana Software Releases
+## OpenIndiana software releases
 
 <!--
 
@@ -69,7 +69,7 @@ While every package is tested to ensure stability, caution is nevertheless warra
 </div>
 
 
-## System Requirements
+## System requirements
 
 <!--
 
@@ -94,7 +94,7 @@ As the FAQ evolves, try to keep this section in sync.
 </div>
 
 
-## Preparation for Installing OpenIndiana
+## Preparation for installing OpenIndiana
 
 Prior to installing OpenIndiana:
 
@@ -178,39 +178,53 @@ As the FAQ evolves, try to keep this section in sync.
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
+Download Example:
+
+```bash
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
+```
+
+### Checking the MD5/SHA
+
+Checksum Verification Example:
+
+```bash
+sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
+OI-hipster-gui-20160421.iso: OK
+```
+
 
 ## Creating a bootable OpenIndiana DVD
 
-* Obtain the software from the download site
-* Check MD5/SHA
-* Burn it to a DVD
 
+### BSD/illumos/Solaris
 
-#### BSD
+**UNIX Console** <i class="fa fa-sun-o" aria-hidden="true"></i>
 
 ```bash
 cdrecord dev=device imagefile.iso
 ```
 
-Note: Use the `cdrecord -scanbus` command to locate your CD/DVD writer device.
+To locate your device:
+
+* For BSD, use the `cdrecord -scanbus`
+* For illumos/Solaris, use `rmformat -l`
 
 
-#### Illumos/Solaris
+**UNIX GUI** <i class="fa fa-sun-o" aria-hidden="true"></i>
+<div class="well">
 
-< Place holder for content >
+Use the application specific to your desktop (Brasero, K3B, etc.)
 
+</div>
 
-#### Linux
+### Linux
 
 **Linux Console** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 
 ```bash
-$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
-$ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
-$ sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
-OI-hipster-gui-20160421.iso: OK
-$ wodim -v dev=/dev/sr0 -dao OI-hipster-gui-20160421.iso
-
+wodim -v dev=device -dao imagefile.iso
 ```
 
 **Linux GUI** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
@@ -229,7 +243,7 @@ For further information, please consult the help documentation for your Linux di
 </div>
 
 
-#### Mac OS-X
+### Mac OS-X
 
 **MAC Console** <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
 
@@ -246,7 +260,7 @@ Applications > Utilities > Disk Utility
 </div>
 
 
-#### Windows
+### Windows
 
 **Windows Console** <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
 
@@ -268,7 +282,7 @@ From within Windows Explorer:
 </div>
 
 
-## Creating a bootable OpenIndiana USB Flash Drive
+## Creating a bootable OpenIndiana USB flash drive
 
 
 ### Prerequisites
@@ -282,11 +296,11 @@ From within Windows Explorer:
 
 At this time, creating a bootable flash drive requires the use of a header file.
 
-- There are 2 unique USB header files (1G and 2G).
-- Please ensure you have selected the correct file.
-    - The 1G.header is only suitable for use with the text installer (Command line console).
-    - The 2G.header is only suitable for use with the live installer (Gnome desktop).
-    - The files are *NOT* interchangeable.
+* There are 2 unique USB header files (1G and 2G).
+* Please ensure you have selected the correct file.
+    * The 1G.header is only suitable for use with the text installer (Command line console).
+    * The 2G.header is only suitable for use with the live installer (Gnome desktop).
+    - The files are **NOT** interchangeable.
 
 Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
 
@@ -357,14 +371,6 @@ This is a more modern application than the old "OpenSolaris Live USB creator" ut
 We'll need to test this to ensure this works with the OpenIndiana USB images.
 
 
-## Testing Openindiana Using Live Media
-
-The Live Media DVD and USB installers provide a graphical live environment where you can explore OpenIndiana and test the compatibility of your hardware.
-When using Live Media to explore OpenIndiana, no changes are made to your system, unless you explicitly choose to install OpenIndiana.
-
-Although it is possible to use it over a network with SSH X forwarding if you enable SSH.
-
-
 ## Booting OpenIndiana
 
 Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your computer.
@@ -400,17 +406,64 @@ See the notes below for optimizing OpenIndiana for several popular hypervisors.
 | Vmware player | OS type = Solaris 11 64-bit
 | KVM | <ul><li>OS type = Sun OpenSolaris</li><li>Remove USB Tablet</li><li>NIC = e1000</li><li>sound = AC97</li><li>Processor = Copy host CPU configuration</li><li>Disable CPU feature _'xsave'_</li><li>Video = QXL</li></ul>
 
+### The OpenIndiana boot menu
 
-### Authenticating when using the OpenIndiana LiveDVD
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 
-The user login for the text session is username 'jack' along with the password 'jack'.
-For administrative or elevated access, prepend your commands with `pfexec`.
-You may also use the `sudo` command.
+OpenIndiana will automatically boot the selected entry within 30 seconds.
+To stop the boot timer, press the escape key.
+To edit a boot entry, press the [e]dit key.
+For a command line press the [c]ommand key.
 
-You may obtain root using the `su` command along with the password 'openindiana'.
+</div>
+
+![grub menu](./images/boot/grub_menu.png)
+
+The OpenIndiana boot menu offers multiple choices.
+Use the arrow keys to select a boot entry.
+
+* OI Hipster (normal boot)
+* OI Hipster VESA driver
+* OI Hipster text console
+* Boot from Hard Disk
+* OI Hipster Enable SSH
+* OI Hipster with mangnifier
+* OI Hipster with screen reader
 
 
-### Using the Device Driver Utility
+### Selecting keyboard layout and display language
+
+![Select keyboard layout](./images/gui_install/SKL.png)
+
+Select your keyboard layout by entering the number corresponding to your desired keyboard layout.
+For example, select 47 for US-English, or 46 for UK-English, etc.
+The default is US-English.
+
+![Select display language](./images/gui_install/SDL.png)
+
+Select your language by entering the number corresponding to your desired language.
+The default is English.
+
+
+### The live media desktop
+
+![live desktop](./images/live_desktop/live_desktop.png)
+
+The Live Media DVD and USB installers provide a graphical live environment where you can explore OpenIndiana and test the compatibility of your hardware.
+When using Live Media, no changes are made to your system unless you explicitly choose to install OpenIndiana.
+
+
+### Live media authentication
+
+The user login for the live media session is `jack` along with the password `jack`.
+For administrative or elevated access, prepend your commands with `sudo`.
+You may also use the `pfexec` command.
+
+You may obtain root using the `su` command along with the password `openindiana`.
+
+
+### Using the device driver utility
 
 Available from the LiveDVD, the _Device Driver Utility_ allows you to check whether your hardware requires additional drivers.
 
@@ -427,7 +480,7 @@ Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/ope
 Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
 
 
-### Installing OpenIndiana from Live Media
+### Installing OpenIndiana from live media
 
 To install OpenIndiana from Live Media, you have two options.
 
@@ -438,17 +491,7 @@ Each of these options is represented by a desktop icon.
 Select the appropriate installer option by clicking the corresponding desktop installer icon.
 
 
-#### GUI based Guided Install
-
-![Select keyboard layout](./images/gui_install/SKL.png)
-
-This menu in the boot process is for selecting your ``keyboard layout``,
-(e.g. 47 for US-English, 46 for UK-English, etc).
-
-![Select display language](./images/gui_install/SDL.png)
-
-While this menu is for setting the ``display language``
-(i.e. what language the user-interface is in)
+#### GUI based guided install
 
 ![First Install Screen](./images/gui_install/OGI.png)
 
@@ -488,7 +531,7 @@ Your installation of OpenIndiana installed correctly,
 You can now reboot into your new shiny system!
 
 
-#### Text based Guided Install
+#### Text based guided install
 
 The text based guided install start and runs within a command line console.
 Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
@@ -598,7 +641,7 @@ If you ran the installation from Live Media, can exit the installation by pressi
 Otherwise, you will want to reboot the system using the F8 key.
 
 
-### Installing OpenIndiana using the Text Installer
+### Installing OpenIndiana using the text installer
 
 The text installer is not graphical nor does it have a live environment.
 When you boot from the text installer, you have the following choices:
@@ -609,7 +652,7 @@ When you boot from the text installer, you have the following choices:
 The text installer installation process uses the previously described _Text based Guided Install_.
 
 
-## Troubleshooting Installations
+## Troubleshooting installations
 
 * If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a ``grub>`` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
 * If you see a ``login:`` prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
@@ -628,7 +671,7 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 * You cannot boot a USB thumbdrive installer from a USB3 port.
 
 
-## Installing Applications
+## Installing applications
 
 Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet)
 
@@ -638,7 +681,7 @@ Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+
 < placeholder >
 
 
-### Video Card Support (3D)
+### Video card support (3D)
 
 Nearly all cards are supported for 2nd, but only Nvidia is supported for 3D.
 Work is progressing to provide support for AMD and Intel.
