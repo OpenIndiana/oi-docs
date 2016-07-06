@@ -25,7 +25,7 @@ Add a row to each table describing the relevancy of the book in relation to Open
 -->
 
 
-# OpenSolaris Redistributable Books
+# About OpenSolaris Redistributable Books
 
 Consisting of 41 titles and originally published on July 15th, 2009, this collection represents the final docs release of the OpenSolaris project.
 For ease of use, the titles have been organized by subject matter and grouped according to their intended target audience.
@@ -61,19 +61,3 @@ When using these books, please bear in mind:
 * In some cases, it may be possible to follow broken links by using the [Internet Archive Wayback Machine](https://archive.org/web/).
 
 
-## The OpenIndiana documentation revitalization effort
-
-An effort currently exists within the OpenIndiana community to:
-
-* Review the OpenSolaris redistributable books.
-* Determine the relevancy of each book in comparison to the current development state of OpenIndiana Hipster.
-* Compose lists of errata as required.
-
-If you wish to participate in this effort, please indicate your interest in one or more of the following ways:
-
-| Resource | URL
-| --- |---
-| User Support IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
-| Development IRC channel | [#oi-dev on irc.freenode.net](irc://irc.freenode.net/oi-dev)
-| Documentation IRC channel | [#oi-documentation on irc.freenode.net](irc://irc.freenode.net/oi-documentation)
-| OpenIndiana Mailing Lists | <http://openindiana.org/mailman>

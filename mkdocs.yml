@@ -10,7 +10,24 @@ pages:
 
 - About: 
         - 'About OpenIndiana Docs': misc/about.md
+        - 'OpenIndiana Code of Conduct': misc/conduct.md
+        - 'OpenIndiana FAQ': misc/faq.md
         - 'Public Documentation License': misc/pdl.md
+
+- 'Handbook':
+        - 'Getting Started': handbook/getting-started.md
+        - 'Common Tasks': handbook/common-tasks.md
+        - 'Systems Administration': handbook/systems-administration.md
+        - 'Network Communications': handbook/network-communications.md
+        - 'Appendix': handbook/appendix.md
+        - 'Building oi-userland': dev/userland.md
+        - 'OpenSolaris Books':
+                - 'About OpenSolaris Books': books/about.md
+                - 'Basic Administration': books/basic.md
+                - 'Advanced Administration': books/advanced.md
+                - 'Solaris Express Administration': books/express.md
+                - 'Trusted Extensions Administration': books/trusted.md
+                - 'Development Titles': books/develop.md
 
 - Contrib: 
         - 'Getting Started': contrib/getting-started.md
@@ -20,34 +37,12 @@ pages:
         - 'Contributor Style Guide': contrib/style.md
         - 'Markdown Syntax Guide': contrib/markdown.md
 
-- Docs:
-        - 'OpenIndiana Code of Conduct': misc/conduct.md
-        - 'OpenIndiana FAQ': misc/faq.md
-        - 'OpenIndiana Handbook':
-                - 'Getting Started': handbook/getting-started.md
-                - 'Common Tasks': handbook/common-tasks.md
-                - 'Systems Administration': handbook/systems-administration.md
-                - 'Network Communications': handbook/network-communications.md
-                - 'Appendix': handbook/appendix.md
-        - OpenSolaris Books:
-                - 'Book Index': books/index.md
-                - 'Basic Administration': books/basic.md
-                - 'Advanced Administration': books/advanced.md
-                - 'Solaris Express Administration': books/express.md
-                - 'Trusted Extensions Administration': books/trusted.md
-                - 'Development Titles': books/develop.md
-
-        - Development:
-                - 'Building oi-userland': dev/userland.md
-
 - Notes:
         - 'OpenIndiana Content Creation': notes/content.md
         - 'Content Management - The BSD Approach': notes/bsd.md
         - 'Improving the OpenIndiana Project': notes/project.md
         - 'The OpenSolaris Redistributable Books': notes/books.md
 
-markdown_extensions:
-        - admonition:
 
 copyright: Copyright &copy; 2016 <a href="http://www.openindiana.org">The OpenIndiana Docs Team</a>
 
