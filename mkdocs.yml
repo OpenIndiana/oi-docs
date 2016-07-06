@@ -1,11 +1,12 @@
 site_name: OpenIndiana Docs
 site_favicon: favicon.ico
 repo_url: https://github.com/OpenIndiana/oi-docs.git
-theme: spacelab
 google_analytics: ['UA-77447740-2', 'auto']
+theme: spacelab
 extra:
         theme_inverse: true
 pages:
+
 - Home: index.md
 
 - About: 
@@ -14,7 +15,7 @@ pages:
         - 'OpenIndiana FAQ': misc/faq.md
         - 'Public Documentation License': misc/pdl.md
 
-- 'Handbook':
+- Handbook:
         - 'Getting Started': handbook/getting-started.md
         - 'Common Tasks': handbook/common-tasks.md
         - 'Systems Administration': handbook/systems-administration.md
