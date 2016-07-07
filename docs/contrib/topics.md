@@ -42,12 +42,25 @@ NOTE: When clicking some of the links found within these resources, it may be ne
 * [OpenSolaris 2009.06 Booklet PDF](https://web.archive.org/web/20100401024945/http://www.opensolaris.com/use/OpenSolaris200906Booklet.pdf)
 
 
-## FAQ
+## About OpenIndiana
 
 Have a look at the following resources for ideas and inspiration for writing new content:
 
 * [OpenSolaris FAQ](https://web.archive.org/web/20091001032442/http://www.opensolaris.com/learn/faq/)
 * [OpenSolaris Newbie FAQ](https://web.archive.org/web/20090909080957/http://opensolaris.org/os/community/documentation/newbie_faq/)
+
+TODO:
+
+* Write a table where _included_ features of OpenIndiana are compared to _licensed_ features found in commercial software.
+    * For example: Qemu-KVM | HyperV, Esxi, etc. , Zones | Docker, etc.
+* Need to look at the legal aspects of mentioning trademarked names within documentation (to help keep openindiana out of trouble).
+* Add a blurb about switching to hipster. See [link](http://wiki.openindiana.org/oi/Hipster#Hipster-switching)
+* Link in download URL's for ISO's, etc.: See [release notes](http://wiki.openindiana.org/oi/2016.04+Release+notes)
+* Write a table providing a matrix comparing commands between BSD/Linux/OpenIndiana.
+    * This could also be something for the handbook.
+    * Place it wherever it looks best.
+* See [this page](https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris)
+* Also can look at old OpenSolaris website for ideas, suggestions, etc.
 
 
 ## Handbook - Getting Started

@@ -10,9 +10,9 @@ pages:
 - Home: index.md
 
 - About: 
-        - 'About OpenIndiana Docs': misc/about.md
+        - 'About OpenIndiana': misc/openindiana.md
+        - 'About OpenIndiana Docs': misc/oi-docs.md
         - 'OpenIndiana Code of Conduct': misc/conduct.md
-        - 'OpenIndiana FAQ': misc/faq.md
         - 'Public Documentation License': misc/pdl.md
 
 - Handbook:
@@ -31,6 +31,7 @@ pages:
                 - 'Development Titles': books/develop.md
 
 - Contrib: 
+        - 'Content Creation': contrib/content.md
         - 'Getting Started': contrib/getting-started.md
         - 'Contributor Tools' : contrib/tools.md
         - 'Contributor Roles': contrib/roles.md
@@ -39,7 +40,6 @@ pages:
         - 'Markdown Syntax Guide': contrib/markdown.md
 
 - Notes:
-        - 'OpenIndiana Content Creation': notes/content.md
         - 'Content Management - The BSD Approach': notes/bsd.md
         - 'Improving the OpenIndiana Project': notes/project.md
         - 'The OpenSolaris Redistributable Books': notes/books.md

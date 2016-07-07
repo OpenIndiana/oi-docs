@@ -16,22 +16,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<!--
 
-TODO:
-
-Write a table where _included_ features of OpenIndiana are compared to _licensed_ features found in commercial software.
-- For example: Qemu-KVM | HyperV, Esxi, etc. , Zones | Docker, etc.
-Need to look at the legal aspects of mentioning trademarked names within documentation (to help keep openindiana out of trouble).
-- Also need to look at document licensing, whether to put licenses in the docs, etc.
-Have a look at the "Newbie FAQ" from hub.opensolaris.org
-- See: http://web.archive.org/web/20100111014254/http://hub.opensolaris.org/bin/view/Community+Group+documentation/newbie_faq
-Add a blurb about switching to hipster. Link to :http://wiki.openindiana.org/oi/Hipster#Hipster-switching
-- Link in download URL's for ISO's, etc.: See release notes:http://wiki.openindiana.org/oi/2016.04+Release+notes
-
--->
-
-# The OpenIndiana FAQ
+# About OpenIndiana
 
 ## What is OpenIndiana?
 
@@ -72,16 +58,6 @@ Therefore, this change only affects applications written in the `C++` language.
 </div>
 
 ## How does OpenIndiana compare to BSD or Linux?
-
-<!--
-
-TODO:
-
-Write a table providing a matrix comparing commands between BSD/Linux/OpenIndiana.
-See: https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris
-Also can look at old OpenSolaris website for ideas, suggestions, etc.
-
--->
 
 All of these operating systems follow the Unix paradigm and contain tools and commands which bear a similar resemblance, although specific feature sets and command usage may be dissimilar.
 If you are coming to OpenIndiana from either BSD or Linux, you will quickly learn these differences.
