@@ -10,9 +10,9 @@ pages:
 - Home: index.md
 
 - About: 
-        - 'About OpenIndiana Docs': misc/about.md
+        - 'About OpenIndiana': misc/openindiana.md
+        - 'About OpenIndiana Docs': misc/oi-docs.md
         - 'OpenIndiana Code of Conduct': misc/conduct.md
-        - 'OpenIndiana FAQ': misc/faq.md
         - 'Public Documentation License': misc/pdl.md
 
 - Handbook:
