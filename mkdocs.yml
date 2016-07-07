@@ -31,6 +31,7 @@ pages:
                 - 'Development Titles': books/develop.md
 
 - Contrib: 
+        - 'Content Creation': contrib/content.md
         - 'Getting Started': contrib/getting-started.md
         - 'Contributor Tools' : contrib/tools.md
         - 'Contributor Roles': contrib/roles.md
@@ -39,7 +40,6 @@ pages:
         - 'Markdown Syntax Guide': contrib/markdown.md
 
 - Notes:
-        - 'OpenIndiana Content Creation': notes/content.md
         - 'Content Management - The BSD Approach': notes/bsd.md
         - 'Improving the OpenIndiana Project': notes/project.md
         - 'The OpenSolaris Redistributable Books': notes/books.md

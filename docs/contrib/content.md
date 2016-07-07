@@ -18,14 +18,13 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # OpenIndiana Content Creation
 
-This pages is a whiteboard for ideas and inspirations to get out there and write some content.
-Contributing to the OpenIndiana project by helping with content creation doesn't mean you need to get involved in anything major.
-Start small and only later consider taking on something larger.
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 
 ## Why Fresh Website Content is so Important
 
 Good docs and a steady stream of fresh website content inspires confidence in the project.
-These things also help show the project is alive and thriving.
+These things show the project is alive and thriving.
 Here are a couple of end user quotes which serve as a reminder.
 
 
@@ -42,25 +41,47 @@ Here are a couple of end user quotes which serve as a reminder.
 >For all I know (from a commercial point of view) they could be gone next month.
 >That makes it a liability, especially in comparison to Sun being out of the picture and the love/hate relationship with Oracle.
 
+The goal of this page is to inspire you to contribute to the OpenIndiana Project by assisting with content creation.
 
-#### Suggestions For How to Approach Content Creation for Larger Works
+* Contributing doesn't mean you need to get involved in anything major.
+* Start small and only later consider taking on something larger.
+* Your contribution does not have to be confined to the OpenIndiana Docs website.
+* Any and all contributions which help further the development and promotion of OpenIndiana are welcome.
 
-While it's true there are some major projects that need love, helping out with one doesn't necessarily mean you have to write the entire thing yourself.
-* Pick a doc and tackle a single section.
-* Pick a doc and add in some TODO's where they are obviously needed.
-* Add new sectional placeholders where they are needed.
+</div>
 
-#### Larger Works
 
-* FAQ
-* User Handbook
-* Developer Handbook
-* Updating the OpenSolaris books
+## How to get started
 
-#### Smaller Works
+1. Begin by reading the [Getting Started](./getting-started.md) page.
+2. Then have a look at the [Contributor Style Guide](./style.md).
+3. As needed, reference the [Markdown Syntax Guide](./markdown.md) to help you along the way.
 
-* Writing a news story
-* Writing a blog post
-* Writing a tutorial
+When you are ready to begin contributing:
+
+* Pick a doc and add additional sectional placeholders.
+* Pick a doc and add in some TODO's.
+* Pick a doc and add some reference materials.
+* Pick a doc and author a single section.
+* Pick a doc and review it for technical accuracy.
+
+
+## Smaller Works
+
+* FAQ maintenance
+* Writing a news story for the OpenIndiana website
 * Writing an episode of Hipster news
-* Documenting the documentation process
+* Writing a task based tutorial.
+
+
+## Larger Works
+
+* User Handbook development
+* Developer Handbook development
+* Reviewing the OpenSolaris books and generating errata.
+
+
+## Finding additional ideas and suggestions
+
+See the [Contributor Topics](./topics.md) page for specific items which need further development.
+
