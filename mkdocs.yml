@@ -22,20 +22,20 @@ pages:
         - 'Network Communications': handbook/network-communications.md
         - 'Appendix': handbook/appendix.md
         - 'Building oi-userland': dev/userland.md
-        - 'OpenSolaris Books':
-                - 'About OpenSolaris Books': books/about.md
-                - 'Basic Administration': books/basic.md
-                - 'Advanced Administration': books/advanced.md
-                - 'Solaris Express Administration': books/express.md
-                - 'Trusted Extensions Administration': books/trusted.md
-                - 'Development Titles': books/develop.md
+- 'OpenSolaris Books':
+        - 'About OpenSolaris Books': books/about.md
+        - 'Basic Administration': books/basic.md
+        - 'Advanced Administration': books/advanced.md
+        - 'Solaris Express Administration': books/express.md
+        - 'Trusted Extensions Administration': books/trusted.md
+        - 'Development Titles': books/develop.md
 
 - Contrib: 
         - 'Content Creation': contrib/content.md
         - 'Getting Started': contrib/getting-started.md
         - 'Contributor Tools' : contrib/tools.md
         - 'Contributor Roles': contrib/roles.md
-        - 'Contributor Topics': contrib/topics.md 
+        - 'Contributor Topics': contrib/topics.md
         - 'Contributor Style Guide': contrib/style.md
         - 'Markdown Syntax Guide': contrib/markdown.md
 
@@ -45,5 +45,5 @@ pages:
         - 'The OpenSolaris Redistributable Books': notes/books.md
 
 
-copyright: Copyright &copy; 2016 <a href="http://www.openindiana.org">The OpenIndiana Docs Team</a>
+copyright: Copyright &copy; 2016 <a href="http://www.openindiana.org">The OpenIndiana Project</a>
 
