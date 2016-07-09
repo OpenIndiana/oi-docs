@@ -707,14 +707,28 @@ An IPS package is defined as a collection of files, directories, links, drivers 
 
 Note the following points about IPS packages :
 
-* There is no standard on-disk format for an IPS package.
-Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, an IPS package cannot be transferred from system to system.
-The repository where the IPS package is published or mirrored is the only source for the package.
-
 * An IPS package consists of a set of actions.
 Actions are defined when an IPS package is being created.
 Actions are used for defining the files and directories of the package, setting package attributes, declaring dependencies on other packages, creating users and groups, and installing device drivers.
 Some actions may optionally have tags that provide meta information about the action such as locale information and debug configuration.
+
+
+### IPS package archives (.p5p)
+
+When the IPS system was originally conceived there was no standard on-disk format for an IPS package.
+Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, it was not possible to transfer an IPS package from system to system.
+The repository where the IPS package resided was the only source for the package.
+This is because in its native state, the IPS package is not something you can download from the IPS repository as a single archive file.
+
+Recognizing this limitation of IPS, the `.p5p` IPS archive format was developed.
+For IPS `.p5p` archives, files are stored in the pax archive format, with additional metadata, such as IPS manifest files, and a specific layout of the contents.
+To create an `.p5p` archive the `pkgrecv` command is used.
+
+For example, to create a package archive containing the package `editor/gnu-emacs` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
+
+```bash
+pkgrecv -s http://example.com:10000 -d /my/emacs.p5p -a -r editor/gnu-emacs
+```
 
 
 ### IPS commands
@@ -756,91 +770,62 @@ FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
     * Timestamp – 20160702T042138Z
 
 
+### Searching for packages
+
+The search command searches in the installed image if no options are specified.
+With the `-r` option, the command searches for the package in the repository or repositories associated with the current image.
+
+For example: `pkg search -r bash`
+
+
+### Listing information about packages
+
+To list the entire contents of a package, use the command: `pkg contents <package-name>`.
+If the package is not installed on the local system, use the `-r` option.
+
+To list information about packages installed on the local system use the command `pkg list <package-name>`.
+
+For example:
+
+```bash
+pkg list gimp
+NAME (PUBLISHER)                                  VERSION                    IFO
+image/editor/gimp                                 2.8.16-2016.0.0.2          i--
+```
+
+
 ### Installing packages
 
 Use the following command to install a package.
 
 `pkg install [-v] pkg_fmri`
 
-While packages can be specified using their FMRI, you may also simply use the package name.
+While packages can be installed by specifying their FMRI, it is often easier to substitute the FMRI for the common name of the package.
+Also, use of the `-v` (verbose) switch is entirely optional.
 
 For example:
 
 ```bash
-pkg install -v gimp
-           Packages to install:         3
-            Packages to update:        14
-            Services to change:         2
-     Estimated space available:   9.54 GB
-Estimated space to be consumed: 402.25 MB
-       Create boot environment:        No
-Create backup boot environment:       Yes
-          Rebuild boot archive:        No
-
-Changed packages:
-openindiana.org
-  image/editor/gimp
-    None -> 2.8.16-2016.0.0.2
-  image/library/babl
-    None -> 0.1.10-2016.0.0.1
-  image/library/gegl
-    None -> 0.2.0-2016.0.0.0
-  codec/jasper
-    1.900.1-2015.0.2.1 -> 1.900.1-2016.0.0.1
-  image/library/libexif
-    0.6.21-2015.0.1.0 -> 0.6.21-2016.0.0.0
-  image/library/libjpeg6
-    6.0.2-2015.0.2.0 -> 6.0.2-2016.0.0.0
-  image/library/libjpeg6-ijg
-    6.0.2-2015.0.2.0 -> 6.0.2-2016.0.0.0
-  image/library/librsvg
-    2.36.4-2015.0.0.0 -> 2.36.4-2016.0.0.0
-  image/library/libtiff
-    4.0.6-2015.0.2.1 -> 4.0.6-2016.0.0.1
-  library/aalib
-    1.4.5-2015.0.2.0 -> 1.4.5-2016.0.0.0
-  library/desktop/pango
-    1.36.8-2015.0.1.2 -> 1.36.8-2016.0.0.2
-  library/glib2
-    2.43.4-2015.0.2.3 -> 2.43.4-2016.0.0.3
-  library/glib2/charset-alias
-    2.43.4-2015.0.2.3 -> 2.43.4-2016.0.0.4
-  library/lcms2
-    2.7-2015.0.1.0 -> 2.7-2016.0.0.0
-  library/zlib
-    1.2.8-2015.0.2.0 -> 1.2.8-2016.0.0.0
-  system/library/libdbus
-    1.10.8-2015.0.2.0 -> 1.10.8-2016.0.0.0
-  system/library/libdbus-glib
-    0.100.2-2015.0.2.0 -> 0.100.2-2016.0.0.0
-
-Services:
-  restart_fmri:
-    svc:/application/desktop-cache/desktop-mime-cache:default
-    svc:/application/desktop-cache/icon-cache:default
-
-Editable files to change:
-  Install:
-    etc/gimp/2.0/controllerrc
-    etc/gimp/2.0/gimprc
-    etc/gimp/2.0/gtkrc
-    etc/gimp/2.0/menurc
-    etc/gimp/2.0/sessionrc
-    etc/gimp/2.0/templaterc
-    etc/gimp/2.0/unitrc
+pkg install xchat
+           Packages to install:   1
+            Packages to update:   1
+            Services to change:   2
+       Create boot environment:  No
+Create backup boot environment: Yes
 
 DOWNLOAD                                PKGS         FILES    XFER (MB)   SPEED
-Completed                              17/17     1878/1878    24.8/24.8  1.1M/s
+Completed                                2/2         38/38      2.6/2.6  746k/s
 
 PHASE                                          ITEMS
-Removing old actions                           46/46
-Installing new actions                     2043/2043
-Updating modified actions                      29/29
+Removing old actions                             4/4
+Installing new actions                         69/69
+Updating modified actions                        2/2
 Updating package state database                 Done
-Updating package cache                         14/14
+Updating package cache                           1/1
 Updating image state                            Done
 Creating fast lookup database                   Done
 ```
+
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -851,6 +836,169 @@ Any dependent packages are also automatically updated.
 
 </div>
 
+
+### Updating packages
+
+To update all the packages installed on a system to their latest available version, use the `pkg update` command.
+
+For example:
+
+```bash
+pkg update
+            Packages to remove:    4
+           Packages to install:   11
+            Packages to update: 1018
+            Packages to change:    2
+           Mediators to change:    1
+       Create boot environment:  Yes
+Create backup boot environment:   No
+
+DOWNLOAD                                PKGS         FILES    XFER (MB)   SPEED
+Completed                          1035/1035     7502/7502  303.4/303.4  886k/s
+
+PHASE                                          ITEMS
+Removing old actions                       3931/3931
+Installing new actions                     6889/6889
+Updating modified actions                11999/11999
+Updating package state database                 Done
+Updating package cache                     1022/1022
+Updating image state                            Done
+Creating fast lookup database                   Done
+
+A clone of openindiana-1 exists and has been updated and activated.
+On the next boot the Boot Environment openindiana-2 will be
+mounted on '/'.  Reboot when ready to switch to this updated BE.
+
+
+---------------------------------------------------------------------------
+NOTE: Please review release notes posted at:
+
+http://wiki.openindiana.org/display/oi/oi_hipster
+---------------------------------------------------------------------------
+```
+
+
+### Removing packages
+
+To remove a package from the system, use the command: `pkg uninstall <package-name>`
+
+
+### IPS package repositories
+
+As previously mentioned, the IPS repository is the remote location where IPS packages reside.
+
+To list the IPS repositories configured on your system, use the command `pkg publisher`.
+
+To add a new publisher, use the command: `pkg set-publisher -g repository_url repository_name`
+
+To change an existing publisher, use the command:
+
+```bash
+pkg set-publisher \
+-G http://pkg.openindiana.org/hipster-2015 \
+-g http://pkg.openindiana.org/hipster openindiana.org
+```
+
+### IPS package repository precedence
+
+When multiple repositories are associated with an installation image and when using the `pkg` command-line interface (CLI) with only package names, the following rules apply.
+These rules can be overridden in the CLI by using explicit publishers and package version numbers.
+
+| Package Installation Type | Rules When Only Package Names Are Provided
+| --- | ---
+| New package installations | The latest available version of new packages are always installed from the preferred authority unless the authority is provided in the FMRI during installation. Even if later versions of the package are available in other authorities, those later versions are not installed by default.
+| Package updates: package originally installed from preferred publisher | If the package was originally installed from the preferred publisher, then the latest available update of the package can be installed from the _current_ preferred publisher. The package can be install from the _current_ preferred even if the preferred publisher designation had been moved to another publisher after the package had been originally installed. Even if later versions of the package are available in other authorities, those later versions are not installed by default.
+| Package updates: package originally installed from non-preferred publisher | If the package was originally installed from a non-preferred publisher, then the latest available update of the package is installed from the publisher from which the package was originally installed. Even if later versions of the package are available in other publishers, those later versions are not installed by default.
+
+
+### Listing package history
+
+To list the IPS history, use the `pkg history` command.
+
+For example:
+
+```bash
+pkg history
+START                    OPERATION                CLIENT             OUTCOME
+2016-04-21T03:30:04      purge-history            pkg                Succeeded
+2016-07-02T16:09:56      uninstall                pkg                Succeeded
+2016-07-02T16:10:33      uninstall                pkg                Succeeded
+2016-07-02T16:11:08      uninstall                pkg                Succeeded
+2016-07-02T16:11:42      uninstall                pkg                Succeeded
+2016-07-02T16:12:18      set-property             pkg                Succeeded
+2016-07-02T16:12:22      set-property             pkg                Succeeded
+2016-07-02T16:37:06      refresh-publishers       pkg                Succeeded
+2016-07-02T16:37:06      update                   pkg                Succeeded
+2016-07-02T16:37:32      rebuild-image-catalogs   pkg                Succeeded
+2016-07-02T17:33:44      install                  pkg                Succeeded
+2016-07-02T17:35:11      install                  pkg                Succeeded
+2016-07-02T18:31:39      install                  pkg                Succeeded
+2016-07-04T19:49:19      install                  pkg                Succeeded
+2016-07-04T19:49:23      refresh-publishers       pkg                Succeeded
+2016-07-04T19:49:56      rebuild-image-catalogs   pkg                Succeeded
+2016-07-09T01:16:43      install                  pkg                Succeeded
+2016-07-09T01:16:45      refresh-publishers       pkg                Succeeded
+2016-07-09T01:17:20      rebuild-image-catalogs   pkg                Succeeded
+2016-07-09T11:33:05      install                  pkg                Succeeded
+2016-07-09T11:33:07      refresh-publishers       pkg                Succeeded
+2016-07-09T11:33:37      rebuild-image-catalogs   pkg                Succeeded
+2016-07-09T12:27:23      update                   pkg                Succeeded
+```
+
+If you want to see more details of a particular IPS transaction, you can use the command:
+
+`pkg history -t 2016-07-09T11:33:05 -l`
+
+The `-t` switch allows you to specify a particular transaction and the `-l` switch provides extended details of that transaction.
+
+
+### Finding help with pkg
+
+Use the command `pkg help` to list all of the available commands.
+
+To retrieve additional information about a specific command use: `pkg help <command name>`
+
+For example:
+
+```bash
+pkg help update
+Usage:
+        pkg update [-fnvq] [-C n] [-g path_or_uri ...] [--accept] [--ignore-missing]
+            [--licenses] [--no-be-activate] [--no-index] [--no-refresh]
+            [--no-backup-be | --require-backup-be] [--backup-be-name]
+            [--deny-new-be | --require-new-be] [--be-name name]
+            [-r [-z image_name ... | -Z image_name ...]]
+            [--sync-actuators | --sync-actuators-timeout timeout]
+            [--reject pkg_fmri_pattern ...] [pkg_fmri_pattern ...]
+```
+
+Also be sure to consult the `pkg`<sup>1</sup> man page for additional information and usage examples.
+
+
+### Legacy package management tools
+
+OpenIndiana continues to support the use of legacy package tools for managing SVR4 packages.
+Here are a few of the available tools:
+
+* pkginfo
+* pkgadd
+* pkgrm
+
+
+### 3rd party package management tools
+
+In addition to IPS and SVR4 package management tools, it is also possible to use `pkgsrc`.
+
+For more information about pkgsrc, see the [Joyent package source website](https://pkgsrc.joyent.com/)
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+
+The use of 3rd party repositories and package managers increases the likelyhood of conflicts between package versions.
+Furthermore, the OpenIndiana project cannot guarantee the qualify of 3rd party packages.
+Therefore, use 3rd party repositories and package tools at your own risk.
+
+</div>
 
 
 ## Managing boot environments
