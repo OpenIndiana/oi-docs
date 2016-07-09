@@ -671,9 +671,191 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 * You cannot boot a USB thumbdrive installer from a USB3 port.
 
 
-## Installing applications
+## The Image Package System (IPS)
 
-Import and validate: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet)
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+Have a look at: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet) to see whether there is anything there which we might want to import and validate.
+
+</div>
+
+### Introduction
+
+<!--The majority of the text below was taken from the PDL licensed document titled 'Getting Started with OpenSolaris 2008.11' -->
+
+After an initial installation of the OpenIndiana Hipster operating system, you will find that many of the software applications that you use on a regular basis are not immediately available to you.
+These software applications are available as packages in an IPS repository for downloading and installing over the Internet.
+A repository is a source for packages.
+
+The Image Packaging System software is a network-centric packaging system written in Python.
+The Image Packaging System (IPS) enables users to connect to the repository and download and install packages.
+OpenIndiana Hipster uses IPS for its packaging system.
+Besides installing packages from a repository, users can create and publish their own IPS packages, set up an OpenSolaris repository, mirror an existing repository, and publish existing packages to a repository.
+
+Once you have installed packages, IPS enables you to search, update, and manage packages on your system.
+
+With IPS , you can upgrade your system to a newer build of OpenSolaris, install and update your software to the latest available versions in a repository, and retrieve packages from mirror repositories.
+
+If the system on which IPS is installed is on the network, IPS can automatically access the OpenIndiana repository.
+For the OpenIndiana Hipster, your IPS client can access the packages from <http://pkg.openindiana.org/hipster>.
+
+
+### IPS packages
+
+An IPS package is defined as a collection of files, directories, links, drivers and dependencies in a defined format.
+
+Note the following points about IPS packages :
+
+* There is no standard on-disk format for an IPS package.
+Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, an IPS package cannot be transferred from system to system.
+The repository where the IPS package is published or mirrored is the only source for the package.
+
+* An IPS package consists of a set of actions.
+Actions are defined when an IPS package is being created.
+Actions are used for defining the files and directories of the package, setting package attributes, declaring dependencies on other packages, creating users and groups, and installing device drivers. 
+Some actions may optionally have tags that provide meta information about the action such as locale information and debug configuration.
+
+
+### IPS commands
+
+The Image Packaging System software provides the following commands:
+
+| Command | Description
+| --- | ---
+| `pkg`<sup>1</sup> | Use the `pkg`<sup>1</sup> command to create an image, to install packages to your image, and to manage packages on your image.
+| `pkgsend`<sup>1</sup> | Use the `pkgsend`<sup>1</sup> command to publish packages from your image to an existing repository.
+| `pkg.depotd`<sup>1M</sup> | Use the `pkg.depotd`<sup>1M</sup> command to create and manage your own network repository or set up a mirror repositories.
+| `pkgrecv` | Use the `pkgrecv` command to download the contents of a package from a server. The user can then modify the contents by adding additional package attributes and republish the package with the `pkgsend` command.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+* The `pkg`<sup>5</sup> man page describes the overall Image Packaging System.
+* The `pkg`<sup>1</sup> man page describes the image packaging retrieval client.
+
+</div>
+
+
+### pkg<sup>1</sup> uses FMRIs
+
+Each IPS package is represented by a _Fault Management Resource Identifier_ (FMRI).
+The pkg<sup>1</sup> command uses valid FMRI package information to perform its command actions.
+The FMRI includes descriptive information about the package, such as the package name, version information, and date.
+
+For example:
+
+FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
+
+* Scheme – pkg
+* Authority – openindiana.org
+* PackageName – gimp
+* Version String – Consists of three components :
+    * Build Version – 2.8.16
+    * Branch Version – 2016.0.0.0
+    * Timestamp – 20160702T042138Z
+
+
+### Installing packages
+
+Use the following command to install a package.
+
+`pkg install [-v] pkg_fmri`
+
+While packages can be specified using their FMRI, you may also simply use the package name.
+
+For example:
+
+```bash
+pkg install -v gimp
+           Packages to install:         3
+            Packages to update:        14
+            Services to change:         2
+     Estimated space available:   9.54 GB
+Estimated space to be consumed: 402.25 MB
+       Create boot environment:        No
+Create backup boot environment:       Yes
+          Rebuild boot archive:        No
+
+Changed packages:
+openindiana.org
+  image/editor/gimp
+    None -> 2.8.16-2016.0.0.2
+  image/library/babl
+    None -> 0.1.10-2016.0.0.1
+  image/library/gegl
+    None -> 0.2.0-2016.0.0.0
+  codec/jasper
+    1.900.1-2015.0.2.1 -> 1.900.1-2016.0.0.1
+  image/library/libexif
+    0.6.21-2015.0.1.0 -> 0.6.21-2016.0.0.0
+  image/library/libjpeg6
+    6.0.2-2015.0.2.0 -> 6.0.2-2016.0.0.0
+  image/library/libjpeg6-ijg
+    6.0.2-2015.0.2.0 -> 6.0.2-2016.0.0.0
+  image/library/librsvg
+    2.36.4-2015.0.0.0 -> 2.36.4-2016.0.0.0
+  image/library/libtiff
+    4.0.6-2015.0.2.1 -> 4.0.6-2016.0.0.1
+  library/aalib
+    1.4.5-2015.0.2.0 -> 1.4.5-2016.0.0.0
+  library/desktop/pango
+    1.36.8-2015.0.1.2 -> 1.36.8-2016.0.0.2
+  library/glib2
+    2.43.4-2015.0.2.3 -> 2.43.4-2016.0.0.3
+  library/glib2/charset-alias
+    2.43.4-2015.0.2.3 -> 2.43.4-2016.0.0.4
+  library/lcms2
+    2.7-2015.0.1.0 -> 2.7-2016.0.0.0
+  library/zlib
+    1.2.8-2015.0.2.0 -> 1.2.8-2016.0.0.0
+  system/library/libdbus
+    1.10.8-2015.0.2.0 -> 1.10.8-2016.0.0.0
+  system/library/libdbus-glib
+    0.100.2-2015.0.2.0 -> 0.100.2-2016.0.0.0
+
+Services:
+  restart_fmri:
+    svc:/application/desktop-cache/desktop-mime-cache:default
+    svc:/application/desktop-cache/icon-cache:default
+
+Editable files to change:
+  Install:
+    etc/gimp/2.0/controllerrc
+    etc/gimp/2.0/gimprc
+    etc/gimp/2.0/gtkrc
+    etc/gimp/2.0/menurc
+    etc/gimp/2.0/sessionrc
+    etc/gimp/2.0/templaterc
+    etc/gimp/2.0/unitrc
+
+DOWNLOAD                                PKGS         FILES    XFER (MB)   SPEED
+Completed                              17/17     1878/1878    24.8/24.8  1.1M/s
+
+PHASE                                          ITEMS
+Removing old actions                           46/46
+Installing new actions                     2043/2043
+Updating modified actions                      29/29
+Updating package state database                 Done 
+Updating package cache                         14/14 
+Updating image state                            Done 
+Creating fast lookup database                   Done
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+The `pkg install` command is also used to update specific packages on the system.
+The `pkg install` command automatically checks for newer versions of specific packages or package groups and installs them if they are available.
+Any dependent packages are also automatically updated.
+
+</div>
+
+
+
+## Managing boot environments
+
+< Place Holder >
 
 
 ## Xorg
