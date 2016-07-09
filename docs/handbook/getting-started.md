@@ -713,7 +713,7 @@ The repository where the IPS package is published or mirrored is the only source
 
 * An IPS package consists of a set of actions.
 Actions are defined when an IPS package is being created.
-Actions are used for defining the files and directories of the package, setting package attributes, declaring dependencies on other packages, creating users and groups, and installing device drivers. 
+Actions are used for defining the files and directories of the package, setting package attributes, declaring dependencies on other packages, creating users and groups, and installing device drivers.
 Some actions may optionally have tags that provide meta information about the action such as locale information and debug configuration.
 
 
@@ -836,9 +836,9 @@ PHASE                                          ITEMS
 Removing old actions                           46/46
 Installing new actions                     2043/2043
 Updating modified actions                      29/29
-Updating package state database                 Done 
-Updating package cache                         14/14 
-Updating image state                            Done 
+Updating package state database                 Done
+Updating package cache                         14/14
+Updating image state                            Done
 Creating fast lookup database                   Done
 ```
 
