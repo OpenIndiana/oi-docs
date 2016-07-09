@@ -820,9 +820,9 @@ PHASE                                          ITEMS
 Removing old actions                             4/4
 Installing new actions                         69/69
 Updating modified actions                        2/2
-Updating package state database                 Done 
-Updating package cache                           1/1 
-Updating image state                            Done 
+Updating package state database                 Done
+Updating package cache                           1/1
+Updating image state                            Done
 Creating fast lookup database                   Done
 ```
 
@@ -860,10 +860,10 @@ PHASE                                          ITEMS
 Removing old actions                       3931/3931
 Installing new actions                     6889/6889
 Updating modified actions                11999/11999
-Updating package state database                 Done 
-Updating package cache                     1022/1022 
-Updating image state                            Done 
-Creating fast lookup database                   Done 
+Updating package state database                 Done
+Updating package cache                     1022/1022
+Updating image state                            Done
+Creating fast lookup database                   Done
 
 A clone of openindiana-1 exists and has been updated and activated.
 On the next boot the Boot Environment openindiana-2 will be
@@ -891,7 +891,7 @@ To list the IPS repositories configured on your system, use the command `pkg pub
 
 To add a new publisher, use the command: `pkg set-publisher -g repository_url repository_name`
 
-To change an existing publisher, use the command: 
+To change an existing publisher, use the command:
 
 ```bash
 pkg set-publisher \
@@ -899,9 +899,57 @@ pkg set-publisher \
 -g http://pkg.openindiana.org/hipster openindiana.org
 ```
 
+### IPS package repository precedence
+
+When multiple repositories are associated with an installation image and when using the `pkg` command-line interface (CLI) with only package names, the following rules apply.
+These rules can be overridden in the CLI by using explicit publishers and package version numbers.
+
+| Package Installation Type | Rules When Only Package Names Are Provided
+| --- | ---
+| New package installations | The latest available version of new packages are always installed from the preferred authority unless the authority is provided in the FMRI during installation. Even if later versions of the package are available in other authorities, those later versions are not installed by default.
+| Package updates: package originally installed from preferred publisher | If the package was originally installed from the preferred publisher, then the latest available update of the package can be installed from the _current_ preferred publisher. The package can be install from the _current_ preferred even if the preferred publisher designation had been moved to another publisher after the package had been originally installed. Even if later versions of the package are available in other authorities, those later versions are not installed by default.
+| Package updates: package originally installed from non-preferred publisher | If the package was originally installed from a non-preferred publisher, then the latest available update of the package is installed from the publisher from which the package was originally installed. Even if later versions of the package are available in other publishers, those later versions are not installed by default.
+
+
 ### Listing package history
 
 To list the IPS history, use the `pkg history` command.
+
+For example:
+
+```bash
+pkg history
+START                    OPERATION                CLIENT             OUTCOME
+2016-04-21T03:30:04      purge-history            pkg                Succeeded
+2016-07-02T16:09:56      uninstall                pkg                Succeeded
+2016-07-02T16:10:33      uninstall                pkg                Succeeded
+2016-07-02T16:11:08      uninstall                pkg                Succeeded
+2016-07-02T16:11:42      uninstall                pkg                Succeeded
+2016-07-02T16:12:18      set-property             pkg                Succeeded
+2016-07-02T16:12:22      set-property             pkg                Succeeded
+2016-07-02T16:37:06      refresh-publishers       pkg                Succeeded
+2016-07-02T16:37:06      update                   pkg                Succeeded
+2016-07-02T16:37:32      rebuild-image-catalogs   pkg                Succeeded
+2016-07-02T17:33:44      install                  pkg                Succeeded
+2016-07-02T17:35:11      install                  pkg                Succeeded
+2016-07-02T18:31:39      install                  pkg                Succeeded
+2016-07-04T19:49:19      install                  pkg                Succeeded
+2016-07-04T19:49:23      refresh-publishers       pkg                Succeeded
+2016-07-04T19:49:56      rebuild-image-catalogs   pkg                Succeeded
+2016-07-09T01:16:43      install                  pkg                Succeeded
+2016-07-09T01:16:45      refresh-publishers       pkg                Succeeded
+2016-07-09T01:17:20      rebuild-image-catalogs   pkg                Succeeded
+2016-07-09T11:33:05      install                  pkg                Succeeded
+2016-07-09T11:33:07      refresh-publishers       pkg                Succeeded
+2016-07-09T11:33:37      rebuild-image-catalogs   pkg                Succeeded
+2016-07-09T12:27:23      update                   pkg                Succeeded
+```
+
+If you want to see more details of a particular IPS transaction, you can use the command:
+
+`pkg history -t 2016-07-09T11:33:05 -l`
+
+The `-t` switch allows you to specify a particular transaction and the `-l` switch provides extended details of that transaction.
 
 
 ### Finding help with pkg
