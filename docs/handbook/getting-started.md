@@ -685,20 +685,26 @@ Have a look at: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet
 <!--The majority of the text below was taken from the PDL licensed document titled 'Getting Started with OpenSolaris 2008.11' -->
 
 After an initial installation of the OpenIndiana Hipster operating system, you will find that many of the software applications that you use on a regular basis are not immediately available to you.
-These software applications are available as packages in an IPS repository for downloading and installing over the Internet.
+These software applications are available as packages in an Image Packaging System (IPS) repository for downloading and installing over the Internet.
 A repository is a source for packages.
 
-The Image Packaging System software is a network-centric packaging system written in Python.
-The Image Packaging System (IPS) enables users to connect to the repository and download and install packages.
+IPS is a network-centric packaging system written in Python.
+IPS enables users to connect to the repository for the purpose of downloading and installing packages.
 OpenIndiana Hipster uses IPS for its packaging system.
-Besides installing packages from a repository, users can create and publish their own IPS packages, set up an OpenSolaris repository, mirror an existing repository, and publish existing packages to a repository.
 
-Once you have installed packages, IPS enables you to search, update, and manage packages on your system.
+Besides installing packages from a repository, users can also perform the following tasks:
 
-With IPS , you can upgrade your system to a newer build of OpenSolaris, install and update your software to the latest available versions in a repository, and retrieve packages from mirror repositories.
+* Create and publish their own IPS packages
+* Set up an OpenIndiana Hipster repository
+* Mirror an existing repository
+* Publish existing packages to a repository
 
-If the system on which IPS is installed is on the network, IPS can automatically access the OpenIndiana repository.
-For the OpenIndiana Hipster, your IPS client can access the packages from <http://pkg.openindiana.org/hipster>.
+Once you have installed packages, IPS enables you to search, update, and manage those packages on your system.
+
+With IPS , you can upgrade your system to a newer build of OpenIndiana Hipster, install and update your software to the latest available versions in a repository, and retrieve packages from mirror repositories.
+
+If the system on which IPS is installed is on the network, IPS can automatically access the OpenIndiana Hipster package repository.
+For OpenIndiana Hipster, your IPS client can access the packages from <http://pkg.openindiana.org/hipster>.
 
 
 ### IPS packages
@@ -721,10 +727,10 @@ The repository where the IPS package resided was the only source for the package
 This is because in its native state, the IPS package is not something you can download from the IPS repository as a single archive file.
 
 Recognizing this limitation of IPS, the `.p5p` IPS archive format was developed.
-For IPS `.p5p` archives, files are stored in the pax archive format, with additional metadata, such as IPS manifest files, and a specific layout of the contents.
-To create an `.p5p` archive the `pkgrecv` command is used.
+For `.p5p` IPS archives, files are stored in the pax archive format, along with additional metadata, such as IPS manifest files, and a specific layout of the contents.
+The `pkgrecv` command is used to create `.p5p` IPS archives.
 
-For example, to create a package archive containing the package `editor/gnu-emacs` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
+For example, to create a `.p5p` IPS package archive containing the package `editor/gnu-emacs` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
 
 ```bash
 pkgrecv -s http://example.com:10000 -d /my/emacs.p5p -a -r editor/gnu-emacs
@@ -775,13 +781,10 @@ FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
 The search command searches in the installed image if no options are specified.
 With the `-r` option, the command searches for the package in the repository or repositories associated with the current image.
 
-For example: `pkg search -r bash`
+For example: `pkg search -r xchat`
 
 
 ### Listing information about packages
-
-To list the entire contents of a package, use the command: `pkg contents <package-name>`.
-If the package is not installed on the local system, use the `-r` option.
 
 To list information about packages installed on the local system use the command `pkg list <package-name>`.
 
@@ -793,12 +796,15 @@ NAME (PUBLISHER)                                  VERSION                    IFO
 image/editor/gimp                                 2.8.16-2016.0.0.2          i--
 ```
 
+To list the entire contents of a package, use the command: `pkg contents <package-name>`.
+If the package is not installed on the local system, use the `-r` option.
+
 
 ### Installing packages
 
 Use the following command to install a package.
 
-`pkg install [-v] pkg_fmri`
+`pkg install [-v] pkg_fmri | <package-name>`
 
 While packages can be installed by specifying their FMRI, it is often easier to substitute the FMRI for the common name of the package.
 Also, use of the `-v` (verbose) switch is entirely optional.
@@ -885,13 +891,13 @@ To remove a package from the system, use the command: `pkg uninstall <package-na
 
 ### IPS package repositories
 
-As previously mentioned, the IPS repository is the remote location where IPS packages reside.
+As previously mentioned, the IPS repository is the remote network location where IPS packages reside.
 
 To list the IPS repositories configured on your system, use the command `pkg publisher`.
 
 To add a new publisher, use the command: `pkg set-publisher -g repository_url repository_name`
 
-To change an existing publisher, use the command:
+To change an existing publisher, use the following command syntax (substituting appropriate values):
 
 ```bash
 pkg set-publisher \
@@ -906,8 +912,8 @@ These rules can be overridden in the CLI by using explicit publishers and packag
 
 | Package Installation Type | Rules When Only Package Names Are Provided
 | --- | ---
-| New package installations | The latest available version of new packages are always installed from the preferred authority unless the authority is provided in the FMRI during installation. Even if later versions of the package are available in other authorities, those later versions are not installed by default.
-| Package updates: package originally installed from preferred publisher | If the package was originally installed from the preferred publisher, then the latest available update of the package can be installed from the _current_ preferred publisher. The package can be install from the _current_ preferred even if the preferred publisher designation had been moved to another publisher after the package had been originally installed. Even if later versions of the package are available in other authorities, those later versions are not installed by default.
+| New package installations | The latest available version of new packages are always installed from the preferred publisher unless the publisher is provided in the FMRI during installation. Even if later versions of the package are available in other publishers, those later versions are not installed by default.
+| Package updates: package originally installed from preferred publisher | If the package was originally installed from the preferred publisher, then the latest available update of the package can be installed from the _current_ preferred publisher. The package can be install from the _current_ preferred even if the preferred publisher designation had been moved to another publisher after the package had been originally installed. Even if later versions of the package are available in other publishers, those later versions are not installed by default.
 | Package updates: package originally installed from non-preferred publisher | If the package was originally installed from a non-preferred publisher, then the latest available update of the package is installed from the publisher from which the package was originally installed. Even if later versions of the package are available in other publishers, those later versions are not installed by default.
 
 
@@ -945,7 +951,7 @@ START                    OPERATION                CLIENT             OUTCOME
 2016-07-09T12:27:23      update                   pkg                Succeeded
 ```
 
-If you want to see more details of a particular IPS transaction, you can use the command:
+To view more details of a particular IPS transaction, use the command:
 
 `pkg history -t 2016-07-09T11:33:05 -l`
 
@@ -954,7 +960,10 @@ The `-t` switch allows you to specify a particular transaction and the `-l` swit
 
 ### Finding help with pkg
 
-Use the command `pkg help` to list all of the available commands.
+The primary source of help for any OpenIndiana command is to review the man page for the command.
+Therefore, be sure to consult the `pkg`<sup>1</sup> man page for full information and usage examples.
+
+To quickly reference command usage directly from the command line, use `pkg help`.
 
 To retrieve additional information about a specific command use: `pkg help <command name>`
 
@@ -972,13 +981,11 @@ Usage:
             [--reject pkg_fmri_pattern ...] [pkg_fmri_pattern ...]
 ```
 
-Also be sure to consult the `pkg`<sup>1</sup> man page for additional information and usage examples.
-
 
 ### Legacy package management tools
 
 OpenIndiana continues to support the use of legacy package tools for managing SVR4 packages.
-Here are a few of the available tools:
+Here are some of the available tools:
 
 * pkginfo
 * pkgadd
@@ -989,14 +996,14 @@ Here are a few of the available tools:
 
 In addition to IPS and SVR4 package management tools, it is also possible to use `pkgsrc`.
 
-For more information about pkgsrc, see the [Joyent package source website](https://pkgsrc.joyent.com/)
+For more information about pkgsrc, see the [Joyent package source website](https://pkgsrc.joyent.com/).
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
 
-The use of 3rd party repositories and package managers increases the likelyhood of conflicts between package versions.
-Furthermore, the OpenIndiana project cannot guarantee the qualify of 3rd party packages.
-Therefore, use 3rd party repositories and package tools at your own risk.
+The use of 3rd party repositories and package managers increases the likelihood of conflicts between package versions and their dependencies.
+Furthermore, the OpenIndiana project cannot guarantee the qualify of packages obtained from 3rd party repositories.
+Therefore, use 3rd party repositories and 3rd party package tools at your own risk.
 
 </div>
 
