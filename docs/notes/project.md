@@ -40,15 +40,18 @@ Creating a formal code of conduct would be a healthy step towards ensuring harmo
 
 Public relations is an important aspect of project management, even if it's limited to updating 3rd party websites as to the current status of the project.
 
-### 3rd party websites to keep updated
+
+### 3rd party websites 
 
 * Distrowatch
     * For the next Distrowatch update, there is a mapping from DistroWatch to Hipster names:
     * <http://hub.openindiana.ninja/?q#content/distrowatch-openindiana-hipster-packages>
 * <http://opensolaris.linuxfreedom.com/> - didn't see OpenIndiana here anywhere (still showing OpenSolaris)
-* Unixmen
 * Slashdot
 * Phoronix
+* [nixcraft](http://www.cyberciti.biz/)
+* [Unixmen](https://www.unixmen.com/)
+
 
 ### Hipster News
 
@@ -56,6 +59,7 @@ Public relations is an important aspect of project management, even if it's limi
 * OI/illumos news stories
 * Featured new packages
 * Tips and Tricks
+
 
 ### Download mirrors
 
@@ -65,6 +69,7 @@ Public relations is an important aspect of project management, even if it's limi
 * Provide more ways of trying out oi
     * Vagrant box for virtualbox is done
     * KVM and VMware are still needed
+
 
 ### Package submission and maintenance
 
