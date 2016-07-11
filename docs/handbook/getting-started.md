@@ -933,9 +933,14 @@ To remove a package from the system, use the command: `pkg uninstall <package-na
 
 As previously mentioned, the IPS repository is the remote network location where IPS packages reside.
 
-To list the remote IPS repositories configured on your system, use the command `pkg publisher`.
+| Task | Command
+| --- | ---
+| List configured repositories | `pkg publisher`
+| Add a repository | `pkg set-publisher -g repository_url repository_name`
+| Remove a repository | `pkg set-publisher -G repository_url repository_name`
+| Replace a repository | `pkg set-publisher -G <old-repository> -g <new-repository>`
 
-For example:
+Example (Listing the repositories configured on the system):
 
 ```bash
 pkg publisher
@@ -943,14 +948,7 @@ PUBLISHER                   TYPE     STATUS P LOCATION
 openindiana.org              origin   online F http://pkg.openindiana.org/hipster/
 ```
 
-To add a new publisher, use the command: `pkg set-publisher -g repository_url repository_name`
-To remove a publisher, use the command: `pkg set-publisher -G repository_url repository_name`
-
-To change an existing publisher, use the following command syntax:
-
-`pkg set-publisher -G <old-repository> -g <new-repository>`
-
-For example:
+Example (Replacing a repository)
 
 ```bash
 pkg set-publisher \
