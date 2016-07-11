@@ -41,7 +41,7 @@ Creating a formal code of conduct would be a healthy step towards ensuring harmo
 Public relations is an important aspect of project management, even if it's limited to updating 3rd party websites as to the current status of the project.
 
 
-### 3rd party websites 
+### 3rd party websites
 
 * Distrowatch
     * For the next Distrowatch update, there is a mapping from DistroWatch to Hipster names:
