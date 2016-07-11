@@ -684,12 +684,10 @@ Have a look at: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet
 
 <!--The majority of the text below was taken from the PDL licensed document titled 'Getting Started with OpenSolaris 2008.11' -->
 
-After an initial installation of the OpenIndiana Hipster operating system, you will find that many of the software applications that you use on a regular basis are not immediately available to you.
-These software applications are available as packages in an Image Packaging System (IPS) repository for downloading and installing over the Internet.
-A repository is a source for packages.
+After an initial installation of the OpenIndiana Hipster operating system, you will find many of the software applications you use on a regular basis are not immediately available to you.
+These software applications are available as packages in a remote Image Packaging System (IPS) repository for downloading and installing over the Internet.
 
-IPS is a network-centric packaging system written in Python.
-IPS enables users to connect to the repository for the purpose of downloading and installing packages.
+Written in Python, IPS is a network-centric packaging system which enables users to connect to a remote repository for the purpose of downloading and installing packages.
 OpenIndiana Hipster uses IPS for its packaging system.
 
 Besides installing packages from a repository, users can also perform the following tasks:
@@ -701,9 +699,9 @@ Besides installing packages from a repository, users can also perform the follow
 
 Once you have installed packages, IPS enables you to search, update, and manage those packages on your system.
 
-With IPS , you can upgrade your system to a newer build of OpenIndiana Hipster, install and update your software to the latest available versions in a repository, and retrieve packages from mirror repositories.
+With IPS , you can upgrade your system to a newer build of OpenIndiana Hipster, install and update your software to the latest available versions, and retrieve packages from mirror repositories.
 
-If the system on which IPS is installed is on the network, IPS can automatically access the OpenIndiana Hipster package repository.
+If the system on which IPS is installed is located on a network, IPS can automatically access the OpenIndiana Hipster package repository.
 For OpenIndiana Hipster, your IPS client can access the packages from <http://pkg.openindiana.org/hipster>.
 
 
@@ -711,10 +709,10 @@ For OpenIndiana Hipster, your IPS client can access the packages from <http://pk
 
 An IPS package is defined as a collection of files, directories, links, drivers and dependencies in a defined format.
 
-Note the following points about IPS packages :
+Note the following points about IPS packages:
 
 * An IPS package consists of a set of actions.
-Actions are defined when an IPS package is being created.
+Actions are defined when an IPS package is created.
 Actions are used for defining the files and directories of the package, setting package attributes, declaring dependencies on other packages, creating users and groups, and installing device drivers.
 Some actions may optionally have tags that provide meta information about the action such as locale information and debug configuration.
 
@@ -723,12 +721,12 @@ Some actions may optionally have tags that provide meta information about the ac
 
 When the IPS system was originally conceived there was no standard on-disk format for an IPS package.
 Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, it was not possible to transfer an IPS package from system to system.
-The repository where the IPS package resided was the only source for the package.
-This is because in its native state, the IPS package is not something you can download from the IPS repository as a single archive file.
+The remote IPS repository where the IPS package resided was the only source for the package.
+This is because in its native state, the IPS package is not something you can normally download as a single archive file.
 
 Recognizing this limitation of IPS, the `.p5p` IPS archive format was developed.
-For `.p5p` IPS archives, files are stored in the pax archive format, along with additional metadata, such as IPS manifest files, and a specific layout of the contents.
-The `pkgrecv` command is used to create `.p5p` IPS archives.
+For IPS archives, files are stored in the pax archive format, along with additional metadata, such as IPS manifest files, and a specific layout of the contents.
+The `pkgrecv` command is used to create IPS archives.
 
 For example, to create a `.p5p` IPS package archive containing the package `editor/gnu-emacs` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
 
@@ -778,10 +776,32 @@ FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
 
 ### Searching for packages
 
-The search command searches in the installed image if no options are specified.
-With the `-r` option, the command searches for the package in the repository or repositories associated with the current image.
+The `pkg search` command is used to search locally or remotely for information about packages.
+If no search options are specified, the search is restricted to the local system.
+Using the `-r` option, the command searches the remote repository (or repositories) associated with the system.
 
-For example: `pkg search -r xchat`
+For example:
+
+```bash
+pkg search -r xchat
+INDEX                ACTION VALUE                                   PACKAGE
+pkg.summary          set    HexChat is an IRC client based on XChat pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1
+pkg.summary          set    XChat IRC Client                        pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+basename             file   usr/bin/xchat                           pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+com.oracle.info.name set    xchat                                   pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+pkg.fmri             set    openindiana.org/desktop/irc/xchat       pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+```
+
+
+The `pkg search` command may also be used to find the package containing a particular file.
+
+For example:
+
+```bash
+pkg search -l /usr/bin/gpg2
+INDEX      ACTION VALUE        PACKAGE
+path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
+```
 
 
 ### Listing information about packages
@@ -799,15 +819,34 @@ image/editor/gimp                                 2.8.16-2016.0.0.2          i--
 To list the entire contents of a package, use the command: `pkg contents <package-name>`.
 If the package is not installed on the local system, use the `-r` option.
 
+The `pkg contents` command can also be used to list the dependencies found in a package.
+
+For example:
+
+```bash
+pkg contents -H -t depend -o fmri xchat
+pkg:/library/desktop/gdk-pixbuf@2.31.6-2016.0.0.0
+pkg:/library/desktop/gtk2@2.24.30-2016.0.0.0
+pkg:/library/desktop/libsexy@0.1.11-2016.0.0.0
+pkg:/library/desktop/pango@1.36.8-2016.0.0.2
+pkg:/library/glib2@2.43.4-2016.0.0.3
+pkg:/library/security/openssl@1.0.2.8-2016.0.0.3
+pkg:/runtime/perl-522@5.22.1-2016.0.0.1
+pkg:/runtime/python-27@2.7.12-2016.0.0.0
+pkg:/runtime/tcl-8@8.5.19-2016.0.0.1
+pkg:/system/library/libdbus-glib@0.100.2-2016.0.0.0
+pkg:/system/library@0.5.11-2016.0.0.15685
+pkg:/x11/library/libx11@1.6.3-2016.0.0.0
+```
+
 
 ### Installing packages
 
 Use the following command to install a package.
 
-`pkg install [-v] pkg_fmri | <package-name>`
+`pkg install [-v] <package-name>`
 
-While packages can be installed by specifying their FMRI, it is often easier to substitute the FMRI for the common name of the package.
-Also, use of the `-v` (verbose) switch is entirely optional.
+When installing packages, use of the `-v` (verbose) switch is entirely optional.
 
 For example:
 
@@ -836,9 +875,10 @@ Creating fast lookup database                   Done
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-The `pkg install` command is also used to update specific packages on the system.
-The `pkg install` command automatically checks for newer versions of specific packages or package groups and installs them if they are available.
+* The `pkg install` command is also used to update specific packages on the system.
+* The `pkg install` command automatically checks for newer versions of specific packages or package groups and installs them if they are available.
 Any dependent packages are also automatically updated.
+* To install a specific version of a package you may substitute the common name for the FMRI.
 
 </div>
 
@@ -893,11 +933,24 @@ To remove a package from the system, use the command: `pkg uninstall <package-na
 
 As previously mentioned, the IPS repository is the remote network location where IPS packages reside.
 
-To list the IPS repositories configured on your system, use the command `pkg publisher`.
+To list the remote IPS repositories configured on your system, use the command `pkg publisher`.
+
+For example:
+
+```bash
+pkg publisher
+PUBLISHER                   TYPE     STATUS P LOCATION
+openindiana.org              origin   online F http://pkg.openindiana.org/hipster/
+```
 
 To add a new publisher, use the command: `pkg set-publisher -g repository_url repository_name`
+To remove a publisher, use the command: `pkg set-publisher -G repository_url repository_name`
 
-To change an existing publisher, use the following command syntax (substituting appropriate values):
+To change an existing publisher, use the following command syntax:
+
+`pkg set-publisher -G <old-repository> -g <new-repository>`
+
+For example:
 
 ```bash
 pkg set-publisher \
@@ -905,10 +958,11 @@ pkg set-publisher \
 -g http://pkg.openindiana.org/hipster openindiana.org
 ```
 
+
 ### IPS package repository precedence
 
-When multiple repositories are associated with an installation image and when using the `pkg` command-line interface (CLI) with only package names, the following rules apply.
-These rules can be overridden in the CLI by using explicit publishers and package version numbers.
+When multiple remote IPS repositories are associated with a system and when using the `pkg` command-line interface with only package names, the following rules apply.
+These rules can be overridden by using explicit publishers and package version numbers.
 
 | Package Installation Type | Rules When Only Package Names Are Provided
 | --- | ---
@@ -919,7 +973,7 @@ These rules can be overridden in the CLI by using explicit publishers and packag
 
 ### Listing package history
 
-To list the IPS history, use the `pkg history` command.
+To list the IPS transactional history, use the `pkg history` command.
 
 For example:
 
@@ -961,9 +1015,11 @@ The `-t` switch allows you to specify a particular transaction and the `-l` swit
 ### Finding help with pkg
 
 The primary source of help for any OpenIndiana command is to review the man page for the command.
-Therefore, be sure to consult the `pkg`<sup>1</sup> man page for full information and usage examples.
+Therefore, be sure to consult the `pkg`<sup>1</sup> man page for full command information and usage examples.
 
-To quickly reference command usage directly from the command line, use `pkg help`.
+For example: `man pkg`
+
+To reference command usage directly from the command line, use `pkg help`.
 
 To retrieve additional information about a specific command use: `pkg help <command name>`
 
