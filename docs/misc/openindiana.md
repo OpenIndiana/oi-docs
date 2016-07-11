@@ -208,7 +208,7 @@ pkg set-publisher \
 -g http://pkg.openindiana.org/hipster openindiana.org
 ```
 
-For further information consult the [OpenSolaris Image Packaging System Guide](http://www.linuxtopia.org/online_books/opensolaris_2008/IMGPACKAGESYS/html/docinfo.html) as well as the pkg(1) man page included with OpenIndiana Hipster.
+For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started/#the-image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.
 
 
 ## What books are available to help with learning OpenIndiana?
@@ -225,18 +225,19 @@ While somewhat dated now, these resources are largely still relevant.
 * [The illumos bookshelf](https://illumos.org/books/)
     * Updated for illumos, the illumos bookshelf consists of several original OpenSolaris advanced administration and development titles.
 
-* [OpenSolaris 2008 Docs](http://www.linuxtopia.org/online_books/opensolaris_2008/index.html)
+* [OpenSolaris 2009.06 Docs](../books/about.md)
     * Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.
 
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-In late 2009, the OpenSolaris project released a newer version of the OpenSolaris book collection.
 
-An effort currently exists within the OpenIndiana community to revise and condense these titles into a more streamlined collection which more closely follows the development state of OpenIndiana Hipster.
+An effort currently exists within the OpenIndiana community to review these books and provide errata.
+A longer term goal is to use the errata to revise and condense these titles into a significantly smaller collection which more closely follows the current development state of OpenIndiana Hipster.
 
 The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
 If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.
+
 </div>
 
 
