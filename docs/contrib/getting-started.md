@@ -159,7 +159,7 @@ oi-docs/
 * Please do **NOT** perform any work within the `site/` folder.
     * This is a temporary folder created by MkDocs when the site is run locally in preview mode.
 * Also, please do **NOT** perform any work within the gh-pages branch.
-    * The gh-branch is destroyed and rebuild each time the site is deployed to GitHub pages.
+    * The gh-branch is destroyed and rebuilt each time the site is deployed to GitHub pages.
 </div>
 
 ```markdown
