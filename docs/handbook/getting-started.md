@@ -936,9 +936,9 @@ As previously mentioned, the IPS repository is the remote network location where
 | Task | Command
 | --- | ---
 | List configured repositories | `pkg publisher`
-| Add a repository | `pkg set-publisher -g repository_url repository_name`
-| Remove a repository | `pkg set-publisher -G repository_url repository_name`
-| Replace a repository | `pkg set-publisher -G <old-repository> -g <new-repository>`
+| Add a repository | `pkg set-publisher -g <repository_URL> <repository_name>`
+| Remove a repository | `pkg set-publisher -G <repository_URL> <repository_name>`
+| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> <repository_name>`
 
 Example (Listing the repositories configured on the system):
 
@@ -948,7 +948,7 @@ PUBLISHER                   TYPE     STATUS P LOCATION
 openindiana.org              origin   online F http://pkg.openindiana.org/hipster/
 ```
 
-Example (Replacing a repository)
+Example (Replacing a repository):
 
 ```bash
 pkg set-publisher \

@@ -20,9 +20,23 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 The process for contributing to OpenIndiana Docs is simple and follows the same best practices used in the development of the OpenIndiana distribution.
 
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
+For this reason, we're happy to accept your contribution in any format you wish to provide.
+
+We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, etc.
+
+If you think it can be helpful to the greater OpenIndiana community, we'll be happy to review it for incorporation into the docs collection.
+
+</div>
+
+
 ## Prerequisites
 
-#### Sign up for a [Github](https://github.com) account.
+#### Sign up for a [Github](https://github.com) account
 
 #### Install and configure Git
 
@@ -139,7 +153,7 @@ oi-docs/
 | README.md | Git readme
 | site/ | Live preview folder (no edits)
 
-<!-- NOTE: --> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING:**
+<!-- WARNING: --> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING:**
 <div class="well">
 
 * Please do **NOT** perform any work within the `site/` folder.

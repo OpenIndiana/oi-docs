@@ -57,3 +57,13 @@ To this end, the team looked at several documentation oriented static site gener
 
 To make a suggestion or report a bug, please make your request on the #openindiana or #oi-dev IRC channels, or alternately via the OpenIndiana mailing lists.
 
+
+## Contributing to OI-DOCS
+
+First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
+For this reason, we're happy to accept your contribution in any format you wish to provide.
+
+We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, etc.
+
+If you think it can be helpful to the greater OpenIndiana community, we'll be happy to review it for incorporation into the docs collection.
+For further information, please see the contribution pages.
