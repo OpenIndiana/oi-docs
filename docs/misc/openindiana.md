@@ -105,9 +105,12 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
+
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
+
 </div>
+
 
 ## What are the recommended hardware specifications?
 
