@@ -466,7 +466,8 @@ The following options are available to you from the Live Media Desktop:
 
 ### Using the device driver utility
 
-Available from the LiveDVD, the _Device Driver Utility_ scans your hardware and produces a list of hardware and the cooresponding driver being used for each device.
+Available from the LiveDVD, the _Device Driver Utility_ may be used to scan your hardware for compatability.
+The utility generates a list of hardware devices along with the cooresponding driver in use for each device.
 The utility will also show you devices for which there is no driver loaded.
 The device driver utility allows you to check whether your hardware requires additional drivers.
 
@@ -489,7 +490,6 @@ Before using the partition editor, please be sure to back up your data to a remo
 
 The user login for the live media session is `jack` along with the password `jack`.
 For administrative or elevated access, prepend your commands with `sudo`.
-You may also use the `pfexec` command.
 
 You may obtain root using the `su` command along with the password `openindiana`.
 
