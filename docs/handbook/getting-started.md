@@ -1052,9 +1052,9 @@ As previously mentioned, the IPS repository is the remote network location where
 | Task | Command
 | --- | ---
 | List configured repositories | `pkg publisher`
-| Add a repository | `pkg set-publisher -g <repository_URL> <repository_name>`
-| Remove a repository | `pkg set-publisher -G <repository_URL> <repository_name>`
-| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> <repository_name>`
+| Add a repository | `pkg set-publisher \ ` <br> `-g <repository_URL> \` <br> `<repository_name>`
+| Remove a repository | `pkg set-publisher \ ` <br> `-G <repository_URL> \` <br> `<repository_name>`
+| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> \` <br> `<repository_name>`
 
 Example (Listing the repositories configured on the system):
 
