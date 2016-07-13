@@ -110,14 +110,39 @@ In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
 
 Have a look at the following resources for ideas and inspiration for writing new content:
 
-* [OpenSolaris CIFS guide](https://web.archive.org/web/20100215043517/http://www.opensolaris.com/use/CIFS.pdf)
-* [Linux to Solaris Administrators Guide](https://web.archive.org/web/20100401023944/http://www.sun.com/software/solaris/sysadmin_guide.pdf)
-* [Linux to Solaris Network Administrators Guide](https://web.archive.org/web/20090806172933/http://www.opensolaris.com/use/network_administration.pdf)
-* [OpenSolaris Zones Community](https://web.archive.org/web/20090929063222/http://opensolaris.org/os/community/zones/)
-* [OpenSolaris Zones FAQ](https://web.archive.org/web/20090922001159/http://opensolaris.org/os/community/zones/faq/)
-* [OpenSolaris ZFS Community](https://web.archive.org/web/20091023025359/http://opensolaris.org/os/community/zfs/)
+
+Systems Admin Guides
+
+* [Linux to Solaris Administrators Guide - PDF](https://web.archive.org/web/20100401023944/http://www.sun.com/software/solaris/sysadmin_guide.pdf)
+* [OPENSOLARIS NETWORK ADMINISTRATION For Administrators Familiar with Linux - PDF](https://web.archive.org/web/20090806172933/http://www.opensolaris.com/use/network_administration.pdf)
+
+
+SMF
+
+* [smf(5) Frequently Asked Questions](https://web.archive.org/web/20090603223153/http://opensolaris.org/os/community/smf/faq)
+* [another SMF FAQ](https://web.archive.org/web/20100826090402/http://home.arcor.de/bnsmb/public/htdocs/My_Little_SMF_FAQ.html)
 * [OpenSolaris SMF Community](https://web.archive.org/web/20090602164813/http://opensolaris.org/os/community/smf/)
-* [OpenSolaris SMF FAQ](https://web.archive.org/web/20090603223153/http://opensolaris.org/os/community/smf/faq)
+
+
+WIFI/NDIS
+
+* [Solaris NDIS Wrapper Toolkit](https://web.archive.org/web/20100818053307/http://hub.opensolaris.org/bin/view/Community+Group+laptop/ndis)
+* [Solaris Wireless FAQ](https://web.archive.org/web/20100915214450/http://hub.opensolaris.org/bin/view/Community+Group+laptop/Solaris-wireless-faq)
+
+
+Zones
+
+* [OpenSolaris Zones Community](https://web.archive.org/web/20090929063222/http://opensolaris.org/os/community/zones/)
+* [Zones and Containers FAQ](https://web.archive.org/web/20100818014404/http://hub.opensolaris.org/bin/view/Community+Group+zones/faq)
+* [Solaris Containers How To Guide](https://web.archive.org/web/20090228064414/http://www.sun.com/software/solaris/howtoguides/containersLowRes.jsp)
+
+
+ZFS
+
+* [OpenSolaris ZFS Community](https://web.archive.org/web/20091023025359/http://opensolaris.org/os/community/zfs/)
+* [ZFS Frequently Asked Questions (FAQ)](https://web.archive.org/web/20100904084608/http://hub.opensolaris.org/bin/view/Community+Group+zfs/faq)
+* [ZFS Resources](https://web.archive.org/web/20100830060952/http://hub.opensolaris.org/bin/view/Community+Group+zfs/links)
+
 
 
 ### ABI support
@@ -136,8 +161,38 @@ Have a look at the following resources for ideas and inspiration for writing new
 
 Have a look at the following resources for ideas and inspiration for writing new content:
 
+
+Comstar
+
 * [COMSTAR info](http://web.archive.org/web/20090514083449/http://wikis.sun.com/display/OpenSolarisInfo/COMSTAR+Administration)
+
+
+Crossbow
+
 * [Crossbow info](https://web.archive.org/web/20090719072357/http://www.opensolaris.org/os/project/crossbow)
+
+
+CIFS
+
+* [HOW to INSTALL and SHARE a File System to CIFS Clients](https://web.archive.org/web/20100215043517/http://www.opensolaris.com/use/CIFS.pdf)
+* [OpenSolaris CIFS Service](https://web.archive.org/web/20100818225731/http://wiki.genunix.org/wiki/index.php/OpenSolaris_CIFS_Service)
+
+
+NFS
+
+* [Basic NFS Configuration](https://web.archive.org/web/20100830065208/http://wiki.genunix.org/wiki/index.php/Basic_NFS_Configuration)
+* [The Management of NFS Performance With Solaris ZFS](https://web.archive.org/web/20090803174610/http://developers.sun.com/solaris/articles/nfs_zfs.html)
+
+
+IPFilter
+
+* [ipfilter info](https://web.archive.org/web/20100620074943/http://coombs.anu.edu.au/~avalon/)
+* [IP Filter FAQ](https://www.phildev.net/ipf/)
+
+
+Rsync
+
+* [Rsync on solaris Howto](https://web.archive.org/web/20100809145914/http://wiki.genunix.org/wiki/index.php/Rsync_on_Solaris_HOWTO)
 
 
 ### Installing OI onto an ISCSI exposed SCSI target

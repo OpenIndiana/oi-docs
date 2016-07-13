@@ -53,6 +53,9 @@ Public relations is an important aspect of project management, even if it's limi
 * [Unixmen](https://www.unixmen.com/)
 * [Reddit r/unix](https://www.reddit.com/r/unix)
 * [Reddit r/illumos](https://www.reddit.com/r/illumos)
+* [Reddit r/homeserver](https://www.reddit.com/r/HomeServer/)
+* [Reddit r/homelab](https://www.reddit.com/r/homelab/)
+* [servethehome](http://www.servethehome.com/)
 
 
 ### Hipster News

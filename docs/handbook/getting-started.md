@@ -422,6 +422,7 @@ For a command line press the [c]ommand key.
 
 The OpenIndiana boot menu offers multiple choices.
 Use the arrow keys to select a boot entry.
+Once you have made a selection, press enter to initialize the boot process.
 
 * OI Hipster (normal boot)
 * OI Hipster VESA driver
@@ -436,14 +437,16 @@ Use the arrow keys to select a boot entry.
 
 ![Select keyboard layout](./images/gui_install/SKL.png)
 
+OpenIndiana offers 47 different keyboard layouts.
 Select your keyboard layout by entering the number corresponding to your desired keyboard layout.
 For example, select 47 for US-English, or 46 for UK-English, etc.
-The default is US-English.
+The default keyboard layout is US-English.
 
 ![Select display language](./images/gui_install/SDL.png)
 
+OpenIndiana offers 22 different language options.
 Select your language by entering the number corresponding to your desired language.
-The default is English.
+The default language is English.
 
 
 ### The live media desktop
@@ -451,7 +454,35 @@ The default is English.
 ![live desktop](./images/live_desktop/live_desktop.png)
 
 The Live Media DVD and USB installers provide a graphical live environment where you can explore OpenIndiana and test the compatibility of your hardware.
-When using Live Media, no changes are made to your system unless you explicitly choose to install OpenIndiana.
+When using Live Media, no changes are made to your system unless you explicitly choose to install OpenIndiana or alter the configuration of your disk using the Gparted Partition Editor.
+
+The following options are available to you from the Live Media Desktop:
+
+* Install OpenIndiana using the Text Installer
+* Install OpenIndiana (graphical installer)
+* Device Driver Utility
+* Gparted Partition Editor
+
+
+### Using the device driver utility
+
+Available from the LiveDVD, the _Device Driver Utility_ scans your hardware and produces a list of hardware and the cooresponding driver being used for each device.
+The utility will also show you devices for which there is no driver loaded.
+The device driver utility allows you to check whether your hardware requires additional drivers.
+
+
+### Using the Gparted Partition Editor
+
+The Gparted partition editor allows you to add, remove, or resize partitions in preparation for installing OpenIndiana.
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+
+Editing partition tables is a potentially destructive process.
+While you are unlikely to physically damage the disk, there is a risk of losing data.
+Before using the partition editor, please be sure to back up your data to a remote system or device.
+
+</div>
 
 
 ### Live media authentication
@@ -463,35 +494,31 @@ You may also use the `pfexec` command.
 You may obtain root using the `su` command along with the password `openindiana`.
 
 
-### Using the device driver utility
-
-Available from the LiveDVD, the _Device Driver Utility_ allows you to check whether your hardware requires additional drivers.
-
-
 ## Installing OpenIndiana
 
-
-**DOC TEAM NOTE:**
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
 
 For some guidance writing this section:
 
-Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
+* Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
+* Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
 
-Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
+</div>
 
 
 ### Installing OpenIndiana from live media
 
 To install OpenIndiana from Live Media, you have two options.
 
-* GUI based guided install.
-* Text based guided install.
+* Install OpenIndiana using the Text Installer
+* Install OpenIndiana (graphical installer)
 
 Each of these options is represented by a desktop icon.
 Select the appropriate installer option by clicking the corresponding desktop installer icon.
 
 
-#### GUI based guided install
+### Install OpenIndiana (graphical Installation)
 
 ![First Install Screen](./images/gui_install/OGI.png)
 
@@ -531,97 +558,168 @@ Your installation of OpenIndiana installed correctly,
 You can now reboot into your new shiny system!
 
 
-#### Text based guided install
+### Install OpenIndiana using the Text Installer
 
-The text based guided install start and runs within a command line console.
+The text based guided install starts and runs within a command line console.
 Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
+
 The non-graphical text based bootable media installer also uses this very same _Text based Guided Install_.
+
 </div>
 
-Start the Text based Guided Install by double clicking the Text based Guided Install icon.
+Begin installing OpenIndiana using the text based installer by double clicking the desktop icon labeled:
+
+_Install OpenIndiana using the Text Installer_.
+
 
 ![Welcome Screen](images/text_install/text_install1.png)
 
-When you begin the Text based Guided Install, you are presented with the welcome screen.
-Press F2 to continue.
+The _Install OpenIndiana using the Text Installer_ process begins with a welcome screen.
+
+The welcome screen also provides:
+
+* Location of the installation log file
+* Navigational guidance
+
+When ready to begin, press the F2 key to continue.
 
 ![Disks](images/text_install/text_install2.png)
 
 The installer identifies the disks which are available for installation.
-If you have only a single disk, it is already selected.
-If you have multiple disks, use the arrow keys to select the appropriate disk.
-When finished, press F2 to continue.
+
+* If you have only a single disk, it is already selected.
+* If you have multiple disks, use the arrow keys to select the appropriate disk.
+
+When ready, press the F2 key to continue.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Disregard the minimum and recommended sizes as they do not take into account periodic disk usage growth as the result of ZFS snapshots.
-To account for this, your disk should be at least 25GB or more.
+
+While the minimum and recommended disk sizes are technically accurate, they do not take into account periodic disk usage growth resulting from:
+
+* ZFS snapshots
+* Backup boot environments created by `pkg install`
+* Boot environments created by `pkg update`
+
+To account for this, your disk should be at least 20GB or more.
+
 </div>
 
 ![GPT Warning](images/text_install/text_install3.png)
 
-If your disk contains a GPT disk label, the entire disk will be reformatted.
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+
+If your disk contains a GPT disk label, the entire disk will be used.
+
+* Any existing GPT partitions will be destroyed
+* A new single GPT partition will be created.
+
 This warning serves as your advisory.
-If this is acceptable, press F2 to continue.
-Otherwise use the arrow keys to select cancel.
+
+</div>
+
+If reformatting the entire disk is acceptable with you, press the enter key to continue.
+Otherwise use the arrow keys to select cancel and press the enter key..
+
+If you select cancel, you will have the following options:
+
+* Select another disk
+* Abort the installation so you may provide remedial action such as:
+    * Modifying the partition table using Gparted
+    * Adding another disk to the system
+
 
 ![Fdisk Partitions](images/text_install/text_install4.png)
 
-In this screen you are presented with the choice of how to partition the disk.
-You may select to use an EFI partition (which uses the entire disk), or you may choose to create MBR partitions.
-Using the arrow keys select the appropriate choice and press F2 to continue.
+In this screen you are presented with the following choices for how to partition the disk:
+
+* Use the whole disk (EFI)
+* Use a partition of the disk (MBR)
+
+Using the arrow keys, select the appropriate choice.
+When ready, press the F2 key to continue.
 
 ![Network 1](images/text_install/text_install5.png)
 
-Specify the computer name you wish to use.
+Specify the computer name (system hostname) you wish to use.
 By default the computer name is _openindiana_.
+Using the backspace key, you may remove the default choice and provide another hostname.
+When ready, proceed to the next screen shot where you will be provided additional guidance for completing this screen.
 
 ![Network 2](images/text_install/text_install6.png)
 
-This screen is the same as as the previous.
-We have illustrated it twice to help clarify the 2 distinct configuration tasks which need to be completed on the screen.
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This screen is identical to the previous screen.
+We have illustrated it twice to help clarify the 2 distinct configuration tasks which need to be completed:
 
-After configuring the computer name, now you need to decide whether to automatically configure networking (DHCP), or leave network unconfigured.
+* Setting the system hostname
+* Selecting your network configuration
+
+</div>
+
+After configuring the system hostname, navigate to the lower portion of the screen to select your networking configuration.
+
+You have the following choices:
+
+* Automatically configure the (networking) connection (using DHCP)
+* Do not configure the network at this time.
+
 Use the arrow keys to select your choice.
-Press the F2 key to continue.
+When ready, press the F2 key to continue.
 
 ![Time Zone - Region](images/text_install/text_install7.png)
 
 In this screen (and the following 2 screens) you will configure your time zone.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
 If you select UTC/GMT, you will only be presented with this single screen.
-Using the arrow keys select the appropriate region.
-Press F2 to continue.
+
+</div>
+
+Using the arrow keys, select your time zone _region_.
+When ready, press the F2 key to continue.
 
 ![Time Zone - Location](images/text_install/text_install8.png)
 
-Using the arrow keys, select your time zone location.
-Press F2 to continue.
+Using the arrow keys, select your time zone _location_.
+When ready, press the F2 key to continue.
 
 ![Time Zone](images/text_install/text_install9.png)
 
-Using the arrow keys, select the appropriate time zone.
-Press F2 to continue.
+Using the arrow keys, select your _time zone_.
+When ready, press the F2 key to continue.
 
 ![Date and Time](images/text_install/text_install10.png)
 
-In this screen you may configure the date and time.
-Using the arrow keys navigate between the fields.
-Press F2 to continue.
+In this screen you may reconfigure the date and time as necessary.
+Using the arrow keys, navigate between the fields.
+When ready, press the F2 key to continue.
 
 ![Users](images/text_install/text_install11.png)
 
-In this screen you are presented with several different fields to configure.
-Using the arrow keys navigate between the fields.
-Press F2 to continue.
+In this screen you are presented with several different user name and password fields to configure.
+Using the arrow keys, navigate between the fields and enter the required information.
+When ready, press the F2 key to continue.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE**
 <div class="well">
-The regular user specified on this screen is granted the _root_ role.
-In effect this means by default (and without any further configuration) this user can perform administrative task by assuming the root role as needed.
-Also, after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
+
+* The regular user specified on this screen is granted the _root_ role.
+* In effect this means the following:
+    * Without any further configuration, the user you specify will be granted the authority to perform administrative task by assuming the root role as needed.
+    * The first user created on the system is granted the root role via _Role Based Access Control_ (RBAC).
+
+Please take note the following additional information:
+
+* Immediately after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
+
 </div>
 
 ![Installation Summary](images/text_install/text_install12.png)
@@ -631,25 +729,43 @@ If these configuration settings are correct, begin the installation by pressing 
 
 ![Transferring Contents](images/text_install/text_install13.png)
 
+Depending on the speed of your computer, the installation may take several minutes to complete.
 Installation progress is measured by means of a status bar.
 
 ![Installation Complete](images/text_install/text_install14.png)
 
-After the installation completes you are presented with a summary screen.
+After the installation has completed you are presented with a summary screen.
 The installation logs are available by pressing the F4 key.
-If you ran the installation from Live Media, can exit the installation by pressing F9.
-Otherwise, you will want to reboot the system using the F8 key.
+If you ran the installation from Live Media, you may exit the installation by pressing the F9 key.
+Otherwise, you will want to reboot the system by pressing the F8 key.
 
 
-### Installing OpenIndiana using the text installer
+### Installing OpenIndiana using the text installer (DVD ISO or USB)
 
-The text installer is not graphical nor does it have a live environment.
-When you boot from the text installer, you have the following choices:
+The text installer DVD ISO and USB installer options are not graphical nor do they provide a live environment.
+When booting from the text based installer, you are presented with the following choices:
 
 * Install OpenIndiana
 * Spawn a shell to be used as a rescue disk.
 
-The text installer installation process uses the previously described _Text based Guided Install_.
+The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started/#install-openindiana-using-the-text-installer)
+
+
+## Post installation steps
+
+### Resetting the root password
+
+The root password is immediately expired after installation and you will need to choose a new one.
+
+Use the following steps to change the root password:
+
+* open a Terminal
+* execute `su -` and give the password you chose for your account at installation time
+* you will be informed that root's password has expired and prompted to change it
+* once changed you can exit the su session
+* You should be able to login/authenticate as root now.
+
+Resetting the root password does not allow root to login via ssh.
 
 
 ## Troubleshooting installations
