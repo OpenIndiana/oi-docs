@@ -138,12 +138,12 @@ Zones
 
 
 ZFS
- 
+
 * [OpenSolaris ZFS Community](https://web.archive.org/web/20091023025359/http://opensolaris.org/os/community/zfs/)
 * [ZFS Frequently Asked Questions (FAQ)](https://web.archive.org/web/20100904084608/http://hub.opensolaris.org/bin/view/Community+Group+zfs/faq)
 * [ZFS Resources](https://web.archive.org/web/20100830060952/http://hub.opensolaris.org/bin/view/Community+Group+zfs/links)
 
- 
+
 
 ### ABI support
 

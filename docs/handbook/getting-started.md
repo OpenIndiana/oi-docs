@@ -467,7 +467,7 @@ The following options are available to you from the Live Media Desktop:
 ### Using the device driver utility
 
 Available from the LiveDVD, the _Device Driver Utility_ scans your hardware and produces a list of hardware and the cooresponding driver being used for each device.
-The utility will also show you devices for which there is no driver loaded. 
+The utility will also show you devices for which there is no driver loaded.
 The device driver utility allows you to check whether your hardware requires additional drivers.
 
 
@@ -478,7 +478,7 @@ The Gparted partition editor allows you to add, remove, or resize partitions in 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
 
-Editing partition tables is a potentially destructive process. 
+Editing partition tables is a potentially destructive process.
 While you are unlikely to physically damage the disk, there is a risk of losing data.
 Before using the partition editor, please be sure to back up your data to a remote system or device.
 
