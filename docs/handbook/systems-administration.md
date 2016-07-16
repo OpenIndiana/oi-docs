@@ -395,6 +395,32 @@ credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b
 * How to use NWAM (network auto magic)
 
 
+#### Network automagic online help
+
+Comprehensive and fully illustrated online help for using NWAM is available by right clicking the NWAM tray icon and selecting _Help_.
+This opens the online help browser.
+
+
+#### Troubleshooting NWAM
+
+If NWAM is already configured and fails to connect to a wireless network try restarting the service.
+
+For example: 
+
+```bash
+svcadm restart nwam
+```
+
+Sometimes the location gets set to _NoNet_ and it's nessessary to manually change the location.
+
+When the location setting is configured to _Switch Locations Automatically_, it's not possible to change the location. 
+This is resolved by reconfiguring the location to allow manual switching. 
+To perform this task, do the following:
+
+Right click the NWAM tray icon and select **_Location_ > _Switch Locations Manually_**.
+Right click the NWAM tray icon and select **_Location_ > _Automatic_**.
+
+
 ### Desktop GUI
 
 < Place Holder >
