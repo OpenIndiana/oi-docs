@@ -206,11 +206,128 @@ OI-hipster-gui-20160421.iso: OK
 cdrecord dev=device imagefile.iso
 ```
 
+For example:
+
+```bash
+cdrecord dev=/dev/rdsk/c4t1d0p0 OI-hipster-gui-20160421.iso
+/usr/bin/cdrecord.bin: No write mode specified.
+/usr/bin/cdrecord.bin: Assuming -sao mode.
+/usr/bin/cdrecord.bin: If your drive does not accept -sao, try -tao.
+/usr/bin/cdrecord.bin: Future versions of cdrecord may have different drive dependent defaults.
+Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
+scsidev: '/dev/rdsk/c4t1d0p0'
+devname: '/dev/rdsk/c4t1d0p0'
+scsibus: -2 target: -2 lun: -2
+Warning: Using USCSI interface.
+Using libscg version 'schily-0.9'.
+Device type    : Removable CD-ROM
+Version        : 0
+Response Format: 2
+Capabilities   : 
+Vendor_info    : 'HL-DT-ST'
+Identifikation : 'DVDRAM GSA-U20N '
+Revision       : 'HX12'
+Device seems to be: Generic mmc2 DVD-R/DVD-RW/DVD-RAM.
+Using generic SCSI-3/mmc-2 DVD-R/DVD-RW/DVD-RAM driver (mmc_dvd).
+Driver flags   : NO-CD DVD MMC-3 SWABAUDIO BURNFREE 
+Supported modes: PACKET SAO LAYER_JUMP
+Starting to write CD/DVD/BD at speed 2 in real SAO mode for single session.
+Last chance to quit, starting real write    0 seconds. Operation starts.
+Turning BURN-Free off
+Track 01: Total bytes read/written: 1435766784/1435766784 (701058 sectors).
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+If you reusing a DVD-RW, be sure to blank it first.
+Blanking the disk will destroy all data on the disk.
+
+</div>
+
+For example:
+
+```bash
+cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast
+Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
+scsidev: '/dev/rdsk/c4t1d0p0'
+devname: '/dev/rdsk/c4t1d0p0'
+scsibus: -2 target: -2 lun: -2
+Warning: Using USCSI interface.
+Using libscg version 'schily-0.9'.
+Device type    : Removable CD-ROM
+Version        : 0
+Response Format: 2
+Capabilities   : 
+Vendor_info    : 'HL-DT-ST'
+Identifikation : 'DVDRAM GSA-U20N '
+Revision       : 'HX12'
+Device seems to be: Generic mmc2 DVD-R/DVD-RW/DVD-RAM.
+Using generic SCSI-3/mmc-2 DVD-R/DVD-RW/DVD-RAM driver (mmc_dvd).
+Driver flags   : NO-CD DVD MMC-3 SWABAUDIO BURNFREE 
+Supported modes: PACKET SAO LAYER_JUMP
+WARNING: Phys disk size 1124800 differs from rzone size 0! Prerecorded disk?
+WARNING: Phys start: 196608 Phys end 1321407
+WARNING: Drive returns zero media size. Using media size from ADIP.
+Starting to write CD/DVD/BD at speed 2 in real BLANK mode for single session.
+Last chance to quit, starting real write    0 seconds. Operation starts.
+```
+
 To locate your device:
 
 * For BSD, use the `cdrecord -scanbus`
 * For illumos/Solaris, use `rmformat -l`
 
+For example:
+
+
+```bash
+cdrecord --scanbus
+Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
+Warning: Using USCSI interface.
+Using libscg version 'schily-0.9'.
+scsibus4:
+	4,0,0	400) 'ATA     ' 'HITACHI HTS72321' 'C50B' Disk
+	4,1,0	401) 'HL-DT-ST' 'DVDRAM GSA-U20N ' 'HX12' Removable CD-ROM
+	4,2,0	402) *
+	4,3,0	403) *
+	4,4,0	404) *
+	4,5,0	405) *
+	4,6,0	406) *
+	4,7,0	407) *
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+When using `cdrecord --scanbus` to determine the device name, specify the device using the SCSI bus ID.
+
+For example: `cdrecord dev=4,1,0 imagefile.iso`
+
+</div>
+
+
+```bash
+rmformat -l
+Looking for devices...
+     1. Logical Node: /dev/rdsk/c4t1d0p0
+        Physical Node: /pci@0,0/pci17aa,20f8@1f,2/cdrom@1,0
+        Connected Device: HL-DT-ST DVDRAM GSA-U20N  HX12
+        Device Type: CD Reader
+	Bus: <Unknown>
+	Size: 810.2 MB
+	Label: <None>
+	Access permissions: Medium is not write protected.
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+When using `rmformat -l` to determine the device name, specify the device using the _Logical Node_.
+
+For example: `cdrecord dev=/dev/rdsk/c4t1d0p0 imagefile.iso`
+
+</div>
 
 **UNIX GUI** <i class="fa fa-sun-o" aria-hidden="true"></i>
 <div class="well">
