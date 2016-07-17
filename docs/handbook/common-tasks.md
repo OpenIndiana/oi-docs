@@ -74,7 +74,7 @@ listing devices
 
 ```bash
 ls /dev/sound
-0  0ctl  audiohd:0  audiohd:0ctl  audiohd:0dsp	audiohd:0mixer
+0  0ctl  audiohd:0  audiohd:0ctl  audiohd:0dsp  audiohd:0mixer
 ```
 
 ```bash
@@ -98,7 +98,7 @@ Audio Devices:
 
 Mixers:
 0: audiohd#0 Intel HD Audio, ICH9
-	HD codec: Conexant CX20561
+        HD codec: Conexant CX20561
 ```
 
 
@@ -127,11 +127,11 @@ Platform: SunOS 5.11 illumos-380fd67 i86pc
 
 *** Scanning sound adapter #1 ***
 /dev/sound/audiohd:0dsp (audio engine 0): audiohd#0
-  - Performing audio playback test... 
-	<left> ................OK
-	<right> ...............OK
-	<stereo> ..............OK
-	<measured sample rate 47949.00 Hz (-0.11%)>
+  - Performing audio playback test...
+        <left> ................OK
+        <right> ...............OK
+        <stereo> ..............OK
+        <measured sample rate 47949.00 Hz (-0.11%)>
 
 *** All tests completed OK ***
 ```

@@ -405,7 +405,7 @@ This opens the online help browser.
 
 If NWAM is already configured and fails to connect to a wireless network try restarting the service.
 
-For example: 
+For example:
 
 ```bash
 svcadm restart nwam
@@ -413,8 +413,8 @@ svcadm restart nwam
 
 Sometimes the location gets set to _NoNet_ and it's nessessary to manually change the location.
 
-When the location setting is configured to _Switch Locations Automatically_, it's not possible to change the location. 
-This is resolved by reconfiguring the location to allow manual switching. 
+When the location setting is configured to _Switch Locations Automatically_, it's not possible to change the location.
+This is resolved by reconfiguring the location to allow manual switching.
 To perform this task, do the following:
 
 Right click the NWAM tray icon and select **_Location_ > _Switch Locations Manually_**.
