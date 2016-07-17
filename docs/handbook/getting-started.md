@@ -206,11 +206,128 @@ OI-hipster-gui-20160421.iso: OK
 cdrecord dev=device imagefile.iso
 ```
 
+For example:
+
+```bash
+cdrecord dev=/dev/rdsk/c4t1d0p0 OI-hipster-gui-20160421.iso
+/usr/bin/cdrecord.bin: No write mode specified.
+/usr/bin/cdrecord.bin: Assuming -sao mode.
+/usr/bin/cdrecord.bin: If your drive does not accept -sao, try -tao.
+/usr/bin/cdrecord.bin: Future versions of cdrecord may have different drive dependent defaults.
+Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
+scsidev: '/dev/rdsk/c4t1d0p0'
+devname: '/dev/rdsk/c4t1d0p0'
+scsibus: -2 target: -2 lun: -2
+Warning: Using USCSI interface.
+Using libscg version 'schily-0.9'.
+Device type    : Removable CD-ROM
+Version        : 0
+Response Format: 2
+Capabilities   :
+Vendor_info    : 'HL-DT-ST'
+Identifikation : 'DVDRAM GSA-U20N '
+Revision       : 'HX12'
+Device seems to be: Generic mmc2 DVD-R/DVD-RW/DVD-RAM.
+Using generic SCSI-3/mmc-2 DVD-R/DVD-RW/DVD-RAM driver (mmc_dvd).
+Driver flags   : NO-CD DVD MMC-3 SWABAUDIO BURNFREE
+Supported modes: PACKET SAO LAYER_JUMP
+Starting to write CD/DVD/BD at speed 2 in real SAO mode for single session.
+Last chance to quit, starting real write    0 seconds. Operation starts.
+Turning BURN-Free off
+Track 01: Total bytes read/written: 1435766784/1435766784 (701058 sectors).
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+If you reusing a DVD-RW, be sure to blank it first.
+Blanking the disk will destroy all data on the disk.
+
+</div>
+
+For example:
+
+```bash
+cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast
+Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
+scsidev: '/dev/rdsk/c4t1d0p0'
+devname: '/dev/rdsk/c4t1d0p0'
+scsibus: -2 target: -2 lun: -2
+Warning: Using USCSI interface.
+Using libscg version 'schily-0.9'.
+Device type    : Removable CD-ROM
+Version        : 0
+Response Format: 2
+Capabilities   :
+Vendor_info    : 'HL-DT-ST'
+Identifikation : 'DVDRAM GSA-U20N '
+Revision       : 'HX12'
+Device seems to be: Generic mmc2 DVD-R/DVD-RW/DVD-RAM.
+Using generic SCSI-3/mmc-2 DVD-R/DVD-RW/DVD-RAM driver (mmc_dvd).
+Driver flags   : NO-CD DVD MMC-3 SWABAUDIO BURNFREE
+Supported modes: PACKET SAO LAYER_JUMP
+WARNING: Phys disk size 1124800 differs from rzone size 0! Prerecorded disk?
+WARNING: Phys start: 196608 Phys end 1321407
+WARNING: Drive returns zero media size. Using media size from ADIP.
+Starting to write CD/DVD/BD at speed 2 in real BLANK mode for single session.
+Last chance to quit, starting real write    0 seconds. Operation starts.
+```
+
 To locate your device:
 
 * For BSD, use the `cdrecord -scanbus`
 * For illumos/Solaris, use `rmformat -l`
 
+For example:
+
+
+```bash
+cdrecord --scanbus
+Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
+Warning: Using USCSI interface.
+Using libscg version 'schily-0.9'.
+scsibus4:
+        4,0,0   400) 'ATA     ' 'HITACHI HTS72321' 'C50B' Disk
+        4,1,0   401) 'HL-DT-ST' 'DVDRAM GSA-U20N ' 'HX12' Removable CD-ROM
+        4,2,0   402) *
+        4,3,0   403) *
+        4,4,0   404) *
+        4,5,0   405) *
+        4,6,0   406) *
+        4,7,0   407) *
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+When using `cdrecord --scanbus` to determine the device name, specify the device using the SCSI bus ID.
+
+For example: `cdrecord dev=4,1,0 imagefile.iso`
+
+</div>
+
+
+```bash
+rmformat -l
+Looking for devices...
+     1. Logical Node: /dev/rdsk/c4t1d0p0
+        Physical Node: /pci@0,0/pci17aa,20f8@1f,2/cdrom@1,0
+        Connected Device: HL-DT-ST DVDRAM GSA-U20N  HX12
+        Device Type: CD Reader
+        Bus: <Unknown>
+        Size: 810.2 MB
+        Label: <None>
+        Access permissions: Medium is not write protected.
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+When using `rmformat -l` to determine the device name, specify the device using the _Logical Node_.
+
+For example: `cdrecord dev=/dev/rdsk/c4t1d0p0 imagefile.iso`
+
+</div>
 
 **UNIX GUI** <i class="fa fa-sun-o" aria-hidden="true"></i>
 <div class="well">
@@ -364,11 +481,9 @@ $ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 
 ### Windows
 
-**Doc Team Note:**
+The OpenSolaris Live USB Creator is a small stand alone GUI utility suitable for creating an OpenIndiana live USB stick.
 
-The FreeBSD project recommends [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) to write USB keys on the Windows operating system.
-This is a more modern application than the old "OpenSolaris Live USB creator" utility.
-We'll need to test this to ensure this works with the OpenIndiana USB images.
+[OpenSolaris USB Creator](http://devzone.sites.pid0.org/OpenSolaris/opensolaris-liveusb-creator)
 
 
 ## Booting OpenIndiana
@@ -466,7 +581,8 @@ The following options are available to you from the Live Media Desktop:
 
 ### Using the device driver utility
 
-Available from the LiveDVD, the _Device Driver Utility_ scans your hardware and produces a list of hardware and the cooresponding driver being used for each device.
+Available from the LiveDVD, the _Device Driver Utility_ may be used to scan your hardware for compatability.
+The utility generates a list of hardware devices along with the cooresponding driver in use for each device.
 The utility will also show you devices for which there is no driver loaded.
 The device driver utility allows you to check whether your hardware requires additional drivers.
 
@@ -489,7 +605,6 @@ Before using the partition editor, please be sure to back up your data to a remo
 
 The user login for the live media session is `jack` along with the password `jack`.
 For administrative or elevated access, prepend your commands with `sudo`.
-You may also use the `pfexec` command.
 
 You may obtain root using the `su` command along with the password `openindiana`.
 
@@ -498,12 +613,28 @@ You may obtain root using the `su` command along with the password `openindiana`
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
-
 For some guidance writing this section:
 
 * Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
 * Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
+</div>
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Before you install OpenIndiana on a system that is running the Linux OS, save a copy of the menu.lst file.
+The contents of the GRUB menu.lst file dictate what is displayed in the GRUB menu when you boot the system.
+You will need to update the GRUB menu after the installation.
+</div>
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+Please take note the following important considerations:
+
+* The installation overwrites the whole disk layout if one of the following is true:
+    * The disk table cannot be read.
+    * The disk was not previously partitioned.
+* If an existing Solaris fdisk partition is on a multiboot system, and the user makes no modifications to the existing partitions, the installation overwrites the Solaris fdisk partition only.
+Other existing partitions are not changed.
 </div>
 
 
@@ -518,44 +649,186 @@ Each of these options is represented by a desktop icon.
 Select the appropriate installer option by clicking the corresponding desktop installer icon.
 
 
-### Install OpenIndiana (graphical Installation)
+### Install OpenIndiana (graphical installer)
+
+Begin installing OpenIndiana using the graphical installer by double clicking the desktop icon labeled: _Install OpenIndiana_.
 
 ![First Install Screen](./images/gui_install/OGI.png)
 
-As soon as the desktop loads, click the ``Install OpenIndiana`` icon and this
-window will appear, click next. (if you get error dialogue boxes, just close
-them)
+When the installer starts, the first screen you will see is the welcome page.
+When ready to begin the installation, click _Next_.
 
 ![Disk Menu](./images/gui_install/SIL.png)
 
-Here you can just select ``Use the whole disk`` if you're only going to install
-OpenIndiana on this system, otherwise you can Selection ``Partition the disk``
-and partition it accordingly.
+The top portion of the disk screen shows all the disks found on the system, including removable disks.
+The installer also displays the size of each disk in Gigabytes (GB).
+Within this upper panel, select the disk where you wish to install OpenIndiana.
+
+The lower portion of this screen displays partitioning options.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Regardless of the partitioning option chosen for the installation, manual control of the OpenSolaris file system layout is not supported.
+During the installation, the Solaris fdisk partition is reformatted with a default ZFS file system layout.
+All existing file systems on the Solaris partition are destroyed.
+The installation uses a Solaris fdisk partition to create a ZFS storage pool.
+</div>
+
+Within the lower panel, select one of the following options:
+
+| Option | Description
+| --- | ---
+| Use the whole disk | When the _Use the whole disk_ option is selected, the entire disk is used for the installation. For the selected disk, all existing partitions and any data which they may contain, will be overwritten with the OpenIndiana operating system.
+| Partition the disk | When _Partition the disk_ option is selected, the bottom portion of this panel displays the disk partitioning layout. Prior to selecting this option, please be sure to review all the informational notes and warnings concerning the use of the partitioning option.
+
+When you have revised the partitioning as needed, and are ready to continue on to the next screen, click Next.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+If you choose to partition the disk, review the following partitioning guidelines, then revise the partitioning panel settings as needed.
+
+* Only one Solaris partition is allowed.
+If an existing Solaris partition is available, that Solaris partition will be the target for the installation.
+Or, if you do not have an existing Solaris partition, you can change any existing partition to a Solaris partition.
+* You can resize existing partitions, delete partitions, and create new partitions in this panel.
+For this option, one existing Solaris partition must be available as the target for the installation.
+* If you used a third-party partitioning tool such as GParted, then the Disk panel displays a partition named Linux-swap on which you can install OpenIndiana.
+    * In this panel, use the drop-down list for the Linux-swap partition name to change the partition name to Solaris.
+</div>
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+If the existing partition table cannot be read, a warning is displayed, and the panel displays proposed partitioning.
+In this case, all data on the selected disk is destroyed.
+
+If the table can be read, then the following information applies:
+
+* The partitions are displayed in physically sequential order as they are laid out on the disk.
+* Resizing a Solaris partition destroys the data on that partition and all physically subsequent partitions.
+    * Existing data is not moved to conform to a new partition layout.
+    * However, resizing the last partition or appending a new partition does not affect the data that already exists in other partitions.
+* Non-Solaris partitions cannot be resized.
+* To make additional space available, you can change an existing partition to Unused.
+    * However, if you change an existing partition to Unused, all subsequent non-Solaris partitions are also changed to Unused.
+* New partitions can only use the available space that follows the last defined partition.
+* The installer cannot utilize unallocated chunks of space between existing defined partitions.
+* Use the fdisk(1M) command to create new partitions that use the free space between exiting partitions.
+</div>
+
 
 ![Time Zone, Date and Time](./images/gui_install/SDAT.png)
 
-On this screen you select your region, location, time zone, date, time, and
-whether you want 24 hour or 12 hour time.
+This screen enables you to type the correct time zone, date, and time for the system to be installed.
+The top half of the panel displays a world map with major cities marked.
+The bottom half of the panel provides drop-down selections.
+You can choose the time zone either from the map or from the drop-down list.
+
+
+* If you select the time zone from the map, click on a city or click anywhere on the map.
+
+If you click on the map, but not on a city, the map automatically magnifies that area.
+You can click on a location within that magnified area.
+You can drag the cursor to move the magnified area to a different location on the map.
+When you select a site on the map, the drop-down selections automatically populate with the time zone, date, and current time for that map selection.
+You can right-click to undo magnification.
+
+* Instead of using the map, you can make your selections in the drop-down fields.
+
+Select your region, then select Location. Finally, select time zone.
+The options for each drop-down field are determined by the selection made in the prior drop-down field.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+After making your selections, you may also edit the default date and time that is provided.
+</div>
+
+When the settings are correct, click Next to continue.
+
 
 ![Locale](./images/gui_install/SL.png)
 
-This screen is for setting up the ``locale`` which controls things like default
-language support, date formats, etc.
+This screen enables you to select a language and locale.
+These selections determine the language support, the default date and time, and other data formats for the installed system.
+
+* You can accept the default language selection or change the selection.
+
+* A language selection is required.
+You can select “no default language support.”
+
+* The language chosen automatically determines the available locales in the drop-down list.
+Only one locale can be selected.
+
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Any time that you log in to the installed system, you can change either the locale for that particular session or the default locale by using the Options button in the Login dialog box.
+</div>
 
 ![Users](./images/gui_install/SMUD.png)
 
-Enter your ``root password``, your ``real name``, ``username`` and your users
-``password``, Also set a ``hostname`` (computer-name).
+Review the following guidelines:
+
+
+* Root login is not enabled either on the Live CD or on the installed system.
+You must log in as the user that you create in this panel.
+After you log in, you can then become root to configure the system.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+If you do not create a user account in this panel, root is set up as a normal account on the installed system, instead of as a role.
+This is the only situation where you can log in to the installed system as root.
+</div>
+
+
+* Both the root password and user account are optional.
+However, for better security, do complete these fields.
+If the root password is not defined, a reminder is displayed when you click Next.
+If you do not want to define a root password, you can proceed.
+
+
+* A user account requires only a Login name for the account to be valid.
+For better security, however, do complete all fields.
+If the user account information is not valid, a reminder is displayed when you click Next.
+If you do not want to define a user account, you can proceed.
+
+
+* Type a computer name or accept the default.
+The computer name field cannot be blank.
+
 
 ![Waiting game](./images/gui_install/ISS.png)
 
-The ``OS`` is now installing.
-Go make a cup of coffee, or something! It might be a while.
+The installation begins when you click Install.
+During the installation, a progress bar is displayed.
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+Do not interrupt an installation in progress.
+</div>
+
 
 ![Ding, OS is ready](./images/gui_install/FIS.png)
 
-Your installation of OpenIndiana installed correctly,
-You can now reboot into your new shiny system!
+The final screen displays completion messages.
+You can review the installation log in this panel.
+To exit the installer, select Quit and shut down your system.
+You can either quit or reboot from this panel.
+
+* After a successful installation, to start the installed system, select Reboot.
+The reboot process might take a few minutes.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Eject the Live CD as the next boot begins.
+Or, select the “Boot from Hard Disk” option on the GRUB menu.
+</div>
+
+
+After you have installed OpenIndiana, if you have another operating system on your system, you might need to update the GRUB menu.
+The GRUB menu displays a list of operating systems that can be booted.
+Solaris and Windows operating systems are displayed automatically on the GRUB menu.
+The contents of the GRUB menu.lst file define what is displayed in the GRUB menu when you boot the system.
+If you have an additional OpenIndiana or a Linux OS that is not displayed on the menu, you need to edit the GRUB menu.lst file.
 
 
 ### Install OpenIndiana using the Text Installer
@@ -1052,9 +1325,9 @@ As previously mentioned, the IPS repository is the remote network location where
 | Task | Command
 | --- | ---
 | List configured repositories | `pkg publisher`
-| Add a repository | `pkg set-publisher -g <repository_URL> <repository_name>`
-| Remove a repository | `pkg set-publisher -G <repository_URL> <repository_name>`
-| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> <repository_name>`
+| Add a repository | `pkg set-publisher \ ` <br> `-g <repository_URL> \` <br> `<repository_name>`
+| Remove a repository | `pkg set-publisher \ ` <br> `-G <repository_URL> \` <br> `<repository_name>`
+| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> \` <br> `<repository_name>`
 
 Example (Listing the repositories configured on the system):
 
