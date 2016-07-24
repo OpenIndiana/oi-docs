@@ -200,7 +200,7 @@ You can check your processor for EPT support via the following link: <http://ark
 
 * Hipster is currently testing a new package for managing KVM instances as SMF services.
     * [kvmadm](http://www.kvmadm.org/)
-* virtlib is on the roadmap for the next release and will open the door for virsh, and likely virt-manager as well.
+* libvirt is on the roadmap for the future releases and will open the door for virsh, and likely virt-manager as well.
 
 ```
 <leoric> Testers needed! pkg://userland/system/qemu/kvmadm@0.10.3,5.11-2015.0.2.0:20160322T212709Z
