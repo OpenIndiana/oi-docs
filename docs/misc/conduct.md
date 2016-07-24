@@ -56,5 +56,8 @@ Any further action will be proportional to the severity of the problem.
 #### Sources
 
 * Adopted from the [Project-FiFo Code of Conduct](https://project-fifo.net/coc.html).
-* Further inspiration derived from the [FreeBSD Code of Conduct](https://www.freebsd.org/internal/code-of-conduct.html).
+* Further inspiration derived from: 
+    * [FreeBSD Code of Conduct](https://www.freebsd.org/internal/code-of-conduct.html)
+    * [OpenSolaris Values & Code of Conduct](https://web.archive.org/web/20100619011915/http://hub.opensolaris.org/bin/view/Main/values)
+    * Solicitations from the OpenIndiana community
 
