@@ -48,10 +48,10 @@ It applies to all "collaborative space", which is defined as community communica
 
 ## Reporting violations:
 
-* Violations of the CoC should be reported to the distribution maintainers via abuse@openindiana.org
+* Violations of the CoC should be reported to the distribution maintainers via <abuse@openindiana.org>.
     * Neither reporters nor reported persons will, or should be, made public.
 * Upon receipt of a problem report, the distribution maintainers will investigate the issue and determine whether it warrants further action.
-Any further action will be proportional to the severity of the problem.
+    * Any further action will be proportional to the severity of the problem.
 
 
 #### Sources
