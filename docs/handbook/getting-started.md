@@ -360,7 +360,7 @@ For further information, please consult the help documentation for your Linux di
 </div>
 
 
-### Mac OS-X
+### Mac OS X
 
 **MAC Console** <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
 
