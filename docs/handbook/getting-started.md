@@ -93,6 +93,69 @@ As the FAQ evolves, try to keep this section in sync.
 
 </div>
 
+## Exploring OpenIndiana
+
+### Live CD
+
+OpenIndiana GUI installer also serves as a Live CD, so one can try OpenIndiana without installing it. This is especially good for testing hardware compatibility prior to installing OpenIndiana.
+
+### Virtual machines
+
+OpenIndiana is known to work in the following virtualization software:
+
+* [VirtualBox](https://www.virtualbox.org)
+* [VMWare Fusion](https://www.vmware.com/products/fusion.html)
+* [VMWare Workstation Pro](https://www.vmware.com/products/workstation.html)
+* [VMWare Workstation Player](https://www.vmware.com/products/player.html)
+* Linux KVM
+* illumos KVM
+
+OpenIndiana has to be installed in the virtualization software.
+
+### Vagrant
+
+OpenIndiana comes with official [Vagrant](https://www.vagrantup.com) boxes, which can be used for exploring OpenIndiana before installing it.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+At this moment, only text variant of OpenIndiana is available in the form of Vagarnt box. Only supported Vagrant provider is VirtualBox right now. This may change in the future.
+
+</div>
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+Vagrant is officialy available for Mac OS X, Windows and Linux.
+
+</div>
+
+* Download and install the latest version of Vagrant for your platform from the [official download page](https://www.vagrantup.com/downloads.html).
+
+* Download and install the latest version of Virtualbox for your platform from the [official download page](https://www.virtualbox.org/wiki/Downloads).
+
+* Run the following command to download and boot OpenIndiana vagrant box:
+
+```bash
+mkdir ~/openindiana_test
+cd ~/openindiana_test
+vagrant init openindiana/hipster
+vagrant up --provider virtualbox
+```
+
+This will create a file called Vagrantfile under ~/openindiana_test directory. Vagrant box will be also booted.
+
+* Once, the VM is online one can connect to it:
+
+```bash
+vagrant ssh
+```
+
+* To destroy the OpenIndiana vagrant instance, issue the following command:
+
+```bash
+vagrant destroy
+```
 
 ## Preparation for installing OpenIndiana
 
