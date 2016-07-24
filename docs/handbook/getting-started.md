@@ -1325,9 +1325,9 @@ As previously mentioned, the IPS repository is the remote network location where
 | Task | Command
 | --- | ---
 | List configured repositories | `pkg publisher`
-| Add a repository | `pkg set-publisher \ ` <br> `-g <repository_URL> \` <br> `<repository_name>`
-| Remove a repository | `pkg set-publisher \ ` <br> `-G <repository_URL> \` <br> `<repository_name>`
-| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> \` <br> `<repository_name>`
+| Add a repository | `pkg set-publisher \ ` <br> `-g <repository_URL> \ ` <br> `<repository_name>`
+| Remove a repository | `pkg set-publisher \ ` <br> `-G <repository_URL> \ ` <br> `<repository_name>`
+| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> \ ` <br> `<repository_name>`
 
 Example (Listing the repositories configured on the system):
 
@@ -1453,10 +1453,128 @@ Therefore, use 3rd party repositories and 3rd party package tools at your own ri
 
 ## Managing boot environments
 
-< Place Holder >
+A boot environment is a bootable instance of an OpenIndiana operating system image plus any other application software packages installed into that image.
+You can maintain multiple boot environments on your system, and each boot environment could have different software versions installed.
+Upon the initial installation of OpenIndiana onto your system, a boot environment is created.
+Use the `beadm`<sup>1M</sup> utility to administer additional boot environments on your system.
+
+The `beadmn` utility is designed to work in concert with the ZFS file system and the IPS package manager.
+
+### Why use multiple boot environments?
+
+With multiple boot environments, the process of updating software becomes a low risk operation because you can create backup boot environments before making any software updates to your system.
+If needed, you have the option of booting a backup boot environment.
+
+Here are some specific examples where having more than one OpenIndiana boot environment, and managing them with the `beadm` utility, is useful:
+
+* When you use the `pkg update` command to update all the packages in your active OpenIndiana boot environment, this process automatically creates a clone of that boot environment.
+The packages are updated in the clone rather than in the original boot environment.
+After successfully completing the updates, the new clone is activated.
+Then, the clone will become the new default boot environment on the next reboot.
+The original boot environment remains on the GRUB menu as an alternate selection.
+You can use the `beadm list` command to see a list of all the boot environments on the system, including the backup boot environment that still has its original, unchanged software.
+If you are not satisfied with the updates made to the environment, you can use the `beadm activate` command to specify that the backup will become the default boot environment on the next reboot.
+
+* If you are modifying a boot environment, you can take a snapshot of that environment at any stage during modifications by using the `beadm create` command.
+A snapshot is a read-only image of a dataset or boot environment at a given point in time.
+You can create custom names for each snapshot that identify when or why the snapshot was created.
+For example, if you are doing monthly upgrades to your boot environment, you can capture snapshots for each monthly upgrade.
+You can use the `beadm list -s` command to view the available snapshots for a boot environment.
+A snapshot is not bootable.
+But, you can create a boot environment, based on that snapshot, by using the `-e` option for the `beadm create` command.
+Then you can use the `beadm activate` command to specify that this boot environment will become the default boot environment on the next reboot.
+
+* You can maintain more than one boot environment on your system, and perform various upgrades on each of them as needed.
+For example, you can clone a boot environment by using the `beadm create` command.
+A clone is a bootable copy of a boot environment.
+Then, you can install, test, and update different software packages on the original boot environment and on its clone.
+Although only one boot environment can be active at a time, you can mount an inactive boot environment by using the `beadm mount` command.
+Then you can use the `pkg image-update` command with the `-R` option to update all the packages in that inactive, mounted environment.
+Or, use the `pkg install packagename` with the `-R` option to update specific packages on that environment.
 
 
-## Xorg
+### Features of the beadm utility
+
+The `beadm` utility has the following features:
+
+* The `beadm` utility aggregates all datasets in a boot environment and performs actions on the entire boot environment at once.
+You no longer need to perform ZFS commands to modify each dataset individually.
+
+* The `beadm` utility manages the dataset structures within boot environments.
+For example, when the `beadm` utility clones a boot environment that has shared datasets, the utility automatically recognizes and manages those shared datasets for the new boot environment.
+
+* The `beadm` utility enables you to perform administrative tasks on your boot environments.
+These tasks can be performed without upgrading your system.
+
+* The `beadm` utility automatically manages and updates the GRUB menu.
+For example, when you use the `beadm` utility to create a new boot environment, that environment is automatically added to the GRUB menu.
+
+The `beadm` utility enables you to perform the following tasks:
+
+* Create a new boot environment based on the active boot environment
+* Create a new boot environment based on an inactive boot environment
+* Create a snapshot of an existing boot environment
+* Create a new boot environment based on an existing snapshot
+* Create a new boot environment and add a custom title to the GRUB menu.
+* Activate an existing, inactive boot environment
+* Mount a boot environment
+* Unmount a boot environment
+* Destroy a boot environment
+* Destroy a snapshot of a boot environment
+* Rename an existing, inactive boot environment
+* Display information about your boot environment snapshots and datasets
+
+
+### beadm command reference
+
+|Command | Description
+| --- | ---
+| `beadm` | Displays command usage
+| `beadm activate <BE>` | Makes the specified boot environment the active boot environment upon the next reboot.
+| `beadm create <BE>` | Creates a new boot environment with the name specified. Unless the -e option is provided, the new boot environment is created as a clone of the currently running boot environment.
+| `beadm create <BE@snapshot>` | Creates a snapshot of the existing boot environment with the specified snapshot name.
+| `beadm destroy <BE>` | Destroys the boot environment named BE or destroys an existing snapshot, BE@snapshot, of a boot environment. Prompts for confirmation before destroying the boot environment.
+| `beadm list <BE>` | Lists information about the specified boot environment, or lists information for all boot environments if a boot environment name is not provided. The default is to list boot environments without any additional information.
+| `beadm mount <BE> <mountpoint>` | Mounts the specified boot environment at the specified mount point. The mount point must be an already existing, empty directory.
+| `beadm rename <old BE> <new BE>` | Renames the specified boot environment.
+| `beadm unmount [-f] <BE>` | Unmounts the specified boot environment. `-f` – Forcefully unmounts the boot environment even if it is currently busy.
+
+For detailed instructions about the `beadm` utility, see the `beadm`<sup>1M</sup> man page.
+
+### beadm zones support
+
+Zones partitioning technology is used to virtualize operating system services and provide an isolated and secure environment for running applications.
+Each OpenIndiana system is a global zone.
+Within a global zone, specific non-global zones can be created.
+
+### Zones support limitations
+
+Note the following limitations of support for non-global zones in the beadm utility and in related processes:
+
+* When you use the pkg image-update command, the command only upgrades ipkg branded zones.
+* The beadm utility is not supported inside a non-global zone.
+* Non-global zone support is limited to ZFS support. Zones are not supported unless they are on ZFS.
+* Zones are not supported in the rpool/ROOT namespace. Non-global zones are cloned or copied only when the original zone is within the shared area for the global zone, for example, within rpool/export or within rpool/zones.
+* Although the beadm utility affects the non-global zones on your system, the beadm utility does not display zones information. Use the zoneadm utility to view changes in the
+zones in your boot environment. For example, use the zoneadm list command to view a list of all current zones on the system.
+
+For further information, see the `zoneadm`<sup>1M</sup> man page.
+
+
+### Zones support specifications
+
+The beadm command impacts the non-global zones in your boot environments as follows:
+
+| Command | Support Details
+| --- | ---
+| `beadm create` | When you clone a boot environment by using the beadm create command, all zones in that boot environment are copied into the new boot environment.
+| `beadm destroy` | When you destroy an inactive boot environment, the zones that belong to that boot environment are also destroyed.
+| `beadm mount` | When you mount a boot environment, the zones in that environment are mounted relative to the mount points for the environment.
+| `beadm unmount`| When you unmount a boot environment, the zones in that environment are also unmounted. All mount points are returned to their states prior to being mounted.
+| `beadm rename` | When you rename a boot environment, that change does not impact the names of the zones or the names of the datasets that are used for those zones in that boot environment. The change does not impact the relationships between the zones and their related boot environments.
+
+
+## The X-Window system
 
 < placeholder >
 
