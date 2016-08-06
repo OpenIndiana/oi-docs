@@ -93,48 +93,73 @@ As the FAQ evolves, try to keep this section in sync.
 
 </div>
 
+
 ## Exploring OpenIndiana
 
-### Live CD
+There are several ways in which you can explore OpenIndiana without having to perform a bare metal install.
 
-OpenIndiana GUI installer also serves as a Live CD, so one can try OpenIndiana without installing it. This is especially good for testing hardware compatibility prior to installing OpenIndiana.
+* Live media (USB/DVD)
+* Virtual machines (PC emulation via software)
+* Vagrant (virtual machine image automation)
+
+
+### Live Media
+
+Available in both DVD and USB formats, the OpenIndiana GUI installer also functions as live media.
+This allows you try OpenIndiana without the need to install it.
+Exploring OpenIndiana via the live media is an especially good way to test your hardware compatibility prior to installing the operating system.
+
 
 ### Virtual machines
 
-OpenIndiana is known to work in the following virtualization software:
+OpenIndiana is known to work with the following virtualization software:
 
 * [VirtualBox](https://www.virtualbox.org)
 * [VMWare Fusion](https://www.vmware.com/products/fusion.html)
 * [VMWare Workstation Pro](https://www.vmware.com/products/workstation.html)
 * [VMWare Workstation Player](https://www.vmware.com/products/player.html)
-* Linux KVM
-* illumos KVM
+* [VMWare VSphere](http://www.vmware.com/products/vsphere.html)
+* [Linux KVM](http://www.linux-kvm.org/page/Main_Page)
+* illumos KVM - (The illumos port of Linux KVM)
 
-OpenIndiana has to be installed in the virtualization software.
+Virtual machines provide a PC emulation layer in which you install OpenIndiana just as you would on physical 'bare metal' hardware.
+
 
 ### Vagrant
 
-OpenIndiana comes with official [Vagrant](https://www.vagrantup.com) boxes, which can be used for exploring OpenIndiana before installing it.
+Vagrant provides an excellent way to explore OpenIndiana as it fully automates the process of bringing a virtual machine online.
+OpenIndiana comes with an official [Vagrant](https://www.vagrantup.com) box, which can be used for exploring OpenIndiana before installing it.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-At this moment, only text variant of OpenIndiana is available in the form of Vagarnt box. Only supported Vagrant provider is VirtualBox right now. This may change in the future.
+At this time, the OpenIndiana Vagrant box is only available in the form of a text based console.
+Additionally, Virtualbox is the only currently supported Vagrant provider.
+In the future the OpenIndiana project hopes to provide additional Vagrant box options.
 
 </div>
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-Vagrant is officialy available for Mac OS X, Windows and Linux.
+Vagrant is officially available for Mac OS X, Windows and Linux.
 
 </div>
 
 * Download and install the latest version of Vagrant for your platform from the [official download page](https://www.vagrantup.com/downloads.html).
-
 * Download and install the latest version of Virtualbox for your platform from the [official download page](https://www.virtualbox.org/wiki/Downloads).
 
-* Run the following command to download and boot OpenIndiana vagrant box:
+
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+
+Older versions of Vagrant (as packaged by many LTS Linux distributions), may not support downloading the Vagrant box instance.
+To work around this limitation, be sure to remove any previously installed instances of Vagrant and obtain the latest Vagrant software directly from the Vagrant website.
+
+</div>
+
+
+* Run the following command to download and boot the OpenIndiana vagrant box:
 
 ```bash
 mkdir ~/openindiana_test
@@ -143,19 +168,21 @@ vagrant init openindiana/hipster
 vagrant up --provider virtualbox
 ```
 
-This will create a file called Vagrantfile under ~/openindiana_test directory. Vagrant box will be also booted.
+This will create a file titled _Vagrantfile_ under the ~/openindiana_test directory.
+The Vagrant box will also be booted.
 
-* Once, the VM is online one can connect to it:
+* Once, the Vagrant box virtual machine is online, connect to it using the following command:
 
 ```bash
 vagrant ssh
 ```
 
-* To destroy the OpenIndiana vagrant instance, issue the following command:
+* To destroy the OpenIndiana Vagrant instance, issue the following command:
 
 ```bash
 vagrant destroy
 ```
+
 
 ## Preparation for installing OpenIndiana
 
