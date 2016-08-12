@@ -1424,7 +1424,8 @@ Example (Listing the repositories configured on the system):
 ```bash
 pkg publisher
 PUBLISHER                   TYPE     STATUS P LOCATION
-openindiana.org              origin   online F http://pkg.openindiana.org/hipster/
+openindiana.org             origin   online F https://pkg.openindiana.org/hipster/
+hipster-encumbered          origin   online F https://pkg.openindiana.org/hipster-encumbered/
 ```
 
 Example (Replacing a repository):
@@ -1432,7 +1433,7 @@ Example (Replacing a repository):
 ```bash
 pkg set-publisher \
 -G http://pkg.openindiana.org/hipster-2015 \
--g http://pkg.openindiana.org/hipster openindiana.org
+-g https://pkg.openindiana.org/hipster openindiana.org
 ```
 
 

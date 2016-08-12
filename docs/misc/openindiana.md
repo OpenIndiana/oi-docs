@@ -194,8 +194,8 @@ The following IPS repositories are available:
 
 | Repository Name | Repository URL | Description
 | --- | --- | ---
-| openindiana.org | <http://pkg.openindiana.org/hipster> | Hipster primary package repository
-| hipster-encumbered | <http://pkg.openindiana.org/hipster-encumbered>| Hipster encumbered license packages
+| openindiana.org | <https://pkg.openindiana.org/hipster> | Hipster primary package repository
+| hipster-encumbered | <https://pkg.openindiana.org/hipster-encumbered>| Hipster encumbered license packages
 | localhostoih | <http://sfe.opencsw.org/localhostoih> | 3rd party [Spec Files Extra (SFE)](http://sfe.opencsw.org) packages
 
 
@@ -208,7 +208,7 @@ The following IPS repositories are available:
 ```bash
 pkg set-publisher \
 -G http://pkg.openindiana.org/hipster-2015 \
--g http://pkg.openindiana.org/hipster openindiana.org
+-g https://pkg.openindiana.org/hipster openindiana.org
 ```
 
 For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started/#the-image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.
