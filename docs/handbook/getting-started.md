@@ -26,7 +26,7 @@ This document is a work in progress (draft).
 
 </div>
 
-Import and validate (compare with FAQ, etc.): [old handbook intro](http://wiki.openindiana.org/oi/1.+Introduction)
+Import and validate (compare with FAQ, etc.): [old handbook intro](https://wiki.openindiana.org/oi/1.+Introduction)
 
 ## Introduction
 
@@ -200,8 +200,8 @@ Installing OpenIndiana on unsupported hardware may cause excessive CPU usage, in
 Please be sure to consult the hardware compatibility list (HCL):
 
 * [Illumos HLC](https://www.illumos.org/hcl/)
-* [OpenIndiana HCL - components](http://wiki.openindiana.org/oi/Components)
-* [OpenIndiana HCL - systems](http://wiki.openindiana.org/oi/Systems)
+* [OpenIndiana HCL - components](https://wiki.openindiana.org/oi/Components)
+* [OpenIndiana HCL - systems](https://wiki.openindiana.org/oi/Systems)
 
 </div>
 
@@ -261,10 +261,15 @@ The content for this section is pulled from the OpenIndiana FAQ (section 'Where 
 As the FAQ evolves, try to keep this section in sync.
 
 -->
+Primary download mirror (London, England):
 
-* [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
-* [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
-* [Torrents](http://dlc.openindiana.org/torrents/)
+* [ISO's and USB Images](http://dlc.openindiana.org/isos/hipster)
+* [Torrents](http://dlc.openindiana.org/torrents)
+
+Alternate mirrors (Asia, Europe, and North America)
+
+* <https://wiki.openindiana.org/oi/Mirrors>
+
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
@@ -1155,7 +1160,7 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
 
-Have a look at: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet) to see whether there is anything there which we might want to import and validate.
+Have a look at: [pgk cheat sheet](https://wiki.openindiana.org/oi/pkg+Cheat+Sheet) to see whether there is anything there which we might want to import and validate.
 
 </div>
 
@@ -1181,7 +1186,7 @@ Once you have installed packages, IPS enables you to search, update, and manage 
 With IPS , you can upgrade your system to a newer build of OpenIndiana Hipster, install and update your software to the latest available versions, and retrieve packages from mirror repositories.
 
 If the system on which IPS is installed is located on a network, IPS can automatically access the OpenIndiana Hipster package repository.
-For OpenIndiana Hipster, your IPS client can access the packages from <http://pkg.openindiana.org/hipster>.
+For OpenIndiana Hipster, your IPS client can access the packages from <https://pkg.openindiana.org/hipster>.
 
 
 ### IPS packages
@@ -1424,7 +1429,8 @@ Example (Listing the repositories configured on the system):
 ```bash
 pkg publisher
 PUBLISHER                   TYPE     STATUS P LOCATION
-openindiana.org              origin   online F http://pkg.openindiana.org/hipster/
+openindiana.org             origin   online F https://pkg.openindiana.org/hipster/
+hipster-encumbered          origin   online F https://pkg.openindiana.org/hipster-encumbered/
 ```
 
 Example (Replacing a repository):
@@ -1432,7 +1438,7 @@ Example (Replacing a repository):
 ```bash
 pkg set-publisher \
 -G http://pkg.openindiana.org/hipster-2015 \
--g http://pkg.openindiana.org/hipster openindiana.org
+-g https://pkg.openindiana.org/hipster openindiana.org
 ```
 
 
