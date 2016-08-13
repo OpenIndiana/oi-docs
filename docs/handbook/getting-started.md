@@ -261,10 +261,15 @@ The content for this section is pulled from the OpenIndiana FAQ (section 'Where 
 As the FAQ evolves, try to keep this section in sync.
 
 -->
+Primary download mirror (London, England):
 
-* [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
-* [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
-* [Torrents](http://dlc.openindiana.org/torrents/)
+* [ISO's and USB Images](http://dlc.openindiana.org/isos/hipster)
+* [Torrents](http://dlc.openindiana.org/torrents)
+
+Alternate mirrors (Asia, Europe, and North America)
+
+* <https://wiki.openindiana.org/oi/Mirrors>
+
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
