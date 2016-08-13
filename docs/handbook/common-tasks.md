@@ -75,7 +75,7 @@ ITEMS TO WRITE ABOUT:
 <div class="well">
 The following gstreamer plugins are required for operation of the `gstreamer-properties` (sound properties) tool.
 
-* library/audio/gstreamer/plugin/base 
+* library/audio/gstreamer/plugin/base
 * library/audio/gstreamer/plugin/gnonlin
 * library/audio/gstreamer/plugin/good
 
@@ -205,9 +205,9 @@ Before you can play MP3 files, several gstreamer plugins are required.
 Due to licensing concerns in some countries, these plugins are not part of the default OpenIndiana installation.
 You may however install them from the **_hipster-encumbered_** repository.
 
-* library/audio/gstreamer/plugin/bad 
-* library/audio/gstreamer/plugin/ffmpeg 
-* library/audio/gstreamer/plugin/ugly 
+* library/audio/gstreamer/plugin/bad
+* library/audio/gstreamer/plugin/ffmpeg
+* library/audio/gstreamer/plugin/ugly
 
 </div>
 

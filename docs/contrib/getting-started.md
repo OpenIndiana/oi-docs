@@ -49,7 +49,7 @@ If you haven't already, sign up for a [Github](https://github.com) account.
 | Fedora | `dnf install git`
 | OpenIndiana | `pkg install git`
 
-After GIT is installed, be sure to configure it. 
+After GIT is installed, be sure to configure your name and email address.
 For further details, see: <https://help.github.com/articles/set-up-git/>
 
 
@@ -261,6 +261,7 @@ From the root site folder (website-2.0) execute the following command:
 ```bash
 mdl -s markdownlint-rules.rb .
 ```
+
 Markdown Lint will automatically traverse the entire folder structure looking for problems.
 Alternately you may also run `mdl` on a specific file.
 Simply replace the period (.) with the path to the file.
