@@ -36,53 +36,69 @@ If you think it can be helpful to the greater OpenIndiana community, we'll be ha
 
 ## Prerequisites
 
-#### Sign up for a [Github](https://github.com) account
+If you haven't already, sign up for a [Github](https://github.com) account.
+
 
 #### Install and configure Git
 
-* Arch: `pacman -S git`
-* Centos/RHEL: `yum install git`
-* Debian/Mint/Ubuntu: `apt-get install git`
-* Fedora: `dnf install git`
-* OpenIndiana: `pkg install git`
+| Operating System | Command
+| --- | ---
+| Arch | `pacman -S git`
+| Centos/RHEL | `yum install git`
+| Debian/Mint/Ubuntu | `apt-get install git`
+| Fedora | `dnf install git`
+| OpenIndiana | `pkg install git`
 
-or see: <https://help.github.com/articles/set-up-git/>
+After GIT is installed, be sure to configure it. 
+For further details, see: <https://help.github.com/articles/set-up-git/>
 
-#### Install pip
 
-* Arch: `pacman -S python-pip`
-* Centos/RHEL: `yum install python-pip`
-* Debian/Mint/Ubuntu: `apt-get install python-pip`
-* Fedora: `dnf install pythop-pip`
-* OpenIndiana: `pkg install pip`
+#### Install python-pip
 
-#### Install gem
+| Operating System | Command
+| --- | ---
+| Arch | `pacman -S python-pip`
+| Centos/RHEL | `yum install python-pip`
+| Debian/Mint/Ubuntu | `apt-get install python-pip`
+| Fedora | `dnf install pythop-pip`
+| OpenIndiana | `pkg install pip`
 
-* Arch: `pacman -S ruby`
-* Centos/RHEL: `yum install rubygems`
-* Debian/Mint/Ubuntu `apt-get install rubgems-integration`
-* Fedora `dnf install rubygem-rails`
-* OpenIndiana: Installed by default as part of Ruby
 
-#### Install npm - Optional
+#### Install rubygems
 
-* Arch: `pacman -S nodejs npm`
-* Centos/RHEL: `yum install nodejs npm`
-* Debian/Mint/Ubuntu: `apt-get install nodejs-legacy`
-* Fedora: `dnf install npm`
-* OpenIndiana: `pkg install nodejs`
+| Operating System | Command
+| --- | ---
+| Arch | `pacman -S ruby`
+| Centos/RHEL | `yum install rubygems`
+| Debian/Mint/Ubuntu | `apt-get install rubgems-integration`
+| Fedora | `dnf install rubygem-rails`
+| OpenIndiana | Installed by default as part of Ruby
 
-#### Install MkDocs (mkdocs)
+
+#### Install nodejs-npm - Optional
+
+| Operating System | Command
+| --- | ---
+| Arch | `pacman -S nodejs npm`
+| Centos/RHEL | `yum install nodejs npm`
+| Debian/Mint/Ubuntu | `apt-get install nodejs-legacy`
+| Fedora | `dnf install npm`
+| OpenIndiana | `pkg install nodejs`
+
+
+#### Install mkdocs
 
 * Most operating systems (including OpenIndiana): `pip install mkdocs`
 
 Verify your installation with `mkdocs --version`
 
+
 #### Install Markdown Lint (mdl)
 
 * `gem install mdl`
 
-#### Install Markdown-spellcheck (mdspell) - Optional
+
+#### Install markdown-spellcheck (Optional)
 
 * `npm install markdown-spellcheck`
 
