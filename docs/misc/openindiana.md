@@ -143,9 +143,15 @@ For this effort to succeed, we ask our user base to diligently bring security an
 
 ## Where can I download OpenIndiana Hipster?
 
-* [Primary Mirror](http://dlc.openindiana.org/isos/hipster)
-* [Vim.org Alternate Mirror](http://ftp.vim.org/os/openindiana.org/dlc/isos/hipster)
-* [Torrents](http://dlc.openindiana.org/torrents/)
+Primary download mirror (London, England):
+
+* [ISO's and USB Images](http://dlc.openindiana.org/isos/hipster)
+* [Torrents](http://dlc.openindiana.org/torrents)
+
+Alternate mirrors (Asia, Europe, and North America)
+
+* <https://wiki.openindiana.org/oi/Mirrors>
+
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
@@ -257,8 +263,8 @@ Below is a list of OpenIndiana community resources you may find helpful:
 | User Support IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
 | Development IRC channel | [#oi-dev on irc.freenode.net](irc://irc.freenode.net/oi-dev)
 | Documentation IRC channel | [#oi-documentation on irc.freenode.net](irc://irc.freenode.net/oi-documentation)
-| OpenIndiana Mailing Lists | <http://openindiana.org/mailman>
-| OpenIndiana Wiki | <http://wiki.openindiana.org>
+| OpenIndiana Mailing Lists | <https://openindiana.org/mailman>
+| OpenIndiana Wiki | <https://wiki.openindiana.org>
 | OpenIndiana Bug Tracker | <http://www.illumos.org/projects/openindiana/issues>
 
 Here are just some of the many ways you may contribute:
@@ -275,15 +281,15 @@ Here are just some of the many ways you may contribute:
 
 Just ask on the IRC channels or mailing lists about how you may contribute.
 
-For additional details, including links to our GitHub source repositories, please see: <http://www.openindiana.org/community/getting-involved>
+For additional details, including links to our GitHub source repositories, please see: <https://www.openindiana.org/community/getting-involved>
 
 
 ## Does OpenIndiana provide a SPARC release?
 
 OpenIndiana Hipster is not currently available for the SPARC platform.
 
-In regards to the creation of a SPARC port of OpenIndiana Hipster, there have been periodic discussions on the [OpenIndiana mailing lists](http://openindiana.org/mailman/listinfo).
-If you would like to see SPARC become a supported platform, please help us by joining the [OpenIndiana community](http://www.openindiana.org/community/getting-involved).
+In regards to the creation of a SPARC port of OpenIndiana Hipster, there have been periodic discussions on the [OpenIndiana mailing lists](https://openindiana.org/mailman/listinfo).
+If you would like to see SPARC become a supported platform, please help us by joining the [OpenIndiana community](https://www.openindiana.org/community/getting-involved).
 
 ### Historical SPARC releases
 

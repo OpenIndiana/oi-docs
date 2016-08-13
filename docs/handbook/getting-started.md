@@ -26,7 +26,7 @@ This document is a work in progress (draft).
 
 </div>
 
-Import and validate (compare with FAQ, etc.): [old handbook intro](http://wiki.openindiana.org/oi/1.+Introduction)
+Import and validate (compare with FAQ, etc.): [old handbook intro](https://wiki.openindiana.org/oi/1.+Introduction)
 
 ## Introduction
 
@@ -200,8 +200,8 @@ Installing OpenIndiana on unsupported hardware may cause excessive CPU usage, in
 Please be sure to consult the hardware compatibility list (HCL):
 
 * [Illumos HLC](https://www.illumos.org/hcl/)
-* [OpenIndiana HCL - components](http://wiki.openindiana.org/oi/Components)
-* [OpenIndiana HCL - systems](http://wiki.openindiana.org/oi/Systems)
+* [OpenIndiana HCL - components](https://wiki.openindiana.org/oi/Components)
+* [OpenIndiana HCL - systems](https://wiki.openindiana.org/oi/Systems)
 
 </div>
 
@@ -1155,7 +1155,7 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
 
-Have a look at: [pgk cheat sheet](http://wiki.openindiana.org/oi/pkg+Cheat+Sheet) to see whether there is anything there which we might want to import and validate.
+Have a look at: [pgk cheat sheet](https://wiki.openindiana.org/oi/pkg+Cheat+Sheet) to see whether there is anything there which we might want to import and validate.
 
 </div>
 
@@ -1181,7 +1181,7 @@ Once you have installed packages, IPS enables you to search, update, and manage 
 With IPS , you can upgrade your system to a newer build of OpenIndiana Hipster, install and update your software to the latest available versions, and retrieve packages from mirror repositories.
 
 If the system on which IPS is installed is located on a network, IPS can automatically access the OpenIndiana Hipster package repository.
-For OpenIndiana Hipster, your IPS client can access the packages from <http://pkg.openindiana.org/hipster>.
+For OpenIndiana Hipster, your IPS client can access the packages from <https://pkg.openindiana.org/hipster>.
 
 
 ### IPS packages
