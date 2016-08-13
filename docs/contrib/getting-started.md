@@ -261,10 +261,33 @@ From the root site folder (website-2.0) execute the following command:
 ```bash
 mdl -s markdownlint-rules.rb .
 ```
-
 Markdown Lint will automatically traverse the entire folder structure looking for problems.
 Alternately you may also run `mdl` on a specific file.
 Simply replace the period (.) with the path to the file.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+Before you can run `mdl`, it may be necessary to add the path to your `$PATH` variable.
+
+For example:
+
+On OpenIndiana, markdown lint (mdl) resides in `/usr/ruby/1.9/bin/` which is not normally part of the search path.
+To run this command without having to specify the complete path each time, add the following to your `.bashrc`
+
+```bash
+PATH=$PATH:/usr/ruby/1.9/bin/
+export PATH
+```
+
+To immediately effect this change, source your `.bashrc` as follows:
+
+```bash
+source ~/.bashrc
+```
+
+</div>
+
 
 ## Running Markdown spell check (locally)
 
