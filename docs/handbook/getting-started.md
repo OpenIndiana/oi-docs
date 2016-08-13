@@ -305,6 +305,9 @@ For example:
 
 ```bash
 cdrecord dev=/dev/rdsk/c4t1d0p0 OI-hipster-gui-20160421.iso
+```
+
+```bash
 /usr/bin/cdrecord.bin: No write mode specified.
 /usr/bin/cdrecord.bin: Assuming -sao mode.
 /usr/bin/cdrecord.bin: If your drive does not accept -sao, try -tao.
@@ -344,6 +347,9 @@ For example:
 
 ```bash
 cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast
+```
+
+```bash
 Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
 scsidev: '/dev/rdsk/c4t1d0p0'
 devname: '/dev/rdsk/c4t1d0p0'
@@ -378,6 +384,9 @@ For example:
 
 ```bash
 cdrecord --scanbus
+```
+
+```bash
 Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
 Warning: Using USCSI interface.
 Using libscg version 'schily-0.9'.
@@ -404,6 +413,9 @@ For example: `cdrecord dev=4,1,0 imagefile.iso`
 
 ```bash
 rmformat -l
+```
+
+```bash
 Looking for devices...
      1. Logical Node: /dev/rdsk/c4t1d0p0
         Physical Node: /pci@0,0/pci17aa,20f8@1f,2/cdrom@1,0
@@ -1157,6 +1169,10 @@ Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in th
 
 ## The Image Package System (IPS)
 
+The image packaging system is delivered as part of the OpenIndiana userland.
+As such, the pkg related man pages are not available on the illumos.org website.
+These pages are only available by running the man page viewer locally on your system.
+
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
 
@@ -1268,6 +1284,9 @@ For example:
 
 ```bash
 pkg search -r xchat
+```
+
+```bash
 INDEX                ACTION VALUE                                   PACKAGE
 pkg.summary          set    HexChat is an IRC client based on XChat pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1
 pkg.summary          set    XChat IRC Client                        pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
@@ -1283,6 +1302,9 @@ For example:
 
 ```bash
 pkg search -l /usr/bin/gpg2
+```
+
+```bash
 INDEX      ACTION VALUE        PACKAGE
 path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
 ```
@@ -1296,6 +1318,9 @@ For example:
 
 ```bash
 pkg list gimp
+```
+
+```bash
 NAME (PUBLISHER)                                  VERSION                    IFO
 image/editor/gimp                                 2.8.16-2016.0.0.2          i--
 ```
@@ -1309,6 +1334,9 @@ For example:
 
 ```bash
 pkg contents -H -t depend -o fmri xchat
+```
+
+```bash
 pkg:/library/desktop/gdk-pixbuf@2.31.6-2016.0.0.0
 pkg:/library/desktop/gtk2@2.24.30-2016.0.0.0
 pkg:/library/desktop/libsexy@0.1.11-2016.0.0.0
@@ -1336,6 +1364,9 @@ For example:
 
 ```bash
 pkg install xchat
+```
+
+```bash
            Packages to install:   1
             Packages to update:   1
             Services to change:   2
@@ -1375,6 +1406,9 @@ For example:
 
 ```bash
 pkg update
+```
+
+```bash
             Packages to remove:    4
            Packages to install:   11
             Packages to update: 1018
@@ -1428,6 +1462,9 @@ Example (Listing the repositories configured on the system):
 
 ```bash
 pkg publisher
+```
+
+```bash
 PUBLISHER                   TYPE     STATUS P LOCATION
 openindiana.org             origin   online F https://pkg.openindiana.org/hipster/
 hipster-encumbered          origin   online F https://pkg.openindiana.org/hipster-encumbered/
@@ -1462,6 +1499,9 @@ For example:
 
 ```bash
 pkg history
+```
+
+```bash
 START                    OPERATION                CLIENT             OUTCOME
 2016-04-21T03:30:04      purge-history            pkg                Succeeded
 2016-07-02T16:09:56      uninstall                pkg                Succeeded
@@ -1510,6 +1550,9 @@ For example:
 
 ```bash
 pkg help update
+```
+
+```bash
 Usage:
         pkg update [-fnvq] [-C n] [-g path_or_uri ...] [--accept] [--ignore-missing]
             [--licenses] [--no-be-activate] [--no-index] [--no-refresh]
