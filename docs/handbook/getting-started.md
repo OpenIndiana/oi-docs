@@ -303,9 +303,7 @@ cdrecord dev=device imagefile.iso
 
 For example:
 
-```bash
-cdrecord dev=/dev/rdsk/c4t1d0p0 OI-hipster-gui-20160421.iso
-```
+`cdrecord dev=/dev/rdsk/c4t1d0p0 OI-hipster-gui-20160421.iso`
 
 ```bash
 /usr/bin/cdrecord.bin: No write mode specified.
@@ -345,9 +343,7 @@ Blanking the disk will destroy all data on the disk.
 
 For example:
 
-```bash
-cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast
-```
+`cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast`
 
 ```bash
 Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
@@ -382,9 +378,7 @@ To locate your device:
 For example:
 
 
-```bash
-cdrecord --scanbus
-```
+`cdrecord --scanbus`
 
 ```bash
 Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
@@ -411,9 +405,7 @@ For example: `cdrecord dev=4,1,0 imagefile.iso`
 </div>
 
 
-```bash
-rmformat -l
-```
+`rmformat -l`
 
 ```bash
 Looking for devices...
@@ -574,17 +566,16 @@ When issuing the USB copy command, be sure to specify the entire USB device.
 ### BSD/illumos/Solaris/Linux/OS X
 
 ```bash
-$ cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
+cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 ```
 
 For live images larger than 1GB, use the following command instead.
 
 ```bash
-$ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
-
-# where "X" is the letter of your USB device
+cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 ```
 
+Replace "X" with the appropriate letter for your USB device
 
 ### Windows
 
@@ -1282,9 +1273,7 @@ Using the `-r` option, the command searches the remote repository (or repositori
 
 For example:
 
-```bash
-pkg search -r xchat
-```
+`pkg search -r xchat`
 
 ```bash
 INDEX                ACTION VALUE                                   PACKAGE
@@ -1300,14 +1289,15 @@ The `pkg search` command may also be used to find the package containing a parti
 
 For example:
 
-```bash
-pkg search -l /usr/bin/gpg2
-```
+`pkg search -l /usr/bin/gpg2`
 
 ```bash
 INDEX      ACTION VALUE        PACKAGE
 path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
 ```
+
+When using the `pkg search` command bear it mind it works much like the Unix `find` command.
+If you have troubles finding a package you know should exist, try using wildcards with your commands.
 
 
 ### Listing information about packages
@@ -1316,9 +1306,7 @@ To list information about packages installed on the local system use the command
 
 For example:
 
-```bash
-pkg list gimp
-```
+`pkg list gimp`
 
 ```bash
 NAME (PUBLISHER)                                  VERSION                    IFO
@@ -1332,9 +1320,7 @@ The `pkg contents` command can also be used to list the dependencies found in a 
 
 For example:
 
-```bash
-pkg contents -H -t depend -o fmri xchat
-```
+`pkg contents -H -t depend -o fmri xchat`
 
 ```bash
 pkg:/library/desktop/gdk-pixbuf@2.31.6-2016.0.0.0
@@ -1362,9 +1348,7 @@ When installing packages, use of the `-v` (verbose) switch is entirely optional.
 
 For example:
 
-```bash
-pkg install xchat
-```
+`pkg install xchat`
 
 ```bash
            Packages to install:   1
@@ -1404,9 +1388,7 @@ To update all the packages installed on a system to their latest available versi
 
 For example:
 
-```bash
-pkg update
-```
+`pkg update`
 
 ```bash
             Packages to remove:    4
@@ -1460,9 +1442,7 @@ As previously mentioned, the IPS repository is the remote network location where
 
 Example (Listing the repositories configured on the system):
 
-```bash
-pkg publisher
-```
+`pkg publisher`
 
 ```bash
 PUBLISHER                   TYPE     STATUS P LOCATION
@@ -1497,9 +1477,7 @@ To list the IPS transactional history, use the `pkg history` command.
 
 For example:
 
-```bash
-pkg history
-```
+`pkg history`
 
 ```bash
 START                    OPERATION                CLIENT             OUTCOME
@@ -1548,9 +1526,7 @@ To retrieve additional information about a specific command use: `pkg help <comm
 
 For example:
 
-```bash
-pkg help update
-```
+`pkg help update`
 
 ```bash
 Usage:

@@ -71,13 +71,18 @@ This document is a work in progress (draft).
 
 ## Zones
 
-**DOC TEAM NOTES TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * Need to mention some of the changes to zone management...e.g..
     * sys-unconfig gone.
     * sysding replaced syscfg
-        * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`. So a fair amount of stuff has changed there.
+    * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`.
 
+So a fair amount of stuff has changed there.
+
+</div>
 
 ## Storage
 
@@ -86,9 +91,13 @@ This document is a work in progress (draft).
 
 ### Mounting file systems
 
-**DOC TEAM NOTES TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * Need a walkthrough of mounting options for other filesystems...NTFS, FAT, UFS, etc.
+
+</div>
 
 
 ### Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
@@ -126,55 +135,82 @@ Here are just a few of them:
 #### Importing ZFS disks
 
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * Talk about the ZFS import command.
+
+</div>
 
 
 #### How does one mirror their root zpool?
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * Adding a 2nd disk to the root pool
+
+</div>
 
 
 #### How does one create additional zpools?
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * zpool create command
     * Mirrors
     * Raidz
 
+</div>
+
 
 #### Modifying zpool settings and attributes
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * zpool get/set commands
+
+</div>
 
 
 #### Modifying zfs file system settings and attributes
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * zfs get/set commands
+
+</div>
 
 
 #### How does one create additional zfs datasets?
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * zfs create command
+
+</div>
 
 
 #### Configuring system swap
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * zfs set command
 * swap -l
 
+</div>
 
 ## Virtualization
 
@@ -183,7 +219,9 @@ Here are just a few of them:
 
 ### OpenIndiana as a virtualization host server
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * Qemu-KVM (KVM) walkthrough
     * illumos KVM port does not support AMD processors.
@@ -191,8 +229,12 @@ Here are just a few of them:
 * Virtualbox walkthrough
     * There is no package for this yet, but folks do have it working, see the wiki for details.
 
+</div>
 
-**DOC TEAM NOTES:**
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
 Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
@@ -214,6 +256,9 @@ You can check your processor for EPT support via the following link: <http://ark
 <jeffpc> I'll have to give it a try at some point
 ```
 
+</div>
+
+
 ## Localization
 
 < place holder >
@@ -222,12 +267,15 @@ You can check your processor for EPT support via the following link: <http://ark
 ## Updating and Upgrading
 
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * Be sure to provide walkthroughs for both IPS and BEADMIN (as they work together).
 * [Basics of Image Packaging System (IPS) - Oracle](http://www.oracle.com/technetwork/articles/servers-storage-admin/o11-083-ips-basics-523756.html)
 * [IPS cheat sheet PDF - Oracle](http://www.oracle.com/technetwork/server-storage/solaris11/documentation/ips-one-liners-032011-337775.pdf)
 
+</div>
 
 
 ### Using pkg to list packages currently installed on the system
@@ -250,7 +298,9 @@ You can check your processor for EPT support via the following link: <http://ark
 
 ### How does one find and install more software?
 
-**DOC TEAM TOPICS TO WRITE ABOUT:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 * <https://pkgsrc.joyent.com/>
 * <https://pkgsrc.joyent.com/install-on-illumos/>
@@ -269,11 +319,15 @@ Packages cannot be installed locally like RPM, instead you have to setup a local
     * Also could look here (might be outdated):
     * [web link](http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml)
 
+</div>
 
 
 ### Using the pkg publisher and pkg set-publisher commands
 
-**DOC TEAM NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
 See the FAQ for the updated command.
 The -O switch is no longer used.
 
@@ -282,6 +336,7 @@ The `pkg publisher` command is used to add and remove remote repositories.
 * `pkg publisher` - lists all the repositories configured on the system.
 * To add a repository, use `pkg set-publisher -O <Repository_URL> <Repository_Name>`
 
+</div>
 
 ### Using the pkgrepo command
 
