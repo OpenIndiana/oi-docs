@@ -78,7 +78,7 @@ ITEMS TO WRITE ABOUT:
 * Need to mention some of the changes to zone management...e.g..
     * sys-unconfig gone.
     * sysding replaced syscfg
-    * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`. 
+    * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`.
 
 So a fair amount of stuff has changed there.
 
