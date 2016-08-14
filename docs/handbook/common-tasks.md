@@ -102,17 +102,13 @@ pacmd list-cards
 
 listing devices
 
-```bash
-ls /dev/sound
-```
+`ls /dev/sound`
 
 ```bash
 0  0ctl  audiohd:0  audiohd:0ctl  audiohd:0dsp  audiohd:0mixer
 ```
 
-```bash
-ls -l /dev/audio* /dev/sound/*
-```
+`ls -l /dev/audio* /dev/sound/*`
 
 ```bash
 lrwxrwxrwx 1 root root  7 Jul 14 21:57 /dev/audio -> sound/0
@@ -125,9 +121,7 @@ lrwxrwxrwx 1 root root 48 Jul 14 21:57 /dev/sound/audiohd:0dsp -> ../../devices/
 lrwxrwxrwx 1 root root 50 Jul 14 21:57 /dev/sound/audiohd:0mixer -> ../../devices/pci@0,0/pci17aa,20f2@1b:sound,mixer0
 ```
 
-```bash
-cat /dev/sndstat
-```
+`cat /dev/sndstat`
 
 ```bash
 SunOS Audio Framework
@@ -145,9 +139,7 @@ Mixers:
 
 Finding the hardware
 
-```bash
-prtconf -d | grep -i audio
-```
+`prtconf -d | grep -i audio`
 
 ```bash
         pci17aa,20f2 (pciex8086,293e) [Intel Corporation 82801I (ICH9 Family) HD Audio Controller], instance #0
@@ -155,9 +147,7 @@ prtconf -d | grep -i audio
 
 Listing the devices
 
-```bash
-audioctl list-devices
-```
+`audioctl list-devices`
 
 ```bash
 audiohd#0
@@ -165,9 +155,7 @@ audiohd#0
 
 Running the test
 
-```bash
-audiotest
-```
+`audiotest`
 
 ```bash
 Sound subsystem and version: SunOS Audio 4.0 (0x00040003)
