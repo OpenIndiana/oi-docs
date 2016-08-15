@@ -563,7 +563,7 @@ When issuing the USB copy command, be sure to specify the entire USB device.
 </div>
 
 
-### BSD/illumos/Solaris/Linux/OS X
+### BSD/Linux/OS X
 
 ```bash
 cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
@@ -576,6 +576,30 @@ cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 ```
 
 Replace "X" with the appropriate letter for your USB device
+
+
+### illumos/Solaris
+
+For illumos based distributions including OpenIndiana, a script [(USBCOPY)](https://raw.githubusercontent.com/OpenIndiana/slim_source/oi/hipster/usr/src/cmd/install-tools/usbcopy) is available to copy the USB image onto a USB device.
+
+Be sure to run as root or with SUDO as the script exits if not run with elevated permissions.
+
+`sudo ./usbcopy OI-hipster-gui-20160421.usb`
+
+```bash
+Found the following USB devices:
+0:    devices/dev/rdsk/c4t0d0p0    3.9 GB    USB    DISK 2.0       1.00
+Enter the number of your choice: 0
+
+WARNING: All data on your USB storage will be lost.
+Are you sure you want to install to
+USB DISK 2.0 1.00, 3900 MB at /dev/rdsk/c4t0d0p0 ?  (y/n) y
+Copying and verifying image to USB device
+Finished 1643 MB in 685 seconds (2.3MB/s)
+0 block(s) re-written due to verification failure
+Installing grub to USB device /dev/rdsk/c4t0d0s0
+Completed copy to USB
+```
 
 ### Windows
 
