@@ -65,24 +65,7 @@ ITEMS TO WRITE ABOUT:
 </div>
 
 
-## Multimedia
-
-< place holder >
-
-#### gstreamer plugin prerequisites
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-The following gstreamer plugins are required for operation of the `gstreamer-properties` (sound properties) tool.
-
-* library/audio/gstreamer/plugin/base
-* library/audio/gstreamer/plugin/gnonlin
-* library/audio/gstreamer/plugin/good
-
-</div>
-
-
-### Pulse Audio configuration
+## Multimedia - Audio
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
@@ -91,35 +74,102 @@ ITEMS TO WRITE ABOUT:
 * How to use the hidden `gstreamer-properties` configuration utility.
 * Pulse Audio configuration
 * [possible resource](https://www.solarismultimedia.com/)
+* [How it works](http://tuxradar.com/content/how-it-works-linux-audio-explained)
 
 </div>
 
-Searching for cards with pulse audio command line tool
+OpenIndiana employs several different audio components which work together to facilitate audio output and control.
+These systems are, in a sense, layered and each provides specific functions, although not without a significant a degree of crossover.
+The reason for so many different systems is largely a case of ensuring support for legacy as well as modern applications.
+
+| System | Description
+| --- | ---
+| Gstreamer | Mixer/Proxy
+| PulseAudio | Mixer/Proxy
+| OSS/OSSv4 | Open Sound System
+| Sun Audio | Solaris Audio API (Dev Audio)
+
+At the lower levels of the OpenIndiana audio stack are OSS, OSS V4, and Sun Audio.
+Sun Audio is the oldest of the components, followed by OSS and OSS V4 respectively.
+The oldest applications were created to work with Sun Audio.
+OSS and OSS V4 provide support for applications originally written for Sun Audio.
+
+At the mid and upper levels are Gstreamer and PulseAudio, both of which provide a proxy like mixing function.
+Pulse Audio is the newest of the mixing components.
+
+Volume and other controls for the various components can be exposed from any level.
+For example, volume controls exist for OSS, as well as PulseAudio and Gstreamer.
+
+With so many different components and so much crossover in capabilities, the audio landscape within OpenIndiana can be a bit confusing.
+
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+The following packages are prerequisites for the proper operation of the `gstreamer-properties` utility.
+
+* library/audio/gstreamer/plugin/base
+* library/audio/gstreamer/plugin/gnonlin
+* library/audio/gstreamer/plugin/good
+
+</div>
+
+
+### Finding your audio hardware
+
+`prtconf -d | grep -i audio`
 
 ```bash
-pacmd list-cards
+pci1462,8a91 (pciex10de,bea) [NVIDIA Corporation GF108 High Definition Audio Controller], instance #1
+pci1458,a002 (pciex8086,3a3e) [Intel Corporation 82801JI (ICH10 Family) HD Audio Controller], instance #0
 ```
-
-listing devices
 
 `ls /dev/sound`
 
 ```bash
-0  0ctl  audiohd:0  audiohd:0ctl  audiohd:0dsp  audiohd:0mixer
+0  0ctl  1  1ctl  audiohd:0  audiohd:0ctl  audiohd:0dsp  audiohd:0mixer  audiohd:1  audiohd:1ctl  audiohd:1dsp  audiohd:1mixer
 ```
 
 `ls -l /dev/audio* /dev/sound/*`
 
 ```bash
-lrwxrwxrwx 1 root root  7 Jul 14 21:57 /dev/audio -> sound/0
-lrwxrwxrwx 1 root root 10 Jul 14 21:57 /dev/audioctl -> sound/0ctl
-lrwxrwxrwx 1 root root  9 Jul 14 21:57 /dev/sound/0 -> audiohd:0
-lrwxrwxrwx 1 root root 12 Jul 14 21:57 /dev/sound/0ctl -> audiohd:0ctl
-lrwxrwxrwx 1 root root 50 Jul 14 21:57 /dev/sound/audiohd:0 -> ../../devices/pci@0,0/pci17aa,20f2@1b:sound,audio0
-lrwxrwxrwx 1 root root 53 Jul 14 21:57 /dev/sound/audiohd:0ctl -> ../../devices/pci@0,0/pci17aa,20f2@1b:sound,audioctl0
-lrwxrwxrwx 1 root root 48 Jul 14 21:57 /dev/sound/audiohd:0dsp -> ../../devices/pci@0,0/pci17aa,20f2@1b:sound,dsp0
-lrwxrwxrwx 1 root root 50 Jul 14 21:57 /dev/sound/audiohd:0mixer -> ../../devices/pci@0,0/pci17aa,20f2@1b:sound,mixer0
+lrwxrwxrwx 1 root root  7 Aug 10 15:22 /dev/audio -> sound/0
+lrwxrwxrwx 1 root root 10 Aug 10 15:22 /dev/audioctl -> sound/0ctl
+lrwxrwxrwx 1 root root  9 Aug 10 15:22 /dev/sound/0 -> audiohd:0
+lrwxrwxrwx 1 root root 12 Aug 10 15:22 /dev/sound/0ctl -> audiohd:0ctl
+lrwxrwxrwx 1 root root  9 Aug 11 18:38 /dev/sound/1 -> audiohd:1
+lrwxrwxrwx 1 root root 12 Aug 11 18:38 /dev/sound/1ctl -> audiohd:1ctl
+lrwxrwxrwx 1 root root 50 Aug 10 15:22 /dev/sound/audiohd:0 -> ../../devices/pci@0,0/pci1458,a002@1b:sound,audio0
+lrwxrwxrwx 1 root root 53 Aug 10 15:22 /dev/sound/audiohd:0ctl -> ../../devices/pci@0,0/pci1458,a002@1b:sound,audioctl0
+lrwxrwxrwx 1 root root 48 Aug 10 15:22 /dev/sound/audiohd:0dsp -> ../../devices/pci@0,0/pci1458,a002@1b:sound,dsp0
+lrwxrwxrwx 1 root root 50 Aug 10 15:22 /dev/sound/audiohd:0mixer -> ../../devices/pci@0,0/pci1458,a002@1b:sound,mixer0
+lrwxrwxrwx 1 root root 66 Aug 11 18:38 /dev/sound/audiohd:1 -> ../../devices/pci@0,0/pci8086,2e21@1/pci1462,8a91@0,1:sound,audio1
+lrwxrwxrwx 1 root root 69 Aug 11 18:38 /dev/sound/audiohd:1ctl -> ../../devices/pci@0,0/pci8086,2e21@1/pci1462,8a91@0,1:sound,audioctl1
+lrwxrwxrwx 1 root root 64 Aug 11 18:38 /dev/sound/audiohd:1dsp -> ../../devices/pci@0,0/pci8086,2e21@1/pci1462,8a91@0,1:sound,dsp1
+lrwxrwxrwx 1 root root 66 Aug 11 18:38 /dev/sound/audiohd:1mixer -> ../../devices/pci@0,0/pci8086,2e21@1/pci1462,8a91@0,1:sound,mixer1
 ```
+
+### OSS/OSS V4
+
+#### Listing devices
+
+`audioctl list-devices`
+
+```bash
+audiohd#0
+```
+
+### Pulse Audio
+
+#### Listing devices
+
+```bash
+pacmd list-cards
+```
+
+
+### Sun Audio
+
+#### Listing devices
 
 `cat /dev/sndstat`
 
@@ -134,26 +184,7 @@ Mixers:
         HD codec: Conexant CX20561
 ```
 
-
-### Testing audio
-
-Finding the hardware
-
-`prtconf -d | grep -i audio`
-
-```bash
-        pci17aa,20f2 (pciex8086,293e) [Intel Corporation 82801I (ICH9 Family) HD Audio Controller], instance #0
-```
-
-Listing the devices
-
-`audioctl list-devices`
-
-```bash
-audiohd#0
-```
-
-Running the test
+#### Performing a sound test
 
 `audiotest`
 
@@ -171,6 +202,7 @@ Platform: SunOS 5.11 illumos-380fd67 i86pc
 
 *** All tests completed OK ***
 ```
+
 
 ### MP3 and CD audio support
 
@@ -200,7 +232,7 @@ You may however install them from the **_hipster-encumbered_** repository.
 </div>
 
 
-### Video support
+## Multimedia - Video
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
