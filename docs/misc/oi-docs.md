@@ -55,15 +55,17 @@ To this end, the team looked at several documentation oriented static site gener
 
 ## Providing feedback
 
-To make a suggestion or report a bug, please make your request on the #openindiana or #oi-dev IRC channels, or alternately via the OpenIndiana mailing lists.
+Community feedback is critical to the growth and development of the OpenIndiana Docs website.
+To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
 
 
-## Contributing to OI-DOCS
+## Contributing to OpenIndiana Docs 
 
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
 
 We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, etc.
+From there, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
 
 If you think it can be helpful to the greater OpenIndiana community, we'll be happy to review it for incorporation into the docs collection.
 For further information, please see the contribution pages.
