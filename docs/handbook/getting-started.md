@@ -1322,7 +1322,7 @@ image/editor/gimp                                 2.8.16-2016.0.0.2          i--
 ```
 
 To list the entire contents of a package, use the command: `pkg contents <package-name>`.
-If the package is not installed on the local system, use the `-r` option.
+If the package is not installed on the local system, use the `-r` option to search the remote repositories defined on the system.
 
 The `pkg contents` command can also be used to list the dependencies found in a package.
 
@@ -1350,9 +1350,16 @@ pkg:/x11/library/libx11@1.6.3-2016.0.0.0
 
 Use the following command to install a package.
 
-`pkg install [-v] <package-name>`
+`pkg install [options] <package-name>`
 
-When installing packages, use of the `-v` (verbose) switch is entirely optional.
+Some commonly used options are:
+
+| Option | Description
+| --- | ---
+| -v | Issue verbose progress messages
+| -n | Perform a dry run (no actual changes are made)
+| -q | Hides progress messages
+
 
 For example:
 
@@ -1392,7 +1399,19 @@ Any dependent packages are also automatically updated.
 
 ### Updating packages
 
-To update all the packages installed on a system to their latest available version, use the `pkg update` command.
+The command to use for updating packages on the system is:
+
+`pkg update [options] [package(s)]`
+
+Some commonly used options are:
+
+| Option | Description
+| --- | ---
+| -v | Issue verbose progress messages
+| -n | Perform a dry run (no actual changes are made)
+| -q | Hides progress messages
+
+To update all the packages installed on a system to their latest available version, use the `pkg update` command without specifying any package names.
 
 For example:
 
@@ -1440,6 +1459,7 @@ To remove a package from the system, use the command: `pkg uninstall <package-na
 ### IPS package repositories
 
 As previously mentioned, the IPS repository is the remote network location where IPS packages reside.
+Below is a list of commands for adding, removing, or replacing repositories.
 
 | Task | Command
 | --- | ---
@@ -1465,6 +1485,27 @@ pkg set-publisher \
 -G http://pkg.openindiana.org/hipster-2015 \
 -g https://pkg.openindiana.org/hipster openindiana.org
 ```
+
+### Listing information about repositories
+
+While the `pkgrepo` command is primarily used for creating and working with IPS repositories.
+It can also be used for querying the contents of a repository.
+
+For example:
+
+`pkgrepo info -s https://pkg.openindiana.org/hipster/`
+
+```bash
+PUBLISHER       PACKAGES STATUS           UPDATED
+openindiana.org 3692     online           2016-08-21T07:03:11.566484Z
+```
+
+If you want to directly query the remote repository for a full list of all available packages, you can do so using the `pkgrepo list` command.
+
+* `pkgrepo list -s <repo_URL>`
+
+Do keep in mind you may want to filter the output of the command in some way to keep the list more manageable.
+If not, you're likely to see thousands of lines scroll through your console window.
 
 
 ### IPS package repository precedence
@@ -1634,6 +1675,27 @@ Here are some of the available tools:
 
 
 ### 3rd party package management tools
+
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
+* <https://pkgsrc.joyent.com/>
+* <https://pkgsrc.joyent.com/install-on-illumos/>
+
+* Need to answer the questions - Where and how can I install more software?
+* Discuss 3rd party package managers (PKGIN, etc.)
+* Discuss the various 3rd party repos (opencsw, sfe, pkgsrc.joyent, etc.), what's available in them, and which might break compatibility, etc.
+* Describe SFE (SPEC FILES EXTRA) and how it differs from OI and other repos.
+* How to add additional repos, etc.
+* How to compile your own software.
+    * I think there is an existing wiki page for this.
+    * Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
+    * Also could look here (might be outdated):
+    * [web link](http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml)
+
+</div>
 
 In addition to IPS and SVR4 package management tools, it is also possible to use `pkgsrc`.
 
