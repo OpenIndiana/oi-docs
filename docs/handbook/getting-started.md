@@ -1230,24 +1230,8 @@ Note the following points about IPS packages:
 Actions are defined when an IPS package is created.
 Actions are used for defining the files and directories of the package, setting package attributes, declaring dependencies on other packages, creating users and groups, and installing device drivers.
 Some actions may optionally have tags that provide meta information about the action such as locale information and debug configuration.
-
-
-### IPS package archives (.p5p)
-
-When the IPS system was originally conceived there was no standard on-disk format for an IPS package.
-Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, it was not possible to transfer an IPS package from system to system.
-The remote IPS repository where the IPS package resided was the only source for the package.
-This is because in its native state, the IPS package is not something you can normally download as a single archive file.
-
-Recognizing this limitation of IPS, the `.p5p` IPS archive format was developed.
-For IPS archives, files are stored in the pax archive format, along with additional metadata, such as IPS manifest files, and a specific layout of the contents.
-The `pkgrecv` command is used to create IPS archives.
-
-For example, to create a `.p5p` IPS package archive containing the package `editor/gnu-emacs` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
-
-```bash
-pkgrecv -s http://example.com:10000 -d /my/emacs.p5p -a -r editor/gnu-emacs
-```
+* IPS packages can only be installed from an IPS repository.
+    * IPS package repositories can be local to the system or on a remote networked system.
 
 
 ### IPS commands
@@ -1535,6 +1519,81 @@ To view more details of a particular IPS transaction, use the command:
 `pkg history -t 2016-07-09T11:33:05 -l`
 
 The `-t` switch allows you to specify a particular transaction and the `-l` switch provides extended details of that transaction.
+
+
+### IPS package archives (.p5p)
+
+When the IPS system was originally conceived there was no standard on-disk format for an IPS package.
+Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, it was not possible to transfer IPS packages from system to system.
+The remote IPS repository where the IPS package resided was the only source for the package.
+This is because in its native state, the IPS package is not something you can normally download as a single archive file.
+
+Recognizing this limitation of IPS, the `.p5p` IPS archive format was developed.
+For IPS archives, files are stored in the pax archive format, along with additional metadata, such as IPS manifest files, and a specific layout of the contents.
+
+IPS p5p archives are not like Linux packages where you can install software directly from the package.
+Instead p5p archives are a portable repository format containing a collection of packages.
+This allows you to create p5p archives for transfer to non-networked systems.
+IPS package archives are also useful for sharing packages for the purpose of testing.
+
+IPS archives allow you to:
+
+* Download one or more packages (along with all necessary dependencies) into a p5p archive file.
+* Create a local repository based on the contents of the p5p archive file.
+* Install packages from the locally created repository.
+
+
+#### Creating the p5p package 
+
+To create an IPS archive, the `pkgrecv` command is used.
+
+For example, to create a `.p5p` IPS package archive containing the package `userland/web/browser/firefox` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
+
+```bash
+pkgrecv -s http://example.com:10000 -d ~/firefox_test.p5p -a -r pkg://userland/web/browser/firefox@45.3.0-2016.0.0.0:20160817T064143Z
+```
+
+
+#### Listing the contents of a p5p package
+
+There are at least two different ways to view the contents of an IPS archive.
+
+`pkgrepo -s ~/firefox_test.p5p list`
+
+```bash
+PUBLISHER NAME                                          O VERSION
+userland  library/expat                                   2.1.0-2015.0.1.1:20150901T125810Z
+userland  library/glib2                                   2.43.4-2016.0.0.4:20160705T121550Z
+userland  library/glib2/charset-alias                     2.43.4-2016.0.0.4:20160705T121609Z
+userland  system/library/fontconfig                       2.11.95-2016.0.0.0:20160512T122747Z
+userland  web/browser/firefox                             45.3.0-2016.0.0.0:20160817T064143Z
+userland  x11/library/toolkit/libxt                       1.1.4-2016.0.0.0:20160706T165209Z
+```
+
+This also works:
+
+
+`pkg list -f -g  ~/firefox_test.p5p`
+
+```bash
+NAME (PUBLISHER)                                  VERSION                    IFO
+library/expat (userland)                          2.1.0-2015.0.1.1           ---
+library/glib2 (userland)                          2.43.4-2016.0.0.4          ---
+library/glib2/charset-alias (userland)            2.43.4-2016.0.0.4          ---
+system/library/fontconfig (userland)              2.11.95-2016.0.0.0         ---
+web/browser/firefox (userland)                    45.3.0-2016.0.0.0          ---
+x11/library/toolkit/libxt (userland)              1.1.4-2016.0.0.0           ---
+```
+
+
+#### Adding the package as a local repository
+
+`pkg set-publisher -p firefox_test.p5p`
+
+
+#### Installing software from the local repository
+
+`pkg install firefox@45.3.0-2016.0.0.0:20160817T064143`
 
 
 ### Finding help with pkg
