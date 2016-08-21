@@ -1584,7 +1584,7 @@ IPS archives allow you to:
 * Install packages from the locally created repository.
 
 
-#### Creating the p5p package 
+#### Creating the p5p package
 
 To create an IPS archive, the `pkgrecv` command is used.
 
