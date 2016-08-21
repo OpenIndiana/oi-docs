@@ -59,13 +59,13 @@ Community feedback is critical to the growth and development of the OpenIndiana 
 To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
 
 
-## Contributing to OpenIndiana Docs 
+## Contributing to OpenIndiana Docs
 
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
 
-We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, etc.
+We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
 From there, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
 
-If you think it can be helpful to the greater OpenIndiana community, we'll be happy to review it for incorporation into the docs collection.
-For further information, please see the contribution pages.
+In a nutshell, if you think your contribution can be helpful to the greater OpenIndiana community, we'll be happy to review it.
+For further information, please see the contribution pages found elsewhere on this site.
