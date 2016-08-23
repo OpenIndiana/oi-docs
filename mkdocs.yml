@@ -40,11 +40,6 @@ pages:
         - 'Contributor Style Guide': contrib/style.md
         - 'Markdown Syntax Guide': contrib/markdown.md
 
-- Notes:
-        - 'Content Management - The BSD Approach': notes/bsd.md
-        - 'Improving the OpenIndiana Project': notes/project.md
-        - 'The OpenSolaris Redistributable Books': notes/books.md
-
 
 copyright: Copyright &copy; 2016 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
 

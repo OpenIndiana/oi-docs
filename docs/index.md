@@ -8,36 +8,34 @@
 <div class="col-sm-6">
   <div class="panel panel-default">
   <div class="panel-heading"><a href="http://www.openindiana.org">www.openindiana.org</a></div>
-  <div class="panel-body">Primary web presence</div>
+  <div class="panel-body"><ul><li>Primary web presence</li></ul></div>
   </div>
   <div class="panel panel-default">
   <div class="panel-heading"><a href="http://wiki.openindiana.org">wiki.openindiana.org</a></div>
-  <div class="panel-body">Development and community information</div>
+  <div class="panel-body"><ul><li>Development and community information</li></ul></div>
   </div>
   <div class="panel panel-default">
   <div class="panel-heading"><a href="https://illumos.org/man/">illumos Man Pages</a></div>
-  <div class="panel-body">Man pages for the core source tree</div>
+  <div class="panel-body"><ul><li>Man pages for the core source tree</li></ul></div>
+  </div>
+  <div class="panel panel-default">
+  <div class="panel-heading"><a href="https://www.illumos.org/projects/openindiana/issues">OpenIndiana issue tracker</a></div>
+  <div class="panel-body"><ul><li>OpenIndiana bug tracker</li></ul></div>
   </div>
 </div>
 
 <div class="col-sm-6">
   <div class="panel panel-default">
   <div class="panel-heading"><a href="irc://irc.freenode.net/openindiana">#openindiana (Freenode)</a></div>
-  <div class="panel-body">
-  <p>End user support IRC channel</p>
-  <p><a href="http://echelog.com/logs/browse/openindiana">Click here</a> for channel logs</p>
-  </div>
+  <div class="panel-body"><ul><li>End user support IRC channel</li><li><a href="http://echelog.com/logs/browse/openindiana">Channel Logs</a></li></ul></div>
   </div>
   <div class="panel panel-default">
   <div class="panel-heading"><a href="irc://irc.freenode.net/oi-dev">#oi-dev (Freenode)</a></div>
-  <div class="panel-body">
-  <p>Development team IRC channel</p>
-  <p><a href="http://echelog.com/logs/browse/oi-dev">Click here</a> for channel logs</p>
-  </div>
+  <div class="panel-body"><ul><li>Development team IRC channel</li><li><a href="http://echelog.com/logs/browse/oi-dev">Channel Logs</a></li></ul></div>
   </div>
   <div class="panel panel-default">
   <div class="panel-heading"><a href="http://openindiana.org/mailman">OpenIndiana Mailing Lists</a></div>
-  <div class="panel-body">End user support and development mailing lists</div>
+  <div class="panel-body"><ul><li>End user support mailing list</li><li>Development team mailing list</li></ul></div>
   </div>
 </div>
 

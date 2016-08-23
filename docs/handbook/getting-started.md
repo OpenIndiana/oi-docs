@@ -1230,24 +1230,8 @@ Note the following points about IPS packages:
 Actions are defined when an IPS package is created.
 Actions are used for defining the files and directories of the package, setting package attributes, declaring dependencies on other packages, creating users and groups, and installing device drivers.
 Some actions may optionally have tags that provide meta information about the action such as locale information and debug configuration.
-
-
-### IPS package archives (.p5p)
-
-When the IPS system was originally conceived there was no standard on-disk format for an IPS package.
-Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, it was not possible to transfer an IPS package from system to system.
-The remote IPS repository where the IPS package resided was the only source for the package.
-This is because in its native state, the IPS package is not something you can normally download as a single archive file.
-
-Recognizing this limitation of IPS, the `.p5p` IPS archive format was developed.
-For IPS archives, files are stored in the pax archive format, along with additional metadata, such as IPS manifest files, and a specific layout of the contents.
-The `pkgrecv` command is used to create IPS archives.
-
-For example, to create a `.p5p` IPS package archive containing the package `editor/gnu-emacs` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
-
-```bash
-pkgrecv -s http://example.com:10000 -d /my/emacs.p5p -a -r editor/gnu-emacs
-```
+* IPS packages can only be installed from an IPS repository.
+    * IPS package repositories can be local to the system or on a remote networked system.
 
 
 ### IPS commands
@@ -1338,7 +1322,7 @@ image/editor/gimp                                 2.8.16-2016.0.0.2          i--
 ```
 
 To list the entire contents of a package, use the command: `pkg contents <package-name>`.
-If the package is not installed on the local system, use the `-r` option.
+If the package is not installed on the local system, use the `-r` option to search the remote repositories defined on the system.
 
 The `pkg contents` command can also be used to list the dependencies found in a package.
 
@@ -1366,9 +1350,16 @@ pkg:/x11/library/libx11@1.6.3-2016.0.0.0
 
 Use the following command to install a package.
 
-`pkg install [-v] <package-name>`
+`pkg install [options] <package-name>`
 
-When installing packages, use of the `-v` (verbose) switch is entirely optional.
+Some commonly used options are:
+
+| Option | Description
+| --- | ---
+| -v | Issue verbose progress messages
+| -n | Perform a dry run (no actual changes are made)
+| -q | Hides progress messages
+
 
 For example:
 
@@ -1408,7 +1399,19 @@ Any dependent packages are also automatically updated.
 
 ### Updating packages
 
-To update all the packages installed on a system to their latest available version, use the `pkg update` command.
+The command to use for updating packages on the system is:
+
+`pkg update [options] [package(s)]`
+
+Some commonly used options are:
+
+| Option | Description
+| --- | ---
+| -v | Issue verbose progress messages
+| -n | Perform a dry run (no actual changes are made)
+| -q | Hides progress messages
+
+To update all the packages installed on a system to their latest available version, use the `pkg update` command without specifying any package names.
 
 For example:
 
@@ -1456,6 +1459,7 @@ To remove a package from the system, use the command: `pkg uninstall <package-na
 ### IPS package repositories
 
 As previously mentioned, the IPS repository is the remote network location where IPS packages reside.
+Below is a list of commands for adding, removing, or replacing repositories.
 
 | Task | Command
 | --- | ---
@@ -1481,6 +1485,27 @@ pkg set-publisher \
 -G http://pkg.openindiana.org/hipster-2015 \
 -g https://pkg.openindiana.org/hipster openindiana.org
 ```
+
+### Listing information about repositories
+
+While the `pkgrepo` command is primarily used for creating and working with IPS repositories.
+It can also be used for querying the contents of a repository.
+
+For example:
+
+`pkgrepo info -s https://pkg.openindiana.org/hipster/`
+
+```bash
+PUBLISHER       PACKAGES STATUS           UPDATED
+openindiana.org 3692     online           2016-08-21T07:03:11.566484Z
+```
+
+If you want to directly query the remote repository for a full list of all available packages, you can do so using the `pkgrepo list` command.
+
+* `pkgrepo list -s <repo_URL>`
+
+Do keep in mind you may want to filter the output of the command in some way to keep the list more manageable.
+If not, you're likely to see thousands of lines scroll through your console window.
 
 
 ### IPS package repository precedence
@@ -1537,6 +1562,81 @@ To view more details of a particular IPS transaction, use the command:
 The `-t` switch allows you to specify a particular transaction and the `-l` switch provides extended details of that transaction.
 
 
+### IPS package archives (.p5p)
+
+When the IPS system was originally conceived there was no standard on-disk format for an IPS package.
+Hence, unlike a .rpm file, an SVR4 package, or a .nbm file, it was not possible to transfer IPS packages from system to system.
+The remote IPS repository where the IPS package resided was the only source for the package.
+This is because in its native state, the IPS package is not something you can normally download as a single archive file.
+
+Recognizing this limitation of IPS, the `.p5p` IPS archive format was developed.
+For IPS archives, files are stored in the pax archive format, along with additional metadata, such as IPS manifest files, and a specific layout of the contents.
+
+IPS p5p archives are not like Linux packages where you can install software directly from the package.
+Instead p5p archives are a portable repository format containing a collection of packages.
+This allows you to create p5p archives for transfer to non-networked systems.
+IPS package archives are also useful for sharing packages for the purpose of testing.
+
+IPS archives allow you to:
+
+* Download one or more packages (along with all necessary dependencies) into a p5p archive file.
+* Create a local repository based on the contents of the p5p archive file.
+* Install packages from the locally created repository.
+
+
+#### Creating the p5p package
+
+To create an IPS archive, the `pkgrecv` command is used.
+
+For example, to create a `.p5p` IPS package archive containing the package `userland/web/browser/firefox` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
+
+```bash
+pkgrecv -s http://example.com:10000 -d ~/firefox_test.p5p -a -r pkg://userland/web/browser/firefox@45.3.0-2016.0.0.0:20160817T064143Z
+```
+
+
+#### Listing the contents of a p5p package
+
+There are at least two different ways to view the contents of an IPS archive.
+
+`pkgrepo -s ~/firefox_test.p5p list`
+
+```bash
+PUBLISHER NAME                                          O VERSION
+userland  library/expat                                   2.1.0-2015.0.1.1:20150901T125810Z
+userland  library/glib2                                   2.43.4-2016.0.0.4:20160705T121550Z
+userland  library/glib2/charset-alias                     2.43.4-2016.0.0.4:20160705T121609Z
+userland  system/library/fontconfig                       2.11.95-2016.0.0.0:20160512T122747Z
+userland  web/browser/firefox                             45.3.0-2016.0.0.0:20160817T064143Z
+userland  x11/library/toolkit/libxt                       1.1.4-2016.0.0.0:20160706T165209Z
+```
+
+This also works:
+
+
+`pkg list -f -g  ~/firefox_test.p5p`
+
+```bash
+NAME (PUBLISHER)                                  VERSION                    IFO
+library/expat (userland)                          2.1.0-2015.0.1.1           ---
+library/glib2 (userland)                          2.43.4-2016.0.0.4          ---
+library/glib2/charset-alias (userland)            2.43.4-2016.0.0.4          ---
+system/library/fontconfig (userland)              2.11.95-2016.0.0.0         ---
+web/browser/firefox (userland)                    45.3.0-2016.0.0.0          ---
+x11/library/toolkit/libxt (userland)              1.1.4-2016.0.0.0           ---
+```
+
+
+#### Adding the package as a local repository
+
+`pkg set-publisher -p firefox_test.p5p`
+
+
+#### Installing software from the local repository
+
+`pkg install firefox@45.3.0-2016.0.0.0:20160817T064143`
+
+
 ### Finding help with pkg
 
 The primary source of help for any OpenIndiana command is to review the man page for the command.
@@ -1575,6 +1675,27 @@ Here are some of the available tools:
 
 
 ### 3rd party package management tools
+
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
+* <https://pkgsrc.joyent.com/>
+* <https://pkgsrc.joyent.com/install-on-illumos/>
+
+* Need to answer the questions - Where and how can I install more software?
+* Discuss 3rd party package managers (PKGIN, etc.)
+* Discuss the various 3rd party repos (opencsw, sfe, pkgsrc.joyent, etc.), what's available in them, and which might break compatibility, etc.
+* Describe SFE (SPEC FILES EXTRA) and how it differs from OI and other repos.
+* How to add additional repos, etc.
+* How to compile your own software.
+    * I think there is an existing wiki page for this.
+    * Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
+    * Also could look here (might be outdated):
+    * [web link](http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml)
+
+</div>
 
 In addition to IPS and SVR4 package management tools, it is also possible to use `pkgsrc`.
 
