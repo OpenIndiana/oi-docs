@@ -53,12 +53,6 @@ As a result of the aforementioned exercises, the team established the following 
 To this end, the team looked at several documentation oriented static site generators and selected MkDocs for its simplicity, ease of use, and professional quality output.
 
 
-## Providing feedback
-
-Community feedback is critical to the growth and development of the OpenIndiana Docs website.
-To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
-
-
 ## Contributing to OpenIndiana Docs
 
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
@@ -69,3 +63,11 @@ From there, we will review the document for conversion to markdown and subsequen
 
 In a nutshell, if you think your contribution can be helpful to the greater OpenIndiana community, we'll be happy to review it.
 For further information, please see the contribution pages found elsewhere on this site.
+
+
+## Providing feedback
+
+Community feedback is critical to the growth and development of the OpenIndiana Docs website.
+To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
+
+The docs team can also be reached via email: _**docs at openindiana.org**_.
