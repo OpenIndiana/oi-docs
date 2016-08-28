@@ -702,7 +702,7 @@ For example, select `18` for German, or `35` for Russian, etc.
 The default keyboard layout is selection `47` US-English.
 Once you have selected a keyboard layout, press the `Enter` key to continue.
 
-![Select display language](./images/boot/language2.png)
+![Select display language](./images/boot/language.png)
 
 OpenIndiana offers 22 different language options.
 Select a language by entering the number corresponding to your desired language.
@@ -796,14 +796,14 @@ Select the appropriate installer option by clicking the corresponding desktop in
 
 ### Install OpenIndiana (graphical installer)
 
-![Launch the installer](./images/gui_install2/install_1.png)
+![Launch the installer](./images/gui_install/install_1.png)
 
 To launch the OpenIndiana graphical installer, locate and double click the desktop icon labeled: _**Install OpenIndiana**_.
 
 As shown below, and in the subsequent screens, the installer starts a new process, running within it's own window.
 
 
-![First install screen](./images/gui_install2/install_2.png)
+![First install screen](./images/gui_install/install_2.png)
 
 When the installer starts, the first screen you will see is the welcome page.
 Please take some time to read the additional guidance provided below.
@@ -828,7 +828,7 @@ The release notes may be accessed in one of the following ways:
 </div>
 
 
-![Disk selection and partitioning menu -1](./images/gui_install2/install_3.png)
+![Disk selection and partitioning menu -1](./images/gui_install/install_3.png)
 
 The top portion of the disk selection and partitioning screen shows all the disks found on the system, including removable disks.
 Each disk is represented with a disk icon.
@@ -843,7 +843,7 @@ Within the lower panel, select one of the following options:
 | Use the whole disk | When the _Use the whole disk_ option is selected, the entire disk is used for the installation. For the selected disk, all existing partitions and any data which they may contain, will be overwritten with the OpenIndiana operating system.
 | Partition the disk | When _Partition the disk_ option is selected, the bottom portion of this panel displays the disk partitioning layout. Prior to selecting this option, please be sure to review all the informational notes and warnings concerning the use of the partitioning option.
 
-![Disk selection and partitioning menu -2](./images/gui_install2/install_4.png)
+![Disk selection and partitioning menu -2](./images/gui_install/install_4.png)
 If you choose to partition the disk, you have additional options as shown above.
 Please take some time to read the additional guidance provided below.
 When you have revised the partitioning as needed, click the _**Next**_ button to continue.
@@ -890,7 +890,7 @@ If the table can be read, then the following information applies:
 </div>
 
 
-![Time zone, date and time](./images/gui_install2/install_5.png)
+![Time zone, date and time](./images/gui_install/install_5.png)
 
 This screen enables you to type the correct time zone, date, and time for the system to be installed.
 The top half of the panel displays a world map with major cities marked.
@@ -918,7 +918,7 @@ After making your selections, you may also edit the default date and time that i
 When the settings are correct, click Next to continue.
 
 
-![Locale](./images/gui_install2/install_6.png)
+![Locale](./images/gui_install/install_6.png)
 
 This screen enables you to select a language and locale.
 These selections determine the language support, the default date and time, and other data formats for the installed system.
@@ -937,7 +937,7 @@ Only one locale can be selected.
 Any time that you log in to the installed system, you can change either the locale for that particular session or the default locale by using the Options button in the Login dialog box.
 </div>
 
-![Users](./images/gui_install2/install_7.png)
+![Users](./images/gui_install/install_7.png)
 
 Review the following guidelines:
 
@@ -968,7 +968,7 @@ If you do not want to define a user account, you can proceed.
 * Type a computer name or accept the default.
 The computer name field cannot be blank.
 
-![Installation summary](./images/gui_install2/install_8.png)
+![Installation summary](./images/gui_install/install_8.png)
 
 This screen summaries the configuration options which will be used to perform the installation.
 Be sure to take the time to review this summary.
@@ -982,19 +982,19 @@ Do not attempt to interrupt an installation already in progress or the system wi
 </div>
 
 
-![Installation in progress](./images/gui_install2/install_9.png)
+![Installation in progress](./images/gui_install/install_9.png)
 
 During the installation, a progress bar is displayed.
 The time required to complete the installation is dependent on your hardware.
 
-![Completion summary](./images/gui_install2/install_10.png)
+![Completion summary](./images/gui_install/install_10.png)
 
 The final screen displays completion messages.
 From within this panel you may review the installation log.
 To view the installation log, click the link titled _**OpenIndiana Installation Log**_.
 The installation log will open in a new window.
 
-![Installation log](./images/gui_install2/install_11.png)
+![Installation log](./images/gui_install/install_11.png)
 
 Using the slider located on the right side of the log viewer window, you may scroll up and down to view the entire log file.
 After reviewing the log, you may exit the log viewer by clicking the _**Close**_ button.
