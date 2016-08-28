@@ -970,7 +970,7 @@ The computer name field cannot be blank.
 
 ![Installation summary](./images/gui_install/install_8.png)
 
-This screen summaries the configuration options which will be used to perform the installation.
+This screen summarizes the configuration options which will be used to perform the installation.
 Be sure to take the time to review this summary.
 If a configuration option needs to be changed, you may do so by clicking the _**Back**_ button.
 If the installation options are acceptable, click the _**Install**_ button to begin the installation.
@@ -1011,7 +1011,7 @@ From here you now have several options:
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 To prevent the Live Media from starting again after the reboot, eject the Live Media as the next boot begins.
-Or alternately, when presented with the Live Media installer option menu, select the _**Boot from Hard Disk**_ option.
+Or alternately, when presented with the Live Media installer options menu, select the _**Boot from Hard Disk**_ option.
 </div>
 
 
