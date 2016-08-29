@@ -168,24 +168,28 @@ oi-docs/
 
 ```markdown
 docs/
+├── books/
 ├── contrib/
 ├── dev/
 ├── favicon.ico
 ├── handbook/
 ├── index.md
 ├── misc/
-└── notes/
+├── Openindiana.png
+└── retired/
 ```
 
 | Resource | Description
 | --- | ---
+| books/ | Legacy OpenSolaris Books
 | contrib/ | Contributor guidance docs
 | dev/ | Development oriented docs
 | favicon.ico | Site favicon icon
 | handbook/ | OpenIndiana handbook docs
 | index.md | Site front page
 | misc/ | Miscellaneous docs
-| notes | Doc team reference notes
+| Openindiana.pgn | OpenIndiana project graphic
+| retired | Deprecated docs, etc.
 
 
 ## Make some changes.
