@@ -75,17 +75,6 @@ For further details, see: <https://help.github.com/articles/set-up-git/>
 | OpenIndiana | Installed by default as part of Ruby
 
 
-#### Install nodejs-npm - Optional
-
-| Operating System | Command
-| --- | ---
-| Arch | `pacman -S nodejs npm`
-| Centos/RHEL | `yum install nodejs npm`
-| Debian/Mint/Ubuntu | `apt-get install nodejs-legacy`
-| Fedora | `dnf install npm`
-| OpenIndiana | `pkg install nodejs`
-
-
 #### Install mkdocs
 
 * Most operating systems (including OpenIndiana): `pip install mkdocs`
@@ -98,9 +87,9 @@ Verify your installation with `mkdocs --version`
 * `gem install mdl`
 
 
-#### Install markdown-spellcheck (Optional)
+#### Install VIM Markdown plugin (optional)
 
-* `npm install markdown-spellcheck`
+* <https://github.com/plasticboy/vim-markdown/>
 
 
 ## Fork the OpenIndiana Docs repository
