@@ -85,3 +85,14 @@ When you are ready to begin contributing, pick a doc and then:
 
 See the [Contributor Topics](./topics.md) page for specific items which need further development.
 
+
+## Contacting the documentation team
+
+To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
+
+The docs team can be reached via email: _**docs at openindiana.org**_.
+
+You may also inquire via IRC:
+
+* [#openindiana (freenode)](irc://irc.freenode.net/openindiana)
+* [#oi-dev (freenode)](irc://irc.freenode.net/oi-dev)

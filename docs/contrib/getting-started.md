@@ -23,13 +23,23 @@ The process for contributing to OpenIndiana Docs is simple and follows the same 
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
 
-We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, etc.
+We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
+From there, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
 
-If you think it can be helpful to the greater OpenIndiana community, we'll be happy to review it for incorporation into the docs collection.
+In a nutshell, if you think your contribution can be helpful to the greater OpenIndiana community, we'll be happy to review it.
+
+To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
+
+The docs team can be reached via email: _**docs at openindiana.org**_.
+
+You may also inquire via IRC:
+
+* [#openindiana (freenode)](irc://irc.freenode.net/openindiana)
+* [#oi-dev (freenode)](irc://irc.freenode.net/oi-dev)
+
 
 </div>
 
@@ -78,8 +88,16 @@ For further details, see: <https://help.github.com/articles/set-up-git/>
 #### Install mkdocs
 
 * Most operating systems (including OpenIndiana): `pip install mkdocs`
+* Verify your installation with `mkdocs --version`
 
-Verify your installation with `mkdocs --version`
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+If you experience difficulties installing mkdocs, try using the python 3 version of `pip`.
+
+For example:
+
+* For Linux Mint 18, the python 3 version of `pip` would be `pip3`.
+</div>
 
 
 #### Install Markdown Lint (mdl)
@@ -337,10 +355,15 @@ For example: `https://github.com/your-user-name/oi-docs`
 * Add some notes about your change.
 * Submit your PR (pull request).
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+After a pull request has been submitted, and for the duration of time your pull request remains open and uncommitted to the OI-DOCS master repository, any additional commits you make to your own fork of the oi-docs repository will automatically be included in your open pull request.
+</div>
+
 
 ## What happens next?
 
-At this point someone with commit rights to the upstream repository will examine your changes.
+At this point a member of the OpenIndiana Project docs team will review your changes.
 If no corrections are required, your changes will be accepted and merged into the upstream repository.
 
 Upon commit, publishing occurs automatically using Travis-CI.
