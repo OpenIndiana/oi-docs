@@ -57,13 +57,13 @@ The goal of this page is to inspire you to contribute to the OpenIndiana Project
 2. Then have a look at the [Contributor Style Guide](./style.md).
 3. As needed, reference the [Markdown Syntax Guide](./markdown.md) to help you along the way.
 
-When you are ready to begin contributing:
+When you are ready to begin contributing, pick a doc and then:
 
-* Pick a doc and add additional sectional placeholders.
-* Pick a doc and add in some TODO's.
-* Pick a doc and add some reference materials.
-* Pick a doc and author a single section.
-* Pick a doc and review it for technical accuracy.
+* Add additional sectional placeholders.
+* Add in some TODO's.
+* Add some reference materials.
+* Author a single section.
+* Review for technical accuracy.
 
 
 ## Smaller Works
@@ -78,7 +78,7 @@ When you are ready to begin contributing:
 
 * User Handbook development
 * Developer Handbook development
-* Reviewing the OpenSolaris books and generating errata.
+* Reviewing the OpenSolaris books for technical accuracy and generating errata.
 
 
 ## Finding additional ideas and suggestions

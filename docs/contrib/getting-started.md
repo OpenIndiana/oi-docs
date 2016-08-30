@@ -75,17 +75,6 @@ For further details, see: <https://help.github.com/articles/set-up-git/>
 | OpenIndiana | Installed by default as part of Ruby
 
 
-#### Install nodejs-npm - Optional
-
-| Operating System | Command
-| --- | ---
-| Arch | `pacman -S nodejs npm`
-| Centos/RHEL | `yum install nodejs npm`
-| Debian/Mint/Ubuntu | `apt-get install nodejs-legacy`
-| Fedora | `dnf install npm`
-| OpenIndiana | `pkg install nodejs`
-
-
 #### Install mkdocs
 
 * Most operating systems (including OpenIndiana): `pip install mkdocs`
@@ -98,9 +87,9 @@ Verify your installation with `mkdocs --version`
 * `gem install mdl`
 
 
-#### Install markdown-spellcheck (Optional)
+#### Install VIM Markdown plugin (optional)
 
-* `npm install markdown-spellcheck`
+* <https://github.com/plasticboy/vim-markdown/>
 
 
 ## Fork the OpenIndiana Docs repository
@@ -179,24 +168,28 @@ oi-docs/
 
 ```markdown
 docs/
+├── books/
 ├── contrib/
 ├── dev/
 ├── favicon.ico
 ├── handbook/
 ├── index.md
 ├── misc/
-└── notes/
+├── Openindiana.png
+└── retired/
 ```
 
 | Resource | Description
 | --- | ---
+| books/ | Legacy OpenSolaris Books
 | contrib/ | Contributor guidance docs
 | dev/ | Development oriented docs
 | favicon.ico | Site favicon icon
 | handbook/ | OpenIndiana handbook docs
 | index.md | Site front page
 | misc/ | Miscellaneous docs
-| notes | Doc team reference notes
+| Openindiana.pgn | OpenIndiana project graphic
+| retired | Deprecated docs, etc.
 
 
 ## Make some changes.
