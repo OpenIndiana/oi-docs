@@ -67,7 +67,17 @@ This document is a work in progress (draft).
 
 ## Using OpenIndiana as a NAS
 
-DOC TEAM NOTES:
+OpenIndiana provides several ways to share data with network clients.
+
+| Implementation | Description
+| --- | ---
+| CIFS | Kernel based SMB file sharing solution offering ZFS integration, ease of use, and relatively simple configuration.
+| SAMBA | Modern userland based SMB file sharing solution providing support for newer SMB protocols (SMB 2.1) and better compatibility with modern Windows clients.
+| NFS | The Network File System was originally developed by Sun Microsystems. 
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
 For a variation of configuring a home NAS - this could be done virtually as well
 
@@ -84,11 +94,12 @@ For help writing this section, see the following OpenSolaris references:
 * [CIFS Technical References](https://web.archive.org/web/20090725231658/http://wiki.genunix.org/wiki/index.php/CIFS_Technical_References)
 
 Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf)
+</div>
 
 
-### Configuring OpenIndiana as a CIFS (Samba) Server
+### Configuring OpenIndiana as a CIFS Server
 
-< place holder for section introduction content >
+< Placeholder for introduction content >
 
 
 #### Commands used
@@ -177,15 +188,15 @@ You can create additional CIFS datasets using the following 4 commands.
 
 #### Configuring CIFS/SMB Linux client connectivity
 
-< place holder >
+< Place holder for content >
 
 
-##### Adding a remote share using the Linux smbclient
+#### Adding a remote share using the Linux smbclient
 
 * [Accessing an SMB Share With Linux Machines](http://www.tldp.org/HOWTO/SMB-HOWTO-8.html)
 
 
-##### Adding a remote share using the KDE Dolphin file manager GUI
+#### Adding a remote share using the KDE Dolphin file manager GUI
 
 * In the left hand pane click _Network_
 * In the right hand pane click _Add Network Folder_
@@ -199,9 +210,14 @@ You can create additional CIFS datasets using the following 4 commands.
 * Ensure the checkbox is marked to save credentials or you'll be asked for everything you do.
 
 
-##### Adding a remote share using a Windows client
+#### Adding a remote share using a Windows client
 
-< place holder >
+< Place holder for content >
+
+
+### Configuring OpenIndiana as a CIFS Server
+
+< Place holder for content >
 
 
 ### Configuring OpenIndiana as an NFS server
