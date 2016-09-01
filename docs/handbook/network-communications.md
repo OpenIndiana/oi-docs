@@ -73,7 +73,7 @@ OpenIndiana provides several ways to share data with network clients.
 | --- | ---
 | CIFS | Kernel based SMB file sharing solution offering ZFS integration, ease of use, and relatively simple configuration.
 | SAMBA | Modern userland based SMB file sharing solution providing support for newer SMB protocols (SMB 2.1) and better compatibility with modern Windows clients.
-| NFS | The Network File System was originally developed by Sun Microsystems. 
+| NFS | The Network File System was originally developed by Sun Microsystems.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
@@ -215,7 +215,7 @@ You can create additional CIFS datasets using the following 4 commands.
 < Place holder for content >
 
 
-### Configuring OpenIndiana as a CIFS Server
+### Configuring OpenIndiana as a SAMBA Server
 
 < Place holder for content >
 

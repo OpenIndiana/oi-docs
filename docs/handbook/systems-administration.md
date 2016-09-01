@@ -100,14 +100,14 @@ ITEMS TO WRITE ABOUT:
 </div>
 
 
-### Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
-
-< Place holder for content >
-
-
 ### NTFS support - 3rd party
 
 * [http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html](http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html)
+
+
+### Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
+
+< Place holder for content >
 
 
 ### System backups
