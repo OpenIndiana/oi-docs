@@ -52,9 +52,7 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of ABI (binary) compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
-Applications coded in the `C` language should continue to work normally.
-Therefore, this change only affects applications written in the `C++` language.
+OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of C++ ABI compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 </div>
 
 ## How does OpenIndiana compare to BSD or Linux?

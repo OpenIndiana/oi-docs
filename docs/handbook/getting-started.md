@@ -241,7 +241,7 @@ Another option is to install to a virtual machine.
 
 ### Gathering network information
 
-If you network uses a DHCP server, OpenIndiana can be configured to automatically obtain it's network information.
+If your network uses a DHCP server, OpenIndiana can be configured to automatically obtain it's network information.
 If a DHCP server is not available, then you will need to manually configure your network settings.
 
 Obtain the following information:
@@ -282,7 +282,7 @@ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256
 
 ### Checking the MD5/SHA
 
-Checksum Verification Example:
+Checksum verification example:
 
 ```bash
 sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
@@ -297,86 +297,32 @@ OI-hipster-gui-20160421.iso: OK
 
 **UNIX Console** <i class="fa fa-sun-o" aria-hidden="true"></i>
 
-```bash
-cdrecord dev=device imagefile.iso
-```
+The command to use for writing a CD or DVD is `cdrecord`.
+The syntax of the command is: `cdrecord dev=device imagefile.iso`
 
-For example:
+Examples:
 
-`cdrecord dev=/dev/rdsk/c4t1d0p0 OI-hipster-gui-20160421.iso`
+* `cdrecord dev=/dev/rdsk/c4t1d0p0 imagefile.iso`
+* `cdrecord dev=4,1,0 imagefile.iso`
 
-```bash
-/usr/bin/cdrecord.bin: No write mode specified.
-/usr/bin/cdrecord.bin: Assuming -sao mode.
-/usr/bin/cdrecord.bin: If your drive does not accept -sao, try -tao.
-/usr/bin/cdrecord.bin: Future versions of cdrecord may have different drive dependent defaults.
-Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
-scsidev: '/dev/rdsk/c4t1d0p0'
-devname: '/dev/rdsk/c4t1d0p0'
-scsibus: -2 target: -2 lun: -2
-Warning: Using USCSI interface.
-Using libscg version 'schily-0.9'.
-Device type    : Removable CD-ROM
-Version        : 0
-Response Format: 2
-Capabilities   :
-Vendor_info    : 'HL-DT-ST'
-Identifikation : 'DVDRAM GSA-U20N '
-Revision       : 'HX12'
-Device seems to be: Generic mmc2 DVD-R/DVD-RW/DVD-RAM.
-Using generic SCSI-3/mmc-2 DVD-R/DVD-RW/DVD-RAM driver (mmc_dvd).
-Driver flags   : NO-CD DVD MMC-3 SWABAUDIO BURNFREE
-Supported modes: PACKET SAO LAYER_JUMP
-Starting to write CD/DVD/BD at speed 2 in real SAO mode for single session.
-Last chance to quit, starting real write    0 seconds. Operation starts.
-Turning BURN-Free off
-Track 01: Total bytes read/written: 1435766784/1435766784 (701058 sectors).
-```
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-If you reusing a DVD-RW, be sure to blank it first.
-Blanking the disk will destroy all data on the disk.
+If you are re-using a DVD-RW, be sure to blank it first.
+
+For example: `cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast`
+
+Warning: Blanking the disk will destroy all data on the disk.
 
 </div>
 
-For example:
 
-`cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast`
+Locating your DVD or CD writing device:
 
-```bash
-Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
-scsidev: '/dev/rdsk/c4t1d0p0'
-devname: '/dev/rdsk/c4t1d0p0'
-scsibus: -2 target: -2 lun: -2
-Warning: Using USCSI interface.
-Using libscg version 'schily-0.9'.
-Device type    : Removable CD-ROM
-Version        : 0
-Response Format: 2
-Capabilities   :
-Vendor_info    : 'HL-DT-ST'
-Identifikation : 'DVDRAM GSA-U20N '
-Revision       : 'HX12'
-Device seems to be: Generic mmc2 DVD-R/DVD-RW/DVD-RAM.
-Using generic SCSI-3/mmc-2 DVD-R/DVD-RW/DVD-RAM driver (mmc_dvd).
-Driver flags   : NO-CD DVD MMC-3 SWABAUDIO BURNFREE
-Supported modes: PACKET SAO LAYER_JUMP
-WARNING: Phys disk size 1124800 differs from rzone size 0! Prerecorded disk?
-WARNING: Phys start: 196608 Phys end 1321407
-WARNING: Drive returns zero media size. Using media size from ADIP.
-Starting to write CD/DVD/BD at speed 2 in real BLANK mode for single session.
-Last chance to quit, starting real write    0 seconds. Operation starts.
-```
-
-To locate your device:
-
-* For BSD, use the `cdrecord -scanbus`
-* For illumos/Solaris, use `rmformat -l`
+* For BSD, use `cdrecord -scanbus` to locate your device.
 
 For example:
-
 
 `cdrecord --scanbus`
 
@@ -404,6 +350,9 @@ For example: `cdrecord dev=4,1,0 imagefile.iso`
 
 </div>
 
+* For illumos/Solaris, you may use either `rmformat -l` or `cdrecord --scanbus` to locate your device.
+
+For example:
 
 `rmformat -l`
 
@@ -439,14 +388,35 @@ Use the application specific to your desktop (Brasero, K3B, etc.)
 
 **Linux Console** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 
+The command to use to write a CD or DVD on Linux is `wodim`.
+The syntax of the command is: `wodim -v dev=device -dao imagefile.iso`
+
+For example:
+
+`wodim -v dev=/dev/sr0 -dao imagefile.iso`
+
+
+Locating your DVD or CD writing device:
+
+* On Linux use the `lsblk` command to locate your device.
+
+For example:
+
+`lsblk`
+
 ```bash
-wodim -v dev=device -dao imagefile.iso
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 232.9G  0 disk 
+├─sda1   8:1    0 227.8G  0 part /
+├─sda2   8:2    0     1K  0 part 
+└─sda5   8:5    0     4G  0 part 
+sr0     11:0    1  1024M  0 rom
 ```
 
 **Linux GUI** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 <div class="well">
 
-There are many different CD/DVD writer applications available for Linux.
+There are several different CD/DVD writer applications available for Linux.
 
 | Desktop | Application
 | --- | ---
@@ -500,17 +470,17 @@ From within Windows Explorer:
 
 ## Creating a bootable OpenIndiana USB flash drive
 
-
-### Prerequisites
-
-* USB flash drive - (2GB or larger)
-* Download the OpenIndiana USB Live Media installer
-* Download the appropriate OpenIndiana 1G or 2G header file
-
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-At this time, creating a bootable flash drive requires the use of a header file.
+At this time there are 2 unique methods for creating bootable USB flash drives.
+The method you will use depends on the USB image you intend to write.
+
+* All releases up to and including the OpenIndiana Hipster 2016.04 release, require the use of a 1G or 2G header file during the image creation process.
+This includes the legacy oi-dev-151a series of releases.
+* All newer releases (including the experimental MATE and Gnome releases of July 2016) can be written normally using DD without the use of header files.
+
+For releases requiring the use of a header file:
 
 * There are 2 unique USB header files (1G and 2G).
 * Please ensure you have selected the correct file.
@@ -518,9 +488,19 @@ At this time, creating a bootable flash drive requires the use of a header file.
     * The 2G.header is only suitable for use with the live installer (Gnome desktop).
     - The files are **NOT** interchangeable.
 
-Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
+Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting.
 
 </div>
+
+
+### Prerequisites
+
+* USB flash drive - (2GB or larger)
+* Download the OpenIndiana USB Live Media installer
+* Download the appropriate OpenIndiana 1G or 2G header file
+    * Only required for releases up to and including the 2016.04 release
+    * Not required when using the Windows based OpenSolaris USB creation utility.
+
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
