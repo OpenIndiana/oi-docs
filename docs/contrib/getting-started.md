@@ -310,18 +310,6 @@ source ~/.bashrc
 </div>
 
 
-## Running Markdown spell check (locally)
-
-Markdown spell check or ``mdspell`` is used to check for spelling errors.
-Prior to submitting a PR, please consider running ``mdspell`` locally on your computer.
-
-```bash
-mdspell --en-us -x -n -ran "**/*.md"
-```
-
-`mdspell` will automatically crawl the entire folder structure looking for spelling mistakes.
-Alternatively you may also run `mdspell` on a specific file. Simply replace `"**/*.md"` with the path to the file.
-
 ## Enabling spell checking in vim
 
 You can invoke spell checking in your current session by inputting the command:

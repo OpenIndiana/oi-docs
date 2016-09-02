@@ -3,10 +3,8 @@ python: '3.4'
 install:
   - pip install mkdocs
   - gem install mdl
-  - npm install markdown-spellcheck -g
 script:
   - mdl -s markdownlint-rules.rb .
-  - mdspell --en-us -x -n -ran "**/*.md"
   - mkdocs build
   - ./link_validator.py
 after_success:
