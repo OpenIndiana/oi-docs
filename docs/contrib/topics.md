@@ -22,7 +22,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 The goal of this page is to provide a 'TO DO' list of things which need to be documented.
 
 The organization of the resources below are listed first according to the document title they pertain to, followed by individual topics found within that particular document title.
-
+For each document the published URL and internal site path to the document have been provided.
 
 ### Potentially useful reference information
 
@@ -84,7 +84,20 @@ This document is likely to change significantly over the course of it's developm
 
 The **Getting Started** document has been initially structured to cover the following topics:
 
-
+* Introduction
+* OpenIndiana software releases
+* System requirements
+* Exploring OpenIndiana
+* Preparation for installing OpenIndiana
+* Creating a bootable OpenIndiana DVD
+* Creating a bootable OpenIndiana USB flash drive
+* Booting OpenIndiana installer media
+* Installing OpenIndiana
+* Post installation steps
+* Troubleshooting installations
+* The Image Package System (IPS)
+* Managing boot environments
+* The X-Window system
 
 </div>
 
@@ -102,17 +115,6 @@ Have a look at the following resources for ideas and inspiration for writing new
 * How to disable drivers at boot time
 * Network install drivers: `pkgrecv -s http://pkg.openindiana.org/hipster-2015 -d bash.p5a -a bash && sudo pkg install -nv  -g bash.p5a bash`
 * Local install drivers: `pkg install -g name.p5a fmri`
-
-
-Write some comparison tables
-
-* Provide some contrast/comparisons between OI and other illumos distros.
-* Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
-* Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
-    * For an example, see: [this page](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
-* Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
-    * For some inspiration, see the tables found on the SmartOS Wiki.
-    * Oracle might have some inspiration as well - (just don't copy it verbatim)
 
 
 ## Handbook - Common Tasks
@@ -136,7 +138,18 @@ This document is likely to change significantly over the course of it's developm
 
 The **Common Tasks** document has been initially structured to cover the following topics:
 
+* Basic UNIX commands
+* Basic system administration
+* Desktop applications
+* Multimedia - Audio
+* Multimedia - Video
+* Printing
+* Graphics workstation
+* Desktop Publishing system, Etc.
 
+Currently this section is largely desktop oriented.
+Perhaps some additional items such as system backups might fit better in this section.
+As previously mentioned, this is a living document and things will likely get shuffled around as the document matures.
 
 </div>
 
@@ -395,6 +408,16 @@ This document might also be a good place to put the following topics:
 * See [this page](https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris) for some inspiration.
 * Also look at old OpenSolaris website (via the wayback machine) for additional ideas, suggestions, etc.
 
+
+Write some comparison tables
+
+* Provide some contrast/comparisons between OI and other illumos distros.
+* Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
+* Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
+    * For an example, see: [this page](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
+* Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
+    * For some inspiration, see the tables found on the SmartOS Wiki.
+    * Oracle might have some inspiration as well - (just don't copy it verbatim)
 
 ## OpenSolaris Redistributable Books
 
