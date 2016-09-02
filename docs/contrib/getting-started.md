@@ -115,6 +115,7 @@ For example:
 * Open your web browser to the [OpenIndiana Docs GitHub Repository](https://github.com/OpenIndiana/oi-docs).
 * Click the **Fork** button found in the upper right hand corner of the page.
     * Forking creates a server side clone of the upstream repository.
+    * This clone is your own personal copy of the OpenIndiana Docs repository.
 
 
 ## Create a local clone of your fork
@@ -122,6 +123,11 @@ For example:
 ```bash
 git clone https://github.com/YOUR-USER-NAME/oi-docs.git
 ```
+
+The local clone is where you will perform your work.
+Think of your local clone as your working copy of the repository.
+The local clone is also where you will commit your changes.
+Periodically you will push these local changes to your fork residing on Github.
 
 
 ## Add the upstream repository
@@ -146,6 +152,9 @@ upstream        https://github.com/OpenIndiana/oi-docs.git (push)
 ## Sync and merge changes from the upstream repository
 
 Periodically you will want to _rebase_ your local copy by bringing in changes from the upstream repository.
+In plain English, this means the upstream repository is added so you can periodically _pull down_ changes from the upstream master repository and merge them into your local clone.
+This way your local clone remains in synchronization with the master upstream repository.
+It is always a good idea to perform a pull from the upstream master repository prior to making changes to your local clone (working copy).
 
 ```bash
 git pull upstream master
@@ -344,16 +353,21 @@ git commit -m 'your commit message'
 git push
 ```
 
+When you make a commit, you are committing those changes your local clone.
+When you perform a push, your are pushing your commits from your local clone to your fork residing on Github.
+
 
 ## Send a pull request.
 
-* Open your web browser to your forked copy of the OpenIndiana Docs repository.
+* Open your web browser to _**your forked copy**_ of the OpenIndiana Docs repository.
 
 For example: `https://github.com/your-user-name/oi-docs`
 
 * Click the button for _New pull request_.
 * Add some notes about your change.
 * Submit your PR (pull request).
+
+Pull requests are used to request a _pull in_ of changes from your fork to the master repository.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
