@@ -23,13 +23,23 @@ The process for contributing to OpenIndiana Docs is simple and follows the same 
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
 
-We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, etc.
+We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
+From there, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
 
-If you think it can be helpful to the greater OpenIndiana community, we'll be happy to review it for incorporation into the docs collection.
+In a nutshell, if you think your contribution can be helpful to the greater OpenIndiana community, we'll be happy to review it.
+
+To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
+
+The docs team can be reached via email: _**docs at openindiana.org**_.
+
+You may also inquire via IRC:
+
+* [#openindiana (freenode)](irc://irc.freenode.net/openindiana)
+* [#oi-dev (freenode)](irc://irc.freenode.net/oi-dev)
+
 
 </div>
 
@@ -78,8 +88,16 @@ For further details, see: <https://help.github.com/articles/set-up-git/>
 #### Install mkdocs
 
 * Most operating systems (including OpenIndiana): `pip install mkdocs`
+* Verify your installation with `mkdocs --version`
 
-Verify your installation with `mkdocs --version`
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+If you experience difficulties installing mkdocs, try using the python 3 version of `pip`.
+
+For example:
+
+* For Linux Mint 18, the python 3 version of `pip` would be `pip3`.
+</div>
 
 
 #### Install Markdown Lint (mdl)
@@ -97,6 +115,7 @@ Verify your installation with `mkdocs --version`
 * Open your web browser to the [OpenIndiana Docs GitHub Repository](https://github.com/OpenIndiana/oi-docs).
 * Click the **Fork** button found in the upper right hand corner of the page.
     * Forking creates a server side clone of the upstream repository.
+    * This clone is your own personal copy of the OpenIndiana Docs repository.
 
 
 ## Create a local clone of your fork
@@ -104,6 +123,11 @@ Verify your installation with `mkdocs --version`
 ```bash
 git clone https://github.com/YOUR-USER-NAME/oi-docs.git
 ```
+
+The local clone is where you will perform your work.
+Think of your local clone as your working copy of the repository.
+The local clone is also where you will commit your changes.
+Periodically you will push these local changes to your fork residing on Github.
 
 
 ## Add the upstream repository
@@ -128,6 +152,9 @@ upstream        https://github.com/OpenIndiana/oi-docs.git (push)
 ## Sync and merge changes from the upstream repository
 
 Periodically you will want to _rebase_ your local copy by bringing in changes from the upstream repository.
+In plain English, this means the upstream repository is added so you can periodically _pull down_ changes from the upstream master repository and merge them into your local clone.
+This way your local clone remains in synchronization with the master upstream repository.
+It is always a good idea to perform a pull from the upstream master repository prior to making changes to your local clone (working copy).
 
 ```bash
 git pull upstream master
@@ -326,10 +353,13 @@ git commit -m 'your commit message'
 git push
 ```
 
+When you make a commit, you are committing those changes your local clone.
+When you perform a push, your are pushing your commits from your local clone to your fork residing on Github.
+
 
 ## Send a pull request.
 
-* Open your web browser to your forked copy of the OpenIndiana Docs repository.
+* Open your web browser to _**your forked copy**_ of the OpenIndiana Docs repository.
 
 For example: `https://github.com/your-user-name/oi-docs`
 
@@ -337,10 +367,17 @@ For example: `https://github.com/your-user-name/oi-docs`
 * Add some notes about your change.
 * Submit your PR (pull request).
 
+Pull requests are used to request a _pull in_ of changes from your fork to the master repository.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+After a pull request has been submitted, and for the duration of time your pull request remains open and uncommitted to the OI-DOCS master repository, any additional commits you make to your own fork of the oi-docs repository will automatically be included in your open pull request.
+</div>
+
 
 ## What happens next?
 
-At this point someone with commit rights to the upstream repository will examine your changes.
+At this point a member of the OpenIndiana Project docs team will review your changes.
 If no corrections are required, your changes will be accepted and merged into the upstream repository.
 
 Upon commit, publishing occurs automatically using Travis-CI.

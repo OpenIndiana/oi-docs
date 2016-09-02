@@ -19,13 +19,16 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Contributor Topics
 
-The goal of this page is to provide a TODO list of things which need to be documented.
-Topics will be organized first by page and then by topic.
+The goal of this page is to provide a 'TO DO' list of things which need to be documented.
 
+The organization of the resources below are listed first according to the document title they pertain to, followed by individual topics found within that particular document title.
+For each document the published URL and internal site path to the document have been provided.
 
 ### Potentially useful reference information
 
-NOTE: When clicking some of the links found within these resources, it may be necessary to removed the ';jsessionid=xxx' from the end of the URL. Otherwise the wayback machine will report a 'not found' error message.
+Below you will find a list of links, most of which are from the Internet Archive 'Wayback' machine.
+As such, when clicking on the links found within these resources, it may be necessary to remove the `;jsessionid=xxx` from the end of the URL.
+Otherwise the wayback machine will report a _**not found**_ error message.
 
 * [OpenSolaris.org](https://web.archive.org/web/20090819174546/http://opensolaris.org/os/)
 * [OpenSolaris Projects](https://web.archive.org/web/20090817114142/http://opensolaris.org/os/projects#portal)
@@ -44,26 +47,61 @@ NOTE: When clicking some of the links found within these resources, it may be ne
 
 ## About OpenIndiana
 
-Have a look at the following resources for ideas and inspiration for writing new content:
+* Page URL: <https://openindiana.github.io/oi-docs/misc/openindiana/>
+* Page location within docs site: `/oi-docs/docs/misc/openindiana.md`
+
+The 'About OpenIndiana' document is effectively a renamed and enhanced copy of the OpenIndiana FAQ found on OpenIndiana.org.
+Given FAQ's are so rarely composed of things people actually inquire about, having a document titled 'About OpenIndiana' made more sense for this documentation site.
+
+
+### Suggested topics:
+
+Below are some resources which may be useful for further improving this document.
+Take some time to look them over for ideas and inspiration for writing new content:
 
 * [OpenSolaris FAQ](https://web.archive.org/web/20091001032442/http://www.opensolaris.com/learn/faq/)
 * [OpenSolaris Newbie FAQ](https://web.archive.org/web/20090909080957/http://opensolaris.org/os/community/documentation/newbie_faq/)
 
-TODO:
-
-* Write a table where _included_ features of OpenIndiana are compared to _licensed_ features found in commercial software.
-    * For example: Qemu-KVM | HyperV, Esxi, etc. , Zones | Docker, etc.
-* Need to look at the legal aspects of mentioning trademarked names within documentation (to help keep openindiana out of trouble).
-* Add a blurb about switching to hipster. See [link](http://wiki.openindiana.org/oi/Hipster#Hipster-switching)
-* Link in download URL's for ISO's, etc.: See [release notes](http://wiki.openindiana.org/oi/2016.04+Release+notes)
-* Write a table providing a matrix comparing commands between BSD/Linux/OpenIndiana.
-    * This could also be something for the handbook.
-    * Place it wherever it looks best.
-* See [this page](https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris)
-* Also can look at old OpenSolaris website for ideas, suggestions, etc.
-
 
 ## Handbook - Getting Started
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+* Page URL: <https://openindiana.github.io/oi-docs/handbook/getting-started/>
+* Page location within docs site: `/oi-docs/docs/handbook/getting-started.md`
+
+</div>
+
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+This document is likely to change significantly over the course of it's development.
+
+* Some topics may be moved to more relevant locations within other documents.
+* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+
+The **Getting Started** document has been initially structured to cover the following topics:
+
+* Introduction
+* OpenIndiana software releases
+* System requirements
+* Exploring OpenIndiana
+* Preparation for installing OpenIndiana
+* Creating a bootable OpenIndiana DVD
+* Creating a bootable OpenIndiana USB flash drive
+* Booting OpenIndiana installer media
+* Installing OpenIndiana
+* Post installation steps
+* Troubleshooting installations
+* The Image Package System (IPS)
+* Managing boot environments
+* The X-Window system
+
+</div>
+
+### Suggested topics:
 
 Import first section of Wiki page: <http://wiki.openindiana.org/oi/Using+OpenIndiana+-+Technical+FAQ>
 
@@ -79,20 +117,46 @@ Have a look at the following resources for ideas and inspiration for writing new
 * Local install drivers: `pkg install -g name.p5a fmri`
 
 
-### Write some comparison tables
-
-* Provide some contrast/comparisons between OI and other illumos distros.
-* Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
-* Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
-    * For an example, see: [this page](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
-* Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
-    * For some inspiration, see the tables found on the SmartOS Wiki.
-    * Oracle might have some inspiration as well - (just don't copy it verbatim)
-
-
 ## Handbook - Common Tasks
 
-### CUPS Printing
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+* Page URL: <https://openindiana.github.io/oi-docs/handbook/common-tasks/>
+* Page location within docs site: `/oi-docs/docs/handbook/common-tasks.md`
+
+</div>
+
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+This document is likely to change significantly over the course of it's development.
+
+* Some topics may be moved to more relevant locations within other documents.
+* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+
+The **Common Tasks** document has been initially structured to cover the following topics:
+
+* Basic UNIX commands
+* Basic system administration
+* Desktop applications
+* Multimedia - Audio
+* Multimedia - Video
+* Printing
+* Graphics workstation
+* Desktop Publishing system, Etc.
+
+Currently this section is largely desktop oriented.
+Perhaps some additional items such as system backups might fit better in this section.
+As previously mentioned, this is a living document and things will likely get shuffled around as the document matures.
+
+</div>
+
+
+### Suggested topics:
+
+CUPS Printing
 
 The Common UNIX Printing System (CUPS) has been selected as the default print service, replacing the LP print service, in OpenSolaris 2010.03.
 CUPS support includes a web and graphical interface to manage your printing environment.
@@ -107,6 +171,52 @@ In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
 
 
 ## Handbook - Systems Administration
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+* Page URL: <https://openindiana.github.io/oi-docs/handbook/systems-administration/>
+* Page location within docs site: `/oi-docs/docs/handbook/systems-administration.md`
+
+</div>
+
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+This document is likely to change significantly over the course of it's development.
+
+* Some topics may be moved to more relevant locations within other documents.
+* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+
+The **systems administration** document has been initially structured to cover the following topics:
+
+* Configuration and tuning
+    * Configuring a UPS
+    * Fault Management (FMA)
+    * Service Management (SMF)
+    * Systems logging and monitoring
+* Illumos boot process
+* Security
+    * Role Based Access Control (RBAC)
+* Zones
+* Storage
+    * Mounting file systems
+    * NTFS support - 3rd party
+    * Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
+    * System backups
+    * ZFS
+* Virtualization
+* Localization
+* Dtrace
+* Configuring Networking
+    * NWAM
+* Clustering
+
+</div>
+
+
+### Suggested topics:
 
 Have a look at the following resources for ideas and inspiration for writing new content:
 
@@ -145,19 +255,62 @@ ZFS
 
 
 
-### ABI support
+ABI support
 
 * Write about the change from Sun Studio to GCC its implications for ABI from previous Solaris releases/OpenSolaris, etc.
     * For more details, see: [http://openindiana.org/pipermail/oi-dev/2014-December/003496.html](http://openindiana.org/pipermail/oi-dev/2014-December/003496.html)
     * We might also want to talk about what other effects (if any) have/will result from the move to OI-Userland
 
 
-### Write about Virtualization
+Write about Virtualization
 
 * add a page about running OI as a virtual guest in Virtualbox, VMware, KVM, talk about which provides the best hardware support, guest tools compatibility, other caveats, etc.
 
 
 ## Handbook - Network Communications
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+* Page URL: <https://openindiana.github.io/oi-docs/handbook/network-communications/>
+* Page location within docs site: `/oi-docs/docs/handbook/network-communications.md`
+
+</div>
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+This document is likely to change significantly over the course of it's development.
+
+* Some topics may be moved to more relevant locations within other documents.
+* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+
+The **network communications** document has been initially structured to cover the following network related topics:
+
+* PPP
+* PPPoE
+* Email servers
+* WWW servers
+* Firewalls
+* Advanced networking
+* Crossbow
+* Using OpenIndiana as a NAS
+    * CIFS
+    * SAMBA
+    * NFS
+* NIS
+* LDAP
+* DHCP
+* FTP
+* DNS
+* NTP
+* INETD
+
+
+</div>
+
+
+### Suggested topics:
 
 Have a look at the following resources for ideas and inspiration for writing new content:
 
@@ -195,7 +348,7 @@ Rsync
 * [Rsync on solaris Howto](https://web.archive.org/web/20100809145914/http://wiki.genunix.org/wiki/index.php/Rsync_on_Solaris_HOWTO)
 
 
-### Installing OI onto an ISCSI exposed SCSI target
+Installing OI onto an ISCSI exposed SCSI target
 
 A good tutorial might be to write about installing OpenIndiana Hipster on an ISCSI target.
 
@@ -207,12 +360,98 @@ A good tutorial might be to write about installing OpenIndiana Hipster on an ISC
 
 Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html](https://docs.oracle.com/cd/E26502_01/html/E29008/iscsi-1.html)
 
+## Handbook - Appendix
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+* Page URL: <https://openindiana.github.io/oi-docs/handbook/appendix/>
+* Page location within docs site: `/oi-docs/docs/handbook/appendix.md`
+
+</div>
+
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+This document is likely to change significantly over the course of it's development.
+
+* Some topics may be moved to more relevant locations within other documents.
+* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+
+The **appendix** document has been initially structured to cover the following topics:
+
+* Finding help and support
+* Developing with OpenIndiana
+* Software Development Testing
+
+This document might also be a good place to put the following topics:
+
+* Basic UNIX commands
+* Contrast and comparison tables (e.g. Unix versus Linux, etc.)
+* Feature comparison tables
+
+</div>
+
+
+### Suggested topics:
+
+
+* Write a table where _included_ features of OpenIndiana are compared to _licensed_ features found in commercial software.
+    * For example: Qemu-KVM | HyperV, Esxi, etc. , Zones | Docker, etc.
+* Need to look at the legal aspects of mentioning trademarked names within documentation (to help keep openindiana out of trouble).
+* Add a blurb about switching to hipster. See [link](http://wiki.openindiana.org/oi/Hipster#Hipster-switching)
+* Link in download URL's for ISO's, etc.: See [release notes](http://wiki.openindiana.org/oi/2016.04+Release+notes)
+* Write a table providing a matrix comparing commands between BSD/Linux/OpenIndiana.
+    * This could also be something for the handbook.
+    * Place it wherever it looks best.
+* See [this page](https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris) for some inspiration.
+* Also look at old OpenSolaris website (via the wayback machine) for additional ideas, suggestions, etc.
+
+
+Write some comparison tables
+
+* Provide some contrast/comparisons between OI and other illumos distros.
+* Provide some contrast/comparisons between OI and other BSD distros (PCBSD in relation to freebsd, etc.)
+* Provide some contrast/comparisons between OI and Linux, etc. (Linux kernel and GNU userland, illumos kernel and GNU userland, etc.)
+    * For an example, see: [this page](https://web.archive.org/web/20090904201802/http://wikis.sun.com/display/SolarisDeveloper/Migrating+from+Linux+to+Solaris+or+OpenSolaris)
+* Command comparison tables – e.g. if such and such command does something on Linux, Windows, BSD, etc., use such and such command to do same thing on OI.
+    * For some inspiration, see the tables found on the SmartOS Wiki.
+    * Oracle might have some inspiration as well - (just don't copy it verbatim)
 
 ## OpenSolaris Redistributable Books
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+* Page URL: <https://openindiana.github.io/oi-docs/books/about/>
+* Page location within docs site: `/oi-docs/docs/books/about.md`
+
+</div>
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+
+The OpenSolaris books are from the 2009.06 release of OpenSolaris.
+As OpenIndiana has diverged from it's OpenSolaris roots, the relevancy of this documentation has diminished.
+Some of the documentation was obsolete even when it was published.
+
+The primary value of this documentation may be to use it as inspiration for writing new content for the handbook.
+The documentation is all PDL licensed so it may be copied verbatim without incurring any legal risks.
+
+As for the future of these documents, the project has some choices:
+
+* Pull in any and all reverent content into the new handbook and then discard the books.
+* Write errata for the books, pointing out what has changed between OpenSolaris and OpenIndiana.
+* Use the books to write task specific tutorials.
+
+</div>
+
+
+### Suggested topics:
 
 * Review the OpenSolaris redistributable books.
 * Determine the relevancy of each book in comparison to the current development state of OpenIndiana Hipster.
 * Compose lists of errata as required.
-
+* Add links to current Oracle docs where such docs are still applicable to the current development state of OpenIndiana.
 

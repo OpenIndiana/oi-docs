@@ -39,6 +39,7 @@ The docs team began by looking at:
 * The methods and toolkits used to create past and present documentation.
 * How other projects where approaching their systems documentation efforts.
 
+
 ## Documentation revitalization effort goals
 
 As a result of the aforementioned exercises, the team established the following goals:
@@ -51,6 +52,24 @@ As a result of the aforementioned exercises, the team established the following 
 * Employ a dynamic _mobile friendly_ CSS framework.
 
 To this end, the team looked at several documentation oriented static site generators and selected MkDocs for its simplicity, ease of use, and professional quality output.
+
+
+## Using the OpenIndiana Docs website
+
+The OI-DOCS website can be navigated in several ways:
+
+* Using the drop down menus from the top navigation bar.
+* Clicking the _**Next**_ and _**Previous**_ buttons.
+* Using the table of contents found on the left side of each page.
+* Using the full text search function found in the top navigation bar.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+The table of contents only lists top level sectional titles.
+
+To find lower level sectional titles, or to search for topics by keyword, please use the full text search function of the website.
+The full text search will return a list of the sectional titles where the keyword has been found.
+</div>
 
 
 ## Contributing to OpenIndiana Docs
@@ -68,6 +87,12 @@ For further information, please see the contribution pages found elsewhere on th
 ## Providing feedback
 
 Community feedback is critical to the growth and development of the OpenIndiana Docs website.
+
 To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
 
-The docs team can also be reached via email: _**docs at openindiana.org**_.
+The docs team can be reached via email: _**docs at openindiana.org**_.
+
+You may also inquire via IRC:
+
+* [#openindiana (freenode)](irc://irc.freenode.net/openindiana)
+* [#oi-dev (freenode)](irc://irc.freenode.net/oi-dev)
