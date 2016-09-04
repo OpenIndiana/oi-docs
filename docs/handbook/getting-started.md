@@ -472,47 +472,56 @@ From within Windows Explorer:
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
+There are two unique methods for creating bootable USB flash drives.
+The method to use depends on the release date of the USB image you intend to write.
 
-At this time there are 2 unique methods for creating bootable USB flash drives.
-The method you will use depends on the USB image you intend to write.
+#### Method 1
 
-* All releases up to and including the OpenIndiana Hipster 2016.04 release, require the use of a 1G or 2G header file during the image creation process.
-This includes the legacy oi-dev-151a series of releases.
-* All newer releases (including the experimental MATE and Gnome releases of July 2016) can be written normally using DD without the use of header files.
+* Applies to the experimental releases of July 2016 and all subsequent (newer) releases.
 
-For releases requiring the use of a header file:
+#### Method 2
 
-* There are 2 unique USB header files (1G and 2G).
-* Please ensure you have selected the correct file.
-    * The 1G.header is only suitable for use with the text installer (Command line console).
-    * The 2G.header is only suitable for use with the live installer (Gnome desktop).
-    - The files are **NOT** interchangeable.
+* Applies to all OpenIndiana releases up to and including the OpenIndiana Hipster 2016.04 release.
+* This includes the legacy oi-dev-151a series of OpenIndiana releases.
+</div>
 
-Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting.
 
+<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
+
+* If you intend to install OpenIndiana Hipster on a system with USB 3.0 and or UEFI capabilities, please be sure to disable these features.
+* When attaching backward compatible USB 3.0 flash devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
 </div>
 
 
 ### Prerequisites
 
-* USB flash drive - (2GB or larger)
-* Download the OpenIndiana USB Live Media installer
-* Download the appropriate OpenIndiana 1G or 2G header file
-    * Only required for releases up to and including the 2016.04 release
-    * Not required when using the Windows based OpenSolaris USB creation utility.
+#### Methods 1 & 2
 
+* USB flash drive - (2GB or larger).
+* Download the OpenIndiana USB installer image.
+
+#### Method 2
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Header files are only required when writing a legacy image **AND** using the dd utility.
+</div>
+
+* Download the appropriate OpenIndiana 1G or 2G header file
+    * There are 2 unique USB header files (1G and 2G).
+    * Please ensure you have selected the correct file as the files are **NOT** interchangeable.
+        * The 1G.header is only suitable for use with the text installer (Command line console).
+        * The 2G.header is only suitable for use with the live installer (Gnome desktop).
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
-
-OpenIndiana Hipster does not yet support USB 3.0.
-
-* When attaching backward compatible USB 3.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
-
+Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting.
 </div>
 
 
-#### Identifying the path to your USB device
+### Identifying the path to your USB device
 
 | Operating system | Command | Device
 | --- | --- | ---
@@ -520,30 +529,40 @@ OpenIndiana Hipster does not yet support USB 3.0.
 | illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
 | Linux | `lsblk` | `/dev/sd*`
 | MAC OS X | `diskutil list` | `/dev/disk*`
-| Windows | N/A | N/A
 
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
+When issuing the USB copy command:
 
-When issuing the USB copy command, be sure to specify the entire USB device.
+* Make sure you identify the correct storage device as all data on the device will be erased.
+* Be sure to specify the entire USB device without appending any partition or slice number.
 
-* Do not including any partition or slice number.
-    * For example use `sda`, not `sda1`; `c0t0d0`, not `c0t0d0p1`.
-* Make sure you identify the correct storage device.
-    * All data on the device will be erased.
-* If any filesystems are located on the USB storage device, they must first be unmounted.
+For example:
+
+| Example | Device
+| --- |---
+| Correct | `/dev/sda`
+| Incorrect | `/dev/sda1`
+| Correct | `/dev/rdsk/c0t0d0`
+| Incorrect | `/dev/rdsk/c0t0d0p1`
+
+* If any file systems are located on the USB storage device, they must first be unmounted.
     * Desktops may automatically mount removable devices.
     * As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
     * For Linux, use `umount <path>`.
     * For illumos/Solaris use `rmumount <path>`.
     * for MAC OS X use `diskutil unmountDisk <path>`.
     * Verify using the `mount` command.
-
 </div>
 
 
 ### BSD/Linux/OS X
+
+#### Method 1
+
+
+#### Method 2
 
 ```bash
 cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
@@ -559,6 +578,12 @@ Replace "X" with the appropriate letter for your USB device
 
 
 ### illumos/Solaris
+
+
+#### Method 1
+
+
+#### Method 2
 
 For illumos based distributions including OpenIndiana, a script [(USBCOPY)](https://raw.githubusercontent.com/OpenIndiana/slim_source/oi/hipster/usr/src/cmd/install-tools/usbcopy) is available to copy the USB image onto a USB device.
 
