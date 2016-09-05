@@ -559,10 +559,13 @@ For example:
 
 ### BSD/Linux/OS X
 
-#### Method 1
+#### Method 1 (New releases)
 
+```bash
+sudo dd bs=4M if=./OI_MATE_experimental.usb of=/dev/sdb status=progress && sync
+```
 
-#### Method 2
+#### Method 2 (Legacy releases)
 
 ```bash
 cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
@@ -580,10 +583,13 @@ Replace "X" with the appropriate letter for your USB device
 ### illumos/Solaris
 
 
-#### Method 1
+#### Method 1 (New releases)
 
+```bash
+sudo dd bs=4M if=./OI_MATE_experimental.usb of=/dev/sdb status=progress && sync
+```
 
-#### Method 2
+#### Method 2 (Legacy releases)
 
 For illumos based distributions including OpenIndiana, a script [(USBCOPY)](https://raw.githubusercontent.com/OpenIndiana/slim_source/oi/hipster/usr/src/cmd/install-tools/usbcopy) is available to copy the USB image onto a USB device.
 
@@ -659,14 +665,12 @@ See the notes below for optimizing OpenIndiana for several popular hypervisors.
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-At this time, Oracle Virtualbox provides the best support for illumos based distributions such as OpenIndiana.
-VMware Workstation Player and Linux KVM may also be used to run OpenIndiana as a guest operating system.
-However, generally speaking, these latter 2 hypervisors do not support illumos based operating systems as well as Virtualbox.
-Therefore, the table above has listed these hypervisors in order of compatibility.
+The OpenIndiana Project recommends the Oracle Virtualbox hypervisor as it provides the best support for illumos based distributions such as OpenIndiana.
 
 If you experience difficulties booting OpenIndiana on virtual hardware, or find virtual hardware devices which are either not properly recognized, or fail to function as expected, please report the problem to the upstream illumos Project. You may do so by submitting an issue using the [illumos project bug tracker](https://www.illumos.org/issues).
 
 </div>
+
 
 ### The OpenIndiana installer boot menu
 
@@ -778,7 +782,7 @@ You will need to update the GRUB menu after the installation.
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
-Please take note the following important considerations:
+Please be advised of the following important considerations:
 
 * The installation overwrites the whole disk layout if one of the following is true:
     * The disk table cannot be read.
@@ -806,7 +810,6 @@ Select the appropriate installer option by clicking the corresponding desktop in
 To launch the OpenIndiana graphical installer, locate and double click the desktop icon labeled: _**Install OpenIndiana**_.
 
 As shown below, and in the subsequent screens, the installer starts a new process, running within it's own window.
-
 
 ![First install screen](./images/gui_install/install_2.png)
 
@@ -1227,17 +1230,15 @@ The procedure for installing from the text based installer follows the same proc
 
 ### Resetting the root password
 
-The root password is immediately expired after installation and you will need to choose a new one.
+The root password is immediately expired after installation and you will be required to select a new password.
 
 Use the following steps to change the root password:
 
-* open a Terminal
-* execute `su -` and give the password you chose for your account at installation time
-* you will be informed that root's password has expired and prompted to change it
-* once changed you can exit the su session
+* Open a Terminal
+* Execute `su -` and provide the password you chose for your account at installation time
+* You will be informed that root's password has expired and prompted to change it
+* Once changed you can exit the su session
 * You should be able to login/authenticate as root now.
-
-Resetting the root password does not allow root to login via ssh.
 
 
 ## Troubleshooting installations
@@ -1826,7 +1827,7 @@ For example, you can clone a boot environment by using the `beadm create` comman
 A clone is a bootable copy of a boot environment.
 Then, you can install, test, and update different software packages on the original boot environment and on its clone.
 Although only one boot environment can be active at a time, you can mount an inactive boot environment by using the `beadm mount` command.
-Then you can use the `pkg image-update` command with the `-R` option to update all the packages in that inactive, mounted environment.
+Then you can use the `pkg update` command with the `-R` option to update all the packages in that inactive, mounted environment.
 Or, use the `pkg install packagename` with the `-R` option to update specific packages on that environment.
 
 
@@ -1868,7 +1869,7 @@ The `beadm` utility enables you to perform the following tasks:
 | --- | ---
 | `beadm` | Displays command usage
 | `beadm activate <BE>` | Makes the specified boot environment the active boot environment upon the next reboot.
-| `beadm create <BE>` | Creates a new boot environment with the name specified. Unless the -e option is provided, the new boot environment is created as a clone of the currently running boot environment.
+| `beadm create <BE>` | Creates a new boot environment with the name specified. Unless the `-e` option is provided, the new boot environment is created as a clone of the currently running boot environment.
 | `beadm create <BE@snapshot>` | Creates a snapshot of the existing boot environment with the specified snapshot name.
 | `beadm destroy <BE>` | Destroys the boot environment named BE or destroys an existing snapshot, BE@snapshot, of a boot environment. Prompts for confirmation before destroying the boot environment.
 | `beadm list <BE>` | Lists information about the specified boot environment, or lists information for all boot environments if a boot environment name is not provided. The default is to list boot environments without any additional information.
@@ -1888,12 +1889,15 @@ Within a global zone, specific non-global zones can be created.
 
 Note the following limitations of support for non-global zones in the beadm utility and in related processes:
 
-* When you use the pkg image-update command, the command only upgrades ipkg branded zones.
-* The beadm utility is not supported inside a non-global zone.
-* Non-global zone support is limited to ZFS support. Zones are not supported unless they are on ZFS.
-* Zones are not supported in the rpool/ROOT namespace. Non-global zones are cloned or copied only when the original zone is within the shared area for the global zone, for example, within rpool/export or within rpool/zones.
-* Although the beadm utility affects the non-global zones on your system, the beadm utility does not display zones information. Use the zoneadm utility to view changes in the
-zones in your boot environment. For example, use the zoneadm list command to view a list of all current zones on the system.
+* When using the `pkg update` command, the `-r` switch is required to upgrade all zones.
+* The `beadm` utility is not supported inside a non-global zone.
+* Non-global zone support is limited to ZFS support.
+Zones are not supported unless they are on ZFS.
+* Zones are not supported in the rpool/ROOT namespace.
+Non-global zones are cloned or copied only when the original zone is within the shared area for the global zone, for example, within rpool/export or within rpool/zones.
+* Although the `beadm` utility affects the non-global zones on your system, the `beadm` utility does not display zones information.
+Use the `zoneadm` utility to view changes in the zones in your boot environment.
+For example, use the `zoneadm` list command to view a list of all current zones on the system.
 
 For further information, see the `zoneadm`<sup>1M</sup> man page.
 
@@ -1918,7 +1922,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
 
 ### Video card support (3D)
 
-Nearly all cards are supported for 2nd, but only Nvidia is supported for 3D.
+Nearly all cards are supported for 2D, but only Nvidia is supported for 3D.
 Work is progressing to provide support for AMD and Intel.
 
 
