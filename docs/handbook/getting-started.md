@@ -607,6 +607,18 @@ Completed copy to USB
 
 ### Windows
 
+#### Method 1 (New releases)
+
+Newer releases can be written using [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/).
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+By default the Win32 Disk Imager utility is looking for `.img` files and won't see files with a `.usb` extension.
+To resolve this issue, be sure to select the `*.*` (all files) option from the file extension drop down menu.
+</div>
+
+#### Method 2 (Legacy releases)
+
 The OpenSolaris Live USB Creator is a small stand alone GUI utility suitable for creating an OpenIndiana live USB stick.
 
 [OpenSolaris USB Creator](http://devzone.sites.pid0.org/OpenSolaris/opensolaris-liveusb-creator)
