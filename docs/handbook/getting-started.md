@@ -399,10 +399,10 @@ For example:
 
 ```bash
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 232.9G  0 disk 
+sda      8:0    0 232.9G  0 disk
 ├─sda1   8:1    0 227.8G  0 part /
-├─sda2   8:2    0     1K  0 part 
-└─sda5   8:5    0     4G  0 part 
+├─sda2   8:2    0     1K  0 part
+└─sda5   8:5    0     4G  0 part
 sr0     11:0    1  1024M  0 rom
 ```
 
