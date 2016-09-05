@@ -585,6 +585,12 @@ Replace `X` with the appropriate letter for your USB device.
 sudo dd bs=4M if=./image.usb of=/dev/sdb status=progress && sync
 ```
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Recent releases of OpenIndiana Hipster use the GNU version of dd (/usr/gnu/bin/dd), which should support the `status=progress` option.
+Older releases however may still be using illumos dd (/usr/bin/dd) which may not support this option.
+</div>
+
 #### Method 2 (Legacy releases)
 
 For illumos based distributions including OpenIndiana, a script [(USBCOPY)](https://raw.githubusercontent.com/OpenIndiana/slim_source/oi/hipster/usr/src/cmd/install-tools/usbcopy) is available to copy the USB image onto a USB device.
