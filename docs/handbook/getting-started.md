@@ -205,13 +205,6 @@ Please be sure to consult the hardware compatibility list (HCL):
 
 </div>
 
-**DOC TEAM NOTE:**
-
-* Gigabyte motherboards with Intel socket 775 and ICH10 chipset don't work well with OI.
-    * Kernel CPU usage can range from 40-80% cpu @ idle.
-* Seems to work OK on Intel brand desktop motherboards though.
-* Works well with HP Zxxx class workstation hardware.
-
 
 ### Backing up data
 
@@ -1917,35 +1910,35 @@ The beadm command impacts the non-global zones in your boot environments as foll
 
 ## The X-Window system
 
-< placeholder >
-
+Nearly all cards can use the VESA driver, and are therefore supported for 2D.
 
 ### Video card support (3D)
 
-Nearly all cards are supported for 2D, but only Nvidia is supported for 3D.
-Work is progressing to provide support for AMD and Intel.
+* Beginning with the July 2016 experimental release, both Nvidia and Intel GPU's are now supported.
+* AMD GPU's are not currently supported (VESA driver only).
 
-
-#### Nvidia
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
 
 * Talk about the expected behavior when booting the live CD from a system with an NVIDIA card.
 * Discuss procedure for adding an NVIDIA card to a system that was using VESA or some other non-3d video driver.
 * Troubleshooting - what logs to look at, manual configuration, etc.
 * Walk through NVIDIA utility screens.
 
-
-#### AMD
-
-* Currently no 3rd support, VESA driver only.
-
-
-#### Intel
-
-* Still working to incorporate this into Hipster.
+</div>
 
 
 ### How does one add a missing device driver?
 
-< Write about finding hardware id's, searching for drivers, installing, loading, /etc/driver_alias'es file. >
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
 
+Write about:
+
+* Finding hardware id's
+* Searching for drivers
+* Installing and loading drivers
+* Adding device ID's to `/etc/driver_alias`, etc.
+
+</div>
 
