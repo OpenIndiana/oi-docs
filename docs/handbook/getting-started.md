@@ -582,13 +582,13 @@ Replace `X` with the appropriate letter for your USB device.
 #### Method 1 (New releases)
 
 ```
-sudo dd bs=4M if=./image.usb of=/dev/sdb status=progress && sync
+sudo /usr/gnu/bin/dd bs=4M if=./image.usb of=/dev/sdb status=progress && sync
 ```
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Recent releases of OpenIndiana Hipster use the GNU version of dd (/usr/gnu/bin/dd), which should support the `status=progress` option.
-Older releases however may still be using illumos dd (/usr/bin/dd) which may not support this option.
+The command above uses the GNU version of dd `/usr/gnu/bin/dd`, which should support the `status=progress` option.
+If however you are using illumos dd `/usr/bin/dd`, bear in mind it may not support this option.
 </div>
 
 #### Method 2 (Legacy releases)
@@ -1937,8 +1937,9 @@ Nearly all cards can use the VESA driver, and are therefore supported for 2D.
 
 ### Video card support (3D)
 
-* Beginning with the July 2016 experimental release, both Nvidia and Intel GPU's are now supported.
-* AMD GPU's are not currently supported (VESA driver only).
+* Nearly all NVidia GPU's are supported by the Nvidia binary driver.
+* Beginning with the July 2016 experimental release, most Intel GPU's are now supported.
+* While AMD GPU's are not currently supported (VESA driver only), development is currently underway to provide 3D support for both legacy and modern AMD GPU's.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
