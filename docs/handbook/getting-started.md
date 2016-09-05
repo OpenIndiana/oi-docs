@@ -161,7 +161,7 @@ To work around this limitation, be sure to remove any previously installed insta
 
 * Run the following command to download and boot the OpenIndiana vagrant box:
 
-```bash
+```
 mkdir ~/openindiana_test
 cd ~/openindiana_test
 vagrant init openindiana/hipster
@@ -173,13 +173,13 @@ The Vagrant box will also be booted.
 
 * Once, the Vagrant box virtual machine is online, connect to it using the following command:
 
-```bash
+```
 vagrant ssh
 ```
 
 * To destroy the OpenIndiana Vagrant instance, issue the following command:
 
-```bash
+```
 vagrant destroy
 ```
 
@@ -268,7 +268,7 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 Download Example:
 
-```bash
+```
 wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
 wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
 ```
@@ -277,7 +277,7 @@ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256
 
 Checksum verification example:
 
-```bash
+```
 sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
 OI-hipster-gui-20160421.iso: OK
 ```
@@ -319,7 +319,7 @@ For example:
 
 `cdrecord -scanbus`
 
-```bash
+```
 Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
 Warning: Using USCSI interface.
 Using libscg version 'schily-0.9'.
@@ -349,7 +349,7 @@ For example:
 
 `rmformat -l`
 
-```bash
+```
 Looking for devices...
      1. Logical Node: /dev/rdsk/c4t1d0p0
         Physical Node: /pci@0,0/pci17aa,20f8@1f,2/cdrom@1,0
@@ -397,7 +397,7 @@ For example:
 
 `lsblk`
 
-```bash
+```
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda      8:0    0 232.9G  0 disk
 ├─sda1   8:1    0 227.8G  0 part /
@@ -426,7 +426,7 @@ For further information, please consult the help documentation for your Linux di
 
 **MAC Console** <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
 
-```bash
+```
 growisofs -Z /dev/dvdrw=image.iso
 ```
 
@@ -552,34 +552,37 @@ For example:
 
 ### BSD/Linux/OS X
 
+Replace `X` with the appropriate letter for your USB device.
+
+
 #### Method 1 (New releases)
 
-```bash
-sudo dd bs=4M if=./OI_MATE_experimental.usb of=/dev/sdb status=progress && sync
+```
+sudo dd bs=4M if=./image.usb of=/dev/sdX status=progress && sync
 ```
 
 #### Method 2 (Legacy releases)
 
-```bash
-cat 1G.header OI-hipster-text-20160421.usb | sudo dd bs=1024k of=/dev/sdX
+```
+cat 1G.header image.usb | sudo dd bs=1024k of=/dev/sdX
 ```
 
 For live images larger than 1GB, use the following command instead.
 
-```bash
-cat 2G.header OI-hipster-gui-20160421.usb | sudo dd bs=1024k of=/dev/sdX
 ```
-
-Replace "X" with the appropriate letter for your USB device
+cat 2G.header image.usb | sudo dd bs=1024k of=/dev/sdX
+```
 
 
 ### illumos/Solaris
 
+Replace `X` with the appropriate letter for your USB device.
+
 
 #### Method 1 (New releases)
 
-```bash
-sudo dd bs=4M if=./OI_MATE_experimental.usb of=/dev/sdb status=progress && sync
+```
+sudo dd bs=4M if=./image.usb of=/dev/sdb status=progress && sync
 ```
 
 #### Method 2 (Legacy releases)
@@ -588,9 +591,9 @@ For illumos based distributions including OpenIndiana, a script [(USBCOPY)](http
 
 Be sure to run as root or with SUDO as the script exits if not run with elevated permissions.
 
-`sudo ./usbcopy OI-hipster-gui-20160421.usb`
+`sudo ./usbcopy image.usb`
 
-```bash
+```
 Found the following USB devices:
 0:    devices/dev/rdsk/c4t0d0p0    3.9 GB    USB    DISK 2.0       1.00
 Enter the number of your choice: 0
@@ -1345,7 +1348,9 @@ The FMRI includes descriptive information about the package, such as the package
 
 For example:
 
+```
 FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
+```
 
 * Scheme – pkg
 * Authority – openindiana.org
@@ -1366,7 +1371,7 @@ For example:
 
 `pkg search -r xchat`
 
-```bash
+```
 INDEX                ACTION VALUE                                   PACKAGE
 pkg.summary          set    HexChat is an IRC client based on XChat pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1
 pkg.summary          set    XChat IRC Client                        pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
@@ -1382,7 +1387,7 @@ For example:
 
 `pkg search -l /usr/bin/gpg2`
 
-```bash
+```
 INDEX      ACTION VALUE        PACKAGE
 path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
 ```
@@ -1399,7 +1404,7 @@ For example:
 
 `pkg list gimp`
 
-```bash
+```
 NAME (PUBLISHER)                                  VERSION                    IFO
 image/editor/gimp                                 2.8.16-2016.0.0.2          i--
 ```
@@ -1413,7 +1418,7 @@ For example:
 
 `pkg contents -H -t depend -o fmri xchat`
 
-```bash
+```
 pkg:/library/desktop/gdk-pixbuf@2.31.6-2016.0.0.0
 pkg:/library/desktop/gtk2@2.24.30-2016.0.0.0
 pkg:/library/desktop/libsexy@0.1.11-2016.0.0.0
@@ -1448,7 +1453,7 @@ For example:
 
 `pkg install xchat`
 
-```bash
+```
            Packages to install:   1
             Packages to update:   1
             Services to change:   2
@@ -1500,7 +1505,7 @@ For example:
 
 `pkg update`
 
-```bash
+```
             Packages to remove:    4
            Packages to install:   11
             Packages to update: 1018
@@ -1555,7 +1560,7 @@ Example (Listing the repositories configured on the system):
 
 `pkg publisher`
 
-```bash
+```
 PUBLISHER                   TYPE     STATUS P LOCATION
 openindiana.org             origin   online F https://pkg.openindiana.org/hipster/
 hipster-encumbered          origin   online F https://pkg.openindiana.org/hipster-encumbered/
@@ -1563,7 +1568,7 @@ hipster-encumbered          origin   online F https://pkg.openindiana.org/hipste
 
 Example (Replacing a repository):
 
-```bash
+```
 pkg set-publisher \
 -G http://pkg.openindiana.org/hipster-2015 \
 -g https://pkg.openindiana.org/hipster openindiana.org
@@ -1578,7 +1583,7 @@ For example:
 
 `pkgrepo info -s https://pkg.openindiana.org/hipster/`
 
-```bash
+```
 PUBLISHER       PACKAGES STATUS           UPDATED
 openindiana.org 3692     online           2016-08-21T07:03:11.566484Z
 ```
@@ -1611,7 +1616,7 @@ For example:
 
 `pkg history`
 
-```bash
+```
 START                    OPERATION                CLIENT             OUTCOME
 2016-04-21T03:30:04      purge-history            pkg                Succeeded
 2016-07-02T16:09:56      uninstall                pkg                Succeeded
@@ -1673,7 +1678,7 @@ To create an IPS archive, the `pkgrecv` command is used.
 
 For example, to create a `.p5p` IPS package archive containing the package `userland/web/browser/firefox` and all of its dependencies from the repository located at `http://example.com:10000`, use the following command:
 
-```bash
+```
 pkgrecv -s http://example.com:10000 -d ~/firefox_test.p5p -a -r pkg://userland/web/browser/firefox@45.3.0-2016.0.0.0:20160817T064143Z
 ```
 
@@ -1684,7 +1689,7 @@ There are at least two different ways to view the contents of an IPS archive.
 
 `pkgrepo -s ~/firefox_test.p5p list`
 
-```bash
+```
 PUBLISHER NAME                                          O VERSION
 userland  library/expat                                   2.1.0-2015.0.1.1:20150901T125810Z
 userland  library/glib2                                   2.43.4-2016.0.0.4:20160705T121550Z
@@ -1699,7 +1704,7 @@ This also works:
 
 `pkg list -f -g  ~/firefox_test.p5p`
 
-```bash
+```
 NAME (PUBLISHER)                                  VERSION                    IFO
 library/expat (userland)                          2.1.0-2015.0.1.1           ---
 library/glib2 (userland)                          2.43.4-2016.0.0.4          ---
@@ -1735,7 +1740,7 @@ For example:
 
 `pkg help update`
 
-```bash
+```
 Usage:
         pkg update [-fnvq] [-C n] [-g path_or_uri ...] [--accept] [--ignore-missing]
             [--licenses] [--no-be-activate] [--no-index] [--no-refresh]
