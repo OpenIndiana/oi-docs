@@ -317,7 +317,7 @@ Locating your DVD or CD writing device:
 
 For example:
 
-`cdrecord --scanbus`
+`cdrecord -scanbus`
 
 ```bash
 Cdrecord-ProDVD-ProBD-Clone 3.00 (i386-pc-solaris2.11) Copyright (C) 1995-2010 J�rg Schilling
@@ -337,13 +337,13 @@ scsibus4:
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-When using `cdrecord --scanbus` to determine the device name, specify the device using the SCSI bus ID.
+When using `cdrecord -scanbus` to determine the device name, specify the device using the SCSI bus ID.
 
 For example: `cdrecord dev=4,1,0 imagefile.iso`
 
 </div>
 
-* For illumos/Solaris, you may use either `rmformat -l` or `cdrecord --scanbus` to locate your device.
+* For illumos/Solaris, you may use either `rmformat -l` or `cdrecord -scanbus` to locate your device.
 
 For example:
 
