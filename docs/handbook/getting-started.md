@@ -1953,7 +1953,8 @@ The beadm command impacts the non-global zones in your boot environments as foll
 
 * Nearly all cards can use the VESA driver, and are therefore supported for 2D.
 * 2D acceleration for NVidia GPU's is provided by the Nvidia binary driver.
-* Work has begun to provide Radeon (2D) acceleration support for both legacy and modern AMD GPU's.
+* Support for legacy ATI adapters was recently removed due to incompatibility with the current version of Xorg. 
+    * Work has begun to restore Radeon (2D) acceleration support for legacy adapters and to provide it for modern AMD GPU's as well.
 
 ### Video card support (3D)
 
