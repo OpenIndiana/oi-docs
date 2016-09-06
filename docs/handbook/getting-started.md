@@ -1069,7 +1069,7 @@ The text based installation process begins with the welcome screen, which provid
 At any time during the installation process you may press the `F6` key for context specific help.
 </div>
 
-When ready to begin, press the ``F2`` key to continue.
+When ready to begin, press the `F2` key to continue.
 
 ![Disks](./images/text_install/text_002.png)
 
@@ -1078,7 +1078,7 @@ On this screen the installer displays the disks which have been discovered and a
 * If you have only a single disk, it is already selected.
 * If you have multiple disks, use the arrow keys to select the appropriate disk.
 
-Once you have selected the appropriate disk, press the ``F2`` key to continue.
+Once you have selected the appropriate disk, press the `F2` key to continue.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -1107,7 +1107,7 @@ If your disk contains a GPT disk label, the entire disk will be used.
 This warning serves as your advisory.
 </div>
 
-After pressing the ``F2`` key you may be presented with warning shown above.
+After pressing the `F2` key you may be presented with warning shown above.
 If reformatting the entire disk is acceptable with you, press the enter key to continue.
 Otherwise use the arrow keys to select cancel and press the enter key.
 
@@ -1127,7 +1127,7 @@ In this screen you are presented with the following choices for how to partition
 * Use a partition of the disk (MBR)
 
 Using the arrow keys, select the appropriate choice.
-When ready, press the ``F2`` key to continue.
+When ready, press the `F2` key to continue.
 
 ![Select Partition](./images/text_install/text_005.png)
 
@@ -1139,7 +1139,7 @@ This screen provides the following options:
 * Change the partition size
 * Free up space by deleting a partition
 
-When ready, press the ``F2`` key to continue.
+When ready, press the `F2` key to continue.
 
 ![Network 1](./images/text_install/text_006.png)
 
@@ -1170,7 +1170,7 @@ From the lower portion of this screen you have the following choices:
 * Do not configure the network at this time
 
 Use the arrow keys to select your choice.
-When ready, press the ``F2`` key to continue.
+When ready, press the `F2` key to continue.
 
 ![Network 3](./images/text_install/text_008.png)
 
@@ -1185,7 +1185,7 @@ In the fields provided, enter in the following information:
 * Domain
 
 Use the arrow keys to navigate the fields.
-When ready, press the ``F2`` key to continue.
+When ready, press the `F2` key to continue.
 
 ![Time Zone - Region](./images/text_install/text_009.png)
 
