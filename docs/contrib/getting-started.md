@@ -26,10 +26,11 @@ The process for contributing to OpenIndiana Docs is simple and follows the same 
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
 
-We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
-From there, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
+After receiving your submission, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
+Contributions may be submitted in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
 
-In a nutshell, if you think your contribution can be helpful to the greater OpenIndiana community, we'll be happy to review it.
+In summary, if you believe your contribution would be helpful to the greater OpenIndiana community, we'll be willing to review it.
+For further information, please contact us via one of the methods provided below.
 
 To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
 
@@ -39,8 +40,6 @@ You may also inquire via IRC:
 
 * [#openindiana (freenode)](irc://irc.freenode.net/openindiana)
 * [#oi-dev (freenode)](irc://irc.freenode.net/oi-dev)
-
-
 </div>
 
 

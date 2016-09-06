@@ -60,12 +60,12 @@ The OI-DOCS website can be navigated in several ways:
 
 * Using the drop down menus from the top navigation bar.
 * Clicking the _**Next**_ and _**Previous**_ buttons.
-* Using the table of contents found on the left side of each page.
+* Using the table of contents found on the left or top side of each page.
 * Using the full text search function found in the top navigation bar.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-The table of contents only lists top level sectional titles.
+The table of contents lists top level sectional titles only.
 
 To find lower level sectional titles, or to search for topics by keyword, please use the full text search function of the website.
 The full text search will return a list of the sectional titles where the keyword has been found.
@@ -77,10 +77,10 @@ The full text search will return a list of the sectional titles where the keywor
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
 
-We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
-From there, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
+After receiving your submission, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
+Contributions may be submitted in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
 
-In a nutshell, if you think your contribution can be helpful to the greater OpenIndiana community, we'll be happy to review it.
+In summary, if you believe your contribution would be helpful to the greater OpenIndiana community, we'll be willing to review it.
 For further information, please see the contribution pages found elsewhere on this site.
 
 

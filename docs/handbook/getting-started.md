@@ -21,20 +21,17 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
 This document is a work in progress (draft).
-
 </div>
 
-Import and validate (compare with FAQ, etc.): [old handbook intro](https://wiki.openindiana.org/oi/1.+Introduction)
 
 ## Introduction
 
-The OpenIndiana project is the open source community which develops, maintains, and supports the [OpenIndiana](https://en.wikipedia.org/wiki/OpenIndiana) distribution, an [illumos](https://en.wikipedia.org/wiki/Illumos) based Unix-like operating system derived from OpenSolaris.
-The purpose of the OpenIndiana Project is to ensure the continued availability of an openly developed distribution based on OpenSolaris.
-The OpenIndiana project is also a continuation of the collaborative effort and community spirit of the [OpenSolaris project](https://en.wikipedia.org/wiki/OpenSolaris).
+Welcome to the OpenIndiana Handbook!
 
-For a comprehensive history of the OpenSolaris project, see Jim Grisanzio's [OpenSolaris timeline](https://jimgrisanzio.wordpress.com/opensolaris/).
+This collection of documents is aimed at providing a comprehensive source of guidance for both new and seasoned Unix administrators.
+While our aim is to address as many facets of OpenIndiana use and administration as possible, some topics are simply too complex and beyond the scope of an introductory end user handbook.
+In such cases external sources of information will be provided in the form of references to other web sites, man pages, or printed books.
 
 ## OpenIndiana software releases
 
@@ -256,7 +253,7 @@ As the FAQ evolves, try to keep this section in sync.
 -->
 Primary download mirror (London, England):
 
-* [ISO's and USB Images](http://dlc.openindiana.org/isos/hipster)
+* [CD/DVD (ISO) and USB Images](http://dlc.openindiana.org/isos/hipster)
 * [Torrents](http://dlc.openindiana.org/torrents)
 
 Alternate mirrors (Asia, Europe, and North America)
@@ -266,7 +263,7 @@ Alternate mirrors (Asia, Europe, and North America)
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
-Download Example:
+Download example:
 
 ```
 wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
@@ -343,7 +340,7 @@ For example: `cdrecord dev=4,1,0 imagefile.iso`
 
 </div>
 
-* For illumos/Solaris, you may use either `rmformat -l` or `cdrecord -scanbus` to locate your device.
+* For illumos/Solaris, you may use either `cdrecord -scanbus` or `rmformat -l` to locate your device.
 
 For example:
 
@@ -382,6 +379,7 @@ Use the application specific to your desktop (Brasero, K3B, etc.)
 **Linux Console** <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
 
 The command to use to write a CD or DVD on Linux is `wodim`.
+
 The syntax of the command is: `wodim -v dev=device -dao imagefile.iso`
 
 For example:
@@ -628,21 +626,19 @@ To resolve this issue, be sure to select the `*.*` (all files) option from the f
 
 #### Method 2 (Legacy releases)
 
-The OpenSolaris Live USB Creator is a small stand alone GUI utility suitable for creating an OpenIndiana live USB stick.
-
-[OpenSolaris USB Creator](http://devzone.sites.pid0.org/OpenSolaris/opensolaris-liveusb-creator)
+The [OpenSolaris Live USB Creator](http://devzone.sites.pid0.org/OpenSolaris/opensolaris-liveusb-creator) is a small stand alone GUI utility suitable for creating an OpenIndiana bootable USB flash drive.
 
 
 ## Booting OpenIndiana installer media
 
 Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your computer.
-When you see the boot menu, press the enter key to start OpenIndiana on your computer.
+When you see the OpenIndiana boot menu, select a boot entry, and press the enter key to start OpenIndiana on your computer.
 As it runs, you will be prompted with a few questions.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-For the computer to boot from the media, you may need to either:
+For the computer to successfully boot from the media, you may be required to perform one of the following tasks:
 
 * Specify the appropriate boot device by pressing the boot order hotkey.
 * Change the boot device order found in your computer's system BIOS configuration.
@@ -789,9 +785,9 @@ For some guidance writing this section:
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Before you install OpenIndiana on a system that is running the Linux OS, save a copy of the menu.lst file.
-The contents of the GRUB menu.lst file dictate what is displayed in the GRUB menu when you boot the system.
-You will need to update the GRUB menu after the installation.
+If your intention is to multi-boot OpenIndiana on a system that is already running a UNIX like operating system (for example Linux), be sure to save a copy of the `menu.lst` file prior to beginning the installation.
+The contents of the GRUB `menu.lst` file dictate the booting parameters for each entry displayed in the GRUB boot menu.
+The information provided by the `menu.lst` will be required for updating the GRUB menu after the installation.
 </div>
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
@@ -863,7 +859,7 @@ Within the lower panel, select one of the following options:
 | Option | Description
 | --- | ---
 | Use the whole disk | When the _Use the whole disk_ option is selected, the entire disk is used for the installation. For the selected disk, all existing partitions and any data which they may contain, will be overwritten with the OpenIndiana operating system.
-| Partition the disk | When _Partition the disk_ option is selected, the bottom portion of this panel displays the disk partitioning layout. Prior to selecting this option, please be sure to review all the informational notes and warnings concerning the use of the partitioning option.
+| Partition the disk | When the _Partition the disk_ option is selected, the bottom portion of this panel displays the disk partitioning layout. Prior to selecting this option, please be sure to review all the informational notes and warnings concerning the use of the partitioning option.
 
 ![Disk selection and partitioning menu -2](./images/gui_install/install_4.png)
 If you choose to partition the disk, you have additional options as shown above.
@@ -872,7 +868,7 @@ When you have revised the partitioning as needed, click the _**Next**_ button to
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Regardless of the partitioning option chosen for the installation, manual control of the OpenSolaris file system layout is not supported.
+Regardless of the partitioning option chosen for the installation, manual control of the OpenIndiana file system layout is not supported.
 During the installation, the Solaris fdisk partition is reformatted with a default ZFS file system layout.
 All existing file systems on the Solaris partition are destroyed.
 The installation uses a Solaris fdisk partition to create a ZFS storage pool.
@@ -1049,40 +1045,40 @@ If you have an additional OpenIndiana or a Linux OS that is not displayed on the
 
 ### Install OpenIndiana using the Text Installer
 
-The text based guided install starts and runs within a command line console.
-Navigation within the installer is performed by pressing specifically designated navigation keys (F2, Tab, etc.).
-
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
+The text based guided install starts and runs within a command line console.
+Navigation within the installer is performed by pressing specifically designated navigation keys (`F2`, Tab, etc.).
 
-The non-graphical text based bootable media installer also uses this very same _Text based Guided Install_.
+The instructions for performing a text based install apply to the following installation scenarios:
 
+* Launching the text based installer icon from the Live Media (GUI) desktop.
+* Beginning a text based installation by booting from the OpenIndiana text based installer.
 </div>
 
-Begin installing OpenIndiana using the text based installer by double clicking the desktop icon labeled:
 
-_Install OpenIndiana using the Text Installer_.
+![Welcome Screen](./images/text_install/text_001.png)
 
-
-![Welcome Screen](images/text_install/text_install1.png)
-
-The _Install OpenIndiana using the Text Installer_ process begins with a welcome screen.
-
-The welcome screen also provides:
+The text based installation process begins with the welcome screen, which provides the following information:
 
 * Location of the installation log file
 * Navigational guidance
 
-When ready to begin, press the F2 key to continue.
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+At any time during the installation process you may press the `F6` key for context specific help.
+</div>
 
-![Disks](images/text_install/text_install2.png)
+When ready to begin, press the ``F2`` key to continue.
 
-The installer identifies the disks which are available for installation.
+![Disks](./images/text_install/text_002.png)
+
+On this screen the installer displays the disks which have been discovered and are available for installation.
 
 * If you have only a single disk, it is already selected.
 * If you have multiple disks, use the arrow keys to select the appropriate disk.
 
-When ready, press the F2 key to continue.
+Once you have selected the appropriate disk, press the ``F2`` key to continue.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -1090,29 +1086,30 @@ When ready, press the F2 key to continue.
 While the minimum and recommended disk sizes are technically accurate, they do not take into account periodic disk usage growth resulting from:
 
 * ZFS snapshots
-* Backup boot environments created by `pkg install`
-* Boot environments created by `pkg update`
+* Installation of additional software
+* New boot environments automatically created when running the `pkg update` command
+* New backup boot environments automatically created when running the `pkg install` command
 
 To account for this, your disk should be at least 20GB or more.
 
 </div>
 
-![GPT Warning](images/text_install/text_install3.png)
+![GPT Warning](./images/text_install/text_003.png)
+
 
 <!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
-
 If your disk contains a GPT disk label, the entire disk will be used.
 
 * Any existing GPT partitions will be destroyed
 * A new single GPT partition will be created.
 
 This warning serves as your advisory.
-
 </div>
 
+After pressing the ``F2`` key you may be presented with warning shown above.
 If reformatting the entire disk is acceptable with you, press the enter key to continue.
-Otherwise use the arrow keys to select cancel and press the enter key..
+Otherwise use the arrow keys to select cancel and press the enter key.
 
 If you select cancel, you will have the following options:
 
@@ -1122,7 +1119,7 @@ If you select cancel, you will have the following options:
     * Adding another disk to the system
 
 
-![Fdisk Partitions](images/text_install/text_install4.png)
+![Fdisk Partitions](./images/text_install/text_004.png)
 
 In this screen you are presented with the following choices for how to partition the disk:
 
@@ -1130,16 +1127,29 @@ In this screen you are presented with the following choices for how to partition
 * Use a partition of the disk (MBR)
 
 Using the arrow keys, select the appropriate choice.
-When ready, press the F2 key to continue.
+When ready, press the ``F2`` key to continue.
 
-![Network 1](images/text_install/text_install5.png)
+![Select Partition](./images/text_install/text_005.png)
 
-Specify the computer name (system hostname) you wish to use.
+If you chose to partition the disk you will see this screen above.
+This screen provides the following options:
+
+* Select the partition where you would like to install Openindiana.
+* Change the partition type
+* Change the partition size
+* Free up space by deleting a partition
+
+When ready, press the ``F2`` key to continue.
+
+![Network 1](./images/text_install/text_006.png)
+
+At the top portion of this screen specify the computer name (system hostname) you wish to use.
 By default the computer name is _openindiana_.
 Using the backspace key, you may remove the default choice and provide another hostname.
+
 When ready, proceed to the next screen shot where you will be provided additional guidance for completing this screen.
 
-![Network 2](images/text_install/text_install6.png)
+![Network 2](./images/text_install/text_007.png)
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -1153,49 +1163,65 @@ We have illustrated it twice to help clarify the 2 distinct configuration tasks 
 
 After configuring the system hostname, navigate to the lower portion of the screen to select your networking configuration.
 
-You have the following choices:
+From the lower portion of this screen you have the following choices:
 
 * Automatically configure the (networking) connection (using DHCP)
-* Do not configure the network at this time.
+* Manually configure the network settings by entering the information on the next screen
+* Do not configure the network at this time
 
 Use the arrow keys to select your choice.
-When ready, press the F2 key to continue.
+When ready, press the ``F2`` key to continue.
 
-![Time Zone - Region](images/text_install/text_install7.png)
+![Network 3](./images/text_install/text_008.png)
+
+If you chose to manually configure your network, you will be presented with the screen above.
+
+In the fields provided, enter in the following information:
+
+* IP Address
+* Netmask
+* Gateway
+* DNS
+* Domain
+
+Use the arrow keys to navigate the fields.
+When ready, press the ``F2`` key to continue.
+
+![Time Zone - Region](./images/text_install/text_009.png)
 
 In this screen (and the following 2 screens) you will configure your time zone.
 
+Using the arrow keys, select your time zone _region_.
+When ready, press the `F2` key to continue.
+
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
 If you select UTC/GMT, you will only be presented with this single screen.
-
 </div>
 
-Using the arrow keys, select your time zone _region_.
-When ready, press the F2 key to continue.
-
-![Time Zone - Location](images/text_install/text_install8.png)
+![Time Zone - Location](./images/text_install/text_010.png)
 
 Using the arrow keys, select your time zone _location_.
-When ready, press the F2 key to continue.
+When ready, press the `F2` key to continue.
 
-![Time Zone](images/text_install/text_install9.png)
+![Time Zone](./images/text_install/text_011.png)
 
 Using the arrow keys, select your _time zone_.
-When ready, press the F2 key to continue.
+When ready, press the `F2` key to continue.
 
-![Date and Time](images/text_install/text_install10.png)
+![Date and Time](./images/text_install/text_012.png)
 
 In this screen you may reconfigure the date and time as necessary.
+
 Using the arrow keys, navigate between the fields.
-When ready, press the F2 key to continue.
+When ready, press the `F2` key to continue.
 
-![Users](images/text_install/text_install11.png)
+![Users](./images/text_install/text_013.png)
 
-In this screen you are presented with several different user name and password fields to configure.
+In this screen you are presented with several fields to configure.
+
 Using the arrow keys, navigate between the fields and enter the required information.
-When ready, press the F2 key to continue.
+When ready, press the `F2` key to continue.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE**
 <div class="well">
@@ -1211,23 +1237,29 @@ Please take note the following additional information:
 
 </div>
 
-![Installation Summary](images/text_install/text_install12.png)
+![Installation Summary](./images/text_install/text_014.png)
 
 Now that you have completed the installation configuration, you are presented with an _Installation Summary_.
-If these configuration settings are correct, begin the installation by pressing the F2 key.
+If these configuration settings are correct, begin the installation by pressing the `F2` key.
 
-![Transferring Contents](images/text_install/text_install13.png)
+![Transferring Contents](./images/text_install/text_015.png)
 
 Depending on the speed of your computer, the installation may take several minutes to complete.
 Installation progress is measured by means of a status bar.
 
-![Installation Complete](images/text_install/text_install14.png)
+![Installation Complete](./images/text_install/text_016.png)
 
 After the installation has completed you are presented with a summary screen.
-The installation logs are available by pressing the F4 key.
-If you ran the installation from Live Media, you may exit the installation by pressing the F9 key.
-Otherwise, you will want to reboot the system by pressing the F8 key.
 
+* The installation logs are available by pressing the `F4` key.
+* If you ran the installation from Live Media, you may exit the installation by pressing the `F9` key.
+* Otherwise, you will want to reboot the system by pressing the `F8` key.
+
+![Installation Logs](./images/text_install/text_017.png)
+
+If you chose to view the installation logs, you will be presented with the screen above.
+
+To return to the summary screen, press the `F3` key.
 
 ### Installing OpenIndiana using the text installer (DVD ISO or USB)
 
