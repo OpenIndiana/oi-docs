@@ -264,18 +264,28 @@ See the code snippet below for examples.
 
 To assist with the content authoring process, it may be helpful to visualize your changes using a live preview.
 
-* From the root of the website-2.0 folder:
-    * Type: `mkdocs serve`
+* From the root of the `oi-docs/` directory:
+    * Type: `mkdocs serve` and press enter.
     * Open your web browser to 127.0.0.1:8000.
 
-To shut down the live preview web server, use [CTRL] + [C].
+Each time you save your changes, the site page is automatically reloaded within your web browser.
+
+To shut down the live preview web server, use `CTRL` + `C`.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+If you wish to preview your changes on a remotely networked system or on a networked mobile device such as a tablet, the site can also be served on your LAN IP address.
+
+To do so, issue the following command: `mkdocs serve --dev-addr=0.0.0.0:8000`
+</div>
+
 
 ## Running Markdown Lint (locally)
 
 Markdown Lint is used to check your changes for Markdown syntax errors.
 Prior to submitting a pull request (PR), please consider running Markdown Lint locally on your computer.
 
-From the root site folder (website-2.0) execute the following command:
+From the root of the `oi-docs/` directory, execute the following command:
 
 ```bash
 mdl -s markdownlint-rules.rb .
