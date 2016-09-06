@@ -550,7 +550,7 @@ For example:
 
 ### BSD/Linux/OS X
 
-Replace `X` with the appropriate letter for your USB device.
+In the command below, replace `X` with the appropriate letter for your USB device.
 
 
 #### Method 1 (New releases)
@@ -574,20 +574,14 @@ cat 2G.header image.usb | sudo dd bs=1024k of=/dev/sdX
 
 ### illumos/Solaris
 
-Replace `X` with the appropriate letter for your USB device.
-
 
 #### Method 1 (New releases)
 
-```
-sudo /usr/gnu/bin/dd bs=4M if=./image.usb of=/dev/sdb status=progress && sync
-```
+In the command below, replace each `X` with appropriate number for your USB device.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-The command above uses the GNU version of dd `/usr/gnu/bin/dd`, which should support the `status=progress` option.
-If however you are using illumos dd `/usr/bin/dd`, bear in mind it may not support this option.
-</div>
+```
+sudo /usr/bin/dd if=./image.usb of=/dev/rdsk/cXtXdXpX bs=4194304
+```
 
 #### Method 2 (Legacy releases)
 
@@ -1955,13 +1949,17 @@ The beadm command impacts the non-global zones in your boot environments as foll
 
 ## The X-Window system
 
-Nearly all cards can use the VESA driver, and are therefore supported for 2D.
+### Video card support (2D)
+
+* Nearly all cards can use the VESA driver, and are therefore supported for 2D.
+* 2D acceleration for NVidia GPU's is provided by the Nvidia binary driver.
+* Work has begun to provide Radeon (2D) acceleration support for both legacy and modern AMD GPU's.
 
 ### Video card support (3D)
 
 * Nearly all NVidia GPU's are supported by the Nvidia binary driver.
-* Beginning with the July 2016 experimental release, most Intel GPU's are now supported.
-* While AMD GPU's are not currently supported (VESA driver only), development is currently underway to provide 3D support for both legacy and modern AMD GPU's.
+* Beginning with the July 2016 experimental release, most Intel GPU's are now also supported.
+* No 3D support is currently available for AMD GPU's.
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
