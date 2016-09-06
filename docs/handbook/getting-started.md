@@ -1272,11 +1272,20 @@ When booting from the text based installer, you are presented with the following
 The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started/#install-openindiana-using-the-text-installer)
 
 
+## Troubleshooting installations
+
+* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a `grub>` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
+* If you see a `login:` prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
+    * Please let us know via IRC or the mailing list if this happens.
+    * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
+    * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
+
+
 ## Post installation steps
 
 ### Resetting the root password
 
-The root password is immediately expired after installation and you will be required to select a new password.
+After installation, the root password is immediately expired and you will be required to change it.
 
 Use the following steps to change the root password:
 
@@ -1285,25 +1294,6 @@ Use the following steps to change the root password:
 * You will be informed that root's password has expired and prompted to change it
 * Once changed you can exit the su session
 * You should be able to login/authenticate as root now.
-
-
-## Troubleshooting installations
-
-* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a ``grub>`` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
-* If you see a ``login:`` prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
-    * Please let us know via IRC or the mailing list if this happens.
-    * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
-    * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
-
-
-### USB 3.0 issues
-
-**DOC TEAM NOTE:**
-
-Bring this guidance in alignment with the USB 3.0 warnings found elsewhere in the handbook, FAQ, etc.
-
-* OpenIndiana Hipster does not currently support USB3.
-* You cannot boot a USB thumbdrive installer from a USB3 port.
 
 
 ## The Image Package System (IPS)
