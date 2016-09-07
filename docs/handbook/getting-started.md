@@ -1292,9 +1292,12 @@ Use the following steps to change the root password:
 
 ## The Image Package System (IPS)
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 The image packaging system is delivered as part of the OpenIndiana userland.
 As such, the pkg related man pages are not available on the illumos.org website.
 These pages are only available by running the man page viewer locally on your system.
+</div>
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
@@ -1357,7 +1360,7 @@ The Image Packaging System software provides the following commands:
 <div class="well">
 
 * The `pkg`<sup>5</sup> man page describes the overall Image Packaging System.
-* The `pkg`<sup>1</sup> man page describes the image packaging retrieval client.
+* The `pkg`<sup>1</sup> man page describes the Image Packaging System retrieval client.
 
 </div>
 
@@ -1395,13 +1398,26 @@ For example:
 
 ```
 INDEX                ACTION VALUE                                   PACKAGE
-pkg.summary          set    HexChat is an IRC client based on XChat pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1
 pkg.summary          set    XChat IRC Client                        pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+pkg.summary          set    HexChat is an IRC client based on XChat pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1
 basename             file   usr/bin/xchat                           pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
 com.oracle.info.name set    xchat                                   pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
 pkg.fmri             set    openindiana.org/desktop/irc/xchat       pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
 ```
 
+As you can see, when using `pkg search` with the `-r` option, the results of the search include more than just package names.
+And in this particular case, the results even included an additional package with a similar name.
+To search for package names only, include the `-p` option.
+
+For example:
+
+`pkg search -rp xchat`
+
+```
+PACKAGE                                    PUBLISHER
+pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1 openindiana.org
+pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5    openindiana.org
+```
 
 The `pkg search` command may also be used to find the package containing a particular file.
 
@@ -1414,25 +1430,58 @@ INDEX      ACTION VALUE        PACKAGE
 path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
 ```
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 When using the `pkg search` command bear it mind it works much like the Unix `find` command.
-If you have troubles finding a package you know should exist, try using wildcards with your commands.
+If you have difficulty finding a package you know should exist, try searching with wildcards.
+</div>
 
 
-### Listing information about packages
+### Listing the status of packages
 
-To list information about packages installed on the local system use the command `pkg list <package-name>`.
+To list the status of locally installed packages, use the `pkg list <package-name>` command.
 
 For example:
 
-`pkg list gimp`
+`pkg list bash`
 
 ```
 NAME (PUBLISHER)                                  VERSION                    IFO
-image/editor/gimp                                 2.8.16-2016.0.0.2          i--
+shell/bash                                        4.3.46-2016.0.0.0          i--
 ```
 
-To list the entire contents of a package, use the command: `pkg contents <package-name>`.
+### Listing information about packages
+
+To list detailed information about a locally installed package, use the `pkg info <package-name>` command.
 If the package is not installed on the local system, use the `-r` option to search the remote repositories defined on the system.
+
+For example:
+
+`pkg info -r gimp`
+
+```
+          Name: image/editor/gimp
+       Summary: The Gimp image editor
+      Category: Applications/Graphics and Imaging
+         State: Not installed
+     Publisher: openindiana.org
+       Version: 2.8.16
+        Branch: 2016.0.0.2
+Packaging Date: July 30, 2016 12:04:41 AM
+          Size: 65.01 MB
+          FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.2:20160730T000441Z
+   Project URL: http://www.gimp.org/
+    Source URL: http://download.gimp.org/pub/gimp/v2.8/gimp-2.8.16.tar.bz2
+```
+
+
+### Listing the contents of packages
+
+To list the entire contents of a package, use the `pkg contents <package-name>` command.
+If the package is not installed on the local system, use the `-r` option to search the remote repositories defined on the system.
+
+
+### Listing the dependencies of packages
 
 The `pkg contents` command can also be used to list the dependencies found in a package.
 
@@ -1596,6 +1645,7 @@ pkg set-publisher \
 -g https://pkg.openindiana.org/hipster openindiana.org
 ```
 
+
 ### Listing information about repositories
 
 While the `pkgrepo` command is primarily used for creating and working with IPS repositories.
@@ -1667,9 +1717,13 @@ START                    OPERATION                CLIENT             OUTCOME
 
 To view more details of a particular IPS transaction, use the command:
 
+`pkg history -t <time_stamp> -l`
+
+For example:
+
 `pkg history -t 2016-07-09T11:33:05 -l`
 
-The `-t` switch allows you to specify a particular transaction and the `-l` switch provides extended details of that transaction.
+The `-t` option allows you to specify a particular transaction and the `-l` option provides extended details of that transaction.
 
 
 ### IPS package archives (.p5p)
