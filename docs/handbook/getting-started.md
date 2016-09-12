@@ -100,6 +100,12 @@ There are several ways in which you can explore OpenIndiana without having to pe
 * Vagrant (virtual machine image automation)
 
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+While the Live Media environment provides an opportunity to use and explore many of the features of OpenIndiana, it is not possible to install additional software into the Live Media environment.
+</div>
+
+
 ### Live Media
 
 Available in both DVD and USB formats, the OpenIndiana GUI installer also functions as live media.
@@ -1389,6 +1395,7 @@ FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
 ### Searching for packages
 
 The `pkg search` command is used to search locally or remotely for information about packages.
+The syntax of the command is `pkg search [options] [package]`.
 If no search options are specified, the search is restricted to the local system.
 Using the `-r` option, the command searches the remote repository (or repositories) associated with the system.
 
@@ -1405,8 +1412,7 @@ com.oracle.info.name set    xchat                                   pkg:/desktop
 pkg.fmri             set    openindiana.org/desktop/irc/xchat       pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
 ```
 
-As you can see, when using `pkg search` with the `-r` option, the results of the search include more than just package names.
-And in this particular case, the results even included an additional package with a similar name.
+As you can see, the search results include more than just package names.
 To search for package names only, include the `-p` option.
 
 For example:
@@ -1439,7 +1445,7 @@ If you have difficulty finding a package you know should exist, try searching wi
 
 ### Listing the status of packages
 
-To list the status of locally installed packages, use the `pkg list <package-name>` command.
+To list the status of locally installed packages, use the `pkg list [package]` command.
 
 For example:
 
@@ -1452,7 +1458,7 @@ shell/bash                                        4.3.46-2016.0.0.0          i--
 
 ### Listing information about packages
 
-To list detailed information about a locally installed package, use the `pkg info <package-name>` command.
+To list detailed information about a locally installed package, use the `pkg info [package]` command.
 If the package is not installed on the local system, use the `-r` option to search the remote repositories defined on the system.
 
 For example:
@@ -1477,7 +1483,7 @@ Packaging Date: July 30, 2016 12:04:41 AM
 
 ### Listing the contents of packages
 
-To list the entire contents of a package, use the `pkg contents <package-name>` command.
+To list the entire contents of a package, use the `pkg contents [package]` command.
 If the package is not installed on the local system, use the `-r` option to search the remote repositories defined on the system.
 
 
@@ -1509,7 +1515,7 @@ pkg:/x11/library/libx11@1.6.3-2016.0.0.0
 
 Use the following command to install a package.
 
-`pkg install [options] <package-name>`
+`pkg install [options] [packages]`
 
 Some commonly used options are:
 
@@ -1560,7 +1566,7 @@ Any dependent packages are also automatically updated.
 
 The command to use for updating packages on the system is:
 
-`pkg update [options] [package(s)]`
+`pkg update [options] [packages]`
 
 Some commonly used options are:
 
@@ -1612,7 +1618,40 @@ http://wiki.openindiana.org/display/oi/oi_hipster
 
 ### Removing packages
 
-To remove a package from the system, use the command: `pkg uninstall <package-name>`
+To remove a package from the system, use the command: `pkg uninstall [options] [packages]`
+
+
+### Downgrading packages
+
+In addition to installing, upgrading, and removing packages, it is also possible to downgrade a packages.
+To downgrade packages, use the `pkg update` command and specify the versions of the packages you wish to install.
+Where the package has dependencies, you will need to specify the versions of the dependencies as well.
+The `pkg` utility will remove the newer versions and replace them with the versions you have specified.
+
+For example:
+
+```
+pkg update pkg://userland/library/audio/gstreamer@0.10.36 \
+library/audio/gstreamer/plugin/base@0.10.36 \
+library/audio/gstreamer/plugin/good@0.10.31
+```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+The OpenIndiana project uses package incorporations to ensure packages are maintained to specific versions.
+In such cases it is not possible to revert to an earlier (or newer) version of the package without first relaxing the restrictions imposed by the incorporation.
+Where packages are not restricted by an incorporation, you may freely revert to earlier package versions.
+</div>
+
+To relax the restrictions on a package, the `pkg change-facet` command is used.
+
+The syntax of the command is `pkg change-facet facet.version-lock.[package]=false`
+
+For example:
+
+```
+pkg change-facet facet.version-lock.library/security/gstreamer=false
+```
 
 
 ### IPS package repositories
@@ -1717,13 +1756,14 @@ START                    OPERATION                CLIENT             OUTCOME
 
 To view more details of a particular IPS transaction, use the command:
 
-`pkg history -t <time_stamp> -l`
+`pkg history [-l] [-t time_stamp]`
 
 For example:
 
-`pkg history -t 2016-07-09T11:33:05 -l`
+`pkg history -l -t 2016-07-09T11:33:05`
 
-The `-t` option allows you to specify a particular transaction and the `-l` option provides extended details of that transaction.
+* The `-l` option provides comprehensive details of each transaction
+* The `-t` option allows you to specify a particular transaction
 
 
 ### IPS package archives (.p5p)
@@ -2003,6 +2043,16 @@ The beadm command impacts the non-global zones in your boot environments as foll
 
 ## The X-Window system
 
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+Write about:
+
+* How to create and use an xorg.conf file.
+* Graphics drivers are found in the `/usr/lib/xorg/modules/drivers/amd64/` graphics driver directory
+    * modinfo only shows kernel drivers, not Xorg drivers, since Xorg drivers are just driver.so files dlopen'ed by a userspace process, not loaded into the kernel address space.
+    * To see what drivers Xorg loaded, either check Xorg.0.log or run pldd on the Xorg process.
+</div>
+
 ### Video card support (2D)
 
 * Nearly all cards can use the VESA driver, and are therefore supported for 2D.
@@ -2018,26 +2068,28 @@ The beadm command impacts the non-global zones in your boot environments as foll
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
+Write about:
 
-* Talk about the expected behavior when booting the live CD from a system with an NVIDIA card.
+* The expected behavior when booting the live CD from a system with an NVIDIA card.
 * Discuss procedure for adding an NVIDIA card to a system that was using VESA or some other non-3d video driver.
 * Troubleshooting - what logs to look at, manual configuration, etc.
 * Walk through NVIDIA utility screens.
-
 </div>
 
 
-### How does one add a missing device driver?
+## Device drivers
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
-
 Write about:
 
 * Finding hardware id's
 * Searching for drivers
 * Installing and loading drivers
-* Adding device ID's to `/etc/driver_alias`, etc.
-
+    * Using the `modinfo` command to list information about loaded kernel driver modules
+    * Using `modload` to load kernel driver modules
+    * Using `modunload` to unload kernel driver modules
+    * Using the `add_drv` command
+* Adding device ID's to `/etc/driver_aliases`, and `/etc/driver_classes`, etc.
 </div>
 
