@@ -26,10 +26,11 @@ The process for contributing to OpenIndiana Docs is simple and follows the same 
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
 
-We'll happy accept contributions in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
-From there, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
+After receiving your submission, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
+Contributions may be submitted in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
 
-In a nutshell, if you think your contribution can be helpful to the greater OpenIndiana community, we'll be happy to review it.
+In summary, if you believe your contribution would be helpful to the greater OpenIndiana community, we'll be willing to review it.
+For further information, please contact us via one of the methods provided below.
 
 To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
 
@@ -39,8 +40,6 @@ You may also inquire via IRC:
 
 * [#openindiana (freenode)](irc://irc.freenode.net/openindiana)
 * [#oi-dev (freenode)](irc://irc.freenode.net/oi-dev)
-
-
 </div>
 
 
@@ -265,18 +264,28 @@ See the code snippet below for examples.
 
 To assist with the content authoring process, it may be helpful to visualize your changes using a live preview.
 
-* From the root of the website-2.0 folder:
-    * Type: `mkdocs serve`
+* From the root of the `oi-docs/` directory:
+    * Type: `mkdocs serve` and press enter.
     * Open your web browser to 127.0.0.1:8000.
 
-To shut down the live preview web server, use [CTRL] + [C].
+Each time you save your changes, the site page is automatically reloaded within your web browser.
+
+To shut down the live preview web server, use `CTRL` + `C`.
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+If you wish to preview your changes on a remotely networked system or on a networked mobile device such as a tablet, the site can also be served on your LAN IP address.
+
+To do so, issue the following command: `mkdocs serve --dev-addr=0.0.0.0:8000`
+</div>
+
 
 ## Running Markdown Lint (locally)
 
 Markdown Lint is used to check your changes for Markdown syntax errors.
 Prior to submitting a pull request (PR), please consider running Markdown Lint locally on your computer.
 
-From the root site folder (website-2.0) execute the following command:
+From the root of the `oi-docs/` directory, execute the following command:
 
 ```bash
 mdl -s markdownlint-rules.rb .

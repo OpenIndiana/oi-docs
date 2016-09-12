@@ -156,29 +156,11 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
+For detailed information about creating a bootable OpenIndiana DVD or USB flash drive, please consult the following sections of the OpenIndiana Handbook:
 
-At this time, creating a bootable flash drive requires the use of a header file.
-
-- There are 2 unique USB header files (1G and 2G).
-- Please ensure you have selected the correct file.
-    - The 1G.header is only suitable for use with the text installer (Command line console).
-    - The 2G.header is only suitable for use with the live installer (Gnome desktop).
-    - The files are *NOT* interchangeable.
-
-Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting (and falling back to systems maintenance mode with KSH93 errors).
-
+* [Creating a bootable OpenIndiana DVD](../handbook/getting-started.md#creating-a-bootable-openindiana-dvd)
+* [Creating a bootable OpenIndiana USB flash drive](../handbook/getting-started.md#creating-a-bootable-openindiana-usb-flash-drive)
 </div>
-
-<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
-<div class="well">
-
-OpenIndiana Hipster does not yet support USB 3.0.
-
-* When attaching backward compatible USB 3.0 devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
-
-</div>
-
-For further information about how to create a bootable OpenIndiana flash drive, consult the [OpenIndiana Handbook](../handbook/getting-started.md#creating-a-bootable-openindiana-usb-flash-drive).
 
 
 ## What package manager does OpenIndiana use?
