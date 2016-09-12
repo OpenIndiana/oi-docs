@@ -1392,6 +1392,33 @@ FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
     * Timestamp – 20160702T042138Z
 
 
+### Finding help with pkg
+
+The primary source of help for any OpenIndiana command is to review the man page for the command.
+Therefore, be sure to consult the `pkg`<sup>1</sup> man page for full command information and usage examples.
+
+For example: `man pkg`
+
+To reference command usage directly from the command line, use `pkg help`.
+
+To retrieve additional information about a specific command use: `pkg help <command name>`
+
+For example:
+
+`pkg help update`
+
+```
+Usage:
+        pkg update [-fnvq] [-C n] [-g path_or_uri ...] [--accept] [--ignore-missing]
+            [--licenses] [--no-be-activate] [--no-index] [--no-refresh]
+            [--no-backup-be | --require-backup-be] [--backup-be-name]
+            [--deny-new-be | --require-new-be] [--be-name name]
+            [-r [-z image_name ... | -Z image_name ...]]
+            [--sync-actuators | --sync-actuators-timeout timeout]
+            [--reject pkg_fmri_pattern ...] [pkg_fmri_pattern ...]
+```
+
+
 ### Searching for packages
 
 The `pkg search` command is used to search locally or remotely for information about packages.
@@ -1841,41 +1868,14 @@ x11/library/toolkit/libxt (userland)              1.1.4-2016.0.0.0           ---
 `pkg install firefox@45.3.0-2016.0.0.0:20160817T064143`
 
 
-### Finding help with pkg
-
-The primary source of help for any OpenIndiana command is to review the man page for the command.
-Therefore, be sure to consult the `pkg`<sup>1</sup> man page for full command information and usage examples.
-
-For example: `man pkg`
-
-To reference command usage directly from the command line, use `pkg help`.
-
-To retrieve additional information about a specific command use: `pkg help <command name>`
-
-For example:
-
-`pkg help update`
-
-```
-Usage:
-        pkg update [-fnvq] [-C n] [-g path_or_uri ...] [--accept] [--ignore-missing]
-            [--licenses] [--no-be-activate] [--no-index] [--no-refresh]
-            [--no-backup-be | --require-backup-be] [--backup-be-name]
-            [--deny-new-be | --require-new-be] [--be-name name]
-            [-r [-z image_name ... | -Z image_name ...]]
-            [--sync-actuators | --sync-actuators-timeout timeout]
-            [--reject pkg_fmri_pattern ...] [pkg_fmri_pattern ...]
-```
-
-
 ### Legacy package management tools
 
 OpenIndiana continues to support the use of legacy package tools for managing SVR4 packages.
 Here are some of the available tools:
 
-* pkginfo
-* pkgadd
-* pkgrm
+* `pkginfo`
+* `pkgadd`
+* `pkgrm`
 
 
 ### 3rd party package management tools
