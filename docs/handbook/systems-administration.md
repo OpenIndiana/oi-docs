@@ -416,6 +416,10 @@ Right click the NWAM tray icon and select **_Location_ > _Automatic_**.
 
 ## Clustering with Open HA Cluster
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
 See old sun docs
 
 * <http://docs.oracle.com/cd/E19735-01/>
@@ -423,3 +427,6 @@ See old sun docs
 Also see:
 
 * <http://zfs-create.blogspot.nl/>
+
+</div>
+

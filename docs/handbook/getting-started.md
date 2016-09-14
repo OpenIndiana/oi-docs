@@ -1401,7 +1401,31 @@ For example: `man pkg`
 
 To reference command usage directly from the command line, use `pkg help`.
 
-To retrieve additional information about a specific command use: `pkg help <command name>`
+For example:
+
+`pkg help`
+
+```
+Usage:    pkg [options] command [cmd_options] [operands]
+The following commands are supported:
+
+Package Information  : list           search         info      contents
+Package Transitions  : update         install        uninstall
+                       history        exact-install
+Package Maintenance  : verify         fix            revert
+Publishers           : publisher      set-publisher  unset-publisher
+Package Configuration: mediator       set-mediator   unset-mediator
+                       facet          change-facet
+                       variant        change-variant
+Image Constraints    : avoid          unavoid        freeze    unfreeze
+Image Configuration  : refresh        rebuild-index  purge-history
+                       property       set-property   add-property-value
+                       unset-property remove-property-value
+Miscellaneous        : image-create   dehydrate      rehydrate
+For more info, run: pkg help <command>
+```
+
+To retrieve information about a specific command use: `pkg help [command]`
 
 For example:
 
@@ -1423,12 +1447,12 @@ Usage:
 
 The `pkg search` command is used to search locally or remotely for information about packages.
 The syntax of the command is `pkg search [options] [package]`.
-If no search options are specified, the search is restricted to the local system.
-Using the `-r` option, the command searches the remote repository (or repositories) associated with the system.
+If no search options are specified, the command defaults to performing a search of all the remote repositories defined on the system.
+Using the `-l` option, you may restrict the search to the local system.
 
 For example:
 
-`pkg search -r xchat`
+`pkg search xchat`
 
 ```
 INDEX                ACTION VALUE                                   PACKAGE
@@ -1439,18 +1463,24 @@ com.oracle.info.name set    xchat                                   pkg:/desktop
 pkg.fmri             set    openindiana.org/desktop/irc/xchat       pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
 ```
 
-As you can see, the search results include more than just package names.
+As you can see, the search results include package names along with additional information.
 To search for package names only, include the `-p` option.
 
 For example:
 
-`pkg search -rp xchat`
+`pkg search -p xchat`
 
 ```
 PACKAGE                                    PUBLISHER
 pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1 openindiana.org
 pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5    openindiana.org
 ```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+When using the `pkg search` command, remember it works much like the Unix `find` command.
+If you have difficulty finding a package you know should exist, try modifying your search by including wildcards.
+</div>
 
 The `pkg search` command may also be used to find the package containing a particular file.
 
@@ -1462,12 +1492,6 @@ For example:
 INDEX      ACTION VALUE        PACKAGE
 path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
 ```
-
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-When using the `pkg search` command bear it mind it works much like the Unix `find` command.
-If you have difficulty finding a package you know should exist, try searching with wildcards.
-</div>
 
 
 ### Listing the status of packages
@@ -1482,6 +1506,12 @@ For example:
 NAME (PUBLISHER)                                  VERSION                    IFO
 shell/bash                                        4.3.46-2016.0.0.0          i--
 ```
+
+<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+To list all the packages installed on the local system, use `pkg list` without specifying a package.
+</div>
+
 
 ### Listing information about packages
 
@@ -1517,12 +1547,14 @@ If the package is not installed on the local system, use the `-r` option to sear
 ### Listing the dependencies of packages
 
 The `pkg contents` command can also be used to list the dependencies found in a package.
+If the package is not installed on the local system, be sure to include the `-r` option.
 
 For example:
 
-`pkg contents -H -t depend -o fmri xchat`
+`pkg contents -r -t depend -o fmri xchat`
 
 ```
+FMRI
 pkg:/library/desktop/gdk-pixbuf@2.31.6-2016.0.0.0
 pkg:/library/desktop/gtk2@2.24.30-2016.0.0.0
 pkg:/library/desktop/libsexy@0.1.11-2016.0.0.0
@@ -1650,7 +1682,7 @@ To remove a package from the system, use the command: `pkg uninstall [options] [
 
 ### Downgrading packages
 
-In addition to installing, upgrading, and removing packages, it is also possible to downgrade a packages.
+In addition to installing, upgrading, and removing packages, it is also possible to downgrade packages.
 To downgrade packages, use the `pkg update` command and specify the versions of the packages you wish to install.
 Where the package has dependencies, you will need to specify the versions of the dependencies as well.
 The `pkg` utility will remove the newer versions and replace them with the versions you have specified.
@@ -1666,7 +1698,7 @@ library/audio/gstreamer/plugin/good@0.10.31
 <!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 The OpenIndiana project uses package incorporations to ensure packages are maintained to specific versions.
-In such cases it is not possible to revert to an earlier (or newer) version of the package without first relaxing the restrictions imposed by the incorporation.
+Where packages are included in an incorporation, it is not possible to revert to an earlier (or newer) version of the package without first relaxing the restrictions imposed by the incorporation.
 Where packages are not restricted by an incorporation, you may freely revert to earlier package versions.
 </div>
 
@@ -2050,7 +2082,7 @@ Write about:
 * How to create and use an xorg.conf file.
 * Graphics drivers are found in the `/usr/lib/xorg/modules/drivers/amd64/` graphics driver directory
     * modinfo only shows kernel drivers, not Xorg drivers, since Xorg drivers are just driver.so files dlopen'ed by a userspace process, not loaded into the kernel address space.
-    * To see what drivers Xorg loaded, either check Xorg.0.log or run pldd on the Xorg process.
+    * To see what drivers Xorg loaded, either check `/var/log/Xorg.0.log` or run `pldd` on the Xorg process.
 </div>
 
 ### Video card support (2D)

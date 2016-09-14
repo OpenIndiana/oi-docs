@@ -41,6 +41,10 @@ This document is a work in progress (draft).
 ITEMS TO WRITE ABOUT:
 
 * Adding users, etc.
+* Shutting down the system
+    * `shutdown [options]` 
+    * `reboot`
+    * `halt`
 
 </div>
 
