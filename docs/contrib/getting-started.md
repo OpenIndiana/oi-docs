@@ -21,7 +21,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 The process for contributing to OpenIndiana Docs is simple and follows the same best practices used in the development of the OpenIndiana distribution.
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.
@@ -89,7 +89,7 @@ For further details, see: <https://help.github.com/articles/set-up-git/>
 * Most operating systems (including OpenIndiana): `pip install mkdocs`
 * Verify your installation with `mkdocs --version`
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 If you experience difficulties installing mkdocs, try using the python 3 version of `pip`.
 
@@ -183,7 +183,7 @@ oi-docs/
 | README.md | Git readme
 | site/ | Live preview folder (no edits)
 
-<!-- WARNING: --> <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING:**
+<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING:**
 <div class="well">
 
 * Please do **NOT** perform any work within the `site/` folder.
@@ -227,7 +227,7 @@ For example: `vim somefile.md`
 Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 Major changes should be performed within a separate branch, appropriately named to reflect the changes being made.
 </div>
@@ -272,7 +272,7 @@ Each time you save your changes, the site page is automatically reloaded within 
 
 To shut down the live preview web server, use `CTRL` + `C`.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 If you wish to preview your changes on a remotely networked system or on a networked mobile device such as a tablet, the site can also be served on your LAN IP address.
 
@@ -295,7 +295,7 @@ Markdown Lint will automatically traverse the entire folder structure looking fo
 Alternately you may also run `mdl` on a specific file.
 Simply replace the period (.) with the path to the file.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 Before you can run `mdl`, it may be necessary to add the path to your `$PATH` variable.
@@ -366,7 +366,7 @@ For example: `https://github.com/your-user-name/oi-docs`
 
 Pull requests are used to request a _pull in_ of changes from your fork to the master repository.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 After a pull request has been submitted, and for the duration of time your pull request remains open and uncommitted to the OI-DOCS master repository, any additional commits you make to your own fork of the oi-docs repository will automatically be included in your open pull request.
 </div>

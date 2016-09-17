@@ -40,7 +40,7 @@ ITEMS TO WRITE ABOUT:
 
 * Adding users, etc.
 * Shutting down the system
-    * `shutdown [options]` 
+    * `shutdown [options]`
     * `reboot`
     * `halt`
 
