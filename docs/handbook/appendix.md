@@ -1,10 +1,8 @@
 # OpenIndiana Handbook - Appendix
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
 This document is a work in progress (draft).
-
 </div>
 
 < place holder for introduction content >
@@ -18,19 +16,23 @@ This document is a work in progress (draft).
 ### Local system command line help
 
 * apropos - search the manual page names and descriptions
+    * Used to find keywords in man pages
 * find - search for files in a directory hierarchy
 * info - read Info documents
+    * A viewer for GNU info pages
 * locate - find files by name
-* man - an interface to the on-line reference manuals
-
+    * Uses the mlocate database to find files and folders
+* man - an interface to the on-line reference manuals (man pages)
+    * To pipe the output of a man page to a text file use the command: `man [manpage] | col -x -b > [filename].txt`.
+    * For example: `man pkg | col -x -b > pkg.txt`
 
 ### Web based support resources
 
-**DOC TEAM NOTE:**
-
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
 The content for this section was originally pulled from the OpenIndiana FAQ and since has been expanded here.
 We may want to revisit the FAQ and pull these changes over.
-
+</div>
 
 | Resource | URL
 | --- | ---
@@ -45,8 +47,8 @@ We may want to revisit the FAQ and pull these changes over.
 
 ## Developing with OpenIndiana
 
-**DOC TEAM NOTE:**
-
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
 The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
 
 Questions to ask:
@@ -54,12 +56,13 @@ Questions to ask:
 * How can OI be used as a development platform?
 * What programming tools, languages, etc., are available?
 * How can OI be used to further the development of OI itself?
-
+</div>
 
 ## Software Development Testing
 
-**DOC TEAM NOTE:**
-
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
 Need to add some guidance about how to add a test repo to test specific packages, etc.
+</div>
 
 
