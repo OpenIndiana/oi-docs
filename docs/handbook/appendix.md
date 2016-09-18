@@ -45,6 +45,22 @@ We may want to revisit the FAQ and pull these changes over.
 | OpenIndiana Bug Tracker | <https://www.illumos.org/projects/openindiana/issues>
 
 
+## IPS command matrix
+
+| Task | IPS Command | apt Equivalent
+| --- | --- | ---
+| Install a package | `pkg install` | `apt install`
+| Search for a package | `pkg search` | `apt search`
+| Update all packages | `pkg update` | `apt upgrade`
+| Display installed packages | `pkg list` | `apt list`
+| Display package contents | `pkg contents` | `dpkg-query -L`
+| Display package information | `pkg info` | `apt show`
+| Uninstall a package | `pkg uninstall` | `apt remove`
+| Display publisher information | `pkg publisher` | `cat /etc/apt/sources.list.d/*`
+| Add or update a publisher | `pkg set-publisher` | edit `/etc/apt/sources.list.d/*` files
+| Remove a publisher | `pkg unset-publisher` | edit `/etc/apt/sources.list.d/*` files
+
+
 ## Developing with OpenIndiana
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
