@@ -95,7 +95,7 @@ Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.ora
 </div>
 
 
-### Configuring OpenIndiana as a CIFS Server
+### Configuring OpenIndiana as a CIFS server (workgroup)
 
 < Placeholder for introduction content >
 
@@ -184,7 +184,17 @@ You can create additional CIFS datasets using the following 4 commands.
 * `sharemgr show -vp`
 
 
-#### Configuring CIFS/SMB Linux client connectivity
+### Configuring OpenIndiana as a CIFS server (domain)
+
+< Placeholder for introduction content >
+
+
+### Configuring OpenIndiana as a SAMBA server
+
+< Place holder for content >
+
+
+### Configuring CIFS/SMB client connectivity
 
 < Place holder for content >
 
@@ -209,11 +219,6 @@ You can create additional CIFS datasets using the following 4 commands.
 
 
 #### Adding a remote share using a Windows client
-
-< Place holder for content >
-
-
-### Configuring OpenIndiana as a SAMBA Server
 
 < Place holder for content >
 
