@@ -42,7 +42,7 @@ The easiest way to help the docs revitalization effort is by authoring content.
 The content author would (as the title suggests) write content to be hosted on the OpenIndiana Docs website.
 Content can include just about anything, news posts, tutorials, Howto's, or larger efforts such as the handbook or updating the OSOL books.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 The nice thing about helping the project as a content author is the level of commitment is entirely up to you the individual.
 In other words, there is no requirement to get involved in anything major.

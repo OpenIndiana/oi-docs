@@ -19,11 +19,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # OpenIndiana Handbook - Common Tasks
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
 This document is a work in progress (draft).
-
 </div>
 
 < place holder for introduction content >
@@ -41,6 +39,10 @@ This document is a work in progress (draft).
 ITEMS TO WRITE ABOUT:
 
 * Adding users, etc.
+* Shutting down the system
+    * `shutdown [options]`
+    * `reboot`
+    * `halt`
 
 </div>
 

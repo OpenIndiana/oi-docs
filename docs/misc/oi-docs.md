@@ -63,7 +63,7 @@ The OI-DOCS website can be navigated in several ways:
 * Using the table of contents found on the left or top side of each page.
 * Using the full text search function found in the top navigation bar.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 The table of contents lists top level sectional titles only.
 
