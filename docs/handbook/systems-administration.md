@@ -127,11 +127,31 @@ Here are just a few of them:
 
 ### ZFS
 
-< place holder >
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
+Gotcha's such as the following:
+
+```
+<e^ipi> don't suppose there's any solution to this:
+<e^ipi> cannot replace 1509280528045021472 with /dev/dsk/c0t5000C5009204EB9Bd0s0: devices have different sector alignment
+<tsoome> thats 512 versus non-512 sector issue
+<tsoome> you need to build new pool based on larger sector
+<tsoome> if its mirror, you can attach 512B disk to 4k pool, but not vice versa...
+<e^ipi> well, damn.
+<tsoome> that error message is too confusing, should be replaced by more clear one;)
+<e^ipi> I swear this pool is already mix & match, freebsd complained about it
+<e^ipi> (but still used it)
+<tsoome> there is that thing that ashift is vdev property;)
+<tsoome> not pool property (one reason why that linux zpool create ashift= option is bad)
+<tsoome> or sort of bad anyhow
+```
+
+</div>
 
 
 #### Importing ZFS disks
-
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
