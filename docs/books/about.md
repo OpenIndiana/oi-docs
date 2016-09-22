@@ -33,7 +33,7 @@ Otherwise, the books are exactly as originally published.
 No editing of any kind has been performed on any of the titles.
 This documentation collection has been released under the [Public Documentation License (PDL)](../misc/pdl.md).
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 When using these books, please bear in mind:

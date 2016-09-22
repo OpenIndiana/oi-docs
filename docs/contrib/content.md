@@ -18,7 +18,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # OpenIndiana Content Creation
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 ## Why Fresh Website Content is so Important

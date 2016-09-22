@@ -50,7 +50,7 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 * XVM (XEN) has been replaced with the illumos-kvm port.
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of C++ ABI compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 </div>
@@ -92,7 +92,7 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | Live installer (Gnome desktop) | Text installer (command line console)
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 * The legacy oi-dev-151x branch is no longer maintained.
@@ -101,12 +101,10 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 </div>
 
 
-<!-- CAUTION: --> <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
-
 Hipster is a rapid development branch where software versions are frequently updated.
 While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
-
 </div>
 
 
@@ -117,7 +115,7 @@ While every package is tested to ensure stability, caution is nevertheless warra
 | 64 Bit | 20GB (or more) | 2GB (or more)
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 * For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
@@ -154,7 +152,7 @@ Alternate mirrors (Asia, Europe, and North America)
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 For detailed information about creating a bootable OpenIndiana DVD or USB flash drive, please consult the following sections of the OpenIndiana Handbook:
 
@@ -169,7 +167,7 @@ OpenIndiana uses the network based [Image Packaging System (IPS)](https://en.wik
 For those coming to OpenIndiana from BSD or Linux, the IPS package manager will be an easy transition.
 You may also continue to use the legacy `pkgadd/pkgrm` commands.
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 The OpenIndiana distribution provides a basic set of packages, along with some extras.
 There are also 3rd party repositories which provide additional packages.
@@ -218,7 +216,7 @@ While somewhat dated now, these resources are largely still relevant.
     * Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.
 
 
-<!-- NOTE: --> <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 An effort currently exists within the OpenIndiana community to review these books and provide errata.
