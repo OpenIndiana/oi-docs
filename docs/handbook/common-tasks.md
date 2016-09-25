@@ -29,7 +29,13 @@ This document is a work in progress (draft).
 
 ## Basic UNIX commands
 
-< place holder >
+The OpenIndiana operating system follows the Unix-like paradigm, and similar to Linux, the BSD's, and others, it uses many GNU command line tools.
+As such, Linux books are often helpful for learning to navigate the command line.
+
+One of the best books currently available is [The Linux Command Line](http://linuxcommand.org/tlcl.php) by William Shotts.
+If you want to quickly become a command line guru, this is the book to read.
+Best of all, it was released under a Creative Commons license and can be downloaded for free.
+Print versions are also available.
 
 
 ## Basic system administration
