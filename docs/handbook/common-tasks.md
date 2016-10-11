@@ -29,9 +29,9 @@ This document is a work in progress (draft).
 
 ## Basic UNIX commands
 
-Similar to Linux, the BSD's, MAC OSX, and others, the OpenIndiana operating system follows the Unix-like paradigm and shares similar command line tools.
-In addition to native command line tools, a full suite of GNU command line tools are available as well.
-Because of these similarities, Linux books are often helpful for learning to navigate the command line.
+In addition to native command line system administration tools, OpenIndiana also includes the GNU core utilities suite.
+When working with basic UNIX commands, most likely you will be using the GNU core utilities.
+For learning to navigate the OpenIndiana command line environment, Linux command line books are very helpful.
 
 One of the best books currently available is [The Linux Command Line](http://linuxcommand.org/tlcl.php) by William Shotts.
 If you want to quickly become a command line guru, this is the book to read.
