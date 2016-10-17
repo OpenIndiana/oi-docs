@@ -29,7 +29,14 @@ This document is a work in progress (draft).
 
 ## Basic UNIX commands
 
-< place holder >
+In addition to native command line system administration tools, OpenIndiana also includes the GNU core utilities suite.
+When working with basic UNIX commands, most likely you will be using the GNU core utilities.
+For learning to navigate the OpenIndiana command line environment, Linux command line books are very helpful.
+
+One of the best books currently available is [The Linux Command Line](http://linuxcommand.org/tlcl.php) by William Shotts.
+If you want to quickly become a command line guru, this is the book to read.
+Best of all, it was released under a Creative Commons license and can be downloaded for free.
+Print versions are also available.
 
 
 ## Basic system administration
