@@ -61,6 +61,10 @@ If you haven't already, sign up for a [Github](https://github.com) account.
 After GIT is installed, be sure to configure your name and email address.
 For further details, see: <https://help.github.com/articles/set-up-git/>
 
+If you need a good tutorial for quickly getting up to speed using git, see here: <http://rypress.com/tutorials/git/index>
+
+Fear not though, generally speaking, only basic git commands are required for working with OI-DOCS.
+
 
 #### Install python-pip
 
