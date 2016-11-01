@@ -58,12 +58,16 @@ If you haven't already, sign up for a [Github](https://github.com) account.
 | Fedora | `dnf install git`
 | OpenIndiana | `pkg install git`
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 After GIT is installed, be sure to configure your name and email address.
-For further details, see: <https://help.github.com/articles/set-up-git/>
 
-If you need a good tutorial for quickly getting up to speed using git, see here: <http://rypress.com/tutorials/git/index>
+For further details about configuring GIT, see: <https://help.github.com/articles/set-up-git/>
 
-Fear not though, generally speaking, only basic git commands are required for working with OI-DOCS.
+Also, if you need a good tutorial for quickly getting up to speed with GIT, see here: <http://rypress.com/tutorials/git/index>
+
+Fear not though, only basic git commands are required for working with OI-DOCS.
+</div>
 
 
 #### Install python-pip
