@@ -14,7 +14,7 @@ class Result(Enum):
     ERROR = 2
 
 
-SITE_URL = "http://openindiana.github.com/oi-docs/"
+SITE_URL = "http://docs.openindiana.org/"
 ACCEPTED_PROTOCOLS = ["http", "https", "ftp"]
 
 log = logging.getLogger(__name__)
