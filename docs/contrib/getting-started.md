@@ -58,8 +58,16 @@ If you haven't already, sign up for a [Github](https://github.com) account.
 | Fedora | `dnf install git`
 | OpenIndiana | `pkg install git`
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 After GIT is installed, be sure to configure your name and email address.
-For further details, see: <https://help.github.com/articles/set-up-git/>
+
+For further details about configuring GIT, see: <https://help.github.com/articles/set-up-git/>
+
+Also, if you need a good tutorial for quickly getting up to speed with GIT, see here: <http://rypress.com/tutorials/git/index>
+
+Fear not though, only basic git commands are required for working with OI-DOCS.
+</div>
 
 
 #### Install python-pip
@@ -70,7 +78,7 @@ For further details, see: <https://help.github.com/articles/set-up-git/>
 | Centos/RHEL | `yum install python-pip`
 | Debian/Mint/Ubuntu | `apt-get install python-pip`
 | Fedora | `dnf install pythop-pip`
-| OpenIndiana | `pkg install pip`
+| OpenIndiana | N/A - (MKDocs now in Hipster repository)
 
 
 #### Install rubygems
@@ -86,8 +94,12 @@ For further details, see: <https://help.github.com/articles/set-up-git/>
 
 #### Install mkdocs
 
-* Most operating systems (including OpenIndiana): `pip install mkdocs`
-* Verify your installation with `mkdocs --version`
+For OpenIndiana Hipster, MKDocs and all of it's dependencies have been packaged and are available in the OI Hipster repository.
+So, if you're already running Hipster, installing MKDocs is as simple as: `pkg install mkdocs`
+
+* Most other operating systems: `pip install mkdocs`
+
+After MKDocs has been installed, be sure to verify your installation with `mkdocs --version`
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -100,6 +112,8 @@ For example:
 
 
 #### Install Markdown Lint (mdl)
+
+For most operating systems:
 
 * `gem install mdl`
 

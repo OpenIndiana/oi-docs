@@ -71,6 +71,11 @@ ITEMS TO WRITE ABOUT:
     * Configuring font anti-aliasing
     * Desktop backgrounds
 
+In regards to the default terminal emulator, see: <https://www.illumos.org/issues/7525>
+
+* we introduce mediator x-terminal-emulator for link /usr/bin/x-terminal-emulator with possible implementations gnome-terminal, mate-terminal and xterm;
+* mate-terminal implementation has the highest priority (if it is installed, by default it wins);
+* glib is modified to use link /usr/bin/x-terminal-emulator if it's found for running applications with Terminal=true.
 </div>
 
 
