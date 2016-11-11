@@ -2,6 +2,7 @@ language: python
 python: '3.4'
 install:
   - pip install mkdocs
+  - pip install mkdocs-bootswatch
   - gem install mdl
 script:
   - mdl -s markdownlint-rules.rb .

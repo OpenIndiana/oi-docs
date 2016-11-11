@@ -93,7 +93,7 @@ Updated by the illumos project, this title is available in a more recent version
 
 | Item | Details
 |  --- | ---
-| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/content/DistroConst/html/distroconst.html" target="_blank">OpenSolaris Distribution Constructor Guide</a>
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/DistroConst/html/distroconst.html" target="_blank">OpenSolaris Distribution Constructor Guide</a>
 | Topics | The distribution constructor is a tool that application developers can use to build their own custom OpenSolaris™ image which they can then distribute to their contacts and customers.
 | Relevancy to OpenIndiana Hipster | To be determined
 | Target Audience | To be determined
@@ -120,7 +120,7 @@ Updated by the illumos project, this title is available in a more recent version
 
 | Item | Details
 |  --- | ---
-| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/content/RSCMGRDEVGD/html/rscmgrdevgd.html" target="_blank">Solaris Containers: Resource Management and Solaris Zones Developer's Guide</a>
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/RSCMGRDEVGD/html/rscmgrdevgd.html" target="_blank">Solaris Containers: Resource Management and Solaris Zones Developer's Guide</a>
 | Topics | The Solaris Containers: Resource Management and Solaris Zones Developer's Guide describes how to write applications that partition and manage system resources and discusses which APIs to use. This book provides programming examples and a discussion of programming issues to consider when writing an application.
 | Relevancy to OpenIndiana Hipster | To be determined
 | Target Audience | This book is for application developers and ISVs who write applications that control or monitor the Solaris Operating System resources.
@@ -131,7 +131,7 @@ Updated by the illumos project, this title is available in a more recent version
 
 | Item | Details
 |  --- | ---
-| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/content/TRSOLDEV/html/trsoldev.html" target="_blank">Solaris Trusted Extensions Developer's Guide</a>
+| Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/TRSOLDEV/html/trsoldev.html" target="_blank">Solaris Trusted Extensions Developer's Guide</a>
 | Topics | Describes how to develop applications with Solaris Trusted Extensions. </p>The Solaris Trusted Extensions Developer's Guide describes how to use the application programming interfaces (APIs) to write new trusted applications for systems that are configured with the Solaris™ Trusted Extensions software.
 | Relevancy to OpenIndiana Hipster | To be determined
 | Target Audience | Developers, administrators
