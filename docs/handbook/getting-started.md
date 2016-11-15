@@ -523,7 +523,7 @@ Failure to use the correct USB header file can result in the USB drive either fa
 | Operating system | Command | Device
 | --- | --- | ---
 | BSD | `camcontrol devlist` | `/dev/da*`
-| illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*`
+| illumos/Solaris | `rmformat -l` | `/dev/rdsk/c*t*d*p0`
 | Linux | `lsblk` | `/dev/sd*`
 | MAC OS X | `diskutil list` | `/dev/disk*`
 
@@ -541,8 +541,14 @@ For example:
 | --- |---
 | Correct | `/dev/sda`
 | Incorrect | `/dev/sda1`
-| Correct | `/dev/rdsk/c0t0d0`
+| Correct | `/dev/rdsk/c0t0d0p0`
 | Incorrect | `/dev/rdsk/c0t0d0p1`
+
+* In illumos, the whole disk device name is depending on partition type.
+    * On x86, the whole disk name ends with p0
+    * In the case of a GPT (EFI) partition, the whole disk device name ends with dX.
+    * on sparc, the disk has usually VTOC partition and whole disk device name usually ends with s2.
+    * Note, if on x86 and an MBR+VTOC is used, then the s2 device is addressing the Solaris2 MBR partition, not the whole disk.
 
 * If any file systems are located on the USB storage device, they must first be unmounted.
     * Desktops may automatically mount removable devices.
