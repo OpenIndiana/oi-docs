@@ -2,7 +2,9 @@
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-This document is a work in progress (draft).
+<p>This is a <b>DRAFT</b> document which may contain errors!</p>
+<p>Help us improve and expand this site.</p>
+<p>Please see the <b>Contrib</b> section for more details about joining the OpenIndiana Documentation Team.</p>
 </div>
 
 < place holder for introduction content >
