@@ -51,7 +51,7 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | --- | --- | ---
 | Live installer (Mate desktop) | Text Only (No GUI) | Text Only (No GUI)
 
-For a full list of links to the various installer images, visit the [OpenIndiana Downloads](https://www.openindiana.org/download/) page. 
+For a full list of links to the various installer images, visit the [OpenIndiana Downloads](https://www.openindiana.org/download/) page.
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -521,9 +521,9 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-* Header files are only required when writing a legacy image **AND** using the dd utility.
-    * Header files are **NOT** required when writing current images.
-    * For example: The Hipster 2016.10 release, does **NOT** require header files.
+* Header files are only required when writing a legacy image <b>AND</b> using the dd utility.
+    * Header files are <b>NOT</b> required when writing current images.
+    * For example: The Hipster 2016.10 release, does <b>NOT</b> require header files.
 
 </div>
 
@@ -772,7 +772,7 @@ Select your boot option by pressing the associated number key.
 
 Toggle (enable/disable) these options by selecting the associated number key.
 
-For example: 
+For example:
 
 * Pressing 5 enables verbose mode.
 * Pressing 5 again, disables the verbose option.
@@ -783,12 +783,12 @@ For example:
 | --- | ---
 | 1. Back to Main Menu | Returns to main menu
 | 2. Vesa driver | Forces the vesa driver
-| 3. Text console | Enables the text console 
+| 3. Text console | Enables the text console
 | 4. Enable ssh | Enables ssh server for live desktop
 
 Toggle (enable/disable) these options by selecting the associated number key.
 
-For example: 
+For example:
 
 * Pressing 2 forces the VESA driver.
 * Pressing 2 again, disables the VESA driver.
