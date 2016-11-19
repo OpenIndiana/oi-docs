@@ -47,15 +47,19 @@ As the FAQ evolves, try to keep this section in sync.
 Approximately every six months, the OpenIndiana project releases a snapshot of the Hipster rolling release branch.
 Ideally suited for both workstations and servers, simply choose the installer type which best serves your needs.
 
-| Workstation | Server
-| --- | ---
-| Live installer (Gnome desktop) | Text installer (command line console)
+| Workstation | Server | Minimal
+| --- | --- | ---
+| Live installer (Mate desktop) | Text Only (No GUI) | Text Only (No GUI)
+
+For a full list of links to the various installer images, visit the [OpenIndiana Downloads](https://www.openindiana.org/download/) page. 
+
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 * The legacy oi-dev-151x branch is no longer maintained.
 * While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.
+    * Click the following link for [instructions for upgrading from legacy releases](https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657).
 
 </div>
 
@@ -259,14 +263,13 @@ The content for this section is pulled from the OpenIndiana FAQ (section 'Where 
 As the FAQ evolves, try to keep this section in sync.
 
 -->
-Primary download mirror (London, England):
+For a full list of links to the various installer images, visit the following page:
 
-* [CD/DVD (ISO) and USB Images](http://dlc.openindiana.org/isos/hipster)
-* [Torrents](http://dlc.openindiana.org/torrents)
+* [OpenIndiana Downloads](https://www.openindiana.org/download/)
 
-Alternate mirrors (Asia, Europe, and North America)
+For a complete list of alternate mirrors (Asia, Europe, North America, etc.)
 
-* <https://wiki.openindiana.org/oi/Mirrors>
+* [OpenIndiana Download Mirrors](https://wiki.openindiana.org/oi/Mirrors)
 
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
@@ -274,8 +277,8 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 Download example:
 
 ```
-wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
-wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20161030.iso"
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20161030.iso.sha256sum"
 ```
 
 ### Checking the MD5/SHA
@@ -283,8 +286,8 @@ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256
 Checksum verification example:
 
 ```
-sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
-OI-hipster-gui-20160421.iso: OK
+sha256sum --check OI-hipster-gui-20161030.iso.sha256sum
+OI-hipster-gui-20161030.iso: OK
 ```
 
 
@@ -477,6 +480,7 @@ The method to use depends on the release date of the USB image you intend to wri
 #### Method 1
 
 * Applies to the experimental releases of July 2016 and all subsequent (newer) releases.
+    * For example: The OpenIndiana Hipster 2016.10 release uses this method.
 
 #### Method 2
 
@@ -491,6 +495,17 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 
 * If you intend to install OpenIndiana Hipster on a system with USB 3.0 and or UEFI capabilities, please be sure to disable these features.
 * When attaching backward compatible USB 3.0 flash devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
+
+<div class="well">
+
+<b>Breaking USB 3.0 news update - November 18, 2016</b>
+
+<ul>
+<li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
+<li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
+<li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -505,7 +520,11 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Header files are only required when writing a legacy image **AND** using the dd utility.
+
+* Header files are only required when writing a legacy image **AND** using the dd utility.
+    * Header files are **NOT** required when writing current images.
+    * For example: The Hipster 2016.10 release, does **NOT** require header files.
+
 </div>
 
 * Download the appropriate OpenIndiana 1G or 2G header file
@@ -665,6 +684,16 @@ OpenIndiana does not yet support the following technologies:
 To successfully boot the OpenIndiana installer, these technologies must first be disabled.
 For further information, consult the manufacturers documentation for your computer hardware.
 
+<div class="well">
+
+<b>Breaking USB 3.0 news update - November 18, 2016</b>
+
+<ul>
+<li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
+<li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
+<li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
+</ul>
+</div>
 </div>
 
 
