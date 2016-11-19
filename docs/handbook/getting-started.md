@@ -47,15 +47,19 @@ As the FAQ evolves, try to keep this section in sync.
 Approximately every six months, the OpenIndiana project releases a snapshot of the Hipster rolling release branch.
 Ideally suited for both workstations and servers, simply choose the installer type which best serves your needs.
 
-| Workstation | Server
-| --- | ---
-| Live installer (Gnome desktop) | Text installer (command line console)
+| Workstation | Server | Minimal
+| --- | --- | ---
+| Live installer (Mate desktop) | Text Only (No GUI) | Text Only (No GUI)
+
+For a full list of links to the various installer images, visit the [OpenIndiana Downloads](https://www.openindiana.org/download/) page.
+
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
 * The legacy oi-dev-151x branch is no longer maintained.
 * While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.
+    * Click the following link for [instructions for upgrading from legacy releases](https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657).
 
 </div>
 
@@ -259,14 +263,13 @@ The content for this section is pulled from the OpenIndiana FAQ (section 'Where 
 As the FAQ evolves, try to keep this section in sync.
 
 -->
-Primary download mirror (London, England):
+For a full list of links to the various installer images, visit the following page:
 
-* [CD/DVD (ISO) and USB Images](http://dlc.openindiana.org/isos/hipster)
-* [Torrents](http://dlc.openindiana.org/torrents)
+* [OpenIndiana Downloads](https://www.openindiana.org/download/)
 
-Alternate mirrors (Asia, Europe, and North America)
+For a complete list of alternate mirrors (Asia, Europe, North America, etc.)
 
-* <https://wiki.openindiana.org/oi/Mirrors>
+* [OpenIndiana Download Mirrors](https://wiki.openindiana.org/oi/Mirrors)
 
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
@@ -274,8 +277,8 @@ If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM]
 Download example:
 
 ```
-wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso"
-wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256sum"
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20161030.iso"
+wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20161030.iso.sha256sum"
 ```
 
 ### Checking the MD5/SHA
@@ -283,8 +286,8 @@ wget "http://dlc.openindiana.org/isos/hipster/OI-hipster-gui-20160421.iso.sha256
 Checksum verification example:
 
 ```
-sha256sum --check OI-hipster-gui-20160421.iso.sha256sum
-OI-hipster-gui-20160421.iso: OK
+sha256sum --check OI-hipster-gui-20161030.iso.sha256sum
+OI-hipster-gui-20161030.iso: OK
 ```
 
 
@@ -477,6 +480,7 @@ The method to use depends on the release date of the USB image you intend to wri
 #### Method 1
 
 * Applies to the experimental releases of July 2016 and all subsequent (newer) releases.
+    * For example: The OpenIndiana Hipster 2016.10 release uses this method.
 
 #### Method 2
 
@@ -491,6 +495,17 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 
 * If you intend to install OpenIndiana Hipster on a system with USB 3.0 and or UEFI capabilities, please be sure to disable these features.
 * When attaching backward compatible USB 3.0 flash devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
+
+<div class="well">
+
+<b>Breaking USB 3.0 news update - November 18, 2016</b>
+
+<ul>
+<li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
+<li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
+<li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -505,7 +520,11 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Header files are only required when writing a legacy image **AND** using the dd utility.
+
+* Header files are only required when writing a legacy image <b>AND</b> using the dd utility.
+    * Header files are <b>NOT</b> required when writing current images.
+    * For example: The Hipster 2016.10 release, does <b>NOT</b> require header files.
+
 </div>
 
 * Download the appropriate OpenIndiana 1G or 2G header file
@@ -665,6 +684,16 @@ OpenIndiana does not yet support the following technologies:
 To successfully boot the OpenIndiana installer, these technologies must first be disabled.
 For further information, consult the manufacturers documentation for your computer hardware.
 
+<div class="well">
+
+<b>Breaking USB 3.0 news update - November 18, 2016</b>
+
+<ul>
+<li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
+<li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
+<li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -692,31 +721,85 @@ If you experience difficulties booting OpenIndiana on virtual hardware, or find 
 
 ### The OpenIndiana installer boot menu
 
+Introduced with the Hipster 2016.10 release, the FreeBSD boot loader has been ported to OpenIndiana.
+
+The new boot loader provides many new capabilities:
+
+* Booting to the first disk
+* Single user mode
+* Debugger options
+
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-The OpenIndiana installer will automatically boot the selected (highlighted) entry within 30 seconds.
+The OpenIndiana installer will automatically boot option # <b>1. Boot Multi User</b> within 10 seconds.
 
-* To stop the boot timer, press the `Esc` (escape) key.
-* To edit a boot entry, press the `e` (edit) key.
-* For a command line press the `c` (command) key.
+* To pause the Autoboot timer, press the `Space` key.
 
 </div>
 
-![grub menu](./images/boot/grub_menu.png)
+![forth_menu](./images/boot/forth_main_menu.png)
 
-The OpenIndiana installer boot menu offers multiple choices:
+The OpenIndiana installer boot menu offers multiple choices.
 
-* OI Hipster (normal boot)
-* OI Hipster VESA driver
-* OI Hipster text console
-* Boot from Hard Disk
-* OI Hipster Enable SSH
-* OI Hipster with magnifier
-* OI Hipster with screen reader
+| Main Menu Option | Description
+| --- | ---
+| 1. Boot Multi User | Normal boot (desktop or shell)
+| 2. Boot Single user | Boots to rescue mode
+| 3. Escape to loader prompt | Boots to forth shell
+| 4. Reboot | Restarts the computer
+| 5. Configure Boot Options | Enters into boot options menu
+| 6. ChainLoad disk0 | Boots the OS found on 1st disk
+| 7. Select OI Extras | Enters into extras menu
 
-Use the up and down arrow keys to select a boot entry.
-Once you have made a boot menu selection, press the `Enter` key to initialize the OpenIndiana installer boot process.
+Select your boot option by pressing the associated number key.
+
+* Options 1, 2, 3, 4, and 6, result in the immediate execution of the selected option.
+* Options 5 and 7 provide interactive menus as shown below.
+
+![forth_boot_menu_options](./images/boot/forth_menu_boot_options.png)
+
+| Boot Option Menu | Description
+| --- | ---
+| 1. Back to Main Menu | Returns to main menu
+| 2. OsConsole | Provides several tty options
+| 3. ACPI | Toggles ACPI to ON, OFF, MADT, or Legacy
+| 4. Single User | Toggles single user mode
+| 5. Verbose | Toggles verbose boot messages
+| 6. Reconfigure | Reconfigures hardware
+| 7. kmdb | Toggles Kernel Mode Debugger
+| 8. Debug | Toggles debug
+
+Toggle (enable/disable) these options by selecting the associated number key.
+
+For example:
+
+* Pressing 5 enables verbose mode.
+* Pressing 5 again, disables the verbose option.
+
+![forth_boot_menu_extras](./images/boot/forth_menu_extras.png)
+
+| OI Extras Menu | Description
+| --- | ---
+| 1. Back to Main Menu | Returns to main menu
+| 2. Vesa driver | Forces the vesa driver
+| 3. Text console | Enables the text console
+| 4. Enable ssh | Enables ssh server for live desktop
+
+Toggle (enable/disable) these options by selecting the associated number key.
+
+For example:
+
+* Pressing 2 forces the VESA driver.
+* Pressing 2 again, disables the VESA driver.
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+Even when booting the Mate Live Image, selecting option # 3 (text console) option will boot the system to a text based console.
+The logon credentials required to access the shell are jack/jack.
+
+</div>
 
 
 ### Selecting keyboard layout and display language
