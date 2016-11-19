@@ -721,31 +721,85 @@ If you experience difficulties booting OpenIndiana on virtual hardware, or find 
 
 ### The OpenIndiana installer boot menu
 
+Introduced with the Hipster 2016.10 release, the FreeBSD boot loader has been ported to OpenIndiana.
+
+The new boot loader provides many new capabilities:
+
+* Booting to the first disk
+* Single user mode
+* Debugger options
+
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-The OpenIndiana installer will automatically boot the selected (highlighted) entry within 30 seconds.
+The OpenIndiana installer will automatically boot option # <b>1. Boot Multi User</b> within 10 seconds.
 
-* To stop the boot timer, press the `Esc` (escape) key.
-* To edit a boot entry, press the `e` (edit) key.
-* For a command line press the `c` (command) key.
+* To pause the Autoboot timer, press the `Space` key.
 
 </div>
 
-![grub menu](./images/boot/grub_menu.png)
+![forth_menu](./images/boot/forth_main_menu.png)
 
-The OpenIndiana installer boot menu offers multiple choices:
+The OpenIndiana installer boot menu offers multiple choices.
 
-* OI Hipster (normal boot)
-* OI Hipster VESA driver
-* OI Hipster text console
-* Boot from Hard Disk
-* OI Hipster Enable SSH
-* OI Hipster with magnifier
-* OI Hipster with screen reader
+| Main Menu Option | Description
+| --- | ---
+| 1. Boot Multi User | Normal boot (desktop or shell)
+| 2. Boot Single user | Boots to rescue mode
+| 3. Escape to loader prompt | Boots to forth shell
+| 4. Reboot | Restarts the computer
+| 5. Configure Boot Options | Enters into boot options menu
+| 6. ChainLoad disk0 | Boots the OS found on 1st disk
+| 7. Select OI Extras | Enters into extras menu
 
-Use the up and down arrow keys to select a boot entry.
-Once you have made a boot menu selection, press the `Enter` key to initialize the OpenIndiana installer boot process.
+Select your boot option by pressing the associated number key.
+
+* Options 1, 2, 3, 4, and 6, result in the immediate execution of the selected option.
+* Options 5 and 7 provide interactive menus as shown below.
+
+![forth_boot_menu_options](./images/boot/forth_menu_boot_options.png)
+
+| Boot Option Menu | Description
+| --- | ---
+| 1. Back to Main Menu | Returns to main menu
+| 2. OsConsole | Provides several tty options
+| 3. ACPI | Toggles ACPI to ON, OFF, MADT, or Legacy
+| 4. Single User | Toggles single user mode
+| 5. Verbose | Toggles verbose boot messages
+| 6. Reconfigure | Reconfigures hardware
+| 7. kmdb | Toggles Kernel Mode Debugger
+| 8. Debug | Toggles debug
+
+Toggle (enable/disable) these options by selecting the associated number key.
+
+For example: 
+
+* Pressing 5 enables verbose mode.
+* Pressing 5 again, disables the verbose option.
+
+![forth_boot_menu_extras](./images/boot/forth_menu_extras.png)
+
+| OI Extras Menu | Description
+| --- | ---
+| 1. Back to Main Menu | Returns to main menu
+| 2. Vesa driver | Forces the vesa driver
+| 3. Text console | Enables the text console 
+| 4. Enable ssh | Enables ssh server for live desktop
+
+Toggle (enable/disable) these options by selecting the associated number key.
+
+For example: 
+
+* Pressing 2 forces the VESA driver.
+* Pressing 2 again, disables the VESA driver.
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+Even when booting the Mate Live Image, selecting option # 3 (text console) option will boot the system to a text based console.
+The logon credentials required to access the shell are jack/jack.
+
+</div>
 
 
 ### Selecting keyboard layout and display language
