@@ -57,9 +57,11 @@ For a full list of links to the various installer images, visit the [OpenIndiana
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-* The legacy oi-dev-151x branch is no longer maintained.
-* While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.
-    * Click the following link for [instructions for upgrading from legacy releases](https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657).
+<ul>
+  <li>The legacy oi-dev-151x branch is no longer maintained.</li>
+  <li> While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.</li>
+  <li><a href="https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657">Click here for instructions for upgrading from legacy releases to Hipster</a></li>
+</ul>
 
 </div>
 
@@ -89,10 +91,12 @@ As the FAQ evolves, try to keep this section in sync.
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-* For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
-* For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
-* The default size of the OpenIndiana swap file is 50% of installed memory.
-    * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
+<ul>
+  <li>For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.</li>
+  <li>For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.</li>
+  <li>The default size of the OpenIndiana swap file is 50% of installed memory.</li>
+  <li>Minimum and maximum default swap allocations are 512MB and 32GB respectively.</li>
+</ul>
 
 </div>
 
@@ -496,16 +500,16 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 * If you intend to install OpenIndiana Hipster on a system with USB 3.0 and or UEFI capabilities, please be sure to disable these features.
 * When attaching backward compatible USB 3.0 flash devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
 
-<div class="well">
+  <div class="well">
 
-<b>Breaking USB 3.0 news update - November 18, 2016</b>
+  <b>Breaking USB 3.0 news update - November 18, 2016</b>
 
-<ul>
-<li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
-<li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
-<li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
-</ul>
-</div>
+  <ul>
+    <li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
+    <li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
+    <li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
+  </ul>
+  </div>
 </div>
 
 
