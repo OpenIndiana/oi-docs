@@ -1280,7 +1280,7 @@ This warning serves as your advisory.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-This screen will be available only when **_2 or more disks_** have been selected. 
+This screen will be available only when **_2 or more disks_** have been selected.
 </div>
 
 * If 2 disks have been selected, the ZFS mirror option becomes available.
