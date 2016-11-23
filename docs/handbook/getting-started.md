@@ -57,9 +57,11 @@ For a full list of links to the various installer images, visit the [OpenIndiana
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-* The legacy oi-dev-151x branch is no longer maintained.
-* While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.
-    * Click the following link for [instructions for upgrading from legacy releases](https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657).
+<ul>
+  <li>The legacy oi-dev-151x branch is no longer maintained.</li>
+  <li> While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.</li>
+  <li><a href="https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657">Click here for instructions for upgrading from legacy releases to Hipster</a></li>
+</ul>
 
 </div>
 
@@ -89,10 +91,12 @@ As the FAQ evolves, try to keep this section in sync.
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-* For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
-* For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
-* The default size of the OpenIndiana swap file is 50% of installed memory.
-    * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
+<ul>
+  <li>For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.</li>
+  <li>For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.</li>
+  <li>The default size of the OpenIndiana swap file is 50% of installed memory.</li>
+  <li>Minimum and maximum default swap allocations are 512MB and 32GB respectively.</li>
+</ul>
 
 </div>
 
@@ -496,16 +500,16 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 * If you intend to install OpenIndiana Hipster on a system with USB 3.0 and or UEFI capabilities, please be sure to disable these features.
 * When attaching backward compatible USB 3.0 flash devices to your system, please ensure they are *NOT* attached to a USB 3.0 port.
 
-<div class="well">
+  <div class="well">
 
-<b>Breaking USB 3.0 news update - November 18, 2016</b>
+  <b>Breaking USB 3.0 news update - November 18, 2016</b>
 
-<ul>
-<li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
-<li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
-<li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
-</ul>
-</div>
+  <ul>
+    <li>The OpenIndiana Project is now testing USB 3.0 (XHCI) experimentally!</li>
+    <li>If you wish to try using our new experimental XHCI support, see the link below for additional details:</li>
+    <li><a href="https://openindiana.org/pipermail/oi-dev/2016-November/004991.html">USB 3.0 (xHCI) Beta Testing and Review</a></li>
+  </ul>
+  </div>
 </div>
 
 
@@ -1186,12 +1190,25 @@ Navigation within the installer is performed by pressing specifically designated
 
 The instructions for performing a text based install apply to the following installation scenarios:
 
-* Launching the text based installer icon from the Live Media (GUI) desktop.
-* Beginning a text based installation by booting from the OpenIndiana text based installer.
+<ul>
+  <li> Launching the text based installer icon from the Live Media (GUI) desktop.</li>
+  <li> Beginning a text based installation by booting from the OpenIndiana text based installer.</li>
+</ul>
+
+<br>
+<b>New for the 2016.10 release</b>
+
+Mirrors and RAIDZ are now supported install options!
+
+<ul>
+  <li>To install to a mirror, select 2 or more disks.</li>
+  <li>To install to RAIDZ, select 3 or more disks.</li>
+</ul>
+
 </div>
 
 
-![Welcome Screen](./images/text_install/text_001.png)
+![Welcome Screen](./images/text_install/text_install_01.png)
 
 The text based installation process begins with the welcome screen, which provides the following information:
 
@@ -1205,14 +1222,21 @@ At any time during the installation process you may press the `F6` key for conte
 
 When ready to begin, press the `F2` key to continue.
 
-![Disks](./images/text_install/text_002.png)
+![Select_Disks](./images/text_install/text_install_02.png)
 
 On this screen the installer displays the disks which have been discovered and are available for installation.
 
-* If you have only a single disk, it is already selected.
-* If you have multiple disks, use the arrow keys to select the appropriate disk.
+* Use the up and down arrow keys to navigate between the disks.
+* To select a disk, press the space bar while the disk is highlighted.
+* A disk is selected for installation when an asterisk appears next to the disk.
 
 Once you have selected the appropriate disk, press the `F2` key to continue.
+
+* If your system has only a single disk, it is already selected.
+* If your system has multiple disks, select the appropriate disk(s).
+    * To install to a mirror, select 2 or more disks.
+    * To install to RAIDZ, select 3 or more disks.
+
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -1228,8 +1252,18 @@ To account for this, your disk should be at least 20GB or more.
 
 </div>
 
-![GPT Warning](./images/text_install/text_003.png)
+![GPT Warning](./images/text_install/text_install_03.png)
 
+After pressing the `F2` key, you may be presented with warning shown above.
+If reformatting the entire disk is acceptable with you, press the `Tab` key to select **_continue_** and then press the `Enter` key.
+Otherwise press the `Enter` key to **_cancel_**.
+
+If you select cancel, you will have the following options:
+
+* Select another disk
+* Abort the installation so you may provide remedial action such as:
+    * Modifying the partition table using Gparted
+    * Adding another disk to the system
 
 <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
@@ -1241,31 +1275,45 @@ If your disk contains a GPT disk label, the entire disk will be used.
 This warning serves as your advisory.
 </div>
 
-After pressing the `F2` key you may be presented with warning shown above.
-If reformatting the entire disk is acceptable with you, press the enter key to continue.
-Otherwise use the arrow keys to select cancel and press the enter key.
 
-If you select cancel, you will have the following options:
+![ZFS) rpool options](./images/text_install/text_install_04.png)
 
-* Select another disk
-* Abort the installation so you may provide remedial action such as:
-    * Modifying the partition table using Gparted
-    * Adding another disk to the system
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This screen will be available only when **_2 or more disks_** have been selected.
+</div>
+
+* If 2 disks have been selected, the ZFS mirror option becomes available.
+* If 3 or more disks have been selected, the ZFS RAIDZ option become available.
+
+Select between the options using the up and down arrow keys.
+
+When ready, press the `F2` key to continue.
 
 
-![Fdisk Partitions](./images/text_install/text_004.png)
+![Fdisk Partitions](./images/text_install/text_install_05.png)
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This screen will be available only when a **_single disk_** has been selected.
+</div>
 
 In this screen you are presented with the following choices for how to partition the disk:
 
 * Use the whole disk (EFI)
 * Use a partition of the disk (MBR)
 
-Using the arrow keys, select the appropriate choice.
+Select between the options using the up and down arrow keys.
+
 When ready, press the `F2` key to continue.
 
-![Select Partition](./images/text_install/text_005.png)
+![Select Partition](./images/text_install/text_install_06.png)
 
-If you chose to partition the disk you will see this screen above.
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This screen will be available only when the **_Use a partition of the disk (MBR)_** option has been selected.
+</div>
+
 This screen provides the following options:
 
 * Select the partition where you would like to install Openindiana.
@@ -1273,26 +1321,33 @@ This screen provides the following options:
 * Change the partition size
 * Free up space by deleting a partition
 
+Navigate the fields using the arrow keys.
+Change a partition type using the `F5` key.
+
 When ready, press the `F2` key to continue.
 
-![Network 1](./images/text_install/text_006.png)
-
-At the top portion of this screen specify the computer name (system hostname) you wish to use.
-By default the computer name is _openindiana_.
-Using the backspace key, you may remove the default choice and provide another hostname.
-
-When ready, proceed to the next screen shot where you will be provided additional guidance for completing this screen.
-
-![Network 2](./images/text_install/text_007.png)
+![Network 1](./images/text_install/text_install_07.png)
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-This screen is identical to the previous screen.
-We have illustrated it twice to help clarify the 2 distinct configuration tasks which need to be completed:
+We have illustrated this screen twice as 2 different tasks are required.
 
-* Setting the system hostname
-* Selecting your network configuration
+In this step you will configure the hostname.
+</div>
 
+At the top portion of the screen specify the computer name (system hostname) you wish to use.
+By default the computer name is **_openindiana_**.
+Using the backspace key, you may remove the default hostname and provide another hostname.
+
+When ready, proceed to the next screen shot below where you will be provided additional guidance for completing this screen.
+
+![Network 2](./images/text_install/text_install_08.png)
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+We have illustrated this screen twice as 2 different tasks are required.
+
+In this step you will select your network configuration type.
 </div>
 
 After configuring the system hostname, navigate to the lower portion of the screen to select your networking configuration.
@@ -1303,12 +1358,20 @@ From the lower portion of this screen you have the following choices:
 * Manually configure the network settings by entering the information on the next screen
 * Do not configure the network at this time
 
-Use the arrow keys to select your choice.
+Select between the options using the up and down arrow keys.
+
 When ready, press the `F2` key to continue.
 
-![Network 3](./images/text_install/text_008.png)
+![Network 3](./images/text_install/text_install_09.png)
 
-If you chose to manually configure your network, you will be presented with the screen above.
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This screen will be available only when the <b><i>Manually</i></b> configure network option has been selected.
+
+* The values illustrated above are for example only, do not use them.
+* Substitute each field with correct values for your network.
+
+</div>
 
 In the fields provided, enter in the following information:
 
@@ -1318,52 +1381,64 @@ In the fields provided, enter in the following information:
 * DNS
 * Domain
 
-Use the arrow keys to navigate the fields.
+Navigate between the fields using the up and down arrow keys.
+
 When ready, press the `F2` key to continue.
 
-![Time Zone - Region](./images/text_install/text_009.png)
+![Time Zone - Region](./images/text_install/text_install_10.png)
 
-In this screen (and the following 2 screens) you will configure your time zone.
+The next few screens illustrate time zone configuration.
 
-Using the arrow keys, select your time zone _region_.
+Select your time zone **_region_** by navigating up and down with the arrow keys.
+
 When ready, press the `F2` key to continue.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-If you select UTC/GMT, you will only be presented with this single screen.
+When selecting the <b><i>UTC/GMT</i></b> time zone region, only this screen will be presented.
 </div>
 
-![Time Zone - Location](./images/text_install/text_010.png)
+![Time Zone - Location](./images/text_install/text_install_11.png)
 
-Using the arrow keys, select your time zone _location_.
+Select your time zone **_location_** by navigating up and down with the arrow keys.
+
 When ready, press the `F2` key to continue.
 
-![Time Zone](./images/text_install/text_011.png)
+![Time Zone](./images/text_install/text_install_12.png)
 
-Using the arrow keys, select your _time zone_.
+Select your **_time zone_** by navigating up and down with the arrow keys.
+
 When ready, press the `F2` key to continue.
 
-![Date and Time](./images/text_install/text_012.png)
+![Date and Time](./images/text_install/text_install_13.png)
 
 In this screen you may reconfigure the date and time as necessary.
 
-Using the arrow keys, navigate between the fields.
+Using the up and down arrow keys, navigate between the fields.
+
 When ready, press the `F2` key to continue.
 
-![Users](./images/text_install/text_013.png)
+![Users](./images/text_install/text_install_14.png)
 
 In this screen you are presented with several fields to configure.
 
-Using the arrow keys, navigate between the fields and enter the required information.
+* Root password
+* Confirm Root password
+* Real name
+* User name
+* User password
+* Confirm user password
+
+Using the up and down arrow keys, navigate between the fields and enter the required information.
+
 When ready, press the `F2` key to continue.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE**
 <div class="well">
 
-* The regular user specified on this screen is granted the _root_ role.
+* The first user created on the system is granted the root role via _Role Based Access Control_ (RBAC).
 * In effect this means the following:
-    * Without any further configuration, the user you specify will be granted the authority to perform administrative task by assuming the root role as needed.
-    * The first user created on the system is granted the root role via _Role Based Access Control_ (RBAC).
+    * Without any further configuration, the specified user will be granted the authority to perform administrative task by assuming the root role as needed.
 
 Please take note the following additional information:
 
@@ -1371,25 +1446,26 @@ Please take note the following additional information:
 
 </div>
 
-![Installation Summary](./images/text_install/text_014.png)
+![Installation Summary](./images/text_install/text_install_15.png)
 
 Now that you have completed the installation configuration, you are presented with an _Installation Summary_.
-If these configuration settings are correct, begin the installation by pressing the `F2` key.
 
-![Transferring Contents](./images/text_install/text_015.png)
+If these configuration settings are correct, you may begin the installation by pressing the `F2` key.
+
+![Transferring Contents](./images/text_install/text_install_16.png)
 
 Depending on the speed of your computer, the installation may take several minutes to complete.
 Installation progress is measured by means of a status bar.
 
-![Installation Complete](./images/text_install/text_016.png)
+![Installation Complete](./images/text_install/text_install_17.png)
 
-After the installation has completed you are presented with a summary screen.
+When the installation is complete, a summary screen is presented.
 
 * The installation logs are available by pressing the `F4` key.
 * If you ran the installation from Live Media, you may exit the installation by pressing the `F9` key.
 * Otherwise, you will want to reboot the system by pressing the `F8` key.
 
-![Installation Logs](./images/text_install/text_017.png)
+![Installation Logs](./images/text_install/text_install_18.png)
 
 If you chose to view the installation logs, you will be presented with the screen above.
 
