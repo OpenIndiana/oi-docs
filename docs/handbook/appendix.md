@@ -1,4 +1,4 @@
-# OpenIndiana Handbook - Appendix
+# Hipster Handbook - Appendix
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -10,7 +10,7 @@
 < place holder for introduction content >
 
 
-## Finding help and support
+## Finding Help and Support
 
 < Place Holder for section Introduction Content >
 
@@ -47,7 +47,7 @@ We may want to revisit the FAQ and pull these changes over.
 | OpenIndiana Bug Tracker | <https://www.illumos.org/projects/openindiana/issues>
 
 
-## IPS command matrix
+## IPS Command Matrix
 
 | Task | IPS Command | apt Equivalent
 | --- | --- | ---

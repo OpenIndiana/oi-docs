@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# OpenIndiana Handbook - Getting Started
+# Hipster Handbook - Getting Started with OpenIndiana
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -35,7 +35,7 @@ This collection of documents is aimed at providing a comprehensive source of gui
 While our aim is to address as many facets of OpenIndiana use and administration as possible, some topics are simply too complex and beyond the scope of an introductory end user handbook.
 In such cases external sources of information will be provided in the form of references to other web sites, man pages, or printed books.
 
-## OpenIndiana software releases
+## Hipster Software Releases
 
 <!--
 
@@ -74,7 +74,7 @@ While every package is tested to ensure stability, caution is nevertheless warra
 </div>
 
 
-## System requirements
+## System Requirements
 
 <!--
 
@@ -101,7 +101,7 @@ As the FAQ evolves, try to keep this section in sync.
 </div>
 
 
-## Exploring OpenIndiana
+## Exploring OpenIndiana Hipster
 
 There are several ways in which you can explore OpenIndiana without having to perform a bare metal install.
 
@@ -197,7 +197,7 @@ vagrant destroy
 ```
 
 
-## Preparation for installing OpenIndiana
+## Preparing to Install Hipster
 
 Prior to installing OpenIndiana:
 
@@ -295,7 +295,7 @@ OI-hipster-gui-20161030.iso: OK
 ```
 
 
-## Creating a bootable OpenIndiana DVD
+## Creating a Hipster DVD
 
 
 ### BSD/illumos/Solaris
@@ -474,7 +474,7 @@ From within Windows Explorer:
 </div>
 
 
-## Creating a bootable OpenIndiana USB flash drive
+## Creating a Hipster USB Drive
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -660,7 +660,7 @@ To resolve this issue, be sure to select the `*.*` (all files) option from the f
 The [OpenSolaris Live USB Creator](http://devzone.sites.pid0.org/OpenSolaris/opensolaris-liveusb-creator) is a small stand alone GUI utility suitable for creating an OpenIndiana bootable USB flash drive.
 
 
-## Booting OpenIndiana installer media
+## Booting the Hipster Installer
 
 Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your computer.
 When you see the OpenIndiana boot menu, select a boot entry, and press the enter key to start OpenIndiana on your computer.
@@ -1482,7 +1482,7 @@ When booting from the text based installer, you are presented with the following
 The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started/#install-openindiana-using-the-text-installer)
 
 
-## Troubleshooting installations
+## Troubleshooting Installations
 
 * If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a `grub>` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
 * If you see a `login:` prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
@@ -1491,7 +1491,7 @@ The procedure for installing from the text based installer follows the same proc
     * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
 
 
-## Post installation steps
+## Post Installation Steps
 
 ### Resetting the root password
 
@@ -2157,7 +2157,7 @@ Therefore, use 3rd party repositories and 3rd party package tools at your own ri
 </div>
 
 
-## Managing boot environments
+## Managing Boot Environments
 
 A boot environment is a bootable instance of an OpenIndiana operating system image plus any other application software packages installed into that image.
 You can maintain multiple boot environments on your system, and each boot environment could have different software versions installed.
@@ -2283,7 +2283,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
 | `beadm rename` | When you rename a boot environment, that change does not impact the names of the zones or the names of the datasets that are used for those zones in that boot environment. The change does not impact the relationships between the zones and their related boot environments.
 
 
-## The X-Window system
+## The X-Window System
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
@@ -2318,7 +2318,7 @@ Write about:
 </div>
 
 
-## Device drivers
+## Device Drivers
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
