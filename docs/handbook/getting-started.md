@@ -21,11 +21,12 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
+
 <p>This is a <b>DRAFT</b> document which may contain errors!</p>
 <p>Help us improve and expand this site.</p>
 <p>Please see the <b>Contrib</b> section for more details about joining the OpenIndiana Documentation Team.</p>
-</div>
 
+</div>
 
 ## Introduction
 
@@ -36,13 +37,6 @@ While our aim is to address as many facets of OpenIndiana use and administration
 In such cases external sources of information will be provided in the form of references to other web sites, man pages, or printed books.
 
 ## Hipster Software Releases
-
-<!--
-
-The content for this section is pulled from the OpenIndiana FAQ (section 'What is the OpenIndiana Release Schedule?').
-As the FAQ evolves, try to keep this section in sync.
-
--->
 
 Approximately every six months, the OpenIndiana project releases a snapshot of the Hipster rolling release branch.
 Ideally suited for both workstations and servers, simply choose the installer type which best serves your needs.
@@ -1506,7 +1500,7 @@ Use the following steps to change the root password:
 * You should be able to login/authenticate as root now.
 
 
-## The Image Package System (IPS)
+## Image Package System (IPS)
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">

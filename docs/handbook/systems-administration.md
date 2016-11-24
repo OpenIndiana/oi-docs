@@ -46,7 +46,31 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ### Service management (SMF)
 
-< place holder >
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
+Start a service
+
+`svcadm enable <service name>`
+
+Start service along with it's dependencies
+
+`svcadm enable -r <service name>`
+
+Start a service temporarily (won't survive a reboot)
+
+`svcadm enable -t <service name>`
+
+Check service dependencies
+
+`svcs -d <service name >`
+
+Check status of services
+
+`svcs -vx`
+
+</div>
 
 
 ### Systems logging and monitoring
