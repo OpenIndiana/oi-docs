@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# OpenIndiana Handbook - Common Tasks
+# Hipster Handbook - Common Tasks
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
