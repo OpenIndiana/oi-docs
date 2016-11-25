@@ -41,6 +41,7 @@ pages:
         - 'Contributor Topics': contrib/topics.md
         - 'Contributor Style Guide': contrib/style.md
         - 'Markdown Syntax Guide': contrib/markdown.md
+        - 'Git Usage Guide': contrib/git.md
 
 
 copyright: Copyright &copy; 2016 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
