@@ -16,6 +16,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # About OpenIndiana Docs
 
 This website and its content uses a number of different technologies:

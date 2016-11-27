@@ -16,6 +16,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # Contributor Tools
 
 The OpenIndiana Docs website uses 2 principal technologies and several ancillary technologies:

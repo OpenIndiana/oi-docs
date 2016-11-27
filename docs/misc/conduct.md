@@ -16,6 +16,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # OpenIndiana Code of Conduct
 
 This document provides community guidelines for a safe, respectful, productive, and collaborative place for any person who is willing to contribute to the OpenIndiana community.

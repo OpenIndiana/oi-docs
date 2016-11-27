@@ -17,6 +17,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # Hipster Handbook - Getting Started with OpenIndiana
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -1486,6 +1488,22 @@ The procedure for installing from the text based installer follows the same proc
 
 
 ## Post Installation Steps
+
+### Boot Menu - Post Install
+
+After successfully installing OpenIndiana Hipster, a new boot menu option becomes available.
+As shown in the screen below, option # 6 allows you to select the boot environment.
+
+![forth_menu](./images/boot/boot_post_install.png)
+
+Each time you perform an update of software installed on OpenIndiana Hipster, a new boot environment may be created.
+Option # 6 allows you to select from among them.
+
+![forth_menu](./images/boot/select_boot_environment.png)
+
+After using OpenIndiana for a period of time, several boot environments will accumulate, with the label for each environment incrementing numerically.
+The image above illustrates what this looks like on a system with several boot environment choices.
+
 
 ### Resetting the root password
 
