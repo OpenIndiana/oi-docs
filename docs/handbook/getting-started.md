@@ -55,8 +55,12 @@ For a full list of links to the various installer images, visit the [OpenIndiana
 
 <ul>
   <li>The legacy oi-dev-151x branch is no longer maintained.</li>
-  <li> While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.</li>
-  <li><a href="https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657">Click here for instructions for upgrading from legacy releases to Hipster</a></li>
+  <li>While upgrades to Hipster are possible, it can only be performed by doing it in stages.</li>
+  <ul>
+    <li>First upgrade from oi-dev to Hipster-2015, and verify the system has been updated to the latest 2015.</li>
+    <li>Only then may you switch to the current Hipster repository and update again.</li>
+    <li><a href="https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657">For more details, click here for upgrade instructions</a></li>
+  </ul>
 </ul>
 
 </div>
