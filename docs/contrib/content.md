@@ -16,6 +16,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # OpenIndiana Content Creation
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**

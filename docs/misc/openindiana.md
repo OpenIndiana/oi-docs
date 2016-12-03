@@ -16,16 +16,38 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
 
 # About OpenIndiana
 
-## What is OpenIndiana?
+## What is the OpenIndiana Operating System?
+
+OpenIndiana is an advanced enterprise OS from the Sun branch of the Unix-like family tree, and as such it can sometimes seem quite complex (_Spending several decades running important servers can do that to an OS!_).
+But with a little help and information, once you know the basics, you'll find it actually has some of the nicest and friendliest tools around.
+As with most Unix-like operating systems it can be completely controlled via a Command Line Interface shell, but it also supports a windowing GUI system.
+
+From the CLI, it supports a number of different shells, the two main ones being ksh93 and Bash.
+It also supports the original [SunOS](http://en.wikipedia.org/wiki/SunOS) [SVR4](http://en.wikipedia.org/wiki/SVR4#SVR4) commands, Like the command and syntax familiar to BSD users, and a large portion of the GNU userland commands that most Linux users are familiar with.
+You can select any or all of those different commands from your shell configuration, giving you the environment you are most happy with.
+
+By default, the windowing GUI system is based on the popular Mate system.
+
+OpenIndiana also has a powerful package manager, IPS, for updating and installing new software.
+Although powerful, it may seem complicated at first; but, help is provided in these pages.
+
+OpenIndiana supports a wide range of popular software, including the main open source Internet server software, databases, Internet client software, development languages and tools and more.
+The Popular Software provides some links and notes about some of the community favorites, but many more are supported.
+In addition to the Hipster IPS repositories, OpenIndiana can also use the [SFE](http://sfe.opencsw.org/) and [pkgsrc](https://pkgsrc.joyent.com/) package repositories which provide additional software options.
+
+
+## What is OpenIndiana Project?
 
 The OpenIndiana project is the open source community which develops, maintains, and supports the [OpenIndiana](https://en.wikipedia.org/wiki/OpenIndiana) distribution, an [Illumos](https://en.wikipedia.org/wiki/Illumos) based Unix-like operating system derived from OpenSolaris.
 The purpose of the OpenIndiana Project is to ensure the continued availability of an openly developed distribution based on OpenSolaris.
 The OpenIndiana project is also a continuation of the collaborative effort and community spirit of the [OpenSolaris project](https://en.wikipedia.org/wiki/OpenSolaris).
 
 For a comprehensive history of the OpenSolaris project, see Jim Grisanzio's [OpenSolaris timeline](https://jimgrisanzio.wordpress.com/opensolaris/).
+
 
 ## Why is it called OpenIndiana?
 

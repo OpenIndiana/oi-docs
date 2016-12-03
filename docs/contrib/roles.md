@@ -16,6 +16,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # Contributor Roles
 
 There are multiple ways community members can contribute to the OpenIndiana Documentation revitalization effort.

@@ -16,6 +16,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # Quick start for oi-userland
 
 ### Clone the repository from OpenIndiana's Github, it is set as origin:

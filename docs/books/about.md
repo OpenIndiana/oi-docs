@@ -24,6 +24,8 @@ Add a row to each table describing the relevancy of the book in relation to Open
 
 -->
 
+<img src = "../../Openindiana.png">
+
 # About OpenSolaris Redistributable Books
 
 Consisting of 41 titles and originally published on July 15th, 2009, this collection represents the final docs release of the OpenSolaris project.
