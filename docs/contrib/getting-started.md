@@ -79,8 +79,8 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 | Arch | `pacman -S python-pip`
 | Centos/RHEL | `yum install python-pip`
 | Debian/Mint/Ubuntu | `apt-get install python-pip`
-| Fedora | `dnf install pythop-pip`
-| OpenIndiana | N/A - (MKDocs now in Hipster repository)
+| Fedora | N/A - (Included with Fedora 25)
+| OpenIndiana | N/A - (Use MkDocs IPS package)
 
 
 #### Install rubygems
@@ -90,8 +90,8 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 | Arch | `pacman -S ruby`
 | Centos/RHEL | `yum install rubygems`
 | Debian/Mint/Ubuntu | `apt-get install rubgems-integration`
-| Fedora | `dnf install rubygem-rails`
-| OpenIndiana | Installed by default as part of Ruby
+| Fedora | `dnf install rubygems`
+| OpenIndiana | `pkg install ruby`
 
 
 #### Install mkdocs
@@ -99,7 +99,7 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 For OpenIndiana Hipster, MKDocs and all of it's dependencies have been packaged and are available in the OI Hipster repository.
 So, if you're already running Hipster, installing MKDocs is as simple as: `pkg install mkdocs`
 
-* Most other operating systems: `pip install mkdocs`
+* Most other operating systems: `pip install mkdocs mkdocs-bootswatch`
 
 After MKDocs has been installed, be sure to verify your installation with `mkdocs --version`
 
@@ -119,6 +119,20 @@ For most operating systems:
 
 * `gem install mdl`
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+
+For OpenIndiana, you will need to add the Ruby Gem directory path to your $PATH variable.
+To do so, execute the following commands:
+
+```
+PATH=$PATH:/usr/ruby/2.3/bin/
+export PATH
+```
+
+To verify `mdl` is now accessible, test using the command: `which mdl` or alternately: `mdl --version`.
+
+</div>
 
 #### Install VIM Markdown plugin (optional)
 
