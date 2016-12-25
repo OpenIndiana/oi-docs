@@ -52,25 +52,35 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <div class="well">
 ITEMS TO WRITE ABOUT:
 
-Start a service
+**Start a service**
 
-`svcadm enable <service name>`
+```
+svcadm enable <service name>
+```
 
-Start service along with it's dependencies
+**Start service along with it's dependencies**
 
-`svcadm enable -r <service name>`
+```
+svcadm enable -r <service name>
+```
 
-Start a service temporarily (won't survive a reboot)
+**Start a service temporarily (won't survive a reboot)**
 
-`svcadm enable -t <service name>`
+```
+svcadm enable -t <service name>
+```
 
-Check service dependencies
+**Check service dependencies**
 
-`svcs -d <service name >`
+```
+svcs -d <service name >
+```
 
-Check status of services
+**Check status of services**
 
-`svcs -vx`
+```
+svcs -vx
+```
 
 </div>
 
@@ -307,8 +317,16 @@ You can check your processor for EPT support via the following link: <http://ark
 
 ## Localization
 
-< place holder >
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
 
+Possible resources to help write this section:
+
+* <https://wiki.openindiana.org/oi/4.4+Localization>
+* <https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html>
+
+</div>
 
 
 ## Dtrace
