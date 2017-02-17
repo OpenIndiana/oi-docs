@@ -43,7 +43,7 @@ git remote -v
 
 ```bash
 gmake setup
-gmake check-environment
+gmake env-check
 ```
 
 ### Every time you add or modify a component, create a new branch:
