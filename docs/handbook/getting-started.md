@@ -468,6 +468,7 @@ For further information, please consult the help documentation for your Linux di
 **MAC Console** <i class="fa fa-apple fa-lg" aria-hidden="true"></i>
 
 <!-- had to specify java (other langs may work) to fix the formatting -->
+
 ```java
 # growisofs -Z /dev/dvdrw=image.iso
 ```
@@ -656,6 +657,7 @@ For illumos based distributions including OpenIndiana, a script [(USBCOPY)](http
 Be sure to run as root or with SUDO as the script exits if not run with elevated permissions.
 
 <!-- had to specify java (other langs may work) to fix the formatting -->
+
 ```java
 # ./usbcopy image.usb
 Found the following USB devices:
