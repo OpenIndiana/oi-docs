@@ -743,7 +743,8 @@ See the notes below for optimizing OpenIndiana for several popular hypervisors.
 | --- | ---
 | Virtualbox | OS type = Solaris 11 64-bit
 | Vmware player | OS type = Solaris 11 64-bit
-| KVM | <ul><li>OS type = Sun OpenSolaris</li><li>Disk = SATA</li><li>Remove USB Tablet</li><li>NIC = e1000</li><li>sound = AC97</li><li>Processor = Copy host CPU configuration</li><li>Disable CPU feature _'xsave'_</li><li>Video = QXL</li></ul>
+| KVM | <ul><li>OS type = Sun OpenSolaris</li><li>Disk = SATA</li><li>Remove USB Tablet</li><li>NIC = e1000</li><li>sound = AC97</li><li>Processor = Copy host CPU configuration</li><li>Disable CPU feature _'xsave'_</li><li>Video = QXL (QXL driver not supported, but the extra video memory helps)</li><li>Display = VNC (Spice not supported)</li></ul>
+| Hyper-V | Select single CPU, generation 1 VM, and legacy NIC.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">

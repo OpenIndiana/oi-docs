@@ -30,6 +30,17 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 < place holder for introduction content >
 
+## Glossary
+
+| Term | Definition
+| --- | ---
+| Boomer | The code name for the audio driver framework used by OpenIndiana. Its application interface is Open Sound System (OSS) 4 compatible.
+| Consolidation | A collection of related software which has the scope of a project, historically developed by a dedicated team. OpenIndiana is composed of many consolidations.
+| g11n | Internationalization and localization consolidation.
+| illumos | A community maintained derivative of the OpenSolaris OS/NET (ON) source which contains core operating system components, including the kernel, drivers, and basic userland.
+| oi-userland | A new OpenIndiana consolidation which pulls together many of the old legacy consolidations. This new consolidation greatly simplifies the development of OpenIndiana.
+| SFE | Spec Files Extra - External 3rd party IPS repository
+| XNV | The X-Windows consolidation.
 
 ## Finding Help and Support
 
