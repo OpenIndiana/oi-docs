@@ -189,10 +189,9 @@ For some components, specific rules need to be applied: they can be implemented 
 Some example can be found in the directory with the same name at the root directory of oi-userland.
 
 
-### Publish the package
+### Publish the package to your local repository
 
 Run `gmake publish`: if the dependencies are resolved and the manifest is valid, your package is published to the local repository.
-You can then install your package locally and test it.
 
 To be able to search for the new packages in the local repository you need to rebuild search indexes:
 
@@ -208,11 +207,61 @@ You can even rebuild the entire metadata:
 pkgrepo rebuild -s /path/to/my_repo
 ```
 
+### Install the package and test
+
+After you've published the package to your local repository and rebuilt the repository index or metadata, you can install the package and perform whatever testing is appropriate.
+
+When you ran `gmake setup` earlier, that step added the local repository with a default name of userland to the list of package publishers that `pkg` knows about.  It also made the local userland repository a higher priority than openindian.org.  You can verify the list of package publishers with:
+
+```bash
+pkg publisher
+```
+
+If the package you built and published to the local userland repository is not already part of hipster, it should be straightforward to install it:
+
+```bash
+pfexec pkg install your/package/name
+```
+
+If, however, the package you built is an updated version of an existing package, then you may have to take additional steps before it can be updated.
+
+If `pkg` refuses to install the package from your local repository, it may be because the userland-incorporation is preventing updates to the version of the package:
+
+```bash
+$ pfexec pkg update print/filter/hplip
+No updates available for this image.
+$ pfexec pkg update pkg://userland/print/filter/hplip@3.15.9,5.11-2017.0.0.2:20170228T235543Z
+pkg update: No matching version of print/filter/hplip can be installed:
+  Reject:  pkg://userland/print/filter/hplip@3.15.9-2017.0.0.2
+  Reason:  This version is excluded by installed incorporation consolidation/userland/userland-incorporation@0.5.11-2017.0.0.8131
+```
+
+If you will be installing many test versions of packages on your development system, you may find it easiest to uninstall userland-incorporation.  Alternately, if you want to test a package on a system while keeping userland-incorporation, you can use `pkg change-facet` to relax the version constraint for just that package:
+
+```bash
+pfexec pkg change-facet facet.version-lock.your/package/name/here=false
+```
+
+After you have performed one of those steps to remove the version constraint, there is one more issue you may encounter.  Because the installed version of the package came from the openindiana.org publisher but the updated version you want to install and test is associated with the userland publisher, `pkg` will by default not allow the package update to switch which publisher provides the package.
+
+One option to work around this is to make the openindiana.org publisher non-sticky:
+
+```bash
+pfexec pkg set-publisher --non-sticky openindiana.org
+```
+
+You only need to perform that operation on your development system once.
+
+Alternately, you can force `pkg` to apply an update from a different publisher by specifying the full FMRI for the package, including the publisher:
+
+```bash
+pfexec pkg update pkg://userland/print/filter/hplip@3.15.9,5.11-2017.0.0.2:20170228T235543Z
+```
+
+
 ### Submit your component
 
-Run `gmake clobber` then `gmake publish` to check that the component is publishing correctly.
-
-If it is the case, you can cleanup your branch then submit a pull-request.
+Once you've installed and tested the package, you are ready to clean up your branch and then submit a pull-request.
 
 First you need to *squash* all your commits into one, check how many commits are to be considered:
 
