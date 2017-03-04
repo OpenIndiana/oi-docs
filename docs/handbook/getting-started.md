@@ -561,7 +561,7 @@ OpenIndiana Hipster does not yet support USB 3.0 or UEFI.
 
 </div>
 
-* Download the appropriate OpenIndiana 1G or 2G header file
+* Download the appropriate OpenIndiana <a href="http://dlc.openindiana.org/isos/archive/1G.header">1G</a> or <a href="http://dlc.openindiana.org/isos/archive/2G.header">2G</a> header file
     * There are 2 unique USB header files (1G and 2G).
     * Please ensure you have selected the correct file as the files are **NOT** interchangeable.
         * The 1G.header is only suitable for use with the text installer (Command line console).
