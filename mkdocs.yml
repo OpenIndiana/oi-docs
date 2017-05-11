@@ -24,6 +24,8 @@ pages:
         - 'Network Communications': handbook/network-communications.md
         - 'Appendix': handbook/appendix.md
         - 'Building oi-userland': dev/userland.md
+        - 'Community Contributed Tutorials': handbook/community.md
+
 
 - 'OpenSolaris Books':
         - 'About OpenSolaris Books': books/about.md
