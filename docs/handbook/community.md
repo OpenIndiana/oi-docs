@@ -30,8 +30,8 @@ Link to PDF Document: <a href= "../pdf/HowToInstallOracleDB.pdf" target="_blank"
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-<p>It is not recommended to run Oracle Database in OpenIndiana for production environments. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of this article is to install the Oracle Database for development environment.</p>
-<p>Unfortunately is not possible to run Oracle Database version 12 and above because there are some dependencies with proprietary Oracle Solaris softwares.</p>
+<p>It is not recommended to run Oracle Database on OpenIndiana in a production environment. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of this article is to install the Oracle Database for use in a development environment.</p>
+<p>Unfortunately, it is not possible to run Oracle Database version 12 and above on OpenIndiana.</p>
 </div>
 
 
