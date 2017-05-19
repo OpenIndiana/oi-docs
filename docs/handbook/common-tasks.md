@@ -143,3 +143,28 @@ ITEMS TO WRITE ABOUT:
 ## Desktop Publishing system, Etc.
 
 < Place holder for content >
+
+## Boot loader settings
+
+OpenIndiana Hipster uses the 'BootForth' boot loader (GRUB is not used any
+more, disregard older manusls/wiki pages that mention grub).
+
+Boot configuration items should be stored in `/boot/conf.d`.
+
+*   To change the console from the standard monitor to serial console
+    (e.g. `COM1` / `ttyS0` on other OSes), use the following command:
+
+        # echo console=ttya > /boot/conf.d/console
+
+    (Alternatively, use `eeprom console=ttya`).
+
+*   To change the boot-loader's default timeout, run:
+
+        # echo autoboot_delay=2 > /boot/conf.d/autoboot
+
+NOTE:
+Any filename can be used under `/boot/conf.d/` - the filename does not
+matter (only its content matters).
+
+See [current status for loader](https://wiki.illumos.org/display/illumos/Current+status+for+loader)
+for more technical details (and other boot options).
