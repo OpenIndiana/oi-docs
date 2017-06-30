@@ -47,7 +47,9 @@ You may also inquire via IRC:
 
 ## Prerequisites
 
-If you haven't already, sign up for a [Github](https://github.com) account.
+If you would like to make a contribution using the development tools, you must
+have a GitHub account. If you do not already have a GitHub account, sign up for
+a [Github](https://github.com) account.
 
 
 #### Install and configure Git
