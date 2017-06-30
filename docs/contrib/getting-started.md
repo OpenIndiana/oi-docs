@@ -380,7 +380,7 @@ git commit -m 'your commit message'
 git push
 ```
 
-When you make a commit, you are committing those changes your local clone.
+When you make a commit, you are committing those changes locally to your clone.
 When you perform a push, your are pushing your commits from your local clone to your fork residing on Github.
 
 
