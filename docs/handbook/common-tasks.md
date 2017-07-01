@@ -46,44 +46,55 @@ Print versions are also available.
 ## Basic system administration
 
 ### Basic system information
+
 #### System processes
+
 ```markdown
 prstat
 ```
+
 This command provides a host of information on all processes running on the system.
 Some of the information provided is as follows:
 
- - percentage of CPU used by each process
- - amount of memory consumed by each process
- - unique id of each process (which can, for example, be used to stop the process)
+- percentage of CPU used by each process
+- amount of memory consumed by each process
+- unique id of each process (which can, for example, be used to stop the process)
 
 #### Disk usage
+
 ```markdown
 df -h
 ```
+
 Provides information on disk size, amount of space used and available free space
 for all attached storage devices. The `-h` option reports this information in
 human readable format.
 
 #### Largest files in a directory
+
 Go to the directory using the `cd` command and issue the following command:
 
 ```markdown
 du | sort -n
 ```
+
 This will list the size of each file in the current directory and all
 subdirectories, starting with the smallest up to the largest files.
 
 #### Who is logged on to the system
+
 ```markdown
 listusers
 ```
+
 #### List all software packages installed on the system
+
 ```markdown
 pkginfo
 ```
 
 ### System shutdown, reboot, ...
+
 OpenIndiana defines a number of different system states known as run-levels. You
 can change from one system state to another by using the `shutdown` command and
 specify the run-level using the `i` option. You can always determine the
@@ -96,20 +107,21 @@ hardware (if supported by the hardware) now:
 ```markdown
 shutdown -i5 -g0 -y
 ```
+
 Changing the run-level of the system can be disruptive to other users currently
 using the system. Thus, it is always wise to establish who is currently logged
 onto the system before changing the run-level.
 
- * `-i [run-level]` is used to specifiy the run-level. This is either a digit or a
-   single letter. Here are some run-levels available:
+* `-i [run-level]` is used to specifiy the run-level. This is either a digit or a
+  single letter. Here are some run-levels available:
     * `5` stop all system services, and turns off hardware devices, etc. Here
       are some run-levels.
     * `6` reboot the system.
     * `1` single-user mode. Primarily used for system maintenance.
     * `S` single-user mode where only a command line terminal is available.
- * `-g [seconds]` is used to specify the number of seconds after which to commence
+* `-g [seconds]` is used to specify the number of seconds after which to commence
    shutting down services. `0` immediately intiates shutting down all services.
- * `-y` automatically answers all system questions with 'yes'. The shutdown
+* `-y` automatically answers all system questions with 'yes'. The shutdown
    process is not interrupted by system prompts requiring user-interactive
    intervention.
 
