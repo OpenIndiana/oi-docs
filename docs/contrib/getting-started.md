@@ -254,7 +254,7 @@ docs/
 
 Open your favorite text editor and begin authoring content.
 
-For example: `vim somefile.md` or `emacs somefile.md` 
+For example: `vim somefile.md` or `emacs somefile.md`
 
 Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
 
