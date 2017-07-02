@@ -45,6 +45,46 @@ Print versions are also available.
 
 ## Basic system administration
 
+OpenIndiana is a multi-user platform. The role of administering the system is
+assigned to one privilaged user known as the _superuser_ or _root_ user. This user
+is assigned all privilages.
+
+To become root, use the switch user command: [su(1M)](https://illumos.org/man/1M/su).
+
+However, other users can be assigned a select number of privilages by the
+superuser, for example, to monitor or even perform some system administration
+duties. Furthermore, due to security issues, it is more cautious to perform some
+tasks not directly as the superuser, but as a user with limited
+privilages. Indeed some administrators create special users and assign these
+special privilages to perform certain tasks.
+
+To assign a user a number of privilages, there are two common commands
+available:
+
+* [pfexec(1)](https://illumos.org/man/1M/pfexec).
+* [sudo(1m)](https://illumos.org/man/1M/sudo).
+
+The `sudo` command, i.e., superuser do, allows a user to execute the command
+following the sudo keyword.
+
+Example:
+To remove a file in a directory where root privilages are required, issue the
+following:
+
+```
+sudo rm /var/adm/whatever.log
+```
+
+The user is then prompted for the user's password and a special file is checked
+whether the user is pewrmitted to perform the operation.
+
+This 'special file' is **/etc/sudoers** and it should ideally be edited by the
+superuser using the following command:
+
+```
+sudo visudo
+```
+
 ### Basic system information
 
 #### System processes
