@@ -61,7 +61,7 @@ number of different possibilities of assigning privilages to users:
 The `sudo` command, i.e., superuser do, is the least sophisticated of these
 commands. It permits a user to use _all_ supperuser commands without having to
 become the superuser. A sudo enabled user, simply precedes a command with
-`sudo`. 
+`sudo`.
 
 To enable a user the ability to use `sudo`, the superuser edits `/etc/sudoers`.
 This should ideally be done as follows:
@@ -70,7 +70,7 @@ This should ideally be done as follows:
 visudo
 ```
 
-This performs various syntax checks. 
+This performs various syntax checks.
 [sudoers(1)](https://illumos.org/man/1/sudoers) provides details on the precise
 means to appropriately add a user to use sudo.
 
@@ -81,7 +81,7 @@ the `shutdown` command, the system will issue a warning. However, if the user is
 allowed to use sudo, then the user can now shutdown the system:
 
 ```
-sudo shutdown 
+sudo shutdown
 ```
 
 The user is then prompted for the user's password and a file is checked to
@@ -92,7 +92,7 @@ assigned to a user.
 
 It also worth mentioning an additional method of assigning privilages to users:
 roles. The idea behind roles is a sophisticated and powerful mechanism. It was
-originally developed with security in mind. 
+originally developed with security in mind.
 
 The superuser can define roles, assign various privilages to these roles and
 then assign a set of roles to a user. In other words, it allows a much more
@@ -179,7 +179,6 @@ onto the system before changing the run-level.
    process is not interrupted by system prompts requiring user-interactive
    intervention.
 
- 
 
 ## Configuring and Tuning
 
