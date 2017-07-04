@@ -45,126 +45,41 @@ Print versions are also available.
 
 ## Basic system administration
 
-OpenIndiana is a multi-user platform. The role of administering the system is
-assigned to one privilaged user known as the _superuser_ or _root_ user. This user
-is assigned all privilages.
+### Commands to be able to use administration commands
 
-To become root, use the switch user command: [su(1M)](https://illumos.org/man/1M/su).
+| Command | Further details | Brief summary
+| --- | --- | ---
+| `su` | [su(1M)](https://illumos.org/man/1M/su). | Switch user. Without any parameters, root implied
+| `sudo` | [sudo(1m)](https://illumos.org/man/1M/sudo) | Perform the command following with root privilages
+| `sfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
 
-However, other users can be assigned a select number of privilages by the
-superuser, for example, to monitor or even perform some system administration
-duties. Furthermore, due to security issues, it is more cautious to perform some
-tasks not directly as the superuser, but as a user with limited
-privilages. Indeed some administrators create special users and assign these
-special privilages to perform certain tasks.
-
-To assign a user a number of privilages, there are two common commands
-available:
-
-* [pfexec(1)](https://illumos.org/man/1M/pfexec).
-* [sudo(1m)](https://illumos.org/man/1M/sudo).
-
-The `sudo` command, i.e., superuser do, allows a user to execute the command
-following the sudo keyword.
-
-Example:
-To remove a file in a directory where root privilages are required, issue the
-following:
-
-```
-sudo rm /var/adm/whatever.log
-```
-
-The user is then prompted for the user's password and a special file is checked
-whether the user is pewrmitted to perform the operation.
-
-This 'special file' is **/etc/sudoers** and it should ideally be edited by the
-superuser using the following command:
-
-```
-sudo visudo
-```
+Examples:
 
 ### Basic system information
 
-#### System processes
+| Command | Further details | Brief summary
+| --- | --- | ---
+| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat). | Statistics on system processes
+| `df` | [df(1)](https://illumos.org/man/1/df) | Disk usage by partition
+| `du` | [du(1)](https://illumos.org/man/1/du) | Disk usage by file
+| `listusers` | [listusers(1)](https://illumos.org/man/1/listusers) | List users logged into the system
+| `pkg list` | [pkg(1)](https://illumos.org/man/1/pkg) | List software packages installed on the system
 
-```markdown
-prstat
-```
-
-This command provides a host of information on all processes running on the system.
-Some of the information provided is as follows:
-
-- percentage of CPU used by each process
-- amount of memory consumed by each process
-- unique id of each process (which can, for example, be used to stop the process)
-
-#### Disk usage
-
-```markdown
-df -h
-```
-
-Provides information on disk size, amount of space used and available free space
-for all attached storage devices. The `-h` option reports this information in
-human readable format.
-
-#### Largest files in a directory
-
-Go to the directory using the `cd` command and issue the following command:
-
-```markdown
-du | sort -n
-```
-
-This will list the size of each file in the current directory and all
-subdirectories, starting with the smallest up to the largest files.
-
-#### Who is logged on to the system
-
-```markdown
-listusers
-```
-
-#### List all software packages installed on the system
-
-```markdown
-pkginfo
-```
+Examples:
 
 ### System shutdown, reboot, ...
 
-OpenIndiana defines a number of different system states known as run-levels. You
-can change from one system state to another by using the `shutdown` command and
-specify the run-level using the `i` option. You can always determine the
-run-level via `who -r`.
+| Command | Further details | Brief summary
+| --- | --- | ---
+| `who` | [shutdown(1)](https://illumos.org/man/1/who). | List users logged onto the system
+| `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown). | Shutdown the system
 
-You must be root or have root privilages (e.g., using `sudo`) to send the system
-into a different state, i.e., turn off, reboot, etc. Shutdown and turn off all
-hardware (if supported by the hardware) now:
+Example:
 
-```markdown
-shutdown -i5 -g0 -y
 ```
-
-Changing the run-level of the system can be disruptive to other users currently
-using the system. Thus, it is always wise to establish who is currently logged
-onto the system before changing the run-level.
-
-* `-i [run-level]` is used to specifiy the run-level. This is either a digit or a
-  single letter. Here are some run-levels available:
-    * `5` stop all system services, and turns off hardware devices, etc. Here
-      are some run-levels.
-    * `6` reboot the system.
-    * `1` single-user mode. Primarily used for system maintenance.
-    * `S` single-user mode where only a command line terminal is available.
-* `-g [seconds]` is used to specify the number of seconds after which to commence
-   shutting down services. `0` immediately intiates shutting down all services.
-* `-y` automatically answers all system questions with 'yes'. The shutdown
-   process is not interrupted by system prompts requiring user-interactive
-   intervention.
-
+shutdown -i5 -g0 -y
+# Shutdown the system now
+```
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
