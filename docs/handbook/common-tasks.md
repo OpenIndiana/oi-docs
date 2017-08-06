@@ -45,6 +45,42 @@ Print versions are also available.
 
 ## Basic system administration
 
+### Commands to be able to use administration commands
+
+| Command | Further details | Brief summary
+| --- | --- | ---
+| `su` | [su(1M)](https://illumos.org/man/1M/su). | Switch user. Without any parameters, root implied
+| `sudo` | [sudo(1m)](https://illumos.org/man/1M/sudo) | Perform the command following with root privilages
+| `sfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
+
+Examples:
+
+### Basic system information
+
+| Command | Further details | Brief summary
+| --- | --- | ---
+| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat). | Statistics on system processes
+| `df` | [df(1)](https://illumos.org/man/1/df) | Disk usage by partition
+| `du` | [du(1)](https://illumos.org/man/1/du) | Disk usage by file
+| `listusers` | [listusers(1)](https://illumos.org/man/1/listusers) | List users logged into the system
+| `pkg list` | [pkg(1)](https://illumos.org/man/1/pkg) | List software packages installed on the system
+
+Examples:
+
+### System shutdown, reboot, ...
+
+| Command | Further details | Brief summary
+| --- | --- | ---
+| `who` | [shutdown(1)](https://illumos.org/man/1/who). | List users logged onto the system
+| `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown). | Shutdown the system
+
+Example:
+
+```
+shutdown -i5 -g0 -y
+# Shutdown the system now
+```
+
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
 ITEMS TO WRITE ABOUT:

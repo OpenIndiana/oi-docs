@@ -47,7 +47,9 @@ You may also inquire via IRC:
 
 ## Prerequisites
 
-If you haven't already, sign up for a [Github](https://github.com) account.
+If you would like to make a contribution using the development tools, you must
+have a GitHub account. If you do not already have a GitHub account, sign up for
+a [Github](https://github.com) account.
 
 
 #### Install and configure Git
@@ -134,10 +136,10 @@ To verify `mdl` is now accessible, test using the command: `which mdl` or altern
 
 </div>
 
-#### Install VIM Markdown plugin (optional)
+#### Install Markdown plugin for VIM or Emacs(optional)
 
 * <https://github.com/plasticboy/vim-markdown/>
-
+* <https://www.emacswiki.org/emacs/MarkdownMode>
 
 ## Fork the OpenIndiana Docs repository
 
@@ -181,7 +183,7 @@ upstream        https://github.com/OpenIndiana/oi-docs.git (push)
 ## Sync and merge changes from the upstream repository
 
 Periodically you will want to _rebase_ your local copy by bringing in changes from the upstream repository.
-In plain English, this means the upstream repository is added so you can periodically _pull down_ changes from the upstream master repository and merge them into your local clone.
+In plain English, this means the upstream repository is locally registered so you can periodically _pull down_ changes from the upstream master repository and merge them into your local clone.
 This way your local clone remains in synchronization with the master upstream repository.
 It is always a good idea to perform a pull from the upstream master repository prior to making changes to your local clone (working copy).
 
@@ -252,7 +254,7 @@ docs/
 
 Open your favorite text editor and begin authoring content.
 
-For example: `vim somefile.md`
+For example: `vim somefile.md` or `emacs somefile.md`
 
 Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
 
@@ -380,7 +382,7 @@ git commit -m 'your commit message'
 git push
 ```
 
-When you make a commit, you are committing those changes your local clone.
+When you make a commit, you are committing those changes locally to your clone.
 When you perform a push, your are pushing your commits from your local clone to your fork residing on Github.
 
 
