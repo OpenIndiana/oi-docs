@@ -114,8 +114,6 @@ The options are explained below.
 
 ### Role-Based Access Control (RBAC)
 
-* [pfexec(1)](https://illumos.org/man/1/pfexec).
-
 The _all-or-nothing_ power assigned to the root user has its obvious
 limitations.  While sudo is an improvement by limiting root privileges for only
 a single command, a user allowed to use sudo has access to all root commands.
