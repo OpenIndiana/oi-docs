@@ -21,47 +21,71 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - System Administration
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-<p>This is a <b>DRAFT</b> document which may contain errors!</p>
-<p>Help us improve and expand this site.</p>
-<p>Please see the <b>Contrib</b> section for more details about joining the OpenIndiana Documentation Team.</p>
-</div>
+Once OpenIndiana has been installed, the system will require monitoring to
+ensure smooth operation. Software will periodically have to be updated,
+redundant software removed, new users added to the system, etc. All these
+activities and many more are referred to as system administration.
 
-< place holder for introduction content >
+Basic system administration can be reduced to a number of common tasks:
+
+- Management of system resources
+- Installation and maintenance of software
+- User administration
+
+While it is certainly possible to add more to this list or select alternative
+items, this small selection is readily absorbed and is convenient to illustrate
+a number of essential concepts central to OpenIndiana system administration.
+
+Before we discuss these topics, it is first important to introduce how these
+tasks can be carried out.
+
 
 ## Performing System Administration Tasks
 
-OpenIndiana is a multi-user platform. The role of administering the system is
-assigned to one privilaged user known as the _superuser_ or _root_ user. This user
-is assigned all privilages.
+OpenIndiana is a multi-user platform. The role of administering the system was
+traditionally assigned to one privileged user known as the _superuser_ or _root_
+user. This user is assigned _all_ privileges.
 
 To become root, it is possible to switch user using the command: [su(1M)](https://illumos.org/man/1M/su).
 
 However, it is not always feasible for one user to perform all administrative
-tasks. It would be considerably more flexible if some tasks could be performed
-by some, say, experienced users. Moreover, down the years it was realised that
-assigning certain administrative tasks to several users is benificial, e.g.,
-monitoring various system parameters or system repair in
-emergencies. Furthermore, security concerns dictate that performing sensitive
-administration tasks would be more secure if carried out by a user with a
-minimum number of privilages.
+tasks. It would be more flexible if some tasks could be performed by some, say,
+experienced users. To enable some users to carry out a command with _all_ root
+privileges, or to _do_ an administrative command the following is used: [sudo(1m)](https://illumos.org/man/1M/sudo).
 
-It is not always prudent to perform system administration duties as the
-superuser.
+However, security concerns dictate that performing sensitive administration
+tasks would be more secure if carried out by a user with a minimum number of
+privileges. Both aforementioned mechanisms provide _all_ privileges.
 
-In view of the above considerations a mechanism was developed whereby users
-could be assigned a select number of privilages by the superuser. There are a
-number of different possibilities of assigning privilages to users:
+It is not always prudent to perform system administration duties with all
+privileges.
 
-* [sudo(1m)](https://illumos.org/man/1M/sudo).
-* [pfexec(1)](https://illumos.org/man/1/pfexec).
-* [roles(1)](https://illumos.org/man/1/roles).
+Hence, a mechanism was developed whereby users could be assigned a select number
+of privileges by the superuser. OpenIndia provides, in addition to these
+traditional  mechanisms, a richer means to perform these duties known as
+Role-Based Access Control.
 
-The `sudo` command, i.e., superuser do, is the least sophisticated of these
-commands. It permits a user to use _all_ supperuser commands without having to
-become the superuser. A sudo enabled user, simply precedes a command with
-`sudo`.
+RBAC involves collecting a select number of privileges and bundling these
+together as a role. A user can then be assigned one, or several roles.
+
+
+### root: [su(1M)](https://illumos.org/man/1M/su)
+
+This is historically the privileged, super user that can perform all
+administrative tasks.
+
+Use the `su` command to login as root:
+
+```
+su
+Password:
+```
+
+### SUperuser DO: [sudo(1m)](https://illumos.org/man/1M/sudo)
+
+The `sudo` command, i.e., superuser do, permits a user to use _all_ supperuser
+commands without having to become the superuser. A sudo enabled user, simply
+precedes a command with `sudo`.
 
 To enable a user the ability to use `sudo`, the superuser edits `/etc/sudoers`.
 This should ideally be done as follows:
@@ -76,30 +100,123 @@ means to appropriately add a user to use sudo.
 
 Example:
 
-To shutdown the system, root privilages are required. If a standard user issues
-the `shutdown` command, the system will issue a warning. However, if the user is
-allowed to use sudo, then the user can now shutdown the system:
+To shutdown the system, root privileges are required. If a standard user issues
+the `shutdown` command, the system will issue a warning. However, if the user has
+been enabled to use sudo, then the user can now shutdown the system:
 
 ```
-sudo shutdown
+sudo shutdown -i5 -g0 -y
 ```
 
 The user is then prompted for the user's password and a file is checked to
 establish whether the user is permitted to perform the operation.
+The options are explained below.
 
-The `pfexec` command is more flexibly in the number of privilages that can be
+### Role-Based Access Control (RBAC)
+
+The _all-or-nothing_ power assigned to the root user has its obvious
+limitations.  While sudo is an improvement by limiting root privileges for only
+a single command, a user allowed to use sudo has access to all root commands.
+
+An improvement on the above systems would be one in which privileges could be
+assigned on a more fine-grained and selective basis.
+
+Imagine a user assigned the task of administrating some particular hardware, for
+example, printers attached to the system.  A more desirable system would be one
+in which this user had the ability to permit users to use a printing device,
+remove print jobs from the print spool, add new printers to the system, ...
+Moreover, it would be advantageous if it were possible to assign privileges to
+perform only these actions and none other.
+
+RBAC was developed to accomplish this.
+
+
+#### What is RBAC
+
+
+#### How to use RBAC
+
+The root user or a user with sudo enabled can shutdown the system.
+We can use RBAC to enable a user to be able to shutdown the system. However, we
+can create a role that allows only the privilege to shutdown the system, and
+no additional privileges. We can then assign this role to one or several users.
+
+- assign a privilege to a role to shutdown the system
+
+```
+roleadd -m -d /usr/sbin/shutdown shutdown
+```
+
+- Assign a password
+
+```
+passwd shutdown
+```
+
+- Assign this role to a user
+
+```
+usermod -R shutdown whoever
+```
+
+
+- Create a SHUTDOWN profile
+
+```
+echo "SHUTDOWN:::profile to shutdown:help=shutdown.html" >> /etc/security/prof_attr
+```
+
+- Okay, now assign the role profile SHUTDOWN to the role shutdown
+
+```
+rolemod -P SHUTDOWN shutdown
+```
+
+- Assign some administrative command to profile
+
+```
+echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:euid=0" >> /etc/security/exec_attr
+```
+
+- Use it
+
+```
+su shutdown
+```
+
+
+Now user whoever can shutdown the system.
+
+
+
+The `pfexec` command is more flexibly in the number of privileges that can be
 assigned to a user.
 
-It also worth mentioning an additional method of assigning privilages to users:
+It also worth mentioning an additional method of assigning privileges to users:
 roles. The idea behind roles is a sophisticated and powerful mechanism. It was
 originally developed with security in mind.
 
-The superuser can define roles, assign various privilages to these roles and
+The superuser can define roles, assign various privileges to these roles and
 then assign a set of roles to a user. In other words, it allows a much more
-fine grained means of assigning privilages to users as opposed to the 'all or
+fine grained means of assigning privileges to users as opposed to the 'all or
 nothing' method of sudo.
 
-## Basic system information
+### Convention
+
+Instead of elaborating each administrative command with one of the above means
+of acquiring administrative privileges, it has become standard procedure to prefix
+the command with a dollar character.
+
+Example:
+
+```
+$ shutdown -i5 -g0 -y
+```
+
+
+## Management of System Resources
+
+### Basic system information
 
 #### System processes
 
@@ -133,7 +250,7 @@ du | sort -n
 ```
 
 This will list the size of each file in the current directory and all
-subdirectories, starting with the smallest up to the largest files.
+sub-directories, starting with the smallest up to the largest files.
 
 #### Who is logged on to the system
 
@@ -154,7 +271,7 @@ can change from one system state to another by using the `shutdown` command and
 specify the run-level using the `i` option. You can always determine the
 run-level via `who -r`.
 
-You must be root or have root privilages (e.g., using `sudo`) to send the system
+You must be root or have root privileges (e.g., using `sudo`) to send the system
 into a different state, i.e., turn off, reboot, etc. Shutdown and turn off all
 hardware (if supported by the hardware) now:
 
@@ -166,7 +283,7 @@ Changing the run-level of the system can be disruptive to other users currently
 using the system. Thus, it is always wise to establish who is currently logged
 onto the system before changing the run-level.
 
-* `-i [run-level]` is used to specifiy the run-level. This is either a digit or a
+* `-i [run-level]` is used to specify the run-level. This is either a digit or a
   single letter. Here are some run-levels available:
     * `5` stop all system services, and turns off hardware devices, etc. Here
       are some run-levels.
