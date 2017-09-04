@@ -151,12 +151,14 @@ ITEMS TO WRITE ABOUT:
 
 
 ## Printing
+
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
 ITEMS TO WRITE ABOUT:
 
 * OI uses CUPS as the primary print system.
 * GNOME print manager (`system-config-printer`)
+
 See the additional information about printing in contrib/topics.md
 Also see the deprecation comments in the OSOL printing guide.
 
@@ -185,14 +187,14 @@ more, disregard older manusls/wiki pages that mention grub).
 
 Boot configuration items should be stored in `/boot/conf.d`.
 
-*   To change the console from the standard monitor to serial console
+* To change the console from the standard monitor to serial console
     (e.g. `COM1` / `ttyS0` on other OSes), use the following command:
 
         # echo console=ttya > /boot/conf.d/console
 
     (Alternatively, use `eeprom console=ttya`).
 
-*   To change the boot-loader's default timeout, run:
+* To change the boot-loader's default timeout, run:
 
         # echo autoboot_delay=2 > /boot/conf.d/autoboot
 
