@@ -151,14 +151,12 @@ ITEMS TO WRITE ABOUT:
 
 
 ## Printing
-
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
 ITEMS TO WRITE ABOUT:
 
 * OI uses CUPS as the primary print system.
 * GNOME print manager (`system-config-printer`)
-
 See the additional information about printing in contrib/topics.md
 Also see the deprecation comments in the OSOL printing guide.
 
