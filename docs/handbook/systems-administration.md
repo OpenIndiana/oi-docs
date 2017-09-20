@@ -315,39 +315,40 @@ onto the system before changing the run-level.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
-ITEMS TO WRITE ABOUT:
-
-**Start a service**
-
-```
-svcadm enable <service name>
-```
-
-**Start service along with it's dependencies**
-
-```
-svcadm enable -r <service name>
-```
-
-**Start a service temporarily (won't survive a reboot)**
-
-```
-svcadm enable -t <service name>
-```
-
-**Check service dependencies**
-
-```
-svcs -d <service name >
-```
-
-**Check status of services**
-
-```
-svcs -vx
-```
-
+ITEMS TO WRITE ABOUT: provide more detailed explanations.
 </div>
+
+List services:
+
+```
+svcs # list (permanently) enabled services
+svcs -a # list all services
+svcs -vx # list faulty services
+```
+
+Get information about a service:
+
+```
+svcs <service name> # one-line status
+svcs -x <service name> # important information
+svcs -d <service name> # check the service's dependencies
+svcs -l <service name> # all the available information
+```
+
+Start a service:
+
+```
+svcadm enable <service name> # permanently enable/start
+svcadm enable -t <service name> # temporary start (won't survive a reboot)
+svcadm enable -r <service name> # permanently enable/start service along with its dependencies
+```
+
+Restart / reload a service:
+
+```
+svcadm refresh <service name> # reload the service's configuration
+svcadm restart <service name> # restart the service
+```
 
 
 ### Systems logging and monitoring
