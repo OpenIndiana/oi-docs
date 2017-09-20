@@ -72,11 +72,12 @@ Examples:
 | --- | --- | ---
 | `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown) | Shutdown the system
 
-Example:
+Examples:
 
 ```
-shutdown -i5 -g0 -y
-# Shutdown the system now
+shutdown -i5 -g0 -y # Turn off the machine immediately
+shutdown -i6 -g0 -y # Reboot the machine immediately
+shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 ```
 
 ### User management
@@ -87,17 +88,6 @@ shutdown -i5 -g0 -y
 | `who` | [who(1)](https://illumos.org/man/1/who) | List users logged onto the system
 | `useradd` | [useradd(1M)](https://illumos.org/man/1M/useradd) | Create a new user
 | `usermod` | [usermod(1M)](https://illumos.org/man/1M/usermod) | Modify a user (group memberships, roles, login shell…)
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
-
-* Shutting down the system
-    * `shutdown [options]`
-    * `reboot`
-    * `halt`
-
-</div>
 
 
 ## Desktop applications
