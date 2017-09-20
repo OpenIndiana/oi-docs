@@ -353,7 +353,12 @@ svcadm restart <service name> # restart the service
 
 ### Systems logging and monitoring
 
-< place holder >
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
+* Where to find the logs (`/var/log`, `/var/svc/log`).
+</div>
 
 
 ## Illumos boot process
