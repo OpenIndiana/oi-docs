@@ -285,8 +285,7 @@ onto the system before changing the run-level.
 
 * `-i [run-level]` is used to specify the run-level. This is either a digit or a
   single letter. Here are some run-levels available:
-    * `5` stop all system services, and turns off hardware devices, etc. Here
-      are some run-levels.
+    * `5` stop all system services, and turns off hardware devices, etc.
     * `6` reboot the system.
     * `1` single-user mode. Primarily used for system maintenance.
     * `S` single-user mode where only a command line terminal is available.
@@ -612,7 +611,7 @@ Possible resources to help write this section:
 :~$ sudo svcadm disable physical:nwam
 ```
 
-Define in your IP/hostname `/etc/hosts`, if not already, an entry for this host. For example:
+Define your IP/hostname in `/etc/hosts`. For example:
 
 ```bash
 192.168.1.22 hostname hostname.local localhost loghost

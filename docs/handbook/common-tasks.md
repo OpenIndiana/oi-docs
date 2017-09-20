@@ -49,9 +49,9 @@ Print versions are also available.
 
 | Command | Further details | Brief summary
 | --- | --- | ---
-| `su` | [su(1M)](https://illumos.org/man/1M/su). | Switch user. Without any parameters, root implied
-| `sudo` | [sudo(1m)](https://illumos.org/man/1M/sudo) | Perform the command following with root privilages
-| `sfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
+| `su` | [su(1M)](https://illumos.org/man/1M/su) | Switch user. Without any parameters, root implied
+| `sudo` | [sudo(1M)](https://illumos.org/man/1M/sudo) | Perform the command following with root privilages
+| `pfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
 
 Examples:
 
@@ -59,7 +59,7 @@ Examples:
 
 | Command | Further details | Brief summary
 | --- | --- | ---
-| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat). | Statistics on system processes
+| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat) | Statistics on system processes
 | `df` | [df(1)](https://illumos.org/man/1/df) | Disk usage by partition
 | `du` | [du(1)](https://illumos.org/man/1/du) | Disk usage by file
 | `listusers` | [listusers(1)](https://illumos.org/man/1/listusers) | List users logged into the system
@@ -67,12 +67,12 @@ Examples:
 
 Examples:
 
-### System shutdown, reboot, ...
+### System shutdown, reboot…
 
 | Command | Further details | Brief summary
 | --- | --- | ---
-| `who` | [shutdown(1)](https://illumos.org/man/1/who). | List users logged onto the system
-| `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown). | Shutdown the system
+| `who` | [shutdown(1)](https://illumos.org/man/1/who) | List users logged onto the system
+| `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown) | Shutdown the system
 
 Example:
 
