@@ -285,8 +285,7 @@ onto the system before changing the run-level.
 
 * `-i [run-level]` is used to specify the run-level. This is either a digit or a
   single letter. Here are some run-levels available:
-    * `5` stop all system services, and turns off hardware devices, etc. Here
-      are some run-levels.
+    * `5` stop all system services, and turns off hardware devices, etc.
     * `6` reboot the system.
     * `1` single-user mode. Primarily used for system maintenance.
     * `S` single-user mode where only a command line terminal is available.
@@ -316,44 +315,50 @@ onto the system before changing the run-level.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
 <div class="well">
-ITEMS TO WRITE ABOUT:
-
-**Start a service**
-
-```
-svcadm enable <service name>
-```
-
-**Start service along with it's dependencies**
-
-```
-svcadm enable -r <service name>
-```
-
-**Start a service temporarily (won't survive a reboot)**
-
-```
-svcadm enable -t <service name>
-```
-
-**Check service dependencies**
-
-```
-svcs -d <service name >
-```
-
-**Check status of services**
-
-```
-svcs -vx
-```
-
+ITEMS TO WRITE ABOUT: provide more detailed explanations.
 </div>
+
+List services:
+
+```
+svcs # list (permanently) enabled services
+svcs -a # list all services
+svcs -vx # list faulty services
+```
+
+Get information about a service:
+
+```
+svcs <service name> # one-line status
+svcs -x <service name> # important information
+svcs -d <service name> # check the service's dependencies
+svcs -l <service name> # all the available information
+```
+
+Start a service:
+
+```
+svcadm enable <service name> # permanently enable/start
+svcadm enable -t <service name> # temporary start (won't survive a reboot)
+svcadm enable -r <service name> # permanently enable/start service along with its dependencies
+```
+
+Restart / reload a service:
+
+```
+svcadm refresh <service name> # reload the service's configuration
+svcadm restart <service name> # restart the service
+```
 
 
 ### Systems logging and monitoring
 
-< place holder >
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+ITEMS TO WRITE ABOUT:
+
+* Where to find the logs (`/var/log`, `/var/svc/log`).
+</div>
 
 
 ## Illumos boot process
@@ -612,7 +617,7 @@ Possible resources to help write this section:
 :~$ sudo svcadm disable physical:nwam
 ```
 
-Define in your IP/hostname `/etc/hosts`, if not already, an entry for this host. For example:
+Define your IP/hostname in `/etc/hosts`. For example:
 
 ```bash
 192.168.1.22 hostname hostname.local localhost loghost

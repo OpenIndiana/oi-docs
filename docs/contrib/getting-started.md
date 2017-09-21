@@ -125,11 +125,18 @@ For most operating systems:
 <div class="well">
 
 For OpenIndiana, you will need to add the Ruby Gem directory path to your $PATH variable.
-To do so, execute the following commands:
+To do so, add the following to your `.bashrc` (or similar file if you use a
+different shell):
 
 ```
 PATH=$PATH:/usr/ruby/2.3/bin/
 export PATH
+```
+
+To immediately effect this change, source your `.bashrc` as follows:
+
+```bash
+source ~/.bashrc
 ```
 
 To verify `mdl` is now accessible, test using the command: `which mdl` or alternately: `mdl --version`.
@@ -250,7 +257,7 @@ docs/
 | retired | Deprecated docs, etc.
 
 
-## Make some changes.
+## Make some changes
 
 Open your favorite text editor and begin authoring content.
 
@@ -329,25 +336,8 @@ Simply replace the period (.) with the path to the file.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
-Before you can run `mdl`, it may be necessary to add the path to your `$PATH` variable.
-
-For example:
-
-On OpenIndiana, markdown lint (mdl) resides in `/usr/ruby/1.9/bin/` which is not normally part of the search path.
-To run this command without having to specify the complete path each time, add the following to your `.bashrc`
-
-```bash
-PATH=$PATH:/usr/ruby/1.9/bin/
-export PATH
-```
-
-To immediately effect this change, source your `.bashrc` as follows:
-
-```bash
-source ~/.bashrc
-```
-
+Before you can run `mdl`, it may be necessary to modify your `$PATH` variable:
+see “[Install Markdown Lint](#install-markdown-lint-mdl)” above.
 </div>
 
 
