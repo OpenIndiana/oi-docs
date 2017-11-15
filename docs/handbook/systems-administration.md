@@ -391,6 +391,119 @@ So a fair amount of stuff has changed there.
 
 </div>
 
+Zones are an OpenIndiana feature that provides <a href="http://www.wikipedia.org/wiki/Operating_system-level_virtualization">operating system-level virtualization</a>. Each zone is managed as a completely separate OpenIndiana machine. Zones have very low overhead and are one of the most efficient forms of OS virtualization.
+
+The global zone (GZ) is the operating system itself, which has hardware access. From the global zone, non-global zones (NGZ) are created and booted. Boot time for non-global zones is very fast, often a few seconds. The CPU, network, and memory resources for each zone can be controlled from the global zone, ensuring fair access to system resources. Disk space access is usually controlled by ZFS (with quotas and reservations if needed), as well as mounting of filesystem resources with NFS or lofs. As with other forms of virtualization, each zone is isolated from the other zones – zones cannot see processes or resources used in other zones. The low marginal cost of a zone allows large systems have tens or even hundreds of zones without significant overhead. The theoretical limit to the number of zones on a single platform is 8,192.
+
+Different releases of (Open)Solaris used different packaging distribution method for the global zone. OpenIndiana zones use two basic brands - "ipkg" and "nlipkg", which are based on IPS Packaging. The brand determines how zone is initialized and how zone's processes are treated by kernel. Both type of zones represent a PKG image. "ipkg"-branded zones are tightly coupled with GZ.Image pakaging system (IPS) knows about ipkg-branded zones and can perform several actions simultaneously in GZ and NGZ. For example, you can update all your zones and GZ with a single "pkg update -r" command. IPS can ensure some depenencies between packages in GZ and NGZ. To allow this it cheks that NGZ's publishers are a superset of GZ's publishers and their properties are the same (for example, stickiness or repository location). As this is not always suitable for development zones, "nlipkg"-branded zones were introduced. "nlipkg"-branded zone behave like completely independent instance and IPS ignores them during operations in GZ.
+
+An easy way to implement zones is to use a separate ZFS file system as the zone root's backing store. File systems are easy to create in ZFS and zones can take advantage of the ZFS snapshot and clone features. Due to the strong isolation between zones, sharing a file system must be done with traditional file sharing methods (eg NFS).
+
+When each zone is created  it comes with a minimal set of packages, and from there you can add and use most packages and applications as required.
+
+### Quick Setup Example
+
+Zone creation consists of two steps - creating zone configuration and zone installation or cloning. Zone configuration determines basic parameters, such as zone's root location and provided resources.
+Zone configuration is performed using zonecfg tool, zone administration (for example, installation) is performed using zoneadm tool.
+
+For example, we create a simple zone:
+
+```
+# zonecfg -z example
+example: No such zone configured
+Use 'create' to begin configuring a new zone.
+zonecfg:example> create
+zonecfg:example> add net
+zonecfg:example:net> set physical=e1000g0
+zonecfg:example:net> set address=192.168.0.10/24
+zonecfg:example:net> end
+zonecfg:example> set zonepath=/zones/example
+zonecfg:example> verify
+zonecfg:example> commit
+zonecfg:example> exit
+
+```
+
+Here `create` puts you inside the zone configuration program where you can change and update settings particular to the zone specified with -z.
+`zonecfg` break different resource groups of data, you add a new resource with add.
+The next block adds ressource "net", configuring network in default `shared` ip-type mode. It allows zone to share IP stack with GZ. If you want to
+get dedicated nic in NGZ, you have to use `set ip-type=exclusive`. In exclusive mode zone has complete control over network interface and you
+can't assigned address in zonecfg prompt.
+After network configuration `zonepath` is set. It's a location for zone's root file system, which should be a ZFS filesystem.
+The `verify` command checks that no mistakes were made.
+Finally changes are committed (saved to zone configuration file).
+
+After configuring a zone you can install it with `zoneadm install` subcommand:
+
+```
+# zoneadm -z example install
+```
+
+During installation pkg image rooted at $zonepath/root is created and minimal set of packages is installed to the image.
+When installation finishes, zone can be booted with `zoneadm -z example boot` command. If you want your zone to boot automatically during system startup,
+you should set autoboot parameter to true during zone configuration:
+
+```
+zonecfg:example> set autoboot=true
+```
+
+Once zone is booted you can log in locally with `zlogin example`, or you can ssh in via the IP address you provided to zone config.
+
+<div class="well">
+Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
+</div>
+
+#### System repository configuration
+
+In latest OpenIndiana versions (starting from November 2017) it's possible to configure so-called zone proxy daemon. This configuration is intended to use GZ proxy service for NGZs to access configured publishers
+and can be useful for sharing pkg cache between zones or to provide network access for performing updates to otherwise restricted zone environment (i.e. to zone without Internet access).
+
+The functionality is provided by series of services in GZ and NGZs. In GZ two services are running: system repository service and zones proxy daemon (see `pkg.sysrepo(1M)`). In NGZ zones proxy client
+communicates with GZ's zone proxy daemon.
+System repository service `svc:/application/pkg/system-repository`  is responsible for providing access to the package repositories configured in a reference image through a centralized proxy.
+Zones proxy daemon service `svc:/application/pkg/zones-proxyd` starts on system boot and registers door in each running ipkg-branded zone (the door is created at `/var/tmp/zoneproxy_door` path).
+Later, on zone startup or shutdown /usr/lib/zones/zoneproxy-adm is used to notify zones-proxyd, so that it could create the door for the zone or to cleanup it.
+Zones proxy daemon client `svc:/application/pkg/zones-proxy-client:default` runs in NGZ and talks to GZ's zones-proxyd via created door.
+<div class="well">
+Note, you can't use system repository with nlipkg-branded zones.
+</div>
+
+IPS determines if it should use zones proxy client in zone based on image's use-system-repo property (which is false by default).
+
+To configure your system to use system repository, perform the following actions.
+
+1) In global zone:
+
+```
+# pkg install pkg:/package/pkg/system-repository pkg:/package/pkg/zones-proxy
+# svcadm enable svc:/application/pkg/system-repository:default
+# svcadm enable svc:/application/pkg/zones-proxyd:default
+```
+
+2) In NGZ:
+
+```
+# svcadm enable svc:/application/pkg/zones-proxy-client:default
+# pkg set-property use-system-repo True
+```
+
+After this in NGZ in publisher description you'll see system-repository location:
+
+```
+# pkg publisher
+PUBLISHER                   TYPE     STATUS P LOCATION
+openindiana.org (non-sticky, syspub) origin   online T <system-repository>
+hipster-encumbered (syspub)     origin   online T <system-repository>
+```
+
+You can check if your configuration works by issuing `pkg refresh` command in zone. `pkg(1M)` should contact repository indirectly via zones-proxy-client.
+
+To convert you zone back to non-proxied configuration, run
+
+```
+# pkg set-property use-system-repo False
+```
+
 ## Storage
 
 < place holder >
