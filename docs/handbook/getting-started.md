@@ -2295,7 +2295,6 @@ Within a global zone, specific non-global zones can be created.
 Note the following limitations of support for non-global zones in the beadm utility and in related processes:
 
 * When using the `pkg update` command, the `-r` switch is required to upgrade all zones.
-* The `beadm` utility is not supported inside a non-global zone.
 * Non-global zone support is limited to ZFS support.
 Zones are not supported unless they are on ZFS.
 * Zones are not supported in the rpool/ROOT namespace.
