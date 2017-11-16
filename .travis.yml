@@ -14,6 +14,7 @@ after_success:
   - git config user.name "Travis CI Build"
   - git fetch deploy && git fetch deploy gh-pages:gh-pages
   - mkdocs gh-deploy -v --clean --remote-name deploy --remote-branch gh-pages
+cache: pip
 env:
   global:
     - secure: >-
