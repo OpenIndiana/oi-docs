@@ -6,7 +6,7 @@ install:
 script:
   - mdl -s markdownlint-rules.rb .
   - mkdocs build -v --clean
-  - ./link_validator.py
+  #- ./link_validator.py
 after_success:
   - >-
     if ! [[ "${TRAVIS_PULL_REQUEST}" = "false"  && "${TRAVIS_BRANCH}" = "master" ]]; then exit 0; fi
