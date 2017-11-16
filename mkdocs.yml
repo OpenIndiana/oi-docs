@@ -4,6 +4,7 @@ repo_url: https://github.com/OpenIndiana/oi-docs.git
 use_directory_urls: true
 google_analytics: ['UA-77447740-2', 'auto']
 theme: spacelab
+docs_dir: docs/
 extra:
         theme_inverse: true
 pages:
