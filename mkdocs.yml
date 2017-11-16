@@ -1,6 +1,5 @@
 site_name: OpenIndiana Docs
 site_url: http://docs.openindiana.org
-site_favicon: favicon.ico
 repo_url: https://github.com/OpenIndiana/oi-docs.git
 use_directory_urls: true
 google_analytics: ['UA-77447740-2', 'auto']
@@ -9,15 +8,15 @@ extra:
         theme_inverse: true
 pages:
 
-- Home: index.md
+- 'Home': 'index.md'
 
-- About:
+- 'About':
         - 'About OpenIndiana': misc/openindiana.md
         - 'About OpenIndiana Docs': misc/oi-docs.md
         - 'OpenIndiana Code of Conduct': misc/conduct.md
         - 'Public Documentation License': misc/pdl.md
 
-- Handbook:
+- 'Handbook':
         - 'Getting Started': handbook/getting-started.md
         - 'Common Tasks': handbook/common-tasks.md
         - 'Systems Administration': handbook/systems-administration.md
@@ -35,7 +34,7 @@ pages:
         - 'Trusted Extensions Administration': books/trusted.md
         - 'Development Titles': books/develop.md
 
-- Contrib:
+- 'Contrib':
         - 'Content Creation': contrib/content.md
         - 'Getting Started': contrib/getting-started.md
         - 'Contributor Tools' : contrib/tools.md
@@ -46,5 +45,5 @@ pages:
         - 'Git Usage Guide': contrib/git.md
 
 
-copyright: Copyright &copy; 2016 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+'copyright': Copyright &copy; 2016 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
 
