@@ -5,7 +5,7 @@ install:
   - gem install mdl
 script:
   - mdl -s markdownlint-rules.rb .
-  - mkdocs build
+  - mkdocs build --clean
   - ./link_validator.py
 after_success:
   - >-
