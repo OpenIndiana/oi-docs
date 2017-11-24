@@ -60,9 +60,9 @@ Examples:
 | Command | Further details | Brief summary
 | --- | --- | ---
 | `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat) | Statistics on system processes
-| `df` | [df(1)](https://illumos.org/man/1/df) | Disk usage by partition
+| `df` | [df(1M)](https://illumos.org/man/1m/df) | Disk usage by partition
 | `du` | [du(1)](https://illumos.org/man/1/du) | Disk usage by file
-| `pkg list` | [pkg(1)](https://illumos.org/man/1/pkg) | List software packages installed on the system
+| `pkg list` | pkg(1) | List software packages installed on the system
 
 Examples:
 

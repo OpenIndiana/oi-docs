@@ -51,7 +51,7 @@ To become root, it is possible to switch user using the command: [su(1M)](https:
 However, it is not always feasible for one user to perform all administrative
 tasks. It would be more flexible if some tasks could be performed by some, say,
 experienced users. To enable some users to carry out a command with _all_ root
-privileges, or to _do_ an administrative command the following is used: [sudo(1m)](https://illumos.org/man/1M/sudo).
+privileges, or to _do_ an administrative command sudo(1m) can be used.
 
 However, security concerns dictate that performing sensitive administration
 tasks would be more secure if carried out by a user with a minimum number of
@@ -81,7 +81,7 @@ su
 Password:
 ```
 
-### SUperuser DO: [sudo(1m)](https://illumos.org/man/1M/sudo)
+### SUperuser DO: sudo(1m)
 
 The `sudo` command, i.e., superuser do, permits a user to use _all_ supperuser
 commands without having to become the superuser. A sudo enabled user, simply
@@ -95,7 +95,7 @@ visudo
 ```
 
 This performs various syntax checks.
-[sudoers(1)](https://illumos.org/man/1/sudoers) provides details on the precise
+sudoers(1) provides details on the precise
 means to appropriately add a user to use sudo.
 
 Example:
@@ -535,7 +535,6 @@ ITEMS TO WRITE ABOUT:
 OpenIndiana offers several backup solutions.
 Here are just a few of them:
 
-* [Areca](http://www.areca-backup.org/)
 * [Borg Backup](https://borgbackup.readthedocs.io/en/stable/)
 * [Bacula](http://blog.bacula.org/)
 * Time-Slider
@@ -679,23 +678,6 @@ ITEMS TO WRITE ABOUT:
 In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
 Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
 You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
-
-* Hipster is currently testing a new package for managing KVM instances as SMF services.
-    * [kvmadm](http://www.kvmadm.org/)
-* libvirt is on the roadmap for the future releases and will open the door for virsh, and likely virt-manager as well.
-
-```
-<leoric> Testers needed! pkg://userland/system/qemu/kvmadm@0.10.3,5.11-2015.0.2.0:20160322T212709Z
-<leoric> jeffpc: I know, you like kvm :)
-<jeffpc> heh
-<jeffpc> leoric: is there documentation for it?
-<leoric> https://github.com/hadfl/kvmadm/blob/master/doc/kvmadm.pod
-<jeffpc> oh, is it http://www.kvmadm.org/ ?
-<leoric> yes
-<jeffpc> interesting
-<jeffpc> I'll have to give it a try at some point
-```
-
 </div>
 
 
