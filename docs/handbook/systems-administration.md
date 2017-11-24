@@ -124,7 +124,7 @@ assigned on a more fine-grained and selective basis.
 Imagine a user assigned the task of administrating some particular hardware, for
 example, printers attached to the system.  A more desirable system would be one
 in which this user had the ability to permit users to use a printing device,
-remove print jobs from the print spool, add new printers to the system, ...
+remove print jobs from the print spool, add new printers to the system, etc.
 Moreover, it would be advantageous if it were possible to assign privileges to
 perform only these actions and none other.
 
@@ -144,7 +144,7 @@ no additional privileges. We can then assign this role to one or several users.
 - assign a privilege to a role to shutdown the system
 
 ```
-roleadd -m -d /usr/sbin/shutdown shutdown
+roleadd shutdown
 ```
 
 - Assign a password
@@ -175,13 +175,14 @@ rolemod -P SHUTDOWN shutdown
 - Assign some administrative command to profile
 
 ```
-echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:euid=0" >> /etc/security/exec_attr
+echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0" >> /etc/security/exec_attr
 ```
 
 - Use it
 
 ```
 su shutdown
+shutdown -i5 -g0 -y
 ```
 
 
@@ -264,7 +265,7 @@ listusers
 pkg list
 ```
 
-### System shutdown, reboot, ...
+### System shutdown, reboot and run-levels
 
 OpenIndiana defines a number of different system states known as run-levels. You
 can change from one system state to another by using the `shutdown` command and
