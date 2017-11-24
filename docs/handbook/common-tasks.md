@@ -50,7 +50,7 @@ Print versions are also available.
 | Command | Further details | Brief summary
 | --- | --- | ---
 | `su` | [su(1M)](https://illumos.org/man/1M/su) | Switch user. Without any parameters, root implied
-| `sudo` | [sudo(1M)](https://illumos.org/man/1M/sudo) | Perform the command following with root privilages
+| `sudo` | sudo(1M) | Perform the command following with root privilages
 | `pfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
 
 Examples:
