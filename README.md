@@ -9,7 +9,12 @@ license, unless stated otherwise in individual files.
 
 ## Authors
 
+- [A. Gordon](https://github.com/agordon)
+- [Adam Števko](https://github.com/xen0l)
+- [Alexander Pyhalov](https://github.com/pyhalov)
+- [Benny](https://github.com/mebenn)
 - [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope)
+- [Lucas Sköldqvist](https://github.com/frusen)
 - [Michael Kruger](https://github.com/makruger)
 - [Theodore Seán Tubbs](https://github.com/AdrianKoshka)
 - [/u/127b](https://www.reddit.com/user/127b)

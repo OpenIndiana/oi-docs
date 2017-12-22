@@ -49,9 +49,9 @@ Print versions are also available.
 
 | Command | Further details | Brief summary
 | --- | --- | ---
-| `su` | [su(1M)](https://illumos.org/man/1M/su). | Switch user. Without any parameters, root implied
-| `sudo` | [sudo(1m)](https://illumos.org/man/1M/sudo) | Perform the command following with root privilages
-| `sfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
+| `su` | [su(1M)](https://illumos.org/man/1M/su) | Switch user. Without any parameters, root implied
+| `sudo` | sudo(1M) | Perform the command following with root privilages
+| `pfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
 
 Examples:
 
@@ -59,39 +59,35 @@ Examples:
 
 | Command | Further details | Brief summary
 | --- | --- | ---
-| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat). | Statistics on system processes
-| `df` | [df(1)](https://illumos.org/man/1/df) | Disk usage by partition
+| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat) | Statistics on system processes
+| `df` | [df(1M)](https://illumos.org/man/1m/df) | Disk usage by partition
 | `du` | [du(1)](https://illumos.org/man/1/du) | Disk usage by file
-| `listusers` | [listusers(1)](https://illumos.org/man/1/listusers) | List users logged into the system
-| `pkg list` | [pkg(1)](https://illumos.org/man/1/pkg) | List software packages installed on the system
+| `pkg list` | pkg(1) | List software packages installed on the system
 
 Examples:
 
-### System shutdown, reboot, ...
+### System shutdown, reboot…
 
 | Command | Further details | Brief summary
 | --- | --- | ---
-| `who` | [shutdown(1)](https://illumos.org/man/1/who). | List users logged onto the system
-| `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown). | Shutdown the system
+| `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown) | Shutdown the system
 
-Example:
+Examples:
 
 ```
-shutdown -i5 -g0 -y
-# Shutdown the system now
+shutdown -i5 -g0 -y # Turn off the machine immediately
+shutdown -i6 -g0 -y # Reboot the machine immediately
+shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 ```
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+### User management
 
-* Adding users, etc.
-* Shutting down the system
-    * `shutdown [options]`
-    * `reboot`
-    * `halt`
-
-</div>
+| Command | Further details | Brief summary
+| --- | --- | ---
+| `listusers` | [listusers(1)](https://illumos.org/man/1/listusers) | List users accounts
+| `who` | [who(1)](https://illumos.org/man/1/who) | List users logged onto the system
+| `useradd` | [useradd(1M)](https://illumos.org/man/1M/useradd) | Create a new user
+| `usermod` | [usermod(1M)](https://illumos.org/man/1M/usermod) | Modify a user (group memberships, roles, login shell…)
 
 
 ## Desktop applications
@@ -179,3 +175,28 @@ ITEMS TO WRITE ABOUT:
 ## Desktop Publishing system, Etc.
 
 < Place holder for content >
+
+## Boot loader settings
+
+OpenIndiana Hipster uses the 'BootForth' boot loader (GRUB is not used any
+more, disregard older manusls/wiki pages that mention grub).
+
+Boot configuration items should be stored in `/boot/conf.d`.
+
+* To change the console from the standard monitor to serial console
+    (e.g. `COM1` / `ttyS0` on other OSes), use the following command:
+
+        # echo console=ttya > /boot/conf.d/console
+
+    (Alternatively, use `eeprom console=ttya`).
+
+* To change the boot-loader's default timeout, run:
+
+        # echo autoboot_delay=2 > /boot/conf.d/autoboot
+
+NOTE:
+Any filename can be used under `/boot/conf.d/` - the filename does not
+matter (only its content matters).
+
+See [current status for loader](https://wiki.illumos.org/display/illumos/Current+status+for+loader)
+for more technical details (and other boot options).

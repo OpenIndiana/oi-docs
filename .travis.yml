@@ -1,8 +1,7 @@
 language: python
 python: '3.4'
 install:
-  - pip install mkdocs
-  - pip install mkdocs-bootswatch
+  - pip install -r requirements.txt
   - gem install mdl
 script:
   - mdl -s markdownlint-rules.rb .

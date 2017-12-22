@@ -2153,19 +2153,30 @@ Here are some of the available tools:
 <div class="well">
 ITEMS TO WRITE ABOUT:
 
-* <https://pkgsrc.joyent.com/>
-* <https://pkgsrc.joyent.com/install-on-illumos/>
-
-* Need to answer the questions - Where and how can I install more software?
-* Discuss 3rd party package managers (PKGIN, etc.)
-* Discuss the various 3rd party repos (opencsw, sfe, pkgsrc.joyent, etc.), what's available in them, and which might break compatibility, etc.
-* Describe SFE (SPEC FILES EXTRA) and how it differs from OI and other repos.
+* Need to answer the question “Where and how can I install more software?”
+* Discuss 3rd party package managers ([pkgin](http://pkgin.net/), etc.)
+* Discuss the various 3rd party repos, what's available in them, and which
+  might break compatibility, etc.:
+    * [pkgsrc](https://pkgsrc.org/)
+      ([wiki page](https://wiki.openindiana.org/oi/pkgsrc+in+OI),
+      [NetBSD wiki page](https://wiki.netbsd.org/pkgsrc/how_to_use_pkgsrc_on_solaris/))
+    * [Joyent's pkgsrc binary packages](https://pkgsrc.joyent.com/)
+      ([install on illumos](https://pkgsrc.joyent.com/install-on-illumos/),
+      [wiki page](https://wiki.openindiana.org/oi/3.+Installing+software+and+package+management))
+    * [opencsw](http://sfe.opencsw.org/)
+    * [SFE (spec-files-extra)](http://pkgbuild.sourceforge.net/spec-files-extra/)
+      ([wiki page](https://wiki.openindiana.org/oi/SFE),
+      [other wiki page](https://wiki.openindiana.org/oi/Spec+Files+Extra+Repository)):
+      describe and explain how it differs from OI and other repos.
 * How to add additional repos, etc.
 * How to compile your own software.
-    * I think there is an existing wiki page for this.
-    * Given the limited number of IPS packages currently available, this is a pretty important subject to write about.
+    * Existing wiki pages:
+      [Knowledge base](https://wiki.openindiana.org/oi/Knowledge+Base+for+Compiling+and+Installing+Software+Not+Available+in+Package+Form),
+      [Compiling software on OpenIndiana](https://wiki.openindiana.org/oi/Compiling+software+on+OpenIndiana)
     * Also could look here (might be outdated):
-    * [web link](http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml)
+      [Compiling Software on Solaris](http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml)
+* Given the limited number of IPS packages currently available, these are
+  pretty important subjects to write about.
 
 </div>
 
@@ -2284,7 +2295,6 @@ Within a global zone, specific non-global zones can be created.
 Note the following limitations of support for non-global zones in the beadm utility and in related processes:
 
 * When using the `pkg update` command, the `-r` switch is required to upgrade all zones.
-* The `beadm` utility is not supported inside a non-global zone.
 * Non-global zone support is limited to ZFS support.
 Zones are not supported unless they are on ZFS.
 * Zones are not supported in the rpool/ROOT namespace.
