@@ -83,7 +83,7 @@ Password:
 
 ### SUperuser DO: [sudo(1m)](https://illumos.org/man/1M/sudo)
 
-The `sudo` command, i.e., superuser do, permits a user to use _all_ supperuser
+The `sudo` command, i.e., superuser do, can permit a user to use _all_ supperuser
 commands without having to become the superuser. A sudo enabled user, simply
 precedes a command with `sudo`.
 
@@ -94,7 +94,9 @@ This should ideally be done as follows:
 visudo
 ```
 
-This performs various syntax checks.
+This performs various syntax checks. This is necessary, as a `/etc/sudoers` file
+that had invalid syntax can cause havoc.
+
 [sudoers(1)](https://illumos.org/man/1/sudoers) provides details on the precise
 means to appropriately add a user to use sudo.
 
@@ -111,6 +113,48 @@ sudo shutdown -i5 -g0 -y
 The user is then prompted for the user's password and a file is checked to
 establish whether the user is permitted to perform the operation.
 The options are explained below.
+
+
+#### Configuring sudo
+`sudo` can be configured such that a user is privilaged to use one, several or
+all superuser commands. More flexible, however, is assigning one or several
+commands to a group. One or several users can be added to this group.
+The syntax of entries in `/etc/sudoers` is as follows:
+
+```
+user hostlist=(userlist) commandlist
+```
+
+Example: Permit a user to run the lpadmin command
+
+To allow user 'whoever' the ability to configure CUPS (Common UNIX Printing
+System) using the `lpadmin` command, the following entry suffices:
+
+```
+whoever ALL=NOPASSWD:/usr/sbin/lpadmin
+```
+
+Example: Create a group that can issue several superuse commands, and assign the
+group to several ussers.
+
+First create the group using the `groupadd` command. Then add user 'whoever' to
+the group using the `usermod`command. 
+
+```
+groupadd printeradmin
+usermod -aG printeradmin whoever
+```
+
+Finally, assign some commands to the group `printeradmin` bby adding a line to
+`/etc/sudoers`:
+
+```
+printeradmin ALL=NOPASSWD:/usr/sbin/lpadmin,/usr/sbin/lpinfo,/usr/sbin/lpc
+```
+
+Now any users assigned the group 'printeradmin' can issue the command: `lpadmin`,
+`lpinfo` and `lpc`.
+
 
 ### Role-Based Access Control (RBAC)
 
@@ -131,7 +175,7 @@ perform only these actions and none other.
 RBAC was developed to accomplish this.
 
 
-#### What is RBAC
+#### Whatx is RBAC
 
 
 #### How to use RBAC
