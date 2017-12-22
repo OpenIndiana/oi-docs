@@ -115,6 +115,7 @@ establish whether the user is permitted to perform the operation.
 The options are explained below.
 
 #### Configuring sudo
+
 `sudo` can be configured such that a user is privilaged to use one, several or
 all superuser commands. More flexible, however, is assigning one or several
 commands to a group. One or several users can be added to this group.
@@ -137,7 +138,7 @@ Example: Create a group that can issue several superuse commands, and assign the
 group to several ussers.
 
 First create the group using the `groupadd` command. Then add user 'whoever' to
-the group using the `usermod`command. 
+the group using the `usermod`command.
 
 ```
 groupadd printeradmin
