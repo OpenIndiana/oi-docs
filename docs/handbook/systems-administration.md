@@ -85,7 +85,6 @@ Password:
 ### SUperuser DO: sudo(1m)
 
 The `sudo` command, i.e., superuser do, permits a user to use _all_ supperuser
-
 commands without having to become the superuser. A sudo enabled user, simply
 precedes a command with `sudo`.
 
@@ -145,7 +144,7 @@ groupadd printeradmin
 usermod -aG printeradmin whoever
 ```
 
-Finally, assign some commands to the group `printeradmin` bby adding a line to
+Finally, assign some commands to the group `printeradmin` by adding a line to
 `/etc/sudoers`:
 
 ```
@@ -174,9 +173,34 @@ perform only these actions and none other.
 
 RBAC was developed to accomplish this.
 
+RBAC was developed for Solaris and is unique to Solaris derived Unixes.
 
 #### What is RBAC
 
+RBAC as the name suggests is based on accessing the system via _roles_. A role
+is provided with selected administrative privilages, in other words superuser
+privilages are selectively packagaged into roles and one or more roles are
+assigned to a user. A role has the following properties:
+- A role is accessible via login.
+- A role can be accessed by a user only if the user explicitely changes user id,
+  i.e., su whatever_role
+- A special shell is used for all role accounts, i.e., _pkfsh or pfsh.
+
+This is a mechanism in which superuser privilages are selectively packaged and
+then assigned to user accounts.
+
+##### Role
+
+Roles have the following properties:
+
+- Authorisation: access to restricted functions.
+- Profile: a mechanism to group authorisation and commands which can be assigned
+  to a role or a user. One or several profiles can be assigned to a role.
+- Role: A special type of user account that can be directly logged into using su
+  only.
+  Think of a role as a container to perform administrative tasks.
+- Role Shell: (pfksh or ksl) is a special shell and is used to consult the RBAC
+  database before wa command is executed.
 
 #### How to use RBAC
 
