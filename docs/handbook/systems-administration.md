@@ -99,6 +99,7 @@ This performs various syntax checks.
 sudoers(1) provides details on the precise
 means to appropriately add a user to use sudo.
 
+---
 Example:
 
 To shutdown the system, root privileges are required. If a standard user issues
@@ -124,6 +125,11 @@ The syntax of entries in `/etc/sudoers` is as follows:
 user hostlist=(userlist) commandlist
 ```
 
+So, for example, root would typically have the following entry: `root ALL =
+(ALL) ALL`
+
+---
+
 Example: Permit a user to run the lpadmin command
 
 To allow user 'whoever' the ability to configure CUPS (Common UNIX Printing
@@ -133,26 +139,34 @@ System) using the `lpadmin` command, the following entry suffices:
 whoever ALL=NOPASSWD:/usr/sbin/lpadmin
 ```
 
+The `NOPASSWD` parameter allows the user to issue the command without having to
+enter a password.
+
+Instead of a user, we can assign a group, so that anyone belonging to the group
+has access to the relevant command.
+
+---
+
 Example: Create a group that can issue several superuse commands, and assign the
-group to several ussers.
+group to several users.
 
 First create the group using the `groupadd` command. Then add user 'whoever' to
 the group using the `usermod`command.
 
 ```
-groupadd printeradmin
-usermod -aG printeradmin whoever
+$ groupadd printeradmin
+$ usermod -aG printeradmin whoever
 ```
 
 Finally, assign some commands to the group `printeradmin` by adding a line to
 `/etc/sudoers`:
 
 ```
-printeradmin ALL=NOPASSWD:/usr/sbin/lpadmin,/usr/sbin/lpinfo,/usr/sbin/lpc
+%printeradmin ALL=NOPASSWD:/usr/sbin/lpadmin,/usr/sbin/lpinfo,/usr/sbin/lpc
 ```
 
 Now any users assigned the group 'printeradmin' can issue the command: `lpadmin`,
-`lpinfo` and `lpc`.
+`lpinfo` and `lpc`, and do not have to enter a password to do so.
 
 
 ### Role-Based Access Control (RBAC)
