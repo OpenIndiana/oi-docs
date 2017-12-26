@@ -117,7 +117,7 @@ main ()
 
 
         # Required packages ok?
-        type pandoca >/dev/null 2>&1 || {
+        type pandoc >/dev/null 2>&1 || {
                 echo >&2 "ERROR: require package pandoc, please install pandoc."
                 exit 1; }
 
