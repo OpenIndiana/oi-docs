@@ -48,10 +48,15 @@ user. This user is assigned _all_ privileges.
 
 To become root, it is possible to switch user using the command: [su(1M)](https://illumos.org/man/1M/su).
 
-However, it is not always feasible for one user to perform all administrative
+Assigning one or more users all privilages has its limitations, most critically
+concerning security. 
+
+
+Obviously, it is not always necessary for a user to perform
+all administrative 
 tasks. It would be more flexible if some tasks could be performed by some, say,
-experienced users. To enable some users to carry out a command with _all_ root
-privileges, or to _do_ an administrative command sudo(1m) can be used.
+experienced users. To enable some users to carry out a select number of
+commands, or to _do_ an administrative command sudo(1m) can be used. 
 
 However, security concerns dictate that performing sensitive administration
 tasks would be more secure if carried out by a user with a minimum number of
