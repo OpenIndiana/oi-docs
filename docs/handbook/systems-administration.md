@@ -84,7 +84,12 @@ Password:
 
 ### SUperuser DO: sudo(1m)
 
-The `sudo` command, i.e., superuser do, permits a user to use _all_ supperuser
+To overcome the limitations of providing root access, the sudo command was developed.
+The `sudo` command, i.e., superuser do, permits select root access on a user,
+command or machine level.
+
+
+user to use _all_ supperuser
 commands without having to become the superuser. A sudo enabled user, simply
 precedes a command with `sudo`.
 
