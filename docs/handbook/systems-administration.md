@@ -52,21 +52,16 @@ Assigning one or more users all privilages has its limitations, most critically
 concerning security. 
 
 
-Obviously, it is not always necessary for a user to perform
-all administrative 
+Obviously, it is not always necessary for a user to perform all administrative
 tasks. It would be more flexible if some tasks could be performed by some, say,
-experienced users. To enable some users to carry out a select number of
-commands, or to _do_ an administrative command sudo(1m) can be used. 
+experienced users. It is not always prudent to perform system administration
+duties with all privileges. Security concerns dictate that performing sensitive
+administration tasks would be more secure if carried out by a user with a 
+minimum number of privileges. To enable some users to carry out a select number
+of commands, or to _do_ an administrative command sudo(1m) can be used. 
 
-However, security concerns dictate that performing sensitive administration
-tasks would be more secure if carried out by a user with a minimum number of
-privileges. Both aforementioned mechanisms provide _all_ privileges.
-
-It is not always prudent to perform system administration duties with all
-privileges.
-
-Hence, a mechanism was developed whereby users could be assigned a select number
-of privileges by the superuser. OpenIndia provides, in addition to these
+A more powerful mechanism was developed whereby users could be assigned a select
+number of privileges by the superuser. OpenIndia provides, in addition to these
 traditional  mechanisms, a richer means to perform these duties known as
 Role-Based Access Control.
 
@@ -89,15 +84,16 @@ Password:
 
 ### SUperuser DO: sudo(1m)
 
-To overcome the limitations of providing root access, the sudo command was developed.
-The `sudo` command, i.e., superuser do, permits select root access on a user,
-command or machine level.
+To overcome the limitations of providing complete root access, the sudo command
+was developed. The `sudo` command, i.e., superuser do, permits select root
+access on a user, command or machine level.
 
 
 user to use _all_ supperuser
 commands without having to become the superuser. A sudo enabled user, simply
 precedes a command with `sudo`.
 
+#### Sudo Configuration
 To enable a user the ability to use `sudo`, the superuser edits `/etc/sudoers`.
 This should ideally be done as follows:
 
