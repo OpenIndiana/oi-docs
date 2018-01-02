@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
+<img src = "../Openindiana.png">
 
 # Hipster Handbook - System Administration
 
@@ -109,7 +109,7 @@ This performs various syntax checks.
 sudoers(1) provides details on the precise
 means to appropriately add a user to use sudo.
 
----
+
 Example:
 
 To shutdown the system, root privileges are required. If a standard user issues
@@ -124,21 +124,23 @@ The user is then prompted for the user's password and a file is checked to
 establish whether the user is permitted to perform the operation.
 The options are explained below.
 
+
 #### Configuring sudo
 
 `sudo` can be configured such that a user is privilaged to use one, several or
 all superuser commands. More flexible, however, is assigning one or several
-commands to a group. One or several users can be added to this group.
+commands to a number of users. Users can then be added to this group.
 The syntax of entries in `/etc/sudoers` is as follows:
 
 ```
 user hostlist=(userlist) commandlist
+%group hostlist=(userlist) commandlist
 ```
 
 So, for example, root would typically have the following entry: `root ALL =
-(ALL) ALL`
+(ALL) ALL`. A group is prefixed by a '%'. 
 
----
+
 
 Example: Permit a user to run the lpadmin command
 
@@ -155,9 +157,9 @@ enter a password.
 Instead of a user, we can assign a group, so that anyone belonging to the group
 has access to the relevant command.
 
----
 
-Example: Create a group that can issue several superuse commands, and assign the
+
+Example: Create a group that can issue several superuser commands, and assign the
 group to several users.
 
 First create the group using the `groupadd` command. Then add user 'whoever' to
@@ -191,7 +193,7 @@ assigned on a more fine-grained and selective basis.
 Imagine a user assigned the task of administrating some particular hardware, for
 example, printers attached to the system.  A more desirable system would be one
 in which this user had the ability to permit users to use a printing device,
-remove print jobs from the print spool, add new printers to the system, ...
+remove print jobs from the print spool, add new printers to the system,
 Moreover, it would be advantageous if it were possible to assign privileges to
 perform only these actions and none other.
 
@@ -358,7 +360,7 @@ listusers
 pkg list
 ```
 
-### System shutdown, reboot, ...
+### System shutdown, reboot, 
 
 OpenIndiana defines a number of different system states known as run-levels. You
 can change from one system state to another by using the `shutdown` command and
