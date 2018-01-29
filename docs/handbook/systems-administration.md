@@ -42,31 +42,38 @@ tasks can be carried out.
 
 ## Performing System Administration Tasks
 
-OpenIndiana is a multi-user platform. The role of administering the system was
-traditionally assigned to one privileged user known as the _superuser_ or _root_
-user. This user is assigned _all_ privileges.
+OpenIndiana is a multi-user platform. Performing administrative tasks on a
+multi-user platform can affect all users, indeed if not carried out correctly,
+dire consequences for all users can result. Sensitive administrative commands
+were originally restricted to a single user account, and only a select number of privileged
+users were provided access to this account.  This special user account is known
+as the _superuser_ or _root_ user from which susceptible administrative
+operations could be executed. The superuser account is assigned _all_
+privileges. 
 
-To become root, it is possible to switch user using the command: [su(1M)](https://illumos.org/man/1M/su).
+To become root, it is possible to log in directly to the root account or it can
+be accessed from a standard user account by using the command: [su(1M)](https://illumos.org/man/1M/su).
 
 Assigning one or more users all privilages has its limitations, most critically
-concerning security. 
-
-
-Obviously, it is not always necessary for a user to perform all administrative
-tasks. It would be more flexible if some tasks could be performed by some, say,
-experienced users. It is not always prudent to perform system administration
-duties with all privileges. Security concerns dictate that performing sensitive
+concerning security. Security concerns dictate that performing sensitive
 administration tasks would be more secure if carried out by a user with a 
-minimum number of privileges. To enable some users to carry out a select number
-of commands, or to _do_ an administrative command sudo(1m) can be used. 
+minimum number of privileges.  Moreover, it is not always necessary for a single
+user to perform all administrative tasks. It would be more flexible if some
+tasks could be performed by some, say, experienced users. To enable some users
+to carry out a select number of commands, or to _do_ an administrative command
+sudo(1m) can be used.
 
-A more powerful mechanism was developed whereby users could be assigned a select
-number of privileges by the superuser. OpenIndia provides, in addition to these
-traditional  mechanisms, a richer means to perform these duties known as
-Role-Based Access Control.
+An alternative mechanism was developed focused on the idea of _roles_ and
+_privilages_. A role can be thought of a collection of related tasks. Some roles 
+might be printer administration, network responsibility, software installation,
+etc. Associated with such roles are a set of _privilages_ necessary to execute
+these roles. This is known as Role-Based Access Control (RBAC). It is sometimes
+also known as Role Based Security.
 
 RBAC involves collecting a select number of privileges and bundling these
 together as a role. A user can then be assigned one, or several roles.
+
+OpenIndia supports all these frameworks.
 
 
 ### root: [su(1M)](https://illumos.org/man/1M/su)
@@ -89,13 +96,14 @@ was developed. The `sudo` command, i.e., superuser do, permits select root
 access on a user, command or machine level.
 
 
-user to use _all_ supperuser
+(user to use _all_ supperuser
 commands without having to become the superuser. A sudo enabled user, simply
-precedes a command with `sudo`.
+precedes a command with `sudo`.)
 
 #### Sudo Configuration
 To enable a user the ability to use `sudo`, the superuser edits `/etc/sudoers`.
-This should ideally be done as follows:
+Syntax errors to this file can cause sever havoc to the system. To this end
+this file should ideally be edited as follows:
 
 ```
 visudo
@@ -105,8 +113,8 @@ This performs various syntax checks.
 sudoers(1) provides details on the precise
 means to appropriately add a user to use sudo.
 
-
-Example:
+*Example:*
+<div class="well">
 
 To shutdown the system, root privileges are required. If a standard user issues
 the `shutdown` command, the system will issue a warning. However, if the user has
@@ -119,6 +127,17 @@ sudo shutdown -i5 -g0 -y
 The user is then prompted for the user's password and a file is checked to
 establish whether the user is permitted to perform the operation.
 The options are explained below.
+</div>
+
+The above example is a simple mechanism in which an account is assigned one, or
+more adminsitrative commands in which to carry out administrative
+duties. However, this does not scale particularly well. On a system with a small
+number of users this system might be sufficient.  On a system with several
+thousand users another mechanism is proposed:
+
+ - For each task, create a group (more about groups later)
+ - Assign administrative commands necessary to carry out the task to the group
+ - All users responsible for this task can then be assigned to this group 
 
 
 #### Configuring sudo
@@ -137,8 +156,9 @@ So, for example, root would typically have the following entry: `root ALL =
 (ALL) ALL`. A group is prefixed by a '%'. 
 
 
-
-Example: Permit a user to run the lpadmin command
+*Example:*
+<div class="well">
+Permit a user to run the lpadmin command
 
 To allow user 'whoever' the ability to configure CUPS (Common UNIX Printing
 System) using the `lpadmin` command, the following entry suffices:
@@ -152,10 +172,12 @@ enter a password.
 
 Instead of a user, we can assign a group, so that anyone belonging to the group
 has access to the relevant command.
+</div>
 
 
-
-Example: Create a group that can issue several superuser commands, and assign the
+*Example:*
+<div class="well">
+Create a group that can issue several superuser commands, and assign the
 group to several users.
 
 First create the group using the `groupadd` command. Then add user 'whoever' to
@@ -175,7 +197,7 @@ Finally, assign some commands to the group `printeradmin` by adding a line to
 
 Now any users assigned the group 'printeradmin' can issue the command: `lpadmin`,
 `lpinfo` and `lpc`, and do not have to enter a password to do so.
-
+</div>
 
 ### Role-Based Access Control (RBAC)
 
