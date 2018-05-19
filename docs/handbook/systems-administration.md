@@ -602,7 +602,7 @@ Zones proxy daemon client `svc:/application/pkg/zones-proxy-client:default` runs
 Note, you can't use system repository with nlipkg-branded zones.
 </div>
 
-IPS determines if it should use zones proxy client in zone based on image's use-system-repo property (which is false by default).
+IPS determines if it should use zones proxy client in zone based on image's `use-system-repo` property (defaults to False).
 
 To configure your system to use system repository, perform the following actions.
 
@@ -614,14 +614,15 @@ To configure your system to use system repository, perform the following actions
 # svcadm enable svc:/application/pkg/zones-proxyd:default
 ```
 
-2) In NGZ:
+2) In non-global zone:
 
 ```
+# pkg install pkg:/package/pkg/zones-proxy
 # svcadm enable svc:/application/pkg/zones-proxy-client:default
 # pkg set-property use-system-repo True
 ```
 
-After this in NGZ in publisher description you'll see system-repository location:
+After this in NGZ's publisher description you'll see system-repository location:
 
 ```
 # pkg publisher
@@ -630,9 +631,9 @@ openindiana.org (non-sticky, syspub) origin   online T <system-repository>
 hipster-encumbered (syspub)     origin   online T <system-repository>
 ```
 
-You can check if your configuration works by issuing `pkg refresh` command in zone. `pkg(1M)` should contact repository indirectly via zones-proxy-client.
+You can check if your configuration works by issuing `pkg refresh` command in the zone. `pkg(1M)` should contact repository indirectly via zones-proxy-client.
 
-To convert you zone back to non-proxied configuration, run
+To revert your zone to proxy-less configuration, run
 
 ```
 # pkg set-property use-system-repo False
