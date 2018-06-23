@@ -49,22 +49,27 @@ were originally restricted to a single user account, and only a select number of
 users were provided access to this account.  This special user account is known
 as the _superuser_ or _root_ user from which susceptible administrative
 operations could be executed. The superuser account is assigned _all_
-privileges. 
+privileges.
 
 To become root, it is possible to log in directly to the root account or it can
 be accessed from a standard user account by using the command: [su(1M)](https://illumos.org/man/1M/su).
 
 Assigning one or more users all privilages has its limitations, most critically
-concerning security. Security concerns dictate that performing sensitive
-administration tasks would be more secure if carried out by a user with a 
-minimum number of privileges.  Moreover, it is not always necessary for a single
-user to perform all administrative tasks. It would be more flexible if some
-tasks could be performed by some, say, experienced users. To enable some users
-to carry out a select number of commands, or to _do_ an administrative command
-sudo(1m) can be used.
+concerning security. Tightening security dictate that performing sensitive
+administration tasks would be more secure if carried out by a user with a
+minimum number of privileges.  Ideally, a user should only have sufficient
+privilages required to perform a task and no more. Moreover, it is not always
+necessary for a single user to perform all administrative tasks. It would be
+more flexible if some tasks could be performed by some, say, experienced users.
+
+One scheme adopted to improve the situation was to enable some users
+to carry one or a select number of commands normally requiring elevated
+privilages, or to _do_ an administrative command sudo(1m) can be used. In other
+words, sensitive commands can be assigned to a user and the user is allowed to
+execute those select sensitive commands and no more.
 
 An alternative mechanism was developed focused on the idea of _roles_ and
-_privilages_. A role can be thought of a collection of related tasks. Some roles 
+_privilages_. A role can be thought of a collection of related tasks. Some roles
 might be printer administration, network responsibility, software installation,
 etc. Associated with such roles are a set of _privilages_ necessary to execute
 these roles. This is known as Role-Based Access Control (RBAC). It is sometimes
@@ -92,60 +97,24 @@ Password:
 ### SUperuser DO: sudo(1m)
 
 To overcome the limitations of providing complete root access, the sudo command
-was developed. The `sudo` command, i.e., superuser do, permits select root
-access on a user, command or machine level.
-
-
-(user to use _all_ supperuser
-commands without having to become the superuser. A sudo enabled user, simply
-precedes a command with `sudo`.)
-
-#### Sudo Configuration
-To enable a user the ability to use `sudo`, the superuser edits `/etc/sudoers`.
-Syntax errors to this file can cause sever havoc to the system. To this end
-this file should ideally be edited as follows:
-
-```
-visudo
-```
-
-This performs various syntax checks.
-sudoers(1) provides details on the precise
-means to appropriately add a user to use sudo.
-
-*Example:*
-<div class="well">
-
-To shutdown the system, root privileges are required. If a standard user issues
-the `shutdown` command, the system will issue a warning. However, if the user has
-been enabled to use sudo, then the user can now shutdown the system:
-
-```
-sudo shutdown -i5 -g0 -y
-```
-
-The user is then prompted for the user's password and a file is checked to
-establish whether the user is permitted to perform the operation.
-The options are explained below.
-</div>
-
-The above example is a simple mechanism in which an account is assigned one, or
-more adminsitrative commands in which to carry out administrative
-duties. However, this does not scale particularly well. On a system with a small
-number of users this system might be sufficient.  On a system with several
-thousand users another mechanism is proposed:
-
- - For each task, create a group (more about groups later)
- - Assign administrative commands necessary to carry out the task to the group
- - All users responsible for this task can then be assigned to this group 
+was developed. The `sudo` command, i.e., superuser do, or substitute user do,
+permits select root access on a user, command or machine level. It effectively
+allows users to execute a number of commands as another user. This other user is
+most frequently root.
 
 
 #### Configuring sudo
 
-`sudo` can be configured such that a user is privilaged to use one, several or
-all superuser commands. More flexible, however, is assigning one or several
-commands to a number of users. Users can then be added to this group.
-The syntax of entries in `/etc/sudoers` is as follows:
+To enable a user the ability to use `sudo`, `/etc/sudoers` must be edited.
+It can be configured such that a user is privilaged to use one, several or all
+superuser commands. Syntax errors to this file can cause sever havoc to the
+system. To this end this file should ideally be edited using `visudo`. This
+performs various syntax checks. sudoers(1) provides details on the precise means
+to appropriately add a user to use sudo.
+
+More flexible, however, is assigning one or several commands to a number of
+users. Users can then be added to this group. The syntax of entries in
+`/etc/sudoers` is as follows:
 
 ```
 user hostlist=(userlist) commandlist
@@ -153,18 +122,18 @@ user hostlist=(userlist) commandlist
 ```
 
 So, for example, root would typically have the following entry: `root ALL =
-(ALL) ALL`. A group is prefixed by a '%'. 
+(ALL) ALL`. A group is prefixed by a '%'.
 
 
-*Example:*
+*Example: Assigning several commands to a single user*
 <div class="well">
-Permit a user to run the lpadmin command
+Permit a user to run the lpadmin and lprm commands
 
 To allow user 'whoever' the ability to configure CUPS (Common UNIX Printing
 System) using the `lpadmin` command, the following entry suffices:
 
 ```
-whoever ALL=NOPASSWD:/usr/sbin/lpadmin
+whoever ALL=NOPASSWD:/usr/sbin/lpadmin, /usr/sbin/lprm
 ```
 
 The `NOPASSWD` parameter allows the user to issue the command without having to
@@ -173,6 +142,30 @@ enter a password.
 Instead of a user, we can assign a group, so that anyone belonging to the group
 has access to the relevant command.
 </div>
+
+
+
+#### Tasks, Groups and Users
+<!--Configuring sudo for multiple commands for multiple users-->
+
+The above example is a simple mechanism in which an account is assigned one, or
+more adminsitrative commands in which to carry out administrative
+duties. However, this does not scale particularly well. On a system with a small
+number of users this system might be sufficient.  On a system with several
+thousand users another mechanism is required. 
+
+Instead of assigning one or more commands to a single user, it is more versatile
+to consider administrative duties as a set of tasks, whereby a task can be
+viewed upon as a set of related commands required to perform the task. We can
+then assign the task to one or more users.
+
+This can be implememented as follows:
+
+- For each task, create a group (more about groups later)
+- Assign administrative commands necessary to carry out the task to the group
+- All users responsible for this task can then be assigned to this group
+
+
 
 
 *Example:*
@@ -198,6 +191,27 @@ Finally, assign some commands to the group `printeradmin` by adding a line to
 Now any users assigned the group 'printeradmin' can issue the command: `lpadmin`,
 `lpinfo` and `lpc`, and do not have to enter a password to do so.
 </div>
+
+
+#### Using sudo
+
+*Example: Usage*
+<div class="well">
+
+To shutdown the system, root privileges are required. If a standard user issues
+the `shutdown` command, the system will issue a warning. However, if the user has
+been enabled to use sudo, then the user can now shutdown the system:
+
+```
+sudo shutdown -i5 -g0 -y
+```
+
+The user is then prompted for the user's password and a file is checked to
+establish whether the user is permitted to perform the operation.
+The options are explained below.
+</div>
+
+
 
 ### Role-Based Access Control (RBAC)
 
@@ -378,7 +392,7 @@ listusers
 pkg list
 ```
 
-### System shutdown, reboot, 
+### System shutdown, reboot,
 
 OpenIndiana defines a number of different system states known as run-levels. You
 can change from one system state to another by using the `shutdown` command and
