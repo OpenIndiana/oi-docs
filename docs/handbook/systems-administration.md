@@ -71,9 +71,9 @@ execute those select sensitive commands and no more.
 An alternative mechanism was developed focused on the idea of _roles_ and
 _privilages_. A role can be thought of a collection of related tasks. Some roles
 might be printer administration, network responsibility, software installation,
-etc. Associated with such roles are a set of _privilages_ necessary to execute
-these roles. This is known as Role-Based Access Control (RBAC). It is sometimes
-also known as Role Based Security.
+etc. Associated with such roles are a set of _privilages_ necessary to perform
+the duties associated with these roles. This is known as Role-Based Access
+Control (RBAC). It is sometimes also known as Role Based Security.
 
 RBAC involves collecting a select number of privileges and bundling these
 together as a role. A user can then be assigned one, or several roles.
