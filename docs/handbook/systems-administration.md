@@ -72,8 +72,8 @@ An alternative mechanism was developed focused on the idea of _roles_ and
 _privilages_. A role can be thought of a collection of related tasks. Some roles
 might be printer administration, network responsibility, software installation,
 etc. Associated with such roles are a set of _privilages_ necessary to perform
-the duties associated with these roles. This is known as Role-Based Access
-Control (RBAC). It is sometimes also known as Role Based Security.
+the duties associated with these roles. This is known as _Role-Based Access
+Control_ (RBAC). It is sometimes also known as Role Based Security.
 
 RBAC involves collecting a select number of privileges and bundling these
 together as a role. A user can then be assigned one, or several roles.
@@ -96,8 +96,8 @@ Password:
 
 ### SUperuser DO: sudo(1m)
 
-To overcome the limitations of providing complete root access, the sudo command
-was developed. The `sudo` command, i.e., superuser do, or substitute user do,
+To overcome the limitations of providing complete root access, the `sudo` command
+was developed. The sudo command, i.e., superuser do, or substitute user do,
 permits select root access on a user, command or machine level. It effectively
 allows users to execute a number of commands as another user. This other user is
 most frequently root.
@@ -105,12 +105,16 @@ most frequently root.
 
 #### Configuring sudo
 
-To enable a user the ability to use `sudo`, `/etc/sudoers` must be edited.
+To enable a user the ability to use sudo, `/etc/sudoers` must be edited.
 It can be configured such that a user is privilaged to use one, several or all
-superuser commands. Syntax errors to this file can cause sever havoc to the
+superuser commands. Syntax errors to this file can cause severe havoc to the
 system. To this end this file should ideally be edited using `visudo`. This
-performs various syntax checks. sudoers(1) provides details on the precise means
+performs various syntax checks. `sudoers`(4) provides details on the precise means
 to appropriately add a user to use sudo.
+
+visudo will invoke the editor defined in the system environment variable EDITOR,
+and defaults to vi. If you'd prefer to use another editor, for example emacs,
+call visudo as follows: `EDITOR=emacs visudo`
 
 More flexible, however, is assigning one or several commands to a number of
 users. Users can then be added to this group. The syntax of entries in
@@ -138,21 +142,21 @@ whoever ALL=NOPASSWD:/usr/sbin/lpadmin, /usr/sbin/lprm
 
 The `NOPASSWD` parameter allows the user to issue the command without having to
 enter a password.
-
-Instead of a user, we can assign a group, so that anyone belonging to the group
-has access to the relevant command.
 </div>
 
+Instead of a user, we can assign a group, so that anyone belonging to the group
+has access to the relevant commands assigned to the group.
 
 
 #### Tasks, Groups and Users
+
 <!--Configuring sudo for multiple commands for multiple users-->
 
 The above example is a simple mechanism in which an account is assigned one, or
 more adminsitrative commands in which to carry out administrative
 duties. However, this does not scale particularly well. On a system with a small
 number of users this system might be sufficient.  On a system with several
-thousand users another mechanism is required. 
+thousand users another mechanism is required.
 
 Instead of assigning one or more commands to a single user, it is more versatile
 to consider administrative duties as a set of tasks, whereby a task can be
