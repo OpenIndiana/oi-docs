@@ -54,24 +54,24 @@ privileges.
 To become root, it is possible to log in directly to the root account or it can
 be accessed from a standard user account by using the command: [su(1M)](https://illumos.org/man/1M/su).
 
-Assigning one or more users all privilages has its limitations, most critically
+Assigning one or more users all privileges has its limitations, most critically
 concerning security. Tightening security dictate that performing sensitive
 administration tasks would be more secure if carried out by a user with a
 minimum number of privileges.  Ideally, a user should only have sufficient
-privilages required to perform a task and no more. Moreover, it is not always
+privileges required to perform a task and no more. Moreover, it is not always
 necessary for a single user to perform all administrative tasks. It would be
 more flexible if some tasks could be performed by some, say, experienced users.
 
 One scheme adopted to improve the situation was to enable some users
 to carry one or a select number of commands normally requiring elevated
-privilages, or to _do_ an administrative command sudo(1m) can be used. In other
+privileges, or to _do_ an administrative command sudo(1m) can be used. In other
 words, sensitive commands can be assigned to a user and the user is allowed to
 execute those select sensitive commands and no more.
 
 An alternative mechanism was developed focused on the idea of _roles_ and
-_privilages_. A role can be thought of a collection of related tasks. Some roles
+_privileges_. A role can be thought of a collection of related tasks. Some roles
 might be printer administration, network responsibility, software installation,
-etc. Associated with such roles are a set of _privilages_ necessary to perform
+etc. Associated with such roles are a set of _privileges_ necessary to perform
 the duties associated with these roles. This is known as _Role-Based Access
 Control_ (RBAC). It is sometimes also known as Role Based Security.
 
@@ -106,7 +106,7 @@ most frequently root.
 #### Configuring sudo
 
 To enable a user the ability to use sudo, `/etc/sudoers` must be edited.
-It can be configured such that a user is privilaged to use one, several or all
+It can be configured such that a user is privileged to use one, several or all
 superuser commands. Syntax errors to this file can cause severe havoc to the
 system. To this end this file should ideally be edited using `visudo`. This
 performs various syntax checks. `sudoers`(4) provides details on the precise means
@@ -153,7 +153,7 @@ has access to the relevant commands assigned to the group.
 <!--Configuring sudo for multiple commands for multiple users-->
 
 The above example is a simple mechanism in which an account is assigned one, or
-more adminsitrative commands in which to carry out administrative
+more administrative commands in which to carry out administrative
 duties. However, this does not scale particularly well. On a system with a small
 number of users this system might be sufficient.  On a system with several
 thousand users another mechanism is required.
@@ -163,7 +163,7 @@ to consider administrative duties as a set of tasks, whereby a task can be
 viewed upon as a set of related commands required to perform the task. We can
 then assign the task to one or more users.
 
-This can be implememented as follows:
+This can be implemented as follows:
 
 - For each task, create a group (more about groups later)
 - Assign administrative commands necessary to carry out the task to the group
@@ -240,15 +240,15 @@ RBAC was developed for Solaris and is unique to Solaris derived Unixes.
 #### What is RBAC
 
 RBAC as the name suggests is based on accessing the system via _roles_. A role
-is provided with selected administrative privilages, in other words superuser
-privilages are selectively packagaged into roles and one or more roles are
+is provided with selected administrative privileges, in other words superuser
+privileges are selectively packaged into roles and one or more roles are
 assigned to a user. A role has the following properties:
 - A role is accessible via login.
-- A role can be accessed by a user only if the user explicitely changes user id,
+- A role can be accessed by a user only if the user explicitly changes user id,
   i.e., su whatever_role
 - A special shell is used for all role accounts, i.e., _pkfsh or pfsh.
 
-This is a mechanism in which superuser privilages are selectively packaged and
+This is a mechanism in which superuser privileges are selectively packaged and
 then assigned to user accounts.
 
 ##### Role
@@ -422,7 +422,7 @@ onto the system before changing the run-level.
     * `1` single-user mode. Primarily used for system maintenance.
     * `S` single-user mode where only a command line terminal is available.
 * `-g [seconds]` is used to specify the number of seconds after which to commence
-   shutting down services. `0` immediately intiates shutting down all services.
+   shutting down services. `0` immediately initiates shutting down all services.
 * `-y` automatically answers all system questions with 'yes'. The shutdown
    process is not interrupted by system prompts requiring user-interactive
    intervention.
