@@ -221,7 +221,8 @@ The options are explained below.
 
 The _all-or-nothing_ power assigned to the root user has its obvious
 limitations.  While sudo is an improvement by limiting root privileges for only
-a single command, a user allowed to use sudo has access to all root commands.
+a single or several commands, RBAC introduces the notion of Roles to provide a
+more flexible approach.
 
 An improvement on the above systems would be one in which privileges could be
 assigned on a more fine-grained and selective basis.
