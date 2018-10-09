@@ -186,13 +186,20 @@ Boot configuration items should be stored in `/boot/conf.d`.
 * To change the console from the standard monitor to serial console
     (e.g. `COM1` / `ttyS0` on other OSes), use the following command:
 
+```
         # echo console=ttya > /boot/conf.d/console
+```
 
+```
     (Alternatively, use `eeprom console=ttya`).
+```
 
 * To change the boot-loader's default timeout, run:
 
+```
         # echo autoboot_delay=2 > /boot/conf.d/autoboot
+```
+
 
 NOTE:
 Any filename can be used under `/boot/conf.d/` - the filename does not

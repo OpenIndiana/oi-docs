@@ -125,9 +125,12 @@ In order to use the Asciidoctor Chrome extension with local files, you must enab
 
 The Travis-CI build engine can even post the results of the build to IRC (as shown below from the Asciidoctor IRC channel).
 
+```
     <travis-ci> asciidoctor/asciidoctor#2068 (master - cbf2ab0 : Dan Allen): The build passed.
     <travis-ci> Change view : https://github.com/asciidoctor/asciidoctor/compare/6e41bee5dc42...cbf2ab0a9b78
     <travis-ci> Build details : https://travis-ci.org/asciidoctor/asciidoctor/builds/114132261
+```
+
 
 ### Videos
 

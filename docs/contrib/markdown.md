@@ -254,12 +254,12 @@ For the purpose of syntax highlighting, you may also specify the programming lan
 
 **Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
-    ```markdown
-    #!/bin/bash
+```
+      #!/bin/bash
       if [ "foo" = "foo" ]; then
         echo expression evaluated as true
       fi
-    ```
+```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
 
@@ -276,8 +276,9 @@ In-line code is delineated with a single backtick mark at each end of the text.
 
 **Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
 
+```
     Here is some plain Markdown followed by `a section of in-line code`.
-
+```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
 <div class="well">
