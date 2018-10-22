@@ -117,7 +117,7 @@ visudo will invoke the editor defined in the system environment variable EDITOR,
 and defaults to vi. If you'd prefer to use another editor, for example emacs,
 call visudo as follows: `EDITOR=emacs visudo`
 
-More flexible, however, is assigning one or several commands to a number of
+More flexible, however, is assigning one or several commands to a group of
 users. Users can then be added to this group. The syntax of entries in
 `/etc/sudoers` is as follows:
 
