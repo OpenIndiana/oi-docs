@@ -156,8 +156,8 @@ has access to the relevant commands assigned to the group.
 The above example is a simple mechanism in which an account is assigned one, or
 more administrative commands in which to carry out administrative
 duties. However, this does not scale particularly well. On a system with a small
-number of users this system might be sufficient.  On a system with several
-thousand users another mechanism is required.
+number of users this might be sufficient.  On a system with several thousand
+users another mechanism is required.
 
 Instead of assigning one or more commands to a single user, it is more versatile
 to consider administrative duties as a set of tasks, whereby a task can be
