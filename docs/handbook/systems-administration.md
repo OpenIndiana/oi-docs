@@ -237,7 +237,6 @@ perform only these actions and none other.
 
 RBAC was developed to accomplish this.
 
-# ????
 RBAC was developed for Solaris and is unique to Solaris derived Unixes.
 
 #### What is RBAC
@@ -249,7 +248,7 @@ assigned to a user. A role has the following properties:
 - A role is accessible via login.
 - A role can be accessed by a user only if the user explicitly changes user id,
   i.e., su whatever_role
-- A special shell is used for all role accounts, i.e., _pkfsh or pfsh.
+- A special shell is used for all role accounts, i.e., _pfksh or pfsh.
 
 This is a mechanism in which superuser privileges are selectively packaged and
 then assigned to user accounts.
