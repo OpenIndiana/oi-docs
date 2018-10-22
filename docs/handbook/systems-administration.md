@@ -78,7 +78,8 @@ Control_ (RBAC). It is sometimes also known as Role Based Security.
 RBAC involves collecting a select number of privileges and bundling these
 together as a role. A user can then be assigned one, or several roles.
 
-OpenIndia supports all these frameworks.
+OpenIndiana supports both mechanisms for granting subset of privileges to a user.
+
 
 
 ### root: [su(1M)](https://illumos.org/man/1M/su)
@@ -236,6 +237,7 @@ perform only these actions and none other.
 
 RBAC was developed to accomplish this.
 
+# ????
 RBAC was developed for Solaris and is unique to Solaris derived Unixes.
 
 #### What is RBAC
