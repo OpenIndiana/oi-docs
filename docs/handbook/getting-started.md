@@ -2201,7 +2201,7 @@ You can maintain multiple boot environments on your system, and each boot enviro
 Upon the initial installation of OpenIndiana onto your system, a boot environment is created.
 Use the `beadm`<sup>1M</sup> utility to administer additional boot environments on your system.
 
-The `beadmn` utility is designed to work in concert with the ZFS file system and the IPS package manager.
+The `beadm` utility is designed to work in concert with the ZFS file system and the IPS package manager.
 
 ### Why use multiple boot environments?
 
