@@ -2235,6 +2235,17 @@ Although only one boot environment can be active at a time, you can mount an ina
 Then you can use the `pkg update` command with the `-R` option to update all the packages in that inactive, mounted environment.
 Or, use the `pkg install packagename` with the `-R` option to update specific packages on that environment.
 
+<div class="well">
+When <code>pkg</code> creates new boot environment, it determines its name using <code>auto-be-name</code> image property.
+When prefixed with "time:" string, the remaining part of property is interpreted as <code>strftime(3C)</code> argument.
+If <code>pkg</code> can't produce unique boot environment name based on auto-be-name image property,
+it uses the property as base to generate unique name, appending numerical suffix prefixed by "-" symbol.
+Note, that due to name generation rules, any numerical suffix, prefixed by "-", can be incremented to
+generate unique name, so given "time:openindiana-%Y-%m-%d" <code>auto-be-name image</code> property value
+(which is not recommended), <code>pkg</code> will produce boot environment names ending with current date, current date + 1 and so on.
+By default <code>auto-be-name</code> is set to "time:openindiana-%Y:%m:%d", so that boot environments are named like
+"openindiana-2019:03:29". You can get current value using <code>pkg property</code> command and set it with <code>pkg set-property</code>.
+</div>
 
 ### Features of the beadm utility
 
