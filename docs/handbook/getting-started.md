@@ -605,13 +605,13 @@ For example:
 
 ### BSD/Linux/OS X
 
-In the command below, replace `X` with the appropriate letter for your USB device.
+In the command below, replace `X` with the appropriate letter for your USB device. At least on Linux and FreeBSD you can add `status=progress` operand to print basic transfer statistics, refer to `dd(1)` man page of your platform for more information.
 
 
 #### Method 1 (New releases)
 
 ```
-# dd bs=4M if=./image.usb of=/dev/sdX status=progress && sync
+# dd bs=4M if=./image.usb of=/dev/sdX && sync
 ```
 
 #### Method 2 (Legacy releases)
