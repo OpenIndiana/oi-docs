@@ -109,9 +109,10 @@ As the FAQ evolves, try to keep this section in sync.
 
 -->
 
-| CPU | Disk Space | Memory (RAM)
-| --- | --- | ---
-| 64 Bit | 20GB (or more) | 2GB (or more)
+| Installation type | CPU | Disk Space | Memory (RAM)
+| --- | --- | --- | ---
+| Server | 64 Bit | 16GB (or more) | 2GB (or more)
+| Desktop | 64 Bit | 20GB (or more) | 4GB (or more)
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
