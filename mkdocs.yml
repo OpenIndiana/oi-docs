@@ -23,9 +23,7 @@ pages:
         - 'Systems Administration': handbook/systems-administration.md
         - 'Network Communications': handbook/network-communications.md
         - 'Appendix': handbook/appendix.md
-        - 'Building oi-userland': dev/userland.md
         - 'Community Contributed Tutorials': handbook/community.md
-
 
 - 'OpenSolaris Books':
         - 'About OpenSolaris Books': books/about.md
@@ -34,6 +32,9 @@ pages:
         - 'Solaris Express Administration': books/express.md
         - 'Trusted Extensions Administration': books/trusted.md
         - 'Development Titles': books/develop.md
+
+- Dev:
+        - 'Building with oi-userland': dev/userland.md
 
 - Contrib:
         - 'Content Creation': contrib/content.md
