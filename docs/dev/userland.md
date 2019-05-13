@@ -18,56 +18,36 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 <img src = "../../Openindiana.png">
 
-# Quick start for oi-userland
+# Building with oi-userland
 
-### Clone the repository from OpenIndiana's Github, it is set as origin:
+## Using OpenIndiana's unified build system
 
-```bash
-git clone https://github.com/OpenIndiana/oi-userland.git
-cd oi-userland
-```
+OpenIndiana Hipster's primary build framework is oi-userland. It's tied into OpenIndiana <a href="https://hipster.openindiana.org/jenkins">continuous integration platform</a>.
 
-### Add your Github repository as remote:
+When an update is committed to the oi-userland git repository:
 
-```bash
-git remote add my_name https://github.com/my_name/oi-userland.git
-```
+* an automated build is kicked off,
+* then automatically the binary package will be published to the /hipster repository,
+* finally, the status of the build will be reported by oibot to #oi-dev freenode IRC channel.
 
-### Print for checking:
+### Overview of oi-userland
 
-```bash
-git remote -v
-```
+Originally oi-userland is a fork of Oracle's <a href="https://github.com/oracle/solaris-userland/">userland-gate</a>, which evolved in an independent way: the layout is very similar.
 
-### Initial setup including creation of local on-disk repository and check:
+Inside oi-userland is a directory called "components", under which directories for each software package live.
+Directories are grouped by categories.
+Inside each of these software package directories  there is a main Makefile and other files, necessary to build packages.
+This complete set of instructions to build one or more related packages, is called "a component".
 
-```bash
-gmake setup
-gmake env-check
-```
+#### A component usually consists of several files:
 
-### Every time you add or modify a component, create a new branch:
-
-```bash
-git checkout -b my_feature
-```
-
-### Keep this branch synchronized with origin/oi/hipster:
-
-```bash
-git pull --rebase origin oi/hipster
-```
-
-Your local branch is forwarded to the last commit of oi/hipster and your additional commits are kept on top of the stack.
-
-### A component consists of several files:
-
-* `Makefile`: the recipe to build the software (in the `build/$MARCH` directory) and install it locally (to the `build/proto` directory)
+* `Makefile`: the recipe to build the software and install it locally (usually to the `build/prototype/$(MACH)` directory)
 * `patches/`: directory containing patches applied before the configuration
+* `files/`: directory containing additional files distributed with packages
 * `*.p5m`: manifests used to generate the IPS package
 * `$(COMPONENT_NAME).license`: file containing the licenses applicable to the software
 
-### Here is a list of important targets for `gmake`
+To build a component, you simply cd into the directory of the software, and type "gmake TARGET" (here we use gmake to call GNU make), where TARGET can be one of:
 
 | Target | Description |
 |---|---|
@@ -75,13 +55,143 @@ Your local branch is forwarded to the last commit of oi/hipster and your additio
 | `download` | fetches the source archive and verify its `SHA256` sum |
 | `prep` | extract and apply patches |
 | `build` | configure and build |
-| `install` | install locally |
-| `sample-manifest` | generate an IPS manifest based on the files installed locally |
-| `publish` | generate dependencies and publish the package to the local repository |
+| `install` | install software into the prototype directory |
+| `sample-manifest` | generate a sample IPS manifest based on the files installed to the prototype directory |
+| `publish` | publish the package to the local repository |
+| `pre-publish` | run all pre-publication checks (does actually what publish does, just without sending package to local repository) |
+| `REQUIRED_PACKAGES` | guess and generate build dependencies for the packages, manual edit might be needed |
+| `env-check` | check build environment for missing packages |
+| `env-prep` | install missing build dependencies (requires elevated privileges) |
 
-### First you need to make sure that `gmake prep` passes, so you can start by changing the component's metadata:
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+<p><b>Before adding new packages to oi-userland...</b></p>
+Before considering adding a new package to oi-userland, please check first whether someone else is working on the package by checking the issue tracker, mailing <a href="mailto:oi-dev@openindiana.org">oi-dev@openindiana.org</a> or asking on the IRC (#oi-dev at irc.freenode.net)
+<ul>
+<li>If you don't find anyone already working on a port, please register your effort by opening an issue.</li>
+<li>If you wish to update an existing port, look at the log for the component Makefile ("git log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.</li>
+</ul>
+This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
+</div>
 
-Example with `components/libjpeg6-ijg/Makefile`:
+### Setting up your build environment
+
+We strongly recommend building packages inside a fresh local zone set up exclusively for building. See [Quick zone setup example](../handbook/systems-administration/#quick-setup-example) for simple instructions.
+
+Further we assume that you are logged into the build zone if you set up the build environment in a zone, the directory were oi-userland is cloned can otherwise be anywhere you like.
+
+#### Adding RBAC profile to the build user
+
+Installing software requires privileges, so your build user must have at minimum the 'Software Installation' profile:
+
+```bash
+$ profiles
+Software Installation
+ZFS File System Management
+Console User
+Suspend To RAM
+Suspend To Disk
+Brightness
+CPU Power Management
+Network Autoconf User
+Desktop Removable Media User
+Basic Solaris User
+All
+```
+
+If it is not the case, add this profile to your build user:
+
+```bash
+pfexec su -
+usermod -P'Software Installation' <username>
+```
+
+This is not necessary if your user has already the 'Primary Administrator' profile.
+
+#### Downloading oi-userland
+
+Start by forking [oi-userland repository](https://github.com/OpenIndiana/oi-userland) on Github and then check out the repository (subdirectory oi-userland must not pre-exist):
+
+```bash
+cd ~
+git clone https://github.com/mylogin/oi-userland
+cd oi-userland
+```
+
+Add https://github.com/OpenIndiana/oi-userland/ as upstream to your repository to resync your repository with oi-userland.
+
+```bash
+git remote add upstream https://github.com/OpenIndiana/oi-userland/
+```
+
+Run the setup stage, which will prepare some tools, and create an IPS pkg5 repository for first use under the i386/build directory:
+
+```bash
+cd $HOME/oi-userland
+gmake setup
+```
+
+#### Adding the local repository to your publisher list
+
+```bash
+pfexec pkg set-publisher -g file://$HOME/oi-userland/i386/repo userland
+pfexec pkg set-publisher --non-sticky openindiana.org
+```
+
+#### Optional: Running a local pkg server for installation on other zones/hosts
+
+If you would like to use your oi-userland repository on other zones or hosts, you can run a pkg server:
+
+```bash
+$ pfexec svccfg -s  pkg/server
+svc:/application/pkg/server> add oi-userland
+svc:/application/pkg/server> select oi-userland
+svc:/application/pkg/server:oi-userland> addpg pkg application
+svc:/application/pkg/server:oi-userland> setprop pkg/inst_root=astring:"/export/home/username/oi-userland/i386/repo"
+svc:/application/pkg/server:oi-userland> setprop pkg/port=count:"10000"
+svc:/application/pkg/server:oi-userland> setprop pkg/readonly=boolean:"true"
+svc:/application/pkg/server:oi-userland> refresh
+svc:/application/pkg/server:oi-userland> exit
+$ pfexec svcadm enable oi-userland
+```
+
+On other hosts, you can then specify http://hostname:10000 instead of the file:// address above.
+If you only intend to install and test packages locally, this is not necessary as on-disk repository access suffices.
+
+### Building and installing your first packages
+
+Enter to oi-userland/components/PATH/TO/COMPONENT directory and run:
+
+```bash
+cd $HOME/oi-userland/components/SOFTWARE
+gmake env-prep
+gmake publish
+pfexec pkg refresh
+pfexec pkg install pkg://userland/PACKAGE_FMRI
+```
+
+Here PACKAGE_FMRI is a full name (FMRI) of package which you want to install. The FMRIs of published packages will be printed in the end of ``publish`` stage.
+Note, that running ``gmake env-prep`` is strictly not required, if you are sure that all build requirements are satisfied.
+
+To speed up the compilation you can pass an optional argument to gmake setting COMPONENT_BUILD_ARGS variable in your environment, for instance with
+
+```bash
+export COMPONENT_BUILD_ARGS=-j4
+```
+
+to use 4 jobs for builds.
+
+## Creating your first component
+
+The easiest way to create new component is to take one, which is similar to your, and modify it as needed. Also you can look at [Makefile templates](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/templates), delivered with oi-userland.
+
+### Creating Makefile
+
+Component Makefile usually contains variables, describing how component should be built, installed and packaged.
+On the top of Makefile component includes `../../../make-rules/shared-macros.mk`, where `../../../` - relative path from component directory to make-rules directory.
+File shared-macros.mk contains global constants used by other makefiles. Sometimes some global variables, altering these constans, are declare before this include.
+First section of Makefile contains definitions of component name, version, url, where software should be fetched from, short description embedded in package metadata and so on.
+Look, for example, at `library/libjpeg6-ijg/Makefile`:
 
 ```bash
 COMPONENT_NAME# libjpeg6-ijg
@@ -100,41 +210,25 @@ COMPONENT_LICENSE# IJG,GPLv2.0
 COMPONENT_LICENSE_FILE# $(COMPONENT_NAME).license
 ```
 
+Here
+
 | Variable | Value | Comment |
 |---|---|---|
-| COMPONENT_NAME | libjpeg6-ijg | Use the same name as in SFE or other Illumos userlands if applicable, otherwise follow Debian |
-| COMPONENT_VERSION | 6.0.2 | Should be numerical only, not letters |
-| LIBJPEG_API_VERSION | 6b | Local variable declared in the Makefile should be prefixed with the component's name |
-| COMPONENT_FMRI | image/library/libjpeg6-ijg | Follow the convention for the FMRI, check a similar component |
-| COMPONENT_CLASSIFICATION | System/Multimedia Libraries | This entry should be in the [OpenSolaris IPS Classification 2008](http://hub.openindiana.ninja/?q#content/opensolaris-ips-classification-2008) |
+| COMPONENT_NAME | libjpeg6-ijg | The name of the component, usually it's a well-known software name |
+| COMPONENT_VERSION | 6.0.2 | Software version. If version contains letters, IPS_COMPONENT_VERSION variable should define version used in package, as IPS version string doesn't allow letters |
+| LIBJPEG_API_VERSION | 6b | In this example this is a local variable declared in the Makefile.  |
+| COMPONENT_FMRI | image/library/libjpeg6-ijg | This variable can be used in IPS manifest to specify FMRI (a name) of the package. It should folllow convention for the package FMRIs. |
+| COMPONENT_CLASSIFICATION | System/Multimedia Libraries | This entry should be in the [OpenSolaris IPS Classification 2008](https://github.com/OpenIndiana/pkg5/blob/oi/doc/dev-guide/appendix-a.txt) |
 | COMPONENT_PROJECT_URL | http://www.ijg.org/ | Upstream project website |
 | COMPONENT_SUMMARY | libjpeg - Independent JPEG Group library version 6b | Short description, one-liner |
-| COMPONENT_SRC | jpeg-$(LIBJPEG_API_VERSION) |  |
-| COMPONENT_ARCHIVE | $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz | Only change the extension |
-| COMPONENT_ARCHIVE_HASH | sha256:75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d | To be generated |
-| COMPONENT_ARCHIVE_URL | http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz | Full path with archive filename if not equal to COMPONENT_ARCHIVE |
+| COMPONENT_SRC | jpeg-$(LIBJPEG_API_VERSION) | Name of source after unpacking archive |
+| COMPONENT_ARCHIVE | $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz | Software archive |
+| COMPONENT_ARCHIVE_HASH | sha256:75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d | SHA256 checksum of software archive |
+| COMPONENT_ARCHIVE_URL | http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz | URI to get COMPONENT_ARCHIVE |
 | COMPONENT_LICENSE | IJG,GPLv2.0 | Comma separated list of licenses |
-| COMPONENT_LICENSE_FILE | $(COMPONENT_NAME).license | Do not change |
+| COMPONENT_LICENSE_FILE | $(COMPONENT_NAME).license | File with license text |
 
-Run the first targets:
-
-* `gmake download`: if the checksum fails, replace `COMPONENT_ARCHIVE_HASH` with the actual hash.
-* `gmake unpack`: once the sources are extracted, concatenate the license files to $(COMPONENT_NAME).license, here "libjpeg6-ijg.license".
-* `gmake patch`: to apply patches.
-
-If you do not have any patches, you can as well run `gmake prep` directly.
-
-
-### Patch, Build and install
-
-The included .mk file depends on the build system, example:
-
-
-```bash
-include $(WS_TOP)/make-rules/configure.mk
-```
-
-Look in the `make-rules` directory for more
+Components are usually based on one of the following Makefiles, depending on build system used by packaged software (look in the `make-rules` directory for more makefiles):
 
 | File | Build |
 |---|---|
@@ -158,17 +252,23 @@ For example, you may add this line for an Autotools-based component:
 
 
 ```bash
-CONFIGURE_OPTIONS+# --enable-shared
+CONFIGURE_OPTIONS+= --enable-shared
 ```
 
-It is now up to you to: patch, play with the configuration flags and such...
-Do not hesitate to look around to see how it is done in other components !
+After creating component Makefile, you can run  `gmake prep`.
 
+Now you can create necessary patches for component and put them in patches directory.
 
-### Prepare the IPS manifest
+When component is built and installed correctly (via `gmake build` and `gmake install`), look if you can run test suite, coming with software.
+
+It's advised to put expected test ouput in test/results-BITS.master (where BITS are either 32 or 64) and ensure
+that `gmake test` target generates reproducible results.
+You can use COMPONENT_TEST_TRANSFORMS variable to set a list of sed directives to transform test output and
+make it reproducible.
+
+### Creating p5m files
 
 When the `install` target passes, you can run:
-
 
 ```bash
 gmake sample-manifest
@@ -178,7 +278,7 @@ to generate a manifest from the list of installed files.
 
 Copy the file `build/manifest-generated.p5m` to `$(COMPONENT_NAME).p5m` and edit it:
 
-* Add you name as contributor
+* Add your name as contributor
 * Remove unused entries from the manifest:
     * directories: `:%g/^dir/d` (Vim)
     * static libs: `:%g/.a$/d` (Vim)
@@ -188,10 +288,13 @@ Copy the file `build/manifest-generated.p5m` to `$(COMPONENT_NAME).p5m` and edit
 For some components, specific rules need to be applied: they can be implemented with *transforms*.
 Some example can be found in the directory with the same name at the root directory of oi-userland.
 
+### Publishing packages
 
-### Publish the package to your local repository
+After creating p5m file rung `gmake REQUIRED_PACKAGES` to automatically generate list of run-time dependencies of the package (REQUIRED_PACKAGES section of Makefile).
 
-Run `gmake publish`: if the dependencies are resolved and the manifest is valid, your package is published to the local repository.
+Add necessary build time dependencies on the top of generated section.
+
+Run `gmake publish`. If the manifest is valid, your package is published to the local repository.
 
 To be able to search for the new packages in the local repository you need to rebuild search indexes:
 
@@ -207,11 +310,9 @@ You can even rebuild the entire metadata:
 pkgrepo rebuild -s /path/to/my_repo
 ```
 
-### Install the package and test
+### Installing the package
 
 After you've published the package to your local repository and rebuilt the repository index or metadata, you can install the package and perform whatever testing is appropriate.
-
-When you ran `gmake setup` earlier, that step added the local repository with a default name of userland to the list of package publishers that `pkg` knows about.  It also made the local userland repository a higher priority than openindian.org.  You can verify the list of package publishers with:
 
 ```bash
 pkg publisher
@@ -228,12 +329,12 @@ If, however, the package you built is an updated version of an existing package,
 If `pkg` refuses to install the package from your local repository, it may be because the userland-incorporation is preventing updates to the version of the package:
 
 ```bash
-$ pfexec pkg update print/filter/hplip
+$ pfexec pkg update image/library/libjpeg6-ijg
 No updates available for this image.
-$ pfexec pkg update pkg://userland/print/filter/hplip@3.15.9,5.11-2017.0.0.2:20170228T235543Z
-pkg update: No matching version of print/filter/hplip can be installed:
-  Reject:  pkg://userland/print/filter/hplip@3.15.9-2017.0.0.2
-  Reason:  This version is excluded by installed incorporation consolidation/userland/userland-incorporation@0.5.11-2017.0.0.8131
+$ pfexec pkg update pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1:20180211T125627Z
+pkg update: No matching version of image/library/libjpeg6-ijg can be installed:
+  Reject:  pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1
+  Reason:  This version is excluded by installed incorporation consolidation/userland/userland-incorporation@0.5.11-2018.0.0.11745
 ```
 
 If you will be installing many test versions of packages on your development system, you may find it easiest to uninstall userland-incorporation.  Alternately, if you want to test a package on a system while keeping userland-incorporation, you can use `pkg change-facet` to relax the version constraint for just that package:
@@ -255,23 +356,46 @@ You only need to perform that operation on your development system once.
 Alternately, you can force `pkg` to apply an update from a different publisher by specifying the full FMRI for the package, including the publisher:
 
 ```bash
-pfexec pkg update pkg://userland/print/filter/hplip@3.15.9,5.11-2017.0.0.2:20170228T235543Z
+pfexec pkg update pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1:20180211T125627Z
 ```
 
+## Contributing changes back to oi-userland
 
-### Submit your component
+### Every time you add or modify a component, create a new branch:
 
-Once you've installed and tested the package, you are ready to clean up your branch and then submit a pull-request.
+```bash
+git checkout -b my_feature
+```
 
-First you need to *squash* all your commits into one, check how many commits are to be considered:
+### Keep this branch synchronized with upstream/oi/hipster:
 
+```bash
+git pull --rebase upstream oi/hipster
+```
+
+Your local branch is forwarded to the last commit of oi/hipster and your additional commits are kept on top of the stack.
+
+### Committing changes
+
+When you think you are ready with changes, you need to commit them locally and push those changes back to your Github repository.
+
+```bash
+cd ~/oi-userland/components/SOFTWARE
+git add Makefile *.p5m <etc.>
+git commit
+```
+
+Commit messages should be simple and describe what you did, e.g "Added XYZ", "XYZ: updated to SOME_VERSION", "XYZ: fixed SOMETHING" or "BUG_ID BUG_SUMMARY", where BUG_ID is issue number from issue tracker and BUG_SUMMARY is the issue name.
+
+If you've created several commits while working on your component, it's necessary to *squash* all your commits into one.
+
+To do it, first check how many commits are to be considered:
 
 ```bash
 git log
 ```
 
 then
-
 
 ```bash
 git rebase -i HEAD~N
@@ -281,15 +405,13 @@ with N the number of commits to be squashed, and follow the instructions: the le
 
 If you made a mistake with the commit message or author, use:
 
-
 ```bash
 git commit --amend
 ```
 
 with the relevant option.
 
-Then you are ready to push:
-
+Now push your changes to your repository to GitHub.
 
 ```bash
 git push my_name my_feature
@@ -304,4 +426,14 @@ git push -f my_name my_feature
 
 if the branch you just rebased had already been pushed: since the history is rewritten you need to force the push, be careful.
 
-Go to your Github profile and open a pull request.
+### Asking for change integration
+
+This is as simple as creating a Pull Request into the main oi-userland repository and asking developers to review your changeset. We should beware of possibly breaking packages as it adds additional work and can be unpleasant for other contributors (imagine a situation where gcc, perl or anything else needed for building packages is broken).
+
+Changes can be reverted quite easily, but once the package is built and published additional steps are needed. So try taking per-package testing and asking for wider testing into consideration.
+
+If you contribute a package, which is known to work, but its functionality might be broken because of some issues, consider disabling it till the issue is not removed.
+
+### Checking Jenkins instance
+
+Once the changes are merged into the main oi-userland repository, Jenkins instance will pick up those bits and build them. If the build was successful, the built packages will be pushed into http://pkg.openindiana.org/hipster repository. If the package build was unsucessful, check build logs and please try to come up with a solution and fix the problem, so you can have package published into the repository.
