@@ -1,51 +1,47 @@
 site_name: OpenIndiana Docs
 site_url: http://docs.openindiana.org
-site_favicon: favicon.ico
 repo_url: https://github.com/OpenIndiana/oi-docs.git
 use_directory_urls: true
 google_analytics: ['UA-77447740-2', 'auto']
 theme: spacelab
+nav:
+        - Home: index.md
+        
+        - About:
+                - 'About OpenIndiana': misc/openindiana.md
+                - 'About OpenIndiana Docs': misc/oi-docs.md
+                - 'OpenIndiana Code of Conduct': misc/conduct.md
+                - 'Public Documentation License': misc/pdl.md
+        
+        - Handbook:
+                - 'Getting Started': handbook/getting-started.md
+                - 'Common Tasks': handbook/common-tasks.md
+                - 'Systems Administration': handbook/systems-administration.md
+                - 'Network Communications': handbook/network-communications.md
+                - 'Appendix': handbook/appendix.md
+                - 'Community Contributed Tutorials': handbook/community.md
+                - "Developer's Corner":
+                         - 'Building with oi-userland': dev/userland.md
+        
+        - 'OpenSolaris Books':
+                - 'About OpenSolaris Books': books/about.md
+                - 'Basic Administration': books/basic.md
+                - 'Advanced Administration': books/advanced.md
+                - 'Solaris Express Administration': books/express.md
+                - 'Trusted Extensions Administration': books/trusted.md
+                - 'Development Titles': books/develop.md
+        
+        - Contrib:
+                - 'Content Creation': contrib/content.md
+                - 'Getting Started': contrib/getting-started.md
+                - 'Contributor Tools' : contrib/tools.md
+                - 'Contributor Roles': contrib/roles.md
+                - 'Contributor Topics': contrib/topics.md
+                - 'Contributor Style Guide': contrib/style.md
+                - 'Markdown Syntax Guide': contrib/markdown.md
+                - 'Git Usage Guide': contrib/git.md
 extra:
         theme_inverse: true
-pages:
-
-- Home: index.md
-
-- About:
-        - 'About OpenIndiana': misc/openindiana.md
-        - 'About OpenIndiana Docs': misc/oi-docs.md
-        - 'OpenIndiana Code of Conduct': misc/conduct.md
-        - 'Public Documentation License': misc/pdl.md
-
-- Handbook:
-        - 'Getting Started': handbook/getting-started.md
-        - 'Common Tasks': handbook/common-tasks.md
-        - 'Systems Administration': handbook/systems-administration.md
-        - 'Network Communications': handbook/network-communications.md
-        - 'Appendix': handbook/appendix.md
-        - 'Community Contributed Tutorials': handbook/community.md
-
-- 'OpenSolaris Books':
-        - 'About OpenSolaris Books': books/about.md
-        - 'Basic Administration': books/basic.md
-        - 'Advanced Administration': books/advanced.md
-        - 'Solaris Express Administration': books/express.md
-        - 'Trusted Extensions Administration': books/trusted.md
-        - 'Development Titles': books/develop.md
-
-- Dev:
-        - 'Building with oi-userland': dev/userland.md
-
-- Contrib:
-        - 'Content Creation': contrib/content.md
-        - 'Getting Started': contrib/getting-started.md
-        - 'Contributor Tools' : contrib/tools.md
-        - 'Contributor Roles': contrib/roles.md
-        - 'Contributor Topics': contrib/topics.md
-        - 'Contributor Style Guide': contrib/style.md
-        - 'Markdown Syntax Guide': contrib/markdown.md
-        - 'Git Usage Guide': contrib/git.md
-
 
 copyright: Copyright &copy; 2016 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
 
