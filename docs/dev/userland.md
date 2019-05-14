@@ -6,10 +6,13 @@ A copy of the License is available at http://illumos.org/license/PDL.
 
 The Original Documentation is _________________.
 
-The Initial Writer of the Original Documentation is Aurelien Larcher Copyright (C) 2016 [Insert year(s)].
+The Initial Writer of the Original Documentation is Aurelien Larcher Copyright (C) 2016.
 All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
 
 Contributor(s): Johnathan Jenkins, Michael Kruger, Theodore Seán Tubbs
+
+Portions created by Adam Stevko are Copyright (C) 2016.
+Portions created by Alexander Pyhalov are Copyright (C) 2019.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
