@@ -36,7 +36,7 @@ Final images will be located in ``media`` directory under ``<build_area>``.
 Distribution constructor logs will be available in ``logs`` directory.
 
 OpenIndiana ships three variant of images: image for desktops with Mate-based GUI, image with set of packages for typical server with text installer and image with minimal set of packages with text installer.
-Ecah image is described by own distribution constructor manifest.
+Each image is described by it's own distribution constructor manifest.
 
 Image type | Manifest location
 -----------|------------------------------------------------
