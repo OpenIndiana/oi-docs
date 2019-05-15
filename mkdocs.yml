@@ -22,6 +22,7 @@ nav:
                 - 'Community Contributed Tutorials': handbook/community.md
                 - "Developer's Corner":
                          - 'Building with oi-userland': dev/userland.md
+                         - 'Using distribution constructor': dev/distribution-constructor.md
         
         - 'OpenSolaris Books':
                 - 'About OpenSolaris Books': books/about.md
