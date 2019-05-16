@@ -76,16 +76,22 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 
 #### Install python-pip
 
+If your OS doesn't provide pre-packaged mkdocs, you'll need to install python-pip.
+This is not necessary on OpenIndiana.
+
 | Operating System | Command
 | --- | ---
 | Arch | `pacman -S python-pip`
 | Centos/RHEL | `yum install python-pip`
 | Debian/Mint/Ubuntu | `apt-get install python-pip`
 | Fedora | N/A - (Included with Fedora 25)
-| OpenIndiana | N/A - (Use MkDocs IPS package)
+| OpenIndiana | Not needed - (Use MkDocs IPS package)
 
 
 #### Install rubygems
+
+If your OS doesn't provide pre-packaged mdl, you'll need to install Ruby Gems.
+This is not necessary on OpenIndiana.
 
 | Operating System | Command
 | --- | ---
@@ -93,7 +99,7 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 | Centos/RHEL | `yum install rubygems`
 | Debian/Mint/Ubuntu | `apt-get install rubgems-integration`
 | Fedora | `dnf install rubygems`
-| OpenIndiana | `pkg install ruby`
+| OpenIndiana | Not needed - (Use mdl IPS package)
 
 
 #### Install mkdocs
@@ -117,31 +123,13 @@ For example:
 
 #### Install Markdown Lint (mdl)
 
+On OpenIndiana you can install mdl using standard package management tools:
+
+* `pkg install developer/documentation-tool/mdl`
+
 For most operating systems:
 
 * `gem install mdl`
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-
-For OpenIndiana, you will need to add the Ruby Gem directory path to your $PATH variable.
-To do so, add the following to your `.bashrc` (or similar file if you use a
-different shell):
-
-```
-PATH=$PATH:/usr/ruby/2.3/bin/
-export PATH
-```
-
-To immediately effect this change, source your `.bashrc` as follows:
-
-```bash
-source ~/.bashrc
-```
-
-To verify `mdl` is now accessible, test using the command: `which mdl` or alternately: `mdl --version`.
-
-</div>
 
 #### Install Markdown plugin for VIM or Emacs(optional)
 
