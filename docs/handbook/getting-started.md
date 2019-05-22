@@ -1542,13 +1542,6 @@ As such, the pkg related man pages are not available on the illumos.org website.
 These pages are only available by running the man page viewer locally on your system.
 </div>
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-Have a look at: [pgk cheat sheet](https://wiki.openindiana.org/oi/pkg+Cheat+Sheet) to see whether there is anything there which we might want to import and validate.
-
-</div>
-
 ### Introduction
 
 <!--The majority of the text below was taken from the PDL licensed document titled 'Getting Started with OpenSolaris 2008.11' -->
