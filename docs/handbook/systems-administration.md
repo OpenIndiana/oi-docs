@@ -498,10 +498,10 @@ Once zone is booted you can log in locally with `zlogin example`. If you created
 Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
 </div>
 
-#### System repository configuration
+### System repository configuration
 
-In latest OpenIndiana versions (starting from November 2017) it's possible to configure so-called zone proxy daemon. This configuration is intended to use GZ proxy service for NGZs to access configured publishers
-and can be useful for sharing pkg cache between zones or to provide network access for performing updates to otherwise restricted zone environment (i.e. to zone without Internet access).
+On OpenIndiana it is possible to allow NGZs to access configured publishers via GZ proxy service (so-called zone proxy daemon).
+This can be useful for sharing pkg cache between zones or to provide network access for performing updates to otherwise restricted zone environment (i.e. to zone without Internet access).
 
 The functionality is provided by series of services in GZ and NGZs. In GZ two services are running: system repository service and zones proxy daemon (see `pkg.sysrepo(1M)`). In NGZ zones proxy client
 communicates with GZ's zone proxy daemon.
@@ -548,6 +548,36 @@ To revert your zone to proxy-less configuration, run
 
 ```
 # pkg set-property use-system-repo False
+```
+
+### Troubleshooting
+
+Zone configuration and management operations can fail for a number of reasons, sometimes obscure.
+This section contains information on how to solve different well-known issues.
+
+#### Fixing zone installation issues
+
+Zones on OpenIndiana use ZFS features to manage boot environments.
+Zone's root and its parent directory should be a ZFS dataset.
+It's not enough for zone's root (or its parent directory) to be just a directory on ZFS filesystem.
+If you try to create a zone which root doesn't satisfy this requirement, you can get the following error:
+
+```
+# zoneadm -z example install
+Sanity Check: Looking for 'entire' incorporation.
+ERROR: the zonepath must be a ZFS dataset.
+The parent directory of the zonepath must be a ZFS dataset so that the
+zonepath ZFS dataset can be created properly.
+```
+
+To fix this, you can just uninstall the zone and create its root dataset manually:
+
+```
+# zoneadm -z example uninstall
+Are you sure you want to uninstall zone example (y/[n])? y
+# zfs create rpool/zones/example
+# chmod 700 /zones/example
+# zoneadm -z example install
 ```
 
 ## Storage
