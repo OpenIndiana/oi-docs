@@ -217,7 +217,7 @@ pkg set-publisher \
 -g https://pkg.openindiana.org/hipster openindiana.org
 ```
 
-For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started/#the-image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.
+For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started.md#the-image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.
 
 
 ## What books are available to help with learning OpenIndiana?

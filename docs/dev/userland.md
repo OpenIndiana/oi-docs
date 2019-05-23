@@ -79,7 +79,7 @@ This will ensure efforts aren't duplicated and help to ensure sanity and comity 
 
 ### Setting up your build environment
 
-We strongly recommend building packages inside a fresh local zone set up exclusively for building. See [Quick zone setup example](../handbook/systems-administration/#quick-setup-example) for simple instructions.
+We strongly recommend building packages inside a fresh local zone set up exclusively for building. See [Quick zone setup example](../handbook/systems-administration.md#quick-setup-example) for simple instructions.
 
 Further we assume that you are logged into the build zone if you set up the build environment in a zone, the directory were oi-userland is cloned can otherwise be anywhere you like.
 
