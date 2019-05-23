@@ -1,6 +1,6 @@
 site_name: OpenIndiana Docs
 site_url: http://docs.openindiana.org
-repo_url: https://github.com/OpenIndiana/oi-docs.git
+repo_url: https://github.com/OpenIndiana/oi-docs/
 use_directory_urls: true
 google_analytics: ['UA-77447740-2', 'auto']
 theme: spacelab
