@@ -1490,7 +1490,7 @@ When booting from the text based installer, you are presented with the following
 * Install OpenIndiana
 * Spawn a shell to be used as a rescue disk.
 
-The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started/#install-openindiana-using-the-text-installer)
+The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started.md#install-openindiana-using-the-text-installer)
 
 
 ## Troubleshooting Installations
