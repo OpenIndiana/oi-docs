@@ -22,6 +22,7 @@ nav:
                 - 'Community Contributed Tutorials': handbook/community.md
                 - "Developer's Corner":
                          - 'Building with oi-userland': dev/userland.md
+                         - 'Building legacy consolidations': dev/legacy-consolidations.md
                          - 'Packaging and Delivering Software with IPS': dev/pdf/ips-dev-guide.pdf
                          - 'Using distribution constructor': dev/distribution-constructor.md
         
