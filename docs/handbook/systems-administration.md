@@ -396,18 +396,32 @@ Zones are an OpenIndiana feature that provides <a href="http://www.wikipedia.org
 
 The global zone (GZ) is the operating system itself, which has hardware access. From the global zone, non-global zones (NGZ) are created and booted. Boot time for non-global zones is very fast, often a few seconds. The CPU, network, and memory resources for each zone can be controlled from the global zone, ensuring fair access to system resources. Disk space access is usually controlled by ZFS (with quotas and reservations if needed), as well as mounting of filesystem resources with NFS or lofs. As with other forms of virtualization, each zone is isolated from the other zones – zones cannot see processes or resources used in other zones. The low marginal cost of a zone allows large systems have tens or even hundreds of zones without significant overhead. The theoretical limit to the number of zones on a single platform is 8,192.
 
-Different releases of (Open)Solaris used different packaging distribution method for the global zone. OpenIndiana zones use two basic brands - "ipkg" and "nlipkg", which are based on IPS Packaging. The brand determines how zone is initialized and how zone's processes are treated by kernel. Both type of zones represent a PKG image. "ipkg"-branded zones are tightly coupled with GZ.Image pakaging system (IPS) knows about ipkg-branded zones and can perform several actions simultaneously in GZ and NGZ. For example, you can update all your zones and GZ with a single "pkg update -r" command. IPS can ensure some depenencies between packages in GZ and NGZ. To allow this it cheks that NGZ's publishers are a superset of GZ's publishers and their properties are the same (for example, stickiness or repository location). As this is not always suitable for development zones, "nlipkg"-branded zones were introduced. "nlipkg"-branded zone behave like completely independent instance and IPS ignores them during operations in GZ.
+Different releases of (Open)Solaris used different packaging distribution method for the global zone. OpenIndiana zones use two basic brands - "ipkg" and "nlipkg", which are based on IPS Packaging. The brand determines how zone is initialized and how zone's processes are treated by kernel. Both type of zones represent a PKG image. "ipkg"-branded zones are tightly coupled with GZ. Image pakaging system (IPS) knows about ipkg-branded zones and can perform several actions simultaneously in GZ and NGZ. For example, you can update all your zones and GZ with a single "pkg update -r" command. IPS can ensure some depenencies between packages in GZ and NGZ. To allow this it cheks that NGZ's publishers are a superset of GZ's publishers and their properties are the same (for example, stickiness or repository location). As this is not always suitable for development zones, "nlipkg"-branded zones were introduced. "nlipkg"-branded zone behave like completely independent instance and IPS ignores them during operations in GZ.
 
 An easy way to implement zones is to use a separate ZFS file system as the zone root's backing store. File systems are easy to create in ZFS and zones can take advantage of the ZFS snapshot and clone features. Due to the strong isolation between zones, sharing a file system must be done with traditional file sharing methods (eg NFS).
 
 When each zone is created  it comes with a minimal set of packages, and from there you can add and use most packages and applications as required.
+
+### Zone networking model
+
+OpenIndiana zones can use one of two networking models: a shared IP stack and an exclusive IP stack. There are pros and cons to each of them.
+
+Low-level system networking components, such as the ipfilter firewall and the kernel IP routing tables attach to an "IP stack", and are thus either unique to a zone or shared by all zones with the one shared stack. There are also some other nuances, such as that the zones with the shared stack can communicate over IP directly, regardless of their subnetting and, to some extent, default firewall packet filtering (that has to be specially configured), while exclusive-IP zones with addresses in different subnets have to communicate over external routers and are subject to common firewall filtering.
+
+The global zone defines which physical networks and VLANs the NGZ has access to, and hands down the predefined networking interfaces (the NGZ can not use or create other interfaces). Also, while shared networking allows to configure and attach (or detach) network interfaces from GZ to the NGZ "on the fly", changes in exclusive networking require reboot of the zone to propagate device delegation.
+
+A zone with an exclusive IP stack can have all the benefits of dedicated hardware networking, including a firewall, access to promiscuous sniffing, routing, configuration of its own IP address (including use of DHCP and static network addressing), etc. This requires a fully dedicated NIC. Usually this is a VNICs - a virtual adapter with own MAC address, that operate as if the VNIC was plugged directly into local LAN in a particular (or default) VLAN. Note also that the local zones with an exclusive IP stack are not subject to the host's shared-stack firewall.
+
+<div class="well">
+Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.
+</div>
 
 ### Quick Setup Example
 
 Zone creation consists of two steps - creating zone configuration and zone installation or cloning. Zone configuration determines basic parameters, such as zone's root location and provided resources.
 Zone configuration is performed using zonecfg tool, zone administration (for example, installation) is performed using zoneadm tool.
 
-For example, we create a simple zone:
+For example, we create a simple zone with shared networking model:
 
 ```
 # zonecfg -z example
@@ -434,6 +448,36 @@ After network configuration `zonepath` is set. It's a location for zone's root f
 The `verify` command checks that no mistakes were made.
 Finally changes are committed (saved to zone configuration file).
 
+If you want to use dedicated networking for your zone, you should create VNIC and delegate it to the zone.
+
+```
+# dladm create-vnic -l e1000g0 vnic0
+```
+
+If you want to specify VLAN id for VNIC, use `-v` `dladm create-vnic` option:
+
+```
+# dladm create-vnic -l e1000g0 -v 123 vnic0
+```
+
+Now you can create your zone and delegate VNIC to it (note that we set zone's `ip-type` to `exclusive`):
+
+```
+# zonecfg -z example
+example: No such zone configured
+Use 'create' to begin configuring a new zone.
+zonecfg:example> create
+zonecfg:example> set ip-type=exclusive
+zonecfg:example> add net
+zonecfg:example:net> set physical=vnic0
+zonecfg:example:net> end
+zonecfg:example> set zonepath=/zones/example
+zonecfg:example> verify
+zonecfg:example> commit
+zonecfg:example> exit
+
+```
+
 After configuring a zone you can install it with `zoneadm install` subcommand:
 
 ```
@@ -448,7 +492,7 @@ you should set autoboot parameter to true during zone configuration:
 zonecfg:example> set autoboot=true
 ```
 
-Once zone is booted you can log in locally with `zlogin example`, or you can ssh in via the IP address you provided to zone config.
+Once zone is booted you can log in locally with `zlogin example`. If you created zone with dedicated network adapter, you should configure it inside zone.
 
 <div class="well">
 Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
