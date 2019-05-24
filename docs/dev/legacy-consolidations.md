@@ -27,15 +27,33 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 Initial OpenIndiana versions were based on the same release process as OpenSolaris, assembled from a set of software consolidations.
 This complex Release Engineering has been deprecated in favour of the unified build system oi-userland: the list of consolidation and corresponding build instructions are left here as reference.
 
+ Consolidation        | Description
+--------------------- | -----------
+ onnv-gate            | Operating System/Networking Nevada consolidation provided OpenSolars kernel and core userland components
+ illumos-gate         | illumos-gate provides kernel and core userland components
+ oi-build             | oi-build provided some userland components and was a oi-userland predecessor
+ IPS/pkg              | Image Packaging System provides package management software and some zone brands definitions
+ SFW                  | Solaris Freeware consolidation provided open source software bundled with operating system
+ XNV                  | X11 Nevada consolidation provided Xorg server and related software
+ JDS                  | Java Desktop System consolidation provided Gnome2 and other desktop software
+ Caiman (slim_source) | slim_source provides operating system installers and Distribution Constructor
+ vpanels              | Visual Panels provided server management GUI
+ sunpro/devpro        | Sunpro consolidation provided Sun Studio compilers and some related libraries
+ xvm                  | Contained Sun xVM virtualization software based on Xen
+ g11n                 | Globalization consolidation contained internationalisation software
+ solaris_re           | Contained software related to Solaris engineering
+ cde                  | Provided Common Desktop Environment
+
 ## Primary software consolidations
 
  Consolidation | Oracle Solaris link                   | Original Openindiana HG link                             | Status                                  | OpenIndiana Hipster link | Build instructions
 -------------- |---------------------------------------| -------------------------------------------------------- | ----------------------------------------| ------------------------ | ------------------
+ onnv-gate     | N/A (closed source) | N/A  | Replaced by illumos-gate |  N/A | N/A
  illumos-gate  | N/A | <https://github.com/OpenIndiana/illumos-gate/>  | Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/illumos-gate">oi-userland</a> | <https://github.com/illumos/illumos-gate/> | <https://illumos.org/docs/developers/build/>
  oi-build      | <https://github.com/Oracle/solaris-userland/> | <https://hg.openindiana.org/sustaining/oi_151a/oi-build/> | Superceded by <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a> | <https://github.com/OpenIndiana/oi-userland> | [Building oi-build](#building-oi-build)
  IPS/pkg       | <https://github.com/Oracle/solaris-ips/> | <https://hg.openindiana.org/sustaining/oi_151a/pkg-gate/>  | Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg">oi-userland</a> | <https://github.com/OpenIndiana/pkg5/> | [Building IPS/pkg](#building-ipspkg)
  SFW           | N/A (merged into <a href="http://github.com/Oracle/solaris-userland/">solaris-userland</a>) | <https://hg.openindiana.org/sustaining/oi_151a/sfw-gate/> | Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a>| N/A | [Building SFW](#building-sfw)
- XNV           | <https://github.com/Oracle/solaris-xorg/> (merged into <a href="https://github.com/oracle/solaris-userland/tree/master/components/x11">solaris-userland</>)| <https://hg.openindiana.org/sustaining/oi_151a/xnv/>|  Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a> | N/A | [Building XNV](#building-xnv)
+ XNV           | <https://github.com/Oracle/solaris-xorg/> (merged into <a href="https://github.com/oracle/solaris-userland/tree/master/components/x11">solaris-userland</a>)| <https://hg.openindiana.org/sustaining/oi_151a/xnv/>|  Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a> | N/A | [Building XNV](#building-xnv)
  JDS           | N/A  (merged into <a href="https://github.com/Oracle/solaris-userland/">solaris-userland</a>) | <https://hg.openindiana.org/sustaining/oi_151a/spec-files/> | Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a>| N/A | [Building JDS](#building-jds)
  Caiman (slim_source) | N/A | <https://hg.openindiana.org/sustaining/oi_151a/slim_source/> | Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source">oi-userland</a> | <https://github.com/OpenIndiana/slim_source/> | [Building slim_source](#building-slim_source)
  vpanels       | N/A (dropped) | N/A | Dropped | N/A | N/A
