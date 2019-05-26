@@ -300,7 +300,7 @@ For a full list of links to the various installer images, visit the following pa
 
 For a complete list of alternate mirrors (Asia, Europe, North America, etc.)
 
-* [OpenIndiana Download Mirrors](https://wiki.openindiana.org/oi/Mirrors)
+* [OpenIndiana Download Mirrors](./openindiana-download-mirrors.md)
 
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
