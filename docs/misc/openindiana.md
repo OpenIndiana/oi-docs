@@ -168,7 +168,7 @@ Primary download mirror (London, England):
 
 Alternate mirrors (Asia, Europe, and North America)
 
-* <https://wiki.openindiana.org/oi/Mirrors>
+* [OpenIndiana Mirrors](../handbook/openindiana-download-mirrors.md)
 
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
