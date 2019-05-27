@@ -1501,7 +1501,6 @@ The procedure for installing from the text based installer follows the same proc
     * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
     * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
 
-
 ## Post Installation Steps
 
 ### Boot Menu - Post Install
@@ -1519,7 +1518,6 @@ Option # 6 allows you to select from among them.
 After using OpenIndiana for a period of time, several boot environments will accumulate, with the label for each environment incrementing numerically.
 The image above illustrates what this looks like on a system with several boot environment choices.
 
-
 ### Resetting the root password
 
 After installation, the root password is immediately expired and you will be required to change it.
@@ -1532,6 +1530,133 @@ Use the following steps to change the root password:
 * Once changed you can exit the su session
 * You should be able to login/authenticate as root now.
 
+## Updating OpenIndiana /dev to /hipster
+
+This section describes how to update your existing OpenIndiana /dev installation to OpenIndiana /hipster.
+
+Note, that although direct updating from /dev to /hipster can be possible, it's not exhaustively tested.
+
+There are several techniques which you can use to update your systems, including root pool installation from OpenIndiana ISO.
+Complete reinstall also can be a decent option.
+
+Further it's considered that you were warned and decided to do more-or-less direct update from /dev to /hipster.
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Only server installation update was tested.
+If you do GUI installation update, you are on your own.
+Of course, you are welcome to ask questions in <a href="https://openindiana.org/mailman/listinfo/oi-dev">oi-dev</a> mailing list, but prepare that nobody will guide you through update.
+</div>
+
+* Do backup.
+  <br/>Seriously.
+  The next steps can make your system unbootable.
+
+* Read release notes.
+  <br/>Read release notes for ALL OpenIndiana Hipster snapshots.
+  They contain information on system changes and possible troubles which can appear.
+  Read [Loader Integration](https://www.openindiana.org/2016/09/28/loader-integration/)
+
+* Test your actions in non-production environment.
+  <br/>Consider that last significant OpenIndiana /dev update was many years ago.
+  You are going to update your applications perhaps via several major releases.
+  Prepare for the changes.
+
+* You'll need console access to the server.
+  <br/>Without console access and ability to boot fresh OpenIndiana Hipster ISO image, you'll not be able to activate new boot environment: old tools can't work with new facilities, new tools will not work with old kernel.
+
+* Update to the latest OpenIndiana /dev version.
+
+```
+# pkg update -v
+```
+
+* Create new boot environment, which you'll update to /hipster, and mount it to `/mnt` (the default empty temporary mountpoint directory).
+
+```bash
+# beadm create oi-hipster
+# beadm mount oi-hipster /mnt
+```
+
+* Uninstall all packages coming from opensolaris.org, sfe or sfe-encumbered publishers.
+
+```bash
+# pkg -R /mnt list pkg://sfe/* pkg://sfe-encumbered/* pkg://opensolaris.org/*
+# pkg -R /mnt uninstall <list of matched packages>
+```
+
+* Unset sfe, sfe-encumbered, opensolaris.org publishers in new BE if they were used.
+
+```bash
+# pkg -R /mnt unset-publisher opensolaris.org
+...
+```
+
+* Change publisher to <http://pkg.openindiana.org/hipster>.
+
+```bash
+# pkg -R /mnt set-publisher -g http://pkg.openindiana.org/hipster -G http://pkg.openindiana.org/dev openindiana.org
+```
+
+* Refresh IPS catalog.
+
+```bash
+# pkg -R /mnt refresh --full
+```
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Two following steps are actually better to run under <code>screen(1)</code> or <code>tmux(1)</code>
+</div>
+
+* Look what IPS is going to do.
+
+```bash
+# pkg -R /mnt update -nv 2>&1 | tee /root/testing_update
+# less /root/testing_update
+```
+
+* If you are satisfied with what you've seen, run actual update and review `pkg(1)` output.
+
+```bash
+# pkg -R /mnt update -v 2>&1 | tee /root/update
+# less /root/update
+```
+
+* Now you have updated boot environment, but have no means to activate it, so you'll have to boot from recent OpenIndiana minimal ISO.
+  <br/>After booting from ISO run shell, import pool, update boot archive, install boot loader, activate new boot environment and reboot.
+  `c2t0d0s0` disk name is used in example, you should look at `zpool status` output and use corresponding device.
+  You'd better use cpio boot archive format due to existing issue in compressed ufs boot archive support.
+
+```bash
+# zpool import -R /tmp rpool
+# beadm mount oi-hipster /mnt
+# bootadm update-archive -R /mnt/tmp -vf -F cpio
+# installboot -mvF  /mnt/tmp/boot/pmbr /mnt/tmp/boot/gptzfsboot /dev/rdsk/c2t0d0s0
+# beadm activate oi-hipster
+# init 6
+```
+
+* When your new boot environment is booting, look at possible error messages.
+  <br/>You can see warnings about inability to import some manifests.
+  After logging in you'll be able to import them manually with svccfg import.
+  Also you'll have to remove metainit service, which has gone with SVM support.
+
+```bash
+# svccfg -s metainit delete default
+```
+
+* Look if there are any failed services and examine their log files.
+
+```bash
+# svcs -xv
+```
+
+* Ensure that you have latest osnet-incorporation and userland-incorporation installed.
+
+```bash
+# pkg info osnet-incorporation userland-incorporation
+```
 
 ## Image Package System (IPS)
 
