@@ -12,6 +12,17 @@ nav:
                 - 'About OpenIndiana Docs': misc/oi-docs.md
                 - 'OpenIndiana Code of Conduct': misc/conduct.md
                 - 'Public Documentation License': misc/pdl.md
+                - 'Release Notes':
+                         - 'Latest changes': release-notes/latest-changes.md
+                         - '2019.04 Release Notes': release-notes/2019.04-release-notes.md
+                         - '2018.10 Release Notes': release-notes/2018.10-release-notes.md
+                         - '2018.04 Release Notes': release-notes/2018.04-release-notes.md
+                         - '2017.10 Release Notes': release-notes/2017.10-release-notes.md
+                         - '2017.04 Release Notes': release-notes/2017.04-release-notes.md
+                         - '2016.10 Release Notes': release-notes/2016.10-release-notes.md
+                         - '2016.04 Release Notes': release-notes/2016.04-release-notes.md
+                         - '2015.10 Release Notes': release-notes/2015.10-release-notes.md
+                         - '2015.03 Release Notes': release-notes/2015.03-release-notes.md
         
         - Handbook:
                 - 'Getting Started': handbook/getting-started.md
