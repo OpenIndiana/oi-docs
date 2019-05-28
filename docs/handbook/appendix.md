@@ -60,25 +60,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
     * To pipe the output of a man page to a text file use the command: `man [manpage] | col -x -b > [filename].txt`.
     * For example: `man pkg | col -x -b > pkg.txt`
 
-### Web based support resources
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-The content for this section was originally pulled from the OpenIndiana FAQ and since has been expanded here.
-We may want to revisit the FAQ and pull these changes over.
-</div>
-
-| Resource | URL
-| --- | ---
-| User Support IRC channel | <ul><li>[#openindiana (irc.freenode.net)](irc://irc.freenode.net/openindiana)</li><li>[channel logs (echelog)](http://echelog.com/logs/browse/openindiana/)</li></ul>
-| Development IRC channel | <ul><li>[#oi-dev (irc.freenode.net)](irc://irc.freenode.net/oi-dev)</li><li>[channel logs (echelog)](http://echelog.com/logs/browse/oi-dev/)</li></ul>
-| Documentation IRC channel | [#oi-documentation (irc.freenode.net)](irc://irc.freenode.net/oi-documentation)
-| User Support Mailing List | <ul><li>[openindiana-discuss](https://openindiana.org/mailman/listinfo/openindiana-discuss)</li><li>[openindiana-discuss archives](https://openindiana.org/pipermail/openindiana-discuss/)</li></ul>
-| Development Mailing List | <ul><li>[oi-dev](https://openindiana.org/mailman/listinfo/oi-dev)</li><li>[oi-dev archives](https://openindiana.org/pipermail/oi-dev/)</li></ul>
-| OpenIndiana Wiki | <https://wiki.openindiana.org>
-| OpenIndiana Bug Tracker | <https://www.illumos.org/projects/openindiana/issues>
-
-
 ## IPS Command Matrix
 
 | Task | IPS Command | apt Equivalent
