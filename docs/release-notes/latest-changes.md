@@ -162,7 +162,7 @@ Date       | Change
 2015-11-05 | Apache 2.4 now ships mod_http2 to suport HTTP/2 connections.
 2015-11-03 | OpenSSL was updated to 1.0.2d. It should be mostly ABI-compatible to 1.0.1. One notable exception is SSH. It checks that it runs against the version it was compiled. So, you have to update to latest illumos-gate bits or all ssh clients and servers will be broken (pkg update will take care for you if you don't use self-compiled illumos-gate, in case you do, you should recompile it). Note that if you have updated OpenSSL and old ssh bits, default gnome login will fail as it calls ssh-agent.
 2015-11-02 | php 5.6 is added
-2015-10-28 | nlipkg zone brand introduced. This brand behaves like old ipkg brand and allows creation of non-linked images. Usage instructions are here - http://wiki.openindiana.org/oi/Linked+images+and+nlipkg+zone+brand
+2015-10-28 | nlipkg zone brand introduced. This brand behaves like old ipkg brand and allows creation of non-linked images. Usage instructions are [here](../handbook/systems-administration.md#zones)
 2015-10-27 | updates from /dev to /hipster-2015 now can be possible (look at verbose instructions here -  http://openindiana.org/pipermail/oi-dev/2015-October/003823.html)t
 2015-10-04 | entire now depends on userland consolidation, which locks all packages to latest versions.
 2015-10-04 | visual panels were dropped
@@ -252,7 +252,7 @@ Date       | Change
 2014-01-16 | Python 2.4 is deprecated
 2014-01-15 | Thunderbird is updated to 24.2.0
 2014-01-08 | Firefox is updated to 17.0.6 ESR, OpenJDK 1.7.45 and icedtea-web 6ec72d653144 are used as java browser plugin.
-2013-12-10 | IPS was updated. IPS GUI - package-manager and update-manager - was removed. If you hosted local IPS servers you have to recreate services, which supported these servers.  Procedure is the same (and described, for example, here http://wiki.illumos.org/display/illumos/Redistributing+built+packages ) , but old services just don't work after update.
+2013-12-10 | IPS was updated. IPS GUI - package-manager and update-manager - was removed. If you hosted local IPS servers you have to recreate services, which supported these servers.  Procedure is the same, but old services just don't work after update.
 2013-11-14 | PostgreSQL 8.2 and 8.3 packages removed (replaced by PostgreSQL 9.3, which is now a default PostgreSQL version)
 2013-10-11 | PHP 5.2 removed (replaced by PHP 5.4)
 2013-08-20 | MariaDB 5.5 is used as default MySQL provider
