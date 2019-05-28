@@ -271,7 +271,7 @@ OpenIndiana is a community-based project, it relies on contributions from the co
 There are different aspects of the project and opportunities to contribute.
 
 Below is a brief overview of different ways to get involved in the project.
-In addition, there is a more specific list of open tasks.
+In addition, there is a more specific [list of existing tasks](../dev/existing-tasks.md).
 If you are interested in working in one of these areas or if you have further questions please do not hesitate to get in touch with us.
 
 Our small community is always happy to welcome new users and contributors:
