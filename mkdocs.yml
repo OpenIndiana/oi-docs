@@ -26,6 +26,7 @@ nav:
                          - 'Building legacy consolidations': dev/legacy-consolidations.md
                          - 'Packaging and Delivering Software with IPS': dev/pdf/ips-dev-guide.pdf
                          - 'Using distribution constructor': dev/distribution-constructor.md
+                         - 'Existing tasks': dev/existing-tasks.md
         
         - 'OpenSolaris Books':
                 - 'About OpenSolaris Books': books/about.md
