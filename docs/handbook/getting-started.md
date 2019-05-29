@@ -898,13 +898,6 @@ For some guidance writing this section:
 * Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
 </div>
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-If your intention is to multi-boot OpenIndiana on a system that is already running a UNIX like operating system (for example Linux), be sure to save a copy of the `menu.lst` file prior to beginning the installation.
-The contents of the GRUB `menu.lst` file dictate the booting parameters for each entry displayed in the GRUB boot menu.
-The information provided by the `menu.lst` will be required for updating the GRUB menu after the installation.
-</div>
-
 <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
 Please be advised of the following important considerations:
@@ -1163,17 +1156,19 @@ From here you now have several options:
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 To prevent the Live Media from starting again after the reboot, eject the Live Media as the next boot begins.
-Or alternately, when presented with the Live Media installer options menu, select the _**Boot from Hard Disk**_ option.
+Or alternately, when presented with the Live Media installer options menu, select the _**ChainLoad diskN**_ option.
 </div>
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-After you have installed OpenIndiana, if you have another operating system on your system, you might need to update the GRUB menu.
-The GRUB menu displays a list of operating systems that can be booted.
-Solaris and Windows operating systems are displayed automatically on the GRUB menu.
-The contents of the GRUB `menu.lst` file define what is displayed in the GRUB menu when you boot the system.
-If you have an additional OpenIndiana or a Linux OS that is not displayed on the menu, you may need to edit the GRUB `menu.lst` file.
+After you have installed OpenIndiana, if you have another operating system installed, you might need to update loader configuration.
+Usually you can achieve desired effect by chainloading partitions with other operating systems.
+To configure illumos loader to show additional entry for chainloading another loader, create file in /boot/conf.d directory,
+containing string
+<code>set chain_disk="disk0:"</code>,
+where disk0 is the name of disk or partition to boot from.
+You can get the list of available disks from loader prompt using <code>lsdev</code> command.
 </div>
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
@@ -1535,7 +1530,7 @@ Only root user will be available in created boot environment.
 
 ## Troubleshooting Installations
 
-* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a `grub>` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
+* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a `boot:` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
 * If you see a `login:` prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
     * Please let us know via IRC or the mailing list if this happens.
     * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
@@ -2373,8 +2368,8 @@ Here are some specific examples where having more than one OpenIndiana boot envi
 The packages are updated in the clone rather than in the original boot environment.
 After successfully completing the updates, the new clone is activated.
 Then, the clone will become the new default boot environment on the next reboot.
-The original boot environment remains on the GRUB menu as an alternate selection.
-You can use the `beadm list` command to see a list of all the boot environments on the system, including the backup boot environment that still has its original, unchanged software.
+You can boot the original boot environment explicitly selecting it from loader menu.
+`beadm list` command can be used to see a list of all boot environments on the system, including the backup boot environment that still has its original, unchanged software.
 If you are not satisfied with the updates made to the environment, you can use the `beadm activate` command to specify that the backup will become the default boot environment on the next reboot.
 
 * If you are modifying a boot environment, you can take a snapshot of that environment at any stage during modifications by using the `beadm create` command.
@@ -2419,8 +2414,8 @@ For example, when the `beadm` utility clones a boot environment that has shared 
 * The `beadm` utility enables you to perform administrative tasks on your boot environments.
 These tasks can be performed without upgrading your system.
 
-* The `beadm` utility automatically manages and updates the GRUB menu.
-For example, when you use the `beadm` utility to create a new boot environment, that environment is automatically added to the GRUB menu.
+* The `beadm` utility manages and updates the `<root pool>/boot/menu.lst` file used by loader to list boot environments.
+When you use the `beadm` utility to create a new boot environment, that environment is automatically added to this file.
 
 The `beadm` utility enables you to perform the following tasks:
 
@@ -2428,7 +2423,6 @@ The `beadm` utility enables you to perform the following tasks:
 * Create a new boot environment based on an inactive boot environment
 * Create a snapshot of an existing boot environment
 * Create a new boot environment based on an existing snapshot
-* Create a new boot environment and add a custom title to the GRUB menu.
 * Activate an existing, inactive boot environment
 * Mount a boot environment
 * Unmount a boot environment
