@@ -1498,11 +1498,11 @@ The procedure for installing from the text based installer follows the same proc
 
 ### Install OpenIndiana to existing ZFS pool
 
-Starting from OpenIndiana 2017.10 text installer allows you to perform installation to existing ZFS pool.
+Starting from OpenIndiana 2017.10, the text installer allows you to perform installation to existing ZFS pool.
 It will create new boot environment in the pool and install OpenIndiana there.
 
 This option can be useful when you want to do some customizations to root ZFS pool (for example, enable compression) or install
-OpenIndiana to pool where another operating system is already installed (for example, priror version of OpenIndiana or even FreeBSD).
+OpenIndiana to pool where another operating system is already installed (for example, prior version of OpenIndiana or even FreeBSD).
 It is recommended to use minimal or server installation images to perform such installations.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
