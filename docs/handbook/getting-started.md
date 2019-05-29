@@ -1520,7 +1520,8 @@ Installer will present you a 'Pools' screen.
 
 On this screen installer will allow you to select the root pool for your new installation and boot environment name (which should be unique).
 
-If you don't want installer to install and configure OpenIndiana boot loader or activate new boot environment, uncheck `Overwrite pool's boot configuration` checkbox.
+By default installer will install OpenIndiana boot loader and activate created boot environment.
+If you don't want installer to touch any boot-related options, uncheck `Overwrite pool's boot configuration` checkbox.
 This can be useful when you install OpenIndiana to ZFS pool where another operating system is already installed and you want to configure boot loader manually.
 
 If you don't see your pool in the list of available pools, check `/tmp/install_log`.
