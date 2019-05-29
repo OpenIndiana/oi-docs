@@ -1218,7 +1218,7 @@ Mirrors and RAIDZ are now supported install options!
 
 </div>
 
-
+<a name="welcome-screen"></a>
 ![Welcome Screen](./images/text_install/text_install_01.png)
 
 The text based installation process begins with the welcome screen, which provides the following information:
@@ -1231,7 +1231,11 @@ The text based installation process begins with the welcome screen, which provid
 At any time during the installation process you may press the `F6` key for context specific help.
 </div>
 
-When ready to begin, press the `F2` key to continue.
+Text installer allows you to do either usual installation or installation to existing ZFS pool.
+
+If you are doing clean installation, when ready to begin, press the `F2` key to continue.
+
+If you intend to install OpenIndiana to existing ZFS pool, see [Install OpenIndiana to existing ZFS pool](#install-openindiana-to-existing-zfs-pool).
 
 ![Select_Disks](./images/text_install/text_install_02.png)
 
@@ -1492,6 +1496,41 @@ When booting from the text based installer, you are presented with the following
 
 The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started.md#install-openindiana-using-the-text-installer)
 
+### Install OpenIndiana to existing ZFS pool
+
+Starting from OpenIndiana 2017.10 text installer allows you to perform installation to existing ZFS pool.
+It will create new boot environment in the pool and install OpenIndiana there.
+
+This option can be useful when you want to do some customizations to root ZFS pool (for example, enable compression) or install
+OpenIndiana to pool where another operating system is already installed (for example, priror version of OpenIndiana or even FreeBSD).
+It is recommended to use minimal or server installation images to perform such installations.
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This feature is intended for advanced users.
+It's assumed you know what you are doing.
+Multi-booting of another operating system and OpenIndiana on the same root pool can be possible, but such configuration is out of scope of this tutorial and is not supported.
+</div>
+
+To start installation to existing ZFS pool, press `F5` key when [Welcome Screen](#welcome-screen) is presented.
+
+Installer will present you a 'Pools' screen.
+
+![Pools Screen](./images/text_install/text_install_pools_screen.png)
+
+On this screen installer will allow you to select the root pool for your new installation and boot environment name (which should be unique).
+
+If you don't want installer to install and configure OpenIndiana boot loader or activate new boot environment, uncheck `Overwrite pool's boot configuration` checkbox.
+This can be useful when you install OpenIndiana to ZFS pool where another operating system is already installed and you want to configure boot loader manually.
+
+If you don't see your pool in the list of available pools, check `/tmp/install_log`.
+The most frequent issue is that there's not enough free space in the pool.
+
+The next steps for [usual installation](#install-openindiana-using-the-text-installer) and installation to existing ZFS pool are the same.
+
+As there's possibly already another OS instance installed to the selected ZFS pool, no additional users or filesystems (like `rpool/export`) are created during installation.
+Swap and dump ZFS volumes also are not created and should be added manually after installation.
+Only root user will be available in created boot environment.
 
 ## Troubleshooting Installations
 
