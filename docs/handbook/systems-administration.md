@@ -28,75 +28,117 @@ activities and many more are referred to as system administration.
 
 Basic system administration can be reduced to a number of common tasks:
 
+- Users and account management
 - Management of system resources
 - Installation and maintenance of software
-- User administration
 
 While it is certainly possible to add more to this list or select alternative
 items, this small selection is readily absorbed and is convenient to illustrate
 a number of essential concepts central to OpenIndiana system administration.
 
-Before we discuss these topics, it is first important to introduce how these
-tasks can be carried out.
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Administrative commands are usually expected to be run with elevated privileges -
+directly from root user, via <code>sudo(1M)</code> or
+<code>pfexec</code> (if user was granted privileges via RBAC).
+In this document commands which require elevated privileges are prefixed with
+"# ". Commands, which don't require elevated privileges, are prefixed with "$ ".
+</div>
 
+## Users and account management
 
-## Performing System Administration Tasks
+OpenIndiana allows multiple users to work on the same computer at the same time.
+Only one person can sit in front of the monitor and keyboard.
+However, many can be remotely logged into machine and work on it.
+If a user wants to use the system, he needs an account.
 
-OpenIndiana is a multi-user platform. The role of administering the system was
-traditionally assigned to one privileged user known as the _superuser_ or _root_
-user. This user is assigned _all_ privileges.
+### User accounts
 
-To become root, it is possible to switch user using the command: [su(1M)](https://illumos.org/man/1M/su).
+User accounts are primarily used for day-to-day tasks.
+Every user accessing the system should have his own unique account.
+This allows the administrator of the system to find out who is doing what.
+This also allows him to set different access rights for each user separately.
 
-However, it is not always feasible for one user to perform all administrative
+When system is installed, usually one user account is created.
+Additional accounts can be added later.
+
+Every user account has some attributes associated with it.
+
+* **username** - name of the account, which is typed at the login screen.
+  Username format is briefly described in [passwd(4)](https://illumos.org/man/4/passwd)
+* **password** - password associated with the account.
+<div class="well">
+Accounts without password should not exist on the system as they could put the system at the security risk!
+</div>
+* **UID** (user ID) - unique numerical ID of the account in the system.
+The maximum value for uid is 2147483647.
+However, for compatibility reasons one should not use numbers over 65535.
+* **GID** (group ID) - unique numerical ID of the account's primary group.
+* **comment** (also referred to as gecos) - account description
+Often this filed is set to real user name.
+* **home directory** - a path where user will be after he logs into the system.
+* **login shell** - user's initial shell program.
+* **password last change time** - time when the password was lastly changed.
+* password aging information - several [shadow(4)](https://illumos.org/man/4/shadow) fields determining when password should be changed
+    * **min** - the minimum number of days required between password changes;
+    * **max** - the maximum number of days the password is valid;
+    * **warn** - the number of days before password expires that the user is warned.
+
+### Service accounts
+
+Service (system) accounts are used by applications, which are running on the system
+and are providing some services to the network such as DNS, SMTP or WWW.
+For security reasons these services are ran under non-privileged accounts.
+
+OpenIndiana comes with several service accounts such as `webservd` for web servers,
+`pkg5srv` for `pkg(5)` server or `nobody`.
+`nobody` is a system account for services needing unprivileged user.
+However, the more services are ran under this account,
+the more privileged it becomes as it gains access to service processes and files.
+
+### Roles
+
+A role is a basic unit of Role-Based access control (RBAC) or set of privileges one can assume.
+A role can be thought of as a no-login account.
+It has most of the attributes of normal user account and is identified like normal user,
+but is not allowed to log into a system directly.
+One should login using regular account and use [su(1M)](https://illumos.org/man/1M/su) to assume the role.
+
+### Superuser account
+
+Every UNIX-like system has the superuser account, named root, used for system administrative tasks.
+This account has UID 0.
+
+Using this account for everyday usage like web browsing, email reading or movie watching is not recommended
+as root account can operate without any restrictions or limits and could cause serious damage to the system.
+
+If you created user during installation, root is created as role (not a regular account).
+This role is assigned to the user created during the installation.
+This means that you can't directly log into a system using the root account.
+One has to log in as the created user and switch to root role using [su(1M)](https://illumos.org/man/1M/su).
+
+However, if the user was not created during installation, then the root is created as regular account and
+is able to log in directly.
+
+#### SUperuser DO: sudo(1m)
+
+It is not always feasible for one user to perform all administrative
 tasks. It would be more flexible if some tasks could be performed by some, say,
 experienced users. To enable some users to carry out a command with _all_ root
-privileges, or to _do_ an administrative command sudo(1m) can be used.
+privileges, or to _do_ an administrative command `sudo(1M)` can be used.
 
-However, security concerns dictate that performing sensitive administration
-tasks would be more secure if carried out by a user with a minimum number of
-privileges. Both aforementioned mechanisms provide _all_ privileges.
+The `sudo` command, i.e., superuser do, permits a regular user to execute the specified
+set of commands with supperuser privileges without having to become the superuser.
 
-It is not always prudent to perform system administration duties with all
-privileges.
+If user was permitted to use some commands with superuser privileges via `sudo`
+he/she can execute them with elevated privileges simply starting command with `sudo`.
 
-Hence, a mechanism was developed whereby users could be assigned a select number
-of privileges by the superuser. OpenIndia provides, in addition to these
-traditional  mechanisms, a richer means to perform these duties known as
-Role-Based Access Control.
+To permit a user to use `sudo`, the superuser edits `/etc/sudoers`.
 
-RBAC involves collecting a select number of privileges and bundling these
-together as a role. A user can then be assigned one, or several roles.
-
-
-### root: [su(1M)](https://illumos.org/man/1M/su)
-
-This is historically the privileged, super user that can perform all
-administrative tasks.
-
-Use the `su` command to login as root:
-
-```
-su
-Password:
-```
-
-### SUperuser DO: sudo(1m)
-
-The `sudo` command, i.e., superuser do, permits a user to use _all_ supperuser
-commands without having to become the superuser. A sudo enabled user, simply
-precedes a command with `sudo`.
-
-To enable a user the ability to use `sudo`, the superuser edits `/etc/sudoers`.
-This should ideally be done as follows:
-
-```
-visudo
-```
-
-This performs various syntax checks.
-sudoers(1) provides details on the precise
-means to appropriately add a user to use sudo.
+This can be done using special `visudo(1M)` tool.
+`visudo` tool edits `/etc/sudoers` file performing various syntax checks.
+`sudoers(1)` provides details on the precise
+means to appropriately grant user elevated privileges via sudo.
 
 Example:
 
@@ -105,18 +147,75 @@ the `shutdown` command, the system will issue a warning. However, if the user ha
 been enabled to use sudo, then the user can now shutdown the system:
 
 ```
-sudo shutdown -i5 -g0 -y
+$ sudo shutdown -i5 -g0 -y
 ```
 
-The user is then prompted for the user's password and a file is checked to
-establish whether the user is permitted to perform the operation.
-The options are explained below.
+### Managing accounts
+
+There are several tools in OpenIndiana to manage user accounts.
+They are listed in the table below.
+
+ Tool                                                |  Description
+---------------------------------------------------- | --------------------------------
+[useradd(1M)](https://illumos.org/man/1M/useradd)    | creates new account on the system
+[userdel(1M)](https://illumos.org/man/1M/userdel)    | deletes account from the system
+[usermod(1M)](https://illumos.org/man/1M/usermod)    | modifies account information on the system
+[groupadd(1M)](https://illumos.org/man/1M/groupadd)  | creates group on the system
+[groupdel(1M)](https://illumos.org/man/1M/groupdel)  | deletes group from the system
+[groupmod(1M)](https://illumos.org/man/1M/groupdel)  | modifies group information on the system
+[roleadd(1M)](https://illumos.org/man/1M/roleadd)    | creates new role on the system
+[roledel(1M)](https://illumos.org/man/1M/roledel)    | deletes role from the system
+[rolemod(1M)](https://illumos.org/man/1M/rolemod)    | modifies role information in the system
+[passwd(1)](https://illumos.org/man/1/passwd)        | changes login password and password attributes
+
+#### useradd
+
+useradd is a program to create user accounts on the system.
+When creating account one can set some attributes of the newly created account such as comment, group membership, home directory path, UID number of the account or login shell.
+
+#### userdel
+
+One can use `userdel` to remove the account from the system.
+
+#### usermod
+
+`usermod` is used to modify properties of existing account.
+
+#### groupadd
+
+`groupadd` creates a new group definition on the system by adding the appropriate to the /etc/group file.
+
+#### groupdel
+
+`groupdel` deletes a group definition from the system.
+
+#### groupmod
+
+When one needs to modify group attributes, `groupmod` should be used.
+
+#### roleadd
+
+`roleadd` is used create roles in the system.
+
+#### roledel
+
+`roledel` deletes selected role from the system.
+
+#### rolemod
+
+`rolemod` modifies role's information on the system.
+
+#### passwd
+
+`passwd` changes password for user accounts.
+An unprivileged user may only change the password for his/her own account, while the superuser may change the password for any account.
+Privileged user can also use `paasswd` to change login password attributes (such as expiration date) or lock the account.
 
 ### Role-Based Access Control (RBAC)
 
 The _all-or-nothing_ power assigned to the root user has its obvious
 limitations.  While sudo is an improvement by limiting root privileges for only
-a single command, a user allowed to use sudo has access to all root commands.
+several commands, more granular control is often desired.
 
 An improvement on the above systems would be one in which privileges could be
 assigned on a more fine-grained and selective basis.
@@ -124,12 +223,11 @@ assigned on a more fine-grained and selective basis.
 Imagine a user assigned the task of administrating some particular hardware, for
 example, printers attached to the system.  A more desirable system would be one
 in which this user had the ability to permit users to use a printing device,
-remove print jobs from the print spool, add new printers to the system, ...
+remove print jobs from the print spool or add new printers to the system.
 Moreover, it would be advantageous if it were possible to assign privileges to
 perform only these actions and none other.
 
 RBAC was developed to accomplish this.
-
 
 #### What is RBAC
 
@@ -144,76 +242,52 @@ no additional privileges. We can then assign this role to one or several users.
 - assign a privilege to a role to shutdown the system
 
 ```
-roleadd shutdown
+# roleadd shutdown
 ```
 
 - Assign a password
 
 ```
-passwd shutdown
+# passwd shutdown
 ```
 
 - Assign this role to a user
 
 ```
-usermod -R shutdown whoever
+# usermod -R shutdown whoever
 ```
 
 
 - Create a SHUTDOWN profile
 
 ```
-echo "SHUTDOWN:::profile to shutdown:help=shutdown.html" >> /etc/security/prof_attr
+# echo "SHUTDOWN:::profile to shutdown:help=shutdown.html" >> /etc/security/prof_attr
 ```
 
 - Okay, now assign the role profile SHUTDOWN to the role shutdown
 
 ```
-rolemod -P SHUTDOWN shutdown
+# rolemod -P SHUTDOWN shutdown
 ```
 
 - Assign some administrative command to profile
 
 ```
-echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0" >> /etc/security/exec_attr
+# echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0" >> /etc/security/exec_attr
 ```
 
 - Use it
 
 ```
-su shutdown
-shutdown -i5 -g0 -y
+$ su shutdown
+# shutdown -i5 -g0 -y
 ```
-
 
 Now user whoever can shutdown the system.
 
 
-
-The `pfexec` command is more flexibly in the number of privileges that can be
+The `pfexec` command is more flexible in the number of privileges that can be
 assigned to a user.
-
-It also worth mentioning an additional method of assigning privileges to users:
-roles. The idea behind roles is a sophisticated and powerful mechanism. It was
-originally developed with security in mind.
-
-The superuser can define roles, assign various privileges to these roles and
-then assign a set of roles to a user. In other words, it allows a much more
-fine grained means of assigning privileges to users as opposed to the 'all or
-nothing' method of sudo.
-
-### Convention
-
-Instead of elaborating each administrative command with one of the above means
-of acquiring administrative privileges, it has become standard procedure to prefix
-the command with a dollar character.
-
-Example:
-
-```
-$ shutdown -i5 -g0 -y
-```
-
 
 ## Management of System Resources
 
@@ -221,8 +295,8 @@ $ shutdown -i5 -g0 -y
 
 #### System processes
 
-```markdown
-prstat
+```bash
+$ prstat
 ```
 
 This command provides a host of information on all processes running on the system.
@@ -234,8 +308,8 @@ Some of the information provided is as follows:
 
 #### Disk usage
 
-```markdown
-df -h
+```bash
+# df -h
 ```
 
 Provides information on disk size, amount of space used and available free space
@@ -246,8 +320,8 @@ human readable format.
 
 Go to the directory using the `cd` command and issue the following command:
 
-```markdown
-du | sort -n
+```bash
+$ du | sort -n
 ```
 
 This will list the size of each file in the current directory and all
@@ -255,14 +329,14 @@ sub-directories, starting with the smallest up to the largest files.
 
 #### Who is logged on to the system
 
-```markdown
-listusers
+```bash
+$ listusers
 ```
 
 #### List all software packages installed on the system
 
-```markdown
-pkg list
+```bash
+$ pkg list
 ```
 
 ### System shutdown, reboot, ...
@@ -276,8 +350,8 @@ You must be root or have root privileges (e.g., using `sudo`) to send the system
 into a different state, i.e., turn off, reboot, etc. Shutdown and turn off all
 hardware (if supported by the hardware) now:
 
-```markdown
-shutdown -i5 -g0 -y
+```
+# shutdown -i5 -g0 -y
 ```
 
 Changing the run-level of the system can be disruptive to other users currently
@@ -322,33 +396,33 @@ ITEMS TO WRITE ABOUT: provide more detailed explanations.
 List services:
 
 ```
-svcs # list (permanently) enabled services
-svcs -a # list all services
-svcs -vx # list faulty services
+$ svcs # list (permanently) enabled services
+$ svcs -a # list all services
+$ svcs -vx # list faulty services
 ```
 
 Get information about a service:
 
 ```
-svcs <service name> # one-line status
-svcs -x <service name> # important information
-svcs -d <service name> # check the service's dependencies
-svcs -l <service name> # all the available information
+$ svcs <service name> # one-line status
+$ svcs -x <service name> # important information
+$ svcs -d <service name> # check the service's dependencies
+$ svcs -l <service name> # all the available information
 ```
 
 Start a service:
 
 ```
-svcadm enable <service name> # permanently enable/start
-svcadm enable -t <service name> # temporary start (won't survive a reboot)
-svcadm enable -r <service name> # permanently enable/start service along with its dependencies
+# svcadm enable <service name> # permanently enable/start
+# svcadm enable -t <service name> # temporary start (won't survive a reboot)
+# svcadm enable -r <service name> # permanently enable/start service along with its dependencies
 ```
 
 Restart / reload a service:
 
 ```
-svcadm refresh <service name> # reload the service's configuration
-svcadm restart <service name> # restart the service
+# svcadm refresh <service name> # reload the service's configuration
+# svcadm restart <service name> # restart the service
 ```
 
 
@@ -785,7 +859,7 @@ Possible resources to help write this section:
 
 
 ```bash
-:~$ sudo svcadm disable physical:nwam
+# svcadm disable physical:nwam
 ```
 
 Define your IP/hostname in `/etc/hosts`. For example:
@@ -798,25 +872,25 @@ Define your IP/hostname in `/etc/hosts`. For example:
 Enable the default physical service with `svcadm` and configure the `interface`:
 
 ```bash
-:~$ sudo svcadm enable physical:default
+# svcadm enable physical:default
 ```
 
 Configure interface with ipadm:
 
 ```bash
-:~$ sudo ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
+# ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
 ```
 
 If you do not know what the interface name is (bge0 in this case); then type in
 
 ```bash
-:~$ dladm show-link
+$ dladm show-link
 ```
 
 or:
 
 ```bash
-:~$ kstat -c net | grep net
+$ kstat -c net | grep net
 
 # look for hme0, bge0, e1000g0 or soemthing that resembles the driver in use.
 ```
@@ -824,13 +898,13 @@ or:
 Add gateway
 
 ```bash
-:~$ sudo route -p add default 192.168.1.121
+# route -p add default 192.168.1.121
 ```
 
 or
 
 ```bash
-:~$ sudo nano /etc/defaultrouter
+# nano /etc/defaultrouter
 
 # Enter in your gateways IP
 ```
@@ -838,7 +912,8 @@ or
 Set DNS server(s)
 
 ```bash
-:~$ sudo nano /etc/resolv.conf
+# nano /etc/resolv.conf
+
 # Enter in the DNS server IP(s)
 nameserver 192.168.1.121
 ```
@@ -847,14 +922,14 @@ or
 
 ```bash
 
-:~$ sudo sh -c 'echo "nameserver 192.168.1.121" >> /etc/resolv.conf'
+# echo "nameserver 192.168.1.121" >> /etc/resolv.conf
 
 ```
 
 Restart
 
 ```bash
-:~$ sudo reboot
+# reboot
 ```
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -863,7 +938,7 @@ IF you cannot ping an external IP (e.g. google.com) run this command and try aga
 </div>
 
 ```bash
-:~$ sudo cp /etc/nsswitch.dns /etc/nsswitch.conf
+# cp /etc/nsswitch.dns /etc/nsswitch.conf
 ```
 
 credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b)
@@ -887,7 +962,7 @@ If NWAM is already configured and fails to connect to a wireless network try res
 For example:
 
 ```bash
-svcadm restart nwam
+# svcadm restart nwam
 ```
 
 Sometimes the location gets set to _NoNet_ and it's nessessary to manually change the location.
