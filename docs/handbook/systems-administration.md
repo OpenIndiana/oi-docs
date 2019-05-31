@@ -121,6 +121,8 @@ One has to log in as the created user and switch to root role using [su(1M)](htt
 
 However, if the user was not created during installation, then the root is created as regular account and
 is able to log in directly.
+Note, that even when root is created as role, one can use this account directly to log into the system when it's
+booted in single user mode.
 
 #### SUperuser DO: sudo(1m)
 
