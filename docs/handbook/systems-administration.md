@@ -52,6 +52,8 @@ Only one person can sit in front of the monitor and keyboard.
 However, many can be remotely logged into machine and work on it.
 If a user wants to use the system, he needs an account.
 
+There are also special service accounts which are used by system services.
+
 ### User accounts
 
 User accounts are primarily used for day-to-day tasks.
