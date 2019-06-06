@@ -12,7 +12,7 @@ class Result(Enum):
     GOOD = 0
     BAD = 1
     ERROR = 2
-
+    WARN = 3
 
 SITE_URL = "http://docs.openindiana.org/"
 ACCEPTED_PROTOCOLS = ["http", "https", "ftp"]
@@ -88,9 +88,13 @@ def check(url):
             # we're still in the same site
             # log.debug("Downloading %s", url)
             charset = response.headers.get_param('charset')
+            # Can't get the charset
+            if charset == None:
+                log.debug("Cannot get character set for %s", url)
+                return Result.WARN
             data = response.read()
             data = data.strip().decode(charset)
-
+                
             content_type = response.info().get('Content-Type')
             content_type = content_type.split(';')[0] if content_type else None
 

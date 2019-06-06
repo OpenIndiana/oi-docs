@@ -168,7 +168,7 @@ Primary download mirror (London, England):
 
 Alternate mirrors (Asia, Europe, and North America)
 
-* <https://wiki.openindiana.org/oi/Mirrors>
+* [OpenIndiana Mirrors](../handbook/openindiana-download-mirrors.md)
 
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
@@ -217,7 +217,7 @@ pkg set-publisher \
 -g https://pkg.openindiana.org/hipster openindiana.org
 ```
 
-For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started/#the-image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.
+For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started.md#the-image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.
 
 
 ## What books are available to help with learning OpenIndiana?
@@ -249,40 +249,57 @@ If you wish to participate in this effort, please indicate your interest via the
 
 </div>
 
+## How can I contact OpenIndiana community?
 
-## How do I get involved with the OpenIndiana Project?
-
-As a community supported open source software project, the success and future of OpenIndiana depends entirely on you.
-While the most important thing is to download and begin using OpenIndiana, there are many different ways to contribute.
-Tell your friends and coworkers about OpenIndiana as well, and don't forget to report all issues to our bug tracker.
+There are several IRC channels and mailing lists, where you can discuss OpenIndiana and ask your questions to the wider community.
 
 Below is a list of OpenIndiana community resources you may find helpful:
 
 | Resource | URL
 | --- | ---
-| User Support IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
+| General Discussion IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
 | Development IRC channel | [#oi-dev on irc.freenode.net](irc://irc.freenode.net/oi-dev)
-| Documentation IRC channel | [#oi-documentation on irc.freenode.net](irc://irc.freenode.net/oi-documentation)
-| OpenIndiana Mailing Lists | <https://openindiana.org/mailman>
-| OpenIndiana Wiki | <https://wiki.openindiana.org>
-| OpenIndiana Bug Tracker | <http://www.illumos.org/projects/openindiana/issues>
+| General OpenIndiana Discussion Mailing List | <https://openindiana.org/mailman/listinfo/openindiana-discuss)</li>
+| OpenIndiana Development Mailing List | <https://openindiana.org/mailman/listinfo/oi-dev>
+| illumos Mailing Lists | <https://illumos.org/docs/community/lists/>
+| OpenIndiana Bug Tracker | <https://www.illumos.org/projects/openindiana/issues>
+| illumos Bug Tracker | <https://www.illumos.org/projects/illumos-gate/issues>
 
-Here are just some of the many ways you may contribute:
+## How do I get involved with the OpenIndiana Project?
 
-* Artwork
-* Development
-* Documentation - Handbook, Tutorials, News articles, etc.
-* Evangelism - blogging about OpenIndiana, attending conferences, etc.
-* Packaging - oi-userland, 3rd party packaging (SFE, etc.)
-* Release engineering
-* Translation
-* Utilities maintenance
-* Website Maintenance
+OpenIndiana is a community-based project, it relies on contributions from the community.
+There are different aspects of the project and opportunities to contribute.
 
-Just ask on the IRC channels or mailing lists about how you may contribute.
+Below is a brief overview of different ways to get involved in the project.
+In addition, there is a more specific [list of existing tasks](../dev/existing-tasks.md).
+If you are interested in working in one of these areas or if you have further questions please do not hesitate to get in touch with us.
 
-For additional details, including links to our GitHub source repositories, please see: <https://www.openindiana.org/community/getting-involved>
+Our small community is always happy to welcome new users and contributors:
 
+* present yourself so we get to know each other,
+* ask all the questions you have in mind,
+* report anything that seems unclear to you,
+* share any project idea you would like to develop.
+
+Overview of recurring technical tasks at the OpenIndiana Project
+
+* Maintaining packages to [OpenIndiana itself](../dev/building-openindiana.md) or to additional software repositories, like [SFE](http://sfe.opencsw.org/).
+* Release management and testing.
+* Developing code specific to OpenIndiana.
+* Bug fixing and bugs triage, QA
+* Project infrastructure maintenance, coordination with mirrors.
+* Operating mirrors.
+* Monitoring and handling security issues.
+* Website and wiki maintenance
+
+There are also non-technical ways to contribute:
+
+* [Reporting issues](https://www.illumos.org/projects/openindiana/issues) you find.
+* Create artwork for OpenIndiana.
+* [Writing documentation](../contrib/getting-started.md) or just blogging about OpenIndiana.
+* Maintaining translations of OI-specific software and documentation.
+
+Just ask on the [IRC channels or mailing lists](#how-can-i-contact-openindiana-community) about how you may contribute.
 
 ## Does OpenIndiana provide a SPARC release?
 
@@ -293,7 +310,7 @@ If you would like to see SPARC become a supported platform, please help us by jo
 
 ### Historical SPARC releases
 
-In 2009, the OpenSolaris project released an [OpenSolaris text install ISO](http://dlc.openindiana.org/isos/opensolaris), and much more recently, there was work done by Adam Glasgall who produced an [unofficial SPARC text install ISO](http://neutron-star.mit.edu/OpenIndiana_Text_SPARC.iso) based on oi-dev-151-a8.
+In 2009, the OpenSolaris project released an [OpenSolaris text install ISO](http://dlc.openindiana.org/isos/archive/opensolaris), and much more recently, there was work done by Adam Glasgall who produced an [unofficial SPARC text install ISO](http://neutron-star.mit.edu/OpenIndiana_Text_SPARC.iso) based on oi-dev-151-a8.
 
 ### illumos distributions with SPARC releases
 

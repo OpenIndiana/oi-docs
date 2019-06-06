@@ -47,7 +47,9 @@ You may also inquire via IRC:
 
 ## Prerequisites
 
-If you haven't already, sign up for a [Github](https://github.com) account.
+If you would like to make a contribution using the development tools, you must
+have a GitHub account. If you do not already have a GitHub account, sign up for
+a [Github](https://github.com) account.
 
 
 #### Install and configure Git
@@ -74,24 +76,30 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 
 #### Install python-pip
 
+If your OS doesn't provide pre-packaged mkdocs, you'll need to install python-pip.
+This is not necessary on OpenIndiana.
+
 | Operating System | Command
 | --- | ---
 | Arch | `pacman -S python-pip`
 | Centos/RHEL | `yum install python-pip`
 | Debian/Mint/Ubuntu | `apt-get install python-pip`
-| Fedora | `dnf install pythop-pip`
-| OpenIndiana | N/A - (MKDocs now in Hipster repository)
+| Fedora | N/A - (Included with Fedora 25)
+| OpenIndiana | Not needed - (Use MkDocs IPS package)
 
 
 #### Install rubygems
+
+If your OS doesn't provide pre-packaged mdl, you'll need to install Ruby Gems.
+This is not necessary on OpenIndiana.
 
 | Operating System | Command
 | --- | ---
 | Arch | `pacman -S ruby`
 | Centos/RHEL | `yum install rubygems`
 | Debian/Mint/Ubuntu | `apt-get install rubgems-integration`
-| Fedora | `dnf install rubygem-rails`
-| OpenIndiana | Installed by default as part of Ruby
+| Fedora | `dnf install rubygems`
+| OpenIndiana | Not needed - (Use mdl IPS package)
 
 
 #### Install mkdocs
@@ -99,7 +107,7 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 For OpenIndiana Hipster, MKDocs and all of it's dependencies have been packaged and are available in the OI Hipster repository.
 So, if you're already running Hipster, installing MKDocs is as simple as: `pkg install mkdocs`
 
-* Most other operating systems: `pip install mkdocs`
+* Most other operating systems: `pip install mkdocs mkdocs-bootswatch`
 
 After MKDocs has been installed, be sure to verify your installation with `mkdocs --version`
 
@@ -115,15 +123,18 @@ For example:
 
 #### Install Markdown Lint (mdl)
 
+On OpenIndiana you can install mdl using standard package management tools:
+
+* `pkg install developer/documentation-tool/mdl`
+
 For most operating systems:
 
 * `gem install mdl`
 
-
-#### Install VIM Markdown plugin (optional)
+#### Install Markdown plugin for VIM or Emacs(optional)
 
 * <https://github.com/plasticboy/vim-markdown/>
-
+* <https://www.emacswiki.org/emacs/MarkdownMode>
 
 ## Fork the OpenIndiana Docs repository
 
@@ -167,7 +178,7 @@ upstream        https://github.com/OpenIndiana/oi-docs.git (push)
 ## Sync and merge changes from the upstream repository
 
 Periodically you will want to _rebase_ your local copy by bringing in changes from the upstream repository.
-In plain English, this means the upstream repository is added so you can periodically _pull down_ changes from the upstream master repository and merge them into your local clone.
+In plain English, this means the upstream repository is locally registered so you can periodically _pull down_ changes from the upstream master repository and merge them into your local clone.
 This way your local clone remains in synchronization with the master upstream repository.
 It is always a good idea to perform a pull from the upstream master repository prior to making changes to your local clone (working copy).
 
@@ -234,11 +245,11 @@ docs/
 | retired | Deprecated docs, etc.
 
 
-## Make some changes.
+## Make some changes
 
 Open your favorite text editor and begin authoring content.
 
-For example: `vim somefile.md`
+For example: `vim somefile.md` or `emacs somefile.md`
 
 Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
 
@@ -313,25 +324,8 @@ Simply replace the period (.) with the path to the file.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-
-Before you can run `mdl`, it may be necessary to add the path to your `$PATH` variable.
-
-For example:
-
-On OpenIndiana, markdown lint (mdl) resides in `/usr/ruby/1.9/bin/` which is not normally part of the search path.
-To run this command without having to specify the complete path each time, add the following to your `.bashrc`
-
-```bash
-PATH=$PATH:/usr/ruby/1.9/bin/
-export PATH
-```
-
-To immediately effect this change, source your `.bashrc` as follows:
-
-```bash
-source ~/.bashrc
-```
-
+Before you can run `mdl`, it may be necessary to modify your `$PATH` variable:
+see “[Install Markdown Lint](#install-markdown-lint-mdl)” above.
 </div>
 
 
@@ -366,7 +360,7 @@ git commit -m 'your commit message'
 git push
 ```
 
-When you make a commit, you are committing those changes your local clone.
+When you make a commit, you are committing those changes locally to your clone.
 When you perform a push, your are pushing your commits from your local clone to your fork residing on Github.
 
 
