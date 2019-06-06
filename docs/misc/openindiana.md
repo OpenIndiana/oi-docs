@@ -259,7 +259,7 @@ Below is a list of OpenIndiana community resources you may find helpful:
 | --- | ---
 | General Discussion IRC channel | [#openindiana on irc.freenode.net](irc://irc.freenode.net/openindiana)
 | Development IRC channel | [#oi-dev on irc.freenode.net](irc://irc.freenode.net/oi-dev)
-| General OpenIndiana Discussion Mailing List | <https://openindiana.org/mailman/listinfo/openindiana-discuss)</li>
+| General OpenIndiana Discussion Mailing List | <https://openindiana.org/mailman/listinfo/openindiana-discuss>
 | OpenIndiana Development Mailing List | <https://openindiana.org/mailman/listinfo/oi-dev>
 | illumos Mailing Lists | <https://illumos.org/docs/community/lists/>
 | OpenIndiana Bug Tracker | <https://www.illumos.org/projects/openindiana/issues>
