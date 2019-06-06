@@ -950,14 +950,241 @@ credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b
 
 ### Automatic Configuration (NWAM)
 
-* How to use NWAM (network auto magic)
+Network Auto-Magic (NWAM) is a new approach to managing network interfaces that was introduced with OpenSolaris.
+NWAM introduced network profiles to be able to change network settings on the fly.
+One important reason to redesign networking was the increasing importance of wireless networking and the need to cope with its dynamic nature.
 
+While usually server and desktop installations tend to use default network configurations, laptop users can leverage nwam network configuations.
+
+#### Using NWAM configuration tools
+
+Usually NWAM configuration is done via GUI `nwam-manager` applet and `nwam-manager-properties` program.
+
+From CLI all configuration can be done using two tools, `nwamcfg` to configure network profiles and `nwamadm` to manage them.
+
+On its backend, NWAM relies on `nwamd`, the NWAM policy engine daemon and `netcfgd`, the NWAM repository daemon.
+
+Access to the command line and GUI tools is controlled via security profiles 'Network Autoconf Admin' and 'Network Autoconf user'.
+
+To create NWAM profile use `nwamcfg` tool.
+
+```
+# nwamcfg
+nwamcfg> create ncp Abroad
+nwamcfg:ncp:Abroad> end
+```
+
+Now you can see a new profile in the list of NCPs:
+
+```
+nwamcfg> list
+NCPs:
+Abroad
+Automatic
+Locations:
+Automatic
+NoNet
+User
+nwamcfg>
+```
+
+The network interface to be managed under the new profile can be set and configured with `create ncu` command:
+
+```
+# nwamcfg
+nwamcfg> select ncp Abroad
+nwamcfg:ncp:Abroad> create ncu phys e1000g0
+Created ncu 'e1000g0'. Walking properties ...
+activation-mode (manual) [manual|prioritized]> prioritized
+enabled (true) [true|false]>
+priority-group> 0
+priority-mode [exclusive|shared|all]> exclusive
+link-mac-addr>
+link-autopush>
+link-mtu>
+nwamcfg:ncp:Abroad:ncu:e1000g0>
+```
+
+Most important here is the `activation-mode`, which states if the profile is to be automatically set based on certain policies or if it is to be manually set using nwamadm.
+The latter should be most likely the case in a server environment.
+The `priority-group` and `priority-mode` here are set to (0 / exclusive).
+This says that the profile is for wired access and will always be the only active one at a time.
+
+If after listing the changes you are satisfied with the configuration, permanently store it using `commit` command:
+
+```
+nwamcfg:ncp:Abroad:ncu:e1000g0> list
+ncu:e1000g0
+ type link
+ class phys
+ parent "Abroad"
+ activation-mode prioritized
+ enabled true
+ priority-group 0
+ priority-mode exclusive
+nwamcfg:ncp:Abroad:ncu:e1000g0> commit
+Committed changes
+nwamcfg:ncp:Abroad:ncu:e1000g0> end
+```
+
+After an interface has been assigned to the profile, its IP configuration has to be defined:
+
+```
+nwamcfg:ncp:Abroad> create ncu ip e1000g0
+Created ncu 'e1000g0'. Walking properties ...
+enabled (true) [true|false]>
+ip-version (ipv4,ipv6) [ipv4|ipv6]> ipv4
+ipv4-addrsrc (dhcp) [dhcp|static]> static
+ipv4-addr> 192.168.100.100
+ipv4-default-route> 192.168.100.1
+nwamcfg:ncp:Abroad:ncu:e1000g0> list
+ncu:e1000g0
+ type interface
+ class ip
+ parent "Abroad"
+ enabled true
+ ip-version ipv4
+ ipv4-addrsrc static
+ ipv4-addr "192.168.100.100"
+ ipv4-default-route "192.168.100.1"
+ ipv6-addrsrc dhcp,autoconf
+nwamcfg:ncp:Abroad:ncu:e1000g0>
+```
+
+As you can see, the profile uses a static IP address and, for simplicity reasons, only provides IPv4 networking.
+Again, if you're happy with the results, commit them.
+
+```
+nwamcfg:ncp:Abroad:ncu:e1000g0> commit
+Committed changes
+nwamcfg:ncp:Abroad:ncu:e1000g0>
+```
+
+As it stands, now you have defined a pysical and ip layer attached to a network profile:
+
+```
+nwamcfg:ncp:Abroad:ncu:e1000g0> end
+nwamcfg:ncp:Abroad> list
+NCUs:
+ phys e1000g0
+ ip e1000g0
+nwamcfg:ncp:Abroad>exit
+```
+
+To activate the profile, you use nwamadm.
+First of all, check for the current situation:
+
+```
+# nwamadm list
+TYPE     PROFILE    STATE
+ncp      Abroad     disabled
+ncp      Automatic  online
+ncu:phys e1000g0    online
+ncu:ip   e1000g0    online
+loc      Automatic  online
+loc      NoNet      offline
+loc      User       disabled
+```
+
+As you can see, Automatic is the active profile while Abroad is currently disabled.
+We can change that easily, but be aware that you might lock yourself out if you are connected via SSH when changing the profile!
+
+```
+# nwamadm enable -p ncp Abroad
+Enabling ncp 'Abroad'
+```
+
+To check if the change has worked, you can use nwam again, and also ifconfig should show that interface is up:
+
+```
+# nwamadm list
+TYPE PROFILE STATE
+ncp Abroad online
+ncu:phys e1000g0 online
+ncu:ip e1000g0 online
+ncp Automatic disabled
+loc Automatic online
+loc NoNet offline
+loc User disabled
+```
+
+```
+# ifconfig e1000g0
+e1000g0: flags=1000843<UP,BROADCAST,RUNNING,MULTICAST,IPv4> mtu 1500 index 8
+inet 192.168.100.100 netmask ffffff00 broadcast 192.168.100.255
+ether 0:c:29:56:46:73
+```
+
+If you want to revert to default `Automatic` ncp, use the following command:
+
+```
+# nwamadm enable -p ncp Automatic
+```
+
+Although it is possible to directly modify profiles using an editor, it is not advisable and will be hardly necessary, anyway.
+One of the coolest features of NWAM tools is that they can be completely scripted.
+All steps above could also be put in one line:
+
+```
+# nwamcfg "create ncp Abroad;create ncu phys e1000g0;set activation-mode=manual;set enabled=true;set priority-group=0;set priority-mode=exclusive;end;create ncu ip e1000g0;set enabled=true;set ip-version=ipv4;set ipv4-addrsrc=static;set ipv4-addr=192.168.100.100;set ipv4-default-route=192.168.100.1;commit"
+```
+
+Or, more nicely formatted, commented and stored in a file:
+
+```
+#
+# Profile for use on the road
+#
+# Created on 13/01/2013 by S. Mueller-Wilken
+#
+create ncp Abroad
+
+# Create physical interface definition for 1st network card
+create ncu phys e1000g0
+set activation-mode=manual
+set enabled=true
+set priority-group=0
+set priority-mode=exclusive
+end
+
+# Create IP configuration for first network card
+create ncu ip e1000g0
+set enabled=true
+set ip-version=ipv4
+set ipv4-addrsrc=static
+set ipv4-addr=192.168.100.100
+set ipv4-default-route=192.168.100.1
+
+# Commit the settings
+commit
+```
+
+This file can then be read by nwamcfg:
+
+```
+# nwamcfg -f abroad.cfg
+Configuration read.
+```
+
+While there is no longer a need to fiddle around in /etc/nwam, the configuration is still completely there, as can be easily verified:
+
+```
+# ls /etc/nwam
+loc loc.conf ncp-Abroad.conf ncp-Automatic.conf
+```
+
+All configuration is placed in readable ASCII files so that configuration from a global zone is possible:
+
+```
+# cat /etc/nwam/ncp-Abroad.conf
+link:e1000g0 type=uint64,0;class=uint64,0;parent=string,Abroad;enabled=boolean,true;activation-mode=uint64,4;priority-group=uint64,0;priority-mode=uint64,0;
+interface:e1000g0 type=uint64,1;class=uint64,1;parent=string,Abroad;enabled=boolean,true;ipv6-addrsrc=uint64,0,1;ip-version=uint64,4;ipv4-addrsrc=uint64,2;ipv4-default-route=string,192.168.100.1;ipv4-addr=string,192.168.100.100;
+```
 
 #### Network automagic online help
 
 Comprehensive and fully illustrated online help for using NWAM is available by right clicking the NWAM tray icon and selecting _Help_.
-This opens the online help browser.
-
+This opens help browser.
 
 #### Troubleshooting NWAM
 
@@ -969,7 +1196,7 @@ For example:
 # svcadm restart nwam
 ```
 
-Sometimes the location gets set to _NoNet_ and it's nessessary to manually change the location.
+Sometimes the location gets set to _NoNet_ and it's nessessary to manually change the location to _Automatic_.
 
 When the location setting is configured to _Switch Locations Automatically_, it's not possible to change the location.
 This is resolved by reconfiguring the location to allow manual switching.
@@ -977,26 +1204,6 @@ To perform this task, do the following:
 
 Right click the NWAM tray icon and select **_Location_ > _Switch Locations Manually_**.
 Right click the NWAM tray icon and select **_Location_ > _Automatic_**.
-
-
-### Desktop GUI
-
-< Place Holder >
-
-
-#### Manual Configuration
-
-< Place Holder >
-
-
-#### Automatic Configuration
-
-< Place Holder >
-
-
-#### Troubleshooting
-
-* Make sure the network auto magic 'Location' setting is configured as 'Automatic' and not 'NoNet'
 
 
 ## Clustering with Open HA Cluster
