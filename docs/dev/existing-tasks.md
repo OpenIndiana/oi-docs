@@ -29,7 +29,7 @@ This page contains some ideas how to enhance OpenIndiana.
 **illumos-gate**
 
 * Help Joyent and OmniOS CE dev teams with upstreaming LX changes
-* Create service for generic FMA event handler. Some early work can be found [here](https://github.com/pyhalov/illumos-gate/tree/fma).
+* Create a service for generic FMA event handler. Some early work can be found [here](https://github.com/pyhalov/illumos-gate/tree/fma).
 
 **gfx-drm**
 
@@ -58,6 +58,6 @@ This page contains some ideas how to enhance OpenIndiana.
 
 **oi-userland**
 
-* Port build system to Python 3
+* Port the build system to Python 3
 * Remove dependencies on Python 2.7
-* Try to create open source replacement for DDU's libddudev
+* Try to create an open source replacement for DDU's libddudev

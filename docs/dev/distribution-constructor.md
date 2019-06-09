@@ -20,7 +20,7 @@ Portions created by Alexander Pyhalov are Copyright (C) 2019.
 Distribution constructor allows you to build OpenIndiana installation images (iso and usb).
 
 Creating images is straight forward.
-To create image, install distribution-constructor, then create distribution constructor mainfest based on existing one.
+To create an image install the distribution-constructor. Then create a distribution constructor manifest based on an existing one.
 
 
 ```bash
@@ -31,12 +31,12 @@ cp /usr/share/distro_const/slim_cd/slim_cd_x86.xml .
 pfexec distro_const build slim_cd_x86.xml
 ```
 
-Distribution constructor will create image with packages, specified in ``<packages>`` attribute, using ``<build_area>`` for storing files.
-Final images will be located in ``media`` directory under ``<build_area>``.
-Distribution constructor logs will be available in ``logs`` directory.
+The distribution constructor will create an image with the packages specified in the ``<packages>`` attribute using ``<build_area>`` for storing files.
+Final images will be located in the ``media`` directory under ``<build_area>``.
+Distribution constructor logs will be available in the ``logs`` directory.
 
-OpenIndiana ships three variant of images: image for desktops with Mate-based GUI, image with set of packages for typical server with text installer and image with minimal set of packages with text installer.
-Each image is described by it's own distribution constructor manifest.
+OpenIndiana ships three variants of images: an image for desktops with Mate-based GUI, an image with a set of packages for a typical server with the text installer and an image with a minimal set of packages with the text installer.
+Each image is described by its own distribution constructor manifest.
 
 Image type | Manifest location
 -----------|------------------------------------------------
@@ -44,10 +44,10 @@ Desktop    | /usr/share/distro_const/slim_cd/slim_cd_x86.xml
 Server     | /usr/share/distro_const/text_install/text_mode_x86.xml
 Minimal    | /usr/share/distro_const/text_install/text_mode_x86_minimal.xml
 
-Images with text installer and GUI live image differ by set of installed packages, preparation steps required to build the image and final post install steps made by installer to prepare system.
-Installer behavior is controlled by distribution constructor manifest.
+Images with the text installer and the GUI live image differ by the sets of installed packages, preparation steps required to build the image and final post install steps made by installer to prepare a system.
+The installer behavior is controlled by a distribution constructor manifest.
 
-If you want to add packages from your own publisher to the image, uncomment ``<post_install_repo_addl_authority>`` and ``<pkg_repo_addl_authority>`` sections and add your publisher there, for example:
+If you want to add packages from your own publisher to the image uncomment ``<post_install_repo_addl_authority>`` and ``<pkg_repo_addl_authority>`` sections and add your publisher there. For example:
 
 ```xml
 
@@ -64,6 +64,6 @@ If you want to add packages from your own publisher to the image, uncomment ``<p
 </post_install_repo_addl_authority>
 ```
 
-Repository, specified as ``<pkg_repo_addl_authority>``, will be used as additional repository while constructing image, the repository, specified as ``<post_install_repo_addl_authority>``, will be set as additional repository on installed system.
+A repository specified as ``<pkg_repo_addl_authority>`` will be used as an additional repository while constructing an image. A repository specified as ``<post_install_repo_addl_authority>`` will be set as an additional repository on the installed system.
 
-To actually use packages from your package repository, you should add full FMRIs of necessary packages to ``<packages>`` section.
+To actually use packages from your package repository you should add full FMRIs of necessary packages to the ``<packages>`` section.
