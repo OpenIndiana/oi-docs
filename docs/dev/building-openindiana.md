@@ -43,17 +43,17 @@ OpenIndiana is built from several source repositories which are available on [Gi
 
 ## Build process
 
-OpenIndiana Hipster build process is rather simple.
+The OpenIndiana Hipster build process is rather simple.
 
-Once a pull request has been merged to [oi-userland](https://github.com/OpenIndiana/oi-userland), [Jenkins](https://hipster.openindiana.org/jenkins/) starts incremental oi-userland build.
+Once a pull request has been merged to [oi-userland](https://github.com/OpenIndiana/oi-userland) [Jenkins](https://hipster.openindiana.org/jenkins/) starts an incremental oi-userland build.
 For components coming from other source repositories manual intervention can be necessary to start the build.
-[illumos-gate](https://github.com/illumos/illumos-gate) is rebuilt daily in separate [Jenkins job](https://hipster.openindiana.org/jenkins/job/illumos-gate/).
+[illumos-gate](https://github.com/illumos/illumos-gate) is rebuilt daily in a separate [Jenkins job](https://hipster.openindiana.org/jenkins/job/illumos-gate/).
 
-If packages are built succesfully, they are published to the [main Openindiana package repository](http://pkg.openindiana.org/hipster/) or [package repository for patent-encumbered software](http://pkg.openindiana.org/hipster-encumbered/).
+If packages are built successfully they are either published to the [main Openindiana package repository](http://pkg.openindiana.org/hipster/) or to the [package repository for patent-encumbered software](http://pkg.openindiana.org/hipster-encumbered/).
 
-Note, that main OpenIndiana package repository also contains packages, inherited from now discontinued OpenIndiana /dev distribution.
-Such packages are available only in binary form and can be identified by `2013.0.0.0` branch number.
+Note that the main OpenIndiana package repository also contains packages inherited from the now discontinued OpenIndiana /dev distribution.
+Such packages are available only in binary form and can be identified by a `2013.0.0.0` branch number.
 
-Twice per year OpenIndiana developers create ISO images based on this repository using [Distribution Constructor](./distribution-constructor.md).
+Twice per year the OpenIndiana developers create ISO images based on this repository using the [Distribution Constructor](./distribution-constructor.md).
 
-If you want to build customized ISO image, you can publish necessary additional packages to your own repository and use [Distribution Constructor](./distribution-constructor.md) to create images with additional publishers and/or packages.
+If you want to build a customized ISO image you can publish necessary additional packages to your own repository and use [Distribution Constructor](./distribution-constructor.md) to create images with additional publishers and/or packages.
