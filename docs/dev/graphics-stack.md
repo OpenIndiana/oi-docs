@@ -55,19 +55,19 @@ The upstream Solaris code is located at:
 
 ## Mesa
 
-To build Mesa use [x11/mesa](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/x11/mesa) component.
+To build Mesa use the [x11/mesa](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/x11/mesa) component.
 
 ## Fonts
 
-Font components in oi-userland are located in [components/fonts](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/fonts) directory.
+Font components in oi-userland are located in the [components/fonts](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/fonts) directory.
 
 ## Nvidia
 
 Nvidia provides Solaris x86-64/x86 packages of their proprietary driver for different families of graphic adapters.
 
-Nvidia driver shipped with OpenIndiana is built using [openindiana/nvidia](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/nvidia) component.
+The Nvidia driver shipped with OpenIndiana is built using [openindiana/nvidia](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/nvidia) component.
 
-The list of currently supported and legacy drivers is updated on the  [Unix Drivers](https://www.nvidia.com/object/unix.html) page.
+The list of currently supported and legacy drivers is updated on the [Unix Drivers](https://www.nvidia.com/object/unix.html) page.
 
 Series   | Label                        | Models                           | Notes
 -------- | ---------------------------- | -------------------------------- | ------------------
@@ -77,7 +77,7 @@ Series   | Label                        | Models                           | Not
 340.xx   | Legacy GPU                   | GeForce 8 to GeForce 700 series  | Driver 340.106 ; Delivers libvdpau as part of the package.
 304.xx   | Legacy GPU                   | GeForce 6 to GeForce 600 series  | Driver 304.137
 
-Drivers series 340.xx is currently part of oi-userland, others may be installed manually following Nvidia's instructions.
+The drivers series 340.xx is currently part of oi-userland, others may be installed manually following Nvidia's instructions.
 
 Note on new driver installations:
 
@@ -124,13 +124,13 @@ Open source kernel driver(s) by Oracle:
 
 <https://github.com/oracle/solaris-userland/tree/master/components/x11/kernel/sun-src>
 
-Relevant kernel code is located in drm and i915 subfolders.
+The relevant kernel code is located in drm and i915 subfolders.
 
-illumos port of Oracle code is available here:
+An illumos port of Oracle code is available here:
 
 <https://github.com/illumos/gfx-drm>
 
-Martin Bochnig, creator of OpenSXCE, initially backported the S12 driver to illumos, available in oi-userland until December 20. 2016.
+Martin Bochnig, creator of OpenSXCE, initially backported the S12 driver to illumos available in oi-userland until December 20, 2016.
 
 It was then superseeded by the new gate providing improvements to the gfx_private interface and agpgart driver, as well as containing userland libraries used by graphics, like libdrm.
 
@@ -156,17 +156,17 @@ Additionally, information about driver development:
 
 ##### SNA
 
-May causes segmentation fault if enabled. If so, just disable SNA and you can copy attached 20-intel-uxa.conf to /etc/X11/xorg.conf.d/.
+SNA may cause segmentation faults if enabled. If so, just disable SNA and you can copy the attached 20-intel-uxa.conf to /etc/X11/xorg.conf.d/.
 
-For now, UXA mode is set by default.
+For now UXA mode is set by default.
 
 #### Sandy Bridge GT1
 
-A hardware bug requires implementing a workaround in the Intel ringbuffer implementation, occasional 1-2 second hangs may occur.
+A hardware bug required implementing a workaround in the Intel ringbuffer implementation, occasional 1-2 second hangs may occur.
 
 #### Gen >= 8
 
-Generation 8 (and later) devies are not supported at all.
+Generation 8 (and later) devices are not supported at all.
 They require Intel ringbuffer support, which is not implemented.
 
 ### Hardware Matrix
