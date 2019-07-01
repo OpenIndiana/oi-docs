@@ -174,7 +174,7 @@ They require Intel ringbuffer support, which is not implemented.
 Reference:
 
 * <https://cgit.freedesktop.org/xorg/driver/xf86-video-intel/tree/src/i915_pciids.h>
-* <https://en.wxf86-video-intel supportikipedia.org/wiki/List_of_Intel_graphics_processing_units>
+* <https://en.wikipedia.org/wiki/List_of_Intel_graphics_processing_units>
 * <http://src.illumos.org/source/xref/gfx-drm/usr/src/uts/intel/io/i915/i915_drv.c#294>
 
  Generation | Family         | Codename             | PCI id  | Model                 | i915 support | xf86-video-intel support
