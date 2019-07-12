@@ -9,9 +9,10 @@ The Original Documentation is _________________.
 The Initial Writer of the Original Documentation is Alexander Pyhalov Copyright (C) 2014-2019.
 All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
 
-Contributor(s): Adam Števko
+Contributor(s): Adam Števko, Tim Mooney
 
 Portions created by Adam Števko  are Copyright (C) 2017.
+Portions created by Tim Mooney are Copyright (C) 2019.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
@@ -61,3 +62,5 @@ This page contains some ideas how to enhance OpenIndiana.
 * Port the build system to Python 3
 * Remove dependencies on Python 2.7
 * Try to create an open source replacement for DDU's libddudev
+* Replace perl-524 with perl-530
+* Investigate porting sun-solaris Perl module to more recent perl
