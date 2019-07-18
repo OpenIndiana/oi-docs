@@ -28,6 +28,8 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
+2019-07-18 | Device Driver Utility (DDU) was updated. Major changes include replacement of binaries for which we have no source, regeneration of OpenIndiana drivers database and migration to Python 3.5.
+2019-07-16 | Samba was updated to 4.10.6
 2019-07-01 | Ruby 2.6 was added. Ruby 2.2 was removed. New Ruby version is 64-bit.
 2019-06-28 | Bind DNS server was updated to 9.14.3. [Security issue](https://www.openindiana.org/2019/06/28/dns-server-startup-script-security-issue/) in bind startup scripts was fixed.
 2019-05-06 | PHP 7.3 was introduced
