@@ -166,7 +166,7 @@ These soundcards are compatible and 'known to work' with OpenIndiana.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-For a number of NICs, which are not currently supported "out of the box" by the illumos kernel or OpenIndiana distribution, over 30 open-sourced drivers covering many more chipsets and NIC models are available as part of the separate "Free NIC drivers for OpenSolaris" project by Masayuki Murayama and generally do just work on OpenIndiana (binaries are available as part of the source code tarballs, but you're encouraged to recompile them with GLDv3 Makefile's on OpenIndiana, see details on the project's web page).
+For a number of NICs, which are not currently supported "out of the box" by the illumos kernel or OpenIndiana distribution, over 30 open-sourced drivers covering many more chipsets and NIC models are available as part of the separate "Free NIC drivers for OpenSolaris" project by Masayuki Murayama and generally do just work on OpenIndiana (binaries are available as part of the source code tarballs, but you're encouraged to recompile them with GLDv3 Makefile's on OpenIndiana, see details on <a href="http://freenicdrivers.la.coocan.jp/">the project's web page</a>).
 </div>
 
 NIC                                                  | Works (yes/no)  | Notes                  | Driver | Contributor
@@ -201,3 +201,20 @@ Realtek RTL8139/8139C/8139C+ PCI Express Fast Ethernet controller | yes | PCI-ID
 Realtek RTL8111/8168B PCI Express Gigabit Ethernet controller (rev 03) | yes | PCI-ID: 10ec:8168 | rge | Ancoron Luciferis
 Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller | yes | PCI-ID: 10ec:8168 | rge | Predrag Zečević
 Realtek RTL-8169 Gigabit Ethernet (rev 10)           | yes             | PCI-ID: 10ec:8169       | rge | Ancoron Luciferis
+
+### External disk arrays
+
+Manufacturer | Model           | Works (yes/no) | Notes and/or specific usage instructions | Contributor
+-----------  | --------------- | -------------- | ---------------------------------------- | ------------
+3PAR         | F200            | yes            | Fabric/FC with MPxIO                     | Matt Wilby
+3PAR         | F400            | yes            | Fabric/FC with MPxIO                     | Matt Wilby
+EMC          | Clariion CX700  | yes            | Fabric/FC with MPxIO                     | Matt Wilby
+Newisys/Sanmina-SC | NDS2241   | yes            | SAS with MPxIO                           | Jason Matthews
+Nexsan       | SATABeast2      | yes            | Fabric/FC with MPxIO                     | Matt Wilby
+NetApp       | FAS6040         | no             | Sees targets but refuses to see LUNs.  Possibly HBA FW issue. | Matt Wilby
+EMC          | Symmetrix DMX-4 | yes            | Fabric/FC with MPxIO                     | Tom Kranz
+HDS          | UPS-V           | yes            | Fabric/FC with MPxIO                     | Tom Kranz
+HDS          | AMS-500         | yes            | Fabric/FC with MPxIO                     | Tom Kranz
+Sun          | A5000 (Photon)  | yes            | FC-AL with MPxIO                         | Tom Kranz
+Sun          | T3              | yes            | Fabric/FC with MPxIO                     | Tom Kranz
+
