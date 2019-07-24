@@ -141,4 +141,24 @@ These soundcards are compatible and 'known to work' with OpenIndiana.
  Yamaha PSR-1K USB MIDI Keyboard (BETA)               |                                                   |         |
  Yamaha UX16 USB MIDI interface (BETA)                |                                                   |         |
 
+### Drives
+
+ Type           | Manufacturer |  Model   | Works (yes/no)  | Notes and/or specific usage instructions | Contributor
+ -------------- | ------------ | -------- | --------------- | ---------------------------------------- | ------------
+ HDD 2.5 SATA-3 | Crucial      | M4-128GB | yes             | 25nm MLC SSD                             | Jason Matthews
+ PCIe           | DDRdrive     | X1       | yes             | Intended as ZIL. Works flawlessly        | Jason Matthews
+ HDD 3.5 SATA-3 | Hitachi      | HDS72404 | yes             | 4TB of "Spinning Rust" properly recognized on LSI Falcon|Jason Matthews
+ HDD 2.5        | Intel        | 520      | yes             |                                          | Jason Matthews
+ HDD 2.5        | Intel        | 710      | yes             |                                          | Jason Matthews
+ PCIe           | Intel        | 910      | yes             | Works out of the box                     | Jason Matthews
+ HDD 2.5 SATA-3 | Intel        | DC S3500 480GB | yes       | six drives configured in mirrors yields 50k+ random reads/sec on ZFS, reports as ashift=9|Jason Matthews
+ HDD 2.5 SATA-3 | Intel        | DC S3700 800GB | yes       | Works as advertised, bench marking indicates 10% higher performance on 8k writes. Drives are 4K may or may not advertise 512bytes varies on firmware revision. Beware, you cannot mix 4K/512B drives within a VDEV | Jason Matthews
+ HDD 3.5 SAS    | Seagate      | ST4000NM0023 | yes         | 4TB SAS spinning rust. Just works. 4K Advanced Sector  130MB/s seq writes | Jason Matthews
+ HDD 3.5 SAS    | Seagate      | ST6000NM0014 | yes         | 6TB 7200-rpm 12Gb/s SAS HDD (4KN model, 512E model is ST6000NM0034) | Ken Mays
+ SCSI           | Sun Microsystems |C5683A | yes            | SUN C5683A (HP Rebrand) DDS4 DAT Tape drive | Jon Green
+ SATA           | Seagate/Dell|ST1000NM0001|yes|Disks not powered on (Dell Firmware problem), the trick is: in `/kernel/drv/sd.conf` set `sd-config-list="SEAGATE ST1000NM0001","power-condition: false";` | Jorge Palma Escobar
+ HDD 3.5" SATA-2| Samsung      |F4EG HD204UI/Z4 | yes       | SATA - Advanced Format and 4K Sector drives | Deano Calver
+ HDD 3.5" SATA-2| Seagate      |ST2000DL003-9VT1| yes       | Barracuda Green. 4kB sectors with 512-byte emulation | Matt Connolly
+ HDD 2.5 SAS    | Seagate      |ST9146852SS     | yes       | 146GB 15k RPM Savvio                     | Jason Matthews
+ HDD 2.5 SATA-3 | Western Digital | WD20NPVT-00Z | yes      | 2 TB SATA disk, reports as ashift=12 (adv format), recognized on LSI 9207-8i | Jason Matthews
 
