@@ -218,3 +218,46 @@ HDS          | AMS-500         | yes            | Fabric/FC with MPxIO          
 Sun          | A5000 (Photon)  | yes            | FC-AL with MPxIO                         | Tom Kranz
 Sun          | T3              | yes            | Fabric/FC with MPxIO                     | Tom Kranz
 
+### Graphics Adapters
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+For most video cards, which are not explicitly supported, vgatext driver will work, but will not provide any DRI capabilities.<br>
+Systems with combined discrete graphics and Intel integrated adapter (like Nvidia Optimus) are likely to be unusable with Xorg.
+</div>
+
+Video adapter                            | Works (yes/no/vgatext) | Notes and/or specific usage instructions | Driver |  Contributor
+---------------------------------------- | ---------------------- | ---------------------------------------- | ------ | ------------
+Intel 945GM Express                      | yes                    |                                          | i915   | Michal Nowak
+Intel 945GM Graphics                     | no                     | Dell Latitude D620. Tested at 1280x800 resolution (crashes, seems problematic in NVIDIA Optimus configurations) | |
+Intel GMA 950                            | yes                    |                                          | i915   | nikolam
+Intel HD Graphics 520                    | yes                    | HP 15t Laptop (Part#: V1Z72AV_1). Tested at 1920x1080. | i915 |
+Intel HD Graphics 530                    | no                     | HP ZBook Studio G3. Crashes, system has both discrete graphics and Intel graphics | |
+Intel HD Graphics 2000                   | yes                    | ThinkCentre M91p. Working, tested from 1024x768 to 1920x1080, GPU hangs and wrong screen adjustment. | i915 |
+Intel HD Graphics 3000                   | yes                    | Lenovo ThinkPad X220. Has a <a href="https://www.illumos.org/issues/8757">glitch</a> on embedded display (<a href="https://www.illumos.org/issues/8049#note-7">workaround</a>). Display Port & VGA D-Sub work. | i915 | Michal Nowak
+Intel HD Graphics 4000                   | yes                    |                                          | i915   | Aurélien Larcher
+Intel HD Graphics 4600                   | yes                    | Dell Precision M2800. Tested at 1920x1080. | i915 |
+Intel Iris Pro Graphics                  | yes                    |                                          | i915   | Martin Bochnig
+Intel Iris Pro Graphics P6300            | yes                    | Tested at 1920x1080 (Intel Xeon E3-1285V4 w/Supermicro X10SLH-F motherboard) | i915 |
+Intel Iris Pro Graphics 580              | yes                    | Tested at 1920x1080. (Intel Core i7-6785R, BGA1364 socket) | i915 |
+Intel UHD Graphics 620                   | yes                    | Thinkpad T580. OI-Hipster MATE 2017.10, 2D (UXA)/3D Visual Effects works - Xserver 1.19.5, 3840x2160 resolution | i915 |
+NVIDIA GeForce GT 730                    | yes                    | Nvidia 340.107                           | nvidia | Gary Mills
+NVIDIA GeForce 210                       | yes                    | PCI-ID: 10de:0a23, Nvidia 340.107        | nvidia | Alex Viskovatoff
+NVIDIA GeForce 220                       | yes                    | Nvidia 340.107                           | nvidia | Guy
+NVIDIA GeForce 8400 GS                   | yes                    | PCI-ID: 10de:06e4, Nvidia 340.107        | nvidia | Ancoron Luciferis
+NVIDIA GeForce GT 430                    | yes                    | Nvidia 340.107                           | nvidia | openbabel
+NVIDIA GeForce GT 620                    | yes                    | PCI-ID 10de:0f01, Nvidia 340.107         | nvidia | Michael Kruger
+NVIDIA GeForce GTX 480                   | yes                    | PCI-ID: 10de:06c0, Nvidia 340.107        | nvidia | catable
+NVIDIA GeForce GTX 580                   | yes                    | Nvidia 340.107                           | nvidia | Vladimir Smirnov
+NVIDIA GeForce GTX 780 Ti                | yes                    | PCI-ID: 10de:100a, Nvidia 340.107        | nvidia | Yoweri Museveni
+NVIDIA GeForce GTX 765M                  | yes                    | PCI-ID: 10de:11e2, Nvidia 340.107        | nvidia | WarGrey Ju
+NVIDIA GeForce GTX 780M                  | yes                    | PCI-ID: 10de:119f, Nvidia 340.107        | nvidia | Jim Gorzelany
+NVIDIA GeForce GTX 880M                  | yes                    | PCI-ID: 10de:1198 - Tested on Asus ROG G750JZ with hipster-070114 ISO | nvidia | Mike Kelley
+NVIDIA GeForce TITAN X                   | yes                    | Nvidia 340.107                           | nvidia | John Hahnua
+NVIDIA Titan Xp                          | yes                    | <a href="http://http.download.nvidia.com/solaris/390.67/NVIDIA-Solaris-x86-390.67.run">Nvidia 390.67</a> | nvidia | Ken Mays
+AMD/ATI Radeon HD 4770 [RV740] PCI-e     | vgatext                | PCI-ID: 1002:94b3 - DVI ports work (but trying to rotate broke X) - overall resolution limited to 2560x2560 | vgatext | Ancoron Luciferis
+AMD/ATI Radeon HD 5770 PCI-e             | vgatext                | PCI-ID: 1002:68b8 - DVI ports work (but trying to rotate broke X) - overall resolution limited to 2560x2560 | vgatext | Ancoron Luciferis
+ASUS EAH4350 (ATI RV710 - Radeon HD 4350)| vgatext                | Have only tried the DVI port             | vgatext | Philip Robar
+ATI Radeon VT7000 (VisionTek VTKRad7K64P)| vgatext                | PCI-ID: 1002:4c59, DVI port works (only port tested) | vgatext | Eduardo Sanchez
+AMD Mobility Radeon 5730/6570M           | vgatext                | Not 3D HW-accelerated                    | vgatext | gweiss
+AMD Radeon HD 7670M                      | vgatext                | PCI-ID: 1002:6840 - nor HDMI nor VGA output (D-Sub) work | vgatext | Michal Nowak
