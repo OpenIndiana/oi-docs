@@ -261,3 +261,81 @@ ASUS EAH4350 (ATI RV710 - Radeon HD 4350)| vgatext                | Have only tr
 ATI Radeon VT7000 (VisionTek VTKRad7K64P)| vgatext                | PCI-ID: 1002:4c59, DVI port works (only port tested) | vgatext | Eduardo Sanchez
 AMD Mobility Radeon 5730/6570M           | vgatext                | Not 3D HW-accelerated                    | vgatext | gweiss
 AMD Radeon HD 7670M                      | vgatext                | PCI-ID: 1002:6840 - nor HDMI nor VGA output (D-Sub) work | vgatext | Michal Nowak
+
+### Motherboards
+
+Manufacturer |  Model                             | Drivers     | Notes                                                 | Contributor
+------------ | ---------------------------------- | ----------- | ----------------------------------------------------- | --------------
+ASRock       | 939Dual-VSTA/                      |             | works correctly                                       | Johan Sanchez
+ASRock       | 870iCafe                           |             | Test System: AMD Phenom II X6 1055T                   | Dave Koelmeyer
+ASRock       | B150M-ITX                          |             |                                                       |  
+ASRock       | H170M-ITX/DL                       |             |                                                       |  
+ASRock       | M3A770DE                           |             | Test System: AMD Phenom II X6 1090T, 4x 4GB DDR3      | Marc D. Williams
+ASRock       | N68C-GS FX                         |             | Test System: AMD Phenom X4 9550, 2x4GB DDR2<br/>needed to  `# update_drv -a -i '"pci10de,3d6"' nvidia` <br/> and   `# update_drv -a -i "pci10de,3f6" nv_sata` and manually update ogl-select to NVIDIA using NVIDIA driver 173.14.32 | Richard PALO
+ASRock       | B150M Pro4S                        |             | Works (with USB Legacy set to ""auto""); Added:<ul><li>NVIDIA graphics (no onborad "Intel" is supported)</li><li>Network card (onborad "Intel Corporation Ethernet Connection (2) I219-V" not supported)</li><li>PCIe USB 2.0 card (no USB 3.0 support yet; Internal USB 2.0 is not recognized)</li></ul> | Predrag Zečević
+ASUS         | C60M1-I                            |             | Test System: 2x 2GB, Passively cooled with 4 of 6 SATA ports in use | Justin Warwick
+ASUS         | H97I-PLUS                          |             |                                                       |  
+ASUS         | H110I-PLUS/CSM                     |             |                                                       |  
+ASUS         | P7H55-M Pro                        |             |                                                       | Apostolos Syropoulos
+ASUS         | M2N                                |             | Everything OK including sound                         | Johan Sanchez
+ASUS         | M2NPV-VM                           |             |                                                       | Gary Mills
+ASUS         | A8N-SLI Deluxe                     |             |                                                       | Alex Viskovatoff
+ASUS         | A8V-XE                             | vr audio hd | boots from pata and sata everything works perfectly   | Johan Sanchez
+ASUS         | KPGE-D16                           |             |                                                       |
+ASUS         | M2N-SLI Deluxe                     |             |                                                       | Alex Viskovatoff
+ASUS         | M4N68T-M V2                        |             | NVIDIA GeForce 7025 / nForce 630a motherboard         |  
+ASUS         | M4A77D                             | rge         | Works correctly                                       | Quentin Sanchez
+ASUS         | P5N-D                              |             | Works perfectly including sound                       | Johan Sanchez
+ASUS         | P5N-T Deluxe                       | nv_sata, nge, mpt-sas, e1000g | Intel Q9550, 8 GB RAM, NVIDIA nForce 780i SLI chipset, LSI 9201-16i, Intel PRO/1000 Dual Port Ethernet. | Chris Kurlinski
+ASUS         | P5B-Plus Vista Edition             |             | Intel QX6800, 4 GB RAM, NVIDIA 9400 GT. Running with 8 HDD (1 from JMicron Internal SATA and 1 from JMicron eSATA as OS boot, mirrored in OI. Running AHCI on remaining 6 HDD on Intel ICH8R and RAIDZ1 in OI.  Take note: The board has 2 SATA controllers, Intel ICH8R and JMicron JMB363. OpenIndiana can only see drives in AHCI mode for JMicron. RAID mode will not work. Intel controller works fine. | Dedy Johan
+ASUS         | P5Q3                               | rge         | Everything works ok                                   | Johan Sanchez
+ASUS         | P5SQPL-AM                          |             | Everything works ok                                   | Johan Sanchez
+ASUS         | P8H77-I                            |             | Intel Celeron G1610, 8GB RAM, onboard video. Using ASMedia ASM1061-based 2-port SATA /eSATA card. Total 7 HDDs (6 data disks on onboard connectors, 1 OS disk on add-on card).  Realtek RTL8111F SUPPORTED. All other components SUPPORTED except onboard Intel USB 3.0 controller. | Dedy Johan
+ASUS         | PRIME B350M-A CPU: AMD Ryzen 3 1200 Quad-Core    | All devices have drivers except for the Platform Security Processor | Had to set Power supply idle in BIOS setup to Typical in order to ensure stability. | Gary Mills
+CLEVO        | L287                               |             | Everything works                                      | Johan Sanchez
+DELL         | OPTIPLEX GX520                     |             | Everything works and system shutdown is ok            | Johan Sanchez
+DELL         | OPTIPLEX 330                       |             | Works ok X ok                                         | Johan Sanchez
+Gigabyte     | GA-990FXA-UD3                      |             | Etron Technology USB3.0 controllers are unsupported, otherwise the motherboard is compatible. | Dave Koelmeyer
+Gigabyte     | K8NUSLI                            |             | 151_a9 : All except audio works (ALC850 ) boots from pata and sata. hipster crashes after boot -r | Johan Sanchez
+Gigabyte     | GA-770TA-UD3                       | rge, audiohd, ahci | Test System: AMD Phenom II X6 1090T, 4x 2GB DDR3, AMD/ATI Radeon HD 5770 PCI-e<ul><li>Marvell 88SE9128 SATA-3 controller: UNSUPPORTED (should be disabled, otherwise expect kernel panic at boot)</li><li>NEC USB-3 controller: UNSUPPORTED</li><li>Everything else seems to work quite well</li></ul> | Ancoron Luciferis
+Gigabyte     | GA-MA785GMT-UD2H                   | rge, ahci   | Test System: AMD 240e<ul><li>No issues (rge not extensively tested, was not reliable in earlier opensolaris builds).</li><li>ECC RAM: UNSUPPORTED (although accepts ECC unbuffered RAM)</li></ul> | James D. Brenton
+Gigabyte     | GA-790XTA-UD4                      | audiohd, rge, ahci, pci-ide, ohci, ehci, hci1394 | Test System: AMD Phenom II X4 955, 4x 2GB DDR3, AMD/ATI Radeon HD 4770 PCI-e<ul><li>Marvell 88SE9128 SATA-3 controller : UNSUPPORTED (should be disabled, otherwise expect kernel panic at boot)</li><li>NEC USB-3 controller: UNSUPPORTED</li><li>Everything else seems to work quite well</li></ul> | Ancoron Luciferis
+Gigabyte     | GA-EG31MF-S2                       |             |                                                       | Dave Koelmeyer
+Gigabyte     | GA-EP45-DS3R                       |             |                                                       | Erol Zavidic
+Gigabyte     | GA-EP45-UD3R                       |             | Works when "Enhanced Intel Speedstep Technology" (CPU EIST Function) is disabled in BIOS. (Intel speedstep causes abnormally high kernel CPU usage). | Michael Kruger
+Gigabyte     | GA-F2A78M                          |             |                                                       | Johan Sanchez
+Gigabyte     | GA-P67A-UD7-B3                     |             | Test System: LGA 1155 Sandy Bridge 2600K<ul><li>Marvell 88SE9128 SATA controller: UNSUPPORTED</li><li>P67A SATA controller: SUPPORTED</li><li>RealTek RTL8111E Ethernet: SUPPORTED (despite being warned off!)</li></ul> | Lou Picciano
+Gigabyte     | P45T-ES3G                          |             | Works when "Enhanced Intel Speedstep Technology" (CPU EIST Function) is disabled in BIOS. (Intel speedstep causes abnormally high kernel CPU usage). | Michael Kruger
+Hewlett-Packard | Workstation XW4200              |             | Works Ok.  X with Nvidia gt9600 and 340.93 tested OK | Johan Sanchez
+IBM          | ThinkCentre                        |             | Works ok with bge0 and integrated graphics           | Johan Sanchez
+Intel        | D510MO                             |             | Live CD will only boot with BIOS set to USB Legacy=Disable. Note, this also results in USB keyboard not usable in GRUB menu (annoying), but works once OS has booted. Only supports VESA graphics driver. | Matt Connolly
+Intel        | DG43GT                             |             | Works without any known problems - Basic desktop board with Intel G43 Express chipset, Pro 1000 LAN, Realtek Audio | Michael Kruger
+Intel        | S1200BTLR                          |             | Works                                                | Marcel Telka
+Intel        | S1400FP2 / S1400FP4                |             |                                                      |  
+Intel        | S1                                 |             |                                                      |  
+Intel        | S2600 (CP/GZ/IP)                   |             |                                                      |  
+MSI          | B150I                              |             |                                                      |  
+MSI          | G31TM-P21                          | rge, audiohd | Intel G31/ICH7 Chipset<ul><li>Realtek RTL8101/8102E: SUPPORTED</li><li>ICH7 audio: SUPPORTED</li><li>Intel GMA3100: UNKNOWN (I haven't tried the built-in video)</li></ul> | Philip Robar
+MSI          | MS 7069                            | bge         | works with Celeron 3ghz X with onboard graphics      | Quentin Sanchez
+MSI          | MS 7301                            | vr          | works with Pentium D and X                           | Quentin Sanchez
+SuperMicro   | A1SAi-2750F                        |             |                                                      |  
+SuperMicro   | A1SRi-2758F                        |             |                                                      |  
+SuperMicro   | H8SGL-F                            |             |                                                      | Richard Palo
+SuperMicro   | X7DB8                              | mpt, e1000  |                                                      | Jason Matthews
+SuperMicro   | X7BSi                              |             | Test System: Using a lower-speed Xeon Quad and 8GB ECC memory, plus two Seagate 7200.11 disks.<ul><li>IPMI: SUPPORTED</li></ul> | anonymous
+SuperMicro   | X7SPA-H                            | e1000g ahci | Test System: Atom D510. <ul><li>Intel 82574L Ethernet: SUPPORTED</li></ul> | Cyril Plisko
+SuperMicro   | X8DTU-6F+                          |             |                                                      | Geoff Flarity
+Supermicro   | X8SI6-F                            |             | <ul><li>LSI 2008 8-Port 6Gbps SAS Controller: SUPPORTED</li><li>Intel 82574L Ethernet: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul> | Alexander Lesle
+Supermicro   | X8SIA-F                            |             | <ul><li>Intel 82574L Ethernet: SUPPORTED</li><li>IPMI 2.0 (IPMI View v2.7.19): SUPPORTED</li></ul> | Alexander Lesle
+Supermicro   | X8SIL-F                            |             | <ul><li>Intel 82574L Ethernet: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul> | Alexander Lesle
+Supermicro   | X9SCM-F-O                          | mpt/sd, usb_mid/hid, e1000g, vgatext, ahci/sd | Test System: 4x 4-gig ECC DIMMs and an Intel E3-1220 CPU.<ul><li>Intel 82574L Ethernet: SUPPORTED</li><li>Intel 82579LM Ethernet: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul> | Gary Mills
+Supermicro   | X9SCA-F                            | mpt/sd, usb_mid/hid, e1000g, vgatext/matrox-graphics, ahci/sd | Test System: 4x 4-gig ECC DIMMs and an Intel E3-1270 CPU.<ul><li>Intel 82574L: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul> | Jon Strabala
+Supermicro   | X9DRi-LN4F+                        |             |                                                      | Christof Haemmerle
+Supermicro   | X9DRH-IF                           |             | Test System: 2x XEON E5-2609, 16x8GB ECC DIMMs<ul><li>SATA only working on AHCI ports not SCU ports</li></ul> | Carsten
+Supermicro   | X9DRD-7LN4F-JBOD                   | mga, ahci   |                                                      | Ken Mays
+Supermicro   | X10SLM-F                           | npe, e1000g, vgatext, igb, pcieb | igb and e1000g compiled from illumos git source, for SOL console sol1 use ttyb | Carsten Grzemba
+Tyan         | Tomcat K8E (S2865 AG2NRF)          |             |                                                      | Ken Gunderson
+Tyan         | S2927-E                            |             | Tyan Thunder n3600B S2927-E (S2927G2NR-E) motherboard| Ken Mays
+Tyan         | S5510GM3NR                         |             | Test System: Xeon LGA1155 C204 with Intel Core i3 2100.<ul><li>IPMI: SUPPORTED with BIOS V2.01c or bug <a href="https://www.illumos.org/issues/2560">#2560</a> fix.</li></ul> | Gary Mills
+Zotac        | G43ITX-A-E                         |             | Intel Q8400, 4 GB RAM, onboard Intel X4500 VGA (see note below).<br/>Running with 8 HDDs:<br><ul><li>5 using Intel ICH10R internal SATA (AHCI)</li><li>1 using Intel ICH10R eSATA (AHCI)</li><li>2 using add-on ASMedia ASM1061 PCI-E X1 SATA card (Device supported and detected by OI but HDD not detected. Possibly due to other unrelated issues. Still testing.)</li></ul>Note: The Intel X4500 VGA adapter will throw up some errors pertaining to "regiter error" and "vga init error" either during setup or boot. However, it will still work fine and OI will install / boot without problems. Unsupported driver issues? | Dedy Johan
+
