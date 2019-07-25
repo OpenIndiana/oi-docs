@@ -406,3 +406,39 @@ Logitech      | HD Pro Webcam C920           |  yes            |                
 Philips       | Webcam SPC2050NC Pro         |  yes            |                                                                  | usbvc   | Ken Mays
 Trust         | SpotLight Webcam Pro         |  yes            |                                                                  | usbvc   | Udo Grabowski
 
+## WiFi Adapters
+
+Manufacturer  | Model                             | Works (yes/no)  | WiFi standard    | Notes and/or specific usage instructions                         |  Driver |Contributor
+------------- | --------------------------------- | --------------- | ---------------- | ---------------------------------------------------------------- | ------- | -----
+ASUS          | USB-AC50 (chip: MediaTek MT7610U) | no              | 802.11a/b/g/n/ac | USB 2.0 dongle                                                   |         | Michal Nowak
+Atheros       | AR242x                            | yes             | 802.11abg        | PCI Express (pci168c,1c)                                         | ath     | Ken Mays
+Atheros       | AR5523                            | yes             | 802.11b/g        | USB                                                              | uath    | enricop
+Atheros       | AR5000 series                     | yes             | 802.11b/g        | Mini PCI Express.                                                | ath     | enricop
+Atheros       | AR5006                            | yes             | 802.11b/g        | Mini PCI Express. ASUS Eee PC 900A                               | ath     | Albert Lee
+Atheros       | AR5007EG                          | yes             | 802.11b/g        | Mini PCI Express. Acer Aspire One AOA110                         | ath     | Albert Lee
+Atheros       | AR9285                            | yes             | 802.11b/g/n      | Mini PCI Express. ASUS Eee PC 1005PE                             | arn     | Gary Mills
+Atheros       | AR9485                            | no              | 802.11b/g/n      | Mini PCI Express. Toshiba Satellite L855                         |         | Michal Nowak
+Broadcom      | BCM4313                           | yes             | 802.11b/g/n      | [NDIS](https://www.illumos.org/issues/3367)                      | bcmndis | Jim Klimov
+D-Link        | DWA-171                           | yes             | 802.11abgn+ac    | USB 2.0                                                          | rtl     | Ken Mays
+D-Link        | DWA-192                           | yes             | 802.11abgn+ac    | USB 3.0                                                          | rtl     | Ken Mays
+D-Link        | DWA-582                           | yes             | 802.11abgn+ac    | PCI Express (PCIe)                                               | rtl     | Ken Mays
+D-Link        | DWL-G122                          | yes             | 802.11b/g        | USB                                                              | rum     | Jay Undernet
+Edimax        | AC600 (type: EW-7811UTC, chip: rtl8812au) | no      | 802.11a/b/g/n/ac | USB 2.0 dongle                                                   |         | Michal Nowak
+Intel         | Intel PRO/Wireless 2100           | yes             | 802.11b          | Mini PCI                                                         | ipw     | Albert Lee
+Intel         | Intel PRO/Wireless 2200BG         | yes             | 802.11b/g        | Mini PCI                                                         | iwi     | Albert Lee
+Intel         | Intel PRO/Wireless 2915ABG        | yes             | 802.11a/b/g      | Mini PCI                                                         | iwi     | Albert Lee
+Intel         | Intel PRO/Wireless 3945ABG        | yes             | 802.11a/b/g      | Mini PCI Express                                                 | wpi     | Albert Lee
+Intel         | WiFi Link 4965AGN                 | yes             | 802.11a/g/n      | Mini PCI Express                                                 | iwk     | Albert Lee
+Intel         | WiFi Link 5100AGN (ShirleyPeak/EchoPeak) | yes      | 802.11a/g/n      | Half/Full Mini PCI Express                                       | iwh     | Albert Lee
+Intel         | WiFi Link 5300AGN (ShirleyPeak/EchoPeak) | yes      | 802.11a/g/n      | Half/Full Mini PCI Express                                       | iwh     | Albert Lee
+Intel         | WiFi Link 5300 (pciex8086,4236)   | yes             | 802.11a/b/g/n    | Half/Full Mini PCI Express                                       | iwn     | Marcel Telka
+Intel         | Centrino Advanced-N 6205 (Taylor Peak) | yes        | 802.11a/g/n      | Half Mini PCI Express                                            | iwn     | Michal Nowak
+Marvell       | 88W8363 v1.1                      | yes             | 802.11b/g        |                                                                  | mwl     | enricop
+Ralink        | RT2500/RT2501/RT2600              | yes             | 802.11b/g        |                                                                  | ral     | enricop
+Ralink        | RT252x/RT257x                     | yes             | 802.11b/g        | USB                                                              | ural    | enricop
+Ralink        | RT2501/2601                       | yes             | 802.11b/g        | USB                                                              | rum     | enricop
+Ralink        | RT2561/RT2561S/RT2661 driver v1.1 | yes             | 802.11b/g        |                                                                  | rwd     | enricop
+Ralink        | RT2700/RT2800                     | yes             | 802.11a/b/g/n    |                                                                  | rwn     | enricop
+Realtek       | RTL8187L/B driver v1.2            | yes             | 802.11b/g        | USB                                                              | urtw    | enricop
+Realtek       | RTL8188CE                         | no              | 802.11b/g/n      |                                                                  |         | Marcel Telka
+Zydas         | ZD1211(B)                         | yes             | 802.11a/b/g      | USB                                                              | zyd     | enricop
