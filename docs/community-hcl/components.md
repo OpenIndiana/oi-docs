@@ -394,3 +394,15 @@ StarTech.com | StarTech.com 4 port PCI SATA RAID controller <br/> (Silicon Image
 Supermicro   | SMC2008-iMR - SAS/SATA 6Gb/s PCIe 2.0 controllers                    | LSI 9207-4i4e | LSI SAS2108/2208/2308   | 1x SFF-8087, 1x SFF-8088 | yes | | mr_sas | Ken Mays
 Syba         | IOCrest SI-PEX40108 | Marvell 88SE9215 |   | 4 x SATA | no | | | Gary Mills
 Vantec       | UGT-ST220R                                                           | Sil3512        |                      | 2x SATA  |  no | | | Eduardo Sanchez
+
+## Webcams
+
+Manufacturer  | Model                        | Works (yes/no)  | Notes and/or specific usage instructions                         |  Driver |Contributor
+------------- | ---------------------------- | --------------- | ---------------------------------------------------------------- | ------- | -----
+Creative      | Creative Live! Cam Optia     |  no             | Error while accessing video device Generic USB videoclass device | usbvc   | Gary Mills
+Logitech      | C310 HD Webcam               |  yes            |                                                                  | usbvc   | Russell Aspinwall
+Logitech      | Webcam C905                  |  yes            |                                                                  | usbvc   | Aurélien Larcher
+Logitech      | HD Pro Webcam C920           |  yes            |                                                                  | usbvc   | Franklin Morier
+Philips       | Webcam SPC2050NC Pro         |  yes            |                                                                  | usbvc   | Ken Mays
+Trust         | SpotLight Webcam Pro         |  yes            |                                                                  | usbvc   | Udo Grabowski
+
