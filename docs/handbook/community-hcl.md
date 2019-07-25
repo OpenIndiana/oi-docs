@@ -383,3 +383,36 @@ Keyspan       | USA-19HS                     | yes             | USB DB9M Serial
 MOXA          | CP-102EL-DB9M                | yes             | 2-Port serial PCI-Express card<br/>2-Port PCIe Board with DB9M RS-232 cable.<br/>Use Solaris 10 drivers available from MOXA site (works with APC UPS)| mxsieboard| Jon Green
 StarTech      | PEX2S553                     | no              | 2-Port serial PCI-Express card           |         | Jon Green
 
+### Storage Controllers
+
+Manufacturer | Model  | Controller | Assic | Connectors  | Works (yes/no) | Notes and/or specific usage instructions | Driver  |  Contributor
+------------ | ------ | ---------  | ----- | ----------  | -------------- | ---------------------------------------- | ------  | -----------
+3Ware        | SAS 9550SX/9650SE/9690SA/9750 controller series                      | LSI 9207-4i4e | LSI SAS2108/2208/2308 | 1x SFF-8087, 1x SFF-8088 | yes | | mr_sas | Ken Mays
+Adaptec      | 6405, 6445, 6805, 7805,78165, 71605, 71685, 72405, 8805, 8885, 81605 | PMC        | PMC 8001 and others | SFF         | yes            | | aacraid | Ken Mays
+Adaptec      | 29320LPE Ultra320 Single Channel Low-Profile PCIe x1 SCSI Card       | 29320LPE   | Adaptec 29320       | 1x VHDCI (External)<br/>1x LVD (Internal) | yes | | adpu320 | Jon Green
+Addonics     | Hybrid HDD - mSATA SSD Controller (AD2SAHMSA)                        | AD2SAHMSA  | Marvell 88SE9128    | 1 x SATAIII (internal)<br/>1 x mSATA | yes | | ahci | Marcel Telka
+Areca        | SATA II RAID Controller driver (ARC-11xx/12xx/16xx/18xx)             | ARC-1880   | LSI SAS2308         | 2x SFF-8087 | yes | | arcmsr  | Garrett D'Amore
+Avago        | SAS 9305 Controllers  (12Gb/s SAS-3 Compliant)                       | Avago 9305-16i | LSI SAS3224     | 4 x SFF8643 | yes | To use sas3ircu (wwn to bay assignment, led alerting), read <https://www.illumos.org/issues/6784> | mpt_sas | Guenther Alka
+Axago        | Axago PCES-SA                                                        | PCES-SA    | ASMedia ASM1062 (according pci.ids) / ASM1061 (on the chip) | 2 x SATAIII (internal) | yes | | ahci    | Marcel Telka
+Axago        | Axago                                                                | PCIS-60    | SiI3124-2                                                   | 4x SATAII   | yes | | si3124  | Milan Jurik
+Broadcom     | SAS 9305 Controllers  (12Gb/s SAS-3 Compliant)                       | Avago 9305-16i | LSI SAS3224 | 4 x SFF8643 | yes | To use sas3ircu (wwn to bay assignment, led alerting), read <https://www.illumos.org/issues/6784> | mpt_sas | Guenther Alka
+Dell         | PERC H200/H220i SAS/SATA 6Gb/s PCIe 2.0 controllers                  | LSI 9212-4i4e | LSI SAS2004/2008/2108/2116                               | 4x SFF-8087, 1x SFF-8088 | yes | | mpt_sas | Ken Mays
+Dell         | PERC H310/H700/H710/H710P/H800/H810 SAS/SATA 6Gb/s PCIe 2.0 controllers | LSI 9207-4i4e | LSI SAS2108/2208/2308                                 | 1x SFF-8087, 1x SFF-8088 | yes | | mr_sas | Ken Mays
+Emulex       | Emulex LP8000                                                        |               |                         | SC                       | yes | | emlxs  | Johan Sanchez
+HP           | H210i/H220/H220i/H221/H222 SAS/SATA 6Gb/s PCIe 2.0 controllers       | LSI 9207-4i4e | LSI SAS2108/2208/2308                                    | 1x SFF-8087, 1x SFF-8088 | yes | | mr_sas | Ken Mays
+HP           | Smart Array SAS/SATA PCIe Controllers (5i/6i, 5xx/5xxx/6xx/6xxx, E200/200i, P2xx/4xx/5xx/6xx/7xx) | P411/256 | SA-P411 | 2x SAS ports |yes | | cpqary3 | Ken Mays
+IBM          | M1015/M1115/M5014/M5015/M5016/5025/5110/5120 SAS/SATA 6Gb/s PCIe 2.0 controllers | LSI 9207-4i4e | LSI SAS2108/2208/2308                    | 1x SFF-8087, 1x SFF-8088 | yes | | mr_sas | Ken Mays
+IBM          | ServeRAID H1110 SAS/SATA 6Gb/s PCIe 2.0 controllers                  | LSI 9212-4i4e | LSI SAS2004/2008/2108/2116                               | 4x SFF-8087, 1x SFF-8088 | yes | | mpt_sas | Ken Mays
+Intel        | RS25AB080/ RMS2AF040/RS2WC040/RS2WC080 6Gb/s PCIe 2.0 controllers    | LSI 9207-4i4e | LSI SAS2108/2208/2308                                 | 1x SFF-8087, 1x SFF-8088 | yes | |  mr_sas | Ken Mays
+Intel        | SASWT4I/SASUC8I                                                      |                | LSI SAS1064, SAS1068 |    | yes | | mpt | Jason Matthews
+LSI          | SAS 3008 Controllers - LSI SAS 9300 / LSI SAS 9311 12Gb/s SAS HBAs (SAS 3.0-compliant) | LSI 9300-4i4e |  LSI SAS3008 | 1 Mini-SAS HD SFF-8643 | yes | To use sas3ircu (wwn to bay assignment, led alerting), read <https://www.illumos.org/issues/6784> | mpt_sas | Ken Mays
+LSI          | SAS 3041E-R/SAS 3442E/SAS 3442X/SAS 3801E/SAS 3801X                  |                | LSI SAS1064, SAS1068 |    | yes | | mpt | Gary Mills
+LSI          | 9200/9201/9202/9210/9211/9212 SAS/SATA 6Gb/s PCIe 2.0 controllers    | LSI 9212-4i4e | LSI SAS2004/2008/2108/2116                               | 4x SFF-8087, 1x SFF-8088 | yes | | mpt_sas | Ken Mays
+LSI          | 9207/9217/9240/9260/9261/9262/9264/9265/9266/9270/9271/9280/9281/9285/9286 6Gb/s PCIe 2.0 controllers | LSI 9207-4i4e | LSI SAS2108/2208/2308   | 1x SFF-8087, 1x SFF-8088 | yes | |  mr_sas | Ken Mays
+LSI          | SAS 9305 Controllers  (12Gb/s SAS-3 Compliant)                       | Avago 9305-16i | LSI SAS3224 | 4 x SFF8643 | yes | To use sas3ircu (wwn to bay assignment, led alerting), read <https://www.illumos.org/issues/6784> | mpt_sas | Guenther Alka
+Oracle       | Sun StorageTek 6Gb/s SAS-2.0                                         | LSI 9207-4i4e | LSI SAS2108/2208/2308   | 1x SFF-8087, 1x SFF-8088 | yes | | mr_sas | Ken Mays
+QLogic       | 2340                                                                 | ISP 2312       |                      |    | yes | initiator works | | Johan Sanchez
+StarTech.com | StarTech.com 4 port PCI SATA RAID controller <br/> (Silicon Image (SI) 3114 - 4 port SATA raid card) |  SI 3114 | Sil3114 | 4 x SATA150 | yes | For illumos to recognize the drives, the card must be flashed with the IDE version of the BIOS | | Hugo Wilkinson
+Supermicro   | SMC2008-iMR - SAS/SATA 6Gb/s PCIe 2.0 controllers                    | LSI 9207-4i4e | LSI SAS2108/2208/2308   | 1x SFF-8087, 1x SFF-8088 | yes | | mr_sas | Ken Mays
+Syba         | IOCrest SI-PEX40108 | Marvell 88SE9215 |   | 4 x SATA | no | | | Gary Mills
+Vantec       | UGT-ST220R                                                           | Sil3512        |                      | 2x SATA  |  no | | | Eduardo Sanchez
