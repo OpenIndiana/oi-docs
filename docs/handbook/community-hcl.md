@@ -375,3 +375,11 @@ Oki           | MB480 MFP                    | yes             |                
 Oki           | CX2731 MFP                   | yes             |                                          |         |
 Xerox         | WorkCentre 6400              | yes             |                                          |         |
 
+### Serial Controllers
+
+Manufacturer  | Model                        | Works (yes/no)  | Notes and/or specific usage instructions |  Driver |Contributor
+------------- | ---------------------------- | --------------- | ---------------------------------------- | ------- | -----
+Keyspan       | USA-19HS                     | yes             | USB DB9M Serial adapter.<br/>Note: Does not play well with APC UPS and results in connection failures.|usbsksp| Jon Green
+MOXA          | CP-102EL-DB9M                | yes             | 2-Port serial PCI-Express card<br/>2-Port PCIe Board with DB9M RS-232 cable.<br/>Use Solaris 10 drivers available from MOXA site (works with APC UPS)| mxsieboard| Jon Green
+StarTech      | PEX2S553                     | no              | 2-Port serial PCI-Express card           |         | Jon Green
+
