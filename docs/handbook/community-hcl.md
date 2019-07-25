@@ -339,3 +339,39 @@ Tyan         | S2927-E                            |             | Tyan Thunder 
 Tyan         | S5510GM3NR                         |             | Test System: Xeon LGA1155 C204 with Intel Core i3 2100.<ul><li>IPMI: SUPPORTED with BIOS V2.01c or bug <a href="https://www.illumos.org/issues/2560">#2560</a> fix.</li></ul> | Gary Mills
 Zotac        | G43ITX-A-E                         |             | Intel Q8400, 4 GB RAM, onboard Intel X4500 VGA (see note below).<br/>Running with 8 HDDs:<br><ul><li>5 using Intel ICH10R internal SATA (AHCI)</li><li>1 using Intel ICH10R eSATA (AHCI)</li><li>2 using add-on ASMedia ASM1061 PCI-E X1 SATA card (Device supported and detected by OI but HDD not detected. Possibly due to other unrelated issues. Still testing.)</li></ul>Note: The Intel X4500 VGA adapter will throw up some errors pertaining to "regiter error" and "vga init error" either during setup or boot. However, it will still work fine and OI will install / boot without problems. Unsupported driver issues? | Dedy Johan
 
+### Peripheral Devices
+
+#### Monitors
+
+Manufacturer | Model          | Description                                         | Works (yes/no) | Notes and/or specific usage instructions | Contributor
+------------ | -------------- | --------------------------------------------------- | -------------- | ---------------------------------------- |---------------
+Sun          | X7236A-N       | 24.1-Inch TFT LCD Color Monitor                     | yes            |                                          |
+Samsung      | PX2370         | 23" LED Monitor                                     | yes            | HDMI2.0/DisplayPort 1.2a                 |
+Samsung      | LU28H750UQNXZA | 28" UH750 QLED UHD Monitor (3840 x 2160 resolution) | yes            | HDMI2.0/DisplayPort 1.2a                 |
+
+#### Keyboards/Mice
+
+Manufacturer  | Model                      | Works (yes/no)  | Notes and/or specific usage instructions |  Driver |Contributor
+------------- | -------------------------- | --------------- | ---------------------------------------- | ------- | -----
+Logitech      | TrackMan Wheel             | yes             |                                          |         |
+Logitech      | K120 Keyboard              | yes             |                                          |         |
+Microsoft     | Basic Optical Wheel Mouse  | yes             |                                          |         |
+Microsoft     | Wired Keyboard 600         | yes             |                                          |         |
+Sun           | Type 6 USB Mouse           | yes             | Middle button does not work.             | usbms   |
+
+#### Printers
+
+Manufacturer  | Model                        | Works (yes/no)  | Notes and/or specific usage instructions |  Driver |Contributor
+------------- | ---------------------------- | --------------- | ---------------------------------------- | ------- | -----
+Brother       | MFC-9970CDW                  | yes             |                                          |         |
+Canon         | PIXMA MG8120                 | yes             |                                          |         |
+Canon         | imageCLASS D420              | yes             |                                          |         |
+Epson         | WorkForce 840                | yes             |                                          |         |
+HP            | Officejet Pro 8500 series    | yes             |                                          |         |
+HP            | Envy 100 (D410a)             | yes             |                                          |         |
+HP            | Color LaserJet CM3530fs MFP  | yes             |                                          |         |
+Lexmark       | X543dn/X544(dn/dw)/X546dtn   | yes             |                                          |         |
+Oki           | MB480 MFP                    | yes             |                                          |         |
+Oki           | CX2731 MFP                   | yes             |                                          |         |
+Xerox         | WorkCentre 6400              | yes             |                                          |         |
+
