@@ -23,29 +23,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 <img src = "../../Openindiana.png">
 
-# OpenIndiana Community Hardware Compatibility List
-
-This is a community maintained HCL (Hardware Compatibility List), compiled from contributions from OpenIndiana users.
-
-It is not an official statement or guarantee from the OpenIndiana Project.
-
-It is provided as a guide to help users discover what hardware works with OpenIndiana, and to guide users with any specific instructions where required.
-
-The HCL consists of two categories:
-
-1. [Components](#components)
-2. [Systems](#systems)
-
-## How to find out what hardware you have?
-
-If your are running the standard MATE install of Openindiana, then Device Driver Utility (ddu), provided by `diagnostic/ddu` package, is your friend (it is located by default under Applications->System Tools).
-
-When run, it will provide a list of hardware sorted by category and the driver (if used).
-
-The device line can be copied into the relevant HCL table, along with which driver is being used.
-If for any reason you don't want (or can't) enter it yourself into the HCL, feel free to email the details (Device, driver, OI hipster 'osnet-incorporation' and 'userland-incorporation' versions and status) to hcl-feedback@openindiana.org and the oi-dev mailing-list.
-
-## Components
+# Components
 
 1. [Audio](#audio)
 2. [Drives (HDD, CD, DVD or Tape)](#drives)
@@ -59,7 +37,7 @@ If for any reason you don't want (or can't) enter it yourself into the HCL, feel
 10. [Webcams](#webcams)
 11. [WiFi adapters](#wifi-adapters)
 
-### Audio
+## Audio
 
 These soundcards are compatible and 'known to work' with OpenIndiana.
 
@@ -141,7 +119,7 @@ These soundcards are compatible and 'known to work' with OpenIndiana.
  Yamaha PSR-1K USB MIDI Keyboard (BETA)               |                                                   |         |
  Yamaha UX16 USB MIDI interface (BETA)                |                                                   |         |
 
-### Drives
+## Drives
 
  Type           | Manufacturer |  Model   | Works (yes/no)  | Notes and/or specific usage instructions | Contributor
  -------------- | ------------ | -------- | --------------- | ---------------------------------------- | ------------
@@ -162,7 +140,7 @@ These soundcards are compatible and 'known to work' with OpenIndiana.
  HDD 2.5 SAS    | Seagate      |ST9146852SS     | yes       | 146GB 15k RPM Savvio                     | Jason Matthews
  HDD 2.5 SATA-3 | Western Digital | WD20NPVT-00Z | yes      | 2 TB SATA disk, reports as ashift=12 (adv format), recognized on LSI 9207-8i | Jason Matthews
 
-### Network interface controllers
+## Network interface controllers
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -202,7 +180,7 @@ Realtek RTL8111/8168B PCI Express Gigabit Ethernet controller (rev 03) | yes | P
 Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller | yes | PCI-ID: 10ec:8168 | rge | Predrag Zečević
 Realtek RTL-8169 Gigabit Ethernet (rev 10)           | yes             | PCI-ID: 10ec:8169       | rge | Ancoron Luciferis
 
-### External disk arrays
+## External disk arrays
 
 Manufacturer | Model           | Works (yes/no) | Notes and/or specific usage instructions | Contributor
 -----------  | --------------- | -------------- | ---------------------------------------- | ------------
@@ -218,7 +196,7 @@ HDS          | AMS-500         | yes            | Fabric/FC with MPxIO          
 Sun          | A5000 (Photon)  | yes            | FC-AL with MPxIO                         | Tom Kranz
 Sun          | T3              | yes            | Fabric/FC with MPxIO                     | Tom Kranz
 
-### Graphics Adapters
+## Graphics Adapters
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -262,7 +240,7 @@ ATI Radeon VT7000 (VisionTek VTKRad7K64P)| vgatext                | PCI-ID: 1002
 AMD Mobility Radeon 5730/6570M           | vgatext                | Not 3D HW-accelerated                    | vgatext | gweiss
 AMD Radeon HD 7670M                      | vgatext                | PCI-ID: 1002:6840 - nor HDMI nor VGA output (D-Sub) work | vgatext | Michal Nowak
 
-### Motherboards
+## Motherboards
 
 Manufacturer |  Model                             | Drivers     | Notes                                                 | Contributor
 ------------ | ---------------------------------- | ----------- | ----------------------------------------------------- | --------------
@@ -339,9 +317,9 @@ Tyan         | S2927-E                            |             | Tyan Thunder 
 Tyan         | S5510GM3NR                         |             | Test System: Xeon LGA1155 C204 with Intel Core i3 2100.<ul><li>IPMI: SUPPORTED with BIOS V2.01c or bug <a href="https://www.illumos.org/issues/2560">#2560</a> fix.</li></ul> | Gary Mills
 Zotac        | G43ITX-A-E                         |             | Intel Q8400, 4 GB RAM, onboard Intel X4500 VGA (see note below).<br/>Running with 8 HDDs:<br><ul><li>5 using Intel ICH10R internal SATA (AHCI)</li><li>1 using Intel ICH10R eSATA (AHCI)</li><li>2 using add-on ASMedia ASM1061 PCI-E X1 SATA card (Device supported and detected by OI but HDD not detected. Possibly due to other unrelated issues. Still testing.)</li></ul>Note: The Intel X4500 VGA adapter will throw up some errors pertaining to "regiter error" and "vga init error" either during setup or boot. However, it will still work fine and OI will install / boot without problems. Unsupported driver issues? | Dedy Johan
 
-### Peripheral Devices
+## Peripheral Devices
 
-#### Monitors
+### Monitors
 
 Manufacturer | Model          | Description                                         | Works (yes/no) | Notes and/or specific usage instructions | Contributor
 ------------ | -------------- | --------------------------------------------------- | -------------- | ---------------------------------------- |---------------
@@ -349,7 +327,7 @@ Sun          | X7236A-N       | 24.1-Inch TFT LCD Color Monitor                 
 Samsung      | PX2370         | 23" LED Monitor                                     | yes            | HDMI2.0/DisplayPort 1.2a                 |
 Samsung      | LU28H750UQNXZA | 28" UH750 QLED UHD Monitor (3840 x 2160 resolution) | yes            | HDMI2.0/DisplayPort 1.2a                 |
 
-#### Keyboards/Mice
+### Keyboards/Mice
 
 Manufacturer  | Model                      | Works (yes/no)  | Notes and/or specific usage instructions |  Driver |Contributor
 ------------- | -------------------------- | --------------- | ---------------------------------------- | ------- | -----
@@ -359,7 +337,7 @@ Microsoft     | Basic Optical Wheel Mouse  | yes             |                 
 Microsoft     | Wired Keyboard 600         | yes             |                                          |         |
 Sun           | Type 6 USB Mouse           | yes             | Middle button does not work.             | usbms   |
 
-#### Printers
+### Printers
 
 Manufacturer  | Model                        | Works (yes/no)  | Notes and/or specific usage instructions |  Driver |Contributor
 ------------- | ---------------------------- | --------------- | ---------------------------------------- | ------- | -----
@@ -375,7 +353,7 @@ Oki           | MB480 MFP                    | yes             |                
 Oki           | CX2731 MFP                   | yes             |                                          |         |
 Xerox         | WorkCentre 6400              | yes             |                                          |         |
 
-### Serial Controllers
+## Serial Controllers
 
 Manufacturer  | Model                        | Works (yes/no)  | Notes and/or specific usage instructions |  Driver |Contributor
 ------------- | ---------------------------- | --------------- | ---------------------------------------- | ------- | -----
@@ -383,7 +361,7 @@ Keyspan       | USA-19HS                     | yes             | USB DB9M Serial
 MOXA          | CP-102EL-DB9M                | yes             | 2-Port serial PCI-Express card<br/>2-Port PCIe Board with DB9M RS-232 cable.<br/>Use Solaris 10 drivers available from MOXA site (works with APC UPS)| mxsieboard| Jon Green
 StarTech      | PEX2S553                     | no              | 2-Port serial PCI-Express card           |         | Jon Green
 
-### Storage Controllers
+## Storage Controllers
 
 Manufacturer | Model  | Controller | Assic | Connectors  | Works (yes/no) | Notes and/or specific usage instructions | Driver  |  Contributor
 ------------ | ------ | ---------  | ----- | ----------  | -------------- | ---------------------------------------- | ------  | -----------

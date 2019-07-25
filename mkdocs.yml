@@ -31,7 +31,9 @@ nav:
                 - 'Network Communications': handbook/network-communications.md
                 - 'Appendix': handbook/appendix.md
                 - 'Community Contributed Tutorials': handbook/community.md
-                - 'Community Hardware Compatibility List': handbook/community-hcl.md
+                - 'Community Hardware Compatibility List':
+                         - 'Getting information about hardware': community-hcl/getting-hardware-info.md
+                         - 'Components': community-hcl/components.md
                 - "Developer's Corner":
                          - 'Building OpenIndiana': dev/building-openindiana.md
                          - 'Building with oi-userland': dev/userland.md
