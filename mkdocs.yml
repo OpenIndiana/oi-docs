@@ -34,6 +34,7 @@ nav:
                 - 'Community Hardware Compatibility List':
                          - 'Getting information about hardware': community-hcl/getting-hardware-info.md
                          - 'Components': community-hcl/components.md
+                         - 'Systems': community-hcl/systems.md
                 - "Developer's Corner":
                          - 'Building OpenIndiana': dev/building-openindiana.md
                          - 'Building with oi-userland': dev/userland.md
