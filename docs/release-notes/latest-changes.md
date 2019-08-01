@@ -28,7 +28,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
-2019-08-01 | MongoDB 4.0 was updated to 4.0.11. Note that this release is not free software - it is distributed under restrictive [SSPL license](https://www.mongodb.com/licensing/server-side-public-license). If you make the functionality of Mongo available to third parties as a service, now you must make the service source code available to everyone.
+2019-08-01 | MongoDB 4.0 was updated to 4.0.11. Note that this release is not a free software - it is distributed under the restrictive [SSPL v1 license](https://www.mongodb.com/licensing/server-side-public-license). If you make the functionality of MongoDB available to third parties as a service, you must make the service code available under the SSPL v1 license (see the article 13 of the license).
 2019-07-25 | VLC was updated to 3.0.7.1.<ul><li>If you see warnings like `main libvlc error: stale plugins cache`, refresh `svc:/application/vlc-cache-gen:default` service.</li><li>VLC was patched to prefer xcb_xv (XVideo) plugin if it's available. If you want to check performance of OpenGL plugin, set `vout` parameter to `gl` in `~/.config/vlc/vlcrc`.</li></ul>
 2019-07-25 | FFmpeg was updated to 3.2.14. This is ABI-incompatible update. All dependent applications should be rebuilt.
 2019-07-25 | x265 3.1.1 library was added
