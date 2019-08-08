@@ -28,6 +28,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
+2019-08-08 | IPS was synced with latest OmniOS CE version and switched to Python 3. This is a flag day, as <ul><li>to build oi-userland after removing Python 2 pkg module you need <https://github.com/OpenIndiana/oi-userland/commit/fb10babbcfd65ff74cf439bc77a2186fd79ee2a7>;</li><li>to build gfx-drm you need latest `developer/build/onbld` package;<li>to build illumos-gate you now have to add `export BUILDPY2TOOLS="#"` to your `illumos.sh`.</li></ul>
 2019-08-02 | Clang 8.0 was added as developer/clang-80. Old Clang package developer/clang-40 was removed.
 2019-08-01 | MongoDB 4.0 was updated to 4.0.11. Note that this release is not a free software - it is distributed under the restrictive [SSPL v1 license](https://www.mongodb.com/licensing/server-side-public-license). If you make the functionality of MongoDB available to third parties as a service, you must make the service code available under the SSPL v1 license (see the article 13 of the license).
 2019-07-25 | VLC was updated to 3.0.7.1.<ul><li>If you see warnings like `main libvlc error: stale plugins cache`, refresh `svc:/application/vlc-cache-gen:default` service.</li><li>VLC was patched to prefer xcb_xv (XVideo) plugin if it's available. If you want to check performance of OpenGL plugin, set `vout` parameter to `gl` in `~/.config/vlc/vlcrc`.</li></ul>
