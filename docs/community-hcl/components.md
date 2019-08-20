@@ -339,19 +339,20 @@ Sun           | Type 6 USB Mouse           | yes             | Middle button doe
 
 ### Printers
 
-Manufacturer  | Model                        | Works (yes/no)  | Notes and/or specific usage instructions |  Driver |Contributor
-------------- | ---------------------------- | --------------- | ---------------------------------------- | ------- | -----
-Brother       | MFC-9970CDW                  | yes             |                                          |         |
-Canon         | PIXMA MG8120                 | yes             |                                          |         |
-Canon         | imageCLASS D420              | yes             |                                          |         |
-Epson         | WorkForce 840                | yes             |                                          |         |
-HP            | Officejet Pro 8500 series    | yes             |                                          |         |
-HP            | Envy 100 (D410a)             | yes             |                                          |         |
-HP            | Color LaserJet CM3530fs MFP  | yes             |                                          |         |
-Lexmark       | X543dn/X544(dn/dw)/X546dtn   | yes             |                                          |         |
-Oki           | MB480 MFP                    | yes             |                                          |         |
-Oki           | CX2731 MFP                   | yes             |                                          |         |
-Xerox         | WorkCentre 6400              | yes             |                                          |         |
+Manufacturer  | Model                        | Works (yes/no)  | Notes and/or specific usage instructions |  Driver     | Contributor
+------------- | ---------------------------- | --------------- | ---------------------------------------- | ----------- | -----------
+Brother       | MFC-9970CDW                  | yes             |                                          |             |
+Canon         | PIXMA MG8120                 | yes             |                                          |             |
+Canon         | imageCLASS D420              | yes             |                                          |             |
+Epson         | WorkForce 840                | yes             |                                          |             |
+HP            | Officejet Pro 8500 series    | yes             |                                          |             |
+HP            | Envy 100 (D410a)             | yes             |                                          |             |
+HP            | Color LaserJet CM3530fs MFP  | yes             |                                          |             |
+Lexmark       | X543dn/X544(dn/dw)/X546dtn   | yes             |                                          |             |
+Oki           | MB480 MFP                    | yes             |                                          |             |
+Oki           | CX2731 MFP                   | yes             |                                          |             |
+Samsung       | SCX-3205                     | yes             | Install `print/splix`.                   | scx3200.ppd | Michal Nowak
+Xerox         | WorkCentre 6400              | yes             |                                          |             |
 
 ## Serial Controllers
 
