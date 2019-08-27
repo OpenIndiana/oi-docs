@@ -129,6 +129,12 @@ Add https://github.com/OpenIndiana/oi-userland/ as upstream to your repository t
 git remote add upstream https://github.com/OpenIndiana/oi-userland/
 ```
 
+Install packages essential for building userland components:
+
+```bash
+pfexec pkg install -v build-essential
+```
+
 Run the setup stage which will prepare some tools and create an IPS pkg5 repository for first use under the i386 directory:
 
 ```bash
