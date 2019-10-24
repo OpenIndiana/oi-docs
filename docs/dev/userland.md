@@ -281,17 +281,18 @@ gmake sample-manifest
 
 to generate a manifest from the list of installed files.
 
-Copy the file `build/manifest-generated.p5m` to `$(COMPONENT_NAME).p5m` and edit it:
+Copy the file `manifests/sample-manifest.p5m` to `$(COMPONENT_NAME).p5m` and edit it:
 
 * Add your name as a contributor
 * Remove unused entries from the manifest:
     * directories: `:%g/^dir/d` (Vim)
     * static libs: `:%g/.a$/d` (Vim)
-    * libtool files:: `:%g/.la$/d` (Vim)
+    * libtool files: `:%g/.la$/d` (Vim)
     * Python *.pyc: `:%g/.pyc$/d` (Vim)
 
 For some components, specific rules need to be applied: they can be implemented with *transforms*.
-Some example can be found in the directory with the same name at the root directory of oi-userland.
+Some Makefile targets defined in `make-rules/ips.mk` apply transforms from files in the `transforms` directory at the root of oi-userland.
+These transforms can be used as examples if you need custom transforms for your component.
 
 ### Publishing packages
 
