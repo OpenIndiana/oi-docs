@@ -28,6 +28,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
+2019-11-24 | PostgreSQL 9.4 was removed as it's reaching EOL. Dependent components were switched to PostgreSQL 9.5 libraries. This version is now the default one used by oi-userland.
 2019-11-23 | Barman was updated to version 2.9. Server configurations should be updated. At least `archiver = on` option should be added to old configurations. Look at /usr/share/barman for examples.
 2019-08-08 | IPS was synced with the latest OmniOS CE version and switched to Python 3. This is a flag day, as <ul><li>to build oi-userland after removing Python 2 pkg module you need <https://github.com/OpenIndiana/oi-userland/commit/fb10babbcfd65ff74cf439bc77a2186fd79ee2a7>;</li><li>to build gfx-drm you need latest `developer/build/onbld` package;<li>to build illumos-gate you have to add `export BUILDPY2TOOLS="#"` to your `illumos.sh`.</li></ul>
 2019-08-02 | Clang 8.0 was added as developer/clang-80. Old Clang package developer/clang-40 was removed.
