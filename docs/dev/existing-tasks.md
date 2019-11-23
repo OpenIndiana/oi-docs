@@ -30,6 +30,7 @@ This page contains some ideas how to enhance OpenIndiana.
 **illumos-gate**
 
 * Help Joyent and OmniOS CE dev teams with upstreaming LX changes
+* Help Joyent and OmniOS CE dev teams with upstreaming bhyve changes
 * Create a service for generic FMA event handler. Some early work can be found [here](https://github.com/pyhalov/illumos-gate/tree/fma).
 
 **gfx-drm**
@@ -38,8 +39,6 @@ This page contains some ideas how to enhance OpenIndiana.
 
 **oi-userland**
 
-* Finish moving components to category layout
-* Automatically install dependencies when building packages
 * Move components to using [common.mk](https://github.com/OpenIndiana/oi-userland/blob/oi/hipster/make-rules/common.mk)
 
 **Infrastructure**
@@ -51,7 +50,6 @@ This page contains some ideas how to enhance OpenIndiana.
 **IPS/PKG**
 
 * Import new changes from <https://github.com/Omniosorg/pkg5>
-* Switch IPS to Python 3
 
 **slim-source**
 
@@ -59,8 +57,6 @@ This page contains some ideas how to enhance OpenIndiana.
 
 **oi-userland**
 
-* Port the build system to Python 3
 * Remove dependencies on Python 2.7
-* Try to create an open source replacement for DDU's libddudev
 * Replace perl-524 with perl-530
 * Investigate porting sun-solaris Perl module to more recent perl
