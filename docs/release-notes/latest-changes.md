@@ -15,7 +15,7 @@ Portions created by Adam Števko are Copyright (C) 2017.
 Portions created by Andreas Wacknitz are Copyright (C) 2018.
 Portions created by Aurelien Larcher are Copyright (C) 2018.
 Portions created by Ken Mays are Copyright (C) 2014.
-Portions created by Michal Nowak are Copyright (C) 2019.
+Portions created by Michal Nowak are Copyright (C) 2020.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
@@ -28,6 +28,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
+2020-01-11 | GNU TLS v2 was obsoleted. All components now use GNU TLS 3.
 2019-12-19 | net-snmp was updated to ABI-incompatible version 5.8. All dependent applications should be rebuilt.
 2019-12-17 | OpenSSH was updated to 8.1p1
 2019-11-24 | PostgreSQL 9.4 was removed as it's reaching EOL. Dependent components were switched to PostgreSQL 9.5 libraries. This version is now the default one used by oi-userland.
