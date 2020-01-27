@@ -40,3 +40,5 @@ Link to PDF Document: <a href= "../pdf/HowToInstallOracleDB.pdf" target="_blank"
 <p>Help us improve and expand this page by offering your community written tutorials for publication on this site.</p>
 <p>Please see the <b>Contrib</b> section for more details. The docs team can be reached via email: <b>docs at openindiana.org.</b></p>
 </div>
+
+## [SunRay Server on Hipster](../handbook/sunray.md)

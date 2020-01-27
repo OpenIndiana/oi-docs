@@ -31,9 +31,7 @@ nav:
                 - 'Systems Administration': handbook/systems-administration.md
                 - 'Network Communications': handbook/network-communications.md
                 - 'Appendix': handbook/appendix.md
-                - 'Community Contributed Tutorials':
-                         -  handbook/community.md
-                         - 'SunRay Server Software on Hipster': handbook/sunray.md
+                - 'Community Contributed Tutorials': handbook/community.md
                 - 'Community Hardware Compatibility List':
                          - 'Getting information about hardware': community-hcl/getting-hardware-info.md
                          - 'Components': community-hcl/components.md
