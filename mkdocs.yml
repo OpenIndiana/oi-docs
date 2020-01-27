@@ -31,7 +31,9 @@ nav:
                 - 'Systems Administration': handbook/systems-administration.md
                 - 'Network Communications': handbook/network-communications.md
                 - 'Appendix': handbook/appendix.md
-                - 'Community Contributed Tutorials': handbook/community.md
+                - 'Community Contributed Tutorials':
+                         -  handbook/community.md
+                         - 'SunRay Server Software on Hipster': handbook/sunray.md
                 - 'Community Hardware Compatibility List':
                          - 'Getting information about hardware': community-hcl/getting-hardware-info.md
                          - 'Components': community-hcl/components.md
@@ -44,7 +46,6 @@ nav:
                          - 'Packaging and Delivering Software with IPS': dev/pdf/ips-dev-guide.pdf
                          - 'Using distribution constructor': dev/distribution-constructor.md
                          - 'Existing tasks': dev/existing-tasks.md
-                - "SunRay Server on Hipster": handbook/sunray.md
         
         - 'OpenSolaris Books':
                 - 'About OpenSolaris Books': books/about.md
