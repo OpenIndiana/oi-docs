@@ -34,6 +34,7 @@ Link to PDF Document: <a href= "../pdf/HowToInstallOracleDB.pdf" target="_blank"
 <p>Unfortunately, it is not possible to run Oracle Database version 12 and above on OpenIndiana.</p>
 </div>
 
+## [SunRay Server on Hipster](../handbook/sunray.md)
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **Call for Contributors:**
 <div class="well">
@@ -41,4 +42,3 @@ Link to PDF Document: <a href= "../pdf/HowToInstallOracleDB.pdf" target="_blank"
 <p>Please see the <b>Contrib</b> section for more details. The docs team can be reached via email: <b>docs at openindiana.org.</b></p>
 </div>
 
-## [SunRay Server on Hipster](../handbook/sunray.md)
