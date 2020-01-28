@@ -34,7 +34,11 @@ Link to PDF Document: <a href= "../pdf/HowToInstallOracleDB.pdf" target="_blank"
 <p>Unfortunately, it is not possible to run Oracle Database version 12 and above on OpenIndiana.</p>
 </div>
 
-## [SunRay Server on Hipster](../handbook/sunray.md)
+## How to Install Sun Ray Server on Openindiana Hipster
+
+Contributed by OpenIndiana community member Carsten Grzemba, this article details the steps required for the installation of Sun Ray Server Software on OpenIndiana Hipster.
+
+Link to document: [Sun Ray Server on OpenIndiana Hipster](../handbook/sunray.md)
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **Call for Contributors:**
 <div class="well">
