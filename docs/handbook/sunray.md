@@ -17,17 +17,17 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# SunRay Server on Openindiana Hipster
+# Sun Ray Server on Openindiana Hipster
 
-Some notes for installation SunRay Server on Openindiana Hipster.
+Some notes for installation Sun Ray Server on Openindiana Hipster.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For SunRay it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.
+Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.
 
 Limitations:
 
-multihead is possible but the Display Switcher Applet on gnome-panel on the second screen won't start. So you can't reopen closed windows on the second screen.
+multihead is possible but the Display Switcher Applet on gnome-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen.
 
 </div>
 
@@ -35,20 +35,51 @@ multihead is possible but the Display Switcher Applet on gnome-panel on the seco
 
 Sun Ray Software is still downloadable at http://edelivery.oracle.com.
 
-install required packages
+install IPS packages of the downloaded Sun Ray Server Software
 
 ```shell
 # pkg install SUNWut-srss SUNWut-srwc SUNWuti  cde/cde-runtime library/motif isc-dhcp
 ```
 
-### configure isc-dhcp
-
-ISC DHCP has replaced the Sun DHCP also on Hipster but was already the DHCP server for SunRay on Linux.
-So SunRay on Hipster has to use DHCP scripts like on Linux install. But it is possible to configure DHCP manually also.
+Caused by package dependencies these packages are installed finally:
 
 ```
-# DHCPDARGS="nge1";
+SUNWut-srss (sunray)                              5.4.5.0.38-0.0             i--
+SUNWuta (sunray)                                  4.5.4.0.38-0.0             i--
+SUNWutdso (sunray)                                3.5.0.0.2-0.0              i--
+SUNWutdsr (sunray)                                3.5.0.0.2-0.0              i--
+SUNWutesa (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutgsm (sunray)                                4.5.0.0.44-0.0             i--
+SUNWuti (sunray)                                  4.5.5.0.38-0.0             i--
+SUNWutid (sunray)                                 4.5.5.0.38-0.0             i--
+SUNWutk (sunray)                                  4.5.0.0.44-0.0             i--
+SUNWutm (sunray)                                  4.5.4.0.38-0.0             i--
+SUNWuto (sunray)                                  4.5.4.0.38-0.0             i--
+SUNWutps (sunray)                                 4.5.0.0.44-0.0             i--
+SUNWutr (sunray)                                  4.5.0.0.44-0.0             i--
+SUNWutref (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutscr (sunray)                                4.5.4.0.38-0.0             i--
+SUNWutsrs (sunray)                                4.5.5.0.38-0.0             i--
+SUNWutstk (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutsto (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutstr (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutsvt (sunray)                                1.1.0.0.3-0.0              i--
+SUNWuttsc (sunray)                                2.6.4.0.11-0.0             i--
+SUNWuttscd (sunray)                               2.6.4.0.11-0.0             i--
+SUNWuttscr (sunray)                               2.6.4.0.11-0.0             i--
+SUNWutu (sunray)                                  4.5.0.0.44-0.0             i--
+SUNWutwa (sunray)                                 4.5.2.0.5-0.0              i--
+SUNWutwar (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutwh (sunray)                                 4.5.0.0.44-0.0             i--
+SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
+```
 
+### configure isc-dhcp
+
+ISC DHCP has replaced the Sun DHCP server also on Hipster but was already the DHCP server for Sun Ray Server on Linux.
+So Sun Ray Server on Hipster has to use DHCP scripts like on Linux install. But it is possible to configure DHCP manually also and skipping the step of `utadm` . Here an example:
+
+```
 ddns-update-style none;
 
 # option definitions common to all supported networks...
@@ -67,7 +98,7 @@ option SunRay.AltAuth 192.168.1.2;
 option SunRay.FWSrvr code 31 = ip-address;
 option SunRay.FWSrvr 192.168.1.2;
 option SunRay.NewTVer code 23 = text;
-option SunRay.NewTVer "4.2_140993-05_2010.08.25.23.16";
+option SunRay.NewTVer "11.1.7.0_38_2016.10.27.13.09";
 option SunRay.AuthPort code 22 = integer 16;
 option SunRay.AuthPort 7009;
 option SunRay.LogHost  code 24 = ip-address;
@@ -107,9 +138,10 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 }
 ```
 
-this config file has to linked to `/etc/inet/dhcp4.conf`
+The vendor specific DHCP options described at [Sun Ray Software: Alternate Client Initialization Reqs Using DHCP](https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options).
+The config file `/etc/dhcp/dhcpd.conf` has to link to `/etc/inet/dhcp4.conf` for use with the `svc:/network/dhcp/server:ipv4` service.
 
-For SunRay Software switch to isc-dhcp
+For Sun Ray Software switch to isc-dhcp:
 
 ```
 root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
@@ -230,23 +262,17 @@ root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
 
 ### JRE
 
-The SunRay Software needs the Sun/Oracle JRE 1.7
+The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun Ray Software.
 
 ## Config
 
-You can run `utconfig` and `utadm` run in common manner
+You can run `utconfig` and `utadm` run in common manner described in [Sun Ray Software](https://docs.oracle.com/cd/E35310_01/index.html).
 
-### GDM
+# Use GNOME on current Hipster
 
-the gdm service has to be enabled
+As already mentioned Sun Ray Server cannot handled by lightdm and so we still have to use GDM and GNOME.
 
-```
-# svcadm enable graphical-login/gdm
-```
-
-# Revive GNOME on current Hipster
-
-Be sure you have installed
+Be sure you have installed:
 
 ```shell
 # pkg install libwnck
@@ -258,7 +284,7 @@ these must not be empty metapackages or obsoleted packages.
 
 ## update older Hipster
 
-If you have SunRay running on Hipster with GNOME, you can prevent remove GNOME with freeze the GNOME packages and release the version locks
+If you have Sun Ray running on Hipster with GNOME, you can prevent remove GNOME with freeze the GNOME packages and release the version locks
 
 ```shell
 # pkg freeze gdm gnome-session gnome-panel metacity libgnomekbd gnome-settings-daemon gweather
@@ -287,7 +313,7 @@ The last know version of OI GNOME packages are:
 
 These are still in hipster repo, but are obsoleted empty metapackages.
 
-[here](http://pkg.toc.de/sunray/)  can you found the old GNOME packages with newer release date, so that these should be able to install it on current Hipster.
+At <http://pkg.toc.de/sunray/> can you found the old GNOME packages with newer release date, so that these should be able to install it on current Hipster.
 For that add the publisher in that kind, that it can override packages of publisher openindiana.org
 
 ```shell
@@ -300,18 +326,28 @@ and install the all packages from publisher sunray.
 
 **The version locks have to release anyway.**
 
-#### Xscreensaver
+#### XScreenSaver
 
-latest Hipster delivers Xscreensaver only in 64bit. The PAM module of SunRay are only shipped in 32bit.
-So we need a Xscreensaver package with 32bit bins (recompile with enabled 32bit or take it from [here](http://pkg.toc.de/sunray) ).
+Latest Hipster delivers XScreenSaver only in 64-bit. The PAM module of Sun Ray are only shipped as 32-bit-only.
+Thats why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
+
+## GDM
+
+the gdm service has to be enabled. lightdm should not run.
+
+```
+# svcadm enable graphical-login/gdm
+```
 
 # Login Screen (gdm-greeter) won't reapear after logout
 
-If after logout the gdm-login not reappears, helps the following script installed at `/opt/SUNWut/lib/gdm/revivesrsession.py` and called by the helper script `/etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession`
+After logout the gdm-login won't reappear. Install the following script as `/opt/SUNWut/lib/gdm/revivesrsession.py` and call it by the `/etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession` helper script.
 
 ```
 /opt/SUNWut/lib/gdm/revivesrsession.py &
 ```
+
+`/opt/SUNWut/lib/gdm/revivesrsession.py` contains:
 
 ```python
 #!/usr/bin/env python
@@ -344,7 +380,7 @@ dpl = [ p.split()[2].strip(':')
 logger.debug("Xnewt pid {}".format( dpl))
 
 # error -4 gdm-simple-slave not started for Display, no UT sessions
-for sess in sp.Popen(['pfexec','/opt/SUNWut/sbin/utsession','-px'], stdout=sp.PIPE).stdout.readlines():
+for sess in sp.Popen(['/opt/SUNWut/sbin/utsession','-px'], stdout=sp.PIPE).stdout.readlines():
     logger.debug("{}".format(sess))
     for t in sess.split(';'):
         if 'STATE' in t: state = t.split('=')[1]
