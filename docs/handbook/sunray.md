@@ -37,7 +37,7 @@ Sun Ray Software is still downloadable at http://edelivery.oracle.com. Download 
 
 Extract the archives.
 
-The Solaris packages require Sun DHCP server, which we not provide anymore. To solve this problem we update the IPS packages SUNWutr and SUNWuto with the following script:
+The Solaris packages require Sun DHCP server, which we do not provide anymore. To solve this problem we update the IPS packages SUNWutr and SUNWuto with the following script:
 
 update_dhcp_dependency
 
