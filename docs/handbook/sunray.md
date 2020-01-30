@@ -17,9 +17,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Sun Ray Server on Openindiana Hipster
+# Sun Ray Software on OpenIndiana Hipster
 
-Some notes for installation Sun Ray Server on Openindiana Hipster.
+Some notes for installation Sun Ray Software on OpenIndiana Hipster.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
@@ -33,12 +33,56 @@ multihead is possible but the Display Switcher Applet on gnome-panel on the seco
 
 ## Install
 
-Sun Ray Software is still downloadable at http://edelivery.oracle.com.
+Sun Ray Software is still downloadable at http://edelivery.oracle.com. Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.
 
-install IPS packages of the downloaded Sun Ray Server Software
+Extract the archives.
+
+The Solaris packages require Sun DHCP server, which we not provide anymore. To solve this problem we update the IPS packages SUNWutr and SUNWuto with the following script:
+
+update_dhcp_dependency
 
 ```shell
-# pkg install SUNWut-srss SUNWut-srwc SUNWuti  cde/cde-runtime library/motif isc-dhcp
+#!/bin/ksh
+
+# set -x
+
+if [ -z $1 ] || [ ! -d $1 ]; then
+    echo "usage: $0 repodirectory"
+    exit
+fi
+
+if [[ $1 != /* ]]; then
+   repo=$(pwd)/$1
+else
+   repo=$1
+fi
+
+republish="republish$$"
+
+mkdir ${republish}
+
+for p in SUNWutr SUNWuto; {
+(cd ${republish}
+  pkgrecv -d . --raw -s $repo $p || exit 2
+  for d in $(ls $p); {
+      (cd $p/$d
+        sed -i s#service/network/dhcp#service/network/dhcp/isc-dhcp# manifest
+        pkgrepo -s $repo remove $p
+        pkgsend publish -s $repo -d . manifest
+      )
+  }
+);
+}
+rm -r ${republish}
+```
+
+Running script `update_dhcp_dependency <extractdirectory>/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/` replaces the dependcy of package `service/network/dhcp` by `service/network/dhcp/isc-dhcp`.
+
+Install IPS packages of the Sun Ray Software Software from the local repository
+
+```shell
+# pkg set-publisher -g <extractdirectory>/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/ sunray
+# pkg install SUNWut-srss SUNWut-srwc SUNWuti
 ```
 
 Caused by package dependencies these packages are installed finally:
@@ -76,8 +120,8 @@ SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
 
 ### configure isc-dhcp
 
-ISC DHCP has replaced the Sun DHCP server also on Hipster but was already the DHCP server for Sun Ray Server on Linux.
-So Sun Ray Server on Hipster has to use DHCP scripts like on Linux install. But it is possible to configure DHCP manually also and skipping the step of `utadm` . Here an example:
+ISC DHCP was already the DHCP server for Sun Ray Software on Linux.
+Sun Ray Software on Hipster can use DHCP scripts like on Linux. But it is possible to configure DHCP manually also and skipping the step of `utadm` . Here an example:
 
 ```
 ddns-update-style none;
@@ -141,7 +185,16 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 The vendor specific DHCP options described at [Sun Ray Software: Alternate Client Initialization Reqs Using DHCP](https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options).
 The config file `/etc/dhcp/dhcpd.conf` has to link to `/etc/inet/dhcp4.conf` for use with the `svc:/network/dhcp/server:ipv4` service.
 
-For Sun Ray Software switch to isc-dhcp:
+For Sun Ray Software switch to isc-dhcp we take scripts located in path `/opt/SUNWut/lib/dhcp/isc` from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with `rpm2cpio`:
+
+```shell
+pkg install rpm
+rpm2cpio SUNWuto-4.5-44.i386.rpm | cpio -imd <tmprpmdirectory>
+```
+
+put the scripts below `<tmprpmdirectory>/opt/SUNWut/lib/dhcp/isc` in `/opt/SUNWut/lib/dhcp/isc` and rename `dhcp_config_linux` in `dhcp_config_solaris`.
+
+Reference the scripts by setting this link:
 
 ```
 root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
@@ -270,7 +323,7 @@ You can run `utconfig` and `utadm` run in common manner described in [Sun Ray So
 
 # Use GNOME on current Hipster
 
-As already mentioned Sun Ray Server cannot handled by lightdm and so we still have to use GDM and GNOME.
+As already mentioned Sun Ray Software cannot handled by lightdm and so we still have to use GDM and GNOME.
 
 Be sure you have installed:
 
@@ -301,15 +354,17 @@ If you have Sun Ray running on Hipster with GNOME, you can prevent remove GNOME 
 
 If you install new Hipster it is necessary to have the GNOME packages before (or after) obsoleting
 
-The last know version of OI GNOME packages are:
+Last known working OpenIndiana GNOME packages version are the following:
 
-    libgweather@2.30.3
-    gnome-session@2.32.1
-    gnome-panel@2.32.1
-    metacity@2.30.3
-    gdm@2.30.7
-    libgnomekbd@2.30.0
-    gnome-settings-daemon@2.32.1
+```
+libgweather@2.30.3
+gnome-session@2.32.1
+gnome-panel@2.32.1
+metacity@2.30.3
+gdm@2.30.7
+libgnomekbd@2.30.0
+gnome-settings-daemon@2.32.1
+```
 
 These are still in hipster repo, but are obsoleted empty metapackages.
 
@@ -328,8 +383,8 @@ and install the all packages from publisher sunray.
 
 #### XScreenSaver
 
-Latest Hipster delivers XScreenSaver only in 64-bit. The PAM module of Sun Ray are only shipped as 32-bit-only.
-Thats why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
+Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module are only shipped as 32-bit-only.
+That's why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
 
 ## GDM
 
@@ -337,6 +392,7 @@ the gdm service has to be enabled. lightdm should not run.
 
 ```
 # svcadm enable graphical-login/gdm
+# svcadm disable graphical-login/lightdm
 ```
 
 # Login Screen (gdm-greeter) won't reapear after logout
