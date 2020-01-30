@@ -188,8 +188,8 @@ The config file `/etc/dhcp/dhcpd.conf` has to link to `/etc/inet/dhcp4.conf` for
 For Sun Ray Software switch to isc-dhcp we take scripts located in path `/opt/SUNWut/lib/dhcp/isc` from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with `rpm2cpio`:
 
 ```shell
-pkg install rpm
-rpm2cpio SUNWuto-4.5-44.i386.rpm | cpio -imd <tmprpmdirectory>
+# pkg install rpm
+$ rpm2cpio SUNWuto-4.5-44.i386.rpm | cpio -imd <tmprpmdirectory>
 ```
 
 put the scripts below `<tmprpmdirectory>/opt/SUNWut/lib/dhcp/isc` in `/opt/SUNWut/lib/dhcp/isc` and rename `dhcp_config_linux` in `dhcp_config_solaris`.
