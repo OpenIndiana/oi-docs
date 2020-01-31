@@ -383,7 +383,7 @@ and install the all packages from publisher sunray.
 
 #### XScreenSaver
 
-Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module are only shipped as 32-bit-only.
+Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module are shipped as 32-bit only.
 That's why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
 
 ## GDM
