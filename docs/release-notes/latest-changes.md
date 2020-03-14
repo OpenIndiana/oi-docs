@@ -6,7 +6,7 @@ A copy of the License is available at http://illumos.org/license/PDL.
 
 The Original Documentation is _________________.
 
-The Initial Writer of the Original Documentation is Alexander Pyhalov Copyright (C) 2013-2019.
+The Initial Writer of the Original Documentation is Alexander Pyhalov Copyright (C) 2013-2020.
 All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
 
 Contributor(s):   Adam Števko, Andreas Wacknitz, Aurelien Larcher,  Ken Mays, Michal Nowak
@@ -28,6 +28,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
+2020-03-14 | Python imaging library was replaced by Pillow
 2020-01-11 | GNU TLS v2 was obsoleted. All components now use GNU TLS 3.
 2019-12-19 | net-snmp was updated to ABI-incompatible version 5.8. All dependent applications should be rebuilt.
 2019-12-17 | OpenSSH was updated to 8.1p1
