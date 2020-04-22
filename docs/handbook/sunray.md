@@ -379,7 +379,7 @@ these must not be empty metapackages or obsoleted packages.
 If you have Sun Ray Software already running on Hipster with GNOME, you can prevent remove GNOME with freeze the GNOME packages:
 
 ```shell
-# pkg freeze gdm gnome-session gnome-panel metacity libgnomekbd gnome-settings-daemon libgweather
+# pkg freeze gdm gnome-session gnome-panel metacity libgnomekbd gnome-settings-daemon libgweather library/desktop/evolution-data-server desktop/notification-daemon gnome/gnome-menus library/desktop/gnome-desktop library/python/gnome-python-27 gnome/file-manager/nautilus library/libunique
 ```
 
 and release the version locks:
@@ -390,11 +390,17 @@ and release the version locks:
 # pkg change-facet facet.version-lock.library/desktop/gnome-panel=false
 # pkg change-facet facet.version-lock.gnome/gnome-session=false
 # pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
+# pkg change-facet facet.version-lock.gnome/gnome-panel=false
+# pkg change-facet facet.version-lock.gnome/gnome-menus=false
 # pkg change-facet facet.version-lock.system/display-manager/gdm=false
 # pkg change-facet facet.version-lock.library/desktop/libgweather=false
 # pkg change-facet facet.version-lock.gnome/window-manager/metacity=false
+# pkg change-facet facet.version-lock.gnome/file-manager/nautilus=false
 # pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
 # pkg change-facet facet.version-lock.library/desktop/libwnck=false
+# pkg change-facet facet.version-lock.desktop/notification-daemon=false
+# pkg change-facet facet.version-lock.library/python/gnome-python-27=false
+# pkg change-facet facet.version-lock.library/libunique=false
 ```
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -442,6 +448,12 @@ and install all packages from sunray publisher.
 <div class="well">
 The version locks of the gnome packages have to relaese like decribed in [update older Hipster](#update-older-hipster).
 </div>
+
+#### XScreenSaver
+
+Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module
+are shipped as 32-bit only so unlocking works only with 32-bit XScreenSaver.
+That's why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
 
 ## GDM
 
