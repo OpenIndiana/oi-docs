@@ -30,7 +30,7 @@ From the CLI, it supports a number of different shells, the two main ones being 
 It also supports the original [SunOS](http://en.wikipedia.org/wiki/SunOS) [SVR4](http://en.wikipedia.org/wiki/SVR4#SVR4) commands, Like the command and syntax familiar to BSD users, and a large portion of the GNU userland commands that most Linux users are familiar with.
 You can select any or all of those different commands from your shell configuration, giving you the environment you are most happy with.
 
-By default, the windowing GUI system is based on the popular Mate system.
+By default, the windowing GUI system is based on the popular [MATE](https://en.wikipedia.org/wiki/MATE_(software)) system.
 
 OpenIndiana also has a powerful package manager, IPS, for updating and installing new software.
 Although powerful, it may seem complicated at first; but, help is provided in these pages.
@@ -109,9 +109,9 @@ OpenIndiana contains the following enterprise class features and more:
 Approximately every six months, the OpenIndiana project releases a snapshot of the Hipster rolling release branch.
 Ideally suited for both workstations and servers, simply choose the installer type which best serves your needs.
 
-| Workstation | Server
-| --- | ---
-| Live installer (Gnome desktop) | Text installer (command line console)
+| Workstation | Server | Minimal
+| --- | --- | ---
+| GUI installer (MATE desktop) | Text installer (CLI) | Minimal installer (CLI)
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -217,7 +217,7 @@ pkg set-publisher \
 -g https://pkg.openindiana.org/hipster openindiana.org
 ```
 
-For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started.md#the-image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.
+For further information about using the IPS `pkg` command consult the [Getting Started](../handbook/getting-started.md#image-package-system-ips) section of the OpenIndiana Handbook as well as the pkg<sup>1<!-- https://docs.oracle.com/cd/E23824_01/html/E21796/pkg-1.html --></sup> man page included with OpenIndiana Hipster.
 
 
 ## What books are available to help with learning OpenIndiana?
@@ -281,20 +281,20 @@ Our small community is always happy to welcome new users and contributors:
 * report anything that seems unclear to you,
 * share any project idea you would like to develop.
 
-Overview of recurring technical tasks at the OpenIndiana Project
+Overview of recurring technical tasks at the OpenIndiana Project:
 
-* Maintaining packages to [OpenIndiana itself](../dev/building-openindiana.md) or to additional software repositories, like [SFE](http://sfe.opencsw.org/).
-* Release management and testing.
-* Developing code specific to OpenIndiana.
+* Maintaining packages to [OpenIndiana itself](../dev/building-openindiana.md) or to additional software repositories, like [SFE](http://sfe.opencsw.org/)
+* Release management and testing
+* Developing code specific to OpenIndiana
 * Bug fixing and bugs triage, QA
-* Project infrastructure maintenance, coordination with mirrors.
-* Operating mirrors.
-* Monitoring and handling security issues.
+* Project infrastructure maintenance, coordination with mirrors
+* Operating mirrors
+* Monitoring and handling security issues
 * Website and wiki maintenance
 
 There are also non-technical ways to contribute:
 
-* [Reporting issues](https://www.illumos.org/projects/openindiana/issues) you find.
+* [Report issues](https://www.illumos.org/projects/openindiana/issues) you find.
 * Create artwork for OpenIndiana.
 * [Writing documentation](../contrib/getting-started.md) or just blogging about OpenIndiana.
 * Maintaining translations of OI-specific software and documentation.
@@ -323,7 +323,6 @@ The following illumos based distributions are known to support the SPARC platfor
 ### Commercial distributions with SPARC releases
 
 For production use on modern SPARC hardware, there is also commercial [Oracle Solaris](https://www.oracle.com/solaris/solaris11/index.html)
-
 
 ## What are the licensing terms for OpenIndiana?
 
