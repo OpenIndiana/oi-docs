@@ -184,7 +184,7 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 }
 ```
 
-The vendor specific DHCP options described at [Sun Ray Software: Alternate Client Initialization Reqs Using DHCP](https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options).
+Vendor specific DHCP options are described in the [Sun Ray Software: Alternate Client Initialization Reqs Using DHCP](https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options) document.
 The config file `/etc/dhcp/dhcpd.conf` has to link to `/etc/inet/dhcp4.conf` for use with the `svc:/network/dhcp/server:ipv4` service.
 
 For Sun Ray Software switch to isc-dhcp we take scripts located in path `/opt/SUNWut/lib/dhcp/isc` from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with `rpm2cpio`:
@@ -517,4 +517,3 @@ for sess in sp.Popen(['/opt/SUNWut/sbin/utsession','-px'], stdout=sp.PIPE).stdou
         logger.debug("restart display %s"  % disp)
         sp.Popen(['/opt/SUNWut/lib/gdm/utgdmdynamic','-a', disp])
 ```
-
