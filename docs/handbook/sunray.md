@@ -23,17 +23,20 @@ Some notes for installation of Sun Ray Software on OpenIndiana Hipster.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
+This configuration is not supported by OI nor by Oracle.
+</div>
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
 Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.
 
 Limitations:
 
 Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.
-
 </div>
 
 ## Install
 
-Sun Ray Software is still downloadable at http://edelivery.oracle.com. Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.
+Sun Ray Software still can be downloaded at http://edelivery.oracle.com (registration required). Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.
 
 Extract the archives.
 
@@ -122,8 +125,9 @@ SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
 
 ### Configure isc-dhcp
 
-ISC DHCP was already the DHCP server for Sun Ray Software on Linux.
-Sun Ray Software on Hipster can use DHCP scripts like on Linux. But it is possible to configure DHCP manually also and skipping the step of `utadm` . Here an example:
+On Hipster ISC DHCP replaced the Sun DHCP server, but that's not a problem as ISC DHCP server for Sun Ray Server was used on Linux already.
+
+So Sun Ray Server on Hipster has to use DHCP scripts like on Linux. But it is also possible to configure DHCP manually and to skip the `utadm` step. Here an example:
 
 ```
 ddns-update-style none;
@@ -187,7 +191,7 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 Vendor specific DHCP options are described in the [Sun Ray Software: Alternate Client Initialization Reqs Using DHCP](https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options) document.
 The config file `/etc/dhcp/dhcpd.conf` has to link to `/etc/inet/dhcp4.conf` so that the `svc:/network/dhcp/server:ipv4` service can leverage it.
 
-For Sun Ray Software switch to isc-dhcp we take scripts located in path `/opt/SUNWut/lib/dhcp/isc` from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with `rpm2cpio`:
+To switch Sun Ray Software to isc-dhcp we take scripts located in path `/opt/SUNWut/lib/dhcp/isc` from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with `rpm2cpio`:
 
 ```shell
 # pkg install rpm
@@ -364,7 +368,7 @@ You can run `utconfig` and `utadm` the way described in the [Sun Ray Software](h
 
 # How to get GNOME on current Hipster
 
-As already mentioned Sun Ray Software cannot handled by lightdm and so we still have to use GDM and GNOME.
+As already mentioned the Sun Ray Software cannot handled by LightDM and we still have to use GDM and some GNOME components.
 
 Be sure you have installed:
 
@@ -372,11 +376,12 @@ Be sure you have installed:
 # pkg install libwnck libbonoboui gnome-themes-standard
 ```
 
-these must not be empty metapackages or obsoleted packages.
+Make sure that they actually install as in the future they may be eventually obsoleted from Hipster
+(no empty metapackages or obsoleted packages).
 
 ## update older Hipster
 
-If you have Sun Ray Software already running on Hipster with GNOME, you can prevent remove GNOME with freeze the GNOME packages:
+If you have Sun Ray running on Hipster with GNOME, you can prevent GNOME components removal by "freezing" them and releasing their version locks:
 
 ```shell
 # pkg freeze gdm gnome-session gnome-panel metacity libgnomekbd gnome-settings-daemon libgweather library/desktop/evolution-data-server desktop/notification-daemon gnome/gnome-menus library/desktop/gnome-desktop library/python/gnome-python-27 gnome/file-manager/nautilus library/libunique
