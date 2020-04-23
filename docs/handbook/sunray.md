@@ -239,7 +239,7 @@ Reference the scripts by setting this link:
 root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
 ```
 
-`utadm` command need some updates shown in this patch:
+`utadm` command needs changes shown in the following patch:
 
 ```patch
 From a1072acfffd91457d91cd6d202a988d88bc3fb8a Mon Sep 17 00:00:00 2001
