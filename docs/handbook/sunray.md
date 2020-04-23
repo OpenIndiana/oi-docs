@@ -414,7 +414,7 @@ We want to install an other version of the gnome packages as defined in userland
 
 ## Install from current Hipster (2019)
 
-If you install new Hipster it is necessary to have the GNOME packages before (or after) obsoleting
+If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.
 
 Last known working OpenIndiana GNOME packages versions are the following:
 
