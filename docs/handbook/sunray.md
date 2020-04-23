@@ -120,7 +120,7 @@ SUNWutwh (sunray)                                 4.5.0.0.44-0.0             i--
 SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
 ```
 
-### configure isc-dhcp
+### Configure isc-dhcp
 
 ISC DHCP was already the DHCP server for Sun Ray Software on Linux.
 Sun Ray Software on Hipster can use DHCP scripts like on Linux. But it is possible to configure DHCP manually also and skipping the step of `utadm` . Here an example:
