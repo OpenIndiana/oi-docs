@@ -87,7 +87,7 @@ Install IPS packages of the Sun Ray Software from the local repository
 
 Do **not** use `utinstall` script, because its will setup a sunray publisher by its own which will interfere with our publisher of GNOME packages.
 
-Caused by package dependencies these packages are installed finally:
+Due to package dependencies following packages will be installed:
 
 ```
 SUNWut-srss (sunray)                              5.4.5.0.38-0.0             i--
