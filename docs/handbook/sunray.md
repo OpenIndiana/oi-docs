@@ -412,7 +412,7 @@ If a package will installed, it have to have the version defined in the incorpor
 We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.
 </div>
 
-## install from current Hipster (2019)
+## Install from current Hipster (2019)
 
 If you install new Hipster it is necessary to have the GNOME packages before (or after) obsoleting
 
