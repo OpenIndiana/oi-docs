@@ -354,7 +354,7 @@ index cffac27..448c171 100644
 
 ```
 
-### JRE
+### Java Runtime Environment
 
 The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun Ray Software.
 
