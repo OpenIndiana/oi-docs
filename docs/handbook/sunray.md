@@ -360,7 +360,7 @@ The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun 
 
 ## Config
 
-You can run `utconfig` and `utadm` run in common manner described in [Sun Ray Software](https://docs.oracle.com/cd/E35310_01/index.html).
+You can run `utconfig` and `utadm` the way described in the [Sun Ray Software](https://docs.oracle.com/cd/E35310_01/index.html) document.
 
 # Use GNOME on current Hipster
 
