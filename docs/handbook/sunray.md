@@ -362,7 +362,7 @@ The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun 
 
 You can run `utconfig` and `utadm` the way described in the [Sun Ray Software](https://docs.oracle.com/cd/E35310_01/index.html) document.
 
-# Use GNOME on current Hipster
+# How to get GNOME on current Hipster
 
 As already mentioned Sun Ray Software cannot handled by lightdm and so we still have to use GDM and GNOME.
 
