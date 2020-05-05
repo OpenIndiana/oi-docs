@@ -398,7 +398,7 @@ listusers
 pkg list
 ```
 
-### System shutdown, reboot,
+### System shutdown, reboot and run-levels
 
 OpenIndiana defines a number of different system states known as run-levels. You
 can change from one system state to another by using the `shutdown` command and
