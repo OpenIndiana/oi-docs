@@ -14,6 +14,7 @@ nav:
                 - 'Public Documentation License': misc/pdl.md
                 - 'Release Notes':
                          - 'Latest changes': release-notes/latest-changes.md
+                         - '2020.04 Release Notes': release-notes/2020.04-release-notes.md
                          - '2019.10 Release Notes': release-notes/2019.10-release-notes.md
                          - '2019.04 Release Notes': release-notes/2019.04-release-notes.md
                          - '2018.10 Release Notes': release-notes/2018.10-release-notes.md
