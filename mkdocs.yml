@@ -1,50 +1,70 @@
 site_name: OpenIndiana Docs
 site_url: http://docs.openindiana.org
-site_favicon: favicon.ico
-repo_url: https://github.com/OpenIndiana/oi-docs.git
+repo_url: https://github.com/OpenIndiana/oi-docs/
 use_directory_urls: true
 google_analytics: ['UA-77447740-2', 'auto']
 theme: spacelab
+nav:
+        - Home: index.md
+        
+        - About:
+                - 'About OpenIndiana': misc/openindiana.md
+                - 'About OpenIndiana Docs': misc/oi-docs.md
+                - 'OpenIndiana Code of Conduct': misc/conduct.md
+                - 'Public Documentation License': misc/pdl.md
+                - 'Release Notes':
+                         - 'Latest changes': release-notes/latest-changes.md
+                         - '2020.04 Release Notes': release-notes/2020.04-release-notes.md
+                         - '2019.10 Release Notes': release-notes/2019.10-release-notes.md
+                         - '2019.04 Release Notes': release-notes/2019.04-release-notes.md
+                         - '2018.10 Release Notes': release-notes/2018.10-release-notes.md
+                         - '2018.04 Release Notes': release-notes/2018.04-release-notes.md
+                         - '2017.10 Release Notes': release-notes/2017.10-release-notes.md
+                         - '2017.04 Release Notes': release-notes/2017.04-release-notes.md
+                         - '2016.10 Release Notes': release-notes/2016.10-release-notes.md
+                         - '2016.04 Release Notes': release-notes/2016.04-release-notes.md
+                         - '2015.10 Release Notes': release-notes/2015.10-release-notes.md
+                         - '2015.03 Release Notes': release-notes/2015.03-release-notes.md
+        
+        - Handbook:
+                - 'Getting Started': handbook/getting-started.md
+                - 'Common Tasks': handbook/common-tasks.md
+                - 'Systems Administration': handbook/systems-administration.md
+                - 'Network Communications': handbook/network-communications.md
+                - 'Appendix': handbook/appendix.md
+                - 'Community Contributed Tutorials': handbook/community.md
+                - 'Community Hardware Compatibility List':
+                         - 'Getting information about hardware': community-hcl/getting-hardware-info.md
+                         - 'Components': community-hcl/components.md
+                         - 'Systems': community-hcl/systems.md
+                - "Developer's Corner":
+                         - 'Building OpenIndiana': dev/building-openindiana.md
+                         - 'Building with oi-userland': dev/userland.md
+                         - 'Building legacy consolidations': dev/legacy-consolidations.md
+                         - 'Graphics stack': dev/graphics-stack.md
+                         - 'Packaging and Delivering Software with IPS': dev/pdf/ips-dev-guide.pdf
+                         - 'Using distribution constructor': dev/distribution-constructor.md
+                         - 'Existing tasks': dev/existing-tasks.md
+        
+        - 'OpenSolaris Books':
+                - 'About OpenSolaris Books': books/about.md
+                - 'Basic Administration': books/basic.md
+                - 'Advanced Administration': books/advanced.md
+                - 'Solaris Express Administration': books/express.md
+                - 'Trusted Extensions Administration': books/trusted.md
+                - 'Development Titles': books/develop.md
+        
+        - Contrib:
+                - 'Content Creation': contrib/content.md
+                - 'Getting Started': contrib/getting-started.md
+                - 'Contributor Tools' : contrib/tools.md
+                - 'Contributor Roles': contrib/roles.md
+                - 'Contributor Topics': contrib/topics.md
+                - 'Contributor Style Guide': contrib/style.md
+                - 'Markdown Syntax Guide': contrib/markdown.md
+                - 'Git Usage Guide': contrib/git.md
 extra:
         theme_inverse: true
-pages:
 
-- Home: index.md
-
-- About:
-        - 'About OpenIndiana': misc/openindiana.md
-        - 'About OpenIndiana Docs': misc/oi-docs.md
-        - 'OpenIndiana Code of Conduct': misc/conduct.md
-        - 'Public Documentation License': misc/pdl.md
-
-- Handbook:
-        - 'Getting Started': handbook/getting-started.md
-        - 'Common Tasks': handbook/common-tasks.md
-        - 'Systems Administration': handbook/systems-administration.md
-        - 'Network Communications': handbook/network-communications.md
-        - 'Appendix': handbook/appendix.md
-        - 'Building oi-userland': dev/userland.md
-        - 'Community Contributed Tutorials': handbook/community.md
-
-
-- 'OpenSolaris Books':
-        - 'About OpenSolaris Books': books/about.md
-        - 'Basic Administration': books/basic.md
-        - 'Advanced Administration': books/advanced.md
-        - 'Solaris Express Administration': books/express.md
-        - 'Trusted Extensions Administration': books/trusted.md
-        - 'Development Titles': books/develop.md
-
-- Contrib:
-        - 'Content Creation': contrib/content.md
-        - 'Getting Started': contrib/getting-started.md
-        - 'Contributor Tools' : contrib/tools.md
-        - 'Contributor Roles': contrib/roles.md
-        - 'Contributor Topics': contrib/topics.md
-        - 'Contributor Style Guide': contrib/style.md
-        - 'Markdown Syntax Guide': contrib/markdown.md
-        - 'Git Usage Guide': contrib/git.md
-
-
-copyright: Copyright &copy; 2016 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+copyright: Copyright &copy; 2019 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
 

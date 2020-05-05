@@ -198,5 +198,5 @@ NOTE:
 Any filename can be used under `/boot/conf.d/` - the filename does not
 matter (only its content matters).
 
-See [current status for loader](https://wiki.illumos.org/display/illumos/Current+status+for+loader)
+See [loader(5)](https://illumos.org/man/5/loader)
 for more technical details (and other boot options).

@@ -1,8 +1,8 @@
 language: python
-python: '3.4'
+python: '3.5'
 install:
   - pip install -r requirements.txt
-  - gem install mdl
+  - gem install mdl -v 0.4.0
 script:
   - mdl -s markdownlint-rules.rb .
   - mkdocs build

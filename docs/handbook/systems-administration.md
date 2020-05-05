@@ -28,75 +28,121 @@ activities and many more are referred to as system administration.
 
 Basic system administration can be reduced to a number of common tasks:
 
+- Users and account management
 - Management of system resources
 - Installation and maintenance of software
-- User administration
 
 While it is certainly possible to add more to this list or select alternative
 items, this small selection is readily absorbed and is convenient to illustrate
 a number of essential concepts central to OpenIndiana system administration.
 
-Before we discuss these topics, it is first important to introduce how these
-tasks can be carried out.
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Administrative commands are usually expected to be run with elevated privileges -
+directly from root user, via <code>sudo(1M)</code> or
+<code>pfexec</code> (if user was granted privileges via RBAC).
+In this document commands which require elevated privileges are prefixed with
+"# ". Commands, which don't require elevated privileges, are prefixed with "$ ".
+</div>
 
+## Users and account management
 
-## Performing System Administration Tasks
+OpenIndiana allows multiple users to work on the same computer at the same time.
+Only one person can sit in front of the monitor and keyboard.
+However, many can be remotely logged into machine and work on it.
+If a user wants to use the system, he needs an account.
 
-OpenIndiana is a multi-user platform. The role of administering the system was
-traditionally assigned to one privileged user known as the _superuser_ or _root_
-user. This user is assigned _all_ privileges.
+There are also special service accounts which are used by system services.
 
-To become root, it is possible to switch user using the command: [su(1M)](https://illumos.org/man/1M/su).
+### User accounts
 
-However, it is not always feasible for one user to perform all administrative
+User accounts are primarily used for day-to-day tasks.
+Every user accessing the system should have his own unique account.
+This allows the administrator of the system to find out who is doing what.
+This also allows him to set different access rights for each user separately.
+
+When system is installed, usually one user account is created.
+Additional accounts can be added later.
+
+Every user account has some attributes associated with it.
+
+* **username** - name of the account, which is typed at the login screen.
+  Username format is briefly described in [passwd(4)](https://illumos.org/man/4/passwd)
+* **password** - password associated with the account.
+<div class="well">
+Accounts without password should not exist on the system as they could put the system at the security risk!
+</div>
+* **UID** (user ID) - unique numerical ID of the account in the system.
+The maximum value for uid is 2147483647.
+However, for compatibility reasons one should not use numbers over 65535.
+* **GID** (group ID) - unique numerical ID of the account's primary group.
+* **comment** (also referred to as gecos) - account description
+Often this filed is set to real user name.
+* **home directory** - a path where user will be after he logs into the system.
+* **login shell** - user's initial shell program.
+* **password last change time** - time when the password was lastly changed.
+* password aging information - several [shadow(4)](https://illumos.org/man/4/shadow) fields determining when password should be changed
+    * **min** - the minimum number of days required between password changes;
+    * **max** - the maximum number of days the password is valid;
+    * **warn** - the number of days before password expires that the user is warned.
+
+### Service accounts
+
+Service (system) accounts are used by applications, which are running on the system
+and are providing some services to the network such as DNS, SMTP or WWW.
+For security reasons these services are ran under non-privileged accounts.
+
+OpenIndiana comes with several service accounts such as `webservd` for web servers,
+`pkg5srv` for `pkg(5)` server or `nobody`.
+`nobody` is a system account for services needing unprivileged user.
+However, the more services are ran under this account,
+the more privileged it becomes as it gains access to service processes and files.
+
+### Roles
+
+A role is a basic unit of Role-Based access control (RBAC) or set of privileges one can assume.
+A role can be thought of as a no-login account.
+It has most of the attributes of normal user account and is identified like normal user,
+but is not allowed to log into a system directly.
+One should login using regular account and use [su(1M)](https://illumos.org/man/1M/su) to assume the role.
+
+### Superuser account
+
+Every UNIX-like system has the superuser account, named root, used for system administrative tasks.
+This account has UID 0.
+
+Using this account for everyday usage like web browsing, email reading or movie watching is not recommended
+as root account can operate without any restrictions or limits and could cause serious damage to the system.
+
+If you created user during installation, root is created as role (not a regular account).
+This role is assigned to the user created during the installation.
+This means that you can't directly log into a system using the root account.
+One has to log in as the created user and switch to root role using [su(1M)](https://illumos.org/man/1M/su).
+
+However, if the user was not created during installation, then the root is created as regular account and
+is able to log in directly.
+Note, that even when root is created as role, one can use this account directly to log into the system when it's
+booted in single user mode.
+
+#### SUperuser DO: sudo(1m)
+
+It is not always feasible for one user to perform all administrative
 tasks. It would be more flexible if some tasks could be performed by some, say,
 experienced users. To enable some users to carry out a command with _all_ root
-privileges, or to _do_ an administrative command sudo(1m) can be used.
+privileges, or to _do_ an administrative command `sudo(1M)` can be used.
 
-However, security concerns dictate that performing sensitive administration
-tasks would be more secure if carried out by a user with a minimum number of
-privileges. Both aforementioned mechanisms provide _all_ privileges.
+The `sudo` command, i.e., superuser do, permits a regular user to execute the specified
+set of commands with supperuser privileges without having to become the superuser.
 
-It is not always prudent to perform system administration duties with all
-privileges.
+If user was permitted to use some commands with superuser privileges via `sudo`
+he/she can execute them with elevated privileges simply starting command with `sudo`.
 
-Hence, a mechanism was developed whereby users could be assigned a select number
-of privileges by the superuser. OpenIndia provides, in addition to these
-traditional  mechanisms, a richer means to perform these duties known as
-Role-Based Access Control.
+To permit a user to use `sudo`, the superuser edits `/etc/sudoers`.
 
-RBAC involves collecting a select number of privileges and bundling these
-together as a role. A user can then be assigned one, or several roles.
-
-
-### root: [su(1M)](https://illumos.org/man/1M/su)
-
-This is historically the privileged, super user that can perform all
-administrative tasks.
-
-Use the `su` command to login as root:
-
-```
-su
-Password:
-```
-
-### SUperuser DO: sudo(1m)
-
-The `sudo` command, i.e., superuser do, permits a user to use _all_ supperuser
-commands without having to become the superuser. A sudo enabled user, simply
-precedes a command with `sudo`.
-
-To enable a user the ability to use `sudo`, the superuser edits `/etc/sudoers`.
-This should ideally be done as follows:
-
-```
-visudo
-```
-
-This performs various syntax checks.
-sudoers(1) provides details on the precise
-means to appropriately add a user to use sudo.
+This can be done using special `visudo(1M)` tool.
+`visudo` tool edits `/etc/sudoers` file performing various syntax checks.
+`sudoers(1)` provides details on the precise
+means to appropriately grant user elevated privileges via sudo.
 
 Example:
 
@@ -105,18 +151,75 @@ the `shutdown` command, the system will issue a warning. However, if the user ha
 been enabled to use sudo, then the user can now shutdown the system:
 
 ```
-sudo shutdown -i5 -g0 -y
+$ sudo shutdown -i5 -g0 -y
 ```
 
-The user is then prompted for the user's password and a file is checked to
-establish whether the user is permitted to perform the operation.
-The options are explained below.
+### Managing accounts
+
+There are several tools in OpenIndiana to manage user accounts.
+They are listed in the table below.
+
+ Tool                                                |  Description
+---------------------------------------------------- | --------------------------------
+[useradd(1M)](https://illumos.org/man/1M/useradd)    | creates new account on the system
+[userdel(1M)](https://illumos.org/man/1M/userdel)    | deletes account from the system
+[usermod(1M)](https://illumos.org/man/1M/usermod)    | modifies account information on the system
+[groupadd(1M)](https://illumos.org/man/1M/groupadd)  | creates group on the system
+[groupdel(1M)](https://illumos.org/man/1M/groupdel)  | deletes group from the system
+[groupmod(1M)](https://illumos.org/man/1M/groupdel)  | modifies group information on the system
+[roleadd(1M)](https://illumos.org/man/1M/roleadd)    | creates new role on the system
+[roledel(1M)](https://illumos.org/man/1M/roledel)    | deletes role from the system
+[rolemod(1M)](https://illumos.org/man/1M/rolemod)    | modifies role information in the system
+[passwd(1)](https://illumos.org/man/1/passwd)        | changes login password and password attributes
+
+#### useradd
+
+useradd is a program to create user accounts on the system.
+When creating account one can set some attributes of the newly created account such as comment, group membership, home directory path, UID number of the account or login shell.
+
+#### userdel
+
+One can use `userdel` to remove the account from the system.
+
+#### usermod
+
+`usermod` is used to modify properties of existing account.
+
+#### groupadd
+
+`groupadd` creates a new group definition on the system by adding the appropriate to the /etc/group file.
+
+#### groupdel
+
+`groupdel` deletes a group definition from the system.
+
+#### groupmod
+
+When one needs to modify group attributes, `groupmod` should be used.
+
+#### roleadd
+
+`roleadd` is used create roles in the system.
+
+#### roledel
+
+`roledel` deletes selected role from the system.
+
+#### rolemod
+
+`rolemod` modifies role's information on the system.
+
+#### passwd
+
+`passwd` changes password for user accounts.
+An unprivileged user may only change the password for his/her own account, while the superuser may change the password for any account.
+Privileged user can also use `paasswd` to change login password attributes (such as expiration date) or lock the account.
 
 ### Role-Based Access Control (RBAC)
 
 The _all-or-nothing_ power assigned to the root user has its obvious
 limitations.  While sudo is an improvement by limiting root privileges for only
-a single command, a user allowed to use sudo has access to all root commands.
+several commands, more granular control is often desired.
 
 An improvement on the above systems would be one in which privileges could be
 assigned on a more fine-grained and selective basis.
@@ -129,7 +232,6 @@ Moreover, it would be advantageous if it were possible to assign privileges to
 perform only these actions and none other.
 
 RBAC was developed to accomplish this.
-
 
 #### What is RBAC
 
@@ -144,76 +246,52 @@ no additional privileges. We can then assign this role to one or several users.
 - assign a privilege to a role to shutdown the system
 
 ```
-roleadd shutdown
+# roleadd shutdown
 ```
 
 - Assign a password
 
 ```
-passwd shutdown
+# passwd shutdown
 ```
 
 - Assign this role to a user
 
 ```
-usermod -R shutdown whoever
+# usermod -R shutdown whoever
 ```
 
 
 - Create a SHUTDOWN profile
 
 ```
-echo "SHUTDOWN:::profile to shutdown:help=shutdown.html" >> /etc/security/prof_attr
+# echo "SHUTDOWN:::profile to shutdown:help=shutdown.html" >> /etc/security/prof_attr
 ```
 
 - Okay, now assign the role profile SHUTDOWN to the role shutdown
 
 ```
-rolemod -P SHUTDOWN shutdown
+# rolemod -P SHUTDOWN shutdown
 ```
 
 - Assign some administrative command to profile
 
 ```
-echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0" >> /etc/security/exec_attr
+# echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0" >> /etc/security/exec_attr
 ```
 
 - Use it
 
 ```
-su shutdown
-shutdown -i5 -g0 -y
+$ su shutdown
+# shutdown -i5 -g0 -y
 ```
-
 
 Now user whoever can shutdown the system.
 
 
-
-The `pfexec` command is more flexibly in the number of privileges that can be
+The `pfexec` command is more flexible in the number of privileges that can be
 assigned to a user.
-
-It also worth mentioning an additional method of assigning privileges to users:
-roles. The idea behind roles is a sophisticated and powerful mechanism. It was
-originally developed with security in mind.
-
-The superuser can define roles, assign various privileges to these roles and
-then assign a set of roles to a user. In other words, it allows a much more
-fine grained means of assigning privileges to users as opposed to the 'all or
-nothing' method of sudo.
-
-### Convention
-
-Instead of elaborating each administrative command with one of the above means
-of acquiring administrative privileges, it has become standard procedure to prefix
-the command with a dollar character.
-
-Example:
-
-```
-$ shutdown -i5 -g0 -y
-```
-
 
 ## Management of System Resources
 
@@ -221,8 +299,8 @@ $ shutdown -i5 -g0 -y
 
 #### System processes
 
-```markdown
-prstat
+```bash
+$ prstat
 ```
 
 This command provides a host of information on all processes running on the system.
@@ -234,8 +312,8 @@ Some of the information provided is as follows:
 
 #### Disk usage
 
-```markdown
-df -h
+```bash
+# df -h
 ```
 
 Provides information on disk size, amount of space used and available free space
@@ -246,8 +324,8 @@ human readable format.
 
 Go to the directory using the `cd` command and issue the following command:
 
-```markdown
-du | sort -n
+```bash
+$ du | sort -n
 ```
 
 This will list the size of each file in the current directory and all
@@ -255,14 +333,14 @@ sub-directories, starting with the smallest up to the largest files.
 
 #### Who is logged on to the system
 
-```markdown
-listusers
+```bash
+$ listusers
 ```
 
 #### List all software packages installed on the system
 
-```markdown
-pkg list
+```bash
+$ pkg list
 ```
 
 ### System shutdown, reboot and run-levels
@@ -276,8 +354,8 @@ You must be root or have root privileges (e.g., using `sudo`) to send the system
 into a different state, i.e., turn off, reboot, etc. Shutdown and turn off all
 hardware (if supported by the hardware) now:
 
-```markdown
-shutdown -i5 -g0 -y
+```
+# shutdown -i5 -g0 -y
 ```
 
 Changing the run-level of the system can be disruptive to other users currently
@@ -322,33 +400,33 @@ ITEMS TO WRITE ABOUT: provide more detailed explanations.
 List services:
 
 ```
-svcs # list (permanently) enabled services
-svcs -a # list all services
-svcs -vx # list faulty services
+$ svcs # list (permanently) enabled services
+$ svcs -a # list all services
+$ svcs -vx # list faulty services
 ```
 
 Get information about a service:
 
 ```
-svcs <service name> # one-line status
-svcs -x <service name> # important information
-svcs -d <service name> # check the service's dependencies
-svcs -l <service name> # all the available information
+$ svcs <service name> # one-line status
+$ svcs -x <service name> # important information
+$ svcs -d <service name> # check the service's dependencies
+$ svcs -l <service name> # all the available information
 ```
 
 Start a service:
 
 ```
-svcadm enable <service name> # permanently enable/start
-svcadm enable -t <service name> # temporary start (won't survive a reboot)
-svcadm enable -r <service name> # permanently enable/start service along with its dependencies
+# svcadm enable <service name> # permanently enable/start
+# svcadm enable -t <service name> # temporary start (won't survive a reboot)
+# svcadm enable -r <service name> # permanently enable/start service along with its dependencies
 ```
 
 Restart / reload a service:
 
 ```
-svcadm refresh <service name> # reload the service's configuration
-svcadm restart <service name> # restart the service
+# svcadm refresh <service name> # reload the service's configuration
+# svcadm restart <service name> # restart the service
 ```
 
 
@@ -396,18 +474,32 @@ Zones are an OpenIndiana feature that provides <a href="http://www.wikipedia.org
 
 The global zone (GZ) is the operating system itself, which has hardware access. From the global zone, non-global zones (NGZ) are created and booted. Boot time for non-global zones is very fast, often a few seconds. The CPU, network, and memory resources for each zone can be controlled from the global zone, ensuring fair access to system resources. Disk space access is usually controlled by ZFS (with quotas and reservations if needed), as well as mounting of filesystem resources with NFS or lofs. As with other forms of virtualization, each zone is isolated from the other zones – zones cannot see processes or resources used in other zones. The low marginal cost of a zone allows large systems have tens or even hundreds of zones without significant overhead. The theoretical limit to the number of zones on a single platform is 8,192.
 
-Different releases of (Open)Solaris used different packaging distribution method for the global zone. OpenIndiana zones use two basic brands - "ipkg" and "nlipkg", which are based on IPS Packaging. The brand determines how zone is initialized and how zone's processes are treated by kernel. Both type of zones represent a PKG image. "ipkg"-branded zones are tightly coupled with GZ.Image pakaging system (IPS) knows about ipkg-branded zones and can perform several actions simultaneously in GZ and NGZ. For example, you can update all your zones and GZ with a single "pkg update -r" command. IPS can ensure some depenencies between packages in GZ and NGZ. To allow this it cheks that NGZ's publishers are a superset of GZ's publishers and their properties are the same (for example, stickiness or repository location). As this is not always suitable for development zones, "nlipkg"-branded zones were introduced. "nlipkg"-branded zone behave like completely independent instance and IPS ignores them during operations in GZ.
+Different releases of (Open)Solaris used different packaging distribution method for the global zone. OpenIndiana zones use two basic brands - "ipkg" and "nlipkg", which are based on IPS Packaging. The brand determines how zone is initialized and how zone's processes are treated by kernel. Both type of zones represent a PKG image. "ipkg"-branded zones are tightly coupled with GZ. Image pakaging system (IPS) knows about ipkg-branded zones and can perform several actions simultaneously in GZ and NGZ. For example, you can update all your zones and GZ with a single "pkg update -r" command. IPS can ensure some depenencies between packages in GZ and NGZ. To allow this it cheks that NGZ's publishers are a superset of GZ's publishers and their properties are the same (for example, stickiness or repository location). As this is not always suitable for development zones, "nlipkg"-branded zones were introduced. "nlipkg"-branded zone behave like completely independent instance and IPS ignores them during operations in GZ.
 
 An easy way to implement zones is to use a separate ZFS file system as the zone root's backing store. File systems are easy to create in ZFS and zones can take advantage of the ZFS snapshot and clone features. Due to the strong isolation between zones, sharing a file system must be done with traditional file sharing methods (eg NFS).
 
 When each zone is created  it comes with a minimal set of packages, and from there you can add and use most packages and applications as required.
+
+### Zone networking model
+
+OpenIndiana zones can use one of two networking models: a shared IP stack and an exclusive IP stack. There are pros and cons to each of them.
+
+Low-level system networking components, such as the ipfilter firewall and the kernel IP routing tables attach to an "IP stack", and are thus either unique to a zone or shared by all zones with the one shared stack. There are also some other nuances, such as that the zones with the shared stack can communicate over IP directly, regardless of their subnetting and, to some extent, default firewall packet filtering (that has to be specially configured), while exclusive-IP zones with addresses in different subnets have to communicate over external routers and are subject to common firewall filtering.
+
+The global zone defines which physical networks and VLANs the NGZ has access to, and hands down the predefined networking interfaces (the NGZ can not use or create other interfaces). Also, while shared networking allows to configure and attach (or detach) network interfaces from GZ to the NGZ "on the fly", changes in exclusive networking require reboot of the zone to propagate device delegation.
+
+A zone with an exclusive IP stack can have all the benefits of dedicated hardware networking, including a firewall, access to promiscuous sniffing, routing, configuration of its own IP address (including use of DHCP and static network addressing), etc. This requires a fully dedicated NIC. Usually this is a VNICs - a virtual adapter with own MAC address, that operate as if the VNIC was plugged directly into local LAN in a particular (or default) VLAN. Note also that the local zones with an exclusive IP stack are not subject to the host's shared-stack firewall.
+
+<div class="well">
+Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.
+</div>
 
 ### Quick Setup Example
 
 Zone creation consists of two steps - creating zone configuration and zone installation or cloning. Zone configuration determines basic parameters, such as zone's root location and provided resources.
 Zone configuration is performed using zonecfg tool, zone administration (for example, installation) is performed using zoneadm tool.
 
-For example, we create a simple zone:
+For example, we create a simple zone with shared networking model:
 
 ```
 # zonecfg -z example
@@ -434,6 +526,36 @@ After network configuration `zonepath` is set. It's a location for zone's root f
 The `verify` command checks that no mistakes were made.
 Finally changes are committed (saved to zone configuration file).
 
+If you want to use dedicated networking for your zone, you should create VNIC and delegate it to the zone.
+
+```
+# dladm create-vnic -l e1000g0 vnic0
+```
+
+If you want to specify VLAN id for VNIC, use `-v` `dladm create-vnic` option:
+
+```
+# dladm create-vnic -l e1000g0 -v 123 vnic0
+```
+
+Now you can create your zone and delegate VNIC to it (note that we set zone's `ip-type` to `exclusive`):
+
+```
+# zonecfg -z example
+example: No such zone configured
+Use 'create' to begin configuring a new zone.
+zonecfg:example> create
+zonecfg:example> set ip-type=exclusive
+zonecfg:example> add net
+zonecfg:example:net> set physical=vnic0
+zonecfg:example:net> end
+zonecfg:example> set zonepath=/zones/example
+zonecfg:example> verify
+zonecfg:example> commit
+zonecfg:example> exit
+
+```
+
 After configuring a zone you can install it with `zoneadm install` subcommand:
 
 ```
@@ -448,16 +570,16 @@ you should set autoboot parameter to true during zone configuration:
 zonecfg:example> set autoboot=true
 ```
 
-Once zone is booted you can log in locally with `zlogin example`, or you can ssh in via the IP address you provided to zone config.
+Once zone is booted you can log in locally with `zlogin example`. If you created zone with dedicated network adapter, you should configure it inside zone.
 
 <div class="well">
 Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
 </div>
 
-#### System repository configuration
+### System repository configuration
 
-In latest OpenIndiana versions (starting from November 2017) it's possible to configure so-called zone proxy daemon. This configuration is intended to use GZ proxy service for NGZs to access configured publishers
-and can be useful for sharing pkg cache between zones or to provide network access for performing updates to otherwise restricted zone environment (i.e. to zone without Internet access).
+On OpenIndiana it is possible to allow NGZs to access configured publishers via GZ proxy service (so-called zone proxy daemon).
+This can be useful for sharing pkg cache between zones or to provide network access for performing updates to otherwise restricted zone environment (i.e. to zone without Internet access).
 
 The functionality is provided by series of services in GZ and NGZs. In GZ two services are running: system repository service and zones proxy daemon (see `pkg.sysrepo(1M)`). In NGZ zones proxy client
 communicates with GZ's zone proxy daemon.
@@ -469,7 +591,7 @@ Zones proxy daemon client `svc:/application/pkg/zones-proxy-client:default` runs
 Note, you can't use system repository with nlipkg-branded zones.
 </div>
 
-IPS determines if it should use zones proxy client in zone based on image's use-system-repo property (which is false by default).
+IPS determines if it should use zones proxy client in zone based on image's `use-system-repo` property (defaults to False).
 
 To configure your system to use system repository, perform the following actions.
 
@@ -481,14 +603,15 @@ To configure your system to use system repository, perform the following actions
 # svcadm enable svc:/application/pkg/zones-proxyd:default
 ```
 
-2) In NGZ:
+2) In non-global zone:
 
 ```
+# pkg install pkg:/package/pkg/zones-proxy
 # svcadm enable svc:/application/pkg/zones-proxy-client:default
 # pkg set-property use-system-repo True
 ```
 
-After this in NGZ in publisher description you'll see system-repository location:
+After this in NGZ's publisher description you'll see system-repository location:
 
 ```
 # pkg publisher
@@ -497,12 +620,42 @@ openindiana.org (non-sticky, syspub) origin   online T <system-repository>
 hipster-encumbered (syspub)     origin   online T <system-repository>
 ```
 
-You can check if your configuration works by issuing `pkg refresh` command in zone. `pkg(1M)` should contact repository indirectly via zones-proxy-client.
+You can check if your configuration works by issuing `pkg refresh` command in the zone. `pkg(1M)` should contact repository indirectly via zones-proxy-client.
 
-To convert you zone back to non-proxied configuration, run
+To revert your zone to proxy-less configuration, run
 
 ```
 # pkg set-property use-system-repo False
+```
+
+### Troubleshooting
+
+Zone configuration and management operations can fail for a number of reasons, sometimes obscure.
+This section contains information on how to solve different well-known issues.
+
+#### Fixing zone installation issues
+
+Zones on OpenIndiana use ZFS features to manage boot environments.
+Zone's root and its parent directory should be a ZFS dataset.
+It's not enough for zone's root (or its parent directory) to be just a directory on ZFS filesystem.
+If you try to create a zone which root doesn't satisfy this requirement, you can get the following error:
+
+```
+# zoneadm -z example install
+Sanity Check: Looking for 'entire' incorporation.
+ERROR: the zonepath must be a ZFS dataset.
+The parent directory of the zonepath must be a ZFS dataset so that the
+zonepath ZFS dataset can be created properly.
+```
+
+To fix this, you can just uninstall the zone and create its root dataset manually:
+
+```
+# zoneadm -z example uninstall
+Are you sure you want to uninstall zone example (y/[n])? y
+# zfs create rpool/zones/example
+# chmod 700 /zones/example
+# zoneadm -z example install
 ```
 
 ## Storage
@@ -710,7 +863,7 @@ Possible resources to help write this section:
 
 
 ```bash
-:~$ sudo svcadm disable physical:nwam
+# svcadm disable physical:nwam
 ```
 
 Define your IP/hostname in `/etc/hosts`. For example:
@@ -723,25 +876,25 @@ Define your IP/hostname in `/etc/hosts`. For example:
 Enable the default physical service with `svcadm` and configure the `interface`:
 
 ```bash
-:~$ sudo svcadm enable physical:default
+# svcadm enable physical:default
 ```
 
 Configure interface with ipadm:
 
 ```bash
-:~$ sudo ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
+# ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
 ```
 
 If you do not know what the interface name is (bge0 in this case); then type in
 
 ```bash
-:~$ dladm show-link
+$ dladm show-link
 ```
 
 or:
 
 ```bash
-:~$ kstat -c net | grep net
+$ kstat -c net | grep net
 
 # look for hme0, bge0, e1000g0 or soemthing that resembles the driver in use.
 ```
@@ -749,13 +902,13 @@ or:
 Add gateway
 
 ```bash
-:~$ sudo route -p add default 192.168.1.121
+# route -p add default 192.168.1.121
 ```
 
 or
 
 ```bash
-:~$ sudo nano /etc/defaultrouter
+# nano /etc/defaultrouter
 
 # Enter in your gateways IP
 ```
@@ -763,7 +916,8 @@ or
 Set DNS server(s)
 
 ```bash
-:~$ sudo nano /etc/resolv.conf
+# nano /etc/resolv.conf
+
 # Enter in the DNS server IP(s)
 nameserver 192.168.1.121
 ```
@@ -772,14 +926,14 @@ or
 
 ```bash
 
-:~$ sudo sh -c 'echo "nameserver 192.168.1.121" >> /etc/resolv.conf'
+# echo "nameserver 192.168.1.121" >> /etc/resolv.conf
 
 ```
 
 Restart
 
 ```bash
-:~$ sudo reboot
+# reboot
 ```
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -788,7 +942,7 @@ IF you cannot ping an external IP (e.g. google.com) run this command and try aga
 </div>
 
 ```bash
-:~$ sudo cp /etc/nsswitch.dns /etc/nsswitch.conf
+# cp /etc/nsswitch.dns /etc/nsswitch.conf
 ```
 
 credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b)
@@ -796,14 +950,241 @@ credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b
 
 ### Automatic Configuration (NWAM)
 
-* How to use NWAM (network auto magic)
+Network Auto-Magic (NWAM) is a new approach to managing network interfaces that was introduced with OpenSolaris.
+NWAM introduced network profiles to be able to change network settings on the fly.
+One important reason to redesign networking was the increasing importance of wireless networking and the need to cope with its dynamic nature.
 
+While usually server and desktop installations tend to use default network configurations, laptop users can leverage nwam network configuations.
+
+#### Using NWAM configuration tools
+
+Usually NWAM configuration is done via GUI `nwam-manager` applet and `nwam-manager-properties` program.
+
+From CLI all configuration can be done using two tools, `nwamcfg` to configure network profiles and `nwamadm` to manage them.
+
+On its backend, NWAM relies on `nwamd`, the NWAM policy engine daemon and `netcfgd`, the NWAM repository daemon.
+
+Access to the command line and GUI tools is controlled via security profiles 'Network Autoconf Admin' and 'Network Autoconf user'.
+
+To create NWAM profile use `nwamcfg` tool.
+
+```
+# nwamcfg
+nwamcfg> create ncp Abroad
+nwamcfg:ncp:Abroad> end
+```
+
+Now you can see a new profile in the list of NCPs:
+
+```
+nwamcfg> list
+NCPs:
+Abroad
+Automatic
+Locations:
+Automatic
+NoNet
+User
+nwamcfg>
+```
+
+The network interface to be managed under the new profile can be set and configured with `create ncu` command:
+
+```
+# nwamcfg
+nwamcfg> select ncp Abroad
+nwamcfg:ncp:Abroad> create ncu phys e1000g0
+Created ncu 'e1000g0'. Walking properties ...
+activation-mode (manual) [manual|prioritized]> prioritized
+enabled (true) [true|false]>
+priority-group> 0
+priority-mode [exclusive|shared|all]> exclusive
+link-mac-addr>
+link-autopush>
+link-mtu>
+nwamcfg:ncp:Abroad:ncu:e1000g0>
+```
+
+Most important here is the `activation-mode`, which states if the profile is to be automatically set based on certain policies or if it is to be manually set using nwamadm.
+The latter should be most likely the case in a server environment.
+The `priority-group` and `priority-mode` here are set to (0 / exclusive).
+This says that the profile is for wired access and will always be the only active one at a time.
+
+If after listing the changes you are satisfied with the configuration, permanently store it using `commit` command:
+
+```
+nwamcfg:ncp:Abroad:ncu:e1000g0> list
+ncu:e1000g0
+ type link
+ class phys
+ parent "Abroad"
+ activation-mode prioritized
+ enabled true
+ priority-group 0
+ priority-mode exclusive
+nwamcfg:ncp:Abroad:ncu:e1000g0> commit
+Committed changes
+nwamcfg:ncp:Abroad:ncu:e1000g0> end
+```
+
+After an interface has been assigned to the profile, its IP configuration has to be defined:
+
+```
+nwamcfg:ncp:Abroad> create ncu ip e1000g0
+Created ncu 'e1000g0'. Walking properties ...
+enabled (true) [true|false]>
+ip-version (ipv4,ipv6) [ipv4|ipv6]> ipv4
+ipv4-addrsrc (dhcp) [dhcp|static]> static
+ipv4-addr> 192.168.100.100
+ipv4-default-route> 192.168.100.1
+nwamcfg:ncp:Abroad:ncu:e1000g0> list
+ncu:e1000g0
+ type interface
+ class ip
+ parent "Abroad"
+ enabled true
+ ip-version ipv4
+ ipv4-addrsrc static
+ ipv4-addr "192.168.100.100"
+ ipv4-default-route "192.168.100.1"
+ ipv6-addrsrc dhcp,autoconf
+nwamcfg:ncp:Abroad:ncu:e1000g0>
+```
+
+As you can see, the profile uses a static IP address and, for simplicity reasons, only provides IPv4 networking.
+Again, if you're happy with the results, commit them.
+
+```
+nwamcfg:ncp:Abroad:ncu:e1000g0> commit
+Committed changes
+nwamcfg:ncp:Abroad:ncu:e1000g0>
+```
+
+As it stands, now you have defined a pysical and ip layer attached to a network profile:
+
+```
+nwamcfg:ncp:Abroad:ncu:e1000g0> end
+nwamcfg:ncp:Abroad> list
+NCUs:
+ phys e1000g0
+ ip e1000g0
+nwamcfg:ncp:Abroad>exit
+```
+
+To activate the profile, you use nwamadm.
+First of all, check for the current situation:
+
+```
+# nwamadm list
+TYPE     PROFILE    STATE
+ncp      Abroad     disabled
+ncp      Automatic  online
+ncu:phys e1000g0    online
+ncu:ip   e1000g0    online
+loc      Automatic  online
+loc      NoNet      offline
+loc      User       disabled
+```
+
+As you can see, Automatic is the active profile while Abroad is currently disabled.
+We can change that easily, but be aware that you might lock yourself out if you are connected via SSH when changing the profile!
+
+```
+# nwamadm enable -p ncp Abroad
+Enabling ncp 'Abroad'
+```
+
+To check if the change has worked, you can use nwam again, and also ifconfig should show that interface is up:
+
+```
+# nwamadm list
+TYPE PROFILE STATE
+ncp Abroad online
+ncu:phys e1000g0 online
+ncu:ip e1000g0 online
+ncp Automatic disabled
+loc Automatic online
+loc NoNet offline
+loc User disabled
+```
+
+```
+# ifconfig e1000g0
+e1000g0: flags=1000843<UP,BROADCAST,RUNNING,MULTICAST,IPv4> mtu 1500 index 8
+inet 192.168.100.100 netmask ffffff00 broadcast 192.168.100.255
+ether 0:c:29:56:46:73
+```
+
+If you want to revert to default `Automatic` ncp, use the following command:
+
+```
+# nwamadm enable -p ncp Automatic
+```
+
+Although it is possible to directly modify profiles using an editor, it is not advisable and will be hardly necessary, anyway.
+One of the coolest features of NWAM tools is that they can be completely scripted.
+All steps above could also be put in one line:
+
+```
+# nwamcfg "create ncp Abroad;create ncu phys e1000g0;set activation-mode=manual;set enabled=true;set priority-group=0;set priority-mode=exclusive;end;create ncu ip e1000g0;set enabled=true;set ip-version=ipv4;set ipv4-addrsrc=static;set ipv4-addr=192.168.100.100;set ipv4-default-route=192.168.100.1;commit"
+```
+
+Or, more nicely formatted, commented and stored in a file:
+
+```
+#
+# Profile for use on the road
+#
+# Created on 13/01/2013 by S. Mueller-Wilken
+#
+create ncp Abroad
+
+# Create physical interface definition for 1st network card
+create ncu phys e1000g0
+set activation-mode=manual
+set enabled=true
+set priority-group=0
+set priority-mode=exclusive
+end
+
+# Create IP configuration for first network card
+create ncu ip e1000g0
+set enabled=true
+set ip-version=ipv4
+set ipv4-addrsrc=static
+set ipv4-addr=192.168.100.100
+set ipv4-default-route=192.168.100.1
+
+# Commit the settings
+commit
+```
+
+This file can then be read by nwamcfg:
+
+```
+# nwamcfg -f abroad.cfg
+Configuration read.
+```
+
+While there is no longer a need to fiddle around in /etc/nwam, the configuration is still completely there, as can be easily verified:
+
+```
+# ls /etc/nwam
+loc loc.conf ncp-Abroad.conf ncp-Automatic.conf
+```
+
+All configuration is placed in readable ASCII files so that configuration from a global zone is possible:
+
+```
+# cat /etc/nwam/ncp-Abroad.conf
+link:e1000g0 type=uint64,0;class=uint64,0;parent=string,Abroad;enabled=boolean,true;activation-mode=uint64,4;priority-group=uint64,0;priority-mode=uint64,0;
+interface:e1000g0 type=uint64,1;class=uint64,1;parent=string,Abroad;enabled=boolean,true;ipv6-addrsrc=uint64,0,1;ip-version=uint64,4;ipv4-addrsrc=uint64,2;ipv4-default-route=string,192.168.100.1;ipv4-addr=string,192.168.100.100;
+```
 
 #### Network automagic online help
 
 Comprehensive and fully illustrated online help for using NWAM is available by right clicking the NWAM tray icon and selecting _Help_.
-This opens the online help browser.
-
+This opens help browser.
 
 #### Troubleshooting NWAM
 
@@ -812,10 +1193,10 @@ If NWAM is already configured and fails to connect to a wireless network try res
 For example:
 
 ```bash
-svcadm restart nwam
+# svcadm restart nwam
 ```
 
-Sometimes the location gets set to _NoNet_ and it's nessessary to manually change the location.
+Sometimes the location gets set to _NoNet_ and it's nessessary to manually change the location to _Automatic_.
 
 When the location setting is configured to _Switch Locations Automatically_, it's not possible to change the location.
 This is resolved by reconfiguring the location to allow manual switching.
@@ -823,26 +1204,6 @@ To perform this task, do the following:
 
 Right click the NWAM tray icon and select **_Location_ > _Switch Locations Manually_**.
 Right click the NWAM tray icon and select **_Location_ > _Automatic_**.
-
-
-### Desktop GUI
-
-< Place Holder >
-
-
-#### Manual Configuration
-
-< Place Holder >
-
-
-#### Automatic Configuration
-
-< Place Holder >
-
-
-#### Troubleshooting
-
-* Make sure the network auto magic 'Location' setting is configured as 'Automatic' and not 'NoNet'
 
 
 ## Clustering with Open HA Cluster

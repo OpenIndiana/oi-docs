@@ -109,9 +109,10 @@ As the FAQ evolves, try to keep this section in sync.
 
 -->
 
-| CPU | Disk Space | Memory (RAM)
-| --- | --- | ---
-| 64 Bit | 20GB (or more) | 2GB (or more)
+| Installation type | CPU | Disk Space | Memory (RAM)
+| --- | --- | --- | ---
+| Server | 64 Bit | 16GB (or more) | 2GB (or more)
+| Desktop | 64 Bit | 20GB (or more) | 4GB (or more)
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -299,7 +300,7 @@ For a full list of links to the various installer images, visit the following pa
 
 For a complete list of alternate mirrors (Asia, Europe, North America, etc.)
 
-* [OpenIndiana Download Mirrors](https://wiki.openindiana.org/oi/Mirrors)
+* [OpenIndiana Download Mirrors](./openindiana-download-mirrors.md)
 
 
 If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
@@ -605,13 +606,13 @@ For example:
 
 ### BSD/Linux/OS X
 
-In the command below, replace `X` with the appropriate letter for your USB device.
+In the command below, replace `X` with the appropriate letter for your USB device. At least on Linux and FreeBSD you can add `status=progress` operand to print basic transfer statistics, refer to `dd(1)` man page of your platform for more information.
 
 
 #### Method 1 (New releases)
 
 ```
-# dd bs=4M if=./image.usb of=/dev/sdX status=progress && sync
+# dd bs=4M if=./image.usb of=/dev/sdX && sync
 ```
 
 #### Method 2 (Legacy releases)
@@ -897,13 +898,6 @@ For some guidance writing this section:
 * Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
 </div>
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-If your intention is to multi-boot OpenIndiana on a system that is already running a UNIX like operating system (for example Linux), be sure to save a copy of the `menu.lst` file prior to beginning the installation.
-The contents of the GRUB `menu.lst` file dictate the booting parameters for each entry displayed in the GRUB boot menu.
-The information provided by the `menu.lst` will be required for updating the GRUB menu after the installation.
-</div>
-
 <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
 Please be advised of the following important considerations:
@@ -1162,17 +1156,19 @@ From here you now have several options:
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 To prevent the Live Media from starting again after the reboot, eject the Live Media as the next boot begins.
-Or alternately, when presented with the Live Media installer options menu, select the _**Boot from Hard Disk**_ option.
+Or alternately, when presented with the Live Media installer options menu, select the _**ChainLoad diskN**_ option.
 </div>
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-After you have installed OpenIndiana, if you have another operating system on your system, you might need to update the GRUB menu.
-The GRUB menu displays a list of operating systems that can be booted.
-Solaris and Windows operating systems are displayed automatically on the GRUB menu.
-The contents of the GRUB `menu.lst` file define what is displayed in the GRUB menu when you boot the system.
-If you have an additional OpenIndiana or a Linux OS that is not displayed on the menu, you may need to edit the GRUB `menu.lst` file.
+After you have installed OpenIndiana, if you have another operating system installed, you might need to update loader configuration.
+Usually you can achieve desired effect by chainloading partitions with other operating systems.
+To configure illumos loader to show additional entry for chainloading another loader, create file in /boot/conf.d directory,
+containing string
+<code>set chain_disk="disk0:"</code>,
+where disk0 is the name of disk or partition to boot from.
+You can get the list of available disks from loader prompt using <code>lsdev</code> command.
 </div>
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
@@ -1217,7 +1213,7 @@ Mirrors and RAIDZ are now supported install options!
 
 </div>
 
-
+<a name="welcome-screen"></a>
 ![Welcome Screen](./images/text_install/text_install_01.png)
 
 The text based installation process begins with the welcome screen, which provides the following information:
@@ -1230,7 +1226,11 @@ The text based installation process begins with the welcome screen, which provid
 At any time during the installation process you may press the `F6` key for context specific help.
 </div>
 
-When ready to begin, press the `F2` key to continue.
+Text installer allows you to do either usual installation or installation to existing ZFS pool.
+
+If you are doing clean installation, when ready to begin, press the `F2` key to continue.
+
+If you intend to install OpenIndiana to existing ZFS pool, see [Install OpenIndiana to existing ZFS pool](#install-openindiana-to-existing-zfs-pool).
 
 ![Select_Disks](./images/text_install/text_install_02.png)
 
@@ -1489,17 +1489,52 @@ When booting from the text based installer, you are presented with the following
 * Install OpenIndiana
 * Spawn a shell to be used as a rescue disk.
 
-The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started/#install-openindiana-using-the-text-installer)
+The procedure for installing from the text based installer follows the same process as the previously described [Install OpenIndiana using the Text Installer](./getting-started.md#install-openindiana-using-the-text-installer)
 
+### Install OpenIndiana to existing ZFS pool
+
+Starting from OpenIndiana 2017.10, the text installer allows you to perform installation to existing ZFS pool.
+It will create new boot environment in the pool and install OpenIndiana there.
+
+This option can be useful when you want to do some customizations to root ZFS pool (for example, enable compression) or install
+OpenIndiana to pool where another operating system is already installed (for example, prior version of OpenIndiana or even FreeBSD).
+It is recommended to use minimal or server installation images to perform such installations.
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This feature is intended for advanced users.
+It's assumed you know what you are doing.
+Multi-booting of another operating system and OpenIndiana on the same root pool can be possible, but such configuration is out of scope of this tutorial and is not supported.
+</div>
+
+To start installation to existing ZFS pool, press `F5` key when [Welcome Screen](#welcome-screen) is presented.
+
+Installer will present you a 'Pools' screen.
+
+![Pools Screen](./images/text_install/text_install_pools_screen.png)
+
+On this screen installer will allow you to select the root pool for your new installation and boot environment name (which should be unique).
+
+By default installer will install OpenIndiana boot loader and activate created boot environment.
+If you don't want installer to touch any boot-related options, uncheck `Overwrite pool's boot configuration` checkbox.
+This can be useful when you install OpenIndiana to ZFS pool where another operating system is already installed and you want to configure boot loader manually.
+
+If you don't see your pool in the list of available pools, check `/tmp/install_log`.
+The most frequent issue is that there's not enough free space in the pool.
+
+The next steps for [usual installation](#install-openindiana-using-the-text-installer) and installation to existing ZFS pool are the same.
+
+As there's possibly already another OS instance installed to the selected ZFS pool, no additional users or filesystems (like `rpool/export`) are created during installation.
+Swap and dump ZFS volumes also are not created and should be added manually after installation.
+Only root user will be available in created boot environment.
 
 ## Troubleshooting Installations
 
-* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a `grub>` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
+* If you do not see a menu after booting your computer with the DVD or USB device, and instead see some text and a `boot:` prompt, there may be an error in your copy of the installer, or it was created incorrectly.
 * If you see a `login:` prompt after selecting your keyboard and language and no desktop appears after several seconds, there may be a problem with the drivers for your graphics hardware.
     * Please let us know via IRC or the mailing list if this happens.
     * When you contact us, please include any error messages you see on the console, as well as the output of the `svcs -xv` command.
     * If possible, also include the contents of the file `/var/log/Xorg.0.log`.
-
 
 ## Post Installation Steps
 
@@ -1518,7 +1553,6 @@ Option # 6 allows you to select from among them.
 After using OpenIndiana for a period of time, several boot environments will accumulate, with the label for each environment incrementing numerically.
 The image above illustrates what this looks like on a system with several boot environment choices.
 
-
 ### Resetting the root password
 
 After installation, the root password is immediately expired and you will be required to change it.
@@ -1531,6 +1565,133 @@ Use the following steps to change the root password:
 * Once changed you can exit the su session
 * You should be able to login/authenticate as root now.
 
+## Updating OpenIndiana /dev to /hipster
+
+This section describes how to update your existing OpenIndiana /dev installation to OpenIndiana /hipster.
+
+Note, that although direct updating from /dev to /hipster can be possible, it's not exhaustively tested.
+
+There are several techniques which you can use to update your systems, including root pool installation from OpenIndiana ISO.
+Complete reinstall also can be a decent option.
+
+Further it's considered that you were warned and decided to do more-or-less direct update from /dev to /hipster.
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Only server installation update was tested.
+If you do GUI installation update, you are on your own.
+Of course, you are welcome to ask questions in <a href="https://openindiana.org/mailman/listinfo/oi-dev">oi-dev</a> mailing list, but prepare that nobody will guide you through update.
+</div>
+
+* Do backup.
+  <br/>Seriously.
+  The next steps can make your system unbootable.
+
+* Read release notes.
+  <br/>Read release notes for ALL OpenIndiana Hipster snapshots.
+  They contain information on system changes and possible troubles which can appear.
+  Read [Loader Integration](https://www.openindiana.org/2016/09/28/loader-integration/)
+
+* Test your actions in non-production environment.
+  <br/>Consider that last significant OpenIndiana /dev update was many years ago.
+  You are going to update your applications perhaps via several major releases.
+  Prepare for the changes.
+
+* You'll need console access to the server.
+  <br/>Without console access and ability to boot fresh OpenIndiana Hipster ISO image, you'll not be able to activate new boot environment: old tools can't work with new facilities, new tools will not work with old kernel.
+
+* Update to the latest OpenIndiana /dev version.
+
+```
+# pkg update -v
+```
+
+* Create new boot environment, which you'll update to /hipster, and mount it to `/mnt` (the default empty temporary mountpoint directory).
+
+```bash
+# beadm create oi-hipster
+# beadm mount oi-hipster /mnt
+```
+
+* Uninstall all packages coming from opensolaris.org, sfe or sfe-encumbered publishers.
+
+```bash
+# pkg -R /mnt list pkg://sfe/* pkg://sfe-encumbered/* pkg://opensolaris.org/*
+# pkg -R /mnt uninstall <list of matched packages>
+```
+
+* Unset sfe, sfe-encumbered, opensolaris.org publishers in new BE if they were used.
+
+```bash
+# pkg -R /mnt unset-publisher opensolaris.org
+...
+```
+
+* Change publisher to <http://pkg.openindiana.org/hipster>.
+
+```bash
+# pkg -R /mnt set-publisher -g http://pkg.openindiana.org/hipster -G http://pkg.openindiana.org/dev openindiana.org
+```
+
+* Refresh IPS catalog.
+
+```bash
+# pkg -R /mnt refresh --full
+```
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Two following steps are actually better to run under <code>screen(1)</code> or <code>tmux(1)</code>
+</div>
+
+* Look what IPS is going to do.
+
+```bash
+# pkg -R /mnt update -nv 2>&1 | tee /root/testing_update
+# less /root/testing_update
+```
+
+* If you are satisfied with what you've seen, run actual update and review `pkg(1)` output.
+
+```bash
+# pkg -R /mnt update -v 2>&1 | tee /root/update
+# less /root/update
+```
+
+* Now you have updated boot environment, but have no means to activate it, so you'll have to boot from recent OpenIndiana minimal ISO.
+  <br/>After booting from ISO run shell, import pool, update boot archive, install boot loader, activate new boot environment and reboot.
+  `c2t0d0s0` disk name is used in example, you should look at `zpool status` output and use corresponding device.
+  You'd better use cpio boot archive format due to existing issue in compressed ufs boot archive support.
+
+```bash
+# zpool import -R /tmp rpool
+# beadm mount oi-hipster /mnt
+# bootadm update-archive -R /mnt/tmp -vf -F cpio
+# installboot -mvF  /mnt/tmp/boot/pmbr /mnt/tmp/boot/gptzfsboot /dev/rdsk/c2t0d0s0
+# beadm activate oi-hipster
+# init 6
+```
+
+* When your new boot environment is booting, look at possible error messages.
+  <br/>You can see warnings about inability to import some manifests.
+  After logging in you'll be able to import them manually with svccfg import.
+  Also you'll have to remove metainit service, which has gone with SVM support.
+
+```bash
+# svccfg -s metainit delete default
+```
+
+* Look if there are any failed services and examine their log files.
+
+```bash
+# svcs -xv
+```
+
+* Ensure that you have latest osnet-incorporation and userland-incorporation installed.
+
+```bash
+# pkg info osnet-incorporation userland-incorporation
+```
 
 ## Image Package System (IPS)
 
@@ -1539,13 +1700,6 @@ Use the following steps to change the root password:
 The image packaging system is delivered as part of the OpenIndiana userland.
 As such, the pkg related man pages are not available on the illumos.org website.
 These pages are only available by running the man page viewer locally on your system.
-</div>
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-Have a look at: [pgk cheat sheet](https://wiki.openindiana.org/oi/pkg+Cheat+Sheet) to see whether there is anything there which we might want to import and validate.
-
 </div>
 
 ### Introduction
@@ -2201,7 +2355,7 @@ You can maintain multiple boot environments on your system, and each boot enviro
 Upon the initial installation of OpenIndiana onto your system, a boot environment is created.
 Use the `beadm`<sup>1M</sup> utility to administer additional boot environments on your system.
 
-The `beadmn` utility is designed to work in concert with the ZFS file system and the IPS package manager.
+The `beadm` utility is designed to work in concert with the ZFS file system and the IPS package manager.
 
 ### Why use multiple boot environments?
 
@@ -2214,8 +2368,8 @@ Here are some specific examples where having more than one OpenIndiana boot envi
 The packages are updated in the clone rather than in the original boot environment.
 After successfully completing the updates, the new clone is activated.
 Then, the clone will become the new default boot environment on the next reboot.
-The original boot environment remains on the GRUB menu as an alternate selection.
-You can use the `beadm list` command to see a list of all the boot environments on the system, including the backup boot environment that still has its original, unchanged software.
+You can boot the original boot environment explicitly selecting it from loader menu.
+`beadm list` command can be used to see a list of all boot environments on the system, including the backup boot environment that still has its original, unchanged software.
 If you are not satisfied with the updates made to the environment, you can use the `beadm activate` command to specify that the backup will become the default boot environment on the next reboot.
 
 * If you are modifying a boot environment, you can take a snapshot of that environment at any stage during modifications by using the `beadm create` command.
@@ -2235,6 +2389,17 @@ Although only one boot environment can be active at a time, you can mount an ina
 Then you can use the `pkg update` command with the `-R` option to update all the packages in that inactive, mounted environment.
 Or, use the `pkg install packagename` with the `-R` option to update specific packages on that environment.
 
+<div class="well">
+When <code>pkg</code> creates new boot environment, it determines its name using <code>auto-be-name</code> image property.
+When prefixed with "time:" string, the remaining part of property is interpreted as <code>strftime(3C)</code> argument.
+If <code>pkg</code> can't produce unique boot environment name based on auto-be-name image property,
+it uses the property as base to generate unique name, appending numerical suffix prefixed by "-" symbol.
+Note, that due to name generation rules, any numerical suffix, prefixed by "-", can be incremented to
+generate unique name, so given "time:openindiana-%Y-%m-%d" <code>auto-be-name image</code> property value
+(which is not recommended), <code>pkg</code> will produce boot environment names ending with current date, current date + 1 and so on.
+By default <code>auto-be-name</code> is set to "time:openindiana-%Y:%m:%d", so that boot environments are named like
+"openindiana-2019:03:29". You can get current value using <code>pkg property</code> command and set it with <code>pkg set-property</code>.
+</div>
 
 ### Features of the beadm utility
 
@@ -2249,8 +2414,8 @@ For example, when the `beadm` utility clones a boot environment that has shared 
 * The `beadm` utility enables you to perform administrative tasks on your boot environments.
 These tasks can be performed without upgrading your system.
 
-* The `beadm` utility automatically manages and updates the GRUB menu.
-For example, when you use the `beadm` utility to create a new boot environment, that environment is automatically added to the GRUB menu.
+* The `beadm` utility manages and updates the `<root pool>/boot/menu.lst` file used by loader to list boot environments.
+When you use the `beadm` utility to create a new boot environment, that environment is automatically added to this file.
 
 The `beadm` utility enables you to perform the following tasks:
 
@@ -2258,7 +2423,6 @@ The `beadm` utility enables you to perform the following tasks:
 * Create a new boot environment based on an inactive boot environment
 * Create a snapshot of an existing boot environment
 * Create a new boot environment based on an existing snapshot
-* Create a new boot environment and add a custom title to the GRUB menu.
 * Activate an existing, inactive boot environment
 * Mount a boot environment
 * Unmount a boot environment
