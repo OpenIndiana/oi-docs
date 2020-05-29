@@ -21,14 +21,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - Squeak Smalltalk-80
 
+The following notes document the steps to install Squeak on OpenIndiana Hipster, and how to use this implementation of Smalltalk.
 
-## How to install Squeak Smalltalk-80 on OpenIndiana
-
-Contributed by David Stes, the following notes document the steps to install Squeak on OpenIndiana Hipster.
-
-Squeak is an implementation of the Smalltalk-80 graphical development environment and programming language.  A famous reference is the 700-page book :
-
-Smalltalk-80: The Language and its Implementation
+Smalltalk is a graphical development environment and programming language.  A famous reference is the 700-page book : "Smalltalk-80: The Language and its Implementation"
 
 	Adele Goldberg and David Robson
 	Xerox Palo Alto Research Center
@@ -37,21 +32,27 @@ Smalltalk-80: The Language and its Implementation
 
 There exist a large number of books on Squeak and Smalltalk, see <a href="http://www.squeak.org" target="_blank">Squeak website</a> for more information.
 
-Link to Squeak Wiki: <a href= "http://wiki.squeak.org" target="_blank">Squeak Wiki</a>
+Also see the Squeak Wiki for more information : <a href= "http://wiki.squeak.org" target="_blank">Squeak Wiki</a>
+
+## How to install Squeak Smalltalk-80 on OpenIndiana
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>OpenIndiana Prerequisites
 <div class="well">
 <p>When installing OpenIndiana, you will need a desktop (graphical) environment, such as the MATE desktop.
-One way to do this is to run the OpenIndiana text installer and then insatll the group package "mate_install" and then enable the Light Display Manager as follows:
+
+One way to get a MATE desktop, is to run the OpenIndiana text installer and then install the group package "mate_install" and then enable the Light Display Manager as follows:
 
 # pkg install -v --accept mate_install
 
 # svcadm enable graphical-login/lightdm
-(light display manager)
+
+This enables the "light display manager".
 
 In any case, even if you do a direct desktop installation (without running through the text based installation of OpenIndiana), take care about the ip address and hostname of the system.
 
-Squeak will try to use the ip address that corresponds with the hostname of the system as its ip address.   So multi-homed systems (with multiple network interfaces) may have some strange behavior for TCP/IP networking inside Squeak.  This may require some experimentation to see what works.   
+Squeak will try to use the ip address that corresponds with the hostname of the system as its ip address.
+
+So multi-homed systems (with multiple network interfaces) may have some strange behavior for TCP/IP networking inside Squeak.  This may require some experimentation to see what works.   
 
 We've tested Squeak with a text-based installation with fixed IP address and hostname resolving is set up so that the fixed ip address corresponds to the hostname, and there are no other network interfaces.
 </div>
@@ -102,7 +103,7 @@ squeak              system    5       system     stack-spur
 
 The system-administrator can override the OpenIndiana choice by using the pkg set-mediator or pkg unset-mediator commands.
 
-Because both packages can be installed simulteaously it is possible to run side-by-side Squeak 4.6 and Squeak 5.3 or Squeak 6.0 alpha images.
+Because both packages can be installed simulteaously it is possible to run side-by-side Squeak 4.6 and Squeak 5.3, Cuis Smalltalk or Squeak 6.0 alpha images.
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>Squeak Profile
@@ -154,9 +155,9 @@ If the user had no profiles assigned, then simply running
 
 $ usermod -P Squeak <someuser>
 
-is enough, but this will replace the old list of profiles by Squeak only.
+is sufficient, but this will replace the old list of profiles by Squeak only.
 
-Once that is done the user can "pfexec squeak" to allow squeak to sets the priority of the scheduling thread.
+Once that is done the user can "pfexec squeak" to allow squeak to set the priority of the scheduling thread.
 
-As far as we can see this does not actually matter a lot, and running squeak without Squeak profile is possible, although that it will print an annoying warning on startup (that "pthread_setschedparam failed: Not owner ).
+As far as we can see this does not actually matter a lot, and running squeak without Squeak profile is possible, although that it will print an annoying warning on startup (that "pthread_setschedparam failed: Not owner ).   By running Squeak in the pfexec profile shell, the warning will not be displayed.
 
