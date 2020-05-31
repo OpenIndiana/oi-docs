@@ -45,6 +45,7 @@ nav:
                          - 'Packaging and Delivering Software with IPS': dev/pdf/ips-dev-guide.pdf
                          - 'Using distribution constructor': dev/distribution-constructor.md
                          - 'Existing tasks': dev/existing-tasks.md
+                - 'Squeak on OpenIndiana': handbook/community/squeak.md
         
         - 'OpenSolaris Books':
                 - 'About OpenSolaris Books': books/about.md
