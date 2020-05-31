@@ -25,12 +25,14 @@ The following notes document the steps to install Squeak on OpenIndiana Hipster,
 
 Smalltalk is a graphical development environment and programming language.  A famous reference is the 700-page book : "Smalltalk-80: The Language and its Implementation"
 
-	Adele Goldberg and David Robson
-	Xerox Palo Alto Research Center
-	Addison-Wesley Publishing Company, Reading,
-	Massachussetts, Menlo Park, California, 1983, ISBN 0-201-11371-6
+Adele Goldberg and David Robson
+Xerox Palo Alto Research Center
+Addison-Wesley Publishing Company, Reading,
+Massachussetts, Menlo Park, California, 1983, ISBN 0-201-11371-6
 
-There exist a large number of books on Squeak and Smalltalk, see <a href="http://www.squeak.org" target="_blank">Squeak website</a> for more information.
+There also exist more recent books on Squeak.
+
+See the <a href="http://www.squeak.org" target="_blank">Squeak website</a> for more information.
 
 Also see the Squeak Wiki for more information : <a href= "http://wiki.squeak.org" target="_blank">Squeak Wiki</a>
 
@@ -52,9 +54,9 @@ In any case, even if you do a direct desktop installation (without running throu
 
 Squeak will try to use the ip address that corresponds with the hostname of the system as its ip address.
 
-So multi-homed systems (with multiple network interfaces) may have some strange behavior for TCP/IP networking inside Squeak.  This may require some experimentation to see what works.   
+So multi-homed systems (with multiple network interfaces) may have some strange behavior for TCP/IP networking inside Squeak.  This may require some experimentation to see what works.
 
-We've tested Squeak with a text-based installation with fixed IP address and hostname resolving is set up so that the fixed ip address corresponds to the hostname, and there are no other network interfaces.
+We've tested Squeak with a text-based installation with fixed IP address and hostname resolving is set up so that the fixed ip address corresponds to the hostname, and there were no other network interfaces on the test server.
 </div>
 
 
@@ -62,7 +64,7 @@ We've tested Squeak with a text-based installation with fixed IP address and hos
 <div class="well">
 </div>
 
-Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href= "http://files.squeak.org" target="_blank">files.squeak.org</a> or at <a href="http://cuis-smalltalk.org" target="_blank">cuis-smalltalk.org</a>. 
+Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href= "http://files.squeak.org" target="_blank">files.squeak.org</a> or at <a href="http://cuis-smalltalk.org" target="_blank">cuis-smalltalk.org</a>.
 
 Because users of Smalltalk are normally saving their own custom image, there exist many other images on the internet to download.
 
@@ -91,7 +93,7 @@ It is possible to simulteaously install squeak-5 as follows:
 
 # pkg mediator squeak
 MEDIATOR            VER. SRC. VERSION IMPL. SRC. IMPLEMENTATION
-squeak              system    4       system     
+squeak              system    4       system
 
 # pkg install -v squeak-5
 
