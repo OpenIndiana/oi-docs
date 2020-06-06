@@ -32,8 +32,7 @@ nav:
                 - 'Systems Administration': handbook/systems-administration.md
                 - 'Network Communications': handbook/network-communications.md
                 - 'Appendix': handbook/appendix.md
-                - 'Community Contributed Tutorials': handbook/community.md
--                - 'Squeak on OpenIndiana': handbook/community.md
+                - 'Community Contributed Tutorials (Oracle, Squeak, ...) ': handbook/community.md
                 - 'Community Hardware Compatibility List':
                          - 'Getting information about hardware': community-hcl/getting-hardware-info.md
                          - 'Components': community-hcl/components.md
