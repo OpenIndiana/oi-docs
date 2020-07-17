@@ -28,6 +28,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
+2020-07-17 | Python 3.4 was removed
 2020-04-02 | Samba was updated to 4.12
 2020-03-31 | GCC 7 is the default oi-userland compiler now. If you create PR, ensure that you've checked it in GCC-7 environment.
 2020-03-14 | Python imaging library was replaced by Pillow
