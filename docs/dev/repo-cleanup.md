@@ -21,7 +21,13 @@ This is an internal document provided mostly for OpenIndiana maintainers
 </div>
 
 Due to current CI practices, OpenIndiana Hipster repository tend to bloat with old package versions.
-To fix the issue currently periodic manual cleanup is necessary.
+This causes several issues:
+
+* `pkg(1)` starts consuming a lot of memory during planning stage;
+* refreshing repository index becomes the longest step in Jenkins build jobs;
+* storage space is wasted on pkg and build servers.
+
+To fix these issues currently periodic manual cleanup is necessary.
 Note that during cleanup we preserve only latest versions of packages.
 Given that it's usually just 10-20% of all published packages, using `pkgrepo  remove` is impractical.
 
@@ -31,7 +37,7 @@ Be sure to disable Jenkins jobs prior to the operation.
 
 As transfering packages takes significant time (about an hour on build server and several hours on pkg server), you likely want to perform operations on both of them simultaneously.
 
-## Tasks held on build server
+## Tasks held on the build server
 
 We should cleanup packages produced by illumos-gate and oi-userland Jenkins jobs.
 
@@ -89,9 +95,9 @@ rm -fr repo
 mv repo.new repo
 ```
 
-## Tasks held on package server
+## Tasks held on the package server
 
-The procedure is essentially the same, we create new repository and transfer latest packages and custom scripts from old one there.
+The procedure is essentially the same, we create new repository and transfer latest packages and custom scripts from the old repository to the new one.
 Scripts mentioned here are partially used by rsync jobs to update repository and partially can be used by pkg server administrator to perform repository maintenance.
 
 You should start by creating new filesystem for the repository.
@@ -137,7 +143,7 @@ pkgrepo -s . rebuild
 rm x* pkg-list
 ```
 
-Make pkg server to actually use new repository.
+Make pkg server actually use new repository.
 Ensure that you minimise time between disabling pkg server and enabling it again - during this interval it's evidently unusable to the clients.
 
 ```bash
