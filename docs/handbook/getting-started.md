@@ -1162,28 +1162,29 @@ Or alternately, when presented with the Live Media installer options menu, selec
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-After you have installed OpenIndiana, if you have another operating system installed, you might need to update loader configuration.
-Usually you can achieve desired effect by chainloading partitions with other operating systems.
-To configure illumos loader to show additional entry for chainloading another loader, create file in /boot/conf.d directory,
-containing string
-<code>set chain_disk="disk0:"</code>,
+After you have installed OpenIndiana, if you have another operating system installed, you might need to update the loader configuration.
+Usually you can achieve the desired effect by chainloading partitions with other operating systems.
+To configure the illumos loader to show an additional entry for chainloading another loader, create a file in /boot/conf.d directory,
+containing the string
+<code>chain_disk="disk0:"</code>,
 where disk0 is the name of disk or partition to boot from.
 You can get the list of available disks from loader prompt using <code>lsdev</code> command.
-</div>
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-Write about:
-
-* How to configure the Linux GRUB2 bootloader to chainload an OpenIndiana partition
+If you use GRUB2, you can configure it to show an entry for chainloading the illumos loader.
+Add the following to a file in the /etc/grub.d directory (usually the placeholder '40_custom' file can be used) of the Linux installation:
 
 ```
-[13:08:17] <tsoome> configure chainloader to load illumos partition
-[13:11:02] <tsoome> the chain load is the safest option - you let the native boot loader to do all the work and thats it.
-[14:10:43] <tsoome> yep, you need to configure it to read partition boot block and execute it.
-[14:11:43] <tsoome> this way you dont have to worry about updates etc
+menuentry "Chainload OpenIndiana" {
+    set root=(hd0,2)
+    chainloader +1
+}
 ```
 
+where hd0,2 is the location of the partition or disk containing the illumos loader.
+You can list detected disks/partitions from the GRUB prompt using the <code>ls</code> command.
+From Linux you can run <code>sudo fdisk -l</code> to list disks and partitions. The partition 'sda2' would map to 'hd0,2' in GRUB.
+After making changes you must run <code>sudo update-grub</code>,
+this updates the auto-generated GRUB configuration stored in /boot/grub/grub.cfg.
 </div>
 
 
