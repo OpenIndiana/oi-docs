@@ -17,6 +17,7 @@ license, unless stated otherwise in individual files.
 - [Johnathan "ShaggyTwoDope" Jenkins](https://github.com/shaggytwodope)
 - [Lucas Sköldqvist](https://github.com/frusen)
 - [Michael Kruger](https://github.com/makruger)
+- [David Stes](https://sourceforge.net/u/stes/profile)
 - [/u/127b](https://www.reddit.com/user/127b)
 
 ## Depends
