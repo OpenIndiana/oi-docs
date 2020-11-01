@@ -10,11 +10,11 @@
 
 <div class="col-sm-6">
   <div class="panel panel-default">
-    <div class="panel-heading"><a href="http://www.openindiana.org">www.openindiana.org</a></div>
+    <div class="panel-heading"><a href="https://www.openindiana.org">www.openindiana.org</a></div>
     <div class="panel-body"><ul><li>Primary web presence</li></ul></div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading"><a href="http://wiki.openindiana.org">wiki.openindiana.org</a></div>
+    <div class="panel-heading"><a href="https://wiki.openindiana.org">wiki.openindiana.org</a></div>
     <div class="panel-body"><ul><li>Development and community information</li></ul></div>
   </div>
   <div class="panel panel-default">
@@ -33,7 +33,7 @@
     <div class="panel-body">
       <ul>
         <li>End user support IRC channel</li>
-        <ul><li><a href="http://echelog.com/logs/browse/openindiana">Channel Logs</a></li></ul>
+        <ul><li><a href="https://freenode.logbot.info/openindiana">Channel Logs</a></li></ul>
       </ul>
     </div>
   </div>
@@ -42,7 +42,7 @@
     <div class="panel-body">
       <ul>
         <li>Development team IRC channel</li>
-        <ul><li><a href="http://echelog.com/logs/browse/oi-dev">Channel Logs</a></li></ul>
+        <ul><li><a href="https://freenode.logbot.info/oi-dev">Channel Logs</a></li></ul>
       </ul>
     </div>
   </div>
