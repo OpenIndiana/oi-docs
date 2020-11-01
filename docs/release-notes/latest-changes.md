@@ -31,7 +31,7 @@ Date       | Change
 2020-10-30 | qt 5 was updated to 5.12.9
 2020-10-11 | SunStudio 12.1 was removed
 2020-09-12 | Mate was updated to 1.24
-2020-07-27 | FreeRPD and Remmina were added
+2020-07-27 | FreeRDP and Remmina were added
 2020-07-17 | Python 3.4 was removed
 2020-04-02 | Samba was updated to 4.12
 2020-03-31 | GCC 7 is the default oi-userland compiler now. If you create PR, ensure that you've checked it in GCC-7 environment.

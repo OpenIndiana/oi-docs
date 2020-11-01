@@ -19,10 +19,11 @@ license, unless stated otherwise in individual files.
 - [Michael Kruger](https://github.com/makruger)
 - [David Stes](https://sourceforge.net/u/stes/profile)
 - [/u/127b](https://www.reddit.com/user/127b)
+- [Andreas Wacknitz](https://github.com/AndWac)
 
 ## Depends
 
-- [``mkdocs``](http://www.mkdocs.org/)
+- [``mkdocs``](https://www.mkdocs.org/)
 
 ### Depends for linting
 
