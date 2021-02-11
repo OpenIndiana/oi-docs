@@ -34,6 +34,10 @@ Link to PDF Document: <a href= "../pdf/HowToInstallOracleDB.pdf" target="_blank"
 <p>Unfortunately, it is not possible to run Oracle Database version 12 and above on OpenIndiana.</p>
 </div>
 
+## How to Install the TeX Live Typesetting Software on OpenIndiana Hipster
+
+Link to TeXLive Document: <a href= "texlive/index.html" target="_blank">OpenIndiana Hipster Notes for TeX Live Users</a>
+
 ## How to Install Squeak Smalltalk-80 on OpenIndiana Hipster
 
 Link to Squeak Document: <a href= "squeak/index.html" target="_blank">OpenIndiana Hipster Notes for Squeak Users</a>
