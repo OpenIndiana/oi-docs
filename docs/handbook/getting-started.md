@@ -161,6 +161,7 @@ OpenIndiana is known to work with the following virtualization software:
 * [VMWare VSphere](http://www.vmware.com/products/vsphere.html)
 * [Linux KVM](http://www.linux-kvm.org/page/Main_Page)
 * illumos KVM - (The illumos port of Linux KVM)
+* [bhyve](https://www.bhyve.org)
 
 Virtual machines provide a PC emulation layer in which you install OpenIndiana just as you would on physical 'bare metal' hardware.
 
