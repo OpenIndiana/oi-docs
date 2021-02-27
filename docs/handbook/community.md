@@ -40,6 +40,14 @@ This article, contributed by OpenIndiana community member Carsten Grzemba, detai
 
 Link to document: [Sun Ray Software on OpenIndiana Hipster](../handbook/sunray.md)
 
+## How to Install the TeX Live Typesetting Software on OpenIndiana Hipster
+
+Link to TeXLive Document: <a href= "texlive/index.html" target="_blank">OpenIndiana Hipster Notes for TeX Live Users</a>
+
+## How to Install Squeak Smalltalk-80 on OpenIndiana Hipster
+
+Link to Squeak Document: <a href= "squeak/index.html" target="_blank">OpenIndiana Hipster Notes for Squeak Users</a>
+
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **Call for Contributors:**
 <div class="well">
 <p>Help us improve and expand this page by offering your community written tutorials for publication on this site.</p>

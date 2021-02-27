@@ -53,7 +53,7 @@ This page contains some ideas how to enhance OpenIndiana.
 
 **slim-source**
 
-* Port slim-source to Python 3
+* Port GUI installer to GTK3 (or better, rewrite in Python)
 
 **oi-userland**
 
