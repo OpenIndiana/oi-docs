@@ -34,6 +34,12 @@ Link to PDF Document: <a href= "../pdf/HowToInstallOracleDB.pdf" target="_blank"
 <p>Unfortunately, it is not possible to run Oracle Database version 12 and above on OpenIndiana.</p>
 </div>
 
+## How to Install Sun Ray Software on OpenIndiana Hipster
+
+This article, contributed by OpenIndiana community member Carsten Grzemba, details the steps required for the installation of Sun Ray Software on OpenIndiana Hipster.
+
+Link to document: [Sun Ray Software on OpenIndiana Hipster](../handbook/sunray.md)
+
 ## How to Install the TeX Live Typesetting Software on OpenIndiana Hipster
 
 Link to TeXLive Document: <a href= "texlive/index.html" target="_blank">OpenIndiana Hipster Notes for TeX Live Users</a>
@@ -47,3 +53,4 @@ Link to Squeak Document: <a href= "squeak/index.html" target="_blank">OpenIndian
 <p>Help us improve and expand this page by offering your community written tutorials for publication on this site.</p>
 <p>Please see the <b>Contrib</b> section for more details. The docs team can be reached via email: <b>docs at openindiana.org.</b></p>
 </div>
+
