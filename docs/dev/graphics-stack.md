@@ -84,7 +84,7 @@ Note on new driver installations:
 ```
 # beadm create oi-nvidia
 # beadm mount oi-nvidia /mnt
-# pkg -R /mnt uninstall driver/graphics/nvidia
+# pkg -R /mnt uninstall x11/server/xorg/driver/xorg-video driver/graphics/nvidia
 # /bin/sh NVIDIA-Solaris-x86-390.48.run --extract-only
 # cd NVIDIA-Solaris-x86-390.48
 # pkgadd -R /mnt -d . NVDAgraphics NVDAgraphicsr
