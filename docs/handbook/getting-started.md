@@ -1213,6 +1213,15 @@ Mirrors and RAIDZ are now supported install options!
   <li>To install to RAIDZ, select 3 or more disks.</li>
 </ul>
 
+<br>
+<b>GUI Desktop may be added post-installation</b>
+<Ul>
+ <li>To install MATE Desktop Environment</li>
+ <pre>
+ # pkg install mate_install
+ # pkg uninstall mate_install
+ # init 6
+ </pre>
 </div>
 
 <a name="welcome-screen"></a>
