@@ -143,6 +143,12 @@ pfexec pkg set-publisher -g file://$HOME/oi-userland/i386/repo userland
 pfexec pkg set-publisher --non-sticky openindiana.org
 ```
 
+#### Setting the local repository as primary publisher
+
+```bash
+pfexec pkg set-publisher --search-first userland
+```
+
 #### Optional: Running a local pkg server for installation on other zones/hosts
 
 If you would like to use your oi-userland repository on other zones or hosts, you can run a pkg server:
