@@ -81,7 +81,8 @@ The drivers series 340.xx, 390.xx, and 490.xx are currently part of oi-userland,
 
 The 390.xx drivers are current default.
 
-Note on switching driver versions 
+Note on switching driver versions
+
 ```
 # beadm create nvidia-460
 # beadm mount nvidia-460 /tmp/nvidia-460
