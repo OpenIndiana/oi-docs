@@ -16,13 +16,15 @@ Contributor(s): David Stes.
 
 <img src = "../../Openindiana.png">
 
-# Hipster Handbook - Squeak Smalltalk-80
+# Hipster Handbook - Squeak, Cuis and Smalltalk-80
 
-The following notes document the steps to install Squeak on OpenIndiana Hipster, and how to use this implementation of Smalltalk-80.
+The following notes document the steps to install Squeak and Cuis on OpenIndiana Hipster, and how to use these implementations of Smalltalk-80.
 
 Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href= "http://files.squeak.org" target="_blank">files.squeak.org</a> or at <a href="http://cuis-smalltalk.org" target="_blank">cuis-smalltalk.org</a>.
 
-See the <a href="http://www.squeak.org" target="_blank">Squeak website</a> for more and general information on Squeak, specifically the documentation section.  Also see the Squeak Wiki : <a href= "http://wiki.squeak.org" target="_blank">Squeak Wiki</a>
+Cuis and Squeak both use the Squeak VM, but they offer different Smalltalk images.  The Squeak images have traditional MVC (Model, View, Controller) and Morphic graphical user interface classes.   Cuis has Morphic-3, which is an enhanced set of Morphic classes.
+
+See the <a href="http://www.squeak.org" target="_blank">Squeak website</a> for more and general information on Squeak, specifically the documentation section.  See <a href="http://cuis-smalltalk.org" target="_blank">cuis-smalltalk.org</a> for more info Cuis.  Also see the Squeak Wiki : <a href= "http://wiki.squeak.org" target="_blank">Squeak Wiki</a>
 
 ## Classic VM and OpenSmalltalk VM
 
@@ -30,13 +32,21 @@ There are currently three Squeak packages for OpenIndiana : squeak-4, squeak-5 a
 
 The squeak-4 package corresponds to the classic virtual machine (VM).  The squeak-5 packages are OpenSmalltalk based virtual machines, where squeak-5 is the OpenSmalltalk stack VM and squeak-5c is the OpenSmalltalk cog VM.
 
-The following screenshot illustrates squeak-4, version 4.19.3, running on OpenIndiana, playing bachFugue through pulseaudio, and with a classical Smalltalk bouncing atoms animation :
+A first screenshot illustrates squeak-4, version 4.19.6, running on OpenIndiana,with an old style MVC (Model, View, Controller) look and feel :
+
+![mvc](oi-squeak-4-mvc.png)
+
+The following screenshot illustrates squeak-4, version 4.19.3, with the (default) Morphic user interface, running on OpenIndiana, playing bachFugue through pulseaudio, and with a classical Smalltalk bouncing atoms animation :
 
 ![bouncing atoms](atoms-4.19.3-oi.png)
 
 Squeak has a Test Runner.  The following screenshot illustrates squeak-4 and the results of running a number of tests :
 
 ![test run atoms](testrun-4.19.3-oi.png)
+
+The last screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :
+
+![cuis magician](oi-cuis-magician.png)
 
 ## OpenIndiana Prerequisites
 
