@@ -266,7 +266,9 @@ By default the OpenIndiana installer creates an EFI partition using a GPT partit
 Using this option, OpenIndiana will use the entire disk.
 No other operating system can share the same disk.
 
-Optionally you may use a legacy MBR partition.
+Optionally you may use an existing zpool.
+
+Another option is to use a legacy MBR partition.
 MBR partitions will allow you to create multiple partitions.
 MBR will also support dual booting another operating system.
 
