@@ -204,21 +204,21 @@ The file shared-macros.mk contains global constants used by other makefiles. Som
 The first section of the Makefile contains definitions of the component name, version, an url where the software should be fetched from, a short description embedded in the package metadata and so on.
 Look, for example, at `library/libjpeg6-ijg/Makefile`:
 
-```bash
-COMPONENT_NAME# libjpeg6-ijg
-COMPONENT_VERSION# 6.0.2
-LIBJPEG_API_VERSION# 6b
-COMPONENT_FMRI# image/library/libjpeg6-ijg
-COMPONENT_CLASSIFICATION# System/Multimedia Libraries
-COMPONENT_PROJECT_URL# http://www.ijg.org/
-COMPONENT_SUMMARY# libjpeg - Independent JPEG Group library version 6b
-COMPONENT_SRC# jpeg-$(LIBJPEG_API_VERSION)
-COMPONENT_ARCHIVE# $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
-COMPONENT_ARCHIVE_HASH# \
+```
+COMPONENT_NAME=         libjpeg6-ijg
+COMPONENT_VERSION=      6.0.2
+LIBJPEG_API_VERSION=    6b
+COMPONENT_FMRI=         image/library/libjpeg6-ijg
+COMPONENT_CLASSIFICATION=System/Multimedia Libraries
+COMPONENT_PROJECT_URL=  http://www.ijg.org/
+COMPONENT_SUMMARY=      libjpeg - Independent JPEG Group library version 6b
+COMPONENT_SRC=          jpeg-$(LIBJPEG_API_VERSION)
+COMPONENT_ARCHIVE=      $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
+COMPONENT_ARCHIVE_HASH= \
  sha256:75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d
-COMPONENT_ARCHIVE_URL# http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz
-COMPONENT_LICENSE# IJG,GPLv2.0
-COMPONENT_LICENSE_FILE# $(COMPONENT_NAME).license
+COMPONENT_ARCHIVE_URL=  http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz
+COMPONENT_LICENSE=      IJG,GPLv2.0
+COMPONENT_LICENSE_FILE= $(COMPONENT_NAME).license
 ```
 
 Here
