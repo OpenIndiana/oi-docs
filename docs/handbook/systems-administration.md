@@ -39,8 +39,8 @@ a number of essential concepts central to OpenIndiana system administration.
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 Administrative commands are usually expected to be run with elevated privileges -
-directly from root user, via <code>sudo(1M)</code> or
-<code>pfexec</code> (if user was granted privileges via RBAC).
+directly from root user, via `sudo(1M)` or
+`pfexec` (if user was granted privileges via RBAC).
 In this document commands which require elevated privileges are prefixed with
 "# ". Commands, which don't require elevated privileges, are prefixed with "$ ".
 </div>
@@ -470,7 +470,7 @@ So a fair amount of stuff has changed there.
 
 </div>
 
-Zones are an OpenIndiana feature that provides <a href="http://www.wikipedia.org/wiki/Operating_system-level_virtualization">operating system-level virtualization</a>. Each zone is managed as a completely separate OpenIndiana machine. Zones have very low overhead and are one of the most efficient forms of OS virtualization.
+Zones are an OpenIndiana feature that provides [operating system-level virtualization](http://www.wikipedia.org/wiki/Operating_system-level_virtualization). Each zone is managed as a completely separate OpenIndiana machine. Zones have very low overhead and are one of the most efficient forms of OS virtualization.
 
 The global zone (GZ) is the operating system itself, which has hardware access. From the global zone, non-global zones (NGZ) are created and booted. Boot time for non-global zones is very fast, often a few seconds. The CPU, network, and memory resources for each zone can be controlled from the global zone, ensuring fair access to system resources. Disk space access is usually controlled by ZFS (with quotas and reservations if needed), as well as mounting of filesystem resources with NFS or lofs. As with other forms of virtualization, each zone is isolated from the other zones – zones cannot see processes or resources used in other zones. The low marginal cost of a zone allows large systems have tens or even hundreds of zones without significant overhead. The theoretical limit to the number of zones on a single platform is 8,192.
 

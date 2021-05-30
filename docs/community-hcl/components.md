@@ -144,7 +144,7 @@ These soundcards are compatible and 'known to work' with OpenIndiana.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-For a number of NICs, which are not currently supported "out of the box" by the illumos kernel or OpenIndiana distribution, over 30 open-sourced drivers covering many more chipsets and NIC models are available as part of the separate "Free NIC drivers for OpenSolaris" project by Masayuki Murayama and generally do just work on OpenIndiana (binaries are available as part of the source code tarballs, but you're encouraged to recompile them with GLDv3 Makefile's on OpenIndiana, see details on <a href="http://freenicdrivers.la.coocan.jp/">the project's web page</a>).
+For a number of NICs, which are not currently supported "out of the box" by the illumos kernel or OpenIndiana distribution, over 30 open-sourced drivers covering many more chipsets and NIC models are available as part of the separate "Free NIC drivers for OpenSolaris" project by Masayuki Murayama and generally do just work on OpenIndiana (binaries are available as part of the source code tarballs, but you're encouraged to recompile them with GLDv3 Makefile's on OpenIndiana, see details on [the project's web page](http://freenicdrivers.la.coocan.jp/)).
 </div>
 
 NIC                                                  | Works (yes/no)  | Notes                  | Driver | Contributor
@@ -212,7 +212,7 @@ Intel GMA 950                            | yes                    |             
 Intel HD Graphics 520                    | yes                    | HP 15t Laptop (Part#: V1Z72AV_1). Tested at 1920x1080. | i915 |
 Intel HD Graphics 530                    | no                     | HP ZBook Studio G3. Crashes, system has both discrete graphics and Intel graphics | |
 Intel HD Graphics 2000                   | yes                    | ThinkCentre M91p. Working, tested from 1024x768 to 1920x1080, GPU hangs and wrong screen adjustment. | i915 |
-Intel HD Graphics 3000                   | yes                    | Lenovo ThinkPad X220. Has a <a href="https://www.illumos.org/issues/8757">glitch</a> on embedded display (<a href="https://www.illumos.org/issues/8049#note-7">workaround</a>). Display Port & VGA D-Sub work. | i915 | Michal Nowak
+Intel HD Graphics 3000                   | yes                    | Lenovo ThinkPad X220. Has a [glitch](https://www.illumos.org/issues/8757) on embedded display ([workaround](https://www.illumos.org/issues/8049#note-7)). Display Port & VGA D-Sub work. | i915 | Michal Nowak
 Intel HD Graphics 4000                   | yes                    |                                          | i915   | Aurélien Larcher
 Intel HD Graphics 4600                   | yes                    | Dell Precision M2800. Tested at 1920x1080. | i915 |
 Intel Iris Pro Graphics                  | yes                    |                                          | i915   | Martin Bochnig
@@ -232,7 +232,7 @@ NVIDIA GeForce GTX 765M                  | yes                    | PCI-ID: 10de
 NVIDIA GeForce GTX 780M                  | yes                    | PCI-ID: 10de:119f, Nvidia 340.107        | nvidia | Jim Gorzelany
 NVIDIA GeForce GTX 880M                  | yes                    | PCI-ID: 10de:1198 - Tested on Asus ROG G750JZ with hipster-070114 ISO | nvidia | Mike Kelley
 NVIDIA GeForce TITAN X                   | yes                    | Nvidia 340.107                           | nvidia | John Hahnua
-NVIDIA Titan Xp                          | yes                    | <a href="http://http.download.nvidia.com/solaris/390.67/NVIDIA-Solaris-x86-390.67.run">Nvidia 390.67</a> | nvidia | Ken Mays
+NVIDIA Titan Xp                          | yes                    | [Nvidia 390.67](http://http.download.nvidia.com/solaris/390.67/NVIDIA-Solaris-x86-390.67.run) | nvidia | Ken Mays
 AMD/ATI Radeon HD 4770 [RV740] PCI-e     | vgatext                | PCI-ID: 1002:94b3 - DVI ports work (but trying to rotate broke X) - overall resolution limited to 2560x2560 | vgatext | Ancoron Luciferis
 AMD/ATI Radeon HD 5770 PCI-e             | vgatext                | PCI-ID: 1002:68b8 - DVI ports work (but trying to rotate broke X) - overall resolution limited to 2560x2560 | vgatext | Ancoron Luciferis
 ASUS EAH4350 (ATI RV710 - Radeon HD 4350)| vgatext                | Have only tried the DVI port             | vgatext | Philip Robar
@@ -314,7 +314,7 @@ Supermicro   | X9DRD-7LN4F-JBOD                   | mga, ahci   |               
 Supermicro   | X10SLM-F                           | npe, e1000g, vgatext, igb, pcieb | igb and e1000g compiled from illumos git source, for SOL console sol1 use ttyb | Carsten Grzemba
 Tyan         | Tomcat K8E (S2865 AG2NRF)          |             |                                                      | Ken Gunderson
 Tyan         | S2927-E                            |             | Tyan Thunder n3600B S2927-E (S2927G2NR-E) motherboard| Ken Mays
-Tyan         | S5510GM3NR                         |             | Test System: Xeon LGA1155 C204 with Intel Core i3 2100.<ul><li>IPMI: SUPPORTED with BIOS V2.01c or bug <a href="https://www.illumos.org/issues/2560">#2560</a> fix.</li></ul> | Gary Mills
+Tyan         | S5510GM3NR                         |             | Test System: Xeon LGA1155 C204 with Intel Core i3 2100.<ul><li>IPMI: SUPPORTED with BIOS V2.01c or bug [#2560](https://www.illumos.org/issues/2560) fix.</li></ul> | Gary Mills
 Zotac        | G43ITX-A-E                         |             | Intel Q8400, 4 GB RAM, onboard Intel X4500 VGA (see note below).<br/>Running with 8 HDDs:<br><ul><li>5 using Intel ICH10R internal SATA (AHCI)</li><li>1 using Intel ICH10R eSATA (AHCI)</li><li>2 using add-on ASMedia ASM1061 PCI-E X1 SATA card (Device supported and detected by OI but HDD not detected. Possibly due to other unrelated issues. Still testing.)</li></ul>Note: The Intel X4500 VGA adapter will throw up some errors pertaining to "regiter error" and "vga init error" either during setup or boot. However, it will still work fine and OI will install / boot without problems. Unsupported driver issues? | Dedy Johan
 
 ## Peripheral Devices
