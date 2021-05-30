@@ -14,17 +14,17 @@ Contributor(s): David Stes.
 
 -->
 
-<img src = "../../Openindiana.png">
+<img src = "../../../Openindiana.png">
 
 # Hipster Handbook - Squeak, Cuis and Smalltalk-80
 
 The following notes document the steps to install Squeak and Cuis on OpenIndiana Hipster, and how to use these implementations of Smalltalk-80.
 
-Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href= "http://files.squeak.org" target="_blank">files.squeak.org</a> or at <a href="http://cuis-smalltalk.org" target="_blank">cuis-smalltalk.org</a>.
+Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at [files.squeak.org](http://files.squeak.org) or at [cuis-smalltalk.org](http://cuis-smalltalk.org).
 
 Cuis and Squeak both use the Squeak VM, but they offer different Smalltalk images.  The Squeak images have traditional MVC (Model, View, Controller) and Morphic graphical user interface classes.   Cuis has Morphic-3, which is an enhanced set of Morphic classes.
 
-See the <a href="http://www.squeak.org" target="_blank">Squeak website</a> for more and general information on Squeak, specifically the documentation section.  See <a href="http://cuis-smalltalk.org" target="_blank">cuis-smalltalk.org</a> for more info Cuis.  Also see the Squeak Wiki : <a href= "http://wiki.squeak.org" target="_blank">Squeak Wiki</a>
+See the [Squeak website](http://www.squeak.org) for more and general information on Squeak, specifically the documentation section.  See [cuis-smalltalk.org](http://cuis-smalltalk.org) for more info Cuis.  Also see the Squeak Wiki : [Squeak Wiki](http://wiki.squeak.org)
 
 ## Classic VM and OpenSmalltalk VM
 

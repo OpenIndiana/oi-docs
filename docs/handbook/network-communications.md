@@ -23,9 +23,12 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-<p>This is a <b>DRAFT</b> document which may contain errors!</p>
-<p>Help us improve and expand this site.</p>
-<p>Please see the <b>Contrib</b> section for more details about joining the OpenIndiana Documentation Team.</p>
+This is a **DRAFT** document which may contain errors!
+
+Help us improve and expand this site.
+
+Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
+
 </div>
 
 < Place holder for Introduction content >

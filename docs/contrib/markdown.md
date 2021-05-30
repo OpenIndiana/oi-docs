@@ -222,11 +222,9 @@ Specify the relative path to the image, just like an internal URL.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 ![openindiana logo](../Openindiana.png)
 
-</div>
 
 
 ### Block quotes
