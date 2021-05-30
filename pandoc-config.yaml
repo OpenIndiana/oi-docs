@@ -1,0 +1,43 @@
+# CDDL HEADER START
+#
+# The contents of this file are subject to the terms of the
+# Common Development and Distribution License (the "License").
+# You may not use this file except in compliance with the License.
+#
+# You can obtain a copy of the license at https://illumos.org/license/
+# 
+# When distributing Covered Code, include this CDDL HEADER in each
+# file and include the License file at https://illumos.org/license/
+# If applicable, add the following below this CDDL HEADER, with the
+# fields enclosed by brackets "[]" replaced with your own identifying
+# information: Portions Copyright [yyyy] [name of copyright owner]
+#
+# CDDL HEADER END
+
+#
+# Copyright 2021 J. Madgwick.  All rights reserved.
+#
+
+lang: en
+author-meta: The OpenIndiana Project
+numbersections: true
+colorlinks: true
+classoption:
+- oneside
+- a4paper
+geometry:
+- lmargin=20mm
+- rmargin=20mm
+- tmargin=20mm
+- bmargin=25mm
+fontsize: 12pt
+header-includes:
+ - \usepackage{fvextra,tocloft,tcolorbox}
+#Ensure verbatim code blocks have line breaks and do not overflow the page
+ - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+ - \DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+ - \setmainfont{Liberation Sans}
+ - \setmonofont[Scale=0.8]{Liberation Mono}
+ - \newfontfamily\symbolfont[]{Noto Sans Symbols2}
+ - \setlength{\cftsubsecnumwidth}{2.8em}
+ - \setlength{\cftsubsubsecnumwidth}{3.6em}

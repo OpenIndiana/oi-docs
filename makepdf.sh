@@ -62,6 +62,7 @@ EOF
 get_file_basename ()
 {
         this_file=$1
+        this_file="${this_file##*/}"
         echo "${this_file%.*}"
 }
 
@@ -81,7 +82,8 @@ do_conversion()
 {
         input=$1
         output=$2
-        $(pandoc --toc -f markdown+grid_tables+table_captions -o $output $input  --latex-engine=xelatex)
+        $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc-filter.lua --metadata-file $OLDPWD/pandoc-config.yaml -o $output $input)
+
 }
 
 
@@ -130,10 +132,15 @@ main ()
                         this_path=$(get_file_path $infile)
                         file_basename=$(get_file_basename $infile)
                         pdf_outfile=$file_basename".pdf"
-                        $(do_conversion $infile $pdf_outfile)
-                        printf "\n"
-                        echo "    OUTPUT: " $pdf_outfile
-                        printf "\n"
+                        this_infile=$file_basename".md"
+                        cd $this_path
+                        printf "    Generating: %s" $pdf_outfile
+                        $(do_conversion $this_infile $pdf_outfile)
+                        echo " - Done"
+                else
+                    printf "\n"
+                    echo "ERROR: cannot find file: " $infile
+                    exit 1
                 fi
 
                 exit 0
@@ -157,12 +164,19 @@ main ()
                 echo "  Writing output to this directory: " $this_dir
                 infiles=$(ls $this_dir)
                 
+                cd $this_dir
                 for infile in $infiles; do
                         file_basename=$(get_file_basename $infile)
-                        pdf_outfile=$this_dir"/"$file_basename".pdf"
-                        this_infile=$this_dir"/"$infile
-                        $(do_conversion $this_infile $pdf_outfile)
-                        echo "    Generating: " $file_basename".pdf"
+                        file_ext=$(get_file_ext $infile)
+                        
+                        pdf_outfile=$file_basename".pdf"
+                        this_infile=$file_basename".md"
+                        # Only process *md files
+                        if [ "$file_ext" == "md" ]; then
+                            printf "    Generating: %s" $pdf_outfile
+                            $(do_conversion $this_infile $pdf_outfile)
+                            echo " - Done"
+                        fi
                 done
                 exit 0
         fi
@@ -170,13 +184,14 @@ main ()
         # Default: do all directories
         
         # Only these directories in docs:
-        #     books
+        #     books - Needs HTML in markdown to be fixed
         #     contrib
         #     dev
         #     handbook
+        #     handbook/community
         #     misc
         dirspath=docs
-        dirs="books contrib"
+        dirs="contrib dev handbook handbook/community misc"
         for dir in $dirs; do
                 this_path=$dirspath"/"$dir
                 echo "-------------------------"
@@ -186,14 +201,16 @@ main ()
                         file_basename=$(get_file_basename $this_file)
                         file_ext=$(get_file_ext $this_file)
 
-                        path_file_basename="./"$this_path"/"$file_basename
-                        pdf_outfile=$path_file_basename".pdf"
-                        this_infile=$path_file_basename".md"
+                        pdf_outfile=$file_basename".pdf"
+                        this_infile=$file_basename".md"
+                        cd $this_path
                         # Only process *md files
                         if [ "$file_ext" == "md" ]; then
+                                printf "    Generating: %s" $pdf_outfile
                                 $(do_conversion $this_infile $pdf_outfile)
-                                echo "    Generating: " $file_basename".pdf"
+                                echo " - Done"
                         fi
+                        cd - > /dev/null
                 done
         done
 }

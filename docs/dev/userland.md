@@ -25,7 +25,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Using OpenIndiana's unified build system
 
-OpenIndiana Hipster's primary build framework is oi-userland. It's tied into OpenIndiana <a href="https://hipster.openindiana.org/jenkins">continuous integration platform</a>.
+OpenIndiana Hipster's primary build framework is oi-userland. It's tied into OpenIndiana [continuous integration platform](https://hipster.openindiana.org/jenkins).
 
 When an update is committed to the oi-userland git repository:
 
@@ -35,7 +35,7 @@ When an update is committed to the oi-userland git repository:
 
 ### Overview of oi-userland
 
-Originally oi-userland is a fork of Oracle's <a href="https://github.com/oracle/solaris-userland/">userland-gate</a> which evolved in an independent way. The layout is very similar.
+Originally oi-userland is a fork of Oracle's [userland-gate](https://github.com/oracle/solaris-userland/) which evolved in an independent way. The layout is very similar.
 
 Inside oi-userland is a directory called "components", under which directories for software package category groups live.
 Inside each of these package group directories are typically directories for all software packages belonging to the category.
@@ -70,12 +70,13 @@ To build a component you simply cd into the directory of the software, and type 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-<p><b>Before adding new packages to oi-userland...</b></p>
-Before considering adding a new package to oi-userland, please check first whether someone else is working on the package by checking the issue tracker, mailing <a href="mailto:oi-dev@openindiana.org">oi-dev@openindiana.org</a> or asking on the IRC (#oi-dev at irc.freenode.net)
-<ul>
-<li>If you don't find anyone already working on a port, please register your effort by opening an issue.</li>
-<li>If you wish to update an existing port, look at the log for the component Makefile ("git log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.</li>
-</ul>
+**Before adding new packages to oi-userland...**
+
+Before considering adding a new package to oi-userland, please check first whether someone else is working on the package by checking the issue tracker, mailing [oi-dev@openindiana.org](mailto:oi-dev@openindiana.org) or asking on the IRC (#oi-dev at irc.freenode.net)
+
+* If you don't find anyone already working on a port, please register your effort by opening an issue.
+* If you wish to update an existing port, look at the log for the component Makefile ("git log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.
+
 This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
 </div>
 
@@ -232,12 +233,12 @@ Here
 | COMPONENT_CLASSIFICATION | System/Multimedia Libraries | This entry should be in the [OpenSolaris IPS Classification 2008](https://github.com/OpenIndiana/pkg5/blob/oi/doc/dev-guide/appendix-a.txt) |
 | COMPONENT_PROJECT_URL | http://www.ijg.org/ | Upstream project website |
 | COMPONENT_SUMMARY | libjpeg - Independent JPEG Group library version 6b | A short description (one-liner) |
-| COMPONENT_SRC | jpeg-$(LIBJPEG_API_VERSION) | The name of source after unpacking the archive |
-| COMPONENT_ARCHIVE | $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz | The software archive |
+| COMPONENT_SRC | `jpeg-$(LIBJPEG_API_VERSION)` | The name of source after unpacking the archive |
+| COMPONENT_ARCHIVE | `$(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz` | The software archive |
 | COMPONENT_ARCHIVE_HASH | sha256:75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d | The SHA256 checksum of software archive |
-| COMPONENT_ARCHIVE_URL | http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz | The URI to get the COMPONENT_ARCHIVE |
+| COMPONENT_ARCHIVE_URL | `http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz` | The URI to get the COMPONENT_ARCHIVE |
 | COMPONENT_LICENSE | IJG,GPLv2.0 | A comma separated list of licenses |
-| COMPONENT_LICENSE_FILE | $(COMPONENT_NAME).license | The file with license text |
+| COMPONENT_LICENSE_FILE | `$(COMPONENT_NAME).license` | The file with license text |
 
 Components are usually based on one of the following Makefiles depending on build system used by packaged software (look in the `make-rules` directory for more makefiles):
 
