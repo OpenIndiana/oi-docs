@@ -50,12 +50,16 @@ help()
     -f <filename> only convert this filename
        Default: convert everything
     -h this help
+    -t <pdf || epub> output type either pdf or epub
+       Default: pdf
 
     EXAMPLES
     Convert all files in the contrib sub-dir:
         makepdf.sh -d contrib
     Convert getting-started.md:
         makepdf.sh -f ./docs/contrib/getting-started.md
+    Produce epub:
+        makepdf.sh -t epub -f ./docs/contrib/getting-started.md
 EOF
 }
 
@@ -78,11 +82,41 @@ get_file_path()
         echo $(dirname "$infile")
 }
 
+#
+# pandoc 2.3.0 was released on 16.9.2018 which added
+# a number of new command line options, e,g, --mettadata-file
+# For backward compatibility, we'd like to support older
+# pandoc versions, but would prefer new features
+is_pandoc_version_new()
+{
+        pandoc_version_new_features="230"
+        
+        pandoc_version_raw=$(pandoc --version | grep "pandoc 2")
+        pandoc_version_no=$(echo $pandoc_version_raw | tr -dc '0-9')
+
+        if [ "$pandoc_version_no" -lt "$pandoc_version_new_features" ]; then
+                echo "false"
+        else
+                echo "true"
+        fi
+}
+
+
 do_conversion()
 {
         input=$1
         output=$2
-        $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc-filter.lua --metadata-file $OLDPWD/pandoc-config.yaml -o $output $input)
+        format=$3
+
+        if [ "$format" == "epub" ]; then
+                $(pandoc -t epub --toc -f markdown+grid_tables+table_captions -o $output $input  --pdf-engine=xelatex)
+        elif [ "$format" == "pdf" ]; then
+                if [ $(is_pandoc_version_new)=="false" ]; then
+                        $(pandoc --toc -f markdown+grid_tables+table_captions -o $output $input  --pdf-engine=xelatex)
+                else
+                        $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc-filter.lua --metadata-file $OLDPWD/pandoc-config.yaml -o $output $input)
+                fi
+        fi
 
 }
 
@@ -93,7 +127,7 @@ main ()
         #
         # Command Line Options
         #
-        while getopts "hd:f:" opt; do
+        while getopts "hd:f:t:" opt; do
 	        case $opt in
                         d)
                                 indir=$OPTARG
@@ -105,6 +139,9 @@ main ()
 				help
 				exit 0
 				;;
+                        t)
+                                outformat=$OPTARG
+                                ;;
 			\?)
 				echo "Don't know this option"
 				exit 0
@@ -112,18 +149,37 @@ main ()
 		esac
 	done
 
+
+        
+
         if [[ -n "$indir" && -n "$infile" ]]; then
                 echo "ERROR: specify -d OR -f, but not both"
                 exit 1
         fi
+        
+        if [ ! -n "$outformat" ]; then
+                outformat="pdf" # Default format
+        elif [ "$outformat" != "epub" ] && [ "$outformat" != "pdf" ] ; then
+                echo >&2 "ERROR: -t can only be pdf or epub"
+                exit 1
+        fi
 
 
+                
         # Required packages ok?
         type pandoc >/dev/null 2>&1 || {
                 echo >&2 "ERROR: require package pandoc, please install pandoc."
                 exit 1; }
 
+        # Older versions of pandoc work, but we'd prefer the newer
+        # features.
+        # Issue a warning if an older version of pandoc is in use
+        if [ $(is_pandoc_version_new)=="false" ]; then
+                echo "WARNING: you are using an older version of pandoc"
+        fi
 
+
+        
         # -f <filename>
         # Only a single file
         if [ -n "$infile" ]; then
@@ -131,18 +187,24 @@ main ()
                 if [ -f "$infile" ]; then
                         this_path=$(get_file_path $infile)
                         file_basename=$(get_file_basename $infile)
-                        pdf_outfile=$file_basename".pdf"
-                        this_infile=$file_basename".md"
                         cd $this_path
-                        printf "    Generating: %s" $pdf_outfile
-                        $(do_conversion $this_infile $pdf_outfile)
-                        echo " - Done"
+                        if [ "$outformat" == "pdf" ]; then
+                                outfile_ext=$file_basename".pdf"
+                                printf "    Generating: %s" $outfile_ext
+                        elif [ "$outformat" == "epub" ]; then
+                                outfile_ext=$file_basename".epub"
+                                printf "    Generating: %s" $outfile_ext
+                        fi
+                        printf "\n"
+                        this_infile=$file_basename".md"
+
+                        $(do_conversion $this_infile $outfile_ext $outformat)
                 else
                     printf "\n"
                     echo "ERROR: cannot find file: " $infile
                     exit 1
                 fi
-
+                cd - > /dev/null
                 exit 0
         fi
 
@@ -167,17 +229,22 @@ main ()
                 cd $this_dir
                 for infile in $infiles; do
                         file_basename=$(get_file_basename $infile)
+
+                        if [ "$outformat" == "pdf" ]; then
+                                outfile_ext=$file_basename".pdf"
+                        elif [ "$outformat" == "epub" ]; then
+                                outfile_ext=$file_basename".epub"
+                        fi
+                        #this_infile=$infile
                         file_ext=$(get_file_ext $infile)
-                        
-                        pdf_outfile=$file_basename".pdf"
-                        this_infile=$file_basename".md"
                         # Only process *md files
                         if [ "$file_ext" == "md" ]; then
-                            printf "    Generating: %s" $pdf_outfile
-                            $(do_conversion $this_infile $pdf_outfile)
-                            echo " - Done"
+                                echo "    Generating: " $file_basename"."$outformat
+                                #printf "    Generating: %s" $pdf_outfile
+                                $(do_conversion $infile $outfile_ext $outformat)
                         fi
                 done
+                cd - > /dev/null
                 exit 0
         fi
 
@@ -201,14 +268,20 @@ main ()
                         file_basename=$(get_file_basename $this_file)
                         file_ext=$(get_file_ext $this_file)
 
-                        pdf_outfile=$file_basename".pdf"
+                        if [ "$outformat" == "pdf" ]; then
+                                outfile_ext=$file_basename".pdf"
+                        elif [ "$outformat" == "epub" ]; then
+                                outfile_ext=$file_basename".epub"
+                        fi
+
                         this_infile=$file_basename".md"
+
                         cd $this_path
+
                         # Only process *md files
                         if [ "$file_ext" == "md" ]; then
-                                printf "    Generating: %s" $pdf_outfile
-                                $(do_conversion $this_infile $pdf_outfile)
-                                echo " - Done"
+                                $(do_conversion $this_infile $outfile_ext $outformat)
+                                echo "    Generating: " $file_basename"."$outformat
                         fi
                         cd - > /dev/null
                 done
