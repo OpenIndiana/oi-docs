@@ -1211,11 +1211,13 @@ Mirrors and RAIDZ are now supported install options!
 **GUI Desktop may be added post-installation**
 
 * To install MATE Desktop Environment
+
 ```
 pkg install mate_install
 pkg uninstall mate_install
 init 6
 ```
+
 </div>
 
 <a name="welcome-screen"></a>
