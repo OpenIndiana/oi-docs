@@ -26,12 +26,22 @@ if FORMAT:match 'latex' then
     function Header(elem)
       if (elem.level == 1) then
         documentTitle = pandoc.utils.stringify(elem.content) -- Extract text as a string to use in the metadata
-        table.insert(elem.content,1,pandoc.RawInline('latex', '\\title{'))
-        table.insert(elem.content,pandoc.RawInline('latex', '}\\maketitle\\tableofcontents\\newpage'))
+        table.insert(elem.content,1,pandoc.RawInline('latex', '\\pagenumbering{roman}\\title{'))
+        table.insert(elem.content,pandoc.RawInline('latex', '}\\maketitle\\newpage\\renewcommand{\\contentsname}{Table of Contents}\\tableofcontents\\addtocontents{toc}{\\vspace{0.3cm}}\\newpage\\pagenumbering{arabic}'))
         return pandoc.Plain(elem.content)
       else
         elem.level = elem.level - 1
-        return elem
+        if (elem.level == 1) then
+          local fancyHeader = elem.content:clone()
+          local fancyHeaderBlock = {}
+          table.insert(fancyHeaderBlock,elem)
+          table.insert(fancyHeader,1,pandoc.RawInline('latex', '\\mbox{}\\vspace{-1.5\\baselineskip}\\fancyhead[CEO]{'))--vbox requried due to parsing bug with fancyhead when titlesec not used
+          table.insert(fancyHeader,pandoc.RawInline('latex', '}'))
+          table.insert(fancyHeaderBlock,pandoc.Plain(fancyHeader))
+          return fancyHeaderBlock
+        else
+          return elem
+        end
       end
     end
 
@@ -41,13 +51,35 @@ if FORMAT:match 'latex' then
       return m
     end
 
-    -- Wrap 'Div' block content with a tcolorbox (resembling the website), Replace image tags with a representative character (symbolfont ensures appropriate font is used)
+    -- Correct header levels and indent all text within primary sections
     function Pandoc(thedoc)
       local blocks = thedoc.blocks
+      local headers = {}
+      for i = 1, #blocks, 1 do
+        if (blocks[i].t == "Header" and blocks[i].level == 1) then
+          table.insert(headers, i)
+        end
+      end
+      local offset = 0
+      beginOffset = pandoc.RawBlock('latex', "\\begin{adjustwidth}{5em}{0pt}")
+      endOffset = pandoc.RawBlock('latex', "\\end{adjustwidth}\\newpage")
+      for i = 1, #headers, 1 do
+        if (i == 1) then
+          table.insert(blocks,headers[i]+1,beginOffset)
+          offset = 1
+        else
+          table.insert(blocks,headers[i]+offset,endOffset)
+          table.insert(blocks,headers[i]+offset+2,beginOffset)
+          offset = offset + 2
+        end
+      end
+      table.insert(blocks,endOffset)
+
+      -- Reformat and indent 'Note' and 'Caution' sections
       local i = 1
-      local noteBegin = pandoc.RawBlock('latex', '\\begin{tcolorbox}{\\symbolfont 🛈} \\textbf{NOTE:}')
-      local cautionBegin = pandoc.RawBlock('latex', '\\begin{tcolorbox}{\\symbolfont 🛆} \\textbf{CAUTION:}')
-      local noteEnd = pandoc.RawBlock('latex', "\\end{tcolorbox}")
+      local noteBegin = pandoc.RawBlock('latex', "\\begin{adjustwidth}{1.2em}{0pt}{\\Large \\textbf{Note}}")
+      local cautionBegin = pandoc.RawBlock('latex', "\\begin{adjustwidth}{1.2em}{0pt}{\\Large \\textbf{Caution}}")
+      local noteEnd = pandoc.RawBlock('latex', "\\end{adjustwidth}")
       while i <= #blocks do
         if (blocks[i].t == "Div" and blocks[i].classes[1] == "well" and blocks[i-1].t == "Plain" and blocks[i-1].content[1].t == "RawInline") then
           if (blocks[i-1].content[1].text == "<i class=\"fa fa-info-circle fa-lg\" aria-hidden=\"true\">" and blocks[i-1].content[4].content[1].text == "NOTE:") then

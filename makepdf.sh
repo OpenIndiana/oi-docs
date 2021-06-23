@@ -52,6 +52,8 @@ help()
     -h this help
     -t <pdf || epub> output type either pdf or epub
        Default: pdf
+    -s <web || opensolaris> output style either web or opensolaris (only applicable to pdf)
+       Default: pdf
 
     EXAMPLES
     Convert all files in the contrib sub-dir:
@@ -83,8 +85,8 @@ get_file_path()
 }
 
 #
-# pandoc 2.3.0 was released on 16.9.2018 which added
-# a number of new command line options, e,g, --mettadata-file
+# pandoc 2.8 was released on 2019-11-22 which is the first
+# version to support LaTex in the header-includes variable
 # For backward compatibility, we'd like to support older
 # pandoc versions, but would prefer new features
 is_pandoc_version_new()
@@ -94,7 +96,7 @@ is_pandoc_version_new()
         if [[ $(pandoc --version) =~ $pandoc_version_match ]]; then
             if [ "${BASH_REMATCH[1]}" -gt "2" ]; then
                 echo "true"
-            elif [ "${BASH_REMATCH[1]}" -eq "2" ] && [ "${BASH_REMATCH[2]}" -ge "3" ]; then
+            elif [ "${BASH_REMATCH[1]}" -eq "2" ] && [ "${BASH_REMATCH[2]}" -ge "8" ]; then
                 echo "true"
             else
                 echo "false"
@@ -110,6 +112,7 @@ do_conversion()
         input=$1
         output=$2
         format=$3
+        style=$4
 
         if [ "$format" == "epub" ]; then
                 $(pandoc -t epub --toc -f markdown+grid_tables+table_captions -o $output $input  --pdf-engine=xelatex)
@@ -117,7 +120,11 @@ do_conversion()
                 if [ "$(is_pandoc_version_new)" == "false" ]; then
                         $(pandoc --toc -f markdown+grid_tables+table_captions -o $output $input  --pdf-engine=xelatex)
                 else
-                        $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc-filter.lua --metadata-file $OLDPWD/pandoc-config.yaml -o $output $input)
+                        if [ "$style" == "opensolaris" ]; then
+                            $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc/filter-sb.lua --metadata-file $OLDPWD/pandoc/config-sb.yaml -o $output $input)
+                        else
+                            $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc/filter-web.lua --metadata-file $OLDPWD/pandoc/config-web.yaml -o $output $input)
+                        fi
                 fi
         fi
 
@@ -130,7 +137,7 @@ main ()
         #
         # Command Line Options
         #
-        while getopts "hd:f:t:" opt; do
+        while getopts "hd:f:t:s:" opt; do
 	        case $opt in
                         d)
                                 indir=$OPTARG
@@ -144,6 +151,9 @@ main ()
                                 ;;
                         t)
                                 outformat=$OPTARG
+                                ;;
+                        s)
+                                outstyle=$OPTARG
                                 ;;
                         \?)
                                 echo "Don't know this option"
@@ -163,6 +173,13 @@ main ()
                 outformat="pdf" # Default format
         elif [ "$outformat" != "epub" ] && [ "$outformat" != "pdf" ] ; then
                 echo >&2 "ERROR: -t can only be pdf or epub"
+                exit 1
+        fi
+
+        if [ ! -n "$outstyle" ]; then
+                outstyle="web" # Default style
+        elif [ "$outstyle" != "web" ] && [ "$outstyle" != "opensolaris" ] ; then
+                echo >&2 "ERROR: -s can only be web or opensolaris"
                 exit 1
         fi
 
@@ -201,7 +218,7 @@ main ()
                         printf "\n"
                         this_infile=$file_basename".md"
 
-                        $(do_conversion $this_infile $outfile_ext $outformat)
+                        $(do_conversion $this_infile $outfile_ext $outformat $outstyle)
                 else
                     printf "\n"
                     echo "ERROR: cannot find file: " $infile
@@ -244,7 +261,7 @@ main ()
                         if [ "$file_ext" == "md" ]; then
                                 echo "    Generating: " $file_basename"."$outformat
                                 #printf "    Generating: %s" $pdf_outfile
-                                $(do_conversion $infile $outfile_ext $outformat)
+                                $(do_conversion $infile $outfile_ext $outformat $outstyle)
                         fi
                 done
                 cd - > /dev/null
@@ -283,7 +300,7 @@ main ()
 
                         # Only process *md files
                         if [ "$file_ext" == "md" ]; then
-                                $(do_conversion $this_infile $outfile_ext $outformat)
+                                $(do_conversion $this_infile $outfile_ext $outformat $outstyle)
                                 echo "    Generating: " $file_basename"."$outformat
                         fi
                         cd - > /dev/null
