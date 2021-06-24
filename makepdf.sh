@@ -36,7 +36,10 @@ help()
         contrib
         dev
         handbook
+        handbook/community
         misc
+
+    All files produced will be placed in new directory (./pdf/)
 
     REQUIREMENTS
     On a Debian system, you must install the following packages:
@@ -206,16 +209,19 @@ main ()
                 if [ -f "$infile" ]; then
                         this_path=$(get_file_path $infile)
                         file_basename=$(get_file_basename $infile)
+                        pdf_path=$(pwd)"/pdf/"$this_path
+                        mkdir -p $pdf_path
+                        echo "  Writing output to this directory: " "pdf/"$this_path
 
                         cd $this_path
                         if [ "$outformat" == "pdf" ]; then
                                 outfile_ext=$file_basename".pdf"
-                                printf "    Generating: %s" $outfile_ext
                         elif [ "$outformat" == "epub" ]; then
                                 outfile_ext=$file_basename".epub"
-                                printf "    Generating: %s" $outfile_ext
                         fi
-                        printf "\n"
+
+                        echo "    Generating: " $outfile_ext
+                        outfile_ext=$pdf_path"/"$outfile_ext
                         this_infile=$file_basename".md"
 
                         $(do_conversion $this_infile $outfile_ext $outformat $outstyle)
@@ -243,7 +249,9 @@ main ()
                         exit 1
                 fi
 
-                echo "  Writing output to this directory: " $this_dir
+                pdf_path=$(pwd)"/pdf/"$indir
+                mkdir -p $pdf_path
+                echo "  Writing output to this directory: " "pdf/"$indir
                 infiles=$(ls $this_dir)
                 
                 cd $this_dir
@@ -255,12 +263,11 @@ main ()
                         elif [ "$outformat" == "epub" ]; then
                                 outfile_ext=$file_basename".epub"
                         fi
-                        #this_infile=$infile
+                        outfile_ext=$pdf_path"/"$outfile_ext
                         file_ext=$(get_file_ext $infile)
                         # Only process *md files
                         if [ "$file_ext" == "md" ]; then
                                 echo "    Generating: " $file_basename"."$outformat
-                                #printf "    Generating: %s" $pdf_outfile
                                 $(do_conversion $infile $outfile_ext $outformat $outstyle)
                         fi
                 done
@@ -281,8 +288,10 @@ main ()
         dirs="contrib dev handbook handbook/community misc"
         for dir in $dirs; do
                 this_path=$dirspath"/"$dir
+                pdf_path=$(pwd)"/pdf/"$dir
+                mkdir -p $pdf_path
                 echo "-------------------------"
-                echo "Output to this directory: " $this_path
+                echo "Output to this directory: " "pdf/"$dir
                 these_files=$(ls $this_path)
                 for this_file in $these_files; do
                         file_basename=$(get_file_basename $this_file)
@@ -294,6 +303,7 @@ main ()
                                 outfile_ext=$file_basename".epub"
                         fi
 
+                        outfile_ext=$pdf_path"/"$outfile_ext
                         this_infile=$file_basename".md"
 
                         cd $this_path
