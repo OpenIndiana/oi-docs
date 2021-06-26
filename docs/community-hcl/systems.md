@@ -9,12 +9,13 @@ The Original Documentation is _________________.
 The Initial Writer of the Original Documentation is Matt Wilby Copyright (C) 2011.
 All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
 
-Contributor(s):  Alexander Pyhalov, Aurelien Larcher, Deano Calver, Nikola M.
+Contributor(s):  Alexander Pyhalov, Aurelien Larcher, Deano Calver, Nikola M., David Stes
 
 Portions created by Deano Calver are Copyright (C) 2011.
 Portions created by Aurelien Larcher are Copyright (C) 2017.
 Portions created by Nikola M. are Copyright (C) 2017.
 Portions created by Alexander Pyhalov are Copyright (C) 2019.
+Portions created by David Stes are Copyright (C) 2021.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
@@ -75,6 +76,7 @@ OpenIndiana was tested by our users on the following servers.
 
 Manufacturer |  Model               | Works (yes/no) | Notes and/or specific usage instructions           | Contributor
 ------------ | -------------------- | -------------- | -------------------------------------------------- | ------------
+Dell         | Precision 3640       |   yes          | OpenIndiana 2021.04, i3-10100 CPU works, integrated graphics Intel UHD 630 does NOT work, NVIDIA GeForce GT 440 works, integrated audio Intel works, network, AHCI disks work | David Stes
 Dell         | Optiplex 9010        |   yes          | OpenIndiana 2018.04, GFX, network, AHCI disks work | Michal Nowak
 Dell         | PowerEdge R610       |   yes          | All ok                                             | Jorge Palma Escobar
 Dell         | PowerEdge R620       |   yes          | All ok.                                            | Jason Matthews

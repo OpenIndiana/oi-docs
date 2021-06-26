@@ -54,6 +54,10 @@ Squeak has a Test Runner.  The following screenshot illustrates squeak and the r
 
 ![test run atoms](testrun-4.19.3-oi.png)
 
+The following screenshot illustrates cog-spur, version 5.0.2967 and the results of running a number of tests on a 64-bit Squeak 6.0.20536 image :
+
+![test run atoms](testrun-6.0-oi.png)
+
 The last screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :
 
 ![cuis magician](oi-cuis-magician.png)
