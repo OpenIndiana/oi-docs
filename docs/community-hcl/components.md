@@ -9,12 +9,13 @@ The Original Documentation is _________________.
 The Initial Writer of the Original Documentation is Matt Wilby Copyright (C) 2011.
 All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
 
-Contributor(s):  Alexander Pyhalov, Aurelien Larcher, Deano Calver, Nikola M.
+Contributor(s):  Alexander Pyhalov, Aurelien Larcher, Deano Calver, Nikola M., David Stes
 
 Portions created by Deano Calver are Copyright (C) 2011.
 Portions created by Aurelien Larcher are Copyright (C) 2017.
 Portions created by Nikola M. are Copyright (C) 2017.
 Portions created by Alexander Pyhalov are Copyright (C) 2019.
+Portions created by David Stes are Copyright (C) 2021.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
@@ -79,6 +80,7 @@ These soundcards are compatible and 'known to work' with OpenIndiana.
  Intel 440MX (440MX)                                  |                                                   |         |
  Intel AC97 series                                    |                                                   |         |
  Intel High Definition Audio series                   |                                                   | audiohd |
+ Intel Comet Lake PCH cAVS                            | Dell Precision 3640 with i3-10100 CPU             | audiohd | David Stes
  LynxTWO AES16e                                       |                                                   |         |
  M-Audio Audiophile 192                               |                                                   |         |
  M-Audio Audiophile 2496                              |                                                   |         |
@@ -170,7 +172,9 @@ Intel 82574L                                         | yes             | `scanpc
 Intel 82575EB                                        | yes             | pci bus 0x0001 cardnum 0x00 function 0x01: vendor 0x8086 device 0x10a7 | igb | Jason Matthews
 Intel 82576                                          | yes             | pci bus 0x0002 cardnum 0x00 function 0x00: vendor 0x8086 device 0x10c9 | igb | Jason Matthews
 Intel 82579LM                                        | yes             | In Dell Optiplex 9010 workstation. | e1000g | Michal Nowak
+Intel Ethernet Connection (11) I219-LM               | yes             | In Dell Precision 3640 workstation. | e1000g | David Stes
 Intel 82599EB 10-Gigabit SFI/SFP+                    | yes             | Tested on 151a8, could work on older releases. Performance moderately sucks on a dell r720. RX is good, TX is poor. On an r820 TX performance is less than that of 1g ethernet most of the time. | ixgbe | Jason Matthews
+Intel I210 Gigabit Network                           | yes             |                         | igb    | David Stes
 Intel I350 Gigabit Network                           | yes             |                         |       | Christof Haemmerle
 Intel X520, Intel X540, Intel 82598, 82599 series (10Gb) | yes         |                         | ixgbe | Ken Mays
 Realtek RTL8101/RTL8110/RTL8168/RTL8169              | yes             | Supercedes rge driver for most Realtek 81xx/816x PCI-E ethernet adapters as of gani-2.6.10. See: RTL8111B/RTL8168B/RTL8111/RTL8168/RTL8111C/RTL8111CP/RTL8111D(L)/RTL8168C/RTL8111DP/RTL8111E/RTL8168E/RTL8111F/RTL8411 | gani  | Ken Mays
@@ -211,6 +215,7 @@ Intel 945GM Graphics                     | no                     | Dell Latitud
 Intel GMA 950                            | yes                    |                                          | i915   | nikolam
 Intel HD Graphics 520                    | yes                    | HP 15t Laptop (Part#: V1Z72AV_1). Tested at 1920x1080. | i915 |
 Intel HD Graphics 530                    | no                     | HP ZBook Studio G3. Crashes, system has both discrete graphics and Intel graphics | |
+Intel CometLake-S GT2 [UHD Graphics 630] | no                     | Dell Precision 3640 with i3-10100 CPU | vgatext | David Stes
 Intel HD Graphics 2000                   | yes                    | ThinkCentre M91p. Working, tested from 1024x768 to 1920x1080, GPU hangs and wrong screen adjustment. | i915 |
 Intel HD Graphics 3000                   | yes                    | Lenovo ThinkPad X220. Has a [glitch](https://www.illumos.org/issues/8757) on embedded display ([workaround](https://www.illumos.org/issues/8049#note-7)). Display Port & VGA D-Sub work. | i915 | Michal Nowak
 Intel HD Graphics 4000                   | yes                    |                                          | i915   | Aurélien Larcher
@@ -224,6 +229,7 @@ NVIDIA GeForce 210                       | yes                    | PCI-ID: 10d
 NVIDIA GeForce 220                       | yes                    | Nvidia 340.107                           | nvidia | Guy
 NVIDIA GeForce 8400 GS                   | yes                    | PCI-ID: 10de:06e4, Nvidia 340.107        | nvidia | Ancoron Luciferis
 NVIDIA GeForce GT 430                    | yes                    | Nvidia 340.107                           | nvidia | openbabel
+NVIDIA GeForce GT 440                    | yes                    | Nvidia 390.143                           | nvidia | David Stes
 NVIDIA GeForce GT 620                    | yes                    | PCI-ID 10de:0f01, Nvidia 340.107         | nvidia | Michael Kruger
 NVIDIA GeForce GTX 480                   | yes                    | PCI-ID: 10de:06c0, Nvidia 340.107        | nvidia | catable
 NVIDIA GeForce GTX 580                   | yes                    | Nvidia 340.107                           | nvidia | Vladimir Smirnov
