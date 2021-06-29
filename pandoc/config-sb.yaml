@@ -20,24 +20,37 @@
 
 lang: en
 author-meta: The OpenIndiana Project
-numbersections: true
+numbersections: false
 colorlinks: true
 classoption:
 - oneside
-- a4paper
 geometry:
-- lmargin=20mm
-- rmargin=20mm
-- tmargin=20mm
-- bmargin=25mm
-fontsize: 12pt
+- lmargin=25mm
+- rmargin=25mm
+- tmargin=30mm
+- bmargin=24mm
+fontsize: 11pt
 header-includes:
- - \usepackage{fvextra,tocloft,tcolorbox}
+ - \usepackage{fvextra,fancyhdr,changepage,sectsty,tocloft,titling}
+#Solbook/Dockbook Style Header & Footer
+ - \pagestyle{fancy}
+ - \fancyhead{}
+ - \fancyfoot{}\renewcommand{\footrulewidth}{0.4pt}\fancyfoot[CEO]{\thepage}
 #Ensure verbatim code blocks have line breaks and do not overflow the page
  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
  - \DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
- - \setmainfont{Liberation Sans}
+#Solbook/Dockbook style Fonts
+ - \setmainfont{Liberation Serif}
  - \setmonofont[Scale=0.8]{Liberation Mono}
  - \newfontfamily\symbolfont[]{Noto Sans Symbols2}
- - \setlength{\cftsubsecnumwidth}{2.8em}
- - \setlength{\cftsubsubsecnumwidth}{3.6em}
+#Solbook/Dockbook style Headings
+ - \newfontfamily\headingfont[UprightFont={* Bold}]{Liberation Sans}
+ - \sectionfont{\Huge\headingfont}\subsectionfont{\huge\headingfont}
+#Solbook/Dockbook style TOC and Title Page
+ - \setcounter{tocdepth}{2}
+ - \renewcommand{\cftsecdotsep}{\cftdotsep}\renewcommand{\cftdotsep}{2.5}
+ - \renewcommand{\cftbeforesecskip}{0.1em}
+ - \addtocontents{toc}{\small}
+ - \addtolength{\cftsecindent}{5.5em}\addtolength{\cftsubsecindent}{6em}
+ - \renewcommand{\maketitlehooka}{\headingfont}
+ - \renewcommand{\cfttoctitlefont}{\headingfont\Huge}
