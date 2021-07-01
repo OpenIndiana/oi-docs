@@ -14,11 +14,11 @@ Contributor(s): David Stes.
 
 -->
 
-<img src = "../../Openindiana.png">
+<img src = "../../../Openindiana.png">
 
 # Hipster Handbook - TeX Live Typesetting Software
 
-The following notes document the steps to install <a href= "http://tug.org/texlive" target="_blank">TeX Live</a> on OpenIndiana Hipster and how to update it using the tlmgr TeX Live package management tool.
+The following notes document the steps to install [TeX Live](http://tug.org/texlive) on OpenIndiana Hipster and how to update it using the tlmgr TeX Live package management tool.
 
 ## TeX Live tlmgr Management Tool
 
@@ -28,9 +28,9 @@ The TeX Live Management Tool has both a command line interface and a GUI.  The G
 
 ## TeX Live Cross Platform Installer
 
-See the full TeX Live guide at <a href="http://tug.org/texlive/doc/texlive-en/texlive-en.html#installation" target="_blank">http://tug.org/texlive</a> for detailed information.
+See the full TeX Live guide at [http://tug.org/texlive](http://tug.org/texlive/doc/texlive-en/texlive-en.html#installation) for detailed information.
 
-Download the TeX Live Cross Platform Installer from <a href="http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz" target="_blank">http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz</a>.
+Download the TeX Live Cross Platform Installer from <http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz>.
 
 There is a script in this package, called install-tl.   The goal is to install TeX Live using the cross platform installer as follows :
 

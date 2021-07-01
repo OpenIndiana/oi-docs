@@ -49,13 +49,13 @@ This complex Release Engineering has been deprecated in favour of the unified bu
  Consolidation | Oracle Solaris link                   | Original Openindiana HG link                             | Status                                  | OpenIndiana Hipster link | Build instructions
 -------------- |---------------------------------------| -------------------------------------------------------- | ----------------------------------------| ------------------------ | ------------------
  onnv-gate     | N/A (closed source) | N/A  | Replaced by illumos-gate |  N/A | N/A
- illumos-gate  | N/A | <https://github.com/OpenIndiana/illumos-gate/>  | Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/illumos-gate">oi-userland</a> | <https://github.com/illumos/illumos-gate/> | <https://illumos.org/docs/developers/build/>
- oi-build      | <https://github.com/Oracle/solaris-userland/> | <https://hg.openindiana.org/sustaining/oi_151a/oi-build/> | Superceded by <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a> | <https://github.com/OpenIndiana/oi-userland> | [Building oi-build](#building-oi-build)
- IPS/pkg       | <https://github.com/Oracle/solaris-ips/> | <https://hg.openindiana.org/sustaining/oi_151a/pkg-gate/>  | Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg">oi-userland</a> | <https://github.com/OpenIndiana/pkg5/> | [Building IPS/pkg](#building-ipspkg)
- SFW           | N/A (merged into <a href="http://github.com/Oracle/solaris-userland/">solaris-userland</a>) | <https://hg.openindiana.org/sustaining/oi_151a/sfw-gate/> | Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a>| N/A | [Building SFW](#building-sfw)
- XNV           | <https://github.com/Oracle/solaris-xorg/> (merged into <a href="https://github.com/oracle/solaris-userland/tree/master/components/x11">solaris-userland</a>)| <https://hg.openindiana.org/sustaining/oi_151a/xnv/>|  Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a> | N/A | [Building XNV](#building-xnv)
- JDS           | N/A  (merged into <a href="https://github.com/Oracle/solaris-userland/">solaris-userland</a>) | <https://hg.openindiana.org/sustaining/oi_151a/spec-files/> | Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a>| N/A | [Building JDS](#building-jds)
- Caiman (slim_source) | N/A | <https://hg.openindiana.org/sustaining/oi_151a/slim_source/> | Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source">oi-userland</a> | <https://github.com/OpenIndiana/slim_source/> | [Building slim_source](#building-slim_source)
+ illumos-gate  | N/A | <https://github.com/OpenIndiana/illumos-gate/>  | Integrated in [oi-userland](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/illumos-gate) | <https://github.com/illumos/illumos-gate/> | <https://illumos.org/docs/developers/build/>
+ oi-build      | <https://github.com/Oracle/solaris-userland/> | <https://hg.openindiana.org/sustaining/oi_151a/oi-build/> | Superceded by [oi-userland](https://github.com/OpenIndiana/oi-userland/) | <https://github.com/OpenIndiana/oi-userland> | [Building oi-build](#building-oi-build)
+ IPS/pkg       | <https://github.com/Oracle/solaris-ips/> | <https://hg.openindiana.org/sustaining/oi_151a/pkg-gate/>  | Integrated in [oi-userland](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg) | <https://github.com/OpenIndiana/pkg5/> | [Building IPS/pkg](#building-ipspkg)
+ SFW           | N/A (merged into [solaris-userland](http://github.com/Oracle/solaris-userland/)) | <https://hg.openindiana.org/sustaining/oi_151a/sfw-gate/> | Merged into [oi-userland](https://github.com/OpenIndiana/oi-userland/)| N/A | [Building SFW](#building-sfw)
+ XNV           | <https://github.com/Oracle/solaris-xorg/> (merged into [solaris-userland](https://github.com/oracle/solaris-userland/tree/master/components/x11))| <https://hg.openindiana.org/sustaining/oi_151a/xnv/>|  Merged into [oi-userland](https://github.com/OpenIndiana/oi-userland/) | N/A | [Building XNV](#building-xnv)
+ JDS           | N/A  (merged into [solaris-userland](https://github.com/Oracle/solaris-userland/)) | <https://hg.openindiana.org/sustaining/oi_151a/spec-files/> | Merged into [oi-userland](https://github.com/OpenIndiana/oi-userland/)| N/A | [Building JDS](#building-jds)
+ Caiman (slim_source) | N/A | <https://hg.openindiana.org/sustaining/oi_151a/slim_source/> | Integrated in [oi-userland](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source) | <https://github.com/OpenIndiana/slim_source/> | [Building slim_source](#building-slim_source)
  vpanels       | N/A (dropped) | N/A | Dropped | N/A | N/A
  sunpro/devpro | N/A (closed source) | N/A | libm and make were integrated to illumos-gate, other parts are delivered in binary form (including library/medialib, system/library/c++/sunpro, developer/macro/cpp, system/library/mtsk) | N/A | N/A
  xvm           | N/A (dropped) | N/A | Dropped | N/A | N/A
@@ -72,14 +72,15 @@ Note, these instructions were not tested on modern OpenIndiana versions and pres
 
 ## Building oi-build
 
+<i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
-<font color="red">oi-build is a legacy consolidation which was superceded with oi-userland !!!</font>
-For  building oi-userland see <a href="../userland/">Building with oi-userland</a>
+**oi-build is a legacy consolidation which was superceded with oi-userland !!!**
+For  building oi-userland see [Building with oi-userland](../userland/)
 </div>
 
 Following instructions describe building oi-build on legacy OpenIndiana /dev distribution.
 
-<b>oi-build</b> is OpenIndiana's primary build framework for post-oi_151 development. It is set to replace all existing consolidations, vastly simplifying how we build the operating system.
+**oi-build** is OpenIndiana's primary build framework for post-oi_151 development. It is set to replace all existing consolidations, vastly simplifying how we build the operating system.
 
 oi-build is also tied into our continuous integration platform. When an update is committed to the oi-build mercurial repository, an automated build is kicked off. This will then automatically publish the built package to the /experimental repo, or generate an email alert if the build failed (to be completed).
 
@@ -91,22 +92,21 @@ Inside oi-build is a directory called `components`, under which lives a director
 
 The `Makefile` essentially contains a "build recipe". To build a piece of software, you simply `cd` into the directory of the software, and type `make TARGET`, where `TARGET` can be one of:
 
-* <b>prep</b> : Download, extract and patch the software archive
-* <b>build</b> : Build the software
-* <b>install</b> : Install the software into the prototype directory
-* <b>sample-manifest</b> : Create a sample manifest file in the build directory
-* <b>publish</b> : Publish the software to the local userland IPS repo
+* **prep** : Download, extract and patch the software archive
+* **build** : Build the software
+* **install** : Install the software into the prototype directory
+* **sample-manifest** : Create a sample manifest file in the build directory
+* **publish** : Publish the software to the local userland IPS repo
 
 For more details about writing Makefiles for userland, see userland Makefile targets and variables
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Before adding new packages to illumos-userland...
+Before adding new packages to illumos-userland... Before considering adding a new package to oi-build, please check first whether someone else is working on the package by checking the issue tracker.
 
-Before considering adding a new package to oi-build, please check first whether someone else is working on the package by checking the issue tracker.
-<ul>
-<li>If you don't find anyone already working on a port, please register your effort by opening an issue.</li>
-<li>If you wish to update an existing port, look at the log for the component Makefile ("hg log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.</li>
-</ul>
+* If you don't find anyone already working on a port, please register your effort by opening an issue.
+* If you wish to update an existing port, look at the log for the component Makefile ("hg log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.
+
 
 This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
 </div>
@@ -214,7 +214,7 @@ gmake setup
 gmake setup COMPILER=gcc
 ```
 
-<b>Important:</b> Checking your environment
+**Important:** Checking your environment
 
 Make the check-environment target to check your environment is set up correctly:
 
@@ -286,8 +286,9 @@ hg commit -u 'Contributor Name <contributor.name@fake.net>'
 
 ## Building IPS/pkg
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-For building IPS delivered with modern OpenIndiana, use <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg">openindiana/pkg</a> oi-userland component.
+For building IPS delivered with modern OpenIndiana, use [openindiana/pkg](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg) oi-userland component.
 </div>
 
 Following instructions describe building pkg on legacy OpenIndiana /dev distribution.
@@ -616,8 +617,9 @@ SVR4 packages will be placed into ${HOME}/packages.
 
 ## Building slim_source
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-For building slim_source used in modern OpenIndiana, use <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source">openindiana/slim_source</a> oi-userland component.
+For building slim_source used in modern OpenIndiana, use [openindiana/slim_source](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source") oi-userland component.
 </div>
 
 Following instructions describe building slim_source on legacy OpenIndiana /dev distribution.

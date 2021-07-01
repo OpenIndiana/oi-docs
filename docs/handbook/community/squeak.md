@@ -14,29 +14,53 @@ Contributor(s): David Stes.
 
 -->
 
-<img src = "../../Openindiana.png">
+<img src = "../../../Openindiana.png">
 
-# Hipster Handbook - Squeak Smalltalk-80
+# Hipster Handbook - Squeak, Cuis and Smalltalk-80
 
-The following notes document the steps to install Squeak on OpenIndiana Hipster, and how to use this implementation of Smalltalk-80.
+The following notes document the steps to install Squeak and Cuis on OpenIndiana Hipster, and how to use these implementations of Smalltalk-80.
 
-Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href= "http://files.squeak.org" target="_blank">files.squeak.org</a> or at <a href="http://cuis-smalltalk.org" target="_blank">cuis-smalltalk.org</a>.
+Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at [files.squeak.org](http://files.squeak.org) or at [cuis-smalltalk.org](http://cuis-smalltalk.org).
 
-See the <a href="http://www.squeak.org" target="_blank">Squeak website</a> for more and general information on Squeak, specifically the documentation section.  Also see the Squeak Wiki : <a href= "http://wiki.squeak.org" target="_blank">Squeak Wiki</a>
+Cuis and Squeak both use the Squeak VM, but they offer different Smalltalk images.  The Squeak images have traditional MVC (Model, View, Controller) and Morphic graphical user interface classes.   Cuis has Morphic-3, which is an enhanced set of Morphic classes.
+
+See the [Squeak website](http://www.squeak.org) for more and general information on Squeak, specifically the documentation section.  See [cuis-smalltalk.org](http://cuis-smalltalk.org) for more info Cuis.  Also see the Squeak Wiki : [Squeak Wiki](http://wiki.squeak.org)
 
 ## Classic VM and OpenSmalltalk VM
 
-There are currently three Squeak packages for OpenIndiana : squeak-4, squeak-5 and squeak-5c.
+There are currently three Squeak packages for OpenIndiana : squeak, stack-spur and cog-spur.  Their package names begin with pkg:/runtime/smalltalk.  These packages can be installed simultaneously mediated by the squeak mediator (see below).
 
-The squeak-4 package corresponds to the classic virtual machine (VM).  The squeak-5 packages are OpenSmalltalk based virtual machines, where squeak-5 is the OpenSmalltalk stack VM and squeak-5c is the OpenSmalltalk cog VM.
+```none
+        # pkg list | grep smalltalk
+        runtime/smalltalk/squeak                4.19.6-2020.0.1.4          i--
+        runtime/smalltalk/squeak-display-X11    4.19.6-2020.0.1.4          i--
+        runtime/smalltalk/squeak-nodisplay      4.19.6-2020.0.1.4          i--
+        runtime/smalltalk/cog-spur              5.0.2957-2020.0.1.0        i--
+        runtime/smalltalk/cog-spur-display-X11  5.0.2957-2020.0.1.0        i--
+        runtime/smalltalk/cog-spur-nodisplay    5.0.2957-2020.0.1.0        i--
+```
 
-The following screenshot illustrates squeak-4, version 4.19.3, running on OpenIndiana, playing bachFugue through pulseaudio, and with a classical Smalltalk bouncing atoms animation :
+The basic squeak package corresponds to the classical virtual machine (VM).  The stack-spur and cog-spur packages are OpenSmalltalk based virtual machines, where stack-spur is the OpenSmalltalk stack VM, using the Spur memory management, and cog-spur is the OpenSmalltalk cog VM, also using the Spur memory management; the cog VM is a just-in-time compiler (JIT) which is a faster implementation of Squeak.
+
+A first screenshot illustrates squeak, version 4.19.6, running on OpenIndiana, with an old style MVC (Model, View, Controller) look and feel :
+
+![mvc](oi-squeak-4-mvc.png)
+
+The following screenshot illustrates squeak, version 4.19.3, with the (default) Morphic user interface, running on OpenIndiana, playing bachFugue through pulseaudio, and with a classical Smalltalk bouncing atoms animation :
 
 ![bouncing atoms](atoms-4.19.3-oi.png)
 
-Squeak has a Test Runner.  The following screenshot illustrates squeak-4 and the results of running a number of tests :
+Squeak has a Test Runner.  The following screenshot illustrates squeak and the results of running a number of tests :
 
 ![test run atoms](testrun-4.19.3-oi.png)
+
+The following screenshot illustrates cog-spur, version 5.0.2967 and the results of running a number of tests on a 64-bit Squeak 6.0.20536 image :
+
+![test run atoms](testrun-6.0-oi.png)
+
+The last screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :
+
+![cuis magician](oi-cuis-magician.png)
 
 ## OpenIndiana Prerequisites
 
@@ -45,13 +69,19 @@ Before installing, the OpenIndiana system should have some required packages ins
 To check the required dependencies for Squeak, use the command:
 
 ```none
-        # pkg contents -r -t depend squeak-4
+        # pkg contents -r -t depend squeak
 ```
 
 or
 
 ```none
-        # pkg contents -r -t depend squeak-5
+        # pkg contents -r -t depend stack-spur
+```
+
+or
+
+```none
+        # pkg contents -r -t depend cog-spur
 ```
 
 This will list a number of dependencies.  If those are not met, you should upgrade OpenIndiana before attempting to install Squeak.
@@ -94,12 +124,12 @@ So multi-homed systems (with multiple network interfaces) may have some strange 
 
 We've tested Squeak with a text-based installation with fixed IP address and hostname resolving is set up so that the fixed ip address corresponds to the hostname, and there were no other network interfaces on the test server.
 
-## Installing squeak-4, the classic VM
+## Installing squeak, the classic VM
 
-On OpenIndiana install squeak-4 as follows:
+On OpenIndiana install squeak as follows:
 
 ```none
-       # pkg install -v squeak-4
+       # pkg install -v squeak
 ```
 
 After installation, see the squeak(1) manpage for documentation:
@@ -111,11 +141,12 @@ After installation, see the squeak(1) manpage for documentation:
 After installation you can verify the installation as follows:
 
 ```none
-       # pkg list squeak-4
-       # pkg list squeak-4-nodisplay
+       # pkg list squeak
+       # pkg list squeak-nodisplay
+       # pkg list squeak-display-X11
 ```
 
-The squeak-4-nodisplay package is for running squeak with the -nodisplay option, headless, without display.  squeak-4 depends on squeak-4-nodisplay.
+The squeak-nodisplay package is for running squeak with the -nodisplay option, headless, without display.  The squeak-display-X11 adds the necessary plugins for running X11, but still without all plugins.  squeak depends on squeak-nodisplayand squeak-display-X11 and it installs all plugins.
 
 During installation you may also notice:
 
@@ -125,7 +156,7 @@ During installation you may also notice:
          version: None -> 4 (system default)
 ```
 
-The OpenIndiana mediator squeak selects which version of Squeak to use: squeak-4 or squeak-5.
+The OpenIndiana mediator squeak selects which version of Squeak to use: squeak or one of the stack-spur or cog-spur.
 
 There is a utility included to start using Squeak :
 
@@ -151,15 +182,15 @@ You would then launch Squeak as follows (also see the manpage for further detail
        # squeak Squeak4.6-15102.image
 ```
 
-## Installing squeak-5, the OpenSmalltalk VM
+## Installing the OpenSmalltalk VM
 
-It is possible to simultaneously install squeak-4 and squeak-5 as follows:
+It is possible to simultaneously install squeak and opensmalltalk as follows:
 
 ```none
-         # pkg install -v squeak-5
+         # pkg install -v stack-spur
 ```
 
-At the end of installation the hardlink squeak will point to the squeak-5 binary.  You will notice that the mediator changed to squeak-5.
+At the end of installation the hardlink squeak will point to the stack-spur binary.  You will notice that the mediator changed to version 5.
 
 ```none
         # pkg mediator squeak
@@ -167,7 +198,7 @@ At the end of installation the hardlink squeak will point to the squeak-5 binary
 
 The system-administrator can override the OpenIndiana choice by using the pkg set-mediator or pkg unset-mediator commands.
 
-After installation of squeak-5, it is possible again to use inisqueak :
+After installation of opensmalltalk, it is possible again to use inisqueak :
 
 ```none
         # inisqueak
@@ -199,14 +230,12 @@ Squeak V5 can also run Cuis images.  See the Cuis website for more details.  Giv
 
 Because both packages can be installed simultaneously it is possible to run side-by-side Squeak 4.6 and Squeak 5.3, Cuis Smalltalk or Squeak 6.0 alpha images.
 
-For most recent Squeak images it will be required to install squeak-5.
-
-There is an additional package squeak-5c which is the Cog implementation of Squeak.  This is a faster implementation of the Squeak virtual machine.
+There is an additional package cog-spur which is the Cog implementation of Squeak.  This is a faster implementation of the Squeak virtual machine.
 
 It can be installed as follows:
 
 ```none
-         # pkg install -v squeak-5c
+         # pkg install -v cog-spur
 ```
 
 During installation of the cog implementation, the mediator will be changed as follows:
@@ -218,13 +247,13 @@ During installation of the cog implementation, the mediator will be changed as f
            implementation: None -> cog-spur (system default)
 ```
 
-The squeak-5 and squeak-5c packages can be installed at the same time, and the system administrator can choose the implementation with the pkg unset-mediator and set-mediator commands.
+The stack-spur and cog-spur packages can be installed at the same time, and the system administrator can choose the implementation with the pkg unset-mediator and set-mediator commands.
 
-## Modifying the policy.conf file for Squeak-5
+## Modifying the policy.conf file for OpenSmalltalk
 
-The following notes do not apply to squeak-4, they only apply to OpenSmalltalk.
+The following notes do not apply to classic squeak, they only apply to OpenSmalltalk.
 
-The OpenSmalltalk VM squeak-5 or squeak-5c will print the following error:
+The OpenSmalltalk VM stack-spur or cog-spur will print the following error:
 
 ```none
         # pthread_setschedparam failed: Not owner
@@ -257,7 +286,7 @@ to
 ```
 
 You can run squeak in a zone and do the above in a zone only.
-If you run squeak-5 in a zone, you may also have to set the privilege limit:
+If you run squeak in a zone, you may also have to set the privilege limit:
 
 ```none
         # zonecfg -z example-zone info | grep limitpriv
@@ -277,40 +306,40 @@ to update the entire userland-incorporation.
 If there is a need to install a different version of squeak, without upgrading the userland-incorporation, you can do :
 
 ```none
-         # pkg change-facet facet.version-lock.runtime/squeak-5=false
+         # pkg change-facet facet.version-lock.runtime/stack-spur=false
 ```
 
 and
 
 ```none
-         # pkg change-facet facet.version-lock.runtime/squeak-5-nodisplay=false
+         # pkg change-facet facet.version-lock.runtime/stack-spur-nodisplay=false
 ```
 
-This can make it possible to update squeak-5 without updating the userland-incorporation:
+This can make it possible to update stack-spur without updating the userland-incorporation:
 
 ```none
          # pkg list userland-incorporation
 ```
 
-and then update squeak-5 or any other squeak package separately:
+and then update stack-spur or any other squeak package separately:
 
 ```none
-         # pkg update squeak-5
+         # pkg update stack-spur
 ```
 
 ## Uninstalling Squeak
 
-To uninstall squeak-4, the command is :
+To uninstall squeak, the command is :
 
 ```none
-         # pkg uninstall squeak-4 squeak-4-nodisplay
+         # pkg uninstall squeak squeak-nodisplay squeak-display-X11
 ```
 
-For squeak-5 :
+For opensmalltalk :
 
 ```none
-         # pkg uninstall squeak-5 squeak-5-nodisplay
+         # pkg uninstall cog-spur cog-spur-nodisplay cog-spur-display-X11
 ```
 
-Note that the nodisplay package is not necessarily uninstalled by uninstalling squeak-4 or squeak-5.
+Note that the nodisplay package is not necessarily uninstalled by uninstalling squeak or cog-spur.
 

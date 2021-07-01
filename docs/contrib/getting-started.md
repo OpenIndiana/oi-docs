@@ -52,7 +52,7 @@ have a GitHub account. If you do not already have a GitHub account, sign up for
 a [Github](https://github.com) account.
 
 
-#### Install and configure Git
+### Install and configure Git
 
 | Operating System | Command
 | --- | ---
@@ -74,7 +74,7 @@ Fear not though, only basic git commands are required for working with OI-DOCS.
 </div>
 
 
-#### Install python-pip
+### Install python-pip
 
 If your OS doesn't provide pre-packaged mkdocs, you'll need to install python-pip.
 This is not necessary on OpenIndiana.
@@ -88,7 +88,7 @@ This is not necessary on OpenIndiana.
 | OpenIndiana | Not needed - (Use MkDocs IPS package)
 
 
-#### Install rubygems
+### Install rubygems
 
 If your OS doesn't provide pre-packaged mdl, you'll need to install Ruby Gems.
 This is not necessary on OpenIndiana.
@@ -102,7 +102,7 @@ This is not necessary on OpenIndiana.
 | OpenIndiana | Not needed - (Use mdl IPS package)
 
 
-#### Install mkdocs
+### Install mkdocs
 
 For OpenIndiana Hipster, MKDocs and all of it's dependencies have been packaged and are available in the OI Hipster repository.
 So, if you're already running Hipster, installing MKDocs is as simple as: `pkg install mkdocs`
@@ -121,7 +121,7 @@ For example:
 </div>
 
 
-#### Install Markdown Lint (mdl)
+### Install Markdown Lint (mdl)
 
 On OpenIndiana you can install mdl using standard package management tools:
 
@@ -129,12 +129,35 @@ On OpenIndiana you can install mdl using standard package management tools:
 
 For most operating systems:
 
-* `gem install mdl`
+* `gem install mdl -v 0.4.0`
 
-#### Install Markdown plugin for VIM or Emacs(optional)
+### Install Markdown plugin for VIM or Emacs (optional)
 
 * <https://github.com/plasticboy/vim-markdown/>
 * <https://www.emacswiki.org/emacs/MarkdownMode>
+
+### Install Pandoc & XeTex (optional)
+
+For converting the docs to PDF, OI-Docs requires a Pandoc version of 2.8 (released 2019) or above and XeTex/XeLaTex.
+The latest versions of Pandoc are available (in .deb & .tar.gz) from [Pandoc GitHub releases](https://github.com/jgm/pandoc/releases).
+Pandoc is not yet avalible packaged on OpenIndiana.
+
+| Operating System | Command
+| --- | ---
+| Arch | `pacman -S pandoc`
+| Centos/RHEL | `yum install pandoc texlive-xetex`
+| Debian/Mint/Ubuntu | `apt-get install pandoc texlive-xetex`
+| Fedora | `dnf install pandoc texlive-xetex`
+| OpenIndiana | Not packaged yet
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Not all OS distro repositories contain XeTex.
+In this case it could be installed as part of a manual TeX Live installation.
+
+As of Summer 2021, the version of Pandoc available from OS distro repositories may be too old (was the case for Centos/RHEL and Debian < 11).
+In this case you can try and use the Pandoc GitHub release versions instead.
+</div>
 
 ## Fork the OpenIndiana Docs repository
 
@@ -194,10 +217,13 @@ All site development occurs within the master branch.
 oi-docs/
 ├── docs/
 ├── link_validator.py
+├── makepdf.sh
 ├── markdownlint-rules.rb
 ├── mkdocs.yml
+├── pandoc/
+├── pdf/
 ├── README.md
-├── site/
+└── site/
 ```
 
 | Resource | Description
@@ -205,16 +231,20 @@ oi-docs/
 | oi-docs/ | site root folder
 | docs/ | documentation root folder
 | link_validator.py | URL validation script
+| makepdf.sh | PDF Generation script
 | markdownlint-rules.rb | Markdown Lint configuration
 | mkdocs.yml | Site and menu configuration
+| pandoc/ | Pandoc configuration files folder (for makepdf.sh)
+| pdf/ | Generated PDFs folder
 | README.md | Git readme
 | site/ | Live preview folder (no edits)
 
-<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> **WARNING:**
+<i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
 
-* Please do **NOT** perform any work within the `site/` folder.
-    * This is a temporary folder created by MkDocs when the site is run locally in preview mode.
+* Please do **NOT** perform any work within the `site/` or `pdf/` folder.
+    * `site/` is a temporary folder created by MkDocs when the site is run locally in preview mode.
+    * `pdf/` is a temporary folder for storing locally generated PDFs.
 * Also, please do **NOT** perform any work within the gh-pages branch.
     * The gh-branch is destroyed and rebuilt each time the site is deployed to GitHub pages.
 </div>
@@ -222,6 +252,7 @@ oi-docs/
 ```markdown
 docs/
 ├── books/
+├── community-hcl/
 ├── contrib/
 ├── dev/
 ├── favicon.ico
@@ -229,6 +260,7 @@ docs/
 ├── index.md
 ├── misc/
 ├── Openindiana.png
+├── release-notes/
 └── retired/
 ```
 
@@ -236,12 +268,14 @@ docs/
 | --- | ---
 | books/ | Legacy OpenSolaris Books
 | contrib/ | Contributor guidance docs
+| community-hcl/ | Community HCL docs
 | dev/ | Development oriented docs
 | favicon.ico | Site favicon icon
 | handbook/ | OpenIndiana handbook docs
 | index.md | Site front page
 | misc/ | Miscellaneous docs
-| Openindiana.pgn | OpenIndiana project graphic
+| Openindiana.png | OpenIndiana project graphic
+| release-notes/ | Release Notes docs
 | retired | Deprecated docs, etc.
 
 
@@ -327,6 +361,40 @@ Simply replace the period (.) with the path to the file.
 Before you can run `mdl`, it may be necessary to modify your `$PATH` variable:
 see “[Install Markdown Lint](#install-markdown-lint-mdl)” above.
 </div>
+
+## Generating PDFs (locally)
+
+Pandoc (via XeLaTex) is used to create PDF versions of pages.
+The `makepdf.sh` bash script automatically moves through a subset of the docs directories creating a PDF for every Markdown file.
+Prior to submitting a pull request (PR), please consider running the Pandoc PDF generation script locally on your computer to ensure no Pandoc incompatibilities have been introduced.
+
+To convert multiple pages to PDF, execute the following command from the root of the `oi-docs/` directory:
+
+```bash
+./makepdf.sh
+```
+
+This will produce PDF versions (placed in `oi-docs/pdf/`) of most of the doc pages.
+Not all pages are suitible for conversion yet, some contain incompatible HTML which needs to be fixed before they can be converted.
+
+To convert a single file, the `-f` option can be used.
+Likewise, the `-d` option can be used for converting files all files in a given directory.
+
+By default the PDFs are styled/formatted to look similar to the HTML docs produced by MkDocs.
+This can be changed using the `-s` option.
+Currently the only other option is 'opensolaris' which produces PDFs in the style of OpenSolaris Solbook documentation.
+
+The formatting and restyling required for the PDFs is configured with files in the `pandoc/` folder of the root directory.
+Each style uses a pair of files, a `.yaml` file to specifiy Pandoc settings & LaTex/XeLaTex headers and a `.lua` Lua script to apply formatting to the Pandoc native representation (AST).
+For more information on Pandoc, see the [official Pandoc Manual](https://pandoc.org/MANUAL.html).
+
+<i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
+<div class="well">
+Inline HTML is not supported by Pandoc for PDF output and is not rendered at all in PDFs produced.
+Ensure that you only use Markdown in your edits.
+The only exception is for the mkdocs `div` elements used to create these 'Note' breakouts - support for these has been manually programmed into the Pandoc lua filters.
+</div>
+
 
 
 ## Enabling spell checking in vim

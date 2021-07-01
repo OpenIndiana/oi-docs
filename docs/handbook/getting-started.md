@@ -24,9 +24,11 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-<p>This is a <b>DRAFT</b> document which may contain errors!</p>
-<p>Help us improve and expand this site.</p>
-<p>Please see the <b>Contrib</b> section for more details about joining the OpenIndiana Documentation Team.</p>
+This is a **DRAFT** document which may contain errors!
+
+Help us improve and expand this site.
+
+Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 
 </div>
 
@@ -79,15 +81,11 @@ For a full list of links to the various installer images, visit the [OpenIndiana
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-<ul>
-  <li>The legacy oi-dev-151x branch is no longer maintained.</li>
-  <li>While upgrades to Hipster are possible, it can only be performed by doing it in stages.</li>
-  <ul>
-    <li>First upgrade from oi-dev to Hipster-2015, and verify the system has been updated to the latest 2015.</li>
-    <li>Only then may you switch to the current Hipster repository and update again.</li>
-    <li><a href="https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657">For more details, click here for upgrade instructions</a></li>
-  </ul>
-</ul>
+* The legacy oi-dev-151x branch is no longer maintained.
+* While upgrades to Hipster are possible, it can only be performed by doing it in stages.
+    * First upgrade from oi-dev to Hipster-2015, and verify the system has been updated to the latest 2015.
+    * Only then may you switch to the current Hipster repository and update again.
+    * [For more details, click here for upgrade instructions](https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657)
 
 </div>
 
@@ -118,12 +116,10 @@ As the FAQ evolves, try to keep this section in sync.
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-<ul>
-  <li>For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.</li>
-  <li>For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.</li>
-  <li>The default size of the OpenIndiana swap file is 50% of installed memory.</li>
-  <li>Minimum and maximum default swap allocations are 512MB and 32GB respectively.</li>
-</ul>
+* For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
+* For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
+* The default size of the OpenIndiana swap file is 50% of installed memory.
+* Minimum and maximum default swap allocations are 512MB and 32GB respectively.
 
 </div>
 
@@ -266,7 +262,9 @@ By default the OpenIndiana installer creates an EFI partition using a GPT partit
 Using this option, OpenIndiana will use the entire disk.
 No other operating system can share the same disk.
 
-Optionally you may use a legacy MBR partition.
+Optionally you may use an existing zpool.
+
+Another option is to use a legacy MBR partition.
 MBR partitions will allow you to create multiple partitions.
 MBR will also support dual booting another operating system.
 
@@ -545,13 +543,13 @@ OpenIndiana Hipster does not yet support UEFI.
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-* Header files are only required when writing a legacy image <b>AND</b> using the dd utility.
-    * Header files are <b>NOT</b> required when writing current images.
-    * For example: The Hipster 2016.10 release, does <b>NOT</b> require header files.
+* Header files are only required when writing a legacy image **AND** using the dd utility.
+    * Header files are **NOT** required when writing current images.
+    * For example: The Hipster 2016.10 release, does **NOT** require header files.
 
 </div>
 
-* Download the appropriate OpenIndiana <a href="http://dlc.openindiana.org/isos/archive/1G.header">1G</a> or <a href="http://dlc.openindiana.org/isos/archive/2G.header">2G</a> header file
+* Download the appropriate OpenIndiana [1G](http://dlc.openindiana.org/isos/archive/1G.header") or [2G](http://dlc.openindiana.org/isos/archive/2G.header) header file
     * There are 2 unique USB header files (1G and 2G).
     * Please ensure you have selected the correct file as the files are **NOT** interchangeable.
         * The 1G.header is only suitable for use with the text installer (Command line console).
@@ -722,7 +720,7 @@ See the notes below for optimizing OpenIndiana for several popular hypervisors.
 | --- | ---
 | Virtualbox | OS type = Solaris 11 64-bit
 | Vmware player | OS type = Solaris 11 64-bit
-| KVM | <ul><li>OS type = Sun OpenSolaris</li><li>Disk = SATA</li><li>Remove USB Tablet</li><li>NIC = e1000</li><li>sound = AC97</li><li>Processor = Copy host CPU configuration</li><li>Disable CPU feature _'xsave'_</li><li>Video = QXL (QXL driver not supported, but the extra video memory helps)</li><li>Display = VNC (Spice not supported)</li></ul>
+| KVM | OS type = Sun OpenSolaris <br>Disk = SATA <br>Remove USB Tablet <br>NIC = e1000 <br>sound = AC97 <br>Processor = Copy host CPU configuration <br>Disable CPU feature _'xsave'_ <br>Video = QXL (QXL driver not supported, but the extra video memory helps) <br>Display = VNC (Spice not supported)
 | Hyper-V | Select single CPU, generation 1 VM, and legacy NIC.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -748,7 +746,7 @@ The new boot loader provides many new capabilities:
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-The OpenIndiana installer will automatically boot option # <b>1. Boot Multi User</b> within 10 seconds.
+The OpenIndiana installer will automatically boot option # **1. Boot Multi User** within 10 seconds.
 
 * To pause the Autoboot timer, press the `Space` key.
 
@@ -924,9 +922,9 @@ Select the appropriate installer option by clicking the corresponding desktop in
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-<b>New for the Hipster 2016.10 release</b>
+**New for the Hipster 2016.10 release**
 
-Selecting the <b><i>Install OpenIndiana using the Text Installer</i></b> desktop installer option provides new installation capabilities.
+Selecting the ***Install OpenIndiana using the Text Installer*** desktop installer option provides new installation capabilities.
 
 In addition to installing OpenIndiana to single disks, the following are now also supported:
 
@@ -1167,9 +1165,9 @@ After you have installed OpenIndiana, if you have another operating system insta
 Usually you can achieve the desired effect by chainloading partitions with other operating systems.
 To configure the illumos loader to show an additional entry for chainloading another loader, create a file in /boot/conf.d directory,
 containing the string
-<code>chain_disk="disk0:"</code>,
+`chain_disk="disk0:"`,
 where disk0 is the name of disk or partition to boot from.
-You can get the list of available disks from loader prompt using <code>lsdev</code> command.
+You can get the list of available disks from loader prompt using `lsdev` command.
 
 If you use GRUB2, you can configure it to show an entry for chainloading the illumos loader.
 Add the following to a file in the /etc/grub.d directory (usually the placeholder '40_custom' file can be used) of the Linux installation:
@@ -1182,9 +1180,9 @@ menuentry "Chainload OpenIndiana" {
 ```
 
 where hd0,2 is the location of the partition or disk containing the illumos loader.
-You can list detected disks/partitions from the GRUB prompt using the <code>ls</code> command.
-From Linux you can run <code>sudo fdisk -l</code> to list disks and partitions. The partition 'sda2' would map to 'hd0,2' in GRUB.
-After making changes you must run <code>sudo update-grub</code>,
+You can list detected disks/partitions from the GRUB prompt using the `ls` command.
+From Linux you can run `sudo fdisk -l` to list disks and partitions. The partition 'sda2' would map to 'hd0,2' in GRUB.
+After making changes you must run `sudo update-grub`,
 this updates the auto-generated GRUB configuration stored in /boot/grub/grub.cfg.
 </div>
 
@@ -1198,20 +1196,27 @@ Navigation within the installer is performed by pressing specifically designated
 
 The instructions for performing a text based install apply to the following installation scenarios:
 
-<ul>
-  <li> Launching the text based installer icon from the Live Media (GUI) desktop.</li>
-  <li> Beginning a text based installation by booting from the OpenIndiana text based installer.</li>
-</ul>
+* Launching the text based installer icon from the Live Media (GUI) desktop.
+* Beginning a text based installation by booting from the OpenIndiana text based installer.
 
 <br>
-<b>New for the 2016.10 release</b>
+**New for the 2016.10 release**
 
 Mirrors and RAIDZ are now supported install options!
 
-<ul>
-  <li>To install to a mirror, select 2 or more disks.</li>
-  <li>To install to RAIDZ, select 3 or more disks.</li>
-</ul>
+* To install to a mirror, select 2 or more disks.
+* To install to RAIDZ, select 3 or more disks.
+
+<br>
+**GUI Desktop may be added post-installation**
+
+* To install MATE Desktop Environment
+
+```
+pkg install mate_install
+pkg uninstall mate_install
+init 6
+```
 
 </div>
 
@@ -1378,7 +1383,7 @@ When ready, press the `F2` key to continue.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-This screen will be available only when the <b><i>Manually</i></b> configure network option has been selected.
+This screen will be available only when the ***Manually*** configure network option has been selected.
 
 * The values illustrated above are for example only, do not use them.
 * Substitute each field with correct values for your network.
@@ -1407,7 +1412,7 @@ When ready, press the `F2` key to continue.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-When selecting the <b><i>UTC/GMT</i></b> time zone region, only this screen will be presented.
+When selecting the ***UTC/GMT*** time zone region, only this screen will be presented.
 </div>
 
 ![Time Zone - Location](./images/text_install/text_install_11.png)
@@ -1509,6 +1514,13 @@ It's assumed you know what you are doing.
 Multi-booting of another operating system and OpenIndiana on the same root pool can be possible, but such configuration is out of scope of this tutorial and is not supported.
 </div>
 
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+OpenIndiana supports booting from a RAIDZ pool, however you must confirm that all vdevs are accessible from
+the boot loader.
+From the boot loader menu, choose Escape to loader prompt and run lsdev to confirm the disks are present.
+</div>
+
 To start installation to existing ZFS pool, press `F5` key when [Welcome Screen](#welcome-screen) is presented.
 
 Installer will present you a 'Pools' screen.
@@ -1582,7 +1594,7 @@ Further it's considered that you were warned and decided to do more-or-less dire
 <div class="well">
 Only server installation update was tested.
 If you do GUI installation update, you are on your own.
-Of course, you are welcome to ask questions in <a href="https://openindiana.org/mailman/listinfo/oi-dev">oi-dev</a> mailing list, but prepare that nobody will guide you through update.
+Of course, you are welcome to ask questions in [oi-dev](https://openindiana.org/mailman/listinfo/oi-dev) mailing list, but prepare that nobody will guide you through update.
 </div>
 
 * Do backup.
@@ -1643,7 +1655,7 @@ Of course, you are welcome to ask questions in <a href="https://openindiana.org/
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-Two following steps are actually better to run under <code>screen(1)</code> or <code>tmux(1)</code>
+Two following steps are actually better to run under `screen(1)` or `tmux(1)`
 </div>
 
 * Look what IPS is going to do.
@@ -2392,15 +2404,15 @@ Then you can use the `pkg update` command with the `-R` option to update all the
 Or, use the `pkg install packagename` with the `-R` option to update specific packages on that environment.
 
 <div class="well">
-When <code>pkg</code> creates new boot environment, it determines its name using <code>auto-be-name</code> image property.
-When prefixed with "time:" string, the remaining part of property is interpreted as <code>strftime(3C)</code> argument.
-If <code>pkg</code> can't produce unique boot environment name based on auto-be-name image property,
+When `pkg` creates new boot environment, it determines its name using `auto-be-name` image property.
+When prefixed with "time:" string, the remaining part of property is interpreted as `strftime(3C)` argument.
+If `pkg` can't produce unique boot environment name based on auto-be-name image property,
 it uses the property as base to generate unique name, appending numerical suffix prefixed by "-" symbol.
 Note, that due to name generation rules, any numerical suffix, prefixed by "-", can be incremented to
-generate unique name, so given "time:openindiana-%Y-%m-%d" <code>auto-be-name image</code> property value
-(which is not recommended), <code>pkg</code> will produce boot environment names ending with current date, current date + 1 and so on.
-By default <code>auto-be-name</code> is set to "time:openindiana-%Y:%m:%d", so that boot environments are named like
-"openindiana-2019:03:29". You can get current value using <code>pkg property</code> command and set it with <code>pkg set-property</code>.
+generate unique name, so given "time:openindiana-%Y-%m-%d" `auto-be-name image` property value
+(which is not recommended), `pkg` will produce boot environment names ending with current date, current date + 1 and so on.
+By default `auto-be-name` is set to "time:openindiana-%Y:%m:%d", so that boot environments are named like
+"openindiana-2019:03:29". You can get current value using `pkg property` command and set it with `pkg set-property`.
 </div>
 
 ### Features of the beadm utility

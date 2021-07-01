@@ -77,9 +77,22 @@ Series   | Label                        | Models                           | Not
 340.xx   | Legacy GPU                   | GeForce 8 to GeForce 700 series  | Driver 340.106 ; Delivers libvdpau as part of the package.
 304.xx   | Legacy GPU                   | GeForce 6 to GeForce 600 series  | Driver 304.137
 
-The drivers series 340.xx is currently part of oi-userland, others may be installed manually following Nvidia's instructions.
+The drivers series 340.xx, 390.xx, and 490.xx are currently part of oi-userland, others may be installed manually following Nvidia's instructions.
 
-Note on new driver installations:
+The 390.xx drivers are current default.
+
+Note on switching driver versions
+
+```
+# beadm create nvidia-460
+# beadm mount nvidia-460 /tmp/nvidia-460
+# pkg -R /tmp/nvidia-460 uninstall xorg-video nvidia nvidia-390
+# pkg -R /tmp/nvidia-460 install nvidia-460
+# beadm activate nvidia-460
+# init 6
+```
+
+Note on manual driver installations:
 
 ```
 # beadm create oi-nvidia
