@@ -31,7 +31,7 @@ When an update is committed to the oi-userland git repository:
 
 * an automated build is kicked off,
 * then automatically the binary package will be published to the /hipster repository,
-* finally, the status of the build will be reported by oibot to the #oi-dev freenode IRC channel.
+* finally, the status of the build will be reported by oibot to the #oi-dev libera.chat IRC channel.
 
 ### Overview of oi-userland
 
@@ -72,7 +72,7 @@ To build a component you simply cd into the directory of the software, and type 
 <div class="well">
 **Before adding new packages to oi-userland...**
 
-Before considering adding a new package to oi-userland, please check first whether someone else is working on the package by checking the issue tracker, mailing [oi-dev@openindiana.org](mailto:oi-dev@openindiana.org) or asking on the IRC (#oi-dev at irc.freenode.net)
+Before considering adding a new package to oi-userland, please check first whether someone else is working on the package by checking the issue tracker, mailing [oi-dev@openindiana.org](mailto:oi-dev@openindiana.org) or asking on the IRC (#oi-dev at irc.libera.chat)
 
 * If you don't find anyone already working on a port, please register your effort by opening an issue.
 * If you wish to update an existing port, look at the log for the component Makefile ("git log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.
