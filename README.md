@@ -1,4 +1,4 @@
-# OpenIndiana Docs [![Build Status](https://travis-ci.org/OpenIndiana/oi-docs.svg?branch=master)](https://travis-ci.org/OpenIndiana/oi-docs)
+# OpenIndiana Docs ![Deploy Mkdocs](https://github.com/OpenIndiana/oi-docs/actions/workflows/deploy.yaml/badge.svg)
 
 A new home for OpenIndiana docs, made with ``mkdocs``.
 
