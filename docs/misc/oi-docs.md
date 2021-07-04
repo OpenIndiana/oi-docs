@@ -96,5 +96,5 @@ The docs team can be reached via email: _**docs at openindiana.org**_.
 
 You may also inquire via IRC:
 
-* [#openindiana (freenode)](irc://irc.freenode.net/openindiana)
-* [#oi-dev (freenode)](irc://irc.freenode.net/oi-dev)
+* [#openindiana (libera.chat)](irc://irc.libera.chat/openindiana)
+* [#oi-dev (libera.chat)](irc://irc.libera.chat/oi-dev)

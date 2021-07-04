@@ -29,20 +29,18 @@
 
 <div class="col-sm-6">
   <div class="panel panel-default">
-    <div class="panel-heading"><a href="irc://irc.freenode.net/openindiana">#openindiana (Freenode)</a></div>
+    <div class="panel-heading"><a href="irc://irc.libera.chat/openindiana">#openindiana (Libera Chat)</a></div>
     <div class="panel-body">
       <ul>
         <li>End user support IRC channel</li>
-        <ul><li><a href="https://freenode.logbot.info/openindiana">Channel Logs</a></li></ul>
       </ul>
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading"><a href="irc://irc.freenode.net/oi-dev">#oi-dev (Freenode)</a></div>
+    <div class="panel-heading"><a href="irc://irc.libera.chat/oi-dev">#oi-dev (Libera Chat)</a></div>
     <div class="panel-body">
       <ul>
         <li>Development team IRC channel</li>
-        <ul><li><a href="https://freenode.logbot.info/oi-dev">Channel Logs</a></li></ul>
       </ul>
     </div>
   </div>
