@@ -1,3 +1,10 @@
 mkdocs==1.0.4
 mkdocs-bootstrap==0.1.1
 mkdocs-bootswatch==1.0
+
+Markdown==3.2.2
+livereload==2.6.3
+tornado==6.1
+click==7.1.2
+Jinja2==2.11.3
+PyYAML==5.3.1
