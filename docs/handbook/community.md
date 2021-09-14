@@ -22,17 +22,17 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 # Hipster Handbook - Community Tutorials
 
 
-## How to Install Oracle Database 11R2 on OpenIndiana Hipster
+## How to Install Oracle Databases (Native or Vagrant) on OpenIndiana Hipster
 
-Contributed by OpenIndiana community member Franklin Ronald, this article details the steps required for the installation of Oracle Database 11R2 on OpenIndiana Hipster.
+Originally contributed by OpenIndiana community member Franklin Ronald, Franklin Ronald's article details the steps required for the native installation of Oracle Database 11R2 on OpenIndiana Hipster.  Alternatively it is possible to run Oracle RAC or any other Oracle Database software using VirtualBox and Vagrant.
 
 Link to PDF Document: [How to Install Oracle Database 11R2 on OpenIndiana Hipster](../pdf/HowToInstallOracleDB.pdf)
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-It is not recommended to run Oracle Database on OpenIndiana in a production environment. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of this article is to install the Oracle Database for use in a development environment.
+It is not recommended to run Oracle Database on OpenIndiana in a production environment. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of the Installing 11R2 on OI article is to install the Oracle Database for use in a development environment.
 
-Unfortunately, it is not possible to run Oracle Database version 12 and above on OpenIndiana.
+For development purposes it is also possible to setup Oracle Database 18, 19 and 21.3 using Vagrant.  See the Vagrant documentation for more information.
 </div>
 
 ## How to Install Sun Ray Software on OpenIndiana Hipster
@@ -40,6 +40,10 @@ Unfortunately, it is not possible to run Oracle Database version 12 and above on
 This article, contributed by OpenIndiana community member Carsten Grzemba, details the steps required for the installation of Sun Ray Software on OpenIndiana Hipster.
 
 Link to document: [Sun Ray Software on OpenIndiana Hipster](../handbook/sunray.md)
+
+## How to Install Vagrant on OpenIndiana Hipster
+
+Link to Vagrant Document: [Vagrant on OpenIndiana Hipster](vagrant/index.html)
 
 ## How to Install the TeX Live Typesetting Software on OpenIndiana Hipster
 
