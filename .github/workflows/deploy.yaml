@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Install Deps
         run: |
+          sudo apt-get update
           sudo apt-get install texlive-xetex fonts-noto-core
           wget https://github.com/jgm/pandoc/releases/download/2.11.4/pandoc-2.11.4-1-amd64.deb
           sudo apt-get install ./pandoc-2.11.4-1-amd64.deb
