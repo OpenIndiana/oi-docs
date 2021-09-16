@@ -68,7 +68,7 @@ After GIT is installed, be sure to configure your name and email address.
 
 For further details about configuring GIT, see: <https://help.github.com/articles/set-up-git/>
 
-Also, if you need a good tutorial for quickly getting up to speed with GIT, see here: <http://rypress.com/tutorials/git/index>
+Also, if you need a good book for quickly getting up to speed with GIT, see here: <https://git-scm.com/book/en/v2>
 
 Fear not though, only basic git commands are required for working with OI-DOCS.
 </div>
