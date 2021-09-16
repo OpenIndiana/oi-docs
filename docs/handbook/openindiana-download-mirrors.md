@@ -29,7 +29,6 @@ List of DLC Mirrors
  Mirror                                              | Location            | Connectivity | Provided by                             | Mirror site                      | Status
  --------------------------------------------------  | ------------------- | ------------ | --------------------------------------  | -------------------------------- | ------
 <http://dlc.openindiana.org/>                        | London, UK          | 1000Mbit/s   | EveryCity Ltd                           | <http://everycity.co.uk/>        | Main download location
-<ftp://ftp.gtlib.gatech.edu/pub/OpenIndiana/>        | Atlanta, GA (USA)   | 1000Mbit/s   | Georgia Institute of Technology         | <http://www.gtlib.gatech.edu/>   |
 <http://ftp.gtlib.gatech.edu/pub/OpenIndiana/>       | Atlanta, GA (USA)   | 1000Mbit/s   | Georgia Institute of Technology         | <http://www.gtlib.gatech.edu/>   |
 <http://mirror.math.princeton.edu/pub/openindiana>   | Princeton, NJ (USA) | 1000Mbit/s   | Princeton University                    | <https://www.princeton.edu/>     |
 <http://www.ftp.ne.jp/OS/OpenIndiana/>               | Toyko, Japan        | 1000Mbit/s   | KDDI R&D Laboratories Inc.              | <http://www.kddilabs.jp/>        |
@@ -37,4 +36,3 @@ List of DLC Mirrors
 <http://ftp.tsukuba.wide.ad.jp/illumos/openindiana/> | Tsukuba, Japan      | 1000Mbit/s   | Tsukuba WIDE Public Mirror service      | <http://ftp.tsukuba.wide.ad.jp/> |
 <http://iso.nl.netbsd.org/pub/os/openindiana.org/>   | Ede, Netherlands    | 1000Mbit/s   | NLUUG                                   | <https://www.nluug.nl/>          |
 <http://mirrors.dotsrc.org/openindiana/>             | Denmark             | 10000Mbit/s  | Dotsrc.org                              | <https://dotsrc.org/>            |
-<https://ftp.acc.umu.se/mirror/openindiana.org/dlc/> | Umeå, Sweden        | 20000Mbit/s  | Academic Computer Club, Umeå University | <https://ftp.acc.umu.se/about/>  |
