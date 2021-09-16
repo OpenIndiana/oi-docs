@@ -156,7 +156,7 @@ Alan Coopersmith pointed to the following documents regarding DRI/KMS:
 * <https://en.wikipedia.org/wiki/Direct_Rendering_Manager>
 * <http://dri.freedesktop.org/wiki/>
 * <https://wiki.archlinux.org/index.php/kernel_mode_setting>
-* <http://lanyrd.com/topics/x-window-system>
+* <https://web.archive.org/web/20170711030533/http://lanyrd.com/topics/x-window-system/>
 
 Additionally, information about driver development:
 

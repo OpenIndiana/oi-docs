@@ -406,7 +406,7 @@ This document might also be a good place to put the following topics:
 * Write a table providing a matrix comparing commands between BSD/Linux/OpenIndiana.
     * This could also be something for the handbook.
     * Place it wherever it looks best.
-* See [this page](https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris) for some inspiration.
+* See [this page](https://web.archive.org/web/20200807095415/https://wiki-bsse.ethz.ch/display/ITDOC/Major+difference+between+Linux+and+Solaris) for some inspiration.
 * Also look at old OpenSolaris website (via the wayback machine) for additional ideas, suggestions, etc.
 
 
