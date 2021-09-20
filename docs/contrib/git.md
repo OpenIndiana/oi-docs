@@ -160,6 +160,6 @@ For further details about configuring GIT, see: <https://help.github.com/article
 
 ## Further Reading
 
-If you're really excited about Git and desire to become a Git Ninja, here is a great tutorial to further your education: <http://rypress.com/tutorials/git/index>
+If you're really excited about Git and desire to become a Git Ninja, here is a great book to further your education: <https://git-scm.com/book/en/v2>
 
 There is also the book [Pro Git](https://git-scm.com/book/en/v2) which is available for free under a Creative Commons license.

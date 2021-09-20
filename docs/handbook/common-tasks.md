@@ -144,7 +144,7 @@ ITEMS TO WRITE ABOUT:
 ITEMS TO WRITE ABOUT:
 
 * <http://forum.kodi.tv/showthread.php?tid=44315&page=2>
-* <http://lightsandshapes.com/plex-on-smartos.html>
+* <https://web.archive.org/web/20180822163548/http://lightsandshapes.com/plex-on-smartos.html>
 
 </div>
 

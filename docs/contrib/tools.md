@@ -80,7 +80,7 @@ The choice is yours; Use your favorite editor.
 | URL | Description
 |---|---
 | <http://www.mkdocs.org/> | MkDocs Content Authoring Framework
-| <https://pythonhosted.org/Markdown/> | Python implementation of Markdown
+| <https://python-markdown.github.io/> | Python implementation of Markdown
 | <http://spec.commonmark.org/0.25/> | The CommonMark Markdown Spec
 | <https://github.com/mivok/markdownlint> | Markdown Lint
 | <https://travis-ci.org/> | Continuous Integration (similar to Jenkins, etc.)

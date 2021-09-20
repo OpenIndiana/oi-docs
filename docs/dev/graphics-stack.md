@@ -26,7 +26,7 @@ Therefore the Graphic Stack is comprised of:
 * the opensource X11 display server Xorg, client libraries and utilities developed by the [X.org Project](https://www.x.org/),
 * an OpenGL implementation in the form of the opensource [Mesa](https://www.mesa3d.org/) library,
 * and illumos kernel drivers for different graphics adapters provided by the [gfx-drm](https://github.com/illumos/gfx-drm) gate,
-* together with the [libdrm](https://cgit.freedesktop.org/mesa/drm) implementing communication between kernel drivers and user-space components through the Direct Rendering Infrastructure (DRI) protocol.
+* together with the [libdrm](https://gitlab.freedesktop.org/mesa/drm) implementing communication between kernel drivers and user-space components through the Direct Rendering Infrastructure (DRI) protocol.
 
 All these components can be installed using the unified build system [oi-userland](https://github.com/OpenIndiana/oi-userland) or simply installed from the package repositories.
 
@@ -65,7 +65,7 @@ Font components in oi-userland are located in the [components/fonts](https://git
 
 Nvidia provides Solaris x86-64/x86 packages of their proprietary driver for different families of graphic adapters.
 
-The Nvidia driver shipped with OpenIndiana is built using [openindiana/nvidia](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/nvidia) component.
+The Nvidia driver shipped with OpenIndiana is built using openindiana/nvidia-XXX [e.g. openindiana/nvidia-470](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/nvidia-470) component.
 
 The list of currently supported and legacy drivers is updated on the [Unix Drivers](https://www.nvidia.com/object/unix.html) page.
 
@@ -156,7 +156,7 @@ Alan Coopersmith pointed to the following documents regarding DRI/KMS:
 * <https://en.wikipedia.org/wiki/Direct_Rendering_Manager>
 * <http://dri.freedesktop.org/wiki/>
 * <https://wiki.archlinux.org/index.php/kernel_mode_setting>
-* <http://lanyrd.com/topics/x-window-system>
+* <https://web.archive.org/web/20170711030533/http://lanyrd.com/topics/x-window-system/>
 
 Additionally, information about driver development:
 
@@ -186,7 +186,7 @@ They require Intel ringbuffer support, which is not implemented.
 
 Reference:
 
-* <https://cgit.freedesktop.org/xorg/driver/xf86-video-intel/tree/src/i915_pciids.h>
+* <https://github.com/torvalds/linux/blob/master/include/drm/i915_pciids.h>
 * <https://en.wikipedia.org/wiki/List_of_Intel_graphics_processing_units>
 * <http://src.illumos.org/source/xref/gfx-drm/usr/src/uts/intel/io/i915/i915_drv.c#294>
 

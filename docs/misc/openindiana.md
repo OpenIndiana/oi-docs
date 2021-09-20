@@ -98,10 +98,10 @@ OpenIndiana contains the following enterprise class features and more:
 | COMSTAR |[Common Multiprotocol SCSI TARget - (ISCSI Target Framework)](http://illumos.org/man/1m/itadm)
 | KVM | [Kernel Virtual Machine - (Operating System Virtualization)](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine)
 | Zones | [OS Level Virtualized Application Containers](https://en.wikipedia.org/wiki/Solaris_Containers)
-| Time-Slider | [Automated ZFS Snapshots and Rollbacks](http://www.serverwatch.com/tutorials/article.php/3831881/Say-Cheese-OpenSolaris-Time-Slider.htm)
-| RBAC | [Role-Based Access Control](http://www.c0t0d0s0.org/archives/4073-Less-known-Solaris-features-RBAC-and-Privileges-Part-1-Introduction.html)
-| IPMP | [IP Network Multipathing](http://www.c0t0d0s0.org/archives/6292-Less-known-Solaris-features-IP-Multipathing-Part-1-Introduction.html)
-| DLMP | [Data Link Multipathing](http://www.c0t0d0s0.org/archives/7553-Less-known-Solaris-Features-Data-Link-Multipathing.html)
+| Time-Slider | [Automated ZFS Snapshots and Rollbacks](https://web.archive.org/web/20160420090032/http://www.serverwatch.com/tutorials/article.php/3831881/Say-Cheese-OpenSolaris-Time-Slider.htm)
+| RBAC | [Role-Based Access Control](http://www.c0t0d0s0.org/2008-02-04/less-known-solaris-features-rbac-and-privileges-part-1-introduction.c0t0d0s0)
+| IPMP | [IP Network Multipathing](http://www.c0t0d0s0.org/2010-01-21/less-known-solaris-features-ip-multipathing-part-1-introduction.c0t0d0s0)
+| DLMP | [Data Link Multipathing](http://www.c0t0d0s0.org/2013-03-21/less-known-solaris-features-data-link-multipathing.c0t0d0s0)
 
 
 ## What is the OpenIndiana release schedule?
