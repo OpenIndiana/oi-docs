@@ -170,7 +170,7 @@ OpenIndiana comes with an official [Vagrant](https://www.vagrantup.com) box, whi
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-At this time, the OpenIndiana Vagrant box is only available in the form of a text based console.
+At this time, the OpenIndiana Vagrant box is only available in the form of a text based console.  But because Vagrant supports X11 forwarding over ssh, graphical user interface applications can still be ran on this vagrant box over ssh.
 Additionally, Virtualbox is the only currently supported Vagrant provider.
 In the future the OpenIndiana project hopes to provide additional Vagrant box options.
 
@@ -179,7 +179,7 @@ In the future the OpenIndiana project hopes to provide additional Vagrant box op
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-Vagrant is officially available for Mac OS X, Windows and Linux.
+Vagrant is officially available for Mac OS X, Windows and Linux.  Vagrant is currently not packaged for OpenIndiana itself, but it can be compiled from source, and it works on OpenIndiana itself as well.
 
 </div>
 
