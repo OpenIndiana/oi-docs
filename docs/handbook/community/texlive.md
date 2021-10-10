@@ -20,6 +20,12 @@ Contributor(s): David Stes.
 
 The following notes document the steps to install [TeX Live](http://tug.org/texlive) on OpenIndiana Hipster and how to update it using the tlmgr TeX Live package management tool.
 
+To test a virtual machine running TeXLive on OpenIndiana, you can also run the texlive2021 example Vagrantfiles in the vagrantfiles repository :
+
+```none
+        # git clone https://github.com/openindiana/vagrantfiles
+```
+
 ## TeX Live tlmgr Management Tool
 
 The TeX Live Management Tool has both a command line interface and a GUI.  The GUI (tlmgr gui) uses Perl Tk and works on OpenIndiana.  The following screenshot illustrates tlmgr and the Opendiana MATE desktop :
