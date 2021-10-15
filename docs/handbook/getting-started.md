@@ -525,9 +525,9 @@ The method to use depends on the release date of the USB image you intend to wri
 
 <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
-OpenIndiana Hipster does not yet support UEFI.
+Although that the current OpenIndiana Hipster releases support UEFI without secure boot, old versions of OpenIndiana Hipster did not yet support UEFI.
 
-* If you intend to install OpenIndiana Hipster on a system, which supports UEFI boot, please be sure to boot the system in legacy mode.
+* If you intend to install an old version of OpenIndiana Hipster on a system, which supports UEFI boot, please be sure to boot the system in legacy mode.
 </div>
 
 
@@ -699,12 +699,10 @@ For the computer to successfully boot from the media, you may be required to per
 <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
 
-OpenIndiana does not yet support the following technologies:
+OpenIndiana supports UEFI (Unified Extensible Firmware Interface) without secure boot:
 
-* Secure boot (UEFI boot path validation)
-* UEFI (Unified Extensible Firmware Interface)
+Secure boot (UEFI boot path validation) must be disabled (if it is enabled by default) because UEFI secure boot is currently not yet supported.
 
-To successfully boot the OpenIndiana installer, these technologies must first be disabled.
 For further information, consult the manufacturers documentation for your computer hardware.
 
 </div>
