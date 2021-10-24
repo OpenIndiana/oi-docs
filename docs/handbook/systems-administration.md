@@ -490,12 +490,6 @@ ITEMS TO WRITE ABOUT:
 
 < place holder >
 
-
-### Role based access control (RBAC)
-
-< place holder >
-
-
 ## Zones
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
@@ -896,9 +890,6 @@ Possible resources to help write this section:
 
 
 ## Configuring Networking
-
-< Place Holder >
-
 
 ### Manual Configuration (static IP)
 
