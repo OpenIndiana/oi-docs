@@ -293,6 +293,47 @@ Now user whoever can shutdown the system.
 The `pfexec` command is more flexible in the number of privileges that can be
 assigned to a user.
 
+### Active Directory Integration
+
+#### Introduction
+
+There are at least three different possible approaches for Active Directory authentication and each has its pros and cons.
+
+1. Use the new native AD integration with **idmap**, **nss_ad** and **kclient**, this will work with CIFS and NFS out of the box.
+2. Use Kerberos and LDAP (**kclient**, **ldapclient**, **pam_krb5** and **nss_ldap**).
+3. Use **windbind** (**pam_winbind** and **nss_winbind**).
+
+#### Native AD integration
+
+- Pro: Fully integrated and native tools only
+- Cons: Works only for Solaris (Openindiana) CIFS and NFS service, unless you use enable directory-based name mapping and install IDMU (Identity Management for UNIX) on the AD server.
+
+This approach works out of the box for CIFS and NFS services. It doesn't work out of the box for other UNIX services because the ephemeral id mapping strategy supposedly wasn't designed for other UNIX services. As a result several problems arrise, one of them is that the mappings aren't constant over the lifetime of UNIX processes which severly breaks UNIX semantics. Depending on your UNIX service you will see unexpected results or even process crashing.
+
+In order to use this approach with any UNIX service (eg **Netatalk**) you need to enable _directory-based name mapping_ and install **IDMU** (Identity Management for UNIX) on the AD server.
+
+Refer to the original documentation from Oracle for getting this working: [nss_ad](http://docs.oracle.com/cd/E23824_01/html/821-1455/adsetup-10.html), [CIFS](http://docs.oracle.com/cd/E19963-01/html/821-1449/manageidmutm.html).
+
+#### Kerberos and LDAP
+
+- Pro: Fully integrated and native tools only
+- Cons: Requires installation of additional role services (IDMU, Identity Management for UNIX) on the Active Directory side
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on configuration of Windows Server 2008 Active Directory to work with OI. As of 2021, Windows Server 2008 is EoL. This section should not be migrated until it has been checked and updated for recent Windows. Ideally this information should be on a separate page (potentially community contributions) as it’s large and contains a lot of Windows information.
+</div>
+
+#### winbind
+
+- Pro: Easy setup, no AD modification
+- Cons: Depends on 3rd party software (Samba), group membership resolution didn't work
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
+<div class="well">
+As above note, the 'winbind' page was a separate detailed article which needs to be checked and updated before it's migrated.
+</div>
+
 ## Management of System Resources
 
 ### Basic system information
