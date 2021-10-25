@@ -431,6 +431,40 @@ onto the system before changing the run-level.
 < place holder >
 
 
+### Virtual Terminals/Consoles (VT)
+Virtual Terminals/Virtual Consoles (VT) are used to switch between terminals and using system in text mode with _Ctrl+Alt+F1,F2..F8_ key combinations.
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Switching to VTs using _Ctrl+Alt+Fn_ during current desktop session (at **VT7**) can result in **X server** and **lightdm** (or **gdm**) restarting and stopping all applications running within it.
+Currently, there could be problems with getting back to gdm/Xorg session if switching to VTs after gdm restart. Use `svcadm restart ligthdm` (or `svcadm restart gdm`) command again, to have lightdm/gdm Xorg session restarted at **VT8** (_Ctrl+Alt+F8_).
+</div>
+
+At fresh Openindiana install, VT/Consoles are **not enabled by default**. One needs to set up vtdaemon and console-login:vt2 (till :vt6) and enable **vtdaemon** options/hotkeys property:
+
+```
+pfexec svcadm enable vtdaemon
+pfexec svcadm enable console-login:vt2
+pfexec svcadm enable console-login:vt3
+pfexec svcadm enable console-login:vt4
+pfexec svcadm enable console-login:vt5
+pfexec svcadm enable console-login:vt6
+```
+
+Or do that in a one-liner Bash script: `for i in 2 3 4 5 6 ; do pfexec svcadm enable console-login:vt$i; done;`
+
+Then, enable options/hotkeys property (_Ctrl+Alt+Fn_) to switch VTs and refresh and restart **vtdaemon** service:
+
+```
+pfexec svccfg -s vtdaemon setprop options/hotkeys=true
+pfexec svcadm refresh vtdaemon
+pfexec svcadm restart vtdaemon
+```
+
+Optionally, you can also disable VT consoles auto screen locking (recommended for personal use, not recommended on server): `pfexec svccfg -s vtdaemon setprop options/secure=false`
+
+The above was inspired by [this blog by Danx on Virtual Consoles](https://web.archive.org/web/20160424040330/https://blogs.oracle.com/DanX/entry/solaris_virtual_consoles).
+
 ### Service management (SMF)
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
