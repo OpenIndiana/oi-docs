@@ -225,3 +225,11 @@ See [https://app.vagrantup.com/openindiana/boxes/hipster](https://app.vagrantup.
 
 The oi-userland repository has for example also a Vagrantfile that can be used to create a VM to host oi-userland (by Adam Stevko and Michal Nowak).
 
+A set of example Vagrantfiles that use the OpenIndiana Hipster operating system can be cloned from github by :
+
+```none
+        # git clone https://github.com/openindiana/vagrantfiles
+```
+
+These examples create various virtual machines running OpenIndiana.
+

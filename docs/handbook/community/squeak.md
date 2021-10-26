@@ -20,6 +20,14 @@ Contributor(s): David Stes.
 
 The following notes document the steps to install Squeak and Cuis on OpenIndiana Hipster, and how to use these implementations of Smalltalk-80.
 
+A set of example Vagrantfiles that use the OpenIndiana Hipster operating system to run Squeak Smalltalk can be cloned from github by :
+
+```none
+        # git clone https://github.com/openindiana/vagrantfiles
+```
+
+These Vagrant guests can be ran on a Linux host or OpenIndiana host, assuming that you have the Vagrant software on the host.  Vagrant forwards the X11 DISPLAY over SSH so that it is possible to forward the Squeak display in an OpenIndiana guest to a Linux host, for example.
+
 Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at [files.squeak.org](http://files.squeak.org) or at [cuis-smalltalk.org](http://cuis-smalltalk.org).
 
 Cuis and Squeak both use the Squeak VM, but they offer different Smalltalk images.  The Squeak images have traditional MVC (Model, View, Controller) and Morphic graphical user interface classes.   Cuis has Morphic-3, which is an enhanced set of Morphic classes.
@@ -102,27 +110,9 @@ Use the following command to check the installed consolidation:
 
 The installed version should be more recent than 0.5.11-2020.0.1.13018.
 
-Squeak is a graphically oriented system, and it is recommended to install a desktop (graphical) environment, such as the MATE desktop, on OpenIndiana, in order to use Squeak.  It is possible to run Squeak without display, or headless, but generally speaking it is a prerequisite to install a desktop to use the Squeak integrated development environment (IDE).
+Squeak for OpenIndiana provides a vm-display-X11 plugin for using the X11 window system.  By setting the X11 DISPLAY variable or by using X11 forwarding over SSH, it is possible to run Squeak remotely and forward the display to another machine.
 
-One way to get a MATE desktop (there exist other methods) is to run the OpenIndiana text installer and then install the group package "mate_install" and then enable the Light Display Manager as follows:
-
-```none
-        # pkg install -v --accept mate_install
-```
-
-```none
-        # svcadm enable graphical-login/lightdm
-```
-
-This enables the "light display manager".
-
-In any case, even if you do a direct desktop installation (without running through the text based installation of OpenIndiana), take care about the ip address and hostname of the system.
-
-Squeak will try to use the ip address that corresponds to the hostname of the system as its ip address.
-
-So multi-homed systems (with multiple network interfaces) may have some strange behavior for TCP/IP networking inside Squeak.  This may require some experimentation to see what works.
-
-We've tested Squeak with a text-based installation with fixed IP address and hostname resolving is set up so that the fixed ip address corresponds to the hostname, and there were no other network interfaces on the test server.
+It is also possible to run Squeak without display, or headlessly.
 
 ## Installing squeak, the classic VM
 
