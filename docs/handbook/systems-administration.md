@@ -432,6 +432,7 @@ onto the system before changing the run-level.
 
 
 ### Virtual Terminals/Consoles (VT)
+
 Virtual Terminals/Virtual Consoles (VT) are used to switch between terminals and using system in text mode with _Ctrl+Alt+F1,F2..F8_ key combinations.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
