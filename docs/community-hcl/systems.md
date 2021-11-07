@@ -70,13 +70,20 @@ System76     | Galago UltraPro      | yes |  Driver: VESA | Ankita Davis
 Toshiba      | Satellite L855 (PSKACE) | no | AMD Radeon HD 7670M Graphics requires KMS driver, which we don't have, so VESA only. Unfortunatelly display's native resolution is 1366x768 but the this resolution is not one of VESA modes, so 1024x768 or 800x600 has to be used, which renders the screen blurry. Nor HDMI nor VGA (D-Sub) works.<br/>Integrated Ethernet controller Atheros AR8161 is not supported, nor is Atheros AR9485 mini-PCI WLAN.<br/>What works: ACPI, battery statistics, chipset in general (Intel C216), sound (Intel HDA), SATA disks in AHCI mode, VT-x (tested in illumos KVM), touchpad, USB (both EHCI & xHCI) for input devices and storage. | Michal Nowak
 Lenovo       | T530                 | yes | NVidia NVS 5400M, Interl Centrino Advanced-N 6205 (taylor peak)(iwn), Intel 82579LM (ethernet/gigabit/e1000g)  Everything works, even integrated camera | Espen Martinsen
 
+## UEFI Workstations
+
+OpenIndiana was tested by our users on the following workstations with UEFI.
+
+Manufacturer |  Model               | Works (yes/no) | Notes and/or specific usage instructions           | Contributor
+------------ | -------------------- | -------------- | -------------------------------------------------- | ------------
+Dell         | Precision 3640       | | yes          | OpenIndiana 2021.04, i3-10100 CPU works, integrated graphics Intel UHD 630 does NOT work and only supports text console (no X11/MATE), NVIDIA GeForce GT 440 works with X11/MATE, integrated audio Intel works, network onboard Intel I219-LM e1000g works, AHCI disks work, tested Dell UEFI BIOS 1.2 and Dell UEFI BIOS 1.8, system installs and boots fine in UEFI mode | David Stes
+
 ## Servers
 
 OpenIndiana was tested by our users on the following servers.
 
 Manufacturer |  Model               | Works (yes/no) | Notes and/or specific usage instructions           | Contributor
 ------------ | -------------------- | -------------- | -------------------------------------------------- | ------------
-Dell         | Precision 3640       |   yes          | OpenIndiana 2021.04, i3-10100 CPU works, integrated graphics Intel UHD 630 does NOT work, NVIDIA GeForce GT 440 works, integrated audio Intel works, network, AHCI disks work | David Stes
 Dell         | Optiplex 9010        |   yes          | OpenIndiana 2018.04, GFX, network, AHCI disks work | Michal Nowak
 Dell         | PowerEdge R610       |   yes          | All ok                                             | Jorge Palma Escobar
 Dell         | PowerEdge R620       |   yes          | All ok.                                            | Jason Matthews

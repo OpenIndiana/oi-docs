@@ -174,7 +174,7 @@ Intel 82576                                          | yes             | pci bus
 Intel 82579LM                                        | yes             | In Dell Optiplex 9010 workstation. | e1000g | Michal Nowak
 Intel Ethernet Connection (11) I219-LM               | yes             | In Dell Precision 3640 workstation. | e1000g | David Stes
 Intel 82599EB 10-Gigabit SFI/SFP+                    | yes             | Tested on 151a8, could work on older releases. Performance moderately sucks on a dell r720. RX is good, TX is poor. On an r820 TX performance is less than that of 1g ethernet most of the time. | ixgbe | Jason Matthews
-Intel I210 Gigabit Network                           | yes             |                         | igb    | David Stes
+Intel I210 Gigabit Network                           | yes             | Works with the igb driver but DHCP fails on this card for me |                       | igb |   | David Stes
 Intel I350 Gigabit Network                           | yes             |                         |       | Christof Haemmerle
 Intel X520, Intel X540, Intel 82598, 82599 series (10Gb) | yes         |                         | ixgbe | Ken Mays
 Realtek RTL8101/RTL8110/RTL8168/RTL8169              | yes             | Supercedes rge driver for most Realtek 81xx/816x PCI-E ethernet adapters as of gani-2.6.10. See: RTL8111B/RTL8168B/RTL8111/RTL8168/RTL8111C/RTL8111CP/RTL8111D(L)/RTL8168C/RTL8111DP/RTL8111E/RTL8168E/RTL8111F/RTL8411 | gani  | Ken Mays
@@ -215,7 +215,7 @@ Intel 945GM Graphics                     | no                     | Dell Latitud
 Intel GMA 950                            | yes                    |                                          | i915   | nikolam
 Intel HD Graphics 520                    | yes                    | HP 15t Laptop (Part#: V1Z72AV_1). Tested at 1920x1080. | i915 |
 Intel HD Graphics 530                    | no                     | HP ZBook Studio G3. Crashes, system has both discrete graphics and Intel graphics | |
-Intel CometLake-S GT2 [UHD Graphics 630] | no                     | Dell Precision 3640 with i3-10100 CPU | vgatext | David Stes
+Intel CometLake-S GT2 [UHD Graphics 630] | no                     | Dell Precision 3640 with i3-10100 CPU, does NOT work for X11/MATE, only text console | vgatext | David Stes
 Intel HD Graphics 2000                   | yes                    | ThinkCentre M91p. Working, tested from 1024x768 to 1920x1080, GPU hangs and wrong screen adjustment. | i915 |
 Intel HD Graphics 3000                   | yes                    | Lenovo ThinkPad X220. Has a [glitch](https://www.illumos.org/issues/8757) on embedded display ([workaround](https://www.illumos.org/issues/8049#note-7)). Display Port & VGA D-Sub work. | i915 | Michal Nowak
 Intel HD Graphics 4000                   | yes                    |                                          | i915   | Aurélien Larcher
@@ -410,6 +410,7 @@ Creative      | Creative Live! Cam Optia     |  no             | Error while acc
 Logitech      | C310 HD Webcam               |  yes            |                                                                  | usbvc   | Russell Aspinwall
 Logitech      | Webcam C905                  |  yes            |                                                                  | usbvc   | Aurélien Larcher
 Logitech      | HD Pro Webcam C920           |  yes            |                                                                  | usbvc   | Franklin Morier
+Logitech      | Webcam C930e                 |  no            | xhci USB 3.1 attached to Dell Precision 3640, Microphone works fine with audacity, no video applications on OpenIndiana to test video with this webcam | usbvc   | David Stes
 Philips       | Webcam SPC2050NC Pro         |  yes            |                                                                  | usbvc   | Ken Mays
 Trust         | SpotLight Webcam Pro         |  yes            |                                                                  | usbvc   | Udo Grabowski
 
