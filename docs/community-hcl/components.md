@@ -174,7 +174,7 @@ Intel 82576                                          | yes             | pci bus
 Intel 82579LM                                        | yes             | In Dell Optiplex 9010 workstation. | e1000g | Michal Nowak
 Intel Ethernet Connection (11) I219-LM               | yes             | In Dell Precision 3640 workstation. | e1000g | David Stes
 Intel 82599EB 10-Gigabit SFI/SFP+                    | yes             | Tested on 151a8, could work on older releases. Performance moderately sucks on a dell r720. RX is good, TX is poor. On an r820 TX performance is less than that of 1g ethernet most of the time. | ixgbe | Jason Matthews
-Intel I210 Gigabit Network                           | yes             | Works with the igb driver but DHCP fails on this card for me |                       | igb |   | David Stes
+Intel I210 Gigabit Network                           | no             | Partly works with the igb driver but DHCP fails on this card for me | igb | David Stes
 Intel I350 Gigabit Network                           | yes             |                         |       | Christof Haemmerle
 Intel X520, Intel X540, Intel 82598, 82599 series (10Gb) | yes         |                         | ixgbe | Ken Mays
 Realtek RTL8101/RTL8110/RTL8168/RTL8169              | yes             | Supercedes rge driver for most Realtek 81xx/816x PCI-E ethernet adapters as of gani-2.6.10. See: RTL8111B/RTL8168B/RTL8111/RTL8168/RTL8111C/RTL8111CP/RTL8111D(L)/RTL8168C/RTL8111DP/RTL8111E/RTL8168E/RTL8111F/RTL8411 | gani  | Ken Mays
