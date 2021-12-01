@@ -116,19 +116,19 @@ Then cd into the source directory of the downloaded source package :
 
 Whether you have cloned the git repo, or downloaded the source package, continue now to configure Ruby 3.0.2 :
 
-A first option is to build ruby with O3 optimisation and without DTrace :
+A first option is to build ruby with O3 and g3 optimisation and without DTrace :
 
 ```none
         $ ./configure --disable-dtrace --with-gcc --prefix=/scratch/ruby-30
 ```
 
-A second option, is to enable DTrace and build with O2 optimisation :
+A second option, is to enable DTrace and build with O3 and g1 optimisation :
 
 ```none
-        $ ./configure --enable-dtrace --with-gcc --prefix=/scratch/ruby-30 CFLAGS="-g -O2" AR="/usr/bin/ar" STRIP="/usr/bin/strip"
+        $ ./configure --enable-dtrace --with-gcc --prefix=/scratch/ruby-30 debugflags="-g1"
 ```
 
-Note in the above, if you enable DTrace, that the CFLAGS is set to -g -O2, and that the AR command must be set to /usr/bin/ar, not to GNU ar /usr/bin/gar.
+Note in the above, if you enable DTrace, that the debugflags is set to -g1 (level g1).  Currently there is a problem with the DTrace build and g3 level debug information, while with level 1 debug info, the build with DTrace enabled, works.
 
 Either way, whether you have configured Ruby 3.0.2 with or without DTrace, install it under /scratch/ruby-30 as follows :
 
@@ -287,7 +287,11 @@ A Vagrant VM can set the PULSE_SERVER environment variable and play sounds or mu
 
 This is similar to X11 forwarding over SSH : X11 can also be forwarded from a Vagrant VM to the host.
 
-On platforms with the paprefs executable, this can be configured using paprefs.
+On platforms with the paprefs executable, this can be configured using paprefs :
+
+![paprefs](paprefs.png)
+
+If the paprefs command is not available, pulseaudio can be reconfigured with :
 
 ```none
         dconf load /org/freedesktop/pulseaudio/module-groups/ <<EOF
