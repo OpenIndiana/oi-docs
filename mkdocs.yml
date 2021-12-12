@@ -33,7 +33,13 @@ nav:
                 - 'Systems Administration': handbook/systems-administration.md
                 - 'Network Communications': handbook/network-communications.md
                 - 'Appendix': handbook/appendix.md
-                - 'Community Contributed Tutorials': handbook/community.md
+                - 'Community Contributed Tutorials':
+                         - 'About Community Contributed Tutorials': handbook/community.md
+                         - 'Oracle Database Installation': handbook/community/oracledb.md
+                         - 'Sun Ray Installation': handbook/sunray.md
+                         - 'Squeak Smalltalk-80 Installation': handbook/community/squeak.md
+                         - 'TeX Live Typesetting Software Installation': handbook/community/texlive.md
+                         - 'Vagrant Installation': handbook/community/vagrant.md
                 - 'Community Hardware Compatibility List':
                          - 'Getting information about hardware': community-hcl/getting-hardware-info.md
                          - 'Components': community-hcl/components.md
@@ -68,5 +74,5 @@ nav:
 extra:
         theme_inverse: true
 
-copyright: Copyright &copy; 2020 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+copyright: Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
 
