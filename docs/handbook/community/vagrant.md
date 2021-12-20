@@ -210,7 +210,7 @@ Vagrant can use multiple providers, but in this case we use VirtualBox as provid
 ```none
         # pkg list virtualbox
         NAME (PUBLISHER)                                  VERSION                    IFO
-        system/virtualbox                                 6.1.22-2020.0.1.2          i--
+        system/virtualbox                                 6.1.30-2021.0.0.0          i--
 ```
 
 Vagrant uses a Vagrantfile to describe the actions to build the virtual machine or machines.  Once you or someone else creates a single Vagrantfile, you just need to vagrant up and everything is installed and configured for you to work.
@@ -223,6 +223,13 @@ The following example shows a setup with two internal networks.  By default ther
         # dladm show-phys | grep vbox
         vboxnet0     Ethernet             up         1000   full      vboxnet0
         vboxnet1     Ethernet             up         1000   full      vboxnet1
+```
+
+On VirtualBox 6.1.30 it also seems necessary to set up a file in /etc/vbox :
+
+```none
+        $ cat /etc/vbox/networks.conf
+        * 192.168.56.0/16 192.168.99.0/16
 ```
 
 With the VBoxManage command, check the available internal networks:
