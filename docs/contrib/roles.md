@@ -75,4 +75,4 @@ Upon receipt of a pull request, the content reviewer performs the following step
 * If changes are extensive or involve inline html, the content reviewer may check out your pull request (PR) to perform QA testing.
 * QA testing is performed by running MkDocs in development mode.
 * Upon acceptance, merges the pull request into the mainline branch.
-* Upon merge, the site is automatically published via Travis-CI.
+* Upon merge, the site is automatically published via GitHub Actions.

@@ -32,13 +32,13 @@ Both technologies leverage the Python programming language.
 
 #### Ancillary technologies:
 
-* GitHub - GIT repository hosting
+* GitHub - Git repository hosting
 * GitHub Pages - Website publishing from a GitHub repository
-* GIT - Distributed version control
-* Travis-CI - Continuous Integration toolset
+* GitHub Actions - Continuous Integration toolset
+* Git - Distributed version control
 
 
-## Why use GIT distributed version control for docs?
+## Why use Git distributed version control for docs?
 
 * Integrity - You can roll back to previous versions
 * Mobility - You can edit docs anywhere, no Internet connection required
@@ -83,7 +83,6 @@ The choice is yours; Use your favorite editor.
 | <https://python-markdown.github.io/> | Python implementation of Markdown
 | <http://spec.commonmark.org/0.25/> | The CommonMark Markdown Spec
 | <https://github.com/mivok/markdownlint> | Markdown Lint
-| <https://travis-ci.org/> | Continuous Integration (similar to Jenkins, etc.)
 | <https://pages.github.com/> | Publish from your github repo
 
 
@@ -100,7 +99,7 @@ The gh-pages branch is used to publish the site to GitHub pages.
 
 ## Docs site publishing
 
-Following the best practices of continuous integration, the OpenIndiana Docs website is fully automated using Travis-CI.
-Upon a commit to the site GitHub repository, Travis-CI immediately performs a series of validation tests.
+Following the best practices of continuous integration, the OpenIndiana Docs website is fully automated using GitHub Actions.
+Upon a pull request or commit to the site GitHub repository, GitHub Actions immediately performs a series of validation tests.
 If the validation tests pass, then the website is automatically published to Github Pages.
 
