@@ -27,12 +27,14 @@ They can also be generated using the old SunBook formatting style, see [Generati
 ## PDF Page Downloads
 
 ### About
+
 - [About OpenIndiana](../pdf/misc/openindiana.pdf)
 - [About OpenIndiana Docs](../pdf/misc/oi-docs.pdf)
 - [OpenIndiana Code of Conduct](../pdf/misc/conduct.pdf)
 - [Public Documentation License](../pdf/misc/pdl.pdf)
 
 ### Handbook
+
 - [Getting Started](../pdf/handbook/getting-started.pdf)
 - [Common Tasks](../pdf/handbook/common-tasks.pdf)
 - [Systems Administration](../pdf/handbook/systems-administration.pdf)
