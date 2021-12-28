@@ -41,15 +41,15 @@ The Hardware Abstraction Layer (hal) however doesn't know that this cartridge is
 To allow it to be ejected, add a file (named along the lines of `10-rdx.fdi`) to `/etc/hal/fdi/preprobe/30user` with content like the following:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>                                                                          
-<deviceinfo version="0.2">                                                                                      
-	<device>                                                                                                      
-		<match key="info.udi" string="/org/freedesktop/Hal/devices/pci_0_0/pci_ide_1f_2/ide_0_2/sd20/sd20">         
-			<merge key="storage.removable" type="bool">true</merge>                                                   
-			<merge key="storage.hotpluggable" type="bool">true</merge>                                                
-			<merge key="storage.requires_eject" type="bool">true</merge>                                              
-		</match>                                                                                                    
-	</device>                                                                                                     
+<?xml version="1.0" encoding="UTF-8"?>
+<deviceinfo version="0.2">
+ <device>
+   <match key="info.udi" string="/org/freedesktop/Hal/devices/pci_0_0/pci_ide_1f_2/ide_0_2/sd20/sd20">
+   <merge key="storage.removable" type="bool">true</merge>
+   <merge key="storage.hotpluggable" type="bool">true</merge>
+   <merge key="storage.requires_eject" type="bool">true</merge>
+  </match>
+ </device>
 </deviceinfo>
 ```
 
@@ -83,6 +83,7 @@ pfexec /usr/lib/hal/hald --daemon=no --verbose=yes
 ```
 
 ### Suggested reading
+
 - [Solaris-specific information about rmmount, dbus and hal, looking especially at the interaction between these components](https://iws.cs.uni-magdeburg.de/~elkner/s11/rmmount.html)
 - [Interesting notes by a disgruntled hal user fixing his installation for proper mounting of an iPod](https://web.archive.org/web/20210419214900/http://sphinx.mythic-beasts.com/~mark/random/hal/)
 - [Configuring an X Server in Oracle Solaris - has a part about working with hal's .fdi files](http://docs.oracle.com/cd/E26502_01/html/E28056/gmcdj.html)

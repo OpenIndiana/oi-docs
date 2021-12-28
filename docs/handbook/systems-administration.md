@@ -801,11 +801,13 @@ It is made possible thanks to Jean-Pierre André, on Openindiana page:  [http://
 ##### Mounting the NTFS filesystem
 
 Now mount the NTFS partition using:
+
 ```bash
 pfexec ntfs-3g /dev/dsk/c6t0d0p1 /mnt/backup/
 ```
 
 You can now also add a vfstab entry like so:
+
 ```bash
 /dev/dsk/c6t0d0p1 /dev/rdsk/c6t0d0p1 /mnt/backup ntfs-3g - no -
 ```
