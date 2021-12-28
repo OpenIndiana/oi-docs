@@ -40,6 +40,7 @@ nav:
                          - 'Squeak Smalltalk-80 Installation': handbook/community/squeak.md
                          - 'TeX Live Typesetting Software Installation': handbook/community/texlive.md
                          - 'Vagrant Installation': handbook/community/vagrant.md
+                         - 'Using RDX Quikstor media': handbook/community/quikstor.md
                 - 'Community Hardware Compatibility List':
                          - 'Getting information about hardware': community-hcl/getting-hardware-info.md
                          - 'Components': community-hcl/components.md
