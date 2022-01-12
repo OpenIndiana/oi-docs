@@ -70,7 +70,13 @@ After rebooting into a new BE, run the perl installer script :
         # install-tl --help
 ```
 
-There are various options, if you have Perl Tk installed, you can also run the GUI :
+If you wish to use the TeX Live GUI, install the OpenIndiana Perl Tk package (the tk-perl IPS package is available on OpenIndiana release 2022 or higher) :
+
+```none
+        # pkg install -v tk-perl
+```
+
+Then run the TeX Live installer GUI as follows :
 
 ```none
         # install-tl --gui
