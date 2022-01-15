@@ -171,9 +171,6 @@ Alternate mirrors (Asia, Europe, and North America)
 * [OpenIndiana Mirrors](../handbook/openindiana-download-mirrors.md)
 
 
-If you wish to purchase a ready made DVD or USB drive there is also [OSDISC.COM](https://www.osdisc.com/products/solaris/openindiana).
-
-
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 For detailed information about creating a bootable OpenIndiana DVD or USB flash drive, please consult the following sections of the OpenIndiana Handbook:
