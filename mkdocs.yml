@@ -37,6 +37,7 @@ nav:
                          - 'About Community Contributed Tutorials': handbook/community.md
                          - 'Oracle Database Installation': handbook/community/oracledb.md
                          - 'Sun Ray Installation': handbook/sunray.md
+                         - 'Intelligent Input Bus (IBus)': handbook/community/inputmethod.md
                          - 'Squeak Smalltalk-80 Installation': handbook/community/squeak.md
                          - 'TeX Live Typesetting Software Installation': handbook/community/texlive.md
                          - 'Vagrant Installation': handbook/community/vagrant.md
