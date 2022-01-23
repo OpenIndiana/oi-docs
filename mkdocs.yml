@@ -53,6 +53,7 @@ nav:
                          - 'Using distribution constructor': dev/distribution-constructor.md
                          - 'Existing tasks': dev/existing-tasks.md
                          - 'Cleaning up OpenIndiana repository': dev/repo-cleanup.md
+                - 'PDF Documentation': handbook/pdfdocs.md
         
         - 'OpenSolaris Books':
                 - 'About OpenSolaris Books': books/about.md

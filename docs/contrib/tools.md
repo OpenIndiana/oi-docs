@@ -20,9 +20,11 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Contributor Tools
 
+## Introduction
+
 The OpenIndiana Docs website uses 2 principal technologies and several ancillary technologies:
 
-#### Principal technologies:
+### Principal technologies:
 
 * The MkDocs content authoring framework.
 * The Markdown text markup language.
@@ -30,7 +32,7 @@ The OpenIndiana Docs website uses 2 principal technologies and several ancillary
 Both technologies leverage the Python programming language.
 
 
-#### Ancillary technologies:
+### Ancillary technologies:
 
 * GitHub - GIT repository hosting
 * GitHub Pages - Website publishing from a GitHub repository
