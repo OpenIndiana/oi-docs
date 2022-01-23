@@ -40,6 +40,10 @@ This article, contributed by OpenIndiana community member Carsten Grzemba, detai
 
 Link to document: [Sun Ray Software on OpenIndiana Hipster](sunray.md)
 
+## How to enable the Intelligent Input Bus (IBus)
+
+Link to Input Method Document: [IBus on OpenIndiana Hipster](community/inputmethod.md)
+
 ## How to Install Vagrant on OpenIndiana Hipster
 
 Link to Vagrant Document: [Vagrant on OpenIndiana Hipster](community/vagrant.md)
