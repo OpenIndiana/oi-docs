@@ -51,3 +51,9 @@ Link to TeXLive Document: [OpenIndiana Hipster Notes for TeX Live Users](communi
 ## How to Install Squeak Smalltalk-80 on OpenIndiana Hipster
 
 Link to Squeak Document: [OpenIndiana Hipster Notes for Squeak Users](community/squeak.md)
+
+## How to use RDX Quikstor media with OpenIndiana
+
+Originally contributed by Bryan Iotti on the OI Wiki, this article details the steps required to get RDX Quikstor media recognized as removable.
+
+Link to article: [Using RDX Quikstor media with OpenIndiana](community/quikstor.md)

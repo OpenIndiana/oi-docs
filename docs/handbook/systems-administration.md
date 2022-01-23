@@ -737,14 +737,82 @@ Are you sure you want to uninstall zone example (y/[n])? y
 <div class="well">
 ITEMS TO WRITE ABOUT:
 
-* Need a walkthrough of mounting options for other filesystems...NTFS, FAT, UFS, etc.
+* Need a walkthrough of mounting options for other filesystems...FAT, UFS, etc.
 
 </div>
 
+#### Mounting and Unmounting ISO images
 
-### NTFS support - 3rd party
+One can use [lofiadm(1M)](https://illumos.org/man/1M/lofiadm) to mount ISO images by attaching them to a block device.
 
-* [http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html](http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html)
+```
+pfexec lofiadm -a /path/to/foo.iso /dev/lofi/1
+```
+
+When the above line is repeated for several ISO images, issue the `lofiadm` command to list which ISO images are attached to which block devices.
+
+```sh
+pfexec lofiadm
+Block Device File Options
+/dev/lofi/1 /home/scarcry/foo.iso -
+/dev/lofi/2 /home/scarcry/bar.iso -
+```
+
+Use the [mount(1M)](https://illumos.org/man/1M/mount) command to mount an image:
+
+```
+pfexec mount -F hsfs -o ro /dev/lofi/1 /mnt
+```
+
+Check the mounted image by issuing `ls` on the mount point.
+
+```
+ls /mnt
+```
+
+To unmount and detach the image(s):
+
+```
+pfexec umount /mnt
+pfexec lofiadm -d /dev/lofi/1
+```
+
+#### Mounting NTFS Volumes - 3rd party support
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+For removable storage devices, first make sure your external disk drive is connected and powered on.
+
+To list attached removable storage devices: `rmformat -l`
+</div>
+
+Verify the pX partition number that contains the NTFS filesystem, typically "p1", using fdisk. Even though it may seem counterintuitive, include the partition number "p0" as shown by rmformat in fdisk inquiries.
+
+```
+pfexec fdisk /dev/rdsk/c6t0d0p0
+```
+
+##### Additional software installation and configuration
+
+NTFS and FUSE support is provided by Tuxera's NTFS-3G project that aims at providing a stable NTFS driver for several operating systems.
+
+It is made possible thanks to Jean-Pierre André, on Openindiana page:  [http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html](http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html) Follow instructions on this page to install. Please install 64-bit package on 64-bit installations.
+
+##### Mounting the NTFS filesystem
+
+Now mount the NTFS partition using:
+
+```bash
+pfexec ntfs-3g /dev/dsk/c6t0d0p1 /mnt/backup/
+```
+
+You can now also add a vfstab entry like so:
+
+```bash
+/dev/dsk/c6t0d0p1 /dev/rdsk/c6t0d0p1 /mnt/backup ntfs-3g - no -
+```
+
+
 
 
 ### Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
