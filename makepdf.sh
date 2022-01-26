@@ -23,12 +23,34 @@
 # Contributor(s):
 #
 
+#
+# This variable holds all supported formats
+#
+SUPPORTED_FORMATS="pdf epub"
+
+#
+# If you would top add a subdirectory with files that should be built, add the
+# subdirectory here; or use the -d option
+#
+# Processing these directories in docs by default:
+#     books - Needs HTML in markdown to be fixed, so do not include
+#     contrib
+#     dev
+#     handbook
+#     handbook/community
+#     misc
+PROCESS_THESE_DIRECTORIES="contrib dev handbook handbook/community misc"
+
+
+
+
 help()
 {
     cat<<EOF
     Usage: $0 <options> 
 
-    Simple script to produce pdf for OpenIndiana Docs
+    Simple script to produce pdf and epub formats for OpenIndiana Docs
+    The epub format is experimental.
 
     Without any options, all files ending in .md in the following
     directories are converted:
@@ -39,7 +61,8 @@ help()
         handbook/community
         misc
 
-    All files produced will be placed in new directory (./pdf/)
+    All files produced will be placed in a new directory denoted 
+    according to the output format, i.e., ./pdf or ./epub
 
     REQUIREMENTS
     On a Debian system, you must install the following packages:
@@ -87,6 +110,19 @@ get_file_path()
         echo $(dirname "$infile")
 }
 
+get_out_rel_path_file()
+{
+        input_basename="$1"
+        format="$2"
+
+        out_rel_path_file=""
+
+        out_rel_path_file="./"$format"/"$input_basename"."$format
+}
+
+
+
+
 #
 # pandoc 2.8 was released on 2019-11-22 which is the first
 # version to support LaTex in the header-includes variable
@@ -110,28 +146,141 @@ is_pandoc_version_new()
 }
 
 
-do_conversion()
+do_conversion_epub()
 {
-        input=$1
-        output=$2
-        format=$3
-        style=$4
-
-        if [ "$format" == "epub" ]; then
-                $(pandoc -t epub --toc -f markdown+grid_tables+table_captions -o $output $input  --pdf-engine=xelatex)
-        elif [ "$format" == "pdf" ]; then
-                if [ "$(is_pandoc_version_new)" == "false" ]; then
-                        $(pandoc --toc -f markdown+grid_tables+table_captions -o $output $input  --pdf-engine=xelatex)
-                else
-                        if [ "$style" == "opensolaris" ]; then
-                            $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc/filter-sb.lua --metadata-file $OLDPWD/pandoc/config-sb.yaml -o $output $input)
-                        else
-                            $(pandoc --pdf-engine=xelatex --lua-filter $OLDPWD/pandoc/filter-web.lua --metadata-file $OLDPWD/pandoc/config-web.yaml -o $output $input)
-                        fi
-                fi
+        this_basename="$1"
+        this_format="$2"
+        
+        if [ "$this_format" != "epub" ]; then
+                echo >&2 -n "SERIOUS ERROR: trying to process for epub, but "
+                echo >&2 "requested format is not epub"
+                exit 1
         fi
 
+        this_title=$this_basename
+
+        get_out_rel_path_file "$this_basename" "$this_format"
+        
+        $(pandoc -t epub --toc -f markdown+grid_tables+table_captions --metadata title="$this_title" -o $out_rel_path_file $input_basename".md"  --pdf-engine=xelatex)
+        
 }
+
+
+do_conversion_with_older_pandoc()
+{
+        this_basename="$1"
+        this_format="$2"
+
+        if [ "$this_format" != "pdf" ]; then
+                echo >&2 -n "SERIOUS ERROR: trying to process for pdf using"
+                echo >&2 "older pandoc, but requested format is not pdf"
+                exit 1
+        fi
+
+        
+        get_out_rel_path_file "$this_basename" "$this_format"
+
+        $(pandoc --toc -f markdown+grid_tables+table_captions \
+                 -o $output_path_file $input_basename".md" \
+                 --pdf-engine=xelatex)
+}
+
+do_conversion_pdf()
+{
+        this_basename="$1"
+        this_format="$2"
+        this_style="$3"
+
+        if [ "$this_format" != "pdf" ]; then
+                echo >&2 -n "SERIOUS ERROR: trying to process for pdf, but "
+                echo >&2 "requested format is not pdf"
+                exit 1
+        fi
+
+        get_out_rel_path_file "$this_basename" "$this_format"
+        
+        if [ "$this_style" == "opensolaris" ]; then
+                $(pandoc --pdf-engine=xelatex \
+                         --lua-filter $OLDPWD/pandoc/filter-sb.lua \
+                         --metadata-file $OLDPWD/pandoc/config-sb.yaml \
+                         -o $out_rel_path_file $input_basename".md")
+        elif [ "$this_style" == "web" ]; then
+                $(pandoc --pdf-engine=xelatex \
+                         --lua-filter $OLDPWD/pandoc/filter-web.lua \
+                         --metadata-file $OLDPWD/pandoc/config-web.yaml \
+                         -o $out_rel_path_file $input_basename".md")
+        
+        else
+                echo "ERROR: can only process one of these styles: opensolaris or web"
+                exit 1
+        fi
+}
+
+
+do_conversion()
+{
+        input_basename="$1"
+        format="$2"
+        style="$3"
+
+        
+        if [ "$format" == "epub" ]; then
+                do_conversion_epub "$input_basename" "$format"
+
+                
+        elif [ "$format" == "pdf" ]; then               
+                if [ "$(is_pandoc_version_new)" == "false" ]; then
+                        # This call for backward compatibility 
+                        do_conversion_with_older_pandoc "$input_basename" "$format"
+                        
+                else
+                        do_conversion_pdf "$input_basename" "$format" "$style"
+                fi
+        fi
+}
+
+
+# This function sets is_format_valid_result = True || False
+# True: users select a valid format
+# False: users select an invalid format
+is_format_valid()
+{
+        input_format=$1
+        is_format_valid_result="False"
+        
+        for  i in $SUPPORTED_FORMATS  ; do
+                if [ "${i}" == "$input_format" ]; then
+                        is_format_valid_result="True"
+                fi
+        done
+}
+
+
+make_out_dir()
+{
+        the_output_format=$1
+        path_to_input=$2
+        
+        is_format_valid $the_output_format
+        if [ "$is_format_valid_result" == "False" ]; then
+                echo >&2 "ERROR: -t only supports the following formats: "
+                for  i in $SUPPORTED_FORMATS  ; do
+                        echo "    "$i
+                done
+                exit 1
+        fi
+        
+        out_path=$(pwd)"/"$path_to_input"/${the_output_format}/"
+        mkdir -p $out_path
+        if [ ! -d "$out_path" ]; then
+                echo >&2 "ERROR: cannot create director at: "$out_path
+                exit 1
+        fi
+
+        echo "  Writing output to this directory: " $out_path
+}
+
+
 
 
 
@@ -166,16 +315,21 @@ main ()
 	done
 
 
-
         if [[ -n "$indir" && -n "$infile" ]]; then
                 echo "ERROR: specify -d OR -f, but not both"
                 exit 1
         fi
 
+        
         if [ ! -n "$outformat" ]; then
                 outformat="pdf" # Default format
-        elif [ "$outformat" != "epub" ] && [ "$outformat" != "pdf" ] ; then
-                echo >&2 "ERROR: -t can only be pdf or epub"
+        fi   
+        is_format_valid $outformat
+        if [ "$is_format_valid_result" == "False" ]; then
+                echo >&2 "ERROR: -t only supports the following formats: "
+                for  i in $SUPPORTED_FORMATS  ; do
+                        echo "    "$i
+                done
                 exit 1
         fi
 
@@ -201,30 +355,21 @@ main ()
         fi
 
 
-
+        
+        #
         # -f <filename>
         # Only a single file
+        #
         if [ -n "$infile" ]; then
                 # File must be present
                 if [ -f "$infile" ]; then
                         this_path=$(get_file_path $infile)
                         file_basename=$(get_file_basename $infile)
-                        pdf_path=$(pwd)"/pdf/"$this_path
-                        mkdir -p $pdf_path
-                        echo "  Writing output to this directory: " "pdf/"$this_path
 
+                        make_out_dir "$outformat" "$this_path"
+                        
                         cd $this_path
-                        if [ "$outformat" == "pdf" ]; then
-                                outfile_ext=$file_basename".pdf"
-                        elif [ "$outformat" == "epub" ]; then
-                                outfile_ext=$file_basename".epub"
-                        fi
-
-                        echo "    Generating: " $outfile_ext
-                        outfile_ext=$pdf_path"/"$outfile_ext
-                        this_infile=$file_basename".md"
-
-                        $(do_conversion $this_infile $outfile_ext $outformat $outstyle)
+                        do_conversion  $file_basename $outformat $outstyle
                 else
                     printf "\n"
                     echo "ERROR: cannot find file: " $infile
@@ -234,88 +379,52 @@ main ()
                 exit 0
         fi
 
+
         
-        # -d <subdirectory>
+        #
+        # -d <subdirectory> or all directories
         # An entire subdirectory
-        if [ -n "$indir" ]; then
+        #
+        for  in_dir in $PROCESS_THESE_DIRECTORIES; do        
+                echo "====Processing directory: $in_dir ===="
+        
+                if [ -n "$indir" ]; then
+                        if [ "$indir" != "$in_dir" ]; then
+                                continue
+                        fi
+                fi
+                        
                 # Directory must be present
-                if [ -d "$indir" ]; then
-                        this_dir="$indir"
-                elif [ -d "./docs/$indir" ]; then
-                        this_dir="./docs/$indir"
+                if [ -d "$in_dir" ]; then
+                        this_path="$in_dir"
+                elif [ -d "./docs/$in_dir" ]; then
+                        this_path="./docs/$in_dir"
                 else
+                        echo "this_path" $this_path
                         printf "\n"
-                        echo "ERROR: cannot find directory: " $indir
+                        echo "ERROR: cannot find directory: " $in_dir
                         exit 1
                 fi
 
-                pdf_path=$(pwd)"/pdf/"$indir
-                mkdir -p $pdf_path
-                echo "  Writing output to this directory: " "pdf/"$indir
-                infiles=$(ls $this_dir)
+
+                make_out_dir "$outformat" "$this_path"
                 
-                cd $this_dir
+                infiles=$(ls "$this_path")
+                cd $this_path
                 for infile in $infiles; do
                         file_basename=$(get_file_basename $infile)
-
-                        if [ "$outformat" == "pdf" ]; then
-                                outfile_ext=$file_basename".pdf"
-                        elif [ "$outformat" == "epub" ]; then
-                                outfile_ext=$file_basename".epub"
-                        fi
-                        outfile_ext=$pdf_path"/"$outfile_ext
                         file_ext=$(get_file_ext $infile)
+                        
                         # Only process *md files
                         if [ "$file_ext" == "md" ]; then
                                 echo "    Generating: " $file_basename"."$outformat
-                                $(do_conversion $infile $outfile_ext $outformat $outstyle)
+                                $(do_conversion $file_basename $outformat $outstyle)
                         fi
                 done
-                cd - > /dev/null
-                exit 0
-        fi
-
-        # Default: do all directories
+                cd $OLDPWD
+        done       
+        cd - > /dev/null
         
-        # Only these directories in docs:
-        #     books - Needs HTML in markdown to be fixed
-        #     contrib
-        #     dev
-        #     handbook
-        #     handbook/community
-        #     misc
-        dirspath=docs
-        dirs="contrib dev handbook handbook/community misc"
-        for dir in $dirs; do
-                this_path=$dirspath"/"$dir
-                pdf_path=$(pwd)"/pdf/"$dir
-                mkdir -p $pdf_path
-                echo "-------------------------"
-                echo "Output to this directory: " "pdf/"$dir
-                these_files=$(ls $this_path)
-                for this_file in $these_files; do
-                        file_basename=$(get_file_basename $this_file)
-                        file_ext=$(get_file_ext $this_file)
-
-                        if [ "$outformat" == "pdf" ]; then
-                                outfile_ext=$file_basename".pdf"
-                        elif [ "$outformat" == "epub" ]; then
-                                outfile_ext=$file_basename".epub"
-                        fi
-
-                        outfile_ext=$pdf_path"/"$outfile_ext
-                        this_infile=$file_basename".md"
-
-                        cd $this_path
-
-                        # Only process *md files
-                        if [ "$file_ext" == "md" ]; then
-                                $(do_conversion $this_infile $outfile_ext $outformat $outstyle)
-                                echo "    Generating: " $file_basename"."$outformat
-                        fi
-                        cd - > /dev/null
-                done
-        done
 }
 
 # Execute this script
