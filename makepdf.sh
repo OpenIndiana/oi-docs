@@ -42,9 +42,35 @@ SUPPORTED_FORMATS="pdf epub"
 PROCESS_THESE_DIRECTORIES="contrib dev handbook handbook/community misc"
 
 
-
-
 help()
+{
+    cat<<EOF
+    Usage: $0 <options> 
+
+    Simple script to currently produce pdf and epub formats for 
+    OpenIndiana Docs. The epub format is experimental.
+
+
+    OPTIONS
+    -d <subdir>  convert all files in this subdirectory.
+       Only all files in subdir are converted, no files in 
+       subdirs of subdir are converted.   
+    -f <filename> only convert this filename
+       Default: convert everything
+    -h this help
+    -t <pdf || epub> output type either pdf or epub
+       Default: pdf
+    -s <web || opensolaris> output style either web or opensolaris (only applicable to pdf)
+       Default: web
+    -v verbose provides more verbose output
+
+    For more help, rerun with -vh
+
+EOF
+}
+
+
+help_verbose()
 {
     cat<<EOF
     Usage: $0 <options> 
@@ -52,17 +78,12 @@ help()
     Simple script to produce pdf and epub formats for OpenIndiana Docs
     The epub format is experimental.
 
-    Without any options, all files ending in .md in the following
-    directories are converted:
-        books
-        contrib
-        dev
-        handbook
-        handbook/community
-        misc
+    Without any options, all files ending in .md in the direcxtories listed 
+    in thew variable PROCESS_THESE_DIRECTORIES will be processed.
 
     All files produced will be placed in a new directory denoted 
-    according to the output format, i.e., ./pdf or ./epub
+    according to the output format, i.e., ./pdf or ./epub in the top-level
+    directory.
 
     REQUIREMENTS
     On a Debian system, you must install the following packages:
@@ -72,24 +93,29 @@ help()
         $ sudo apt-get install texlive-xetex
 
     OPTIONS
-    -d <subdir>  convert all files in this subdirectory
+    -d <subdir>  convert all files in this subdirectory.
+       Only all files in subdir are converted, no files in 
+       subdirs of subdir are converted.   
     -f <filename> only convert this filename
        Default: convert everything
     -h this help
     -t <pdf || epub> output type either pdf or epub
        Default: pdf
-    -s <web || opensolaris> output style either web or opensolaris (only applicable to pdf)
-       Default: pdf
+    -s <web || opensolaris> 2 different styles are currently supported
+       for pdf: web or opensolaris. 
+       Default: web
+    -v verbose output
 
     EXAMPLES
     Convert all files in the contrib sub-dir:
         makepdf.sh -d contrib
     Convert getting-started.md:
         makepdf.sh -f ./docs/contrib/getting-started.md
-    Produce epub:
-        makepdf.sh -t epub -f ./docs/contrib/getting-started.md
+    Produce epub with extra output:
+        makepdf.sh -vt epub -f ./docs/contrib/getting-started.md
 EOF
 }
+
 
 get_file_basename ()
 {
@@ -98,11 +124,13 @@ get_file_basename ()
         echo "${this_file%.*}"
 }
 
+
 get_file_ext ()
 {
         this_file=$1
         echo "${this_file##*.}"
 }
+
 
 get_file_path()
 {
@@ -110,17 +138,115 @@ get_file_path()
         echo $(dirname "$infile")
 }
 
-get_out_rel_path_file()
+
+make_dir()
 {
-        input_basename="$1"
-        format="$2"
+        this_path="$1"
 
-        out_rel_path_file=""
-
-        out_rel_path_file="./"$format"/"$input_basename"."$format
+        if [ ! -z "$this_path" ]; then
+                if [ ! -d $this_path ]; then
+                        mkdir -p $this_path
+                        if [ ! -d "$out_path" ]; then
+                                echo >&2 "ERROR: cannot create directory at: "$this_path
+                                exit 1
+                        fi
+                fi
+        fi
 }
 
 
+get_root()
+{
+        root_dir=""
+
+        root_dir=$(pwd)
+        if [ "$?" -ne "0" ]; then
+                echo "ERROR: severe error. Could not get current path"
+                exit $?
+        fi
+}
+
+
+# Currently relative paths are specified in some documents
+# to load Openindiana.png. The relative paths appear to
+# take precedence over --resource-path option to pandoc
+# As a workaround we add softlinks
+do_workaround()
+{
+        if [ ! -f $root_dir/Openindiana.png ]; then
+                $(ln -s $root_dir/docs/Openindiana.png $root_dir/Openindiana.png)
+        fi
+        if [ "$?" -ne "0" ]; then
+                echo "ERROR: severe error. Could not generate link"
+                exit $?
+        fi
+        if [ ! -f $root_dir/docs/handbook/Openindiana.png ]; then
+                $(ln -s $root_dir/docs/Openindiana.png $root_dir/docs/handbook/Openindiana.png)
+        fi
+        if [ "$?" -ne "0" ]; then
+                echo "ERROR: severe error. Could not generate link"
+                exit $?
+        fi
+}
+
+
+undo_workaround()
+{
+        $(rm $root_dir/Openindiana.png)
+        if [ "$?" -ne "0" ]; then
+                echo "ERROR: severe error. Could not remove link"
+                exit $?
+        fi
+        $(rm $root_dir/docs/handbook/Openindiana.png)
+        if [ "$?" -ne "0" ]; then
+                echo "ERROR: severe error. Could not remove link"
+                exit $?
+        fi
+}
+
+
+clean_up()
+{
+        undo_workaround
+}
+
+
+get_full_path_outputfile()
+{
+        input_basename="$1"
+        this_top_level_dir="$2"
+        this_out_dir_stub="$3"
+        this_format="$4"
+
+        
+        local prefix="./docs/"
+        local this_outdir=""
+        
+        if [ -z "$input_basename" ]; then
+                echo "Error: severe developer error: input_basename"
+                exit 1
+        fi
+        if [ -z "$this_top_level_dir" ]; then
+                echo "top_level_dir: "$this_top_level_dir
+                echo "Error: severe developer error: top-level-dir not set"
+                exit 1
+        fi
+        if [ -z "$this_out_dir_stub" ]; then
+                echo "Error: severe developer error: this_out_dir_stub not set"
+                exit 1
+        fi
+        if [ -z "$this_format" ]; then
+                echo "Error: severe developer error: this_format not set"
+                exit 1
+        fi
+        
+        this_out_dir_stub_rm_prefix=${this_out_dir_stub#"$prefix"}
+        this_outdir="$this_top_level_dir"/"$format"/"$this_out_dir_stub_rm_prefix"
+        
+        make_dir "$this_outdir"
+                
+        out_full_path_outputfile=$this_outdir"/"$input_basename"."$format
+}
 
 
 #
@@ -149,7 +275,8 @@ is_pandoc_version_new()
 do_conversion_epub()
 {
         this_basename="$1"
-        this_format="$2"
+        the_output="$2"
+        this_format="$3"
         
         if [ "$this_format" != "epub" ]; then
                 echo >&2 -n "SERIOUS ERROR: trying to process for epub, but "
@@ -159,17 +286,28 @@ do_conversion_epub()
 
         this_title=$this_basename
 
-        get_out_rel_path_file "$this_basename" "$this_format"
         
-        $(pandoc -t epub --toc -f markdown+grid_tables+table_captions --metadata title="$this_title" -o $out_rel_path_file $input_basename".md"  --pdf-engine=xelatex)
-        
+        $(pandoc -t epub --toc \
+                 --epub-cover-image=../Openindiana.png \
+                 -f markdown+grid_tables+table_captions \
+                 --metadata title="$this_title" \
+                 --metadata-file $OLDPWD/pandoc/config-sb.yaml \
+                 --lua-filter $OLDPWD/pandoc/filter-sb.lua \
+                 -o $the_output $this_basename".md"  --pdf-engine=xelatex)
+        if [ "$?" -ne "0" ]; then
+                echo "..." $root_dir
+                echo "ERROR: severe error from poandoc" 
+                exit $?
+        fi
+
 }
 
 
 do_conversion_with_older_pandoc()
 {
         this_basename="$1"
-        this_format="$2"
+        this_output="$2"
+        this_format="$3"
 
         if [ "$this_format" != "pdf" ]; then
                 echo >&2 -n "SERIOUS ERROR: trying to process for pdf using"
@@ -178,18 +316,19 @@ do_conversion_with_older_pandoc()
         fi
 
         
-        get_out_rel_path_file "$this_basename" "$this_format"
+        #get_full_path_outputfile "$this_basename" "$this_format"
 
         $(pandoc --toc -f markdown+grid_tables+table_captions \
-                 -o $output_path_file $input_basename".md" \
+                 -o $this_output $this_basename".md" \
                  --pdf-engine=xelatex)
 }
 
 do_conversion_pdf()
 {
         this_basename="$1"
-        this_format="$2"
-        this_style="$3"
+        this_output="$2"
+        this_format="$3"
+        this_style="$4"
 
         if [ "$this_format" != "pdf" ]; then
                 echo >&2 -n "SERIOUS ERROR: trying to process for pdf, but "
@@ -197,18 +336,17 @@ do_conversion_pdf()
                 exit 1
         fi
 
-        get_out_rel_path_file "$this_basename" "$this_format"
         
         if [ "$this_style" == "opensolaris" ]; then
                 $(pandoc --pdf-engine=xelatex \
                          --lua-filter $OLDPWD/pandoc/filter-sb.lua \
                          --metadata-file $OLDPWD/pandoc/config-sb.yaml \
-                         -o $out_rel_path_file $input_basename".md")
+                         -o $this_output $this_basename".md")
         elif [ "$this_style" == "web" ]; then
                 $(pandoc --pdf-engine=xelatex \
                          --lua-filter $OLDPWD/pandoc/filter-web.lua \
                          --metadata-file $OLDPWD/pandoc/config-web.yaml \
-                         -o $out_rel_path_file $input_basename".md")
+                         -o $this_output $this_basename".md")
         
         else
                 echo "ERROR: can only process one of these styles: opensolaris or web"
@@ -220,21 +358,36 @@ do_conversion_pdf()
 do_conversion()
 {
         input_basename="$1"
-        format="$2"
-        style="$3"
+        this_top_level_dir="$2"
+        this_out_dir_stub="$3"
+        format="$4"
+        style="$5"
 
+        local this_outpath=""
+        
+        get_full_path_outputfile "$input_basename" "$this_top_level_dir" \
+                                 "$this_out_dir_stub" "$format"
+        
+        if [ -z "$out_full_path_outputfile" ]; then
+                echo "Error: severe developer error: out_full_path_outputfile not set"
+                exit 1
+        fi
         
         if [ "$format" == "epub" ]; then
-                do_conversion_epub "$input_basename" "$format"
+                do_conversion_epub "$input_basename" "$out_full_path_outputfile" \
+                                   "$format"
 
                 
         elif [ "$format" == "pdf" ]; then               
                 if [ "$(is_pandoc_version_new)" == "false" ]; then
                         # This call for backward compatibility 
-                        do_conversion_with_older_pandoc "$input_basename" "$format"
-                        
+                        do_conversion_with_older_pandoc "$input_basename" \
+                                                        "$out_full_path_outputfile" \
+                                                        "$format"
                 else
-                        do_conversion_pdf "$input_basename" "$format" "$style"
+                        do_conversion_pdf "$input_basename" \
+                                          "$out_full_path_outputfile" \
+                                          "$format" "$style"
                 fi
         fi
 }
@@ -256,10 +409,26 @@ is_format_valid()
 }
 
 
-make_out_dir()
+is_dir_valid()
+{
+        input_dir="$1"
+        is_dir_valid_result="False"
+
+        if [ -d "$indir" ]; then
+                is_dir_valid_result="True"
+        fi
+}
+
+
+make_out_toplevel_dir()
 {
         the_output_format=$1
-        path_to_input=$2
+        the_output_dir=$2
+
+        if [ -z "$the_output_dir" ]; then
+                echo "Error: severe developer error: top-level-dir not set: the_output_dir"
+                exit 1
+        fi
         
         is_format_valid $the_output_format
         if [ "$is_format_valid_result" == "False" ]; then
@@ -270,14 +439,13 @@ make_out_dir()
                 exit 1
         fi
         
-        out_path=$(pwd)"/"$path_to_input"/${the_output_format}/"
+        out_path="$the_output_dir""/""${the_output_format}/"
         mkdir -p $out_path
         if [ ! -d "$out_path" ]; then
-                echo >&2 "ERROR: cannot create director at: "$out_path
+                echo >&2 "ERROR: cannot create directory at: "$out_path
                 exit 1
         fi
 
-        echo "  Writing output to this directory: " $out_path
 }
 
 
@@ -289,7 +457,8 @@ main ()
         #
         # Command Line Options
         #
-        while getopts "hd:f:t:s:" opt; do
+        optverbose="False"
+        while getopts "hd:f:t:s:v" opt; do
 	        case $opt in
                         d)
                                 indir=$OPTARG
@@ -306,6 +475,9 @@ main ()
                                 ;;
                         s)
                                 outstyle=$OPTARG
+                                ;;
+                        v)
+                                optverbose="True"
                                 ;;
                         \?)
                                 echo "Don't know this option"
@@ -341,7 +513,6 @@ main ()
         fi
 
 
-
         # Required packages ok?
         type pandoc >/dev/null 2>&1 || {
                 echo >&2 "ERROR: require package pandoc, please install pandoc."
@@ -355,6 +526,13 @@ main ()
         fi
 
 
+        # Get and set top-level dir
+        get_root
+
+
+
+        # workaround
+        do_workaround
         
         #
         # -f <filename>
@@ -366,50 +544,65 @@ main ()
                         this_path=$(get_file_path $infile)
                         file_basename=$(get_file_basename $infile)
 
-                        make_out_dir "$outformat" "$this_path"
-                        
+                        make_out_toplevel_dir "$outformat" "$root_dir"
                         cd $this_path
-                        do_conversion  $file_basename $outformat $outstyle
+
+                        do_conversion  $file_basename $root_dir $this_path $outformat $outstyle
                 else
                     printf "\n"
                     echo "ERROR: cannot find file: " $infile
+                    clean_up
                     exit 1
                 fi
+                clean_up
                 cd - > /dev/null
                 exit 0
         fi
-
 
         
         #
         # -d <subdirectory> or all directories
         # An entire subdirectory
         #
-        for  in_dir in $PROCESS_THESE_DIRECTORIES; do        
-                echo "====Processing directory: $in_dir ===="
-        
-                if [ -n "$indir" ]; then
-                        if [ "$indir" != "$in_dir" ]; then
-                                continue
-                        fi
+
+        if [ -n "$indir" ]; then
+                is_dir_valid "$indir" 
+                if [ "$is_dir_valid_result" == "False" ]; then
+                        echo "ERROR: not a directory: "$indir
+                        echo "       The argument to -d must be a directory"
+                        clean_up
+                        exit 1
+                else
+                        PROCESS_THESE_DIRECTORIES="$indir"
                 fi
-                        
+        fi
+        
+        for  in_dir in $PROCESS_THESE_DIRECTORIES; do
+                if [ "$optverbose" == "True" ]; then
+                        echo "====Processing directory: $in_dir ===="
+                fi
+                
+                
                 # Directory must be present
                 if [ -d "$in_dir" ]; then
                         this_path="$in_dir"
                 elif [ -d "./docs/$in_dir" ]; then
                         this_path="./docs/$in_dir"
                 else
-                        echo "this_path" $this_path
                         printf "\n"
                         echo "ERROR: cannot find directory: " $in_dir
+                        clean_up
                         exit 1
                 fi
 
+                make_out_toplevel_dir "$outformat" "$root_dir"
+                if [ "$optverbose" == "True" ]; then
+                        echo "  Writing output to this directory: " $out_path$in_dir
+                fi
 
-                make_out_dir "$outformat" "$this_path"
                 
                 infiles=$(ls "$this_path")
+
                 cd $this_path
                 for infile in $infiles; do
                         file_basename=$(get_file_basename $infile)
@@ -417,12 +610,20 @@ main ()
                         
                         # Only process *md files
                         if [ "$file_ext" == "md" ]; then
-                                echo "    Generating: " $file_basename"."$outformat
-                                $(do_conversion $file_basename $outformat $outstyle)
+                                if [ "$optverbose" == "True" ]; then
+                                        echo "    Generating: " $file_basename"."$outformat
+                                fi
+                                $(do_conversion $file_basename $root_dir $this_path $outformat $outstyle)
+                                if [ "$?" -ne "0" ]; then
+                                        echo "ERROR: severe error. Could not get current path"
+                                        clean_up
+                                        exit $?
+                                fi
                         fi
                 done
                 cd $OLDPWD
-        done       
+        done
+        clean_up
         cd - > /dev/null
         
 }
