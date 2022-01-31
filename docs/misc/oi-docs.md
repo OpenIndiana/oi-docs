@@ -41,6 +41,8 @@ The docs team began by looking at:
 * The methods and toolkits used to create past and present documentation.
 * How other projects where approaching their systems documentation efforts.
 
+Much of the migration from the previous Confluence based Wiki was completed in 2019.
+In 2021 the previous Wiki had to been taken offline due to vulnerabilities in the Confluence software it used.
 
 ## Documentation revitalization effort goals
 
