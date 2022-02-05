@@ -28,7 +28,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Date       | Change
 ---------  | -------------
-2022-02-03 | fix terminator history
 2022-02-04 | barman: update to 2.18
 2022-02-04 | Firefox Version 91.5.1
 2022-02-03 | sbcl: update to 2.2.1
@@ -39,24 +38,22 @@ Date       | Change
 2022-02-02 | Upgrade of terminator to 2.1.1 with python 3.9
 2022-02-02 | graphicsmagick: update to 1.3.37
 2022-02-02 | sendmail/libmilter - updated to latest version 8.17.1
-2022-02-01 | fonts/terminus: update to 4.49.1
-2022-02-01 | bcc: update to 0.16.21
-2022-02-01 | opendbx - Native DBExpress driver v1.4.6 (mysql, postgres, odbc, sqli…
+2022-02-01 | fonts/terminus: update to 4.49.12022-02-01 | bcc: update to 0.16.21
+2022-02-01 | add support for opendbx
 2022-02-01 | update nodejs-14 to 14.19.0
 2022-02-01 | Make GNU-M4 64bit only
 2022-02-01 | drakma: update to 2.0.8
 2022-02-01 | cl-ppcre: update to 2.1.1
 2022-02-01 | chunga: update to 1.1.7
 2022-02-01 | pigz: update to 2.7
-2022-02-01 | disable some failing packages until we can provide fixes
 2022-02-01 | puri: update to 1.5.7
+2022-02-01 | add PHP-8.1.2
 2022-01-31 | seahorse: fix for gnupg-2.3.4
 2022-01-31 | meld: fix build with meson > 0.60.0
-2022-02-01 |  php-812 - current version of php (based on openssl 1.1) includes fix…
 2022-01-31 | GNOME download server is https://download.gnome.org/
 2022-01-30 | sshpass: update to 1.09
 2022-01-30 | expat: update to 2.4.4
-2022-01-30 | stress: update to 1.0.5 and add test results
+2022-01-30 | stress: update to 1.0.5
 2022-01-29 | php-81 fix sed to cover all conditions to build correctly with openss…
 2022-01-01 | Upgrade of pygobject to 3.42.0 with python 3.7 and 3.9
 2021-07-30 | sudo: update to 1.9.7p2
@@ -68,8 +65,8 @@ Date       | Change
 2020-07-16 | squeak-5c: Add cog implementation of squeak vm
 2019-12-16 | MATE update September 2019
 2019-11-16 | Add PostgreSQL 12.0
-2019-06-20 | Update Firefox to 60.7.1
 2019-07-20 | Update GNU gettext to 0.20.1
+2019-06-20 | Update Firefox to 60.7.1
 2019-06-13 | Update Valgrind to 3.15.0
 2019-04-28 | Firefox 60esr
 2019-02-20 | Remove obsoleted lint-libraries from build system
