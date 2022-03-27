@@ -7,4 +7,5 @@ livereload==2.6.3
 tornado==6.1
 click==7.1.2
 Jinja2==2.11.3
+markupsafe==2.0.1
 PyYAML==5.4
