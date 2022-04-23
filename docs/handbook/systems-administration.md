@@ -416,8 +416,40 @@ onto the system before changing the run-level.
 
 ## Configuring and Tuning
 
-< place holder >
+There are a few tools to configure and tune an OpenIndiana system.   One of the tools is sysding,  a tool that is used by the current OpenIndiana installer to setup static IP addresses when NWAM (automatic network configuration) is not used.
 
+For more information on sysding, see the manpage and example config file :
+
+```bash
+# man sysding
+```
+
+The configuration file is :
+
+```bash
+/etc/sysding.conf
+```
+
+There is also a logfile :
+
+```bash
+/var/log/sysding.log
+```
+
+For example a simple /etc/sysding.conf configuration file for a static IP is :
+
+```bash
+setup_interface e1000g0 v4 10.0.2.16
+setup_route default 10.0.2.2
+```
+
+This service is meant to be run only once and sets a boolean flag config/finished.  In case you want to run sysding again, you'll have to force the finished flag to false :
+
+```bash
+svccfg -s sysding:system
+setprop config/finished = false
+refresh
+```
 
 ### Configuring a UPS
 
@@ -992,8 +1024,23 @@ Possible resources to help write this section:
 
 ## Configuring Networking
 
-### Manual Configuration (static IP)
+### Automatic Configuration (NWAM)
 
+During installation of OpenIndiana, there are three options to configure networking : Automatic, Manual (static IP), and None.
+
+Option Autamatic enables NWAM and configures all interfaces automatically.
+
+Network Auto-Magic (NWAM) manages network interfaces as they are dynamically added or removed to or from the system, using network profiles, and is able to change network settings on the fly.
+
+NWAM is suitable for servers, laptops, desktops and workstations alike, to automatically configure all wired or wireless network interfaces.
+
+Option Manual disables NWAM and creates a /etc/sysding.conf file to setup static IP addresses.
+
+Option None can be used to configure networking manually, without NWAM, after installation.
+
+### Changing from NWAM to Manual Configuration
+
+If during install you enabled NWAM, and if you want to disable NWAM you can proceed as follows :
 
 ```bash
 # svcadm disable physical:nwam
@@ -1012,11 +1059,23 @@ Enable the default physical service with `svcadm` and configure the `interface`:
 # svcadm enable physical:default
 ```
 
-Configure interface with ipadm:
+There are multiple ways to configure the interface : using sysding or directly with ipadm.
+
+For more information on sysding, see the section on Configuring and Tuning.
+
+To configure an interface with ipadm:
 
 ```bash
 # ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
 ```
+
+or
+
+```bash
+# ipadm create-addr -T dhcp bge0/dhclient
+```
+
+The previous example sets up DHCP without using NWAM.  NWAM is more than DHCP, because NWAM automatically configures any new interfaces, while the above way to manually setup DHCP is fixed for a specific interface.
 
 If you do not know what the interface name is (bge0 in this case); then type in
 
@@ -1045,6 +1104,8 @@ or
 
 # Enter in your gateways IP
 ```
+
+or use the /etc/sysding.conf file to configure a default router and DNS servers.
 
 Set DNS server(s)
 
@@ -1078,16 +1139,12 @@ IF you cannot ping an external IP (e.g. google.com) run this command and try aga
 # cp /etc/nsswitch.dns /etc/nsswitch.conf
 ```
 
-credit for this section of docs go to [/u/127b](https://www.reddit.com/user/127b)
+credit for this section of the docs go to [/u/127b](https://www.reddit.com/user/127b)
 
 
-### Automatic Configuration (NWAM)
+### More on Automatic Configuration (NWAM)
 
-Network Auto-Magic (NWAM) is a new approach to managing network interfaces that was introduced with OpenSolaris.
-NWAM introduced network profiles to be able to change network settings on the fly.
-One important reason to redesign networking was the increasing importance of wireless networking and the need to cope with its dynamic nature.
-
-While usually server and desktop installations tend to use default network configurations, laptop users can leverage nwam network configuations.
+The following is a more in depth discussion of NWAM, which normally works without any user interaction, but NWAM can be customized using profiles by the user.
 
 #### Using NWAM configuration tools
 
