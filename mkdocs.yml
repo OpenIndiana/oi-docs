@@ -36,6 +36,7 @@ nav:
                 - 'Community Contributed Tutorials':
                          - 'About Community Contributed Tutorials': handbook/community.md
                          - 'Oracle Database Installation': handbook/community/oracledb.md
+                         - 'Storage Archive Manager Installation': handbook/community/samqfs.md
                          - 'Sun Ray Installation': handbook/sunray.md
                          - 'Intelligent Input Bus (IBus)': handbook/community/inputmethod.md
                          - 'Squeak Smalltalk-80 Installation': handbook/community/squeak.md
