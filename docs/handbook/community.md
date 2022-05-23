@@ -34,6 +34,12 @@ Originally contributed by OpenIndiana community member Franklin Ronald, this art
 
 Link to article: [Installing Oracle Databases (Native or Vagrant) on OpenIndiana Hipster](community/oracledb.md)
 
+## How to Install Storage Archive Manager File System on OpenIndiana Hipster
+
+This article, contributed by OpenIndiana community member Carsten Grzemba, details the steps required for the installation and configuration of SamQFS Software on OpenIndiana Hipster.
+
+Link to document: [Storage Archive Manager File System on OpenIndiana Hipster](community/samqfs.md)
+
 ## How to Install Sun Ray Software on OpenIndiana Hipster
 
 This article, contributed by OpenIndiana community member Carsten Grzemba, details the steps required for the installation of Sun Ray Software on OpenIndiana Hipster.
