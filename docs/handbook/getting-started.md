@@ -82,10 +82,7 @@ For a full list of links to the various installer images, visit the [OpenIndiana
 <div class="well">
 
 * The legacy oi-dev-151x branch is no longer maintained.
-* While upgrades to Hipster are possible, it can only be performed by doing it in stages.
-    * First upgrade from oi-dev to Hipster-2015, and verify the system has been updated to the latest 2015.
-    * Only then may you switch to the current Hipster repository and update again.
-    * [For more details, click here for upgrade instructions](https://wiki.openindiana.org/pages/viewpage.action?pageId=30802657)
+* For details on installing/upgrading legacy OpenIndiana dev, [see this page](./legacy-branch.md)
 
 </div>
 
@@ -505,57 +502,23 @@ From within Windows Explorer:
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
-There are two unique methods for creating bootable USB flash drives.
-The method to use depends on the release date of the USB image you intend to write.
-
-#### Method 1
-
-* Applies to the experimental releases of July 2016 and all subsequent (newer) releases.
-    * For example: The OpenIndiana Hipster 2016.10 release uses this method.
-
-#### Method 2
-
-* Applies to all OpenIndiana releases up to and including the OpenIndiana Hipster 2016.04 release.
-* This includes the legacy oi-dev-151a series of OpenIndiana releases.
+Old versions of OpenIndiana Hipster prior to the 2016.10 release (including legacy oi-dev-151x) require a different
+procedure for for creating bootable USB flash drives, [see this page for details](./legacy-branch.md)
 </div>
 
 
 <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
 <div class="well">
-Although that the current OpenIndiana Hipster releases support UEFI without secure boot, old versions of OpenIndiana Hipster did not yet support UEFI.
+Although that the current OpenIndiana Hipster releases support UEFI without secure boot, old versions of OpenIndiana Hipster did not support UEFI.
 
-* If you intend to install an old version of OpenIndiana Hipster on a system, which supports UEFI boot, please be sure to boot the system in legacy mode.
+* If you intend to install an old version of OpenIndiana Hipster on a system which supports UEFI boot, please boot the system in legacy (CSM) mode.
 </div>
 
 
 ### Prerequisites
 
-#### Methods 1 & 2
-
 * USB flash drive - (2GB or larger).
 * Download the OpenIndiana USB installer image.
-
-#### Method 2
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-
-* Header files are only required when writing a legacy image **AND** using the dd utility.
-    * Header files are **NOT** required when writing current images.
-    * For example: The Hipster 2016.10 release, does **NOT** require header files.
-
-</div>
-
-* Download the appropriate OpenIndiana [1G](http://dlc.openindiana.org/isos/archive/1G.header") or [2G](http://dlc.openindiana.org/isos/archive/2G.header) header file
-    * There are 2 unique USB header files (1G and 2G).
-    * Please ensure you have selected the correct file as the files are **NOT** interchangeable.
-        * The 1G.header is only suitable for use with the text installer (Command line console).
-        * The 2G.header is only suitable for use with the live installer (Gnome desktop).
-
-<i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
-<div class="well">
-Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting.
-</div>
 
 
 ### Identifying the path to your USB device
@@ -605,29 +568,12 @@ For example:
 In the command below, replace `X` with the appropriate letter for your USB device. At least on Linux and FreeBSD you can add `status=progress` operand to print basic transfer statistics, refer to `dd(1)` man page of your platform for more information.
 
 
-#### Method 1 (New releases)
-
 ```
 # dd bs=4M if=./image.usb of=/dev/sdX && sync
 ```
 
-#### Method 2 (Legacy releases)
-
-```
-# cat 1G.header image.usb | dd bs=1024k of=/dev/sdX
-```
-
-For live images larger than 1GB, use the following command instead.
-
-```
-# cat 2G.header image.usb | dd bs=1024k of=/dev/sdX
-```
-
 
 ### illumos/Solaris
-
-
-#### Method 1 (New releases)
 
 In the command below, replace each `X` with appropriate number for your USB device.
 
@@ -635,34 +581,7 @@ In the command below, replace each `X` with appropriate number for your USB devi
 # /usr/bin/dd if=./image.usb of=/dev/rdsk/cXtXdXpX bs=4194304
 ```
 
-#### Method 2 (Legacy releases)
-
-For illumos based distributions including OpenIndiana, a script [(USBCOPY)](https://raw.githubusercontent.com/OpenIndiana/slim_source/oi/hipster/usr/src/cmd/install-tools/usbcopy) is available to copy the USB image onto a USB device.
-
-Be sure to run as root or with SUDO as the script exits if not run with elevated permissions.
-
-<!-- had to specify java (other langs may work) to fix the formatting -->
-
-```java
-# ./usbcopy image.usb
-Found the following USB devices:
-0:    devices/dev/rdsk/c4t0d0p0    3.9 GB    USB    DISK 2.0       1.00
-Enter the number of your choice: 0
-
-WARNING: All data on your USB storage will be lost.
-Are you sure you want to install to
-USB DISK 2.0 1.00, 3900 MB at /dev/rdsk/c4t0d0p0 ?  (y/n) y
-Copying and verifying image to USB device
-Finished 1643 MB in 685 seconds (2.3MB/s)
-0 block(s) re-written due to verification failure
-Installing grub to USB device /dev/rdsk/c4t0d0s0
-Completed copy to USB
-#
-```
-
 ### Windows
-
-#### Method 1 (New releases)
 
 Newer releases can be written using [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/).
 
@@ -671,10 +590,6 @@ Newer releases can be written using [Win32 Disk Imager](https://sourceforge.net/
 By default the Win32 Disk Imager utility is looking for `.img` files and won't see files with a `.usb` extension.
 To resolve this issue, be sure to select the `*.*` (all files) option from the file extension drop down menu.
 </div>
-
-#### Method 2 (Legacy releases)
-
-The [OpenSolaris Live USB Creator](http://devzone.sites.pid0.org/OpenSolaris/opensolaris-liveusb-creator) is a small stand alone GUI utility suitable for creating an OpenIndiana bootable USB flash drive.
 
 
 ## Booting the Hipster Installer
@@ -917,7 +832,7 @@ Select the appropriate installer option by clicking the corresponding desktop in
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
 <div class="well">
 
-**New for the Hipster 2016.10 release**
+**From Hipster 2016.10 release onwards**
 
 Selecting the ***Install OpenIndiana using the Text Installer*** desktop installer option provides new installation capabilities.
 
@@ -1195,7 +1110,7 @@ The instructions for performing a text based install apply to the following inst
 * Beginning a text based installation by booting from the OpenIndiana text based installer.
 
 <br>
-**New for the 2016.10 release**
+**From the 2016.10 release onwards**
 
 Mirrors and RAIDZ are now supported install options!
 
@@ -1205,11 +1120,12 @@ Mirrors and RAIDZ are now supported install options!
 <br>
 **GUI Desktop may be added post-installation**
 
-* To install MATE Desktop Environment
+* To install MATE Desktop Environment (using a metapackage) and enable graphical login
 
 ```
 pkg install mate_install
 pkg uninstall mate_install
+svcadm enable -r /application/graphical-login/lightdm
 init 6
 ```
 
@@ -1573,134 +1489,6 @@ Use the following steps to change the root password:
 * You will be informed that root's password has expired and prompted to change it
 * Once changed you can exit the su session
 * You should be able to login/authenticate as root now.
-
-## Updating OpenIndiana /dev to /hipster
-
-This section describes how to update your existing OpenIndiana /dev installation to OpenIndiana /hipster.
-
-Note, that although direct updating from /dev to /hipster can be possible, it's not exhaustively tested.
-
-There are several techniques which you can use to update your systems, including root pool installation from OpenIndiana ISO.
-Complete reinstall also can be a decent option.
-
-Further it's considered that you were warned and decided to do more-or-less direct update from /dev to /hipster.
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-Only server installation update was tested.
-If you do GUI installation update, you are on your own.
-Of course, you are welcome to ask questions in [oi-dev](https://openindiana.org/mailman/listinfo/oi-dev) mailing list, but prepare that nobody will guide you through update.
-</div>
-
-* Do backup.
-  <br/>Seriously.
-  The next steps can make your system unbootable.
-
-* Read release notes.
-  <br/>Read release notes for ALL OpenIndiana Hipster snapshots.
-  They contain information on system changes and possible troubles which can appear.
-  Read [Loader Integration](https://www.openindiana.org/2016/09/28/loader-integration/)
-
-* Test your actions in non-production environment.
-  <br/>Consider that last significant OpenIndiana /dev update was many years ago.
-  You are going to update your applications perhaps via several major releases.
-  Prepare for the changes.
-
-* You'll need console access to the server.
-  <br/>Without console access and ability to boot fresh OpenIndiana Hipster ISO image, you'll not be able to activate new boot environment: old tools can't work with new facilities, new tools will not work with old kernel.
-
-* Update to the latest OpenIndiana /dev version.
-
-```
-# pkg update -v
-```
-
-* Create new boot environment, which you'll update to /hipster, and mount it to `/mnt` (the default empty temporary mountpoint directory).
-
-```bash
-# beadm create oi-hipster
-# beadm mount oi-hipster /mnt
-```
-
-* Uninstall all packages coming from opensolaris.org, sfe or sfe-encumbered publishers.
-
-```bash
-# pkg -R /mnt list pkg://sfe/* pkg://sfe-encumbered/* pkg://opensolaris.org/*
-# pkg -R /mnt uninstall <list of matched packages>
-```
-
-* Unset sfe, sfe-encumbered, opensolaris.org publishers in new BE if they were used.
-
-```bash
-# pkg -R /mnt unset-publisher opensolaris.org
-...
-```
-
-* Change publisher to <http://pkg.openindiana.org/hipster>.
-
-```bash
-# pkg -R /mnt set-publisher -g http://pkg.openindiana.org/hipster -G http://pkg.openindiana.org/dev openindiana.org
-```
-
-* Refresh IPS catalog.
-
-```bash
-# pkg -R /mnt refresh --full
-```
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-Two following steps are actually better to run under `screen(1)` or `tmux(1)`
-</div>
-
-* Look what IPS is going to do.
-
-```bash
-# pkg -R /mnt update -nv 2>&1 | tee /root/testing_update
-# less /root/testing_update
-```
-
-* If you are satisfied with what you've seen, run actual update and review `pkg(1)` output.
-
-```bash
-# pkg -R /mnt update -v 2>&1 | tee /root/update
-# less /root/update
-```
-
-* Now you have updated boot environment, but have no means to activate it, so you'll have to boot from recent OpenIndiana minimal ISO.
-  <br/>After booting from ISO run shell, import pool, update boot archive, install boot loader, activate new boot environment and reboot.
-  `c2t0d0s0` disk name is used in example, you should look at `zpool status` output and use corresponding device.
-  You'd better use cpio boot archive format due to existing issue in compressed ufs boot archive support.
-
-```bash
-# zpool import -R /tmp rpool
-# beadm mount oi-hipster /mnt
-# bootadm update-archive -R /mnt/tmp -vf -F cpio
-# installboot -mvF  /mnt/tmp/boot/pmbr /mnt/tmp/boot/gptzfsboot /dev/rdsk/c2t0d0s0
-# beadm activate oi-hipster
-# init 6
-```
-
-* When your new boot environment is booting, look at possible error messages.
-  <br/>You can see warnings about inability to import some manifests.
-  After logging in you'll be able to import them manually with svccfg import.
-  Also you'll have to remove metainit service, which has gone with SVM support.
-
-```bash
-# svccfg -s metainit delete default
-```
-
-* Look if there are any failed services and examine their log files.
-
-```bash
-# svcs -xv
-```
-
-* Ensure that you have latest osnet-incorporation and userland-incorporation installed.
-
-```bash
-# pkg info osnet-incorporation userland-incorporation
-```
 
 ## Image Package System (IPS)
 
