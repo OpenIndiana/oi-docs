@@ -323,7 +323,7 @@ With assistance of such metadata dumps you are able to recover older versions of
 
 ## SamFS administration
 
-To much CLI for you? There is a more comfortable terminal tool available: `/opt/SUNWsamfs/sbin/samu`.
+Too much CLI for you? There is a more comfortable terminal tool available: `/opt/SUNWsamfs/sbin/samu`.
 ![samu](../images/samqfs/samu.png)
 
 These are some of common CLI tools for filesystems. However in SamFS the prefix 's' is added.
