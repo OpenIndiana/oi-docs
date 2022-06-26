@@ -317,13 +317,13 @@ If an attempt is made to open a file which is offline the stager will copy the d
 
 If you change a file the archive service will automatically create new archive copies.
 
-It is reommended to save the metadata of the filesystem (inodes) for situations where you have to recover the SamFS filesystem.
+It is recommended to save the metadata of the filesystem (inodes) for situations where you have to recover the SamFS filesystem.
 
 With assistance of such metadata dumps you are able to recover older versions of the files also.
 
 ## SamFS administration
 
-To much CLI for you? There is a more comfortable termbased tool `/opt/SUNWsamfs/sbin/samu`.
+Too much CLI for you? There is a more comfortable terminal tool available: `/opt/SUNWsamfs/sbin/samu`.
 ![samu](../images/samqfs/samu.png)
 
 These are some of common CLI tools for filesystems. However in SamFS the prefix 's' is added.
