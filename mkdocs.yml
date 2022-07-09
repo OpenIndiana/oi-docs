@@ -13,6 +13,10 @@ theme:
     primary: grey
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
+extra_css:
+    - 'assets/extra.css'
 nav:
         - Home: index.md
         
@@ -87,5 +91,5 @@ nav:
 extra:
         theme_inverse: true
 
-copyright: Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+copyright: Copyright &copy; 2022 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
 
