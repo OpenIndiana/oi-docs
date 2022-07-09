@@ -3,7 +3,16 @@ site_url: http://docs.openindiana.org
 repo_url: https://github.com/OpenIndiana/oi-docs/
 use_directory_urls: true
 google_analytics: ['UA-77447740-2', 'auto']
-theme: spacelab
+theme: 
+  name: material
+  logo: oi_logo.png
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+  palette:
+    primary: grey
+markdown_extensions:
+  - admonition
 nav:
         - Home: index.md
         

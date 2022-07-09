@@ -21,12 +21,10 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - Community Tutorials
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **Call for Contributors:**
-<div class="well">
-Help us improve and expand this page by offering your community written tutorials for publication on this site.
-
-Please see the **Contrib** section for more details. The docs team can be reached via email: **docs at openindiana.org.**
-</div>
+!!! info "Call for Contributions"
+    Help us improve and expand this page by offering your community written tutorials for publication on this site.
+    
+    Please see the **Contrib** section for more details. The docs team can be reached via email: **docs at openindiana.org.**
 
 ## How to Install Oracle Databases (Native or Vagrant) on OpenIndiana Hipster
 

@@ -71,11 +71,8 @@ Some of the differences between OpenIndiana and OpenSolaris can be characterized
 * Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.
 * XVM (XEN) has been replaced with the illumos-kvm port.
 
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of C++ ABI compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
-</div>
+!!! note
+    OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of C++ ABI compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
 
 ## How does OpenIndiana compare to BSD or Linux?
 
@@ -113,22 +110,13 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | --- | ---
 | Live installer (Gnome desktop) | Text installer (command line console)
 
+!!! note
+    * The legacy oi-dev-151x branch is no longer maintained.
+    * While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-
-* The legacy oi-dev-151x branch is no longer maintained.
-* While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.
-
-</div>
-
-
-<i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> **CAUTION:**
-<div class="well">
-Hipster is a rapid development branch where software versions are frequently updated.
-While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
-</div>
-
+!!! danger "Caution"
+    Hipster is a rapid development branch where software versions are frequently updated.
+    While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
 
 ## What are the recommended hardware specifications?
 
@@ -136,16 +124,11 @@ While every package is tested to ensure stability, caution is nevertheless warra
 | --- | --- | ---
 | 64 Bit | 20GB (or more) | 2GB (or more)
 
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-
-* For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
-* For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
-* The default size of the OpenIndiana swap file is 50% of installed memory.
-    * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
-
-</div>
+!!! note
+    * For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
+    * For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
+    * The default size of the OpenIndiana swap file is 50% of installed memory.
+        * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
 
 ## Does OpenIndiana support internationalization and localization?
 
@@ -172,7 +155,7 @@ Alternate mirrors (Asia, Europe, and North America)
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
+<div class="card card-body bg-light">
 For detailed information about creating a bootable OpenIndiana DVD or USB flash drive, please consult the following sections of the OpenIndiana Handbook:
 
 * [Creating a bootable OpenIndiana DVD](../handbook/getting-started.md#creating-a-bootable-openindiana-dvd)
@@ -186,12 +169,10 @@ OpenIndiana uses the network based [Image Packaging System (IPS)](https://en.wik
 For those coming to OpenIndiana from BSD or Linux, the IPS package manager will be an easy transition.
 You may also continue to use the legacy `pkgadd/pkgrm` commands.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-The OpenIndiana distribution provides a basic set of packages, along with some extras.
-There are also 3rd party repositories which provide additional packages.
-If you wish to contribute by helping to expand package availability, please read further down about how to get involved with the OpenIndiana project.
-</div>
+!!! note
+    The OpenIndiana distribution provides a basic set of packages, along with some extras.
+    There are also 3rd party repositories which provide additional packages.
+    If you wish to contribute by helping to expand package availability, please read further down about how to get involved with the OpenIndiana project.
 
 The following IPS repositories are available:
 
@@ -234,17 +215,12 @@ While somewhat dated now, these resources are largely still relevant.
 * [OpenSolaris 2009.06 Docs](../books/about.md)
     * Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.
 
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-
-An effort currently exists within the OpenIndiana community to review these books and provide errata.
-A longer term goal is to use the errata to revise and condense these titles into a significantly smaller collection which more closely follows the current development state of OpenIndiana Hipster.
-
-The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
-If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.
-
-</div>
+!!! note
+    An effort currently exists within the OpenIndiana community to review these books and provide errata.
+    A longer term goal is to use the errata to revise and condense these titles into a significantly smaller collection which more closely follows the current development state of OpenIndiana Hipster.
+    
+    The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
+    If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.
 
 ## How can I contact OpenIndiana community?
 

@@ -25,10 +25,8 @@ Originally contributed by OpenIndiana community member Franklin Ronald, Franklin
 
 Link to PDF Document: [How to Install Oracle Database 11R2 on OpenIndiana Hipster](../pdf/HowToInstallOracleDB.pdf)
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-It is not recommended to run Oracle Database on OpenIndiana in a production environment. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of the Installing 11R2 on OI article is to install the Oracle Database for use in a development environment.
-</div>
+!!! note
+    It is not recommended to run Oracle Database on OpenIndiana in a production environment. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of the Installing 11R2 on OI article is to install the Oracle Database for use in a development environment.
 
 For development purposes it is also possible to setup Oracle Database 18, 19 and 21.3 using Vagrant.  See the Vagrant documentation for more information.
 

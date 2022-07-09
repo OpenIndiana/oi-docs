@@ -15,10 +15,8 @@ All Rights Reserved.
 
 # Cleaning up OpenIndiana repository
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This is an internal document provided mostly for OpenIndiana maintainers
-</div>
+!!! note
+    This is an internal document provided mostly for OpenIndiana maintainers
 
 Due to current CI practices, OpenIndiana Hipster repository tend to bloat with old package versions.
 This causes several issues:
