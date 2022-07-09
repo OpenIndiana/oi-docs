@@ -16,8 +16,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Contributor Topics
 
 The goal of this page is to provide a 'TO DO' list of things which need to be documented.

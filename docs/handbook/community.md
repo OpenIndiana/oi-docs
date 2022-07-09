@@ -17,8 +17,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Hipster Handbook - Community Tutorials
 
 !!! info "Call for Contributions"

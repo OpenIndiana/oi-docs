@@ -11,8 +11,6 @@ Contributor(s): David Stes.
 
 -->
 
-<img src = "../../../Openindiana.png">
-
 # Hipster Handbook - How to enable the Intelligent Input Bus (IBus)
 
 You can configure Keyboard Layout preferences such as keyboard layout, keyboard model, and so on, and MATE input method (for IBus).  Input Methods (IM) can be used if you regularly use languages that have large number of characters or complex characters, for example Asian languages like Chinese, Japanese or Korean, but IBus can also be used for Latin languages.

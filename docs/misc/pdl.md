@@ -1,5 +1,3 @@
-<img src = "../../Openindiana.png">
-
 # PUBLIC DOCUMENTATION LICENSE
 
 Version 1.01

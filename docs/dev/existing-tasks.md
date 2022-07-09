@@ -19,8 +19,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Existing tasks
 
 This page contains some ideas how to enhance OpenIndiana.

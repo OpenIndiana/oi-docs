@@ -17,8 +17,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Hipster Handbook - PDF Documentation
 
 Most pages in the Handbook can be downloaded in PDF format. They use a style similar to this website.

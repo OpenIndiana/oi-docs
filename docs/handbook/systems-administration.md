@@ -17,8 +17,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Hipster Handbook - System Administration
 
 Once OpenIndiana has been installed, the system will require monitoring to

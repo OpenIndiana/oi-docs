@@ -11,8 +11,6 @@ All Rights Reserved.
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Cleaning up OpenIndiana repository
 
 !!! note

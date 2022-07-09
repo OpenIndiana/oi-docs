@@ -14,8 +14,6 @@ Contributor(s): David Stes.
 
 -->
 
-<img src = "../../../Openindiana.png">
-
 # Hipster Handbook - Squeak, Cuis and Smalltalk-80
 
 The following notes document the steps to install Squeak and Cuis on OpenIndiana Hipster, and how to use these implementations of Smalltalk-80.

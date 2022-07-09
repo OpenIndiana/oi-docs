@@ -20,8 +20,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Legacy Consolidations
 
 Initial OpenIndiana versions were based on the same release process as OpenSolaris, assembled from a set of software consolidations.
