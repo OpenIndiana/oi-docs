@@ -341,9 +341,6 @@ do_conversion_pdf()
                 this_suffix="sb"
         elif [ "$this_style" == "web" ]; then
                 this_suffix="web"
-        else
-                echo "ERROR: can only process one of these styles: opensolaris or web"
-                exit 1
         fi
 
         # sed required to remove '!!!' annotation and indentation from note/warning blocks
@@ -418,6 +415,8 @@ is_dir_valid()
         is_dir_valid_result="False"
 
         if [ -d "$indir" ]; then
+                is_dir_valid_result="True"
+        elif [ -d "./docs/$in_dir" ]; then
                 is_dir_valid_result="True"
         fi
 }
