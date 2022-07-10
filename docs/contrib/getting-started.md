@@ -24,19 +24,19 @@ The process for contributing to OpenIndiana Docs is simple and follows the same 
 !!! note
     First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
     For this reason, we're happy to accept your contribution in any format you wish to provide.
-    
+
     After receiving your submission, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
     Contributions may be submitted in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.
-    
+
     In summary, if you believe your contribution would be helpful to the greater OpenIndiana community, we'll be willing to review it.
     For further information, please contact us via one of the methods provided below.
-    
+
     To make a suggestion or report a problem with a document, please make your request by submitting a [Github issue](https://github.com/OpenIndiana/oi-docs/issues).
-    
+
     The docs team can be reached via email: _**docs at openindiana.org**_.
-    
+
     You may also inquire via IRC:
-    
+
     * [#openindiana (libera.chat)](irc://irc.libera.chat/openindiana)
     * [#oi-dev (libera.chat)](irc://irc.libera.chat/oi-dev)
 </div>
@@ -62,11 +62,11 @@ a [Github](https://github.com) account.
 <div class="note" markdown="1">
 !!! note
     After GIT is installed, be sure to configure your name and email address.
-    
+
     For further details about configuring GIT, see: <https://help.github.com/articles/set-up-git/>
-    
+
     Also, if you need a good book for quickly getting up to speed with GIT, see here: <https://git-scm.com/book/en/v2>
-    
+
     Fear not though, only basic git commands are required for working with OI-DOCS.
 </div>
 
@@ -111,9 +111,9 @@ After MKDocs has been installed, be sure to verify your installation with `mkdoc
 <div class="note" markdown="1">
 !!! note
     If you experience difficulties installing mkdocs, try using the python 3 version of `pip`.
-    
+
     For example:
-    
+
     * For Linux Mint 18, the python 3 version of `pip` would be `pip3`.
 </div>
 
@@ -151,7 +151,7 @@ Pandoc is not yet avalible packaged on OpenIndiana.
 !!! note
     Not all OS distro repositories contain XeTex.
     In this case it could be installed as part of a manual TeX Live installation.
-    
+
     As of Summer 2021, the version of Pandoc available from OS distro repositories may be too old (was the case for Centos/RHEL and Debian < 11).
     In this case you can try and use the Pandoc GitHub release versions instead.
 </div>
@@ -331,7 +331,7 @@ To shut down the live preview web server, use `CTRL` + `C`.
 <div class="note" markdown="1">
 !!! note
     If you wish to preview your changes on a remotely networked system or on a networked mobile device such as a tablet, the site can also be served on your LAN IP address.
-    
+
     To do so, issue the following command: `mkdocs serve --dev-addr=0.0.0.0:8000`
 </div>
 

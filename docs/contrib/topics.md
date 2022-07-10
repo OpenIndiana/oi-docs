@@ -75,12 +75,12 @@ Take some time to look them over for ideas and inspiration for writing new conte
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
-    
+
     * Some topics may be moved to more relevant locations within other documents.
     * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
-    
+
     The **Getting Started** document has been initially structured to cover the following topics:
-    
+
     * Introduction
     * OpenIndiana software releases
     * System requirements
@@ -124,12 +124,12 @@ Have a look at the following resources for ideas and inspiration for writing new
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
-    
+
     * Some topics may be moved to more relevant locations within other documents.
     * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
-    
+
     The **Common Tasks** document has been initially structured to cover the following topics:
-    
+
     * Basic UNIX commands
     * Basic system administration
     * Desktop applications
@@ -138,7 +138,7 @@ Have a look at the following resources for ideas and inspiration for writing new
     * Printing
     * Graphics workstation
     * Desktop Publishing system, Etc.
-    
+
     Currently this section is largely desktop oriented.
     Perhaps some additional items such as system backups might fit better in this section.
     As previously mentioned, this is a living document and things will likely get shuffled around as the document matures.
@@ -171,12 +171,12 @@ In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
-    
+
     * Some topics may be moved to more relevant locations within other documents.
     * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
-    
+
     The **systems administration** document has been initially structured to cover the following topics:
-    
+
     * Configuration and tuning
         * Configuring a UPS
         * Fault Management (FMA)
@@ -262,12 +262,12 @@ Write about Virtualization
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
-    
+
     * Some topics may be moved to more relevant locations within other documents.
     * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
-    
+
     The **network communications** document has been initially structured to cover the following network related topics:
-    
+
     * PPP
     * PPPoE
     * Email servers
@@ -349,18 +349,18 @@ Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_0
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
-    
+
     * Some topics may be moved to more relevant locations within other documents.
     * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
-    
+
     The **appendix** document has been initially structured to cover the following topics:
-    
+
     * Finding help and support
     * Developing with OpenIndiana
     * Software Development Testing
-    
+
     This document might also be a good place to put the following topics:
-    
+
     * Basic UNIX commands
     * Contrast and comparison tables (e.g. Unix versus Linux, etc.)
     * Feature comparison tables
@@ -404,12 +404,12 @@ Write some comparison tables
     The OpenSolaris books are from the 2009.06 release of OpenSolaris.
     As OpenIndiana has diverged from it's OpenSolaris roots, the relevancy of this documentation has diminished.
     Some of the documentation was obsolete even when it was published.
-    
+
     The primary value of this documentation may be to use it as inspiration for writing new content for the handbook.
     The documentation is all PDL licensed so it may be copied verbatim without incurring any legal risks.
-    
+
     As for the future of these documents, the project has some choices:
-    
+
     * Pull in any and all reverent content into the new handbook and then discard the books.
     * Write errata for the books, pointing out what has changed between OpenSolaris and OpenIndiana.
     * Use the books to write task specific tutorials.

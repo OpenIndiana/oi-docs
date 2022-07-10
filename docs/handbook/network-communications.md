@@ -22,9 +22,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <div class="note" markdown="1">
 !!! note
     This is a **DRAFT** document which may contain errors!
-    
+
     Help us improve and expand this site.
-    
+
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 </div>
 
@@ -182,21 +182,21 @@ OpenIndiana provides several ways to share data with network clients.
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     For a variation of configuring a home NAS - this could be done virtually as well
-    
+
     * Running OI as a VMware EXSI guest
         * Local storage hardware is passed through to the OI guest and then shared via ISCSI, CIFS, NFS, etc.
-    
+
     For help writing this section, see the following OpenSolaris references:
-    
+
     * [Setting Up an OpenSolaris NAS Box](https://web.archive.org/web/20091008234550/http://developers.sun.com/openstorage/articles/opensolaris_nas.html)
     * [Getting Started With the Solaris CIFS Service](https://web.archive.org/web/20091005070838/http://wiki.genunix.org/wiki/index.php/Getting_Started_With_the_Solaris_CIFS_Service)
     * [How to enable guest access to a Solaris CIFS share](https://web.archive.org/web/20091021005616/http://blogs.sun.com/afshinsa/entry/how_to_enable_guest_access)
     * [Solaris CIFS Service Troubleshooting](https://web.archive.org/web/20091126111451/http://wiki.genunix.org/wiki/index.php/Solaris_CIFS_Service_Troubleshooting)
     * [What's New With Solaris CIFS](https://web.archive.org/web/20091124124935/http://wiki.genunix.org/wiki/index.php/What's_New_With_Solaris_CIFS)
     * [CIFS Technical References](https://web.archive.org/web/20090725231658/http://wiki.genunix.org/wiki/index.php/CIFS_Technical_References)
-    
+
     Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf)
 </div>
 

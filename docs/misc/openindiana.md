@@ -227,7 +227,7 @@ While somewhat dated now, these resources are largely still relevant.
 !!! note
     An effort currently exists within the OpenIndiana community to review these books and provide errata.
     A longer term goal is to use the errata to revise and condense these titles into a significantly smaller collection which more closely follows the current development state of OpenIndiana Hipster.
-    
+
     The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
     If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.
 </div>

@@ -22,7 +22,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <div class="info" markdown="1">
 !!! info "Call for Contributions"
     Help us improve and expand this page by offering your community written tutorials for publication on this site.
-    
+
     Please see the **Contrib** section for more details. The docs team can be reached via email: **docs at openindiana.org.**
 </div>
 

@@ -69,12 +69,12 @@ To build a component you simply cd into the directory of the software, and type 
 <div class="note" markdown="1">
 !!! note
     **Before adding new packages to oi-userland...**
-    
+
     Before considering adding a new package to oi-userland, please check first whether someone else is working on the package by checking the issue tracker, mailing [oi-dev@openindiana.org](mailto:oi-dev@openindiana.org) or asking on the IRC (#oi-dev at irc.libera.chat)
-    
+
     * If you don't find anyone already working on a port, please register your effort by opening an issue.
     * If you wish to update an existing port, look at the log for the component Makefile ("git log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.
-    
+
     This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
 </div>
 

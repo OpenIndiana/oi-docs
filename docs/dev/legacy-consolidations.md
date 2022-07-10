@@ -102,10 +102,10 @@ For more details about writing Makefiles for userland, see userland Makefile tar
 <div class="note" markdown="1">
 !!! note
     Before adding new packages to illumos-userland... Before considering adding a new package to oi-build, please check first whether someone else is working on the package by checking the issue tracker.
-    
+
     * If you don't find anyone already working on a port, please register your effort by opening an issue.
     * If you wish to update an existing port, look at the log for the component Makefile ("hg log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.
-    
+
     This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
 </div>
 

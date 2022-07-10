@@ -36,7 +36,7 @@ This documentation collection has been released under the [Public Documentation 
 <div class="note" markdown="1">
 !!! note
     When using these books, please bear in mind:
-    
+
     * The OpenIndiana Project has republished these books primarily for their reference value.
     * Although vast portions of these books are still relevant, significant divergence has occurred between OpenIndiana Hipster and OpenSolaris/Solaris Express.
     * Some of the books in this collection reference publications which were either never open-sourced by Sun Microsystems or never released by the OpenSolaris Project.

@@ -22,9 +22,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <div class="note" markdown="1">
 !!! note
     This is a **DRAFT** document which may contain errors!
-    
+
     Help us improve and expand this site.
-    
+
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 </div>
 
@@ -208,9 +208,9 @@ Prior to installing OpenIndiana:
 <div class="caution" markdown="1">
 !!! danger "Caution"
     Installing OpenIndiana on unsupported hardware may cause excessive CPU usage, instability, or other problems.
-    
+
     Please be sure to consult the hardware compatibility list (HCL):
-    
+
     * [Illumos HLC](https://www.illumos.org/hcl/)
     * [OpenIndiana HCL - components](https://wiki.openindiana.org/oi/Components)
     * [OpenIndiana HCL - systems](https://wiki.openindiana.org/oi/Systems)
@@ -309,9 +309,9 @@ Examples:
 <div class="note" markdown="1">
 !!! note
     If you are re-using a DVD-RW, be sure to blank it first.
-    
+
     For example: `cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast`
-    
+
     Warning: Blanking the disk will destroy all data on the disk.
 </div>
 
@@ -341,7 +341,7 @@ $
 <div class="note" markdown="1">
 !!! note
     When using `cdrecord -scanbus` to determine the device name, specify the device using the SCSI bus ID.
-    
+
     For example: `cdrecord dev=4,1,0 imagefile.iso`
 </div>
 
@@ -366,7 +366,7 @@ $
 <div class="note" markdown="1">
 !!! note
     When using `rmformat -l` to determine the device name, specify the device using the _Logical Node_.
-    
+
     For example: `# cdrecord dev=/dev/rdsk/c4t1d0p0 imagefile.iso`
 </div>
 
@@ -464,7 +464,7 @@ From within Windows Explorer:
 <div class="caution" markdown="1">
 !!! danger "Caution"
     Although that the current OpenIndiana Hipster releases support UEFI without secure boot, old versions of OpenIndiana Hipster did not support UEFI.
-    
+
     * If you intend to install an old version of OpenIndiana Hipster on a system which supports UEFI boot, please boot the system in legacy (CSM) mode.
 </div>
 
@@ -486,25 +486,25 @@ From within Windows Explorer:
 <div class="caution" markdown="1">
 !!! danger "Caution"
     When issuing the USB copy command:
-    
+
     * Make sure you identify the correct storage device as all data on the device will be erased.
     * Be sure to specify the entire USB device without appending any partition or slice number.
-    
+
     For example:
-    
+
     | Example | Device
     | --- |---
     | Correct | `/dev/sda`
     | Incorrect | `/dev/sda1`
     | Correct | `/dev/rdsk/c0t0d0p0`
     | Incorrect | `/dev/rdsk/c0t0d0p1`
-    
+
     * In illumos, the whole disk device name is depending on partition type.
         * On x86, the whole disk name ends with p0
         * In the case of a GPT (EFI) partition, the whole disk device name ends with dX.
         * on sparc, the disk has usually VTOC partition and whole disk device name usually ends with s2.
         * Note, if on x86 and an MBR+VTOC is used, then the s2 device is addressing the Solaris2 MBR partition, not the whole disk.
-    
+
     * If any file systems are located on the USB storage device, they must first be unmounted.
         * Desktops may automatically mount removable devices.
         * As necessary, select any desktop icons for the USB device and issue an 'Eject' or 'Unmount' command.
@@ -551,7 +551,7 @@ As it runs, you will be prompted with a few questions.
 <div class="note" markdown="1">
 !!! note
     For the computer to successfully boot from the media, you may be required to perform one of the following tasks:
-    
+
     * Specify the appropriate boot device by pressing the boot order hotkey.
     * Change the boot device order found in your computer's system BIOS configuration.
 </div>
@@ -559,9 +559,9 @@ As it runs, you will be prompted with a few questions.
 <div class="caution" markdown="1">
 !!! danger "Caution"
     OpenIndiana supports UEFI (Unified Extensible Firmware Interface) without secure boot:
-    
+
     Secure boot (UEFI boot path validation) must be disabled (if it is enabled by default) because UEFI secure boot is currently not yet supported.
-    
+
     For further information, consult the manufacturers documentation for your computer hardware.
 </div>
 
@@ -581,7 +581,7 @@ See the notes below for optimizing OpenIndiana for several popular hypervisors.
 <div class="note" markdown="1">
 !!! note
     The OpenIndiana Project recommends the Oracle Virtualbox hypervisor as it provides the best support for illumos based distributions such as OpenIndiana.
-    
+
     If you experience difficulties booting OpenIndiana on virtual hardware, or find virtual hardware devices which are either not properly recognized, or fail to function as expected, please report the problem to the upstream illumos Project. You may do so by submitting an issue using the [illumos project bug tracker](https://www.illumos.org/issues).
 </div>
 
@@ -598,7 +598,7 @@ The new boot loader provides many new capabilities:
 <div class="note" markdown="1">
 !!! note
     The OpenIndiana installer will automatically boot option # **1. Boot Multi User** within 10 seconds.
-    
+
     * To pause the Autoboot timer, press the `Space` key.
 </div>
 
@@ -737,7 +737,7 @@ The Gparted partition editor allows you to add, remove, or resize partitions in 
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     For some guidance writing this section:
-    
+
     * Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
     * Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
 </div>
@@ -745,7 +745,7 @@ The Gparted partition editor allows you to add, remove, or resize partitions in 
 <div class="caution" markdown="1">
 !!! danger "Caution"
     Please be advised of the following important considerations:
-    
+
     * The installation overwrites the whole disk layout if one of the following is true:
         * The disk table cannot be read.
         * The disk was not previously partitioned.
@@ -766,18 +766,18 @@ Select the appropriate installer option by clicking the corresponding desktop in
 <div class="note" markdown="1">
 !!! note
     **From Hipster 2016.10 release onwards**
-    
+
     Selecting the ***Install OpenIndiana using the Text Installer*** desktop installer option provides new installation capabilities.
-    
+
     In addition to installing OpenIndiana to single disks, the following are now also supported:
-    
+
     * Mirrors
     * RAIDZ
-    
+
     Yes, that's right, you can now install the rpool to logical disk arrays, created during the installation process.
-    
+
     However, please keep in mind the following:
-    
+
     * This capability applies only to the python based installer which runs within a console window.
     * The graphical installer does not yet have this capability.
 </div>
@@ -798,16 +798,16 @@ When ready to begin, click the _**Next**_ button to continue on with the install
 !!! note
     Please disregard the reference to the getting started guide.
     This guide no longer exists on the Live Media installer.
-    
+
     _**A bug has been opened for this issue and a new getting started guide is being created**_.
-    
+
     Also, when clicking the link for the release notes, please click it only once and wait until Firefox finishes loading.
     The Firefox web browser will open to the 'OpenIndiana Releases' page of the OpenIndiana Wiki.
     This however, is not where you will find the release notes.
     _**A bug has been opened to correct this issue**_.
-    
+
     The release notes may be accessed in one of the following ways:
-    
+
     * Perform a search within the Wiki site for the release notes.
     * Browse to the following Wiki page: <https://wiki.openindiana.org/oi/Release+Notes>.
 </div>
@@ -844,7 +844,7 @@ When you have revised the partitioning as needed, click the _**Next**_ button to
 <div class="note" markdown="1">
 !!! note
     If you choose to partition the disk, review the following partitioning guidelines, then revise the partitioning panel settings as needed.
-    
+
     * Only one Solaris partition is allowed.
     If an existing Solaris partition is available, that Solaris partition will be the target for the installation.
     Or, if you do not have an existing Solaris partition, you can change any existing partition to a Solaris partition.
@@ -858,9 +858,9 @@ When you have revised the partitioning as needed, click the _**Next**_ button to
 !!! danger "Caution"
     If the existing partition table cannot be read, a warning is displayed, and the panel displays proposed partitioning.
     In this case, all data on the selected disk is destroyed.
-    
+
     If the table can be read, then the following information applies:
-    
+
     * The partitions are displayed in physically sequential order as they are laid out on the disk.
     * Resizing a Solaris partition destroys the data on that partition and all physically subsequent partitions.
         * Existing data is not moved to conform to a new partition layout.
@@ -1004,17 +1004,17 @@ From here you now have several options:
     `chain_disk="disk0:"`,
     where disk0 is the name of disk or partition to boot from.
     You can get the list of available disks from loader prompt using `lsdev` command.
-    
+
     If you use GRUB2, you can configure it to show an entry for chainloading the illumos loader.
     Add the following to a file in the /etc/grub.d directory (usually the placeholder '40_custom' file can be used) of the Linux installation:
-    
+
     ```
     menuentry "Chainload OpenIndiana" {
         set root=(hd0,2)
         chainloader +1
     }
     ```
-    
+
     where hd0,2 is the location of the partition or disk containing the illumos loader.
     You can list detected disks/partitions from the GRUB prompt using the `ls` command.
     From Linux you can run `sudo fdisk -l` to list disks and partitions. The partition 'sda2' would map to 'hd0,2' in GRUB.
@@ -1030,25 +1030,25 @@ From here you now have several options:
 !!! note
     The text based guided install starts and runs within a command line console.
     Navigation within the installer is performed by pressing specifically designated navigation keys (`F2`, Tab, etc.).
-    
+
     The instructions for performing a text based install apply to the following installation scenarios:
-    
+
     * Launching the text based installer icon from the Live Media (GUI) desktop.
     * Beginning a text based installation by booting from the OpenIndiana text based installer.
-    
-    
+
+
     **From the 2016.10 release onwards**
-    
+
     Mirrors and RAIDZ are now supported install options!
-    
+
     * To install to a mirror, select 2 or more disks.
     * To install to RAIDZ, select 3 or more disks.
-    
+
    
     **GUI Desktop may be added post-installation**
-    
+
     * To install MATE Desktop Environment (using a metapackage) and enable graphical login
-    
+
     ```
     pkg install mate_install
     pkg uninstall mate_install
@@ -1095,12 +1095,12 @@ Once you have selected the appropriate disk, press the `F2` key to continue.
 <div class="note" markdown="1">
 !!! note
     While the minimum and recommended disk sizes are technically accurate, they do not take into account periodic disk usage growth resulting from:
-    
+
     * ZFS snapshots
     * Installation of additional software
     * New boot environments automatically created when running the `pkg update` command
     * New backup boot environments automatically created when running the `pkg install` command
-    
+
     To account for this, your disk should be at least 20GB or more.
 </div>
 
@@ -1120,10 +1120,10 @@ If you select cancel, you will have the following options:
 <div class="caution" markdown="1">
 !!! danger "Caution"
     If your disk contains a GPT disk label, the entire disk will be used.
-    
+
     * Any existing GPT partitions will be destroyed
     * A new single GPT partition will be created.
-    
+
     This warning serves as your advisory.
 </div>
 
@@ -1218,7 +1218,7 @@ When ready, press the `F2` key to continue.
 <div class="note" markdown="1">
 !!! note
     This screen will be available only when the ***Manually*** configure network option has been selected.
-    
+
     * The values illustrated above are for example only, do not use them.
     * Substitute each field with correct values for your network.
 </div>
@@ -1288,9 +1288,9 @@ When ready, press the `F2` key to continue.
     * The first user created on the system is granted the root role via _Role Based Access Control_ (RBAC).
     * In effect this means the following:
         * Without any further configuration, the specified user will be granted the authority to perform administrative task by assuming the root role as needed.
-    
+
     Please take note the following additional information:
-    
+
     * Immediately after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
 </div>
 
@@ -2016,7 +2016,7 @@ Here are some of the available tools:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * Need to answer the question “Where and how can I install more software?”
     * Discuss 3rd party package managers ([pkgin](http://pkgin.net/), etc.)
     * Discuss the various 3rd party repos, what's available in them, and which
@@ -2195,7 +2195,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     Write about:
-    
+
     * How to create and use an xorg.conf file.
     * Graphics drivers are found in the `/usr/lib/xorg/modules/drivers/amd64/` graphics driver directory
         * modinfo only shows kernel drivers, not Xorg drivers, since Xorg drivers are just driver.so files dlopen'ed by a userspace process, not loaded into the kernel address space.
@@ -2217,7 +2217,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     Write about:
-    
+
     * The expected behavior when booting the live CD from a system with an NVIDIA card.
     * Discuss procedure for adding an NVIDIA card to a system that was using VESA or some other non-3d video driver.
     * Troubleshooting - what logs to look at, manual configuration, etc.
@@ -2229,7 +2229,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     Write about:
-    
+
     * Finding hardware id's
     * Searching for drivers
     * Installing and loading drivers

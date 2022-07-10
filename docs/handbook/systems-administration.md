@@ -542,7 +542,7 @@ Restart / reload a service:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * Where to find the logs (`/var/log`, `/var/svc/log`).
 </div>
 
@@ -560,12 +560,12 @@ Restart / reload a service:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * Need to mention some of the changes to zone management...e.g..
         * sys-unconfig gone.
         * sysding replaced syscfg
         * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`.
-    
+
     So a fair amount of stuff has changed there.
 </div>
 
@@ -771,7 +771,7 @@ Are you sure you want to uninstall zone example (y/[n])? y
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * Need a walkthrough of mounting options for other filesystems...FAT, UFS, etc.
 </div>
 
@@ -816,7 +816,7 @@ pfexec lofiadm -d /dev/lofi/1
 <div class="note" markdown="1">
 !!! note
     For removable storage devices, first make sure your external disk drive is connected and powered on.
-    
+
     To list attached removable storage devices: `rmformat -l`
 </div>
 
@@ -875,9 +875,9 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     Gotcha's such as the following:
-    
+
     ```
     <e^ipi> don't suppose there's any solution to this:
     <e^ipi> cannot replace 1509280528045021472 with /dev/dsk/c0t5000C5009204EB9Bd0s0: devices have different sector alignment
@@ -899,7 +899,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * Talk about the ZFS import command.
 </div>
 
@@ -908,7 +908,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * Adding a 2nd disk to the root pool
 </div>
 
@@ -917,7 +917,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * zpool create command
         * Mirrors
         * Raidz
@@ -928,7 +928,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * zpool get/set commands
 </div>
 
@@ -937,7 +937,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * zfs get/set commands
 </div>
 
@@ -946,7 +946,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * zfs create command
 </div>
 
@@ -955,7 +955,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * zfs set command
     * swap -l
 </div>
@@ -969,7 +969,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     * Qemu-KVM (KVM) walkthrough
         * illumos KVM port does not support AMD processors.
         * Intel processors require EPT support.
@@ -980,7 +980,7 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
     Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
     You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
@@ -991,9 +991,9 @@ Here are just a few of them:
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     Possible resources to help write this section:
-    
+
     * <https://wiki.openindiana.org/oi/4.4+Localization>
     * <https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html>
 </div>
@@ -1381,11 +1381,11 @@ Right click the NWAM tray icon and select **_Location_ > _Automatic_**.
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
-    
+
     See old sun docs
-    
+
     * <http://docs.oracle.com/cd/E19735-01/>
-    
+
     Also see:
-    
+
     * <http://zfs-create.blogspot.nl/>

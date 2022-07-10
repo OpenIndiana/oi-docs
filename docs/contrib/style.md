@@ -22,9 +22,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 !!! note
     This document is a work in progress.
     Help us make it grow.
-    
+
     Until then, you may find the following resource helpful:
-    
+
     * [Documentation Style Guide for OpenSolaris](https://web.archive.org/web/20081207155129/http://opensolaris.org/os/community/documentation/files/OSOLDOCSG.pdf) - Internet Archive - PDF (270 pages)
 </div>
 
