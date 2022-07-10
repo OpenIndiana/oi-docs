@@ -20,6 +20,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 The process for contributing to OpenIndiana Docs is simple and follows the same best practices used in the development of the OpenIndiana distribution.
 
+<div class="note" markdown="1">
 !!! note
     First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
     For this reason, we're happy to accept your contribution in any format you wish to provide.
@@ -38,6 +39,7 @@ The process for contributing to OpenIndiana Docs is simple and follows the same 
     
     * [#openindiana (libera.chat)](irc://irc.libera.chat/openindiana)
     * [#oi-dev (libera.chat)](irc://irc.libera.chat/oi-dev)
+</div>
 
 
 ## Prerequisites
@@ -57,6 +59,7 @@ a [Github](https://github.com) account.
 | Fedora | `dnf install git`
 | OpenIndiana | `pkg install git`
 
+<div class="note" markdown="1">
 !!! note
     After GIT is installed, be sure to configure your name and email address.
     
@@ -65,6 +68,7 @@ a [Github](https://github.com) account.
     Also, if you need a good book for quickly getting up to speed with GIT, see here: <https://git-scm.com/book/en/v2>
     
     Fear not though, only basic git commands are required for working with OI-DOCS.
+</div>
 
 
 ### Install python-pip
@@ -104,12 +108,14 @@ So, if you're already running Hipster, installing MKDocs is as simple as: `pkg i
 
 After MKDocs has been installed, be sure to verify your installation with `mkdocs --version`
 
+<div class="note" markdown="1">
 !!! note
     If you experience difficulties installing mkdocs, try using the python 3 version of `pip`.
     
     For example:
     
     * For Linux Mint 18, the python 3 version of `pip` would be `pip3`.
+</div>
 
 
 ### Install Markdown Lint (mdl)
@@ -141,12 +147,14 @@ Pandoc is not yet avalible packaged on OpenIndiana.
 | Fedora | `dnf install pandoc texlive-xetex`
 | OpenIndiana | Not packaged yet
 
+<div class="note" markdown="1">
 !!! note
     Not all OS distro repositories contain XeTex.
     In this case it could be installed as part of a manual TeX Live installation.
     
     As of Summer 2021, the version of Pandoc available from OS distro repositories may be too old (was the case for Centos/RHEL and Debian < 11).
     In this case you can try and use the Pandoc GitHub release versions instead.
+</div>
 
 ## Fork the OpenIndiana Docs repository
 
@@ -228,12 +236,14 @@ oi-docs/
 | README.md | Git readme
 | site/ | Live preview folder (no edits)
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     * Please do **NOT** perform any work within the `site/` or `pdf/` folder.
         * `site/` is a temporary folder created by MkDocs when the site is run locally in preview mode.
         * `pdf/` is a temporary folder for storing locally generated PDFs.
     * Also, please do **NOT** perform any work within the gh-pages branch.
         * The gh-branch is destroyed and rebuilt each time the site is deployed to GitHub pages.
+</div>
 
 ```markdown
 docs/
@@ -273,8 +283,10 @@ For example: `vim somefile.md` or `emacs somefile.md`
 
 Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).
 
+<div class="note" markdown="1">
 !!! note
     Major changes should be performed within a separate branch, appropriately named to reflect the changes being made.
+</div>
 
 For a list of subject to write about:
 
@@ -316,10 +328,12 @@ Each time you save your changes, the site page is automatically reloaded within 
 
 To shut down the live preview web server, use `CTRL` + `C`.
 
+<div class="note" markdown="1">
 !!! note
     If you wish to preview your changes on a remotely networked system or on a networked mobile device such as a tablet, the site can also be served on your LAN IP address.
     
     To do so, issue the following command: `mkdocs serve --dev-addr=0.0.0.0:8000`
+</div>
 
 
 ## Running Markdown Lint (locally)
@@ -337,9 +351,11 @@ Markdown Lint will automatically traverse the entire folder structure looking fo
 Alternately you may also run `mdl` on a specific file.
 Simply replace the period (.) with the path to the file.
 
+<div class="note" markdown="1">
 !!! note
     Before you can run `mdl`, it may be necessary to modify your `$PATH` variable:
     see “[Install Markdown Lint](#install-markdown-lint-mdl)” above.
+</div>
 
 ## Generating PDFs (locally)
 
@@ -367,10 +383,12 @@ The formatting and restyling required for the PDFs is configured with files in t
 Each style uses a pair of files, a `.yaml` file to specifiy Pandoc settings & LaTex/XeLaTex headers and a `.lua` Lua script to apply formatting to the Pandoc native representation (AST).
 For more information on Pandoc, see the [official Pandoc Manual](https://pandoc.org/MANUAL.html).
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Inline HTML is not supported by Pandoc for PDF output and is not rendered at all in PDFs produced.
     Ensure that you only use Markdown in your edits.
     The only exception is for the mkdocs `div` elements used to create these 'Note' breakouts - support for these has been manually programmed into the Pandoc lua filters.
+</div>
 
 
 ## Enabling spell checking in vim
@@ -420,8 +438,10 @@ For example: `https://github.com/your-user-name/oi-docs`
 
 Pull requests are used to request a _pull in_ of changes from your fork to the master repository.
 
+<div class="note" markdown="1">
 !!! note
     After a pull request has been submitted, and for the duration of time your pull request remains open and uncommitted to the OI-DOCS master repository, any additional commits you make to your own fork of the oi-docs repository will automatically be included in your open pull request.
+</div>
 
 
 ## What happens next?

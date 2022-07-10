@@ -33,6 +33,7 @@ Otherwise, the books are exactly as originally published.
 No editing of any kind has been performed on any of the titles.
 This documentation collection has been released under the [Public Documentation License (PDL)](../misc/pdl.md).
 
+<div class="note" markdown="1">
 !!! note
     When using these books, please bear in mind:
     
@@ -43,6 +44,7 @@ This documentation collection has been released under the [Public Documentation 
       However, the illumos project has published a similar title: [The illumos Developer's Guide](https://illumos.org/books/dev/)
     * There are lots of broken links to OpenSolaris.org and Sun Microsystems.
     * In some cases, it may be possible to follow broken links by using the [Internet Archive Wayback Machine](https://archive.org/web/).
+</div>
 
 ## Book categories
 

@@ -22,9 +22,11 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - Installing OpenIndiana /dev and upgrading to /hipster
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     This page contains legacy instructions for creating USB media which applied prior to OI 2016.10,
     and upgrade instructions for the legacy oi-dev-151x branch. **This page is not applicable to current versions of OI**.
+</div>
 
 ## Creating a Hipster USB Drive *(pre 2016.10 only)*
 
@@ -39,10 +41,12 @@ The method to use depends on the release date of the USB image you intend to wri
 * USB flash drive - (2GB or larger).
 * Download the OpenIndiana USB installer image.
 
+<div class="note" markdown="1">
 !!! note
     * Header files are only required when writing a legacy image **AND** using the dd utility.
         * Header files are **NOT** required when writing current images.
         * For example: The Hipster 2016.10 release, does **NOT** require header files.
+</div>
 
 * Download the appropriate OpenIndiana [1G](http://dlc.openindiana.org/isos/archive/1G.header") or [2G](http://dlc.openindiana.org/isos/archive/2G.header) header file
     * There are 2 unique USB header files (1G and 2G).
@@ -50,8 +54,10 @@ The method to use depends on the release date of the USB image you intend to wri
         * The 1G.header is only suitable for use with the text installer (Command line console).
         * The 2G.header is only suitable for use with the live installer (Gnome desktop).
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Failure to use the correct USB header file can result in the USB drive either failing to boot, or only partially booting.
+</div>
 
 ### BSD/Linux/OS X
 
@@ -109,10 +115,12 @@ Complete reinstall also can be a decent option.
 
 Further it's considered that you were warned and decided to do more-or-less direct update from /dev to /hipster.
 
+<div class="note" markdown="1">
 !!! note
     Only server installation update was tested.
     If you do GUI installation update, you are on your own.
     Of course, you are welcome to ask questions in [oi-dev](https://openindiana.org/mailman/listinfo/oi-dev) mailing list, but prepare that nobody will guide you through update.
+</div>
 
 * Do backup.
   <br/>Seriously.
@@ -170,8 +178,10 @@ Further it's considered that you were warned and decided to do more-or-less dire
 # pkg -R /mnt refresh --full
 ```
 
+<div class="note" markdown="1">
 !!! note
     Two following steps are actually better to run under `screen(1)` or `tmux(1)`
+</div>
 
 * Look what IPS is going to do.
 

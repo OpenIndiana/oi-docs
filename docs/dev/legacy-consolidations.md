@@ -64,14 +64,18 @@ This complex Release Engineering has been deprecated in favour of the unified bu
 
 ## Building legacy consolidations
 
+<div class="note" markdown="1">
 !!! note
     Note, these instructions were not tested on modern OpenIndiana versions and preserved as is just for reference. You usually don't need to build legacy consolidations them manually.
+</div>
 
 ## Building oi-build
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     **oi-build is a legacy consolidation which was superceded with oi-userland !!!**
     For building oi-userland see [Building with oi-userland](../userland/)
+</div>
 
 Following instructions describe building oi-build on legacy OpenIndiana /dev distribution.
 
@@ -95,6 +99,7 @@ The `Makefile` essentially contains a "build recipe". To build a piece of softwa
 
 For more details about writing Makefiles for userland, see userland Makefile targets and variables
 
+<div class="note" markdown="1">
 !!! note
     Before adding new packages to illumos-userland... Before considering adding a new package to oi-build, please check first whether someone else is working on the package by checking the issue tracker.
     
@@ -102,6 +107,7 @@ For more details about writing Makefiles for userland, see userland Makefile tar
     * If you wish to update an existing port, look at the log for the component Makefile ("hg log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.
     
     This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
+</div>
 
 ### Setting up your build environment
 
@@ -141,8 +147,10 @@ sudo ${ZONEROOT}/root/usr/bin/pkg -R ${ZONEROOT}/root update -v
 unset PYTHONPATH ZONE ZONEROOT
 ```
 
+<div class="note" markdown="1">
 !!! note
     Note that the /experimental repo is under continuous development and may contain breakage. Thus we (as mentioned) strongly recommend building inside a dedicated development zone, rather than updating your main system.
+</div>
 
 #### Installing pre-requisites
 
@@ -277,8 +285,10 @@ hg commit -u 'Contributor Name <contributor.name@fake.net>'
 
 ## Building IPS/pkg
 
+<div class="note" markdown="1">
 !!! note
     For building IPS delivered with modern OpenIndiana, use [openindiana/pkg](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg) oi-userland component.
+</div>
 
 Following instructions describe building pkg on legacy OpenIndiana /dev distribution.
 
@@ -441,11 +451,15 @@ Then run the following to set up the build environment:
 pfexec sh /usr/share/sgml/docbook/docbook-catalog-install.sh
 ```
 
+<div class="note" markdown="1">
 !!! note
     This command seems to be unnecessary.
+</div>
 
+<div class="note" markdown="1">
 !!! note
     If repeating builds do not repeat the docbook-catalog-install.sh, it will break stuff!
+</div>
 
 You will likely find that the build never completes.  Instead, it hangs with a spinning `yes' command.  This happens because php-5.2.17 must be built with version 2.13 of the autoconf tools.  Version 2.69 is installed by the package listed above.  You will need to build 2.1.3 from source and install it where it won't interfere with 2.69.  /opt/auto is a suitable place.  Then you will need to patch usr/src/cmd/php5/Makefile.sfw so that the php build will use 2.13.  This patch file is suitable:
 
@@ -503,8 +517,10 @@ Following instructions describe building XNV on legacy OpenIndiana /dev distribu
 
 ### Install pre-requisites
 
+<div class="note" markdown="1">
 !!! note
     You must build this XNV release with Sun Studio 12 (Sept 2009 edition with CBE patches), and NOT Sun Studio 12.1. If you build it with 12.1 you'll suffer frequent freezes.
+</div>
 
 The following should install all the dependencies required to build X, with the exception of Sun Studio 12 which you will have to obtain separately.
 
@@ -603,8 +619,10 @@ SVR4 packages will be placed into ${HOME}/packages.
 
 ## Building slim_source
 
+<div class="note" markdown="1">
 !!! note
     For building slim_source used in modern OpenIndiana, use [openindiana/slim_source](https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source") oi-userland component.
+</div>
 
 Following instructions describe building slim_source on legacy OpenIndiana /dev distribution.
 

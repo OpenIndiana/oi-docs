@@ -18,6 +18,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # OpenIndiana Content Creation
 
+<div class="note" markdown="1">
 !!! note
     ## Why Fresh Website Content is so Important
     
@@ -45,6 +46,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
     * Start small and only later consider taking on something larger.
     * Your contribution does not have to be confined to the OpenIndiana Docs website.
     * Any and all contributions which help further the development and promotion of OpenIndiana are welcome.
+</div>
 
 
 

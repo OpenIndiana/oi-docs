@@ -9,10 +9,12 @@ hide:
 # Welcome to OpenIndiana Docs! {: .center}
 ## Home of the **Hipster Handbook** {: .center}
 
+<div class="note" markdown="1">
 !!! note
     This site contains **DRAFT** documentation which may contain errors!
-
+    
     Please help us improve and expand this site. See the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
+</div>
 
 
 <div class="grid" markdown>

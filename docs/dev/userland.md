@@ -66,6 +66,7 @@ To build a component you simply cd into the directory of the software, and type 
 | `env-check` | check build environment for missing packages |
 | `env-prep` | install missing build dependencies (requires elevated privileges) |
 
+<div class="note" markdown="1">
 !!! note
     **Before adding new packages to oi-userland...**
     
@@ -75,6 +76,7 @@ To build a component you simply cd into the directory of the software, and type 
     * If you wish to update an existing port, look at the log for the component Makefile ("git log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.
     
     This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
+</div>
 
 ### Setting up your build environment
 

@@ -19,12 +19,14 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - Getting Started with OpenIndiana
 
+<div class="note" markdown="1">
 !!! note
     This is a **DRAFT** document which may contain errors!
     
     Help us improve and expand this site.
     
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
+</div>
 
 ## Introduction
 
@@ -72,13 +74,17 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 For a full list of links to the various installer images, visit the [OpenIndiana Downloads](https://www.openindiana.org/download/) page.
 
 
+<div class="note" markdown="1">
 !!! note
     * The legacy oi-dev-151x branch is no longer maintained.
     * For details on installing/upgrading legacy OpenIndiana dev, [see this page](./legacy-branch.md)
+</div>
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Hipster is a rapid development branch where software versions are frequently updated.
     While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
+</div>
 
 ## System Requirements
 
@@ -95,11 +101,13 @@ As the FAQ evolves, try to keep this section in sync.
 | Desktop | 64 Bit | 20GB (or more) | 4GB (or more)
 
 
+<div class="note" markdown="1">
 !!! note
     * For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.
     * For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.
     * The default size of the OpenIndiana swap file is 50% of installed memory.
     * Minimum and maximum default swap allocations are 512MB and 32GB respectively.
+</div>
 
 ## Exploring OpenIndiana Hipster
 
@@ -110,8 +118,10 @@ There are several ways in which you can explore OpenIndiana without having to pe
 * Vagrant (virtual machine image automation)
 
 
+<div class="note" markdown="1">
 !!! note
     While the Live Media environment provides an opportunity to use and explore many of the features of OpenIndiana, it is not possible to install additional software into the Live Media environment.
+</div>
 
 ### Live Media
 
@@ -141,21 +151,27 @@ Virtual machines provide a PC emulation layer in which you install OpenIndiana j
 Vagrant provides an excellent way to explore OpenIndiana as it fully automates the process of bringing a virtual machine online.
 OpenIndiana comes with an official [Vagrant](https://www.vagrantup.com) box, which can be used for exploring OpenIndiana before installing it.
 
+<div class="note" markdown="1">
 !!! note
     At this time, the OpenIndiana Vagrant box is only available in the form of a text based console.  But because Vagrant supports X11 forwarding over ssh, graphical user interface applications can still be ran on this vagrant box over ssh.
     Additionally, Virtualbox is the only currently supported Vagrant provider.
     In the future the OpenIndiana project hopes to provide additional Vagrant box options.
+</div>
 
+<div class="note" markdown="1">
 !!! note
     Vagrant is officially available for Mac OS X, Windows and Linux.  Vagrant is currently not packaged for OpenIndiana itself, but it can be compiled from source, and it works on OpenIndiana itself as well.
+</div>
 
 * Download and install the latest version of Vagrant for your platform from the [official download page](https://www.vagrantup.com/downloads.html).
 * Download and install the latest version of Virtualbox for your platform from the [official download page](https://www.virtualbox.org/wiki/Downloads).
 
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Older versions of Vagrant (as packaged by many LTS Linux distributions), may not support downloading the Vagrant box instance.
     To work around this limitation, be sure to remove any previously installed instances of Vagrant and obtain the latest Vagrant software directly from the Vagrant website.
+</div>
 
 * Run the following command to download and boot the OpenIndiana vagrant box:
 
@@ -189,6 +205,7 @@ Prior to installing OpenIndiana:
 * Ensure your system meets the recommended hardware requirements.
 * Ensure to consult the HCL.
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Installing OpenIndiana on unsupported hardware may cause excessive CPU usage, instability, or other problems.
     
@@ -197,14 +214,17 @@ Prior to installing OpenIndiana:
     * [Illumos HLC](https://www.illumos.org/hcl/)
     * [OpenIndiana HCL - components](https://wiki.openindiana.org/oi/Components)
     * [OpenIndiana HCL - systems](https://wiki.openindiana.org/oi/Systems)
+</div>
 
 ### Backing up data
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Before attempting to install OpenIndiana, first ensure you backup any important data.
     Do not save the data on another partition or on another disk within the same system.
     Instead save the data to an external device such as a USB hard drive, or external system (network backup service, or a networked system).
     Always verify your backed up data.
+</div>
 
 ### Deciding where to install OpenIndiana
 
@@ -286,12 +306,14 @@ Examples:
 ```# cdrecord dev=4,1,0 imagefile.iso```
 
 
+<div class="note" markdown="1">
 !!! note
     If you are re-using a DVD-RW, be sure to blank it first.
     
     For example: `cdrecord dev=/dev/rdsk/c4t1d0p0 blank=fast`
     
     Warning: Blanking the disk will destroy all data on the disk.
+</div>
 
 Locating your DVD or CD writing device:
 
@@ -316,10 +338,12 @@ scsibus4:
 $
 ```
 
+<div class="note" markdown="1">
 !!! note
     When using `cdrecord -scanbus` to determine the device name, specify the device using the SCSI bus ID.
     
     For example: `cdrecord dev=4,1,0 imagefile.iso`
+</div>
 
 * For illumos/Solaris, you may use either `cdrecord -scanbus` or `rmformat -l` to locate your device.
 
@@ -339,10 +363,12 @@ Looking for devices...
 $
 ```
 
+<div class="note" markdown="1">
 !!! note
     When using `rmformat -l` to determine the device name, specify the device using the _Logical Node_.
     
     For example: `# cdrecord dev=/dev/rdsk/c4t1d0p0 imagefile.iso`
+</div>
 
 
 **UNIX GUI**
@@ -429,14 +455,18 @@ From within Windows Explorer:
 
 ## Creating a Hipster USB Drive
 
+<div class="note" markdown="1">
 !!! note
     Old versions of OpenIndiana Hipster prior to the 2016.10 release (including legacy oi-dev-151x) require a different
     procedure for for creating bootable USB flash drives, [see this page for details](./legacy-branch.md)
+</div>
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Although that the current OpenIndiana Hipster releases support UEFI without secure boot, old versions of OpenIndiana Hipster did not support UEFI.
     
     * If you intend to install an old version of OpenIndiana Hipster on a system which supports UEFI boot, please boot the system in legacy (CSM) mode.
+</div>
 
 ### Prerequisites
 
@@ -453,6 +483,7 @@ From within Windows Explorer:
 | Linux | `lsblk` | `/dev/sd*`
 | MAC OS X | `diskutil list` | `/dev/disk*`
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     When issuing the USB copy command:
     
@@ -481,6 +512,7 @@ From within Windows Explorer:
         * For illumos/Solaris use `rmumount <path>`.
         * for MAC OS X use `diskutil unmountDisk <path>`.
         * Verify using the `mount` command.
+</div>
 
 ### BSD/Linux/OS X
 
@@ -504,9 +536,11 @@ In the command below, replace each `X` with appropriate number for your USB devi
 
 Newer releases can be written using [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/).
 
+<div class="note" markdown="1">
 !!! note
     By default the Win32 Disk Imager utility is looking for `.img` files and won't see files with a `.usb` extension.
     To resolve this issue, be sure to select the `*.*` (all files) option from the file extension drop down menu.
+</div>
 
 ## Booting the Hipster Installer
 
@@ -514,18 +548,22 @@ Insert the bootable media (DVD or USB flash drive) and boot (start/restart) your
 When you see the OpenIndiana boot menu, select a boot entry, and press the enter key to start OpenIndiana on your computer.
 As it runs, you will be prompted with a few questions.
 
+<div class="note" markdown="1">
 !!! note
     For the computer to successfully boot from the media, you may be required to perform one of the following tasks:
     
     * Specify the appropriate boot device by pressing the boot order hotkey.
     * Change the boot device order found in your computer's system BIOS configuration.
+</div>
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     OpenIndiana supports UEFI (Unified Extensible Firmware Interface) without secure boot:
     
     Secure boot (UEFI boot path validation) must be disabled (if it is enabled by default) because UEFI secure boot is currently not yet supported.
     
     For further information, consult the manufacturers documentation for your computer hardware.
+</div>
 
 ### Booting the OpenIndiana installer on virtual hardware
 
@@ -540,10 +578,12 @@ See the notes below for optimizing OpenIndiana for several popular hypervisors.
 | KVM | OS type = Sun OpenSolaris <br>Disk = SATA <br>Remove USB Tablet <br>NIC = e1000 <br>sound = AC97 <br>Processor = Copy host CPU configuration <br>Disable CPU feature _'xsave'_ <br>Video = QXL (QXL driver not supported, but the extra video memory helps) <br>Display = VNC (Spice not supported)
 | Hyper-V | Select single CPU, generation 1 VM, and legacy NIC.
 
+<div class="note" markdown="1">
 !!! note
     The OpenIndiana Project recommends the Oracle Virtualbox hypervisor as it provides the best support for illumos based distributions such as OpenIndiana.
     
     If you experience difficulties booting OpenIndiana on virtual hardware, or find virtual hardware devices which are either not properly recognized, or fail to function as expected, please report the problem to the upstream illumos Project. You may do so by submitting an issue using the [illumos project bug tracker](https://www.illumos.org/issues).
+</div>
 
 ### The OpenIndiana installer boot menu
 
@@ -555,10 +595,12 @@ The new boot loader provides many new capabilities:
 * Single user mode
 * Debugger options
 
+<div class="note" markdown="1">
 !!! note
     The OpenIndiana installer will automatically boot option # **1. Boot Multi User** within 10 seconds.
     
     * To pause the Autoboot timer, press the `Space` key.
+</div>
 
 ![forth_menu](./images/boot/forth_main_menu.png)
 
@@ -615,9 +657,11 @@ For example:
 * Pressing 2 forces the VESA driver.
 * Pressing 2 again, disables the VESA driver.
 
+<div class="note" markdown="1">
 !!! note
     Even when booting the Mate Live Image, selecting option # 3 (text console) option will boot the system to a text based console.
     The logon credentials required to access the shell are jack/jack.
+</div>
 
 ### Selecting keyboard layout and display language
 
@@ -641,9 +685,11 @@ OpenIndiana offers 22 different language options.
 
 Once you have selected a language, press the `Enter` key to continue.
 
+<div class="note" markdown="1">
 !!! note
     After selecting the keyboard layout and language, OpenIndiana will begin to search for hardware and configure devices.
     When the configuration process is complete, the system will load to either the Mate desktop, or a logon console.
+</div>
 
 ### The live media desktop
 
@@ -672,10 +718,12 @@ The device driver utility allows you to check whether your hardware requires add
 
 The Gparted partition editor allows you to add, remove, or resize partitions in preparation for installing OpenIndiana.
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Editing partition tables is a potentially destructive process.
     While you are unlikely to physically damage the disk, there is a risk of losing data.
     Before using the partition editor, please be sure to back up your data to a remote system or device.
+</div>
 
 ### Live media authentication
 
@@ -686,12 +734,15 @@ The Gparted partition editor allows you to add, remove, or resize partitions in 
 
 ## Installing OpenIndiana
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     For some guidance writing this section:
     
     * Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
     * Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
+</div>
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Please be advised of the following important considerations:
     
@@ -700,6 +751,7 @@ The Gparted partition editor allows you to add, remove, or resize partitions in 
         * The disk was not previously partitioned.
     * If an existing Solaris fdisk partition is on a multiboot system, and the user makes no modifications to the existing partitions, the installation overwrites the Solaris fdisk partition only.
     Other existing partitions are not changed.
+</div>
 
 ### Installing OpenIndiana from live media
 
@@ -711,6 +763,7 @@ To install OpenIndiana from Live Media, you have two options.
 Each of these options is represented by a desktop icon.
 Select the appropriate installer option by clicking the corresponding desktop installer icon.
 
+<div class="note" markdown="1">
 !!! note
     **From Hipster 2016.10 release onwards**
     
@@ -727,6 +780,7 @@ Select the appropriate installer option by clicking the corresponding desktop in
     
     * This capability applies only to the python based installer which runs within a console window.
     * The graphical installer does not yet have this capability.
+</div>
 
 ### Install OpenIndiana (graphical installer)
 
@@ -740,6 +794,7 @@ When the installer starts, the first screen you will see is the welcome page.
 Please take some time to read the additional guidance provided below.
 When ready to begin, click the _**Next**_ button to continue on with the installation process.
 
+<div class="note" markdown="1">
 !!! note
     Please disregard the reference to the getting started guide.
     This guide no longer exists on the Live Media installer.
@@ -755,6 +810,7 @@ When ready to begin, click the _**Next**_ button to continue on with the install
     
     * Perform a search within the Wiki site for the release notes.
     * Browse to the following Wiki page: <https://wiki.openindiana.org/oi/Release+Notes>.
+</div>
 
 
 ![Disk selection and partitioning menu -1](./images/gui_install/install_02.png)
@@ -777,12 +833,15 @@ If you choose to partition the disk, you have additional options as shown above.
 Please take some time to read the additional guidance provided below.
 When you have revised the partitioning as needed, click the _**Next**_ button to continue.
 
+<div class="note" markdown="1">
 !!! note
     Regardless of the partitioning option chosen for the installation, manual control of the OpenIndiana file system layout is not supported.
     During the installation, the Solaris fdisk partition is reformatted with a default ZFS file system layout.
     All existing file systems on the Solaris partition are destroyed.
     The installation uses a Solaris fdisk partition to create a ZFS storage pool.
+</div>
 
+<div class="note" markdown="1">
 !!! note
     If you choose to partition the disk, review the following partitioning guidelines, then revise the partitioning panel settings as needed.
     
@@ -793,7 +852,9 @@ When you have revised the partitioning as needed, click the _**Next**_ button to
     For this option, one existing Solaris partition must be available as the target for the installation.
     * If you used a third-party partitioning tool such as GParted, then the Disk panel displays a partition named Linux-swap on which you can install OpenIndiana.
         * In this panel, use the drop-down list for the Linux-swap partition name to change the partition name to Solaris.
+</div>
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     If the existing partition table cannot be read, a warning is displayed, and the panel displays proposed partitioning.
     In this case, all data on the selected disk is destroyed.
@@ -810,6 +871,7 @@ When you have revised the partitioning as needed, click the _**Next**_ button to
     * New partitions can only use the available space that follows the last defined partition.
     * The installer cannot utilize unallocated chunks of space between existing defined partitions.
     * Use the fdisk(1M) command to create new partitions that use the free space between exiting partitions.
+</div>
 
 ![Time zone, date and time](./images/gui_install/install_04.png)
 
@@ -831,8 +893,10 @@ You can right-click to undo magnification.
 Select your region, then select Location. Finally, select time zone.
 The options for each drop-down field are determined by the selection made in the prior drop-down field.
 
+<div class="note" markdown="1">
 !!! note
     After making your selections, you may also edit the default date and time that is provided.
+</div>
 
 When the settings are correct, click Next to continue.
 
@@ -851,8 +915,10 @@ You can select “no default language support.”
 Only one locale can be selected.
 
 
+<div class="note" markdown="1">
 !!! note
     Any time that you log in to the installed system, you can change either the locale for that particular session or the default locale by using the Options button in the Login dialog box.
+</div>
 
 ![Users](./images/gui_install/install_06.png)
 
@@ -863,9 +929,11 @@ Review the following guidelines:
 You must log in as the user that you create in this panel.
 After you log in, you can then become root to configure the system.
 
+<div class="note" markdown="1">
 !!! note
     If you do not create a user account in this panel, root is set up as a normal account on the installed system, instead of as a role.
     This is the only situation where you can log in to the installed system as root.
+</div>
 
 * Both the root password and user account are optional.
 However, for better security, do complete these fields.
@@ -889,9 +957,11 @@ Be sure to take the time to review this summary.
 If a configuration option needs to be changed, you may do so by clicking the _**Back**_ button.
 If the installation options are acceptable, click the _**Install**_ button to begin the installation.
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     Once you have clicked the _**Install**_ button, the option to _**Quit**_ the installation is no longer available.
     Do not attempt to interrupt an installation already in progress or the system will be left in an inconsistent state.
+</div>
 
 ![Installation in progress](./images/gui_install/install_08.png)
 
@@ -919,10 +989,13 @@ From here you now have several options:
 * Quit the installer by clicking the _**Quit**_ button and then manually shut down or restart your system.
 * Reboot the computer by clicking the _**Reboot**_ button.
 
+<div class="note" markdown="1">
 !!! note
     To prevent the Live Media from starting again after the reboot, eject the Live Media as the next boot begins.
     Or alternately, when presented with the Live Media installer options menu, select the _**ChainLoad diskN**_ option.
+</div>
 
+<div class="note" markdown="1">
 !!! note
     After you have installed OpenIndiana, if you have another operating system installed, you might need to update the loader configuration.
     Usually you can achieve the desired effect by chainloading partitions with other operating systems.
@@ -947,11 +1020,13 @@ From here you now have several options:
     From Linux you can run `sudo fdisk -l` to list disks and partitions. The partition 'sda2' would map to 'hd0,2' in GRUB.
     After making changes you must run `sudo update-grub`,
     this updates the auto-generated GRUB configuration stored in /boot/grub/grub.cfg.
+</div>
 
 
 
 ### Install OpenIndiana using the Text Installer
 
+<div class="note" markdown="1">
 !!! note
     The text based guided install starts and runs within a command line console.
     Navigation within the installer is performed by pressing specifically designated navigation keys (`F2`, Tab, etc.).
@@ -980,6 +1055,7 @@ From here you now have several options:
     svcadm enable -r /application/graphical-login/lightdm
     init 6
     ```
+</div>
 
 <a name="welcome-screen"></a>
 ![Welcome Screen](./images/text_install/text_install_01.png)
@@ -989,8 +1065,10 @@ The text based installation process begins with the welcome screen, which provid
 * Location of the installation log file
 * Navigational guidance
 
+<div class="note" markdown="1">
 !!! note
     At any time during the installation process you may press the `F6` key for context specific help.
+</div>
 
 Text installer allows you to do either usual installation or installation to existing ZFS pool.
 
@@ -1014,6 +1092,7 @@ Once you have selected the appropriate disk, press the `F2` key to continue.
     * To install to RAIDZ, select 3 or more disks.
 
 
+<div class="note" markdown="1">
 !!! note
     While the minimum and recommended disk sizes are technically accurate, they do not take into account periodic disk usage growth resulting from:
     
@@ -1023,6 +1102,7 @@ Once you have selected the appropriate disk, press the `F2` key to continue.
     * New backup boot environments automatically created when running the `pkg install` command
     
     To account for this, your disk should be at least 20GB or more.
+</div>
 
 ![GPT Warning](./images/text_install/text_install_03.png)
 
@@ -1037,6 +1117,7 @@ If you select cancel, you will have the following options:
     * Modifying the partition table using Gparted
     * Adding another disk to the system
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     If your disk contains a GPT disk label, the entire disk will be used.
     
@@ -1044,11 +1125,14 @@ If you select cancel, you will have the following options:
     * A new single GPT partition will be created.
     
     This warning serves as your advisory.
+</div>
 
 ![ZFS) rpool options](./images/text_install/text_install_04.png)
 
+<div class="note" markdown="1">
 !!! note
     This screen will be available only when **_2 or more disks_** have been selected.
+</div>
 
 * If 2 disks have been selected, the ZFS mirror option becomes available.
 * If 3 or more disks have been selected, the ZFS RAIDZ option become available.
@@ -1060,8 +1144,10 @@ When ready, press the `F2` key to continue.
 
 ![Fdisk Partitions](./images/text_install/text_install_05.png)
 
+<div class="note" markdown="1">
 !!! note
     This screen will be available only when a **_single disk_** has been selected.
+</div>
 
 In this screen you are presented with the following choices for how to partition the disk:
 
@@ -1074,8 +1160,10 @@ When ready, press the `F2` key to continue.
 
 ![Select Partition](./images/text_install/text_install_06.png)
 
+<div class="note" markdown="1">
 !!! note
     This screen will be available only when the **_Use a partition of the disk (MBR)_** option has been selected.
+</div>
 
 This screen provides the following options:
 
@@ -1091,8 +1179,10 @@ When ready, press the `F2` key to continue.
 
 ![Network 1](./images/text_install/text_install_07.png)
 
+<div class="note" markdown="1">
 !!! note
     We have illustrated this screen twice as 2 different tasks are required.
+</div>
 
     In this step you will configure the hostname.
 
@@ -1104,8 +1194,10 @@ When ready, proceed to the next screen shot below where you will be provided add
 
 ![Network 2](./images/text_install/text_install_08.png)
 
+<div class="note" markdown="1">
 !!! note
     We have illustrated this screen twice as 2 different tasks are required.
+</div>
 
     In this step you will select your network configuration type.
 
@@ -1123,11 +1215,13 @@ When ready, press the `F2` key to continue.
 
 ![Network 3](./images/text_install/text_install_09.png)
 
+<div class="note" markdown="1">
 !!! note
     This screen will be available only when the ***Manually*** configure network option has been selected.
     
     * The values illustrated above are for example only, do not use them.
     * Substitute each field with correct values for your network.
+</div>
 
 In the fields provided, enter in the following information:
 
@@ -1149,8 +1243,10 @@ Select your time zone **_region_** by navigating up and down with the arrow keys
 
 When ready, press the `F2` key to continue.
 
+<div class="note" markdown="1">
 !!! note
     When selecting the ***UTC/GMT*** time zone region, only this screen will be presented.
+</div>
 
 ![Time Zone - Location](./images/text_install/text_install_11.png)
 
@@ -1187,6 +1283,7 @@ Using the up and down arrow keys, navigate between the fields and enter the requ
 
 When ready, press the `F2` key to continue.
 
+<div class="note" markdown="1">
 !!! note
     * The first user created on the system is granted the root role via _Role Based Access Control_ (RBAC).
     * In effect this means the following:
@@ -1195,6 +1292,7 @@ When ready, press the `F2` key to continue.
     Please take note the following additional information:
     
     * Immediately after installation the root password is automatically expired and needs to be changed prior to being used for any administrative task.
+</div>
 
 ![Installation Summary](./images/text_install/text_install_15.png)
 
@@ -1240,14 +1338,18 @@ This option can be useful when you want to do some customizations to root ZFS po
 OpenIndiana to pool where another operating system is already installed (for example, prior version of OpenIndiana or even FreeBSD).
 It is recommended to use minimal or server installation images to perform such installations.
 
+<div class="note" markdown="1">
 !!! note
     This feature is intended for advanced users.
     It's assumed you know what you are doing.
     Multi-booting of another operating system and OpenIndiana on the same root pool can be possible, but such configuration is out of scope of this tutorial and is not supported.
+</div>
 
+<div class="note" markdown="1">
 !!! note
     OpenIndiana supports booting from a RAIDZ pool, however you must confirm that all vdevs are accessible from the boot loader.
     From the boot loader menu, choose Escape to loader prompt and run lsdev to confirm the disks are present.
+</div>
 
 To start installation to existing ZFS pool, press `F5` key when [Welcome Screen](#welcome-screen) is presented.
 
@@ -1309,10 +1411,12 @@ Use the following steps to change the root password:
 
 ## Image Package System (IPS)
 
+<div class="note" markdown="1">
 !!! note
     The image packaging system is delivered as part of the OpenIndiana userland.
     As such, the pkg related man pages are not available on the illumos.org website.
     These pages are only available by running the man page viewer locally on your system.
+</div>
 
 ### Introduction
 
@@ -1364,9 +1468,11 @@ The Image Packaging System software provides the following commands:
 | `pkg.depotd`<sup>1M</sup> | Use the `pkg.depotd`<sup>1M</sup> command to create and manage your own network repository or set up a mirror repositories.
 | `pkgrecv` | Use the `pkgrecv` command to download the contents of a package from a server. The user can then modify the contents by adding additional package attributes and republish the package with the `pkgsend` command.
 
+<div class="note" markdown="1">
 !!! note
     * The `pkg`<sup>5</sup> man page describes the overall Image Packaging System.
     * The `pkg`<sup>1</sup> man page describes the Image Packaging System retrieval client.
+</div>
 
 ### pkg<sup>1</sup> uses FMRIs
 
@@ -1473,9 +1579,11 @@ pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1 openindiana.org
 pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5    openindiana.org
 ```
 
+<div class="note" markdown="1">
 !!! note
     When using the `pkg search` command, remember it works much like the Unix `find` command.
     If you have difficulty finding a package you know should exist, try modifying your search by including wildcards.
+</div>
 
 The `pkg search` command may also be used to find the package containing a particular file.
 
@@ -1502,8 +1610,10 @@ NAME (PUBLISHER)                                  VERSION                    IFO
 shell/bash                                        4.3.46-2016.0.0.0          i--
 ```
 
+<div class="note" markdown="1">
 !!! note
     To list all the packages installed on the local system, use `pkg list` without specifying a package.
+</div>
 
 
 ### Listing information about packages
@@ -1603,11 +1713,13 @@ Creating fast lookup database                   Done
 ```
 
 
+<div class="note" markdown="1">
 !!! note
     * The `pkg install` command is also used to update specific packages on the system.
     * The `pkg install` command automatically checks for newer versions of specific packages or package groups and installs them if they are available.
     Any dependent packages are also automatically updated.
     * To install a specific version of a package you may substitute the common name for the FMRI.
+</div>
 
 ### Updating packages
 
@@ -1683,10 +1795,12 @@ library/audio/gstreamer/plugin/base@0.10.36 \
 library/audio/gstreamer/plugin/good@0.10.31
 ```
 
+<div class="note" markdown="1">
 !!! note
     The OpenIndiana project uses package incorporations to ensure packages are maintained to specific versions.
     Where packages are included in an incorporation, it is not possible to revert to an earlier (or newer) version of the package without first relaxing the restrictions imposed by the incorporation.
     Where packages are not restricted by an incorporation, you may freely revert to earlier package versions.
+</div>
 
 To relax the restrictions on a package, the `pkg change-facet` command is used.
 
@@ -1899,6 +2013,7 @@ Here are some of the available tools:
 ### 3rd party package management tools
 
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -1926,15 +2041,18 @@ Here are some of the available tools:
           [Compiling Software on Solaris](http://www.inetdaemon.com/tutorials/computers/software/operating_systems/unix/Solaris/compiling_software.shtml)
     * Given the limited number of IPS packages currently available, these are
       pretty important subjects to write about.
+</div>
 
 In addition to IPS and SVR4 package management tools, it is also possible to use `pkgsrc`.
 
 For more information about pkgsrc, see the [Joyent package source website](https://pkgsrc.joyent.com/).
 
+<div class="caution" markdown="1">
 !!! danger "Caution"
     The use of 3rd party repositories and package managers increases the likelihood of conflicts between package versions and their dependencies.
     Furthermore, the OpenIndiana project cannot guarantee the qualify of packages obtained from 3rd party repositories.
     Therefore, use 3rd party repositories and 3rd party package tools at your own risk.
+</div>
 
 ## Managing Boot Environments
 
@@ -1977,7 +2095,8 @@ Although only one boot environment can be active at a time, you can mount an ina
 Then you can use the `pkg update` command with the `-R` option to update all the packages in that inactive, mounted environment.
 Or, use the `pkg install packagename` with the `-R` option to update specific packages on that environment.
 
-!!! info
+<div class="note" markdown="1">
+!!! note
     When `pkg` creates new boot environment, it determines its name using `auto-be-name` image property.
     When prefixed with "time:" string, the remaining part of property is interpreted as `strftime(3C)` argument.
     If `pkg` can't produce unique boot environment name based on auto-be-name image property,
@@ -1987,6 +2106,7 @@ Or, use the `pkg install packagename` with the `-R` option to update specific pa
     (which is not recommended), `pkg` will produce boot environment names ending with current date, current date + 1 and so on.
     By default `auto-be-name` is set to "time:openindiana-%Y:%m:%d", so that boot environments are named like
     "openindiana-2019:03:29". You can get current value using `pkg property` command and set it with `pkg set-property`.
+</div>
 
 ### Features of the beadm utility
 
@@ -2072,6 +2192,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
 
 ## The X-Window System
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     Write about:
     
@@ -2079,6 +2200,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
     * Graphics drivers are found in the `/usr/lib/xorg/modules/drivers/amd64/` graphics driver directory
         * modinfo only shows kernel drivers, not Xorg drivers, since Xorg drivers are just driver.so files dlopen'ed by a userspace process, not loaded into the kernel address space.
         * To see what drivers Xorg loaded, either check `/var/log/Xorg.0.log` or run `pldd` on the Xorg process.
+</div>
 
 ### Video card support (2D)
 
@@ -2092,6 +2214,7 @@ The beadm command impacts the non-global zones in your boot environments as foll
 * Beginning with the July 2016 experimental release, most Intel GPU's are now also supported.
 * No 3D support is currently available for AMD GPU's.
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     Write about:
     
@@ -2099,9 +2222,11 @@ The beadm command impacts the non-global zones in your boot environments as foll
     * Discuss procedure for adding an NVIDIA card to a system that was using VESA or some other non-3d video driver.
     * Troubleshooting - what logs to look at, manual configuration, etc.
     * Walk through NVIDIA utility screens.
+</div>
 
 ## Device Drivers
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     Write about:
     

@@ -34,12 +34,14 @@ While it is certainly possible to add more to this list or select alternative
 items, this small selection is readily absorbed and is convenient to illustrate
 a number of essential concepts central to OpenIndiana system administration.
 
+<div class="note" markdown="1">
 !!! note
     Administrative commands are usually expected to be run with elevated privileges -
     directly from root user, via `sudo(1M)` or
     `pfexec` (if user was granted privileges via RBAC).
     In this document commands which require elevated privileges are prefixed with
     "# ". Commands, which don't require elevated privileges, are prefixed with "$ ".
+</div>
 
 ## Users and account management
 
@@ -66,8 +68,10 @@ Every user account has some attributes associated with it.
   Username format is briefly described in [passwd(4)](https://illumos.org/man/4/passwd)
 * **password** - password associated with the account.
 
+<div class="warning" markdown="1">
 !!! warning
     Accounts without password should not exist on the system as they could put the system at the security risk!
+</div>
 
 * **UID** (user ID) - unique numerical ID of the account in the system.
 The maximum value for uid is 2147483647.
@@ -314,16 +318,20 @@ Refer to the original documentation from Oracle for getting this working: [nss_a
 - Pro: Fully integrated and native tools only
 - Cons: Requires installation of additional role services (IDMU, Identity Management for UNIX) on the Active Directory side
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on configuration of Windows Server 2008 Active Directory to work with OI. As of 2021, Windows Server 2008 is EoL. This section should not be migrated until it has been checked and updated for recent Windows. Ideally this information should be on a separate page (potentially community contributions) as it’s large and contains a lot of Windows information.
+</div>
 
 #### winbind
 
 - Pro: Easy setup, no AD modification
 - Cons: Depends on 3rd party software (Samba), group membership resolution didn't work
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     As above note, the 'winbind' page was a separate detailed article which needs to be checked and updated before it's migrated.
+</div>
 
 ## Management of System Resources
 
@@ -458,9 +466,11 @@ refresh
 
 Virtual Terminals/Virtual Consoles (VT) are used to switch between terminals and using system in text mode with _Ctrl+Alt+F1,F2..F8_ key combinations.
 
+<div class="note" markdown="1">
 !!! note
     Switching to VTs using _Ctrl+Alt+Fn_ during current desktop session (at **VT7**) can result in **X server** and **lightdm** (or **gdm**) restarting and stopping all applications running within it.
     Currently, there could be problems with getting back to gdm/Xorg session if switching to VTs after gdm restart. Use `svcadm restart ligthdm` (or `svcadm restart gdm`) command again, to have lightdm/gdm Xorg session restarted at **VT8** (_Ctrl+Alt+F8_).
+</div>
 
 At fresh Openindiana install, VT/Consoles are **not enabled by default**. One needs to set up vtdaemon and console-login:vt2 (till :vt6) and enable **vtdaemon** options/hotkeys property:
 
@@ -489,8 +499,10 @@ The above was inspired by [this blog by Danx on Virtual Consoles](https://web.ar
 
 ### Service management (SMF)
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT: provide more detailed explanations.
+</div>
 
 List services:
 
@@ -527,10 +539,12 @@ Restart / reload a service:
 
 ### Systems logging and monitoring
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * Where to find the logs (`/var/log`, `/var/svc/log`).
+</div>
 
 ## Illumos boot process
 
@@ -543,6 +557,7 @@ Restart / reload a service:
 
 ## Zones
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -552,6 +567,7 @@ Restart / reload a service:
         * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`.
     
     So a fair amount of stuff has changed there.
+</div>
 
 Zones are an OpenIndiana feature that provides [operating system-level virtualization](http://www.wikipedia.org/wiki/Operating_system-level_virtualization). Each zone is managed as a completely separate OpenIndiana machine. Zones have very low overhead and are one of the most efficient forms of OS virtualization.
 
@@ -573,8 +589,10 @@ The global zone defines which physical networks and VLANs the NGZ has access to,
 
 A zone with an exclusive IP stack can have all the benefits of dedicated hardware networking, including a firewall, access to promiscuous sniffing, routing, configuration of its own IP address (including use of DHCP and static network addressing), etc. This requires a fully dedicated NIC. Usually this is a VNICs - a virtual adapter with own MAC address, that operate as if the VNIC was plugged directly into local LAN in a particular (or default) VLAN. Note also that the local zones with an exclusive IP stack are not subject to the host's shared-stack firewall.
 
+<div class="note" markdown="1">
 !!! note
     Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.
+</div>
 
 ### Quick Setup Example
 
@@ -654,8 +672,10 @@ zonecfg:example> set autoboot=true
 
 Once zone is booted you can log in locally with `zlogin example`. If you created zone with dedicated network adapter, you should configure it inside zone.
 
+<div class="note" markdown="1">
 !!! note
     Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
+</div>
 
 ### System repository configuration
 
@@ -669,8 +689,10 @@ Zones proxy daemon service `svc:/application/pkg/zones-proxyd` starts on system 
 Later, on zone startup or shutdown /usr/lib/zones/zoneproxy-adm is used to notify zones-proxyd, so that it could create the door for the zone or to cleanup it.
 Zones proxy daemon client `svc:/application/pkg/zones-proxy-client:default` runs in NGZ and talks to GZ's zones-proxyd via created door.
 
+<div class="note" markdown="1">
 !!! note
     Note, you can't use system repository with nlipkg-branded zones.
+</div>
 
 IPS determines if it should use zones proxy client in zone based on image's `use-system-repo` property (defaults to False).
 
@@ -746,10 +768,12 @@ Are you sure you want to uninstall zone example (y/[n])? y
 
 ### Mounting file systems
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * Need a walkthrough of mounting options for other filesystems...FAT, UFS, etc.
+</div>
 
 #### Mounting and Unmounting ISO images
 
@@ -789,10 +813,12 @@ pfexec lofiadm -d /dev/lofi/1
 
 #### Mounting NTFS Volumes - 3rd party support
 
+<div class="note" markdown="1">
 !!! note
     For removable storage devices, first make sure your external disk drive is connected and powered on.
     
     To list attached removable storage devices: `rmformat -l`
+</div>
 
 Verify the pX partition number that contains the NTFS filesystem, typically "p1", using fdisk. Even though it may seem counterintuitive, include the partition number "p0" as shown by rmformat in fdisk inquiries.
 
@@ -846,6 +872,7 @@ Here are just a few of them:
 
 ### ZFS
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -865,58 +892,73 @@ Here are just a few of them:
     <tsoome> not pool property (one reason why that linux zpool create ashift= option is bad)
     <tsoome> or sort of bad anyhow
     ```
+</div>
 
 #### Importing ZFS disks
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * Talk about the ZFS import command.
+</div>
 
 #### How does one mirror their root zpool?
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * Adding a 2nd disk to the root pool
+</div>
 
 #### How does one create additional zpools?
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * zpool create command
         * Mirrors
         * Raidz
+</div>
 
 #### Modifying zpool settings and attributes
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * zpool get/set commands
+</div>
 
 #### Modifying zfs file system settings and attributes
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * zfs get/set commands
+</div>
 
 #### How does one create additional zfs datasets?
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * zfs create command
+</div>
 
 #### Configuring system swap
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * zfs set command
     * swap -l
+</div>
 
 ## Virtualization
 
@@ -924,6 +966,7 @@ Here are just a few of them:
 
 ### OpenIndiana as a virtualization host server
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -932,16 +975,20 @@ Here are just a few of them:
         * Intel processors require EPT support.
     * Virtualbox walkthrough
         * There is no package for this yet, but folks do have it working, see the wiki for details.
+</div>
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
     Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
     You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
+</div>
 
 ## Localization
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -949,6 +996,7 @@ Here are just a few of them:
     
     * <https://wiki.openindiana.org/oi/4.4+Localization>
     * <https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html>
+</div>
 
 ## Dtrace
 
@@ -1062,8 +1110,10 @@ Restart
 # reboot
 ```
 
+<div class="note" markdown="1">
 !!! note
     IF you cannot ping an external IP (e.g. google.com) run this command and try again.
+</div>
 
 ```bash
 # cp /etc/nsswitch.dns /etc/nsswitch.conf
@@ -1328,6 +1378,7 @@ Right click the NWAM tray icon and select **_Location_ > _Automatic_**.
 
 ## Clustering with Open HA Cluster
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     

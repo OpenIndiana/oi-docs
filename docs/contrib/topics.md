@@ -66,10 +66,13 @@ Take some time to look them over for ideas and inspiration for writing new conte
 
 ## Handbook - Getting Started
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     * Page URL: <https://openindiana.github.io/oi-docs/handbook/getting-started/>
     * Page location within docs site: `/oi-docs/docs/handbook/getting-started.md`
+</div>
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
     
@@ -92,6 +95,7 @@ Take some time to look them over for ideas and inspiration for writing new conte
     * The Image Package System (IPS)
     * Managing boot environments
     * The X-Window system
+</div>
 
 ### Suggested topics:
 
@@ -111,10 +115,13 @@ Have a look at the following resources for ideas and inspiration for writing new
 
 ## Handbook - Common Tasks
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     * Page URL: <https://openindiana.github.io/oi-docs/handbook/common-tasks/>
     * Page location within docs site: `/oi-docs/docs/handbook/common-tasks.md`
+</div>
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
     
@@ -135,6 +142,7 @@ Have a look at the following resources for ideas and inspiration for writing new
     Currently this section is largely desktop oriented.
     Perhaps some additional items such as system backups might fit better in this section.
     As previously mentioned, this is a living document and things will likely get shuffled around as the document matures.
+</div>
 
 ### Suggested topics:
 
@@ -154,10 +162,13 @@ In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
 
 ## Handbook - Systems Administration
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     * Page URL: <https://openindiana.github.io/oi-docs/handbook/systems-administration/>
     * Page location within docs site: `/oi-docs/docs/handbook/systems-administration.md`
+</div>
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
     
@@ -187,6 +198,7 @@ In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
     * Configuring Networking
         * NWAM
     * Clustering
+</div>
 
 ### Suggested topics:
 
@@ -241,10 +253,13 @@ Write about Virtualization
 
 ## Handbook - Network Communications
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     * Page URL: <https://openindiana.github.io/oi-docs/handbook/network-communications/>
     * Page location within docs site: `/oi-docs/docs/handbook/network-communications.md`
+</div>
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
     
@@ -271,6 +286,7 @@ Write about Virtualization
     * DNS
     * NTP
     * INETD
+</div>
 
 ### Suggested topics:
 
@@ -324,10 +340,13 @@ Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_0
 
 ## Handbook - Appendix
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     * Page URL: <https://openindiana.github.io/oi-docs/handbook/appendix/>
     * Page location within docs site: `/oi-docs/docs/handbook/appendix.md`
+</div>
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     This document is likely to change significantly over the course of it's development.
     
@@ -345,6 +364,7 @@ Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_0
     * Basic UNIX commands
     * Contrast and comparison tables (e.g. Unix versus Linux, etc.)
     * Feature comparison tables
+</div>
 
 ### Suggested topics:
 
@@ -373,10 +393,13 @@ Write some comparison tables
 
 ## OpenSolaris Redistributable Books
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     * Page URL: <https://openindiana.github.io/oi-docs/books/about/>
     * Page location within docs site: `/oi-docs/docs/books/about.md`
+</div>
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     The OpenSolaris books are from the 2009.06 release of OpenSolaris.
     As OpenIndiana has diverged from it's OpenSolaris roots, the relevancy of this documentation has diminished.
@@ -390,6 +413,7 @@ Write some comparison tables
     * Pull in any and all reverent content into the new handbook and then discard the books.
     * Write errata for the books, pointing out what has changed between OpenSolaris and OpenIndiana.
     * Use the books to write task specific tutorials.
+</div>
 
 ### Suggested topics:
 

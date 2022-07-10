@@ -13,8 +13,10 @@ All Rights Reserved.
 
 # Cleaning up OpenIndiana repository
 
+<div class="note" markdown="1">
 !!! note
     This is an internal document provided mostly for OpenIndiana maintainers
+</div>
 
 Due to current CI practices, OpenIndiana Hipster repository tend to bloat with old package versions.
 This causes several issues:

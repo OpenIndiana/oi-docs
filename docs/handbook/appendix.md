@@ -19,12 +19,14 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - Appendix
 
+<div class="note" markdown="1">
 !!! note
     This is a **DRAFT** document which may contain errors!
     
     Help us improve and expand this site.
     
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
+</div>
 
 < place holder for introduction content >
 
@@ -76,6 +78,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Developing with OpenIndiana
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
     
@@ -84,8 +87,10 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
     * How can OI be used as a development platform?
     * What programming tools, languages, etc., are available?
     * How can OI be used to further the development of OI itself?
+</div>
 
 ## Software Development Testing
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     Need to add some guidance about how to add a test repo to test specific packages, etc.

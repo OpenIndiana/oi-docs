@@ -19,12 +19,14 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - Network Communications
 
+<div class="note" markdown="1">
 !!! note
     This is a **DRAFT** document which may contain errors!
     
     Help us improve and expand this site.
     
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
+</div>
 
 < Place holder for Introduction content >
 
@@ -58,8 +60,10 @@ Firewalls are used to filter network traffic based on rules set by the system ad
 
 OpenIndiana comes with built-in firewall, IP Filter. IP Filter is the stateful packet filtering and network address translation (NAT) mechanism. IP filter can filter any kind of traffic based on source or destination IP address or pool of IP addresses, source or destination ports, interface or direction of the network traffic. OpenIndiana IP Filter is derived from open source IPFilter software.
 
+<div class="note" markdown="1">
 !!! note
     To manage IP Filter rules one must assume a role that includes IP Filter Management profile rights or superuser (**root**).
+</div>
 
 ### IP Filter configuration
 
@@ -150,8 +154,10 @@ Assuming we have an external IP address 10.0.0.1/24 on interface eg1000 and an i
 
 `map eg1000 192.168.0.0/24 -> 10.0.0.1/24`
 
+<div class="note" markdown="1">
 !!! note
     NAT is not usable with IPv6 IP filter as NAT is deprecated in IPv6. NAT can be only used with IPv4 addresses.
+</div>
 
 ## Advanced Networking
 
@@ -173,6 +179,7 @@ OpenIndiana provides several ways to share data with network clients.
 | SAMBA | Modern userland based SMB file sharing solution providing support for newer SMB protocols (SMB 2.1) and better compatibility with modern Windows clients.
 | NFS | The Network File System was originally developed by Sun Microsystems.
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -191,6 +198,7 @@ OpenIndiana provides several ways to share data with network clients.
     * [CIFS Technical References](https://web.archive.org/web/20090725231658/http://wiki.genunix.org/wiki/index.php/CIFS_Technical_References)
     
     Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf)
+</div>
 
 
 ### Hipster as a CIFS server (workgroup)

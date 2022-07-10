@@ -19,12 +19,14 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 # Hipster Handbook - Common Tasks
 
+<div class="note" markdown="1">
 !!! note
     This is a **DRAFT** document which may contain errors!
     
     Help us improve and expand this site.
     
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
+</div>
 
 < place holder for introduction content >
 
@@ -95,6 +97,7 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 
 ### How can the desktop be modified?
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -109,6 +112,7 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
     * we introduce mediator x-terminal-emulator for link /usr/bin/x-terminal-emulator with possible implementations gnome-terminal, mate-terminal and xterm;
     * mate-terminal implementation has the highest priority (if it is installed, by default it wins);
     * glib is modified to use link /usr/bin/x-terminal-emulator if it's found for running applications with Terminal=true.
+</div>
 
 ## Multimedia - Audio
 
@@ -117,6 +121,7 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 
 ## Multimedia - Video
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -124,17 +129,21 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
     * How to get flash player installed and working.
     * How to get VLC installed and working.
     * Totem (video player)
+</div>
 
 ### Using OpenIndiana as a media server, HTPC, etc.
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * <http://forum.kodi.tv/showthread.php?tid=44315&page=2>
     * <https://web.archive.org/web/20180822163548/http://lightsandshapes.com/plex-on-smartos.html>
+</div>
 
 ## Printing
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
@@ -143,13 +152,16 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
     
     See the additional information about printing in contrib/topics.md
     Also see the deprecation comments in the OSOL printing guide.
+</div>
 
 ## Graphics workstation
 
+<div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
     
     * GIMP
+</div>
 
 ## Desktop Publishing system, Etc.
 
