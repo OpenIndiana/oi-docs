@@ -892,6 +892,7 @@ Here are just a few of them:
     <tsoome> not pool property (one reason why that linux zpool create ashift= option is bad)
     <tsoome> or sort of bad anyhow
     ```
+
 </div>
 
 #### Importing ZFS disks

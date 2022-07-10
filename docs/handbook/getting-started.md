@@ -1044,7 +1044,7 @@ From here you now have several options:
     * To install to a mirror, select 2 or more disks.
     * To install to RAIDZ, select 3 or more disks.
 
-   
+
     **GUI Desktop may be added post-installation**
 
     * To install MATE Desktop Environment (using a metapackage) and enable graphical login
@@ -1055,6 +1055,7 @@ From here you now have several options:
     svcadm enable -r /application/graphical-login/lightdm
     init 6
     ```
+
 </div>
 
 <a name="welcome-screen"></a>
@@ -1818,12 +1819,12 @@ pkg change-facet facet.version-lock.library/security/gstreamer=false
 As previously mentioned, the IPS repository is the remote network location where IPS packages reside.
 Below is a list of commands for adding, removing, or replacing repositories.
 
-| Task | Command
-| --- | ---
-| List configured repositories | `pkg publisher`
-| Add a repository | `pkg set-publisher \ ` <br> `-g <repository_URL> \ ` <br> `<repository_name>`
-| Remove a repository | `pkg set-publisher \ ` <br> `-G <repository_URL> \ ` <br> `<repository_name>`
-| Replace a repository | `pkg set-publisher \ ` <br> `-G <old_repository_URL> \ ` <br> `-g <new_repository_URL> \ ` <br> `<repository_name>`
+| Task | Command |
+| ---- | ---- |
+| List configured repositories | `pkg publisher` |
+| Add a repository | `pkg set-publisher -g <repository_URL> <repository_name>` |
+| Remove a repository | `pkg set-publisher -G <repository_URL> <repository_name>` |
+| Replace a repository | `pkg set-publisher -G <old_repository_URL> -g <new_repository_URL> <repository_name>` |
 
 Example (Listing the repositories configured on the system):
 

@@ -7,6 +7,7 @@ hide:
 ![OpenIndiana](Openindiana.png){: .center}
 
 # Welcome to OpenIndiana Docs! {: .center}
+
 ## Home of the **Hipster Handbook** {: .center}
 
 <div class="note" markdown="1">
