@@ -76,7 +76,8 @@ OpenIndiana was tested by our users on the following workstations with UEFI.
 
 Manufacturer |  Model               | BIOS               | Works (yes/no) | Notes and/or specific usage instructions           | Contributor
 ------------ | -------------------- | ------------------ | -------------- | -------------------------------------------------- | ------------
-Dell         | Precision 3640       | Dell UEFI Bios 1.8 | yes          | OpenIndiana 2021.04, i3-10100 CPU works, integrated graphics Intel UHD 630 does NOT work and only supports text console (no X11/MATE), NVIDIA GeForce GT 440 works with X11/MATE, integrated audio Intel works, network onboard Intel I219-LM e1000g works, AHCI disks work, tested Dell UEFI BIOS 1.2 and Dell UEFI BIOS 1.8, system installs and boots fine in UEFI mode | David Stes
+Dell         | Precision 3640       | Dell UEFI Bios 1.17 | yes          | OpenIndiana 2021.04, i3-10100 CPU works, integrated graphics Intel UHD 630 does NOT work and only supports text console (no X11/MATE), NVIDIA GeForce GT 440 works with X11/MATE, integrated audio Intel works, network onboard Intel I219-LM e1000g works, AHCI disks work, tested Dell UEFI BIOS 1.2, 1.8 and 1.17, system installs and boots fine in UEFI mode with Secure Boot disabled | David Stes
+Dell         | Precision 7720       | Dell Bios 1.24      | yes          | Intel(R) Xeon(R) CPU E3-1535M v6, boot in legacy, not UEFI  | Stephan Althaus
 
 ## Servers
 
@@ -92,6 +93,7 @@ Dell         | PowerEdge R820       |   yes          | Severe performance probl
 Dell         | PowerEdge 1950 III   |   yes          | All working perfectly                              | ctable
 Dell         | PowerEdge SC1425     |   yes          | everything works                                   | Johan  Sanchez
 Dell         | PowerEdge 4600       |   yes          | everything works                                   | Johan  Sanchez
+Fujitsu      | Primergy T1330       |   yes          | boots fine in UEFI mode with Secure Boot disabled  | Stephan Althaus
 HP           | DL360 G6             |   yes          | If you use the built in P410i array controller you should make sure you have or get the battery back up so the write cache is enabled or ZFS performance will be horrible. Also it is recommended that you install HP's free hpacucli command to make it easier to enable swapped out hotswap drives. | Logan Bruns
 HP           | DL380 G7             |   no           | Intel 5520 chipset based motherboard Broadcom Corporation NetXtreme II BCM5709 p410i RAID controller performance sucks like a hoover vaccum. No JBOD support. Requires new firmware all around or the installation of an SSD triggers a bug that starts a thermal shutdown iLO works as expected. Download drivers directly from HP along with the scripting toolkit to make bios configuration changes in OS – neat level of integration Expect monthly firmware updates on this platform. HP has a fix it in the field approach. There has been some conflict between LSI cards and HPs passive midplane. Every other column of disks must be left vacant or data corruption occurs. Last December LSI and HP were pointing fingers at each other, however, this problem may be resolved. I am no longer in a position where i can risk the data on the disks to find out. I installed both midplanes and half the drive slots are empty at the moment. | Jason Matthews
 HP           | ML110 G7             |  yes           | Intel Xeon E3 1220, no reported driver issues.    | Dave Koelmeyer
