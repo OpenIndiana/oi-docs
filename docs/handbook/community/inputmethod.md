@@ -15,7 +15,7 @@ Contributor(s): David Stes.
 
 # Hipster Handbook - How to enable the Intelligent Input Bus (IBus)
 
-You can configure Keyboard Layout preferences such as keyboard layout, keyboard model, and so on, and MATE input method (for IBus).  Input Methods (IM) can be used if you regularly use languages that have large number of characters or complex characters, for example Asian languages like Chinese, Japanese or Korean, but IBus can also be used for Latin languages.
+Input Methods (IM) can be used if you regularly use languages that have large number of characters or complex characters, for example Asian languages like Chinese, Japanese or Korean, but IBus can also be used for Latin languages.
 
 When installing OpenIndiana, you entered a keyboard model for the text console (the keyboard that is used without installing MATE or X11).
 
@@ -32,9 +32,32 @@ The configured keyboard can be retrieved by the command:
     French
 ```
 
-When using MATE and X11, by default IM (Input Methods) are not enabled, and you can configure the keyboard for MATE in the MATE Preferences for Keyboard Hardware.  Choosing a layout there, is usually sufficient for languages that have a smaller number of characters, for example languages using Latin characters as English, Spanish, French, Dutch, German, etc.
+HAL, the hardware abstraction layer daemon, can probe the layout of self-identifying keyboards but it also uses different methods to figure out the XkbLayout of a keyboard :
 
-The configured keyboard for X11 can be retrieved by the command:
+```none
+    > $ lshal | grep XkbLayout
+    >  input.x11_options.XkbLayout = 'fr'  (string)
+```
+
+Because X11 auto-configuration can query HAL for the keyboard type, it is useful to check the keyboard type in the lshal output.  HAL uses among other things, the X Keyboard Configuration Database package :
+
+```none
+    x11/keyboard/data-xkb
+```
+
+This package provides the file:
+
+```none
+    /usr/X11/lib/X11/xkb/xkbtable.map
+```
+
+Also a default keyboard type (the US keyboard) for HAL is defined in a file provided by xorg itself :
+
+```none
+    /etc/hal/fdi/preprobe/10osvendor/10-x11-input.fdi
+```
+
+When using MATE and X11, the configured keyboard for X11, which is possibly auto-configured based on the HAL database, because X11 uses HAL on OpenIndiana, can be retrieved by the command:
 
 ```none
     # setxkbmap -query
@@ -42,6 +65,8 @@ The configured keyboard for X11 can be retrieved by the command:
     model:    sun_type6_euro_usb
     layout:   fr
 ```
+
+By default IM (Input Methods) are not enabled, and you can configure the keyboard for MATE in the MATE Preferences for Keyboard Hardware.  Choosing a layout there, is usually sufficient for languages that have a smaller number of characters, for example languages using Latin characters as English, Spanish, French, Dutch, German, etc.
 
 IM provides a more complex mechanism for composing characters, and it can be used also for Latin languages.
 
