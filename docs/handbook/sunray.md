@@ -465,7 +465,7 @@ Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module
 are shipped as 32-bit only so unlocking works only with 32-bit XScreenSaver.
 That's why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
 
-It is more comfortable to use mate-screensaver. For PAM is only the modul mate-screensaver-pam-helper neededi. This is not an shared object instead an executable and can so shipped in 32bit independent from the other commands.
+It is more comfortable to use mate-screensaver. For PAM is only the module mate-screensaver-pam-helper needed. This is not an shared object, instead it is an executable and can be shipped in 32bit independent from the other commands.
 
 ## GDM
 
