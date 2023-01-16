@@ -409,7 +409,7 @@ We want to install an other version of the gnome packages as defined in userland
 
 ## Install on current Hipster (2022)
 
-If you have installed new Hipster, it is necessary to install GNOME packages for GDM and his greeter-session. For user session it is fine to select 'Mate Session', so it is not necessary any more to install other packages needed by Gnome Session (only Gnome packages which Mate session still used).
+If you have installed new Hipster, it is necessary to install GNOME packages for GDM and its greeter-session. For user session it is fine to select 'Mate Session', it is no longer necessary to install other packages needed by Gnome Session (only Gnome packages which Mate session still uses).
 
 Last known working OpenIndiana GNOME packages versions are the following:
 
