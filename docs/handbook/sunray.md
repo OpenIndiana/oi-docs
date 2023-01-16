@@ -370,12 +370,12 @@ You can run `utconfig` and `utadm` the way described in the [Sun Ray Software](h
 
 # How to get GNOME on current Hipster
 
-As already mentioned the Sun Ray Software cannot handled by LightDM and we still have to use GDM and some GNOME components.
+As already mentioned the Sun Ray Software cannot handled by LightDM and we still have to use GDM and some GNOME components necessary for the gnome-greeter session.
 
 Be sure you have installed:
 
 ```shell
-# pkg install libwnck libbonoboui gnome-themes-standard
+# pkg install libbonoboui
 ```
 
 Make sure that they actually install as in the future they may be eventually obsoleted from Hipster
@@ -386,28 +386,16 @@ Make sure that they actually install as in the future they may be eventually obs
 If you have Sun Ray running on Hipster with GNOME, you can prevent GNOME components removal by "freezing" them and releasing their version locks:
 
 ```shell
-# pkg freeze gdm gnome-session gnome-panel metacity libgnomekbd gnome-settings-daemon libgweather library/desktop/evolution-data-server desktop/notification-daemon gnome/gnome-menus library/desktop/gnome-desktop library/python/gnome-python-27 gnome/file-manager/nautilus library/libunique
+# pkg freeze gdm libgnomekbd gnome-session gnome-settings-daemon
 ```
 
 and release the version locks:
 
 ```
-# pkg change-facet facet.version-lock.library/desktop/gnome-desktop=false
-# pkg change-facet facet.version-lock.library/desktop/gnome-menus=false
-# pkg change-facet facet.version-lock.library/desktop/gnome-panel=false
 # pkg change-facet facet.version-lock.gnome/gnome-session=false
 # pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
-# pkg change-facet facet.version-lock.gnome/gnome-panel=false
-# pkg change-facet facet.version-lock.gnome/gnome-menus=false
 # pkg change-facet facet.version-lock.system/display-manager/gdm=false
-# pkg change-facet facet.version-lock.library/desktop/libgweather=false
-# pkg change-facet facet.version-lock.gnome/window-manager/metacity=false
-# pkg change-facet facet.version-lock.gnome/file-manager/nautilus=false
 # pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
-# pkg change-facet facet.version-lock.library/desktop/libwnck=false
-# pkg change-facet facet.version-lock.desktop/notification-daemon=false
-# pkg change-facet facet.version-lock.library/python/gnome-python-27=false
-# pkg change-facet facet.version-lock.library/libunique=false
 ```
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -419,23 +407,17 @@ If a package will installed, it have to have the version defined in the incorpor
 We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.
 </div>
 
-## Install from current Hipster (2019)
+## Install on current Hipster (2022)
 
-If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.
+If you have installed new Hipster, it is necessary to install GNOME packages for GDM and its greeter-session. For user session it is fine to select 'Mate Session', it is no longer necessary to install other packages needed by Gnome Session (only Gnome packages which Mate session still uses).
 
 Last known working OpenIndiana GNOME packages versions are the following:
 
 ```
-gnome-desktop@2.32.1
-gnome-menus@2.30.5
-gnome-panel@2.32.1
 gnome-session@2.32.1
 gnome-settings-daemon@2.32.1
 gdm@2.30.7
-libgweather@2.30.3
-metacity@2.30.3
 libgnomekbd@2.32.0
-libwnck@2.30.7
 ```
 
 These are still in hipster repo, but are obsoleted empty metapackages.
@@ -456,11 +438,34 @@ and install all packages from sunray publisher.
 The version locks of the gnome packages have to relaese like decribed in [update older Hipster](#update-older-hipster).
 </div>
 
-#### XScreenSaver
+### Install from Hipster (2019)
+
+This is outdated and not necessary anymore. But it is kept here in case someone would still like to run Gnome-Session on Hipster.
+
+If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.
+
+Last known working OpenIndiana GNOME packages versions are the following:
+
+```
+gnome-desktop@2.32.1
+gnome-menus@2.30.5
+gnome-panel@2.32.1
+gnome-session@2.32.1
+gnome-settings-daemon@2.32.1
+gdm@2.30.7
+metacity@2.30.3
+libgnomekbd@2.32.0
+libwnck@2.31.0
+desktop/screensaver@5.42
+```
+
+## XScreenSaver
 
 Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module
 are shipped as 32-bit only so unlocking works only with 32-bit XScreenSaver.
 That's why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
+
+It is more comfortable to use mate-screensaver. For PAM is only the module mate-screensaver-pam-helper needed. This is not an shared object, instead it is an executable and can be shipped in 32bit independent from the other commands.
 
 ## GDM
 
@@ -482,7 +487,7 @@ After logout the gdm-login won't reappear. Install the following script as `/opt
 `/opt/SUNWut/lib/gdm/revivesrsession.py` contains:
 
 ```python
-#!/usr/bin/env python
+#!/usr/bin/python3.9
 
 '''
  Reconnect SunRay X-session: some times after logout, the gdm will not start login screen on the X-session and the DTU remains in state 26D
@@ -503,24 +508,23 @@ logger = logging.getLogger(__name__)
 
 logger.setLevel(logging.DEBUG)
 
-time.sleep(10)
+time.sleep(7)
 
 pid = sp.Popen(['pgrep','gdm-binary'], stdout=sp.PIPE).stdout.readline().strip()
-logger.debug("GDM pid %s ", pid)
-dpl = [ p.split()[2].strip(':')
-    for p in sp.Popen(['ptree', pid], stdout=sp.PIPE).stdout.readlines() if '/opt/SUNWut/lib/Xnewt' in p ]
-logger.debug("Xnewt pid {}".format( dpl))
+logger.debug("GDM pid %s ", pid.decode())
+dpl = [ p.split()[2].strip(b':') for p in sp.Popen(['ptree', pid], stdout=sp.PIPE).stdout.readlines() if b'/opt/SUNWut/lib/Xnewt' in p ]
+logger.debug("Xnewt display {}".format( dpl))
 
 # error -4 gdm-simple-slave not started for Display, no UT sessions
 for sess in sp.Popen(['/opt/SUNWut/sbin/utsession','-px'], stdout=sp.PIPE).stdout.readlines():
     logger.debug("{}".format(sess))
-    for t in sess.split(';'):
-        if 'STATE' in t: state = t.split('=')[1]
-        if 'DISPLAY' in t: disp = t.split('=')[1]
+    for t in sess.split(b';'):
+        if b'STATE' in t: state = t.split(b'=')[1]
+        if b'DISPLAY' in t: disp = t.split(b'=')[1]
     if state == 0 and disp in dpl:
         # ok
         pass
     else:
-        logger.debug("restart display %s"  % disp)
+        logger.debug("restart display %s"  % disp.decode())
         sp.Popen(['/opt/SUNWut/lib/gdm/utgdmdynamic','-a', disp])
 ```
