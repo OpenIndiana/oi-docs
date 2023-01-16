@@ -440,7 +440,7 @@ The version locks of the gnome packages have to relaese like decribed in [update
 
 ### Install from Hipster (2019)
 
-This is outdated and not necessary anymore. But it keeped here if some one still like to run Gnome-Session on Hipster.
+This is outdated and not necessary anymore. But it is kept here in case someone would still like to run Gnome-Session on Hipster.
 
 If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.
 
