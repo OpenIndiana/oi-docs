@@ -17,25 +17,71 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Sun Ray Software
+<img src = "../../Openindiana.png">
 
-Some notes for installation of Sun Ray Software on OpenIndiana Hipster.
+# Hipster Handbook - Sun Ray Software
 
-<div class="note" markdown="1">
-!!! note
-    This configuration is not supported by OI nor by Oracle.
+Some notes for installation of Sun Ray Software on OpenIndiana Hipster. Sun Ray Software is used to drive desktop sessions on SunRay thin clients (desktop unit: DTU).
+
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+This configuration is not supported by OI nor by Oracle.
+</div>
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
+<div class="well">
+Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use Mate desktop with its applications like pluma or atril.
+
 </div>
 
-<div class="note" markdown="1">
-!!! note
-    Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.
+## Install Prerequisites 
 
-    Limitations:
+If you have installed new Hipster, it is necessary to install GNOME packages for GDM and its greeter-session. For user session it is fine to select 'Mate Session', it is no longer necessary to install other packages needed by Gnome Session (only Gnome packages which Mate session still uses).
 
-    Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.
-</div>
+Be sure to have Mate desktop environment installed:
 
-## Install
+```
+# pkg install mate_install
+```
+
+Latest known working OpenIndiana GNOME packages versions are the following:
+
+```
+gnome-session@2.32.1
+gnome-settings-daemon@2.32.1
+gdm@2.30.7
+libgnomekbd@2.32.0
+```
+
+These are still in hipster repo, but are obsoleted empty metapackages.
+
+At <http://pkg.toc.de/sunray/> you can find the old GNOME packages with newer release date, so that these should be able to install it on current Hipster. This publisher is provided and supported by community member Carsten Grzemba not by the OpenIndiana project.
+For this to work add this publisher in a way, that it takes precedence over the default openindiana.org publisher:
+
+In order to install packages with other versions such as userland-incorporation, it is necessary to release the version locks
+
+```
+# pkg change-facet facet.version-lock.gnome/gnome-session=false
+# pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
+# pkg change-facet facet.version-lock.system/display-manager/gdm=false
+# pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
+# pkg change-facet facet.version-lock.gnome/window-manager/metacity=false
+# pkg change-facet facet.version-lock.library/desktop/gnome-desktop=false
+# pkg change-facet facet.version-lock.cde/cde-runtime=false
+# pkg change-facet facet.version-lock.library/motif=false
+# pkg change-facet facet.version-lock.library/tooltalk=false
+```
+configure the publisher
+```shell
+# pkg set-publisher --search-before=openindiana.org -g http://pkg.toc.de/sunray sunray
+# pkg set-publisher --non-sticky openindiana.org
+```
+and install package sunray-essential from sunray publisher
+```
+# pkg install sunray-essential
+```
+This will install all necessary packages for using GDM and Sun Ray Software tools on OI Hipster.
+
+## Install Sun Ray Server Software
 
 Sun Ray Software still can be downloaded at http://edelivery.oracle.com (registration required). Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.
 
@@ -195,7 +241,6 @@ The config file `/etc/dhcp/dhcpd.conf` has to link to `/etc/inet/dhcp4.conf` so 
 To switch Sun Ray Software to isc-dhcp we take scripts located in path `/opt/SUNWut/lib/dhcp/isc` from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with `rpm2cpio`:
 
 ```shell
-# pkg install rpm
 $ rpm2cpio SUNWuto-4.5-44.i386.rpm | cpio -idv <tmprpmdirectory>
 ```
 
@@ -359,7 +404,7 @@ index cffac27..448c171 100644
 
 ```
 
-### Java Runtime Environment
+### Note on Java Runtime Environment
 
 The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun Ray Software.
 
@@ -367,100 +412,11 @@ The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun 
 
 You can run `utconfig` and `utadm` the way described in the [Sun Ray Software](https://docs.oracle.com/cd/E35310_01/index.html) document.
 
-# How to get GNOME on current Hipster
-
-As already mentioned the Sun Ray Software cannot handled by LightDM and we still have to use GDM and some GNOME components necessary for the gnome-greeter session.
-
-Be sure you have installed:
-
-```shell
-# pkg install libbonoboui
-```
-
-Make sure that they actually install as in the future they may be eventually obsoleted from Hipster
-(no empty metapackages or obsoleted packages).
-
-## update older Hipster
-
-If you have Sun Ray running on Hipster with GNOME, you can prevent GNOME components removal by "freezing" them and releasing their version locks:
-
-```shell
-# pkg freeze gdm libgnomekbd gnome-session gnome-settings-daemon
-```
-
-and release the version locks:
-
-```
-# pkg change-facet facet.version-lock.gnome/gnome-session=false
-# pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
-# pkg change-facet facet.version-lock.system/display-manager/gdm=false
-# pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
-```
-
-<div class="note" markdown="1">
-!!! note
-    On IPS there are meta-packages which define package dependencies of `type=incorporate`, which means:
-
-    If a package will installed, it have to have the version defined in the incorporate dependency.
-
-    We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.
-</div>
-
-## Install on current Hipster (2022)
-
-If you have installed new Hipster, it is necessary to install GNOME packages for GDM and its greeter-session. For user session it is fine to select 'Mate Session', it is no longer necessary to install other packages needed by Gnome Session (only Gnome packages which Mate session still uses).
-
-Last known working OpenIndiana GNOME packages versions are the following:
-
-```
-gnome-session@2.32.1
-gnome-settings-daemon@2.32.1
-gdm@2.30.7
-libgnomekbd@2.32.0
-```
-
-These are still in hipster repo, but are obsoleted empty metapackages.
-
-At <http://pkg.toc.de/sunray/> you can find the old GNOME packages with newer release date, so that these should be able to install it on current Hipster. This publisher is provided and supported by community member Carsten Grzemba not by the OpenIndiana project.
-For this to work add this publisher in a way, that it takes precedence over the default openindiana.org publisher:
-
-```shell
-# pkg set-publisher --search-before=openindiana.org -g http://pkg.toc.de/sunray sunray
-# pkg set-publisher --non-sticky openindiana.org
-```
-
-and install all packages from sunray publisher.
-
-<div class="note" markdown="1">
-!!! note
-    The version locks of the gnome packages have to relaese like decribed in [update older Hipster](#update-older-hipster).
-</div>
-
-### Install from Hipster (2019)
-
-This is outdated and not necessary anymore. But it is kept here in case someone would still like to run Gnome-Session on Hipster.
-
-If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.
-
-Last known working OpenIndiana GNOME packages versions are the following:
-
-```
-gnome-desktop@2.32.1
-gnome-menus@2.30.5
-gnome-panel@2.32.1
-gnome-session@2.32.1
-gnome-settings-daemon@2.32.1
-gdm@2.30.7
-metacity@2.30.3
-libgnomekbd@2.32.0
-libwnck@2.31.0
-desktop/screensaver@5.42
-```
-
 ## XScreenSaver
 
 Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module
 are shipped as 32-bit only so unlocking works only with 32-bit XScreenSaver.
+Newer Xscreensaver has the problem like some other newer Gnome and Mate components,  that they expect, there is a main display :0. This isn't true on SunRay. XScreensaver prefer to crash on SunRay.
 That's why we need the XScreenSaver package with 32-bit bins from <http://pkg.toc.de/sunray/>.
 
 It is more comfortable to use mate-screensaver. For PAM is only the module mate-screensaver-pam-helper needed. This is not an shared object, instead it is an executable and can be shipped in 32bit independent from the other commands.
@@ -526,3 +482,21 @@ for sess in sp.Popen(['/opt/SUNWut/sbin/utsession','-px'], stdout=sp.PIPE).stdou
         logger.debug("restart display %s"  % disp.decode())
         sp.Popen(['/opt/SUNWut/lib/gdm/utgdmdynamic','-a', disp])
 ```
+
+# Multihead configuration
+
+SunRay thin clients can be grouped to a multihead configuration, where multiple monitors can used for a single user session. For two clients this can be done with:
+
+```
+$ /opt/SUNWut/bin/utxconfig -m on -R 2x1 -S 0,1
+```
+
+Since GTK 3.10 multi screen setup is not supported anymore. The command line option `--display` whith a dot value greate 0 will not work any more (e.g.: earlier the command `firefox --display=:11.1` has started firefox on the second display).
+
+metacity or marco will manage only the default screen. For multihead setup it is now necessary to enable 'xinerama' mode, so that the Window manager expands the screen across all DTU's in a group.
+
+```
+$ opt/SUNWut/bin/utxconfig -x on
+```
+
+Refer to the original documentation from Oracle for configuration in general: [Multiple Monitor Configurations](https://docs.oracle.com/cd/E35310_01/E35309/html/MultipleMonitor.html)
