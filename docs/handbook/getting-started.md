@@ -234,8 +234,8 @@ Installing OpenIndiana on unsupported hardware may cause excessive CPU usage, in
 Please be sure to consult the hardware compatibility list (HCL):
 
 * [Illumos HLC](https://www.illumos.org/hcl/)
-* [OpenIndiana HCL - components](https://wiki.openindiana.org/oi/Components)
-* [OpenIndiana HCL - systems](https://wiki.openindiana.org/oi/Systems)
+* [OpenIndiana HCL - components](../community-hcl/components)
+* [OpenIndiana HCL - systems](../community-hcl/systems)
 
 </div>
 
@@ -875,10 +875,7 @@ The Firefox web browser will open to the 'OpenIndiana Releases' page of the Open
 This however, is not where you will find the release notes.
 _**A bug has been opened to correct this issue**_.
 
-The release notes may be accessed in one of the following ways:
-
-* Perform a search within the Wiki site for the release notes.
-* Browse to the following Wiki page: <https://wiki.openindiana.org/oi/Release+Notes>.
+The release notes can be found [on this page](../release-notes/latest-changes).
 </div>
 
 
@@ -1852,13 +1849,6 @@ Creating fast lookup database                   Done
 A clone of openindiana-1 exists and has been updated and activated.
 On the next boot the Boot Environment openindiana-2 will be
 mounted on '/'.  Reboot when ready to switch to this updated BE.
-
-
----------------------------------------------------------------------------
-NOTE: Please review release notes posted at:
-
-http://wiki.openindiana.org/display/oi/oi_hipster
----------------------------------------------------------------------------
 ```
 
 

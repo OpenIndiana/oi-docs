@@ -14,10 +14,6 @@
     <div class="panel-body"><ul><li>Primary web presence</li></ul></div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading"><a href="https://wiki.openindiana.org">wiki.openindiana.org</a></div>
-    <div class="panel-body"><ul><li>Development and community information</li></ul></div>
-  </div>
-  <div class="panel panel-default">
     <div class="panel-heading"><a href="https://illumos.org/man/">illumos Man Pages</a></div>
     <div class="panel-body"><ul><li>Man pages for the core source tree</li></ul></div>
   </div>
