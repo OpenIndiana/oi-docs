@@ -234,8 +234,8 @@ Installing OpenIndiana on unsupported hardware may cause excessive CPU usage, in
 Please be sure to consult the hardware compatibility list (HCL):
 
 * [Illumos HLC](https://www.illumos.org/hcl/)
-* [OpenIndiana HCL - components](../community-hcl/components)
-* [OpenIndiana HCL - systems](../community-hcl/systems)
+* [OpenIndiana HCL - components](/community-hcl/components)
+* [OpenIndiana HCL - systems](/community-hcl/systems)
 
 </div>
 
