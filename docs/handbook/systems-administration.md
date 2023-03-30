@@ -296,20 +296,17 @@ assigned to a user.
 
 ## [Software management](#software-management)
 
-OpenIndiana uses the Image Packaging System, *IPS*, to manage software packages. IPS
-supports installing, updating and searching OpenIndiana software
-repositories. It also allows users to create and publish software packages to
-provide new software for other users. Its features are vast and we only present
-the *essentials* here.
+OpenIndiana uses the Image Packaging System, *IPS*, to manage software packages.
+IPS supports installing, updating and searching OpenIndiana software repositories.
+It also allows users to create and publish software packages to provide new software for other users.
+Its features are vast and we only present the *essentials* here.
 
-Software packages are *published* to a publisher. An IPS software package
-consists of files, directories, links and dependencies to other packages.
+Software packages are *published* to a publisher.
+An IPS software package consists of files, directories, links and dependencies to other packages.
 
-The user interface to install, update, query, generate, etc packages on a
-publisher is `pkg`:
+The user interface to install, update, query, generate, etc packages on a publisher is `pkg`:
 
-[pkg(1M)](https://illumos.org/man/1M/pkg) is the client for **I**mage
-**P**acking **S**ystem.
+[pkg(1M)](https://illumos.org/man/1M/pkg) is the client for **I**mage **P**acking **S**ystem.
 
 Usage:
 
@@ -350,40 +347,29 @@ pkg [options] command [cmd_options] [operands]
   | `fix`             |             |               | fix any errors detected by `verify`                      |
   |                   |             | *a_package*   | fix any errors detected by `verify` for *a_package* |
 
-- `help`: Without any commands will provide a list of all commands supported
-  by `pkg`. When followed by a command, usage on that command will be provided.
- - `publisher`: a package repository is known as a _publisher_ on OI. A
-   publisher contains one or more packages that can be queried or installed by
-   `pkg` using an appropriate pkg command.
-   A list of all publishers configured to be used by `pkg` can be obtained by
-   using this command without any options. By
-   supplying a publisher, details of the publisher will be provided.
+- `help`: Without any commands will provide a list of all commands supported by `pkg`.
+When followed by a command, usage on that command will be provided.
+ - `publisher`: a package repository is known as a _publisher_ on OI.
+ A publisher contains one or more packages that can be queried or installed by `pkg` using an appropriate pkg command.
+ A list of all publishers configured to be used by `pkg` can be obtained by using this command without any options.
+ By supplying a publisher, details of the publisher will be provided.
 - `set-publisher`: add a new publisher to the user's list of publishers
-- `refresh`: the local system has a catalogue of all packages provided by all
-  publishers. Using this command without any operands will update the catalogue
-  for all publishers configured by the user. By supplying a publisher, only
-      packages provided by that publisher will be updated.
-- `list`: by default will list installed packages. Use `-a` to also list packages in
-   publishers.
-- `contents`: this command lists files in a package that is currently installed. Use `-r`
-   to list files in packages not installed on a *r*emote publisher.
-- `info`: by default provides information on installed packages. Add the `-r`
-   option for information from publishers.
-- `install`: by default, a package is installed to the current boot
-   environment. It is possible to install to a boot environment, leaving the
-   current boot environment untouched. For example, to create a clone of the
-   current boot environment, and install the package to the new boot
-   environment, use the `--be-name` option. This is the recommended way to
-   install new packages.
+- `refresh`: the local system has a catalogue of all packages provided by all publishers.
+Using this command without any operands will update the catalogue for all publishers configured by the user.
+By supplying a publisher, only packages provided by that publisher will be updated.
+- `list`: by default will list installed packages. Use `-a` to also list packages in publishers.
+- `contents`: this command lists files in a package that is currently installed. Use `-r` to list files in packages not installed on a *r*emote publisher.
+- `info`: by default provides information on installed packages.
+   Add the `-r` option for information from publishers.
+- `install`: by default, a package is installed to the current boot environment.
+It is possible to install to a boot environment, leaving the current boot environment untouched. For example, to create a clone of the current boot environment, and install the package to the new boot environment, use the `--be-name` option. This is the recommended way to install new packages.
 - `search`: by default queries only installed packages, `-r` extends to publishers.
    Support for wildcards *?* and *\** in the query.
-- `revert`: this will adjust a software package to that state it originally had
-  after installation, including configuration files and file permissions.
+- `revert`: this will adjust a software package to that state it originally had after installation, including configuration files and file permissions.
 
 ### Example
 
-To illustrate, look for, install and validate a package called
-`ffmpeg`, which is a video and audio processing application.
+To illustrate, look for, install and validate a package called `ffmpeg`, which is a video and audio processing application.
 
 ```
 $ pkg refresh && pkg update
@@ -394,15 +380,10 @@ $ pkg list -a | grep -i ffmpeg
 $
 ```
 
-The result of running this command is empty: nothing found. Post a question to
-the OI community or ask on IRC
-[About OpenIndiana, How can I contact OpenIndiana community](../misc/openindiana.md#how-can-i-contact-openindiana-community).
-Assuming someone informs you that the package does exit and can be found on the
-publisher *hipster-encumbered* with address
-*http://pkg.openindiana.org/hipster/* then you can continue.
+The result of running this command is empty: nothing found. Post a question to the OI community or ask on IRC [About OpenIndiana, How can I contact OpenIndiana community](../misc/openindiana.md#how-can-i-contact-openindiana-community).
+Assuming someone informs you that the package does exit and can be found on the publisher *hipster-encumbered* with address *http://pkg.openindiana.org/hipster/* then you can continue.
 
-Add the
-*hipster-encumbered* publisher and try again:
+Add the *hipster-encumbered* publisher and try again:
 
 ```
 # sudo pkg set-publisher -G'*' -g http://pkg.openindiana.org/hipster hipster-encumbered
@@ -413,8 +394,7 @@ $ pkg publisher
     hipster-encumbered              origin   online F https://pkg.openindiana.org/hipster-encumbered/
 ```
 
-So *hipster-encumbered* has been added as the last publisher to our list of
-publishers. Obtain information on the publisher:
+So *hipster-encumbered* has been added as the last publisher to our list of publishers. Obtain information on the publisher:
 
 ```
 $  pkg publisher hipster-encumbered
@@ -480,13 +460,10 @@ $ pkg search -o pkg.name -l path:*ffmpeg
 
 ### References
 
-This section provides the fundamentals of `pkg`. More detailed information is
-available here:
+This section provides the fundamentals of `pkg`. More detailed information is available here:
 
-* [Getting Started, section: Image Package System
-(IPS)](getting-started.md#image-package-system-ips) for details.
-* [OpenSolaris 2009.06 Image Packaging System Guide](https://docs.openindiana.org/dev/pdf/ips-dev-guide.pdf "whatever") is a
-thorough treatment.
+* [Getting Started, section: Image Package System (IPS)](getting-started.md#image-package-system-ips) for details.
+* [OpenSolaris 2009.06 Image Packaging System Guide](https://docs.openindiana.org/dev/pdf/ips-dev-guide.pdf "whatever") is a thorough treatment.
 
 ### Active Directory Integration
 
