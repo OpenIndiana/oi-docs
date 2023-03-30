@@ -55,7 +55,7 @@ help()
     -d <subdir>  convert all files in this subdirectory.
        Only all files in subdir are converted, no files in 
        subdirs of subdir are converted.   
-    -f <filename> only convert this filename
+    -f <filename> only convert filename
        Default: convert everything
     -h this help
     -t <pdf || epub> output type either pdf or epub
@@ -79,7 +79,7 @@ help_verbose()
     The epub format is experimental.
 
     Without any options, all files ending in .md in the direcxtories listed 
-    in thew variable PROCESS_THESE_DIRECTORIES will be processed.
+    in the variable PROCESS_THESE_DIRECTORIES will be processed.
 
     All files produced will be placed in a new directory denoted 
     according to the output format, i.e., ./pdf or ./epub in the top-level
@@ -96,7 +96,7 @@ help_verbose()
     -d <subdir>  convert all files in this subdirectory.
        Only all files in subdir are converted, no files in 
        subdirs of subdir are converted.   
-    -f <filename> only convert this filename
+    -f <filename> only convert filename
        Default: convert everything
     -h this help
     -t <pdf || epub> output type either pdf or epub
@@ -105,6 +105,11 @@ help_verbose()
        for pdf: web or opensolaris. 
        Default: web
     -v verbose output
+
+    ENVIRONMENT
+    PROCESS_THESE_DIRECTORIES this variable coontains a list of directories.
+                              Running $0 without any options will convert
+                              all files ending in .md in these directories.
 
     EXAMPLES
     Convert all files in the contrib sub-dir:
@@ -458,6 +463,7 @@ main ()
         # Command Line Options
         #
         optverbose="False"
+        opthelp="False"
         while getopts "hd:f:t:s:v" opt; do
 	        case $opt in
                         d)
@@ -467,8 +473,7 @@ main ()
                                 infile=$OPTARG
                                 ;;
                         h)
-                                help
-                                exit 0
+                                opthelp="True"
                                 ;;
                         t)
                                 outformat=$OPTARG
@@ -487,6 +492,15 @@ main ()
 	done
 
 
+        if [ "$opthelp" == "True" ]; then
+                if [ "$optverbose" == "True" ]; then
+                        help_verbose
+                else
+                        help
+                fi
+                exit 0
+        fi
+        
         if [[ -n "$indir" && -n "$infile" ]]; then
                 echo "ERROR: specify -d OR -f, but not both"
                 exit 1
