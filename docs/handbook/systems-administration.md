@@ -55,16 +55,13 @@ It is also possible to *group* users together:
 ### [User accounts](#accounts-user)
 
 OpenIndiana supports multiple users to work on the same computer at the same time.
-While only one person can sit in front of the monitor and keyboard,
-many users can be remotely logged onto the machine and all work simultaneously on it.
+While only one person can sit in front of the monitor and keyboard, many users can be remotely logged onto the machine and all work simultaneously on it.
 To use the system, a user requires an account, which are known as _user accounts_.
 
-A user account facilitates interactive access to the system and is primarily
-used for day-to-day tasks. Each user requiring access to the system should have
-a unique account specifically assigned to that user. System administrators can
-thereby monitor user activity and establish system diagnostics to optimise system
-performance. Moreover permission to perform various system activities can be
-separately assigned to each user on an individual basis.
+A user account facilitates interactive access to the system and is primarily used for day-to-day tasks.
+Each user requiring access to the system should have a unique account specifically assigned to that user.
+System administrators can thereby monitor user activity and establish system dignostics to optimise system performance.
+Moreover permission to perform various system activities can be separately assigned to each user on an individual basis.
 
 When the system is initially installed, usually only one user account is created.
 Additional accounts can be added later.
@@ -95,18 +92,14 @@ This is often the user's real name.
 
 ### [System (or Service) accounts](#accounts-service)
 
-System accounts, including the root account, are designed to be used for
-administrative purposes. While all such tasks can be performed using the root
-account, system accounts all have limited powers with respect to root, thereby
-delegating only those powers necessary to carry out an administrative task to a
-particular system account. System accounts often supply a specific function such
-as managing mail accounts or services to the network such as DNS, SMTP or WWW.
+System accounts, including the root account, are designed to be used for administrative purposes.
+While all such tasks can be performed using the root account, system accounts all have limited powers with respect to root, thereby delegating only those powers necessary to carry out an administrative task to a particular system account.
+System accounts often supply a specific function such as managing mail accounts or services to the network such as DNS, SMTP or WWW.
 
 All system accounts have a `UID` less than 100.
 
-All system accounts -- the one notable exception being root -- are supplied
-with either `LK` or `NP` in the second column of the `/etc/shadow` file. In other
-words, it is possible to obtain a list of all system accounts:
+All system accounts -- the one notable exception being root -- are supplied with either `LK` or `NP` in the second column of the `/etc/shadow` file.
+In other words, it is possible to obtain a list of all system accounts:
 
 ```bash
 # more /etc/shadow | grep -e NP -e LK | cut -d: -f1
@@ -126,28 +119,20 @@ words, it is possible to obtain a list of all system accounts:
 |----------------------|----------|
 | [su(1M)](https://illumos.org/man/1M/su) | switch user |
 
-Although the superuser account is a system account, its unique features and
-importance justify a section solely devoted to it.
+Although the superuser account is a system account, its unique features and importance justify a section solely devoted to it.
 
-Every UNIX-like system has one superuser account, named `root`, used for system
-administrative tasks. This account has UID 0.
+Every UNIX-like system has one superuser account, named `root`, used for system administrative tasks.
+This account has UID 0.
 
-It is highly inadvisable to use this account for day-to-day usage such as
-browsing the web, reading emails or to watch movies. The root account
-is not limited to any restrictions and any vulnerability while operating as
-root can cause serious damage to the system.
+It is highly inadvisable to use this account for day-to-day usage such as browsing the web, reading emails or to watch movies.
+The root account is not limited to any restrictions and any vulnerability while operating as root can cause serious damage to the system.
 
-If a user is created during the OI installation process, then this user is
-assigned the root [role](#accounts-rbac), while the root account is not created by the system.
-This means that it is not possible to directly log into a system using the root
-account as it does not exist.
-It is, however, possible to log in as the user created during the installation
-and then switch to root using [su(1M)](https://illumos.org/man/1M/su).
+If a user is created during the OI installation process, then this user is assigned the root [role](#accounts-rbac), while the root account is not created by the system.
+This means that it is not possible to directly log into a system using the root account as it does not exist.
+It is, however, possible to log in as the user created during the installation and then switch to root using [su(1M)](https://illumos.org/man/1M/su).
 
-However, if a user is not created during the OI installation, then the root account
-is created as a regular account and it is possible to directly log in to the root account.
-Note, that even when root is created as a role, it is possible to use this account
-directly to log into the system when it is booted in single-user mode.
+However, if a user is not created during the OI installation, then the root account is created as a regular account and it is possible to directly log in to the root account.
+Note, that even when root is created as a role, it is possible to use this account directly to log into the system when it is booted in single-user mode.
 
 
 ##### SUperuser DO: sudo(1m)
@@ -156,33 +141,21 @@ directly to log into the system when it is booted in single-user mode.
 |----------------------|----------|
 | `sudo(1m)`           | execute a command as superuser |
 
-The `sudo` command, i.e., superuser do, permits a regular user to execute a
-specified set of commands with superuser privileges without having to become
-the superuser.  While `sudo` actually allows one user to execute a command as
-another user, it is predominantly used to allow a user to execute commands
-requiring elevated privileges as the superuser.
+The `sudo` command, i.e., superuser do, permits a regular user to execute a specified set of commands with superuser privileges without having to become the superuser.
+While `sudo` actually allows one user to execute a command as another user, it is predominantly used to allow a user to execute commands requiring elevated privileges as the superuser.
+It is not always feasible for one user to perform all administrative tasks.
+It would be more flexible if some tasks could be performed by some, say, experienced users.
+To enable some users to carry out a command with root privileges, or to _do_ an administrative command `sudo(1m)` can be used.
+`sudo` can be configured to provide a user with elevated privileges for _all_ commands requiring heightened privileges or configured to make only a select number of commands available to a user.
+Furthermore, in addition to being able to equip users with permission to perform some actions, `sudo` can be applied to a `group`.
+The group can be assigned to users who are then elevated to the powers available to that group.
 
-It is not always feasible for one user to perform all administrative tasks. It
-would be more flexible if some tasks could be performed by some, say,
-experienced users. To enable some users to carry out a command with root
-privileges, or to _do_ an administrative command `sudo(1m)` can be used. `sudo`
-can be configured to provide a user with elevated privileges for _all_ commands
-requiring heightened privileges or configured to make only a select number of
-commands available to a user. Furthermore, in addition to being able to equip
-users with permission to perform some actions, `sudo` can be applied to a
-`group`. The group can be assigned to users who are then elevated to the
-powers available to that group.
+One common strategy is to to define a minimum set of commands to perform some task, e.g., manage a mailserver, and then assign these commands to a group.
+Thereby, mailserver management can be assigned to a user by adding the group membership to a user.
 
-One common strategy is to to define a minimum set of commands to perform some
-task, e.g., manage a mailserver, and then assign these commands to a
-group. Thereby, mailserver management can be assigned to a user by adding the
-group membership to a user.
-
-While elevated user privileges for `sudo` are configured in `/etc/sudoers`, user
-configuration is preferably performed by adding files to the `/etc/sudoers.d/`
-directory. All files in this directory will be automatically added for use by
-`sudo`. At a glance, any experienced administrator can view system changes to an
-installation; and system re-installation or migration becomes less ardent.
+While elevated user privileges for `sudo` are configured in `/etc/sudoers`, user configuration is preferably performed by adding files to the `/etc/sudoers.d/` directory.
+All files in this directory will be automatically added for use by `sudo`.
+At a glance, any experienced administrator can view system changes to an installation; and system re-installation or migration becomes less ardent.
 
 
 ###### Sudo configuration
@@ -194,23 +167,21 @@ installation; and system re-installation or migration becomes less ardent.
 | `/etc/sudoers.d/`    | directory containing list of users and groups allowed to use sudo as added by system administrator |
 | `visudo(1m)`         | wrapper framework used to edit sudo configuration  files|
 
-Elevated user privileges for `sudo` are configured in `/etc/sudoers`. This file
-contains a list of users and groups allowed to use `sudo`, and the commands each
-user, or group, are allowed to use with `sudo`.
+Elevated user privileges for `sudo` are configured in `/etc/sudoers`.
+This file contains a list of users and groups allowed to use `sudo`, and the commands each user, or group, are allowed to use with `sudo`.
 
-However, it is well advised to preserve this file in its pristine state upon
-installation. Modifications intended for this file are preferably carried out by
-creating a new file and making the changes in this new file.  Add the new file
-to the `/etc/sudoers.d/` directory. All files in this directory will be
-automatically assigned for use by `sudo`.
+However, it is well advised to preserve this file in its pristine state upon installation.
+Modifications intended for this file are preferably carried out by creating a new file and making the changes in this new file.
+Add the new file to the `/etc/sudoers.d/` directory.
+All files in this directory will be automatically assigned for use by `sudo`.
 
-To edit any `sudo` configuration files is subject to subtle syntax pitfalls. It
-is also dangerous for more than one user to edit this file at the same time. To
-prevent such mishaps, `visudo` was designed to assist in avoiding such
-issues. `visudo` works in conjunction with an editor, by default `vi`.
+To edit any `sudo` configuration files is subject to subtle syntax pitfalls.
+It is also dangerous for more than one user to edit this file at the same time.
+To prevent such mishaps, `visudo` was designed to assist in avoiding such issues.
+`visudo` works in conjunction with an editor, by default `vi`.
 
-A standard installation of OpenIndian supplies an easy to use editor called
-`pluma`. To start `visudo` with it using `pluma`, do the following:
+A standard installation of OpenIndian supplies an easy to use editor called `pluma`.
+To start `visudo` with it using `pluma`, do the following:
 
 ```bash
 $ sudo EDITOR=pluma visudo /etc/sudoers.d/whatever
@@ -218,22 +189,18 @@ $ sudo EDITOR=pluma visudo /etc/sudoers.d/whatever
 
 This will start `pluma` to edit `whatever` with the `visudo` wrapper.
 
-It is also possible to set the default editor in your login profile, e.g., for
-BASH: add `export EDITOR=pluma` to `$HOME/.bashrc` and start `visudo` as
-follows:
+It is also possible to set the default editor in your login profile, e.g., for BASH: add `export EDITOR=pluma` to `$HOME/.bashrc` and start `visudo` as follows:
 
 ```bash
 $ sudo -E visudo /etc/sudoers.d/whatever
 ```
 
-The `-E` option permits passing environment variables from the user to the
-`sudo` environment, which is not always guaranteed. The `EDITOR` environment
-variable can be set in your init profile, e.g., `.bashrc` if you are using the
-BASH shell.
+The `-E` option permits passing environment variables from the user to the `sudo` environment, which is not always guaranteed.
+The `EDITOR` environment variable can be set in your init profile, e.g., `.bashrc` if you are using the BASH shell.
 
-Note: this depends on how `sudo` was compiled. Currently, the version of `sudo`
-packaged with OpenIndiana supports the above mechanism. Details can be found in
-the manpage.
+Note: this depends on how `sudo` was compiled.
+Currently, the version of `sudo` packaged with OpenIndiana supports the above mechanism.
+Details can be found in the manpage.
 
 ###### Sudoers file format
 
@@ -253,9 +220,8 @@ the manpage.
   which the commands are permitted to be run.
 - **commands:** list of commands separated by commas permitted to be executed
 
-The sudoers file supports a rich collection of features beyond this cursory
-treatment. Consult the `sudoers(1)` manpage, in particular the section titled
-'Sudoers File Format' for details.
+The sudoers file supports a rich collection of features beyond this cursory treatment.
+Consult the `sudoers(1)` manpage, in particular the section titled 'Sudoers File Format' for details.
 
 
 ###### Example of a Sudoers file
@@ -275,16 +241,15 @@ To illustrate, we provide the following example.
 ###### Example:
 
 *Problem*
-To shutdown the system, elevated privileges are required. If a standard user issues
-the `shutdown` command, the following occurs:
+To shutdown the system, elevated privileges are required.
+If a standard user issues the `shutdown` command, the following occurs:
 
 ```bash
 $ sudo shutdown -i5 -g0 -y
 /usr/sbin/shutdown:    Only root can run /usr/sbin/shutdown
 ```
 
-In this example, we would like to provide one or more users with the possibility
-of doing the following:
+In this example, we would like to provide one or more users with the possibility of doing the following:
 
 - the ability to run `/usr/sbin/shutdown` including the ability to specify
   command line arguments
@@ -301,15 +266,11 @@ specifically created for this group by an administrator.
    to issue `/usr/sbin/shutdown` and `/usr/sbin/reboot`
 - create `/opt/groups/offclub/bin`.
 
-We are going to create a group, `offclub` and all members of the offclub
-group to issue the
-required commands with relevant privileges. Moreover, for demonstrative purposes
-rather less than for security concerns, we will create a directory and all members
-of this group will be allowed to run any command in this directory.
+We are going to create a group, `offclub` and all members of the offclub group to issue the required commands with relevant privileges.
+Moreover, for demonstrative purposes rather less than for security concerns, we will create a directory and all members of this group will be allowed to run any command in this directory.
 
-Generate the group. The group name is restricted to a maximum of 8 lower case
-characters and create the directory which contains command that can be executed
-by members of the `offclub` group:
+Generate the group.
+The group name is restricted to a maximum of 8 lower case characters and create the directory which contains command that can be executed by members of the `offclub` group:
 
 ```bash
 # groupadd offclub
@@ -327,21 +288,20 @@ Add the following line:
 %offclub    ALL=(root)    /opt/groups/offclub/bin, /usr/sbin/reboot, /usr/sbin/shutdown
 ```
 
-The `%` indicates that `offclub` is a group. You can, off course, add users
-instead of groups here. The final three indicate the commands, or directory;
-while ALL=(root) indicates that root privileges are bestowed for these commands.
+The `%` indicates that `offclub` is a group.
+You can, off course, add users instead of groups here.
+The final three indicate the commands, or directory; while ALL=(root) indicates that root privileges are bestowed for these commands.
 
-There are a number of ways of  enabling permission to execute files in a
-directory. One way is to assign a file, say *myapp* to the group, and provide
-the group permission to execute *myapp':
+There are a number of ways of enabling permission to execute files in a directory.
+One way is to assign a file, say *myapp* to the group, and provide the group permission to execute *myapp':
 
 ```
 # chown offclub /opt/groups/offgroup/bin/myapp
 # chmod g+x /opt/groups/offgroup/bin/myapp
 ```
 
-All members of the `offclub` can now perform the commands. Example, add user
-*whoever* to the group:
+All members of the `offclub` can now perform the commands.
+Example, add user *whoever* to the group:
 
 ```bash
 usermod -G offclub whoever
@@ -358,31 +318,21 @@ usermod -G offclub whoever
 | [ppriv(1)](https://illumos.org/man/1/ppriv) | manage process privileges |
 | [profiles(1)](https://illumos.org/man/1/profiles)         | print user profiles |
 
-
-A role is a basic unit of Role-Based access control (RBAC) or set of
-[privileges(5)](https://illumos.org/man/5/privileges) a user account can assume.
-A role can be thought of as a no-login account.  It has most of the attributes
-of a normal user account and is identified as a normal user; but it is not
-permissible to log into such an account directly.  One should login using a
-regular account and use [su(1M)](https://illumos.org/man/1M/su) to assume the
-role.
+A role is a basic unit of Role-Based access control (RBAC) or set of [privileges(5)](https://illumos.org/man/5/privileges) a user account can assume.
+A role can be thought of as a no-login account.
+It has most of the attributes of a normal user account and is identified as a normal user; but it is permissible to log into such an account directly.
+One should login using a regular account and use [su(1M)](https://illumos.org/man/1M/su) to assume the role.
 
 ##### Role-Based Access Control (RBAC)
 
-The _all-or-nothing_ power assigned to the root user has its obvious
-limitations.  While sudo is an improvement by limiting root privileges for only
-several commands, more granular control is often desired.
+The _all-or-nothing_ power assigned to the root user has its obvious limitations.
+While sudo is an improvement by limiting root privileges for only several commands, more granular control is often desired.
 
-One improvement on the above systems would be one in which privileges could be
-assigned on a more fine-grained and selective basis; whereby the focus is less on
-commands and more on performing actions to accomplish some task.
+One improvement on the above systems would be one in which privileges could be assigned on a more fine-grained and selective basis; whereby the focus is less on commands and more on performing actions to accomplish some task.
 
-Imagine a user assigned the task of administrating some particular hardware, for
-example, printers attached to the system.  A more desirable system would be one
-in which this user had the ability to permit users to use a printing device,
-remove print jobs from the print spool or add new printers to the system.
-Moreover, it would be advantageous if it were possible to assign privileges to
-perform only these actions and none other.
+Imagine a user assigned the task of administrating some particular hardware, for example, printers attached to the system.
+A more desirable system would be one in which this user had the ability to permit users to use a printing device, remove print jobs from the print spool or add new printers to the system.
+Moreover, it would be advantageous if it were possible to assign privileges to perform only these actions and none other.
 
 RBAC was developed to accomplish this.
 
@@ -403,8 +353,7 @@ RBAC was developed to accomplish this.
   |--------------|--------|----------|
   | [groups(1)](https://illumos.org/man/1/groups)    | [user] |list groups assigned to a user |
 
-A group is a collection of users which is predominantly used to assign
-privileges to users.
+A group is a collection of users which is predominantly used to assign privileges to users.
 
 To obtain a list of groups assigned to a user:
 
@@ -449,8 +398,7 @@ membership, home directory path, UID number of the account or the login shell.
 * **roles**
 * **passwd** is used to change the password of a user account.
 An unprivileged user may only change the password of that user's account, whereas the superuser may change the password for any account.
-A privileged user can also use `paasswd` to change login password attributes
-(such as expiration date) or can lock an account.
+A privileged user can also use `paasswd` to change login password attributes (such as expiration date) or can lock an account.
 
 
 #### Examples
@@ -461,9 +409,9 @@ The root user or a user with sudo enabled can shutdown the system.
 
 ##### Use RBAC to enable a user to shutdown the system
 
-We can use RBAC to enable a user to be able to shutdown the system. However, we
-can create a role that allows only the privilege to shutdown the system, and
-no additional privileges. We can then assign this role to one or several users.
+We can use RBAC to enable a user to be able to shutdown the system.
+However, we can create a role that allows only the privilege to shutdown the system, and no additional privileges.
+We can then assign this role to one or several users.
 
 - assign a privilege to a role to shutdown the system
 
@@ -511,8 +459,7 @@ no additional privileges. We can then assign this role to one or several users.
 Now user *whoever* can shutdown the system.
 
 
-The `pfexec` command is more flexible in the number of privileges that can be
-assigned to a user.
+The `pfexec` command is more flexible in the number of privileges that can be assigned to a user.
 
 ### Active Directory Integration
 
