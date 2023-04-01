@@ -43,16 +43,16 @@ a number of essential concepts central to OpenIndiana system administration.
 
 There are different types of accounts provided by OpenIndiana:
 
-- [User accounts](#accounts-user)
+- [User accounts](#user-accounts)
 - [System (or Service) accounts](#accounts-service)
-    - [Superuser account](#accounts-superuser)
-    - [Roles (Role-Based Access Control)](#accounts-rbac)
+    - [Superuser account](#superuser-account)
+    - [Roles (Role-Based Access Control)](#roles-and-role-based-access-control)
 
 It is also possible to *group* users together:
 
 - [Groups](#groups)
 
-### [User accounts](#accounts-user)
+### [User accounts](#user-accounts)
 
 OpenIndiana supports multiple users to work on the same computer at the same time.
 While only one person can sit in front of the monitor and keyboard, many users can be remotely logged onto the machine and all work simultaneously on it.
@@ -113,7 +113,7 @@ In other words, it is possible to obtain a list of all system accounts:
   |  ...                 |                 |
 
 
-#### [Superuser account](#accounts-superuser)
+#### [Superuser account](#superuser-account)
 
 | **Command**  | **Purpose** |
 |----------------------|----------|
@@ -308,7 +308,7 @@ usermod -G offclub whoever
 ```
 
 
-#### [Roles (and Role-Based Access Control)](#accounts-rbac)
+#### [Roles (and Role-Based Access Control)](#roles-and-role-based-access-control)
 
 | **Tool**  | **Purpose**
 |----------------------|----------|
