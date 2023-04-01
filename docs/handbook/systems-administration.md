@@ -432,8 +432,8 @@ SMF was originally developed to improve limitations of the old startup mechanism
 
  **Service Management Framework on OI** | **Purpose**
  ---------------------------------------|-----------------------------
- [smf(7)](https://illumos.org/man/7/smf)| Service Management Facility 
-                                        
+ [smf(7)](https://illumos.org/man/7/smf)| Service Management Facility
+
 A service is a definition of how a service should be started while a service instance is a precise configuration.
 Some services can have multiple instances whereas others are defined to be a singleton.
 
@@ -500,7 +500,7 @@ A list of processes requirred by a service can be displayed using this command.
 | `v`            | more verbose output for some options           |
 | `z [zone]`     | services in `zone`                             |
 
-* **service:** to specify a service use the FMRI, an FRMI instance or a FMRI pattern. Obtain a list of service FMRIs via `-o FMRI`. 
+* **service:** to specify a service use the FMRI, an FRMI instance or a FMRI pattern. Obtain a list of service FMRIs via `-o FMRI`.
   * **column:** comma separated column names
      * **desc:**: description of service
      * **fmri:**: Fault Management Resource Identifier
@@ -534,7 +534,7 @@ A list of processes requirred by a service can be displayed using this command.
     logfile      /var/svc/log/system-scheduler:default.log
     restarter    svc:/system/svc/restarter:default
     dependency   require_all/none svc:/system/filesystem/root (online)
-    
+
     fmri         svc:/application/cups/scheduler:default
     name         CUPS Print Spooler
     enabled      true
@@ -543,10 +543,10 @@ A list of processes requirred by a service can be displayed using this command.
     state_time   March 27, 2023 at 08:03:57 AM CEST
     logfile      /var/svc/log/application-cups-scheduler:default.log
     restarter    svc:/system/svc/restarter:default
-    contract_id  42 
+    contract_id  42
     dependency   require_all/none file://localhost/etc/cups/cupsd.conf (online)
     dependency   require_all/none svc:/system/filesystem/minimal (online)
-    dependency   optional_all/error svc:/network/loopback (online)       
+    dependency   optional_all/error svc:/network/loopback (online)
     dependency   optional_all/error svc:/milestone/network (online)
 ```
 
@@ -561,7 +561,7 @@ Use this command to change the status of a service: enable, disable, etc.
  |-------------|---------------------------------------|
  | `v`         | verbose                               |
  | `z [zone]`  | command applies to the zone specified |
- 
+
 
 
  | **subsommand** | **subcommand option** | **Purpose**                                   |
@@ -626,11 +626,12 @@ Refer to the manual page for details: [scvprop(1)](https://illumos.org/man/1/svc
 
 #### Basic Strategy
 
-Here is general methodology intended as an introduction in how to resolve a service that fails. 
+Here is general methodology intended as an introduction in how to resolve a service that fails.
 
 ```bash
     svcs -xv
 ```
+
 This command provides the following information:
 - a possible reason for the failure
 - location of the log file associated with the service
@@ -679,12 +680,13 @@ To illustrate troubleshooting, we manipulate a service by removing a dependency:
     state_time   XXXXX XX, 2023 at 09:18:13 AM CEST
     logfile      /var/svc/log/application-cups-scheduler:default.log
     restarter    svc:/system/svc/restarter:default
-    contract_id  42 
+    contract_id  42
     dependency   require_all/none file://localhost/etc/cups/cupsd.conf (online)
     dependency   require_all/none svc:/system/filesystem/minimal (online)
     dependency   optional_all/error svc:/network/loopback (online)
     dependency   optional_all/error svc:/milestone/network (online)
 ```
+
 The service is `online` and is operating satisfactorily.
 
 Rename `/etc/cups/cupsd.conf`,  refresh the configuration and restart the service, will cause the service to fail:
@@ -707,10 +709,11 @@ Obtain a list of failed services:
        See: /var/svc/log/application-cups-scheduler:default.log
     Impact: This service is not running.
 ```
+
 We always obtain a reason which in our case pinpoints the error precisely.
 This is not always the case.
 
-#### Corrupt Service Configuration: Revert to an Old Configuration 
+#### Corrupt Service Configuration: Revert to an Old Configuration
 
 SMF periodically takes snapshots of the service configuration so that it is alway possible to revert to a previous configuration.
 
@@ -720,7 +723,7 @@ SMF periodically takes snapshots of the service configuration so that it is alwa
     legacy_run     16:33:35 lrc:/etc/rc3_d/S99cups-browsed
     online         14:33:25 svc:/application/cups/scheduler:default
     # list snapshots associated with the cups service
-    $ svccfg -s svc:/application/cups/scheduler:default listsnap 
+    $ svccfg -s svc:/application/cups/scheduler:default listsnap
     initial
     last-import
     running
