@@ -40,6 +40,7 @@ Acer         |  Ferrari 4000        | yes |                                     
 Acer         |  Ferrari 4200 WLMi   | yes |                                          |
 Acer         |  Ferrari 4500 WLMi   | yes |                                          |
 Acer         |  Ferrari 5000        | yes |                                          |
+Apple        |  iMac 21.5-inch, Mid 2010 (iMac11,2    | yes | OS installs fine, has BCM5764M ethernet chip, but is supported by the included drivers                                         | James Young
 Asus         |  Eee PC 1005PE       | yes | Atheros AR8132 / L1c Gigabit Ethernet works with atge driver.  Wireless works.  `vgatext` display driver works. | Gary Mills
 Dell         |  Latitude D420       | no  | Stopped booting for 148                  | Jon Tibble
 Dell         |  Inspiron 1545       | yes | Broadcom Corporation BCM4312 802.11b/g driver missing | Ganapathy S A
