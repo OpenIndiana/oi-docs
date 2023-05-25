@@ -4,7 +4,7 @@ mkdocs-bootswatch==1.0
 
 Markdown==3.2.2
 livereload==2.6.3
-tornado==6.1
+tornado==6.3.2
 click==7.1.2
 Jinja2==2.11.3
 markupsafe==2.0.1
