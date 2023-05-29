@@ -75,7 +75,7 @@ Ideally suited for both workstations and servers, simply choose the installer ty
 | --- | --- | ---
 | Live installer (Mate desktop) | Text Only (No GUI) | Text Only (No GUI)
 
-For a full list of links to the various installer images, visit the [OpenIndiana Downloads](https://www.openindiana.org/download/) page.
+For a full list of links to the various installer images, visit the [OpenIndiana Downloads](https://www.openindiana.org/downloads/) page.
 
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
@@ -292,7 +292,7 @@ As the FAQ evolves, try to keep this section in sync.
 -->
 For a full list of links to the various installer images, visit the following page:
 
-* [OpenIndiana Downloads](https://www.openindiana.org/download/)
+* [OpenIndiana Downloads](https://www.openindiana.org/downloads/)
 
 For a complete list of alternate mirrors (Asia, Europe, North America, etc.)
 
