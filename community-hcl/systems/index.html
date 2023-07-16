@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/community-hcl/systems/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Systems - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../components/">Components</a>
+</li>
+            
+<li class="active">
+    <a href="./">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../components/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../../dev/building-openindiana/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/community-hcl/systems.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#systems">Systems</a></li>
+            <li><a href="#laptops">Laptops</a></li>
+            <li><a href="#workstations">Workstations</a></li>
+            <li><a href="#servers">Servers</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is Matt Wilby Copyright (C) 2011.
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s):  Alexander Pyhalov, Aurelien Larcher, Deano Calver, Nikola M., David Stes
+
+Portions created by Deano Calver are Copyright (C) 2011.
+Portions created by Aurelien Larcher are Copyright (C) 2017.
+Portions created by Nikola M. are Copyright (C) 2017.
+Portions created by Alexander Pyhalov are Copyright (C) 2019.
+Portions created by David Stes are Copyright (C) 2021.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="systems">Systems</h1>
+<h2 id="laptops">Laptops</h2>
+<p>OpenIndiana was tested by our users on the following laptops.</p>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acer</td>
+<td>Aspire AS3810T</td>
+<td>no</td>
+<td>Hangs after OS banner when booting from a USB DVD.  With <code>-v</code>, displays <code>pseudo-device: dld0</code> and <code>dld0 is /pseudo/dld@0</code> last.</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Aspire One ZG8</td>
+<td>yes</td>
+<td></td>
+<td>Deano Calver</td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Ferrari 1100</td>
+<td>yes</td>
+<td>Model: 1100-704G25Mn</td>
+<td></td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Ferrari 3400</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Ferrari 4000</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Ferrari 4200 WLMi</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Ferrari 4500 WLMi</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Acer</td>
+<td>Ferrari 5000</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apple</td>
+<td>iMac 21.5-inch, Mid 2010 (iMac11,2)</td>
+<td>yes</td>
+<td>OS installs fine, has BCM5764M ethernet chip, but is supported by the included drivers.</td>
+<td>James Young</td>
+</tr>
+<tr>
+<td>Asus</td>
+<td>Eee PC 1005PE</td>
+<td>yes</td>
+<td>Atheros AR8132 / L1c Gigabit Ethernet works with atge driver.  Wireless works.  <code>vgatext</code> display driver works.</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>Latitude D420</td>
+<td>no</td>
+<td>Stopped booting for 148</td>
+<td>Jon Tibble</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>Inspiron 1545</td>
+<td>yes</td>
+<td>Broadcom Corporation BCM4312 802.11b/g driver missing</td>
+<td>Ganapathy S A</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>Latitude E6520</td>
+<td>yes</td>
+<td></td>
+<td>Marco van Lienen</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>XPS M1330</td>
+<td>yes</td>
+<td>Broadcom Corporation BCM4312 802.11b/g driver missing. Doesn't show battery status.</td>
+<td>Maxim Kondratovich</td>
+</tr>
+<tr>
+<td>Hewlett-Packard</td>
+<td>EliteBook 2170p</td>
+<td>no</td>
+<td>OI hipster-20190308.  Wireless does not work.  See <a href="https://www.illumos.org/issues/10556">Bug 10556</a> for details.  Everything else works.</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Hewlett-Packard</td>
+<td>2710p</td>
+<td>yes</td>
+<td>ACPI works, no Wacom driver. Everything works fine, secondary port for graphics card listed as unknown, but external display works.</td>
+<td>Bryan Iotti</td>
+</tr>
+<tr>
+<td>Hewlett-Packard</td>
+<td>DV 6000</td>
+<td>yes</td>
+<td>Works perfectly, including graphics, sound and usb</td>
+<td>Johan S</td>
+</tr>
+<tr>
+<td>Hewlett-Packard</td>
+<td>EilteBook 8760w</td>
+<td>yes</td>
+<td>WiFi fails from time to time, set "set apix_enable=0" in /etc/system to work-around illumos issue <a href="https://www.illumos.org/issues/1723">#1723</a>, SDcard works, NVIDIA Graphics work (3D accelerated), webcam works, USB3 works not of course (no driver), suspend does not work correctly</td>
+<td>Olaf Bohlen</td>
+</tr>
+<tr>
+<td>Hewlett-Packard</td>
+<td>EliteBook 6930p</td>
+<td>yes</td>
+<td>Works: WiFi, Ethernet, no driver issues after disabling Intel MEI/AMT. AMD Radeon HD 3400 only works for 2D acceleration, due to missing KMS. Incomplete ACPI support: no suspend, low battery life (2hrs).</td>
+<td>Bryan Iotti</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad X1 Carbon 20A7004HRT</td>
+<td>yes</td>
+<td>Tested with July 2014 OpenIndiana Hipster ISO.<br/>Installed OI from USB drive (switched it to USB 2.0 mode in BIOS). Also selected legacy boot.<br/>Gigabit Ethernet (Intel l218-V) works with e1000g0 driver.<br/>Sound card (ddu detects Intel Haswell-ULT and Intel Lynx Point-LP HD Audio controllers) is detected, but doesn't work.<br/>Video adapter (Intel Haswell-ULT Integrated audio controller, Intel HD 4400) is recognized as VESA, but supports 1600x900 resolution.<br/>FN and functional "keys" work  in general.<br/>Wireless adapter (Intel Wireles-N 7260) doesn't work<br/>Trackpad seems to be too sensitive and behaves strange.<br/><br/><i>Updated at July 2019</i><br/>Video adapter is working with Intel KMS driver.<br/>USB 3.0 ports work fine.</td>
+<td>Alexander Pyhalov</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad Edge E335</td>
+<td>yes</td>
+<td>The laptop has no CD drive but can boot off a USB device; to install OI I used a USB HDD with grub4dos in first partition booting an oi_151a5 ISO image and a second 1GB partition with the USB image. Note that the right (yellow USB 2.0) port MUST be used during such setup.<br/>Gigabit Ethernet (Realtek) works, especially (more stable) with an updated gani driver from Free NIC drivers for OpenSolaris project. WiFi (Broadcom BCM4313) works with updated NDIS drivers (see source tarball in <a href="https://www.illumos.org/issues/3367">https://www.illumos.org/issues/3367</a>) based on bcmwl5 64-bit variant of specific Windows driver versions, this supports WEP only. SATA support is strange (sometimes works, sometimes doesn't), so Compatibility mode (IDE) set via BIOS is preferential. USB3 (XHCI) does not work, those two left ports don't even power up a mouse. The USB2 port (right side) works, also with a USB hub. Battery status and model shown OK. Card reader not visible (probably hooked to USB3 chip).<br/> Sound system includes several devices (Realtek audio powering the speakers/mini-jack, and AMD Radeon HDMI audio), both driven as audiohd; in my case Realtek was detected as dsp1/mixer1/audio1/etc. and I had to replace the links (/dev/dsp /dev/audio /dev/mixer etc.) to force it to be used for sound by default. ALSA audio driver mode works, but with hicccups; OSS and SunAudio play music okay, but quite a bit too quiet in my testing (like 10% of the volume on the same system under another OS).<br/>Video adapter (AMD Vision E2 APU including the CPU and Radeon GPU) is not recognized as a "radeon" by "modload /kernel/drv(/amd64)/radeon" nor by X11, but works in correct resolution (1366*768) as "vgatext". Heavy video performs poorly (movies, videocamera tests), but during normal work/reading/browsing/development lags are nearly unnoticeable.<br/>NOTE: The keyboard does not include such keys as Pause/Break and SysRQ/ScrlLock. Some can be emulated (Fn+P, Fn+B, etc.), but I did not manage to find all of them. There is also only a power LED indicator, so you don't see HDD working, CAPS lock, etc. NumLock and at least an emulated numeric keypad are missing altogether.<br/>According to repairs docs, some variants of this laptop model can include an additional MiniPCI socket for WAN (3G modem) or mSATA SSD; my laptop does not have this feature soldered on (or I failed to find it).</td>
+<td>Jim Klimov</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>Thinkpad L470</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkCenter m91p</td>
+<td>yes</td>
+<td></td>
+<td>Aurélien Larcher</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>Thinkpad P70</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad T60</td>
+<td>yes</td>
+<td></td>
+<td>Milan Jurik</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>Thinkpad T430</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad T520</td>
+<td>yes</td>
+<td>The Intel Wifi Link 1000 and 6300 do NOT work.  The NIC is an Intel 82579LM works well.<br/>The NVidia GPU works well with the nvidia driver.  eSATA port works fine, but you'll have to use cfgadm to "reconfigure" the device so it picks up the plugged in disk.</td>
+<td>Josef "Jeff" Sipek</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad T520 (4240-5NG)</td>
+<td>yes</td>
+<td>No support for Realtek RTL8188CE 802.11b/g/n WiFi Adapter. No support for Integrated Intel VGA (generic VGA driver is used - 1024x768 only).</td>
+<td>Marcel Telka</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad T578</td>
+<td>yes</td>
+<td>The Intel Corporation Centrino Wireless-N 1000 does NOT work. As noted for T520 it is not supported by Illumos.</td>
+<td>Logan Bruns</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad W520</td>
+<td>yes</td>
+<td>Nvidia Quadro 1000m and Intel Centrino Ultimate-N 6300 (3x3 AGN).</td>
+<td>Cameron Jones</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>ThinkPad X220</td>
+<td>yes</td>
+<td>Graphics Intel HD 3000 (Sandy Bridge) suffers from <a href="https://www.illumos.org/issues/8049">bug 8049</a> on the laptop's primary display if intel Xorg driver is used (vesa is fine but the display then has non-native 1024x768 resolution), but VGA (D-Sub) to external display works correctly. Intel 82579LM Ethernet controller works with e1000g driver. Wifi Intel Centrino Advanced-N 6205 is attached to iwn driver but I did not test it so far (I don't see any wi-fi networks). Audio Intel HDA from C200 chipset works with audiohd driver. Touchpad, trackpoint, keyboard and USB mouse work. Volume &amp; other buttons don't work.</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Multirama-HT</td>
+<td>Xpress Book</td>
+<td>yes</td>
+<td></td>
+<td>Apostolos Syropoulos</td>
+</tr>
+<tr>
+<td>Panasonic</td>
+<td>Toughbook Cf-18</td>
+<td>yes</td>
+<td>Works, with VESA graphics driver. No Wacom driver for Xorg. Audio works through headphone output, no internal speaker. Disable system bell to avoid freezes. No 56k modem. ACPI works for battery status, no brightness adjustment. Networking and Wifi work.</td>
+<td>Bryan Lotti</td>
+</tr>
+<tr>
+<td>Sony</td>
+<td>VAIO VGN-S3XP</td>
+<td>yes</td>
+<td></td>
+<td>cardbus does not work. nvidia driver does not fully support NV6200 Go chipset.</td>
+</tr>
+<tr>
+<td>System76</td>
+<td>Bonobo Extreme</td>
+<td>yes</td>
+<td></td>
+<td>Nripendra Khan</td>
+</tr>
+<tr>
+<td>System76</td>
+<td>Galago UltraPro</td>
+<td>yes</td>
+<td> Driver: VESA</td>
+<td>Ankita Davis</td>
+</tr>
+<tr>
+<td>Toshiba</td>
+<td>Satellite L855 (PSKACE)</td>
+<td>no</td>
+<td>AMD Radeon HD 7670M Graphics requires KMS driver, which we don't have, so VESA only. Unfortunatelly display's native resolution is 1366x768 but the this resolution is not one of VESA modes, so 1024x768 or 800x600 has to be used, which renders the screen blurry. Nor HDMI nor VGA (D-Sub) works.<br/>Integrated Ethernet controller Atheros AR8161 is not supported, nor is Atheros AR9485 mini-PCI WLAN.<br/>What works: ACPI, battery statistics, chipset in general (Intel C216), sound (Intel HDA), SATA disks in AHCI mode, VT-x (tested in illumos KVM), touchpad, USB (both EHCI &amp; xHCI) for input devices and storage.</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Lenovo</td>
+<td>T530</td>
+<td>yes</td>
+<td>NVidia NVS 5400M, Interl Centrino Advanced-N 6205 (taylor peak)(iwn), Intel 82579LM (ethernet/gigabit/e1000g)  Everything works, even integrated camera</td>
+<td>Espen Martinsen</td>
+</tr>
+</tbody>
+</table>
+<h2 id="workstations">Workstations</h2>
+<p>OpenIndiana was tested by our users on the following workstations with UEFI.</p>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>BIOS</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dell</td>
+<td>Precision 3640</td>
+<td>Dell UEFI Bios 1.17</td>
+<td>yes</td>
+<td>OpenIndiana 2021.04, i3-10100 CPU works, integrated graphics Intel UHD 630 does NOT work and only supports text console (no X11/MATE), NVIDIA GeForce GT 440 works with X11/MATE, integrated audio Intel works, network onboard Intel I219-LM e1000g works, AHCI disks work, tested Dell UEFI BIOS 1.2, 1.8 and 1.17, system installs and boots fine in UEFI mode with Secure Boot disabled</td>
+<td>David Stes</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>Precision 7720</td>
+<td>Dell Bios 1.24</td>
+<td>yes</td>
+<td>Intel(R) Xeon(R) CPU E3-1535M v6, boot in legacy, not UEFI</td>
+<td>Stephan Althaus</td>
+</tr>
+</tbody>
+</table>
+<h2 id="servers">Servers</h2>
+<p>OpenIndiana was tested by our users on the following servers.</p>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dell</td>
+<td>Optiplex 9010</td>
+<td>  yes</td>
+<td>OpenIndiana 2018.04, GFX, network, AHCI disks work</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PowerEdge R610</td>
+<td>  yes</td>
+<td>All ok</td>
+<td>Jorge Palma Escobar</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PowerEdge R620</td>
+<td>  yes</td>
+<td>All ok.</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PowerEdge R720</td>
+<td>  yes</td>
+<td>All okay.</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PowerEdge R820</td>
+<td>  yes</td>
+<td>Severe performance problems on ixgbe - difficult to break 300 mb/s transmitting, receiving is okay</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PowerEdge 1950 III</td>
+<td>  yes</td>
+<td>All working perfectly</td>
+<td>ctable</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PowerEdge SC1425    </td>
+<td>yes</td>
+<td>everything works</td>
+<td>Johan  Sanchez</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PowerEdge 4600</td>
+<td>  yes</td>
+<td>everything works</td>
+<td>Johan  Sanchez</td>
+</tr>
+<tr>
+<td>Fujitsu</td>
+<td>Primergy T1330</td>
+<td>yes</td>
+<td>boots fine in UEFI mode with Secure Boot disabled</td>
+<td>Stephan Althaus</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>DL360 G6</td>
+<td>yes</td>
+<td>If you use the built in P410i array controller you should make sure you have or get the battery back up so the write cache is enabled or ZFS performance will be horrible. Also it is recommended that you install HP's free hpacucli command to make it easier to enable swapped out hotswap drives.</td>
+<td>Logan Bruns</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>DL380 G7</td>
+<td>  no</td>
+<td>Intel 5520 chipset based motherboard Broadcom Corporation NetXtreme II BCM5709 p410i RAID controller performance sucks like a hoover vaccum. No JBOD support. Requires new firmware all around or the installation of an SSD triggers a bug that starts a thermal shutdown iLO works as expected. Download drivers directly from HP along with the scripting toolkit to make bios configuration changes in OS – neat level of integration Expect monthly firmware updates on this platform. HP has a fix it in the field approach. There has been some conflict between LSI cards and HPs passive midplane. Every other column of disks must be left vacant or data corruption occurs. Last December LSI and HP were pointing fingers at each other, however, this problem may be resolved. I am no longer in a position where i can risk the data on the disks to find out. I installed both midplanes and half the drive slots are empty at the moment.</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>ML110 G7</td>
+<td> yes</td>
+<td>Intel Xeon E3 1220, no reported driver issues.</td>
+<td>Dave Koelmeyer</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>ProLiant MicroServer Gen8 G1610T</td>
+<td>yes</td>
+<td>Get driver for Smart Array B120i/ZM. ZFS works well.</td>
+<td>Miguelino Schwinn</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>Proliant Microserver Gen8 G2020T</td>
+<td>yes</td>
+<td>HP NC112T NIC works by default. Used updated CPQary driver. Very stable. Home video server.</td>
+<td>Ryan Diomi</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>ProLiant MicroServer Gen8 E3-1220Lv2</td>
+<td>yes</td>
+<td>HP NC112T NIC. 16GB RAM. hipster-20140701 installed. Very stable.</td>
+<td>Ryan Diomi</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>ProLiant Microserver N40L</td>
+<td>yes</td>
+<td>No special drivers required.</td>
+<td>Jon Green</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>xServer x3100 M4</td>
+<td> yes</td>
+<td>No special drivers required. Intel(R) Xeon(R) CPU E31220 @ 3.10GHz Socket 1 Ethernet 1 Intel 82574L Ethernet Controller</td>
+<td>Jorge Palma Escobar</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>MFSYS25  (6x blade server  chassis with  shared storage presented as SAN)</td>
+<td>yes</td>
+<td>No particular Solaris-related problems (all networking and storage components recognized by OI and several older Solaris 10 distros). Did not test MPxIO with Solaris because this box had no secondary IO controller (had it working with Linux and Windows on other such boxes). However the stability of remote serial console, remote graphical jKVM and remote media used for installation leaves a lot better to be desired (in comparison with Sun Fire IPMI/ILOM interfaces). May be a pain to install over pure remote-console networking, but this regards any OS we tried with the server. Physical distro media is very much recommended. After that, all works well =)</td>
+<td>Jim Klimov</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>SR2625URLX</td>
+<td>yes</td>
+<td>No problems Intel S5520 motherboard Intel Corporation 82801JI (ICH10 Family) Intel Corporation 82575EB Gigabit Network Connection RMM3 works as expected (as an OEMd service processor from AMI), but no bmc driver support in OI (works in Solaris 11) Onboard SATA/SAS ports work in AHCI mode on the passive midplane but hot plug seems broken. I recommend internal LSI cards in any case. I did not try the serial console, but I would assume that works Hardware throws ECC errors on large memory installations (96GB) up until version 50 of firmware. Recommend v60+ System is unable to fast boot and generates an error about a 32bit address. Alter boot config in the repo to do a full boot to work around this problem.</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Storevault</td>
+<td>N500/S500</td>
+<td>yes</td>
+<td>All working fine</td>
+<td>ctable</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>SuperServer 6016T-MTHF</td>
+<td>yes         </td>
+<td> </td>
+<td>Milan Jurik</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>SYS-6026T-6RF+</td>
+<td>yes           </td>
+<td> </td>
+<td>Geoff Flarity</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>AS-2122TG-HTR</td>
+<td>yes</td>
+<td>No problems with Advanced Micro Devices [AMD] ... Intel Corporation 82576 Gigabit Network Connection Matrox Graphics, Inc. MGA G200eW WPCM450 ATI Technologies Inc RD890 ... ATI Technologies Inc SB700/SB800 ...</td>
+<td>Uwe Reh</td>
+</tr>
+<tr>
+<td>Zotac</td>
+<td>Zbox ID-18U</td>
+<td>rge</td>
+<td>All working except for Intel graphics (only VGA), and USB3 (has no driver).</td>
+<td>Gary Mills</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

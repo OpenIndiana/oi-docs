@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/retired/toolchain/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Toolchain - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/retired/toolchain.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#continuous-integration-content-management">Continuous Integration Content Management</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#docs-are-code">Docs are Code</a></li>
+            <li><a href="#general-writing-tips">General Writing Tips</a></li>
+            <li><a href="#what-is-asciidoctor">What is Asciidoctor?</a></li>
+            <li><a href="#why-a-text-markup-based-docs-framework">Why a Text Markup Based Docs Framework?</a></li>
+            <li><a href="#tips-for-working-with-asciidoctor">Tips for Working with Asciidoctor</a></li>
+            <li><a href="#asciidoctor-tools-and-informational-links">Asciidoctor Tools and Informational Links</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<h1 id="continuous-integration-content-management">Continuous Integration Content Management</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This document is a whiteboard for the development of ideas to begin the transition to a continuous integration toolchain for documentation.
+The ideal model would be where all informational content (docs, blog posts, news, etc.) lives in github.
+This way, working with informational content is simply a matter of working with familiar tools and concepts.</p>
+<p>The continuous integration content management process might go something like this:</p>
+<ul>
+<li>Clone the repository.</li>
+<li>Add or edit some content.</li>
+<li>Commit your changes.</li>
+<li>Send a pull request so your changes can be reviewed for inclusion into the master repository.</li>
+<li>Upon commit to the master repository, a repo hook kicks off a build and deploy of the updated content.</li>
+</ul>
+<p>This process can be as big or small as you like;
+You may wish to keep things limited to systems documentation, or the concept can be expanded to include the project's entire web presence.</p>
+<p>For the later, static website <em>baking</em> frameworks such as <a href="http://awestruct.org/">Awestruct</a> or <a href="https://jekyllrb.com/">Jekyll</a> along with dynamic <em>mobile first</em> CSS frameworks such as <a href="http://getbootstrap.com/">Bootstrap</a> or <a href="http://foundation.zurb.com/">Foundation</a>, the entire OpenIndiana website, and all it's content, can be continuously integrated in a fully automated fashion.</p>
+<h3 id="no-mess-no-fuss">No Mess, No Fuss.</h3>
+<ul>
+<li>No more databases to maintain.</li>
+<li>No more patching security holes in CMS systems.</li>
+<li>No more backups (remember the whole website lives on github, and everyone has their cloned copy of it).</li>
+<li>Everything is version controlled.</li>
+</ul>
+<p>For a working example of what this might look like in production, have a look at the newly updated <a href="https://jenkins.io/index.html">Jenkins website</a>.</p>
+<h2 id="docs-are-code">Docs are Code</h2>
+<p>The most important thing to keep in mind is that docs are code.
+So, we treat the docs (and all other content) just as we would treat code (and use the very same tools to manage it all).</p>
+<ul>
+<li>Write 1 sentence per line.</li>
+<li>Use comments in your code.</li>
+<li>Use version control - fork and fix (just as you would anything else).</li>
+<li>Use TODO's.</li>
+</ul>
+<h2 id="general-writing-tips">General Writing Tips</h2>
+<ul>
+<li>Write your docs by asking a question and then answering it.<ul>
+<li>Later turn the questions into sectional headings, etc.</li>
+</ul>
+</li>
+<li>Use a thesaurus - e.g. <a href="https://www.powerthesaurus.org/">https://www.powerthesaurus.org/</a></li>
+<li>Couch read - via a phone or tablet, proof read what you previously wrote. - (puts you into the reader's shoes)</li>
+</ul>
+<h2 id="what-is-asciidoctor">What is Asciidoctor?</h2>
+<p>Asciidoc is a text markdown language using a Python based interpreter.
+Asciidoctor is a more modern and more powerful Ruby based implementation of Asciidoc.
+Asciidoctor also includes some of features found in documentation frameworks such as Sphinx (which is used by the Python and PC-BSD projects).
+The Asciidoctor framework can be used for docs as well as for the production of other types of content (news stories, blog posts, etc.).</p>
+<h3 id="system-characteristics">System Characteristics</h3>
+<ul>
+<li>Easy to use (even easier than Sphinx)</li>
+<li>TOC is easy to navigate (but not quite as clean as Sphinx)</li>
+<li>Like Sphinx, produces a very professional looking end product.</li>
+<li>Does not yet support chunked html, but can export to docbook and use docbook tools to perform this task.</li>
+<li>Supports the pulling together of several small documents using the concept of "includes".</li>
+<li>More flexible than Sphinx in that it can be used as part of a larger web content framework.</li>
+</ul>
+<h3 id="asciidoctor-compared-to-sphinx">Asciidoctor compared to Sphinx</h3>
+<p>Both systems have their relative merits with advantages and disadvantages.
+For example if all you want to do is write and publish some docs, then Sphinx is a good choice.
+However, if you want to do a little more (like the Jenkins project is doing), then Asciidoctor is likely the better choice.</p>
+<h2 id="why-a-text-markup-based-docs-framework">Why a Text Markup Based Docs Framework?</h2>
+<p>The primary advantage of using a text markup language is readability and flexibility.
+The raw code for your content is simply text.
+This is something you can make sense of without special tools (e.g. Docbook based WYSIWYG XML editors, etc.).</p>
+<h2 id="tips-for-working-with-asciidoctor">Tips for Working with Asciidoctor</h2>
+<ul>
+<li>Use "Attributes" and name space them - e.g. <code>:uri-project: &lt;url&gt;</code> -(place these attributes at top of document)<ul>
+<li>Call your attributes in your docs like this: <code>{uri-project} [Project name]</code></li>
+</ul>
+</li>
+<li>Use "Includes" - e.g. <code>include:: {uri-macros}/doc_to_import.asciidoc[]</code> - (allows you to pull in other docs into your docs)</li>
+</ul>
+<h2 id="asciidoctor-tools-and-informational-links">Asciidoctor Tools and Informational Links</h2>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.methods.co.nz/asciidoc/">http://www.methods.co.nz/asciidoc/</a></td>
+<td>Asciidoc Language (the syntax)</td>
+</tr>
+<tr>
+<td><a href="http://asciidoctor.org/">http://asciidoctor.org/</a></td>
+<td>Ruby based parser and tools</td>
+</tr>
+<tr>
+<td><a href="http://discuss.asciidoctor.org/">http://discuss.asciidoctor.org/</a></td>
+<td>Asciidoctor support forum</td>
+</tr>
+<tr>
+<td><a href="http://www.asciibinder.org/index.html">http://www.asciibinder.org/index.html</a></td>
+<td>Asciibinder - (allows the construction of documents using <em>includes</em>)</td>
+</tr>
+<tr>
+<td><a href="https://github.com/asciidoctor/asciidoctor-pdf">https://github.com/asciidoctor/asciidoctor-pdf</a></td>
+<td>New Asciidoctor PDF generator (Alpha software)</td>
+</tr>
+<tr>
+<td><a href="http://asciidocfx.com/">http://asciidocfx.com/</a></td>
+<td>Java based Asciidoc IDE</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dagwieers/asciidoc-vim">https://github.com/dagwieers/asciidoc-vim</a></td>
+<td>Asciidoc Syntax highlighting for VIM</td>
+</tr>
+<tr>
+<td><a href="https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia">https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia</a></td>
+<td>Asciidoctor.js Live Preview plugin for Google Chrome Web Browser</td>
+</tr>
+<tr>
+<td><a href="https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/">https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/</a></td>
+<td>Asciidoctor.js Live Preview plugin for Firefox Web Browser</td>
+</tr>
+<tr>
+<td><a href="https://github.com/asciidoctor/asciidoctor-confluence">https://github.com/asciidoctor/asciidoctor-confluence</a></td>
+<td>Confluence plugin for Asciidoctor - (uploads to Confluence site)</td>
+</tr>
+<tr>
+<td><a href="http://gist.asciidoctor.org/">http://gist.asciidoctor.org/</a></td>
+<td>Asciidoctor page renderer for GitHub Gist URL's</td>
+</tr>
+<tr>
+<td><a href="https://travis-ci.org/">https://travis-ci.org/</a></td>
+<td>Continuous Integration (similar to Jenkins, etc.)</td>
+</tr>
+<tr>
+<td><a href="https://pages.github.com/">https://pages.github.com/</a></td>
+<td>Publish from your github repo</td>
+</tr>
+<tr>
+<td><a href="http://hubpress.io/">http://hubpress.io/</a></td>
+<td>Blog from your github repo - built in Asciidoctor support</td>
+</tr>
+</tbody>
+</table>
+<h4 id="note">NOTE:</h4>
+<p>In order to use the Asciidoctor Chrome extension with local files, you must enable the plugin option "Allow access to file URLs".</p>
+<p>The Travis-CI build engine can even post the results of the build to IRC (as shown below from the Asciidoctor IRC channel).</p>
+<pre><code>&lt;travis-ci&gt; asciidoctor/asciidoctor#2068 (master - cbf2ab0 : Dan Allen): The build passed.
+&lt;travis-ci&gt; Change view : https://github.com/asciidoctor/asciidoctor/compare/6e41bee5dc42...cbf2ab0a9b78
+&lt;travis-ci&gt; Build details : https://travis-ci.org/asciidoctor/asciidoctor/builds/114132261
+</code></pre>
+<h3 id="videos">Videos</h3>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=kyGJEVEjfAs">https://www.youtube.com/watch?v=kyGJEVEjfAs</a></td>
+<td>Write in AsciiDoc, Publish Everywhere!</td>
+</tr>
+<tr>
+<td><a href="https://www.youtube.com/watch?v=r6RXRi5pBXg">https://www.youtube.com/watch?v=r6RXRi5pBXg</a></td>
+<td>7 Ways to Hack Your Brain to Write Fluently</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

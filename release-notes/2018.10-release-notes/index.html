@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/release-notes/2018.10-release-notes/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>2018.10 Release Notes - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li class="active">
+    <a href="./">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../2019.04-release-notes/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../2018.04-release-notes/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/release-notes/2018.10-release-notes.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#201810-release-notes">2018.10 Release notes</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#general-system-changes">General system changes</a></li>
+            <li><a href="#late-news-known-issues">Late news (known issues)</a></li>
+            <li><a href="#desktop-software-and-libraries">Desktop software and libraries</a></li>
+            <li><a href="#common-tools-and-libraries">Common tools and libraries</a></li>
+            <li><a href="#development-tools-and-libraries">Development tools and libraries</a></li>
+            <li><a href="#server-software">Server software</a></li>
+            <li><a href="#illumos">illumos</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is Alexander Pyhalov Copyright (C) 2018.
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s):   Andreas Wacknitz, Michal Nowak, Tim Mooney
+
+Portions created by Andreas Wacknitz are Copyright (C) 2018.
+Portions created by Michal Nowak are Copyright (C) 2018.
+Portions created by Tim Mooney are Copyright (C) 2018.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="201810-release-notes">2018.10 Release notes</h1>
+<p>We are glad to announce that Hipster 2018.10 snapshot is available.</p>
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Checksum</th>
+<th>GPG signature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-gui-20181023.iso">OI-hipster-gui-20181023.iso</a></td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-gui-20181023.iso.sha256sum">SHA256</a>]</td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-gui-20181023.iso.sig">SIG</a>]</td>
+</tr>
+<tr>
+<td><a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-gui-20181023.usb">OI-hipster-gui-20181023.usb</a></td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-gui-20181023.usb.sha256sum">SHA256</a>]</td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-gui-20181023.usb.sig">SIG</a>]</td>
+</tr>
+<tr>
+<td><a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-text-20181023.iso">OI-hipster-text-20181023.iso</a></td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-text-20181023.iso.sha256sum">SHA256</a>]</td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-text-20181023.iso.sig">SIG</a>]</td>
+</tr>
+<tr>
+<td><a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-text-20181023.usb">OI-hipster-text-20181023.usb</a></td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-text-20181023.usb.sha256sum">SHA256</a>]</td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-text-20181023.usb.sig">SIG</a>]</td>
+</tr>
+<tr>
+<td><a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-minimal-20181023.iso">OI-hipster-minimal-20181023.iso</a></td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-minimal-20181023.iso.sha256sum">SHA256</a>]</td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-minimal-20181023.iso.sig">SIG</a>]</td>
+</tr>
+<tr>
+<td><a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-minimal-20181023.usb">OI-hipster-minimal-20181023.usb</a></td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-minimal-20181023.usb.sha256sum">SHA256</a>]</td>
+<td>[<a href="http://dlc.openindiana.org/isos/hipster/20181023/OI-hipster-minimal-20181023.usb.sig">SIG</a>]</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../../handbook/openindiana-download-mirrors/">List of mirrors</a></p>
+<h2 id="security">Security</h2>
+<p>This release is signed and verifiable by GPG. The OpenIndiana Release Engineering key has key id 0x3a021afadbe31887.</p>
+<p>The public key:</p>
+<pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+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
+cuYxZQalebJS
+=fC+/
+-----END PGP PUBLIC KEY BLOCK-----
+</code></pre>
+
+<p>How to verify:</p>
+<ul>
+<li>Download <code>&lt;ISO&gt;.sig</code> file from mirror</li>
+<li>Run: <code>gpg2 --verify &lt;ISO&gt;.sig &lt;ISO&gt;</code>. You should see the following output:</li>
+</ul>
+<pre><code>    gpg: Signature made October 23, 2018 at 03:15:31 PM UTC using RSA key ID DBE31887
+    gpg: Good signature from &quot;OpenIndiana Release Engineering&quot; [unknown]
+    Primary key fingerprint: F5E9 84E5 ADD2 9578 D45C  C1FE 3A02 1AFA DBE3 1887
+</code></pre>
+
+<p>Even if the output includes:</p>
+<pre><code>    gpg: WARNING: This key is not certified with a trusted signature!
+    gpg: There is no indication that the signature belongs to the owner.
+</code></pre>
+
+<p>The signature is still correct.</p>
+<h2 id="general-system-changes">General system changes</h2>
+<p>Work on delivering 64-bit-only applications continues: another batch of 50 components was migrated to 64-bit while most newly added software defaults to 64-bit.</p>
+<p>Note, that although ISO and USB images support booting in UEFI mode, it's still work in progress.
+VGA console is not supported when system is booted in UEFI mode and installer still misses some steps to create bootable UEFI images.</p>
+<p>Python 3.5 is now delivered and numerous Python modules were updated.
+Image Packaging System was fixed to work with updated modules.
+A lot of fixes from OmniOS CE IPS and Oracle IPS were integrated to OI IPS.</p>
+<p>Due to recent security fixes compatibilty with some Solaris applications was broken.
+Most noticeable one is VirtualBox.</p>
+<p>GCC 8 was added alongside GCC 6 and GCC 7: these compiler packages include modifications for building illumos.</p>
+<h2 id="late-news-known-issues">Late news (known issues)</h2>
+<p>It was found that due to bug in vmnat new OpenSSH client behind VMware NAT fails to communicate with outside servers (connection terminates with broken pipe after authentication). Recommended workaround is to add "IPQoS throughput" to your /etc/ssh/ssh_config.</p>
+<h2 id="desktop-software-and-libraries">Desktop software and libraries</h2>
+<ul>
+<li>MATE 1.20 was integrated.</li>
+<li>Xorg 1.19.6 is still shipped as main X server; Xorg 1.20 is in testing and could not make it for the snapshot.</li>
+<li>Xorg libraries and applications are updated to latest.</li>
+<li>Most Xorg driver modules were updated to latest unless DRM limitations prevented it.</li>
+<li>compiz updated to 0.8.14 and made compatible with the MATE desktop.</li>
+<li>Freetype was updated to 2.8.1, fontconfig was updated to 2.13.1.</li>
+<li>awesome was updated to 4.2.</li>
+<li>PulseAudio was updated to 12.2.</li>
+<li>Gstreamer was updated to 1.14.4</li>
+<li>GTK+2 was updated to 2.24.32. GTK+3 was updated to 3.24.1, Nimbus theme was rebased on to top of the B00merang Project theme and updated to work with new GTK+.</li>
+<li>glib2 was updated to 2.57.1.</li>
+<li>LightDM was updated to 1.26. LightDM GTK Greeter was updated to 2.0.5 and uses Nimbus theme.</li>
+<li>Firefox was updated to 52.9.0 (Firefox 60 ESR is in testing but not ready for the snapshot), Thunderbird was updated to 52.9.1.</li>
+<li>Pidgin was updated to 2.13.0.</li>
+<li>XScreenSaver was updated to 5.40.</li>
+<li>NVIDIA driver was updated to 340.107.</li>
+<li>Transmission was updated to 2.94.</li>
+<li>TigerVNC was updated to 1.8.0.</li>
+<li>open-vm-tools for VMware guests were updated to 10.3.0, desktop plugin was enabled.</li>
+<li>DBus was updated to 1.12.8, illumos HAL was made compatible.</li>
+<li>terminus and hack fonts were updated, FiraCode fonts were added.</li>
+<li>VLC 2.2.8 and multimedia libraries were migrated to 64-bit; VLC 3.0.4 is still in testing.</li>
+<li>Inkscape was updated to 0.92.3.</li>
+<li>libusb-1 was updated to 1.0.22.</li>
+</ul>
+<h2 id="common-tools-and-libraries">Common tools and libraries</h2>
+<ul>
+<li>Many utilities are now 64-bit-only.</li>
+<li>zsh, bash and pdsh shells were updated. zsh and bash syntax highlighting support was enhanced.</li>
+<li>Midnight Commander was updated to 4.8.21.</li>
+<li>curl was updated to 7.61.1.</li>
+<li>GNU awk was updated to 4.2.1, GNU sed was updated to 4.5, GNU findutils were updated to 4.6.0, GNU coreutils were updated to 8.30.</li>
+<li>git was updated to 2.19.1, mercurial (hg) was updated to 4.6.1.</li>
+<li>vim was updated to 8.1.436, nano and joe editors were updated as well.</li>
+<li>Ghostspcript was updated to 9.25.</li>
+<li>htop was ported to illumos and version 2.2.0 added, top now works correctly in batch mode.</li>
+<li>less was updated to version 530.</li>
+<li>mutt was updated to 1.10.1.</li>
+</ul>
+<h2 id="development-tools-and-libraries">Development tools and libraries</h2>
+<ul>
+<li>Added new compiler: GCC 8.2.0. openMPI was updated to 3.1.2, binutils were updated to 2.31.1.</li>
+<li>cmake was updated to 3.12.3.</li>
+<li>ninja was updated to 1.8.2.</li>
+<li>nasm was updated to 2.13.03.</li>
+<li>cpuid 1.6.3 was added.</li>
+<li>hwloc was updated to ABI incompatible 2.0.1.</li>
+<li>PETSc was updated to 3.7.7, eigen3 to 3.3.5, arpack to 3.6.3.</li>
+<li>clang is now compiled 64-bit-only.</li>
+<li>Python 3.5 was added, many python modules are now shipped for Python 3.5 as well as for 2.7 and 3.4.</li>
+<li>Python 3.4 was updated to 3.4.9, Python 2.7 was updated to 2.7.15.</li>
+<li>rust 1.29.1 was added.</li>
+<li>ccl (Clozure Common Lisp) version 1.11.5 was added and is used for compilation of pgloader instead of sbcl (Steel Bank Common Lisp).</li>
+<li>sbcl threading support was disabled, as it was broken after KPTI changes.</li>
+<li>OpenJDK 8 was updated to 1.8.172.</li>
+<li>libpqxx was updated to ABI-incompatible 6.2.4 version</li>
+<li>cherrypy was updated to 17.3.0.</li>
+<li>Pango was updated to 1.42.4.</li>
+<li>PCRE was updated to 8.42, PCRE2 10.31 was added.</li>
+<li>dejagnu was updated to 1.6.1.</li>
+</ul>
+<h2 id="server-software">Server software</h2>
+<ul>
+<li>KVM hypervisor was updated with patches from Joyent port to work with latest illumos. Now KVM zone brand is supported and users can manage their VMs as illumos zones (see documentation here).</li>
+<li>QEMU now supports GUI console (VNC and serial consoles are available as well).</li>
+<li>OpenSSH was updated to 7.8p1.</li>
+<li>PostgreSQL versions 9.4 thru 10 were updated to their latest minor versions.</li>
+<li>MariaDB 10.1 was updated, MariaDB 10.3 was added. Percona Server 5.6 and 5.7 were updated. Berkeley DB was updated as well.</li>
+<li>MongoDB 3.4 was updated. MongoDB 4.0 was added.</li>
+<li>Apache HTTP 2.4 was updated to 2.4.35.</li>
+<li>Apache Tomcat 6 was dropped. Tomcat 8 was updated to 8.0.53.</li>
+<li>Postfix was updated to 3.3.1. Configuration format was changed.</li>
+<li>Samba was updated to 4.8.5.</li>
+<li>Node.js was updated to 6.14.4 and 8.12.0, version 10.10.0 was added and version 7 was removed.</li>
+<li>Salstack 2018.3.2 was added.</li>
+<li>clamav was updated to 0.100.2.</li>
+<li>haproxy was updated to 1.8.14.</li>
+<li>znapzend 0.18.0 was added.</li>
+</ul>
+<p>A lot of other bug fixes and minor software updates are included.</p>
+<p>Automated test tool/framework performs installation image generation and testing on a regular basis.</p>
+<p>Userland components were patched to build with GCC 8.2 and published to the testing repository.</p>
+<h2 id="illumos">illumos</h2>
+<p>As always, we are proud to ship the latest illumos-gate bits (<a href="https://github.com/illumos/illumos-gate/commit/42a3762">42a3762</a>).</p>
+<h3 id="drivers">Drivers</h3>
+<ul>
+<li><a href="https://github.com/illumos/illumos-gate/commit/14b24e2b79293068c8e016a69ef1d872fb5e2fd5">9506</a> QLogic QL41000/45000 series devices are supported.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/db083a4d72c304c6b3b8782fde3c03d66a9ccf88">9693</a> NVMe from ESXi 6.7 is now usable.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/64216313af8955ed170cf25df29a04c18b3e0296">9249</a> NVMe works as a system crash dump device.</li>
+</ul>
+<h3 id="new-features">New features</h3>
+<ul>
+<li><a href="https://github.com/illumos/illumos-gate/commit/ab618543cc6fc4bc273c077ef5d247961cdb29d4">8158</a> Named Threads API was added.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/4226f635096bf9d814aa9fb335518c4855bbe3a3">6375</a> Native name demangling support for C++ was added (binary-only libdemangle.so from Sun Studio is still present).</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/fd6d41c5025e9fb45a115fc82d86e9983d1e9fd6">9815</a> Basic AHCI enclosure services.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/047c81d31d0f571d6652e97143cd15281de61e84">1700</a> Add SCSI UNMAP support.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/591e0e133f9980083db5d64ac33a30bcc3382ff7">8115</a> Parallel <code>zfs mount</code> is now supported.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/8c3347c4989237d6ebeeb03a67b21a523fc105d6">9782</a> <code>eventfd(3C)</code> event notification works in zones.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/83b4671e6262c5aa6b4f9fb5a384b1946dfc2e7f">9664</a> Support for UEFI32 (even on 64-bit machines) was added.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/00efb5e1437d3912284689f1b0c13190e634e788">8548</a> <code>memset_s(3C)</code> was ported from FreeBSD.</li>
+</ul>
+<h3 id="important-changes">Important changes</h3>
+<ul>
+<li>A lot of fixes by Toomas Soome make illumos closer to be compiled by GCC 7 and newer compilers.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/be4355ddcfa407e2d3e4a06973af5cbef6ccdbae">9812</a> headers are now free from excessive SUS compiler checks, hence application porting should be easier.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/75383e32bbd38e24115eefe5dee272d42a5c723e">9627</a> 32-bit boot archive is not being generated.</li>
+<li><a href="https://github.com/illumos/illumos-gate/commit/4c28a617e3922d92a58e813a5b955eb526b9c386">9598</a> Eager FPU restore defeats side channel attacks. See <a href="https://nvd.nist.gov/vuln/detail/CVE-2018-3665">CVE-2018-3665</a>.</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

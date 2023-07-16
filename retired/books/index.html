@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/retired/books/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Books - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/retired/books.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#the-opensolaris-redistributable-books">The OpenSolaris Redistributable Books</a></li>
+            <li><a href="#current-situation">Current Situation</a></li>
+            <li><a href="#challenges-for-working-with-the-opensolaris-books">Challenges for working with the OpenSolaris Books</a></li>
+            <li><a href="#future-direction">Future Direction</a></li>
+            <li><a href="#what-are-other-projects-doing">What are Other Projects Doing?</a></li>
+            <li><a href="#book-titles-20090915-opensolaris-docs-consolidation">Book Titles - 2009.09.15 OpenSolaris Docs Consolidation</a></li>
+            <li><a href="#book-titles-opensolaris-200811-docs-consolidation">Book Titles - OpenSolaris 2008.11 Docs Consolidation</a></li>
+            <li><a href="#a-full-list-of-the-200811-books-with-separate-links-to-each-directory">A full list of the 2008.11 books with separate links to each directory:</a></li>
+            <li><a href="#other-opensolaris-books">Other OpenSolaris Books</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<h1 id="the-opensolaris-redistributable-books">The OpenSolaris Redistributable Books</h1>
+<p>The 2009.09.15 docs drop consists of 41 books organized into several different collections.
+Obviously maintaining 41 different titles is no easy matter.
+Therefore, the number one thing we can do to improve the books is to consolidate them into a more manageable set of fewer volumes.
+In reviewing these books, there looks to be some crossover between titles.
+For example, it might be possible to merge the Solaris Express collection into the Systems Administration collection, etc.</p>
+<h2 id="current-situation">Current Situation</h2>
+<p>The source code used for the redistributable books is Solbook XML 3.5 (and in some cases Solbook XML 3.6).</p>
+<ul>
+<li>Solbook is a creation of Sun Microsystems and is a simplified subset of Docbook.</li>
+<li>We have a conversion tool (written in JAVA) which can handle the conversion of Solbook XML 3.5 to HTML 4.5, but we do not have DTD's for any other XML versions (e.g 3.6).</li>
+<li>Assuming the differences between the XML versions are not too great, we might be able to trick the java conversion tool by simply changing the version number within the DTD.<ul>
+<li>This is speculative and not yet been tried.</li>
+</ul>
+</li>
+</ul>
+<p>Its unclear whether the books found in the 2009.09.15 drop are inclusive of all the 2008.11 books.</p>
+<ul>
+<li>Some of the titles are different.</li>
+<li>We have the source for the 2009.06 books, but not for the 2008.11 books.</li>
+</ul>
+<h2 id="challenges-for-working-with-the-opensolaris-books">Challenges for working with the OpenSolaris Books</h2>
+<p>Solbook XML is difficult to work with.</p>
+<ul>
+<li>Hard to read</li>
+<li>Hard to edit</li>
+<li>Requires validation after editing</li>
+<li>Not supported by modern WYSIWIG XML editors</li>
+<li>The Solbook to html conversion tool is broken (indexing does not work).</li>
+<li>Conversion of the books is a manual process.</li>
+<li>We have no automated way to maintain these books (no automated continuous integration toolchain exists).</li>
+</ul>
+<p>The OpenSolaris books are full of broken links.</p>
+<ul>
+<li>The books all reference each other (and other non-opensource books) using the original SUN hosted URL's.</li>
+<li>Even the books revised by the illumos project have broken links (thus also need some love).</li>
+</ul>
+<p>There are additional challenges.</p>
+<ul>
+<li>The books have difficult to decipher folder and xml file names.</li>
+<li>Many of the books consist of dozens and dozens of separate xml files.</li>
+<li>The books are not particularly mobile friendly.</li>
+<li>In regard to the factual correctness of the documentation, do we ourselves even know what still works, doesn't work, has been deprecated, replaced, etc.?</li>
+</ul>
+<h2 id="future-direction">Future Direction</h2>
+<p>We should consider converting the OpenSolaris books to some kind of simple and easy to read text based markup (e.g. ASCIIDOC, Restructured Text, Markdown, etc.).</p>
+<ul>
+<li>Using a text based markup would greatly lower the bar for working on the books.</li>
+<li>For books for which we do not have the XML source, perhaps pandoc can be used to reconvert the HTML back to text markup.</li>
+</ul>
+<p>We need to create a fully automated toolchain with the following features:</p>
+<ul>
+<li>Source code stored on GitHub.</li>
+<li>Commit hooks kick off an automated build (conversion to HTML5) and deployment of the books to their public location.</li>
+<li>We need to determine where to host the books - (e.g. OI website, Github pages, readthedocs.com, etc.)</li>
+<li>The docs maintenance process needs to be documented itself.</li>
+</ul>
+<p>Another consideration is printing.</p>
+<ul>
+<li>There should be printer friendly CSS used with the HTML pages.</li>
+</ul>
+<p>We need to eat our own dog food.</p>
+<ul>
+<li>The entire editing and build process should be capable of being performed on multiple platforms, including OpenIndiana.</li>
+</ul>
+<h2 id="what-are-other-projects-doing">What are Other Projects Doing?</h2>
+<p>In a nutshell, the trend is a move away from CMS systems.</p>
+<ul>
+<li>With recent advances in <em>mobile friendly</em> dynamic CSS frameworks and static HTML website <em>baking</em> tools, the future looks to be static HTML5.</li>
+<li>Some projects (such as Jenkins) make no distinction between documentation and the rest of their web content.
+Everything is treated equally and managed using the very same tools.</li>
+</ul>
+<h3 id="pc-pcd">PC-PCD</h3>
+<ul>
+<li>The PC-BSD project looks to be hosting their website on a CMS (Wordpress).</li>
+<li>The project uses the python based Sphinx documentation framework (which uses the Restructured Text markup language).</li>
+<li>Documentation is self hosted (though most projects using Sphinx host using <a href="https://readthedocs.org/">Read The Docs</a>).</li>
+</ul>
+<h3 id="jenkins">Jenkins</h3>
+<ul>
+<li>The Jenkins project is composed entirely of static HTML5 and uses Awestruct to <em>bake</em> their website.</li>
+<li>Their CSS framework is either Bootstrap, Foundation, or possibly even custom fabricated (it's not clear how they're doing it).</li>
+<li>Asciidoctor is their markup language for all content (docs, blog posts, news, etc.).</li>
+<li>All content is hosted on GitHub and continuous integration (automated build and deploy) is presumably via their own Jenkins CI.</li>
+</ul>
+<h3 id="freebsd">FreeBSD</h3>
+<ul>
+<li>It's unclear how the FreeBSD project is hosting their website.
+Given the website's responsiveness, there is a good chance they're hosting static HTML.</li>
+<li>For documentation, the FreeBSD project uses Docbook 5 along with a semi-automated XML toolchain to validate and convert the source code to other formats.</li>
+<li>The FreeBSD project hosts their Docbook 5 XML source in a single subversion repository where you check out the entire project.</li>
+<li>Similar to the Jenkins project, there is a good chance the FreeBSD project makes no distinction between their docs and other content.</li>
+<li>For more details of the FreeBSD docs process, see: <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/index.html">https://www.freebsd.org/doc/en_US.ISO8859-1/books/fdp-primer/index.html</a></li>
+</ul>
+<h2 id="book-titles-20090915-opensolaris-docs-consolidation">Book Titles - 2009.09.15 OpenSolaris Docs Consolidation</h2>
+<p><strong>NOTE</strong>
+Some of these titles may have newer versions than what shipped as part of this consolidation.
+The OpenSolaris project had a development directory which contained a handful of the titles.
+For more information, see: <a href="https://web.archive.org/web/20090415234443/http://dlc.sun.com/osol/docs/content/dev/">https://web.archive.org/web/20090415234443/http://dlc.sun.com/osol/docs/content/dev/</a></p>
+<p>We have the XML source for these books.</p>
+<ul>
+<li>Application Packaging Developer's Guide</li>
+<li>Device Driver Tutorial</li>
+<li>Image Packaging System Guide</li>
+<li>Getting Started With OpenSolaris</li>
+<li>Managing Boot Environments</li>
+<li>Memory Thread Placement and Optimization Developer's Guide</li>
+<li>OpenSolaris Automated Installer Guide</li>
+<li>OpenSolaris Developer's Reference Guide</li>
+<li>OpenSolaris Distribution Constructor Guide</li>
+<li>Solaris CIFS Administration Guide</li>
+<li>Solaris Containers: Resource Management and Solaris Zones Developer's Guide</li>
+<li>Solaris Dynamic Tracing Guide</li>
+<li>Solaris Express Developer Edition Installation Guide: Laptop Installations</li>
+<li>Solaris Express Developer Edition Release Notes</li>
+<li>Solaris Express Developer Edition What's New</li>
+<li>Solaris Express Installation Guide: Solaris Flash Archives (Creation and Installation)</li>
+<li>Solaris Express Installation Guide: Basic Installations</li>
+<li>Solaris Express Installation Guide: Custom JumpStart and Advanced Installations</li>
+<li>Solaris Express Installation Guide: Network-Based Installations</li>
+<li>Solaris Express Installation Guide: Planning for Installation and Upgrade</li>
+<li>Solaris Express Installation Guide: Solaris Live Upgrade and Upgrade Planning</li>
+<li>Solaris Express Package List</li>
+<li>Solaris Modular Debugger Guide</li>
+<li>Solaris Trusted Extensions Administrator's Procedures</li>
+<li>Solaris Trusted Extensions Developer's Guide</li>
+<li>Solaris Trusted Extensions Installation and Configuration Guide</li>
+<li>Solaris Trusted Extensions Label Administration</li>
+<li>Solaris Trusted Extensions Transition Guide</li>
+<li>Solaris Trusted Extensions User's Guide</li>
+<li>Solaris Tunable Parameters Reference Manual</li>
+<li>Solaris Volume Manager System Administration Guide</li>
+<li>System Administration Guide: Advanced Administration</li>
+<li>System Administration Guide: Basic Administration</li>
+<li>System Administration Guide: Devices and File Systems</li>
+<li>System Administration Guide: IP Services</li>
+<li>System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)</li>
+<li>System Administration Guide: Network Services</li>
+<li>System Administration Guide: Security Services</li>
+<li>System Administration Guide: Solaris Containers--Resource Management and Solaris Zones</li>
+<li>System Administration Guide: Solaris Printing</li>
+<li>Writing Device Drivers</li>
+<li>ZFS Administration Guide</li>
+</ul>
+<h2 id="book-titles-opensolaris-200811-docs-consolidation">Book Titles - OpenSolaris 2008.11 Docs Consolidation</h2>
+<p>We do not have the xml source code, nor the HTML for these books.
+Further information can be found on Archive.org (wayback machine).</p>
+<ul>
+<li>
+<p><a href="https://web.archive.org/web/20110812020753/http://dlc.sun.com/osol/docs/content/2008.11/">2008.11 OpenSolaris Docs</a></p>
+</li>
+<li>
+<p>Another link to the same 2008 books: <a href="http://www.linuxtopia.org/online_books/opensolaris_2008/">http://www.linuxtopia.org/online_books/opensolaris_2008/</a></p>
+</li>
+</ul>
+<h2 id="a-full-list-of-the-200811-books-with-separate-links-to-each-directory">A full list of the 2008.11 books with separate links to each directory:</h2>
+<ul>
+<li>
+<p><a href="https://web.archive.org/web/20090711142146/http://dlc.sun.com/osol/docs/content/2008.11/AIinstall/docinfo.html">OpenSolaris 2008.11 Automated Installer Guide</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20090207062303/http://dlc.sun.com/osol/docs/content/2008.11/COMSTARADMIN/docinfo.html">OpenSolaris 2008.11 COMSTAR Administration Guide</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20101103075914/http://dlc.sun.com/osol/docs/content/2008.11/DistroConst/">OpenSolaris 2008.11 Distribution Constructor Guide</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20090530123921/http://dlc.sun.com/osol/docs/content/2008.11/IMGPACKAGESYS/docinfo.html">OpenSolaris 2008.11 Image Packaging System Guide</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20110814192736/http://dlc.sun.com/osol/docs/content/2008.11/MEDIACAG/">OpenSolaris 2008.11 Media Management System Administration Guide</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20090215194657/http://dlc.sun.com/osol/docs/content/2008.11/OSDEV/docinfo.html">OpenSolaris 2008.11 Development Environment Guide</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20090207094506/http://dlc.sun.com/osol/docs/content/2008.11/SYSADV0/">OpenSolaris 2008.11 System Administration Guide</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20100207034244/http://dlc.sun.com/osol/docs/content/2008.11/snapupgrade/docinfo.html">OpenSolaris 2008.11 Managing Boot Environments</a></p>
+</li>
+<li>
+<p><a href="https://web.archive.org/web/20090429214954/http://dlc.sun.com/osol/docs/content/2008.11/getstart/docinfo.html">Introduction to the OpenSolaris 2008.11 Release</a></p>
+</li>
+</ul>
+<h2 id="other-opensolaris-books">Other OpenSolaris Books</h2>
+<ul>
+<li><a href="https://web.archive.org/web/20100123170801/http://docs.sun.com/app/docs/coll/2509.1">Open HA Cluster 2009.06 Collection</a></li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

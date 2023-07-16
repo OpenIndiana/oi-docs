@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/contrib/markdown/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Markdown Syntax Guide - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../style/">Contributor Style Guide</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../style/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../git/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/contrib/markdown.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#markdown-syntax-guide">Markdown Syntax Guide</a></li>
+            <li><a href="#italics-and-bold-text">Italics and bold text</a></li>
+            <li><a href="#headers">Headers</a></li>
+            <li><a href="#ordered-lists">Ordered lists</a></li>
+            <li><a href="#unordered-lists">Unordered lists</a></li>
+            <li><a href="#nested-lists">Nested lists</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#external-urls">External URL's</a></li>
+            <li><a href="#internal-urls">Internal URL's</a></li>
+            <li><a href="#images">Images</a></li>
+            <li><a href="#block-quotes">Block quotes</a></li>
+            <li><a href="#code-blocks">Code blocks</a></li>
+            <li><a href="#in-line-code">In-line code</a></li>
+            <li><a href="#in-line-html">In-line HTML</a></li>
+            <li><a href="#in-line-html-advanced">In-line HTML - Advanced</a></li>
+            <li><a href="#further-reading">Further reading</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="markdown-syntax-guide">Markdown Syntax Guide</h1>
+<h3 id="italics-and-bold-text">Italics and bold text</h3>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">This is plain text
+
+_This is italic text_
+
+**This is bold text**
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<p>This is plain text</p>
+<p><em>This is italic text</em></p>
+<p><strong>This is bold text</strong></p>
+</div>
+
+<h3 id="headers">Headers</h3>
+<p>Headers in markdown (much like HTML) come in various sizes.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown"># First level header
+## Second level header
+### Third level header
+#### Fourth level header
+##### Fifth level header
+###### Sixth level header
+</code></pre>
+
+<p>In this simple example you can see some headers have less hashes then others.
+The more hashes added, the smaller the header will be, for example.</p>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<h1>First level header</h1>
+
+<h2>Second level header</h2>
+
+<h3>Third level header</h3>
+
+<h4>Fourth level header</h4>
+
+<h5>Fifth level header</h5>
+
+<h6>Sixth level header</h6>
+
+</div>
+
+<h3 id="ordered-lists">Ordered lists</h3>
+<p>Ordered or numbered lists are fairly simple to do in markdown.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">1. First item
+2. Second item
+3. Third item
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+</div>
+
+<h3 id="unordered-lists">Unordered lists</h3>
+<p>Unordered lists are great for general lists that don't need to be done
+in specific steps.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">* this
+* is
+* unordered
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<ul>
+<li>this</li>
+<li>is</li>
+<li>unordered</li>
+</ul>
+</div>
+
+<h3 id="nested-lists">Nested lists</h3>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">* Markdown lists are:
+    * awesome
+    * amazing
+    * really cool
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<ul>
+<li>Markdown lists are:<ul>
+<li>awesome</li>
+<li>amazing</li>
+<li>really cool</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h3 id="tables">Tables</h3>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">| Table Header 1 | Table Header 2
+| --- | ---
+| Row 1, Column 1 | Row 1, Column 2
+| Row 2, Column 1 | Row 2, Column 2
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<table>
+<thead>
+<tr>
+<th>Table Header 1</th>
+<th>Table Header 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Row 1, Column 1</td>
+<td>Row 1, Column 2</td>
+</tr>
+<tr>
+<td>Row 2, Column 1</td>
+<td>Row 2, Column 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="external-urls">External URL's</h3>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">[The OpenIndiana Website](http://www.openindiana.org)
+
+or (bare url's)
+
+&lt;http://www.openindiana.org&gt;
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<p><a href="http://www.openindiana.org">The OpenIndiana Website</a></p>
+<p>or (bare url's)</p>
+<p><a href="http://www.openindiana.org">http://www.openindiana.org</a></p>
+</div>
+
+<h3 id="internal-urls">Internal URL's</h3>
+<p>Internal URL's operate a little differently than external URL's.
+Simply specify the relative path to the document.
+You can even target a specific section of the document.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">[The OpenIndiana Handbook - getting started](../handbook/getting-started.md)
+
+[Handbook - Appendix - Finding Help and Support](../handbook/appendix.md#finding-help-and-support)
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<p><a href="../../handbook/getting-started/">The OpenIndiana Handbook - getting started</a></p>
+<p><a href="../../handbook/appendix/#finding-help-and-support">Handbook - Appendix - Finding Help and Support</a></p>
+</div>
+
+<h3 id="images">Images</h3>
+<p>Specify the relative path to the image, just like an internal URL.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">![openindiana logo](../Openindiana.png)
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
+<p><img alt="openindiana logo" src="../../Openindiana.png" /></p>
+<h3 id="block-quotes">Block quotes</h3>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">&gt; This is a block quote.
+&gt; And here is the 2nd line of the quote.
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<blockquote>
+<p>This is a block quote.
+And here is the 2nd line of the quote.</p>
+</blockquote>
+</div>
+
+<h3 id="code-blocks">Code blocks</h3>
+<p>Code blocks are created by "fencing" the block of code using three (3) backtick marks.
+For the purpose of syntax highlighting, you may also specify the programming language.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code>```markdown
+#!/bin/bash
+  if [ "foo" = "foo" ]; then
+    echo expression evaluated as true
+  fi
+```
+</code></pre>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
+<pre><code class="bash">#!/bin/bash
+  if [ &quot;foo&quot; = &quot;foo&quot; ]; then
+    echo expression evaluated as true
+  fi
+</code></pre>
+
+<h3 id="in-line-code">In-line code</h3>
+<p>In-line code is delineated with a single backtick mark at each end of the text.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code>Here is some plain Markdown followed by `a section of in-line code`.
+</code></pre>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<p>Here is some plain Markdown followed by <code>a section of in-line code</code>.</p>
+</div>
+
+<h3 id="in-line-html">In-line HTML</h3>
+<p>In addition to Markdown plain text markup, the Mkdocs frameworks also supports the inclusion of in-line HTML.
+For example, sometimes you may find Markdown doesn't do quite what you need to do.
+In these cases you may include some in-line HTML.</p>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">&lt;!-- This is a single line comment --&gt;
+
+&lt;!--
+This comment
+spans multiple
+lines
+--&gt;
+</code></pre>
+
+<p>Comments are meant to be hidden, so they not rendered as HTML.
+You'll likely find them very useful for adding TODO lists, or other useful notes.
+Comments are primarily for internal use by members of the OpenIndiana documentation team.</p>
+<h3 id="in-line-html-advanced">In-line HTML - Advanced</h3>
+<h4 id="using-html-within-markdown-tables">Using HTML within Markdown tables</h4>
+<p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
+<pre><code class="markdown">| Item | Description
+| --- | ---
+| Item 1 | This is a single line description
+| Item 2 | This is a multi line description with an unordered list:&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second item&lt;/li&gt;&lt;/ul&gt;Lets add another paragraph to that.&lt;/p&gt; And here it is.
+| Item 3 | We can also use multiple sentences within tables. Here is the second sentence. And here is a third.
+</code></pre>
+
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
+<div class="well"></p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item 1</td>
+<td>This is a single line description</td>
+</tr>
+<tr>
+<td>Item 2</td>
+<td>This is a multi line description with an unordered list:<ul><li>First item</li><li>Second item</li></ul>Lets add another paragraph to that.</p> And here it is.</td>
+</tr>
+<tr>
+<td>Item 3</td>
+<td>We can also use multiple sentences within tables. Here is the second sentence. And here is a third.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h4 id="bootstrap-elements">Bootstrap elements</h4>
+<p>The OpenIndiana Docs website uses a CSS theme derived from Bootstrap.
+More specifically it uses the Spacelab theme from Bootswatch.
+This means elements from the Bootstrap framework may be used in-line right along with Markdown text markup.</p>
+<p>In many of the examples on this page, Bootstrap HTML <em>wells</em> were used.</p>
+<p>You can find a complete list of available HTML elements here: <a href="https://bootswatch.com/spacelab/">https://bootswatch.com/spacelab/</a></p>
+<p>For further information about how to use the Bootstrap framework, see here: <a href="http://www.w3schools.com/bootstrap/default.asp">http://www.w3schools.com/bootstrap/default.asp</a></p>
+<h4 id="font-awesome-elements">Font Awesome elements</h4>
+<p>Font Awesome is a collection of web icons which may be used within the MkDocs framework.</p>
+<p>In many of the examples on this page, Font Awesome icons were employed.</p>
+<p>For further information about how to use Font Awesome web icons, see here: <a href="http://fontawesome.io/">http://fontawesome.io/</a></p>
+<h3 id="further-reading">Further reading</h3>
+<ul>
+<li><a href="http://spec.commonmark.org/0.25/">The Commonmark Markdown Standard</a></li>
+<li><a href="https://github.com/mivok/markdownlint/blob/master/docs/RULES.md">Rules for mdl (Markdown Linter)</a></li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/dev/legacy-consolidations/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Building legacy consolidations - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../userland/">Building with oi-userland</a>
+</li>
+            
+<li class="active">
+    <a href="./">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../userland/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../graphics-stack/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/dev/legacy-consolidations.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#legacy-consolidations">Legacy Consolidations</a></li>
+            <li><a href="#primary-software-consolidations">Primary software consolidations</a></li>
+            <li><a href="#building-legacy-consolidations">Building legacy consolidations</a></li>
+            <li><a href="#building-oi-build">Building oi-build</a></li>
+            <li><a href="#building-ipspkg">Building IPS/pkg</a></li>
+            <li><a href="#building-sfw">Building SFW</a></li>
+            <li><a href="#building-xnv">Building XNV</a></li>
+            <li><a href="#building-jds">Building JDS</a></li>
+            <li><a href="#building-slim_source">Building slim_source</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is Jon Tibble Copyright (C) 2010.
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): Alasdair Lumsden, Aurelien Larcher, Alexander Pyhalov
+
+Portions created by Alasdair Lumsden are Copyright (C) 2011.
+Portions created by Aurelien Larcher are Copyright (C) 2017.
+Portions created by Alexander Pyhalov are Copyright (C) 2019.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="legacy-consolidations">Legacy Consolidations</h1>
+<p>Initial OpenIndiana versions were based on the same release process as OpenSolaris, assembled from a set of software consolidations.
+This complex Release Engineering has been deprecated in favour of the unified build system oi-userland: the list of consolidation and corresponding build instructions are left here as reference.</p>
+<table>
+<thead>
+<tr>
+<th>Consolidation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onnv-gate</td>
+<td>Operating System/Networking Nevada consolidation provided OpenSolars kernel and core userland components</td>
+</tr>
+<tr>
+<td>illumos-gate</td>
+<td>illumos-gate provides kernel and core userland components</td>
+</tr>
+<tr>
+<td>oi-build</td>
+<td>oi-build provided some userland components and was a oi-userland predecessor</td>
+</tr>
+<tr>
+<td>IPS/pkg</td>
+<td>Image Packaging System provides package management software and some zone brands definitions</td>
+</tr>
+<tr>
+<td>SFW</td>
+<td>Solaris Freeware consolidation provided open source software bundled with operating system</td>
+</tr>
+<tr>
+<td>XNV</td>
+<td>X11 Nevada consolidation provided Xorg server and related software</td>
+</tr>
+<tr>
+<td>JDS</td>
+<td>Java Desktop System consolidation provided Gnome2 and other desktop software</td>
+</tr>
+<tr>
+<td>Caiman (slim_source)</td>
+<td>slim_source provides operating system installers and Distribution Constructor</td>
+</tr>
+<tr>
+<td>vpanels</td>
+<td>Visual Panels provided server management GUI</td>
+</tr>
+<tr>
+<td>sunpro/devpro</td>
+<td>Sunpro consolidation provided Sun Studio compilers and some related libraries</td>
+</tr>
+<tr>
+<td>xvm</td>
+<td>Contained Sun xVM virtualization software based on Xen</td>
+</tr>
+<tr>
+<td>g11n</td>
+<td>Globalization consolidation contained internationalisation software</td>
+</tr>
+<tr>
+<td>solaris_re</td>
+<td>Contained software related to Solaris engineering</td>
+</tr>
+<tr>
+<td>cde</td>
+<td>Provided Common Desktop Environment</td>
+</tr>
+</tbody>
+</table>
+<h2 id="primary-software-consolidations">Primary software consolidations</h2>
+<table>
+<thead>
+<tr>
+<th>Consolidation</th>
+<th>Oracle Solaris link</th>
+<th>Original Openindiana HG link</th>
+<th>Status</th>
+<th>OpenIndiana Hipster link</th>
+<th>Build instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onnv-gate</td>
+<td>N/A (closed source)</td>
+<td>N/A</td>
+<td>Replaced by illumos-gate</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>illumos-gate</td>
+<td>N/A</td>
+<td><a href="https://github.com/OpenIndiana/illumos-gate/">https://github.com/OpenIndiana/illumos-gate/</a></td>
+<td>Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/illumos-gate">oi-userland</a></td>
+<td><a href="https://github.com/illumos/illumos-gate/">https://github.com/illumos/illumos-gate/</a></td>
+<td><a href="https://illumos.org/docs/developers/build/">https://illumos.org/docs/developers/build/</a></td>
+</tr>
+<tr>
+<td>oi-build</td>
+<td><a href="https://github.com/Oracle/solaris-userland/">https://github.com/Oracle/solaris-userland/</a></td>
+<td><a href="https://hg.openindiana.org/sustaining/oi_151a/oi-build/">https://hg.openindiana.org/sustaining/oi_151a/oi-build/</a></td>
+<td>Superceded by <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a></td>
+<td><a href="https://github.com/OpenIndiana/oi-userland">https://github.com/OpenIndiana/oi-userland</a></td>
+<td><a href="#building-oi-build">Building oi-build</a></td>
+</tr>
+<tr>
+<td>IPS/pkg</td>
+<td><a href="https://github.com/Oracle/solaris-ips/">https://github.com/Oracle/solaris-ips/</a></td>
+<td><a href="https://hg.openindiana.org/sustaining/oi_151a/pkg-gate/">https://hg.openindiana.org/sustaining/oi_151a/pkg-gate/</a></td>
+<td>Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg">oi-userland</a></td>
+<td><a href="https://github.com/OpenIndiana/pkg5/">https://github.com/OpenIndiana/pkg5/</a></td>
+<td><a href="#building-ipspkg">Building IPS/pkg</a></td>
+</tr>
+<tr>
+<td>SFW</td>
+<td>N/A (merged into <a href="http://github.com/Oracle/solaris-userland/">solaris-userland</a>)</td>
+<td><a href="https://hg.openindiana.org/sustaining/oi_151a/sfw-gate/">https://hg.openindiana.org/sustaining/oi_151a/sfw-gate/</a></td>
+<td>Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a></td>
+<td>N/A</td>
+<td><a href="#building-sfw">Building SFW</a></td>
+</tr>
+<tr>
+<td>XNV</td>
+<td><a href="https://github.com/Oracle/solaris-xorg/">https://github.com/Oracle/solaris-xorg/</a> (merged into <a href="https://github.com/oracle/solaris-userland/tree/master/components/x11">solaris-userland</a>)</td>
+<td><a href="https://hg.openindiana.org/sustaining/oi_151a/xnv/">https://hg.openindiana.org/sustaining/oi_151a/xnv/</a></td>
+<td>Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a></td>
+<td>N/A</td>
+<td><a href="#building-xnv">Building XNV</a></td>
+</tr>
+<tr>
+<td>JDS</td>
+<td>N/A  (merged into <a href="https://github.com/Oracle/solaris-userland/">solaris-userland</a>)</td>
+<td><a href="https://hg.openindiana.org/sustaining/oi_151a/spec-files/">https://hg.openindiana.org/sustaining/oi_151a/spec-files/</a></td>
+<td>Merged into <a href="https://github.com/OpenIndiana/oi-userland/">oi-userland</a></td>
+<td>N/A</td>
+<td><a href="#building-jds">Building JDS</a></td>
+</tr>
+<tr>
+<td>Caiman (slim_source)</td>
+<td>N/A</td>
+<td><a href="https://hg.openindiana.org/sustaining/oi_151a/slim_source/">https://hg.openindiana.org/sustaining/oi_151a/slim_source/</a></td>
+<td>Integrated in <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source">oi-userland</a></td>
+<td><a href="https://github.com/OpenIndiana/slim_source/">https://github.com/OpenIndiana/slim_source/</a></td>
+<td><a href="#building-slim_source">Building slim_source</a></td>
+</tr>
+<tr>
+<td>vpanels</td>
+<td>N/A (dropped)</td>
+<td>N/A</td>
+<td>Dropped</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>sunpro/devpro</td>
+<td>N/A (closed source)</td>
+<td>N/A</td>
+<td>libm and make were integrated to illumos-gate, other parts are delivered in binary form (including library/medialib, system/library/c++/sunpro, developer/macro/cpp, system/library/mtsk)</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>xvm</td>
+<td>N/A (dropped)</td>
+<td>N/A</td>
+<td>Dropped</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>g11n</td>
+<td>N/A (closed source)</td>
+<td><a href="https://hg.openindiana.org/sustaining/oi_151a/g11n/g11n/">https://hg.openindiana.org/sustaining/oi_151a/g11n/g11n/</a></td>
+<td>Parts merged into illumos-gate, parts distributed in binary forms, parts marked obsolete</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>solaris_re</td>
+<td>N/A (closed source)</td>
+<td>N/A</td>
+<td>Relevant parts merged into oi-userland</td>
+<td><a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/release">https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/release</a></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>cde</td>
+<td>N/A (closed source)</td>
+<td>N/A</td>
+<td>Some parts are redistributed in binary form</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="building-legacy-consolidations">Building legacy consolidations</h2>
+<div class="well">
+Note, these instructions were not tested on modern OpenIndiana versions and preserved as is just for reference. You usually don't need to build legacy consolidations them manually.
+</div>
+
+<h2 id="building-oi-build">Building oi-build</h2>
+<p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> <strong>CAUTION:</strong>
+<div class="well">
+<strong>oi-build is a legacy consolidation which was superceded with oi-userland !!!</strong>
+For  building oi-userland see <a href="../userland/">Building with oi-userland</a>
+</div></p>
+<p>Following instructions describe building oi-build on legacy OpenIndiana /dev distribution.</p>
+<p><strong>oi-build</strong> is OpenIndiana's primary build framework for post-oi_151 development. It is set to replace all existing consolidations, vastly simplifying how we build the operating system.</p>
+<p>oi-build is also tied into our continuous integration platform. When an update is committed to the oi-build mercurial repository, an automated build is kicked off. This will then automatically publish the built package to the /experimental repo, or generate an email alert if the build failed (to be completed).</p>
+<h3 id="oi-build-overview">oi-build overview</h3>
+<p>oi-build is a fork of Oracle's userland-gate, which we have extended and added additional software to. The layout is very similar.</p>
+<p>Inside oi-build is a directory called <code>components</code>, under which lives a directory for each software package. Inside each of these software package directories is a main <code>Makefile</code>, as well as one or more <code>.p5m</code> IPS manifest files, and there may also be license files and patches.</p>
+<p>The <code>Makefile</code> essentially contains a "build recipe". To build a piece of software, you simply <code>cd</code> into the directory of the software, and type <code>make TARGET</code>, where <code>TARGET</code> can be one of:</p>
+<ul>
+<li><strong>prep</strong> : Download, extract and patch the software archive</li>
+<li><strong>build</strong> : Build the software</li>
+<li><strong>install</strong> : Install the software into the prototype directory</li>
+<li><strong>sample-manifest</strong> : Create a sample manifest file in the build directory</li>
+<li><strong>publish</strong> : Publish the software to the local userland IPS repo</li>
+</ul>
+<p>For more details about writing Makefiles for userland, see userland Makefile targets and variables</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Before adding new packages to illumos-userland... Before considering adding a new package to oi-build, please check first whether someone else is working on the package by checking the issue tracker.</p>
+<ul>
+<li>If you don't find anyone already working on a port, please register your effort by opening an issue.</li>
+<li>If you wish to update an existing port, look at the log for the component Makefile ("hg log Makefile") and make sure you either contact the person who last updated the Makefile or include them on notifications for the issue by ticking their name.</li>
+</ul>
+<p>This will ensure efforts aren't duplicated and help to ensure sanity and comity amongst project members.
+</div></p>
+<h3 id="setting-up-your-build-environment">Setting up your build environment</h3>
+<p>We strongly recommend building packages inside a fresh local zone set up exclusively for building.</p>
+<p>Some suggestions about build environment (dataset layouts, etc.) can also be found in the illumos wiki: <a href="https://illumos.org/docs/developers/build/">How to build illumos</a> (note however that compilers required for the core OS may be different than those acceptable for userland software).</p>
+<h4 id="ensuring-your-system-is-up-to-date">Ensuring your system is up to date</h4>
+<p>oi-build requires that your system be updated with the latest software from the pkg.openindiana.org/experimental repository.</p>
+<p>The procedure to do this is as follows:</p>
+<pre><code class="bash">sudo /usr/bin/pkg set-publisher -p http://pkg.openindiana.org/experimental/
+sudo /usr/bin/pkg set-publisher -P oi-experimental
+sudo /usr/bin/pkg set-publisher --non-sticky openindiana.org
+sudo /usr/bin/pkg install -v package/pkg
+sudo /usr/bin/pkg update -v
+</code></pre>
+
+<p>The first line adds the experimental repo to your package publisher list, the second line sets it as the primary publisher, and the third line allows packages from the experimental repo to replace those installed from the openindiana.org repo. The last line updates your system with the newer packages.</p>
+<p>Note: If you are doing this in a zone and encounter an error from pkg about being unable to clone the current boot environment, you will need to update the zone from the global zone by doing:</p>
+<pre><code>ZONE=yourzonename
+ZONEROOT=`zonecfg -z $ZONE info zonepath | awk '{print $NF}'`
+sudo zoneadm -z $ZONE halt
+sudo zoneadm -z $ZONE ready
+export PYTHONPATH=${ZONEROOT}/root/usr/lib/python2.6/vendor-packages
+sudo ${ZONEROOT}/root/usr/bin/pkg -R ${ZONEROOT}/root set-publisher -p http://pkg.openindiana.org/experimental/
+sudo ${ZONEROOT}/root/usr/bin/pkg -R ${ZONEROOT}/root set-publisher -P oi-experimental
+sudo ${ZONEROOT}/root/usr/bin/pkg -R ${ZONEROOT}/root set-publisher --non-sticky openindiana.org
+sudo ${ZONEROOT}/root/usr/bin/pkg -R ${ZONEROOT}/root install -v package/pkg
+sudo ${ZONEROOT}/root/usr/bin/pkg -R ${ZONEROOT}/root update -v
+unset PYTHONPATH ZONE ZONEROOT
+</code></pre>
+
+<div class="well">
+Note that the /experimental repo is under continuous development and may contain breakage. Thus we (as mentioned) strongly recommend building inside a dedicated development zone, rather than updating your main system.
+</div>
+
+<h4 id="installing-pre-requisites">Installing pre-requisites</h4>
+<p>First, lets install the required software list:</p>
+<pre><code class="bash">sudo /usr/bin/pkg install pkg:/archiver/gnu-tar pkg:/compress/p7zip pkg:/compress/unzip \
+ pkg:/developer/build/ant pkg:/developer/build/autoconf pkg:/developer/build/automake-110 \
+ pkg:/developer/build/gnu-make pkg:/developer/build/libtool pkg:/developer/build/make \
+ pkg:/developer/gcc-3 pkg:/developer/gnome/gettext pkg:/developer/java/jdk \
+ pkg:/developer/java/junit pkg:/developer/lexer/flex pkg:/developer/macro/cpp \
+ pkg:/developer/macro/gnu-m4 pkg:/developer/object-file pkg:/developer/parser/bison \
+ pkg:/developer/versioning/mercurial pkg:/file/gnu-coreutils pkg:/file/gnu-findutils \
+ pkg:/library/libtool/libltdl pkg:/library/libxslt pkg:/library/pcre \
+ pkg:/runtime/perl-512 pkg:/system/library/math/header-math pkg:/text/gawk \
+ pkg:/text/gnu-diffutils pkg:/text/gnu-gettext pkg:/text/gnu-grep \
+ pkg:/text/gnu-patch pkg:/text/gnu-sed pkg:/text/groff \
+ pkg:/text/texinfo pkg:/library/neon pkg:/library/apr-util-13 \
+ pkg:/developer/library/lint pkg:/system/header pkg:/developer/build/onbld \
+ pkg:/data/docbook
+</code></pre>
+
+<h4 id="changes-on-sun-studio-compilers">Changes on Sun Studio compilers</h4>
+<p>Oracle just moved the Studio Compiler. Now you need to login to access "Oracle Solaris Studio 12.3" they can be found at</p>
+<p><a href="http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html">http://www.oracle.com/technetwork/server-storage/solarisstudio/downloads/index.html</a></p>
+<p>The following steps are needed to get it running:</p>
+<pre><code class="bash">export DOWNLOAD_LOCATION=$HOME
+cd /opt
+tar xjf $DOWNLOAD_LOCATION/SolarisStudio12.3-solaris-x86-bin.tar.bz2 -C ./
+ln -s /opt/SolarisStudio12.3-solaris-x86-bin/solarisstudio12.3/ ./SUNWspro
+</code></pre>
+
+<h3 id="downloading-oi-build-and-preparing-for-first-use">Downloading oi-build and preparing for first use</h3>
+<p>See the illumos wiki instructions <a href="https://illumos.org/docs/developers/build/">How to build illumos</a> for optional suggestions about build environment (dedicated ZFS dataset layouts, etc.)</p>
+<p>Check out the repository (subdirectory oi-build must not pre-exist):</p>
+<pre><code class="bash">cd ~
+hg clone https://hg.openindiana.org/oi-build
+cd oi-build
+</code></pre>
+
+<p>Now we will run the setup stage, which will prepare some tools, and create an IPS pkg5 repository for first use under the i386/build directory:</p>
+<pre><code class="bash">cd $HOME/oi-build
+
+# If you have the Sun Studio compilers installed
+
+gmake setup
+
+# If you don't have (access to) the Studio compilers or want to use GCC
+gmake setup COMPILER=gcc
+</code></pre>
+
+<p><strong>Important:</strong> Checking your environment</p>
+<p>Make the check-environment target to check your environment is set up correctly:</p>
+<pre><code class="bash">gmake check-environment
+</code></pre>
+
+<p>This will report back any issues.</p>
+<h3 id="adding-the-local-repository-to-your-publisher-list">Adding the local repository to your publisher list</h3>
+<pre><code class="bash">sudo /usr/bin/pkg set-publisher -p file://$HOME/oi-build/i386/repo
+sudo /usr/bin/pkg set-publisher -P oi-build
+</code></pre>
+
+<p>You will now be able to pkg install the software you have built and published via oi-build.</p>
+<h3 id="optional-running-a-local-pkg-server-for-installation-on-other-zoneshosts">Optional: Running a local pkg server for installation on other zones/hosts</h3>
+<p>If you would like to use your oi-build repository on other zones or hosts, you can run a pkg server:</p>
+<pre><code class="bash">/usr/lib/pkg.depotd -d $HOME/oi-build/i386/repo -p 10000
+</code></pre>
+
+<p>On other hosts, you can then specify http://hostname:10000 instead of the file:// address above.</p>
+<p>See the illumos wiki instructions How to build illumos for optional suggestions about running a pkg server instance as an SMF service.</p>
+<h3 id="ready-to-build-and-install-your-first-package">Ready to build and install your first package</h3>
+<p>Simply descend into the oi-build/components/SOFTWARE directory (where SOFTWARE is the name of the bit of software you wish to build):</p>
+<pre><code class="bash">cd $HOME/oi-build/components/SOFTWARE
+gmake publish
+sudo pkg install SOFTWARE
+</code></pre>
+
+<h3 id="contributing-changes-back-to-oi-build">Contributing changes back to oi-build</h3>
+<p>Preparing you changes for review</p>
+<p>When you think your changes are ready for review you will need to generate a diff. The most common way to do this is "hg diff". It's recommended that you explain the implications of your changeset if it's not immediately obvious, and how you've tested it.</p>
+<p>Committing changes</p>
+<p>If you changeset has had either "2 thumbs up and 3 days open for review" or "4 thumbs up" then you are now ready to push you changes to the repo. Add and commit all files for your new component using:</p>
+<pre><code class="bash">cd ~/oi-build/components/SOFTWARE
+hg add Makefile *.p5m &lt;etc.&gt;
+hg commit .
+</code></pre>
+
+<p>Commit messages must follow this format:</p>
+<pre><code>&lt;bug id&gt; &lt;bug summary&gt;
+Reviewed by: Reviewer Name &lt;reviewer.name@fake.net&gt;
+Reviewed by: Reviewer Name &lt;reviewer.name@fake.net&gt;
+Reviewed by: Reviewer Name &lt;reviewer.name@fake.net&gt;
+Approved by: My Name &lt;my.name@mydomain.net&gt;
+</code></pre>
+
+<p>When committing changes on behalf of someone else the commit message remains the same but you must pass the committer's name to hg commit.
+hg commit -u 'Contributor Name <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#114;&#105;&#98;&#117;&#116;&#111;&#114;&#46;&#110;&#97;&#109;&#101;&#64;&#102;&#97;&#107;&#101;&#46;&#110;&#101;&#116;">&#99;&#111;&#110;&#116;&#114;&#105;&#98;&#117;&#116;&#111;&#114;&#46;&#110;&#97;&#109;&#101;&#64;&#102;&#97;&#107;&#101;&#46;&#110;&#101;&#116;</a>'</p>
+<h2 id="building-ipspkg">Building IPS/pkg</h2>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+For building IPS delivered with modern OpenIndiana, use <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/pkg">openindiana/pkg</a> oi-userland component.
+</div></p>
+<p>Following instructions describe building pkg on legacy OpenIndiana /dev distribution.</p>
+<p>Make sure you have Sun Studio installed.</p>
+<p>Install dependencies:</p>
+<pre><code class="bash">sudo pkg install                  \
+developer/build/autoconf            \
+developer/build/automake-110        \
+developer/opensolaris/pkg5          \
+developer/swig                      \
+developer/versioning/mercurial      \
+gnome/accessibility/gnome-a11y-libs \
+library/python-2/python-gnome-extras-26 \
+library/python-2/python-notify-26   \
+package/pkg/package-manager         \
+package/pkg/update-manager          \
+developer/python/pylint             \
+service/network/dns/mdns            \
+system/library/math/header-math     \
+text/gnu-patch \
+developer/gnome/gnome-doc-utils \
+system/zones/internal
+</code></pre>
+
+<p>Set up your environment:</p>
+<pre><code class="bash">GATE=pkg
+BUILDNUM=151
+
+pfexec /sbin/zfs create -o atime=off -p rpool/export/builds/$GATE
+pfexec chown `id -u`:`id -g` /export/builds/$GATE
+cd /export/builds/$GATE
+
+unset CC
+unset CXX
+PATH=/usr/bin:/usr/sbin:/opt/SUNWspro/bin:/usr/ccs/bin
+export PATH
+</code></pre>
+
+<p>Get the source and update it to the right branch:</p>
+<pre><code class="bash">hg clone https://hg.openindiana.org/sustaining/oi_151a/pkg-gate/ pkg-gate
+cd pkg-gate
+hg update oi_151a
+</code></pre>
+
+<p>Start the building process:</p>
+<pre><code class="bash">cd src
+dmake install
+make -e packages BUILDNUM=${BUILDNUM}
+export PATH=`pwd`/../proto/root_`uname -p`/usr/bin:$PATH
+export PYTHONPATH=`pwd`/../proto/root_`uname -p`/usr/lib/python2.6/vendor-packages:$PYTHONPATH
+cd pkg
+make BUILDNUM=${BUILDNUM}
+make repository-metadata
+</code></pre>
+
+<p>Optional unit tests, which take forever:</p>
+<pre><code class="bash">cd ..
+make test-verbose
+</code></pre>
+
+<h2 id="building-sfw">Building SFW</h2>
+<p>Following instructions describe building SFW on legacy OpenIndiana /dev distribution.</p>
+<p>SFW is the Solars Freeware consolidation, which includes a lot of FOSS software.
+Misc note: By default on re-invoking env -i /opt/onbld/bin/nightly yourenvscrip.sh the build process will clear up the previous build run by removing directories with rm -rf</p>
+<p>Building SFW is a lot like building ONNV. It's recommended you build SFW on a version of ONNV that's not too far behind it (e.g. build SFW 145 on ONNV 144). Please ensure Sun Studio is set up and pkg has been installed from pkg-gate, as per the ONNV build instructions. Also ensure an up to date onbld is present for the version of SFW you're building (if you've built ONNV on the same box then that will be the case).</p>
+<h3 id="installing-dependencies">Installing dependencies</h3>
+<p>You'll need to ensure the following dependencies are installed:</p>
+<pre><code class="bash">sudo pkg install \
+archiver/gnu-tar \
+compatibility/ucb \
+compress/unzip \
+data/docbook \
+database/mysql-51/library \
+database/postgres-82/developer \
+developer/build/ant \
+developer/build/autoconf \
+developer/build/automake-19 \
+developer/build/automake-110 \
+developer/build/cmake \
+developer/build/gnu-make \
+developer/build/libtool \
+developer/build/onbld \
+developer/gcc-3 \
+developer/gnome/gettext \
+developer/java/junit \
+developer/lexer/flex \
+developer/object-file \
+developer/parser/bison \
+developer/versioning/subversion \
+file/gnu-coreutils \
+file/gnu-findutils \
+library/c++/sigcpp \
+library/gd \
+library/glib1 \
+library/graphics/wxwidgets \
+library/guile \
+library/libevent \
+library/libtorrent \
+library/motif \
+library/mozilla-nss/header-nss \
+library/nspr \
+library/nspr/header-nspr \
+library/pcre \
+library/perl-5/database \
+library/python-2/libxml2-26 \
+library/python-2/setuptools-26 \
+library/slang \
+library/tooltalk \
+print/cups \
+print/filter/ghostscript \
+runtime/erlang \
+runtime/lua \
+runtime/ocaml \
+runtime/ocaml/lablgtk \
+service/network/slp \
+system/header/header-audio \
+system/header/header-ugen \
+system/header/header-usb \
+system/header/header-agp \
+system/library/libpcap \
+system/library/math/header-math \
+system/library/usb/libusb \
+system/network/avahi \
+text/gawk \
+text/gnu-diffutils \
+text/gnu-gettext \
+text/gnu-grep \
+text/gnu-patch \
+text/gnu-sed \
+text/groff \
+text/texinfo \
+web/java-servlet/tomcat \
+web/server/apache-13 \
+web/server/apache-22 \
+x11/library/mesa \
+x11/optional-clients
+</code></pre>
+
+<p>Then run the following to set up the build environment:</p>
+<pre><code>pfexec sh /usr/share/sgml/docbook/docbook-catalog-install.sh
+</code></pre>
+
+<div class="well">
+Note: This command seems to be unnecessary.
+</div>
+
+<div class="well">
+Note: If repeating builds do not repeat the docbook-catalog-install.sh, it will break stuff!
+</div>
+
+<p>You will likely find that the build never completes.  Instead, it hangs with a spinning `yes' command.  This happens because php-5.2.17 must be built with version 2.13 of the autoconf tools.  Version 2.69 is installed by the package listed above.  You will need to build 2.1.3 from source and install it where it won't interfere with 2.69.  /opt/auto is a suitable place.  Then you will need to patch usr/src/cmd/php5/Makefile.sfw so that the php build will use 2.13.  This patch file is suitable:</p>
+<pre><code class="patch">--- Makefile.sfw-orig      ::
++++ Makefile.sfw           ::
+@@ -18,9 +18,9 @@
+ #
+ # CDDL HEADER END
+ #
++# Copyright 2016 Gary Mills
+ # Copyright (c) 2007, 2011, Oracle and/or its affiliates. All rights reserved.
+ #
+-#pragma ident  &quot;@(#)Makefile.sfw       1.47    11/06/15 SMI&quot;
+
+ PHP_REL=5.2
+ #
+@@ -118,7 +118,9 @@
+
+ PRECONF_ENVLINE= \
+        PATH=/usr/gnu/bin:/usr/bin \
+-       MAKE=$(GMAKE)
++       MAKE=$(GMAKE) \
++       PHP_AUTOCONF=/opt/auto/bin/autoconf \
++       PHP_AUTOHEADER=/opt/auto/bin/autoheader
+
+ CONF_ENVLINE= \
+        CC=$(CC) \
+</code></pre>
+
+<h3 id="doing-a-build">Doing a build:</h3>
+<p>You can obtain the sfwnv source from either the Sun website (selecting the correct directory and files for the version you wish to build) or use one of the hg repos like:</p>
+<pre><code class="bash">hg clone https://hg.openindiana.org/sustaining/oi_151a/sfw-gate/
+</code></pre>
+
+<p>cd to the directory you either unpacked or cloned then edit or make a copy of usr/src/tools/env/sfw-opensolaris.sh and invoke the build with</p>
+<pre><code class="bash">env -i /opt/onbld/bin/nightly ./sfw-opensolaris.sh &amp;
+</code></pre>
+
+<h3 id="variables">Variables</h3>
+<p>In <code>usr/src/tools/env/yourenvscrip.sh</code>
+<code>MAKEFLAGS=k</code> means continue on error
+<code>DMAKE_MAX_JOBS</code> is worth cranking if you're on a multicore system
+See scripts for other options available as it's well documented.</p>
+<h2 id="building-xnv">Building XNV</h2>
+<p>Following instructions describe building XNV on legacy OpenIndiana /dev distribution.</p>
+<h3 id="install-pre-requisites">Install pre-requisites</h3>
+<div class="well">
+Note: you must build this XNV release with Sun Studio 12 (Sept 2009 edition with CBE patches), and NOT Sun Studio 12.1. If you build it with 12.1 you'll suffer frequent freezes.
+</div>
+
+<p>The following should install all the dependencies required to build X, with the exception of Sun Studio 12 which you will have to obtain separately.</p>
+<pre><code class="bash">pfexec pkg install developer/opensolaris/X developer/build/cbe x11-network-proxies
+</code></pre>
+
+<h3 id="do-the-build">Do the build</h3>
+<pre><code class="bash">cd ~
+hg clone https://hg.openindiana.org/sustaining/oi_151a/xnv
+cd xnv
+hg update oi_151a
+make setup X_BUILD_OPTIONS=openindiana
+</code></pre>
+
+<p>Fetch the tar balls by executing:</p>
+<pre><code class="bash">./download-tarballs
+</code></pre>
+
+<p>Start the XNV build process:</p>
+<pre><code>export PATH=/opt/SUNWspro/bin:/usr/bin:/usr/sbin:/usr/ccs/bin:bin:/usr/dt/bin/:/usr/openwin/bin:/opt/onbld/bin:/opt/onbld/bin/i386:/usr/sfw/bin
+./buildit
+</code></pre>
+
+<p>As xnv uses a parallel build, if the build process fails, run</p>
+<pre><code class="bash">open-src/util/build-tools/find-build-errors
+</code></pre>
+
+<p>to find errors.</p>
+<p>Create the IPS repository:</p>
+<pre><code class="bash">cd pkg
+make
+</code></pre>
+
+<h2 id="building-jds">Building JDS</h2>
+<p>Following instructions describe building JDS on legacy OpenIndiana /dev distribution.</p>
+<p>Steps for building JDS</p>
+<ul>
+<li>Create a fresh zone (do not use the global zone, during the build files will be installed directly into the running system bypassing the packaging system!).</li>
+<li>Obtain oi-cbe from <a href="https://hg.openindiana.org/oi-cbe/">https://hg.openindiana.org/oi-cbe/</a></li>
+<li>Download sunstudio12u1-patched-ii-2010Feb-sol-x86.tar.gz and desktop-cbe-mini-1.8.0.tar.bz2 and place them inside oi-cbe/sources</li>
+</ul>
+<p>Copy oi-cbe into the zone and execute setup-buildenv.sh jds in order to set up the build environment.</p>
+<pre><code class="bash"># buildzone=jdszone       # name of the designated build zone
+# zonepath=/path/to/zone  # path to the designated build zone
+# cp -r oi-cbe ${zonepath}/root/var/tmp/
+# zlogin $buildzone 'cd /var/tmp/oi-cbe &amp;&amp; ./setup-buildenv.sh jds'
+</code></pre>
+
+<p>Download and place all JDS source files into ${HOME}/packages/SOURCES</p>
+<pre><code class="bash"># zlogin -l abuild $buildzone 'cd ${HOME}/packages/SOURCES &amp;&amp; wget -r -l1 -np -nd http://dlc.openindiana.org/oi/jds/downloads/sources/'
+</code></pre>
+
+<p>Check out the JDS spec files and the OpenIndiana patchset.</p>
+<pre><code class="bash"># zlogin -l abuild $buildzone 'hg clone https://hg.openindiana.org/spec-files-mozilla-l10n/ ${HOME}/spec-files-mozilla-l10n'
+# zlogin -l abuild $buildzone 'hg clone https://hg.openindiana.org/spec-files/ ${HOME}/spec-files'
+# zlogin -l abuild $buildzone 'hg clone https://hg.openindiana.org/mq_spec-files/ ${HOME}/spec-files/.hg/patches'
+</code></pre>
+
+<pre><code>Update to the desired version and apply all patches.
+</code></pre>
+<pre><code class="bash"># zlogin -l abuild $buildzone 'cd ${HOME}/spec-files &amp;&amp; hg -R .hg/patches up oi_148 &amp;&amp; hg up NEVADA_148 &amp;&amp; hg --config extensions.mq=1 --config diff.git=1 qpush -a'
+</code></pre>
+
+<p>Prepare and build JDS.</p>
+<pre><code class="bash"># zlogin -l abuild $buildzone '. /opt/dtbld/bin/env.sh; cd ${HOME}/spec-files &amp;&amp; make'
+# zlogin -l abuild $buildzone '. /opt/dtbld/bin/env.sh; rm ${HOME}/status.html; cd ${HOME}/spec-files &amp;&amp; pkgtool -v --topdir=${HOME}/packages --tarballdirs ${HOME}/packages/SOURCES:${PWD}/manpages/sun-manpage-tarballs:${PWD}/manpages-roff/sun-manpage-tarballs:${PWD}/po-sun/po-sun-tarballs:${tarballdirs} --update --rmlog --logdir=${HOME}/logs --logdir-url=/logs --live --summary-log=${HOME}/status.html --nopkg --with-l10n --with-openindiana-branding build specs/*.spec'
+# zlogin -l abuild $buildzone '. /opt/dtbld/bin/env.sh; rm ${HOME}/status.html; cd ${HOME}/spec-files-mozilla-l10n &amp;&amp; pkgtool -v --topdir=${HOME}/packages --tarballdirs ${HOME}/packages/SOURCES:${tarballdirs} --update --rmlog --logdir=${HOME}/logs --logdir_url=/logs --live --summary-log=${HOME}/status.html --nopkg --with-l10n build specs/*.spec'
+</code></pre>
+
+<p>SVR4 packages will be placed into ${HOME}/packages.</p>
+<h2 id="building-slim_source">Building slim_source</h2>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+For building slim_source used in modern OpenIndiana, use <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/slim_source&quot;">openindiana/slim_source</a> oi-userland component.
+</div></p>
+<p>Following instructions describe building slim_source on legacy OpenIndiana /dev distribution.</p>
+<p><strong>Build Environment</strong>
+<div class="well">
+We would always recommend building in a Zone. To build slim_source as per the instructions below, please make sure you are running oi_151. You will also need to make sure you have Sun Studio installed.
+</div></p>
+<p>Get slim_source source:</p>
+<pre><code class="bash">export BUILD_ID=oi_151a
+export SNV=151
+
+hg clone https://hg.openindiana.org/sustaining/oi_151a/slim_source/
+cd slim_source
+hg update $BUILD_ID
+</code></pre>
+
+<p>Install required IPS packages:</p>
+<pre><code class="bash">sudo pkg install archiver/gnu-tar \
+developer/build/onbld \
+developer/object-file \
+developer/swig \
+developer/versioning/mercurial \
+gnome/config/gconf \
+install/beadm \
+library/desktop/gtk2 \
+library/desktop/libglade \
+library/glib2 \
+library/gnome/gnome-libs \
+package/svr4 \
+service/network/smtp/sendmail \
+system/boot/wanboot/internal \
+system/library/install \
+system/library/install/libinstzones \
+system/library/libdiskmgt/header-libdiskmgt \
+system/library/storage/ima/header-ima \
+system/zones/internal \
+text/gnu-gettext \
+text/gnu-grep \
+text/gnu-sed
+</code></pre>
+
+<p>Prepare the build script:</p>
+<pre><code class="bash">cd usr/src
+cp tools/env/developer.sh .
+gsed -i 's%export CODEMGR_WS=.*%export CODEMGR_WS=&quot;`hg root`&quot;%g' developer.sh
+echo 'export CW_NO_SHADOW=1' &gt;&gt;developer.sh
+echo &quot;export INSTALL_BUILDNUM=$SNV&quot; &gt;&gt;developer.sh
+echo 'export NIGHTLY_OPTIONS=&quot;-ANndlmp +t&quot;' &gt;&gt; developer.sh
+echo 'export SPRO_ROOT=/opt/sunstudio12.1' &gt;&gt; developer.sh
+</code></pre>
+
+<p>Start the build:</p>
+<pre><code class="bash">/opt/onbld/bin/nightly developer.sh
+</code></pre>
+
+<p>Once the build is complete, you can check the logs in ../../log/*</p>
+<p>If the build was successful, the end result are two repos: under the base slim_source directory: <code>packages/i386/nightly-nd/repo.extra</code> and <code>packages/i386/nightly-nd/repo.redist</code></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

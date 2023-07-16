@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/handbook/sunray/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Sun Ray Installation - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li class="active">
+    <a href="./">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../community/samqfs/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../community/inputmethod/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/sunray.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#hipster-handbook-sun-ray-software">Hipster Handbook - Sun Ray Software</a></li>
+            <li><a href="#install">Install</a></li>
+            <li><a href="#config">Config</a></li>
+        <li class="main "><a href="#how-to-get-gnome-on-current-hipster">How to get GNOME on current Hipster</a></li>
+            <li><a href="#update-older-hipster">update older Hipster</a></li>
+            <li><a href="#install-on-current-hipster-2022">Install on current Hipster (2022)</a></li>
+            <li><a href="#xscreensaver">XScreenSaver</a></li>
+            <li><a href="#gdm">GDM</a></li>
+        <li class="main "><a href="#login-screen-gdm-greeter-wont-reapear-after-logout">Login Screen (gdm-greeter) won't reapear after logout</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+ (the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is Carsten Grzemba Copyright (C) 2020.
+All Rights Reserved. (Initial Writer contact(s): cgrzemba@opencsw.org).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="hipster-handbook-sun-ray-software">Hipster Handbook - Sun Ray Software</h1>
+<p>Some notes for installation of Sun Ray Software on OpenIndiana Hipster.</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+This configuration is not supported by OI nor by Oracle.
+</div>
+<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.</p>
+<p>Limitations:</p>
+<p>Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.
+</div></p>
+<h2 id="install">Install</h2>
+<p>Sun Ray Software still can be downloaded at http://edelivery.oracle.com (registration required). Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.</p>
+<p>Extract the archives.</p>
+<p>The Solaris packages require Sun DHCP server, which we do not provide anymore. To solve this problem we replace the dependency with isc-dhcp in the IPS packages SUNWutr and SUNWuto with the following script:</p>
+<p>update_dhcp_dependency</p>
+<pre><code class="shell">#!/bin/ksh
+
+# set -x
+
+if [ -z $1 ] || [ ! -d $1 ]; then
+    echo &quot;usage: $0 repodirectory&quot;
+    exit
+fi
+
+if [[ $1 != /* ]]; then
+   repo=$(pwd)/$1
+else
+   repo=$1
+fi
+
+republish=&quot;republish$$&quot;
+
+mkdir ${republish}
+
+for p in SUNWutr SUNWuto; {
+(cd ${republish}
+  pkgrecv -d . --raw -s $repo $p || exit 2
+  for d in $(ls $p); {
+      (cd $p/$d
+        sed -i s#service/network/dhcp#service/network/dhcp/isc-dhcp# manifest
+        pkgrepo -s $repo remove $p
+        pkgsend publish -s $repo -d . manifest
+      )
+  }
+);
+}
+rm -r ${republish}
+</code></pre>
+
+<p>Run the script <code>update_dhcp_dependency &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/</code> to replace the dependcy of package <code>service/network/dhcp</code> by <code>service/network/dhcp/isc-dhcp</code>.</p>
+<p>Install IPS packages of the Sun Ray Software from the local repository</p>
+<pre><code class="shell"># pkg set-publisher -g &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/ sunray
+# pkg install SUNWut-srss SUNWut-srwc SUNWuti
+</code></pre>
+
+<p>Do <strong>not</strong> use <code>utinstall</code> script, because its will setup a sunray publisher by its own which will interfere with our publisher of GNOME packages.</p>
+<p>Due to package dependencies following packages will be installed:</p>
+<pre><code>SUNWut-srss (sunray)                              5.4.5.0.38-0.0             i--
+SUNWuta (sunray)                                  4.5.4.0.38-0.0             i--
+SUNWutdso (sunray)                                3.5.0.0.2-0.0              i--
+SUNWutdsr (sunray)                                3.5.0.0.2-0.0              i--
+SUNWutesa (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutgsm (sunray)                                4.5.0.0.44-0.0             i--
+SUNWuti (sunray)                                  4.5.5.0.38-0.0             i--
+SUNWutid (sunray)                                 4.5.5.0.38-0.0             i--
+SUNWutk (sunray)                                  4.5.0.0.44-0.0             i--
+SUNWutm (sunray)                                  4.5.4.0.38-0.0             i--
+SUNWuto (sunray)                                  4.5.4.0.38-0.0             i--
+SUNWutps (sunray)                                 4.5.0.0.44-0.0             i--
+SUNWutr (sunray)                                  4.5.0.0.44-0.0             i--
+SUNWutref (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutscr (sunray)                                4.5.4.0.38-0.0             i--
+SUNWutsrs (sunray)                                4.5.5.0.38-0.0             i--
+SUNWutstk (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutsto (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutstr (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutsvt (sunray)                                1.1.0.0.3-0.0              i--
+SUNWuttsc (sunray)                                2.6.4.0.11-0.0             i--
+SUNWuttscd (sunray)                               2.6.4.0.11-0.0             i--
+SUNWuttscr (sunray)                               2.6.4.0.11-0.0             i--
+SUNWutu (sunray)                                  4.5.0.0.44-0.0             i--
+SUNWutwa (sunray)                                 4.5.2.0.5-0.0              i--
+SUNWutwar (sunray)                                4.5.0.0.44-0.0             i--
+SUNWutwh (sunray)                                 4.5.0.0.44-0.0             i--
+SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
+</code></pre>
+
+<h3 id="configure-isc-dhcp">Configure isc-dhcp</h3>
+<p>On Hipster ISC DHCP replaced the Sun DHCP server, but that's not a problem as ISC DHCP server for Sun Ray Server was used on Linux already.</p>
+<p>So Sun Ray Server on Hipster has to use DHCP scripts like on Linux. But it is also possible to configure DHCP manually and to skip the <code>utadm</code> step. Here an example:</p>
+<pre><code>ddns-update-style none;
+
+# option definitions common to all supported networks...
+option domain-name &quot;sunray.lan&quot;;
+option domain-name-servers 192.168.1.6, 192.168.1.1;
+option subnet-mask 255.255.255.0;
+option broadcast-address 192.168.1.255;
+option routers 192.168.1.1;
+option space SunRay;
+option SunRay.Intf code 33 = text;
+option SunRay.Intf &quot;nge1&quot;;
+option SunRay.AuthSrvr code 21 = ip-address;
+option SunRay.AuthSrvr 192.168.1.2;
+option SunRay.AltAuth code 35 = array of ip-address;
+option SunRay.AltAuth 192.168.1.2;
+option SunRay.FWSrvr code 31 = ip-address;
+option SunRay.FWSrvr 192.168.1.2;
+option SunRay.NewTVer code 23 = text;
+option SunRay.NewTVer &quot;11.1.7.0_38_2016.10.27.13.09&quot;;
+option SunRay.AuthPort code 22 = integer 16;
+option SunRay.AuthPort 7009;
+option SunRay.LogHost  code 24 = ip-address;
+option SunRay.LogHost 192.168.1.2;
+option SunRay.LogKern code 25 = integer 8;
+option SunRay.LogKern 6;
+option SunRay.LogNet code 26 = integer 8;
+option SunRay.LogNet 6;
+option SunRay.LogUSB code 27 = integer 8;
+option SunRay.LogUSB 6;
+option SunRay.LogVid code 28 = integer 8;
+option SunRay.LogVid 6;
+option SunRay.LogAppl code 29 = integer 8;
+option SunRay.LogAppl 6;
+option SunRay.sunray-servers code 68 = text;
+option SunRay.sunray-servers &quot;oi-sr.sunray.lan&quot;;
+option SunRay.sunray-config-servers code 67 = text;
+option SunRay.sunray-config-servers &quot;oi-sr.sunray.lan&quot;;
+
+default-lease-time 86400;
+max-lease-time 86400;
+
+class &quot;sun&quot; {
+  match if substring (option vendor-class-identifier, 0, 4) = &quot;SUNW&quot;;
+}
+
+log-facility local7;
+
+host sr1.sunray.lan {
+  hardware ethernet 00:14:4f:57:a0:c1;
+  fixed-address 192.168.1.50;
+  vendor-option-space SunRay;
+}
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.51 192.168.1.59;
+}
+</code></pre>
+
+<p>Vendor specific DHCP options are described in the <a href="https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options">Sun Ray Software: Alternate Client Initialization Reqs Using DHCP</a> document.
+The config file <code>/etc/dhcp/dhcpd.conf</code> has to link to <code>/etc/inet/dhcp4.conf</code> so that the <code>svc:/network/dhcp/server:ipv4</code> service can leverage it.</p>
+<p>To switch Sun Ray Software to isc-dhcp we take scripts located in path <code>/opt/SUNWut/lib/dhcp/isc</code> from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with <code>rpm2cpio</code>:</p>
+<pre><code class="shell"># pkg install rpm
+$ rpm2cpio SUNWuto-4.5-44.i386.rpm | cpio -idv &lt;tmprpmdirectory&gt;
+</code></pre>
+
+<p>Rename <code>dhcp_config_linux</code> to <code>dhcp_config_solaris</code> and
+replace the <code>sort</code> command with his GNU implementation <code>gsort</code> by appling this patch on script `dhcp_config_linux:</p>
+<pre><code class="shell">diff --git a/dhcp_config_linux b/dhcp_config_linux
+index 001aa42..0165941 100755
+--- a/dhcp_config_linux
++++ b/dhcp_config_linux
+@@ -462,7 +462,7 @@ TranslateEther() {
+        BEGAN=false
+        VALUE=&quot;&quot;
+
+-   ls $UTDHCPDIR | sort -g | grep &quot;SunRay-ether&quot; &gt; $TMPLISTFILE
++ ls $UTDHCPDIR | gsort -g | grep &quot;SunRay-ether&quot; &gt; $TMPLISTFILE
+        if [[ $? != 0 ]]; then
+                rm -f $TMPLISTFILE 2&gt;/dev/null
+                return 1
+@@ -552,7 +552,7 @@ TranslateSubnet() {
+
+        if [ -z &quot;$INFILE&quot; ]; then
+                # list all the subnet files
+-           ls $UTDHCPDIR | sort -g | grep &quot;SunRay-subnet&quot; &gt; $TMPLISTFILE
++         ls $UTDHCPDIR | gsort -g | grep &quot;SunRay-subnet&quot; &gt; $TMPLISTFILE
+                if [[ $? != 0 ]]; then
+                        rm -f $TMPLISTFILE 2&gt;/dev/null
+                        return 1
+@@ -616,7 +616,7 @@ TranslateInterface() {
+        BEGAN=false
+        VALUE=&quot;&quot;
+
+-   ls $UTDHCPDIR | sort -g | grep &quot;SunRay-interface&quot; &gt; $TMPLISTFILE
++ ls $UTDHCPDIR | gsort -g | grep &quot;SunRay-interface&quot; &gt; $TMPLISTFILE
+        if [[ $? != 0 ]]; then
+                rm -f $TMPLISTFILE 2&gt;/dev/null
+                return 1
+</code></pre>
+
+<p>put the scripts below <code>&lt;tmprpmdirectory&gt;/opt/SUNWut/lib/dhcp/isc</code> in <code>/opt/SUNWut/lib/dhcp/isc</code></p>
+<p>Reference the scripts by setting this link:</p>
+<pre><code>root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
+</code></pre>
+
+<p><code>utadm</code> command needs changes shown in the following patch:</p>
+<pre><code class="patch">From a1072acfffd91457d91cd6d202a988d88bc3fb8a Mon Sep 17 00:00:00 2001
+From: Carsten Grzemba &lt;cgrzemba@opencsw.org&gt;
+Date: Mon, 3 Feb 2020 10:58:31 +0100
+Subject: [PATCH] apply changes for:
+* change the dhcp config file name
+* different ipadm argument names
+* name IP interface utadm to refer to the IP address creator
+* do not use /etc/hostname.&lt;if&gt;
+
+---
+ utadm | 41 +++++++----------------------------------
+ 1 file changed, 7 insertions(+), 34 deletions(-)
+
+diff --git a/utadm b/utadm
+index cffac27..448c171 100644
+--- a/utadm
++++ b/utadm
+@@ -116,7 +116,7 @@ UTDHCPSERVICE_SUCCESS=0
+ UTDHCPSERVICE_DISABLED=3
+
+ SVCADM=&quot;/usr/sbin/svcadm&quot;
+-DHCP_FMRI=&quot;svc:/network/dhcp-server:default&quot;
++DHCP_FMRI=&quot;svc:/network/dhcp-server:ipv4&quot;
+
+ UTLIB=&quot;/opt/SUNWut/lib&quot;
+ UTSBIN=&quot;/opt/SUNWut/sbin&quot;
+@@ -207,6 +207,7 @@ function SetPlatformDependencies  {
+         IFCONFIG_KEY_NETMASK=&quot;netmask&quot;
+         if [ -x /usr/sbin/ipadm ]; then
+           IPADM_CONF=true
++          DHCPCONFIG=&quot;/etc/dhcp/dhcpd.conf&quot;
+         fi
+
+         ;;    # end case SunOS
+@@ -1783,14 +1784,6 @@ function DoAddNetworkConfig {
+     DHCPONLY=&quot;N&quot;
+     for test in ${INTF_ALL}; do
+         if [ &quot;${INTF}&quot; = &quot;${test}&quot; -a -f &quot;${HOSTNAME_C}${INTF}&quot; ]; then
+-        #
+-        # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
+-        # defined in the file may not be configured locally in the hosts file.
+-        #
+-        if [ ! -f ${HOSTNAME_C}${INTF} ]; then
+-            print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}${INTF}\&quot; file.&quot;
+-            return 1
+-        fi
+         if [[ $OS == &quot;SunOS&quot; ]]; then
+             NAME=`getIfname ${INTF}`
+             if [ -z &quot;${NAME}&quot; ]; then
+@@ -2567,9 +2560,9 @@ should an auth server be located by broadcasting on the network?&quot; &quot;Y&quot;
+         fi
+         # Clear any pre-existing state on interface, then create
+         # new persistent configuration
+-        ipadm delete-ip ${INTF} 2&gt;/dev/null
+-        ipadm create-ip ${INTF}
+-        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4static
++        ipadm delete-if ${INTF} 2&gt;/dev/null
++        ipadm create-if ${INTF}
++        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4utadm
+       else
+         # ifconfig the new interface
+         ifconfig ${INTF} plumb &gt;/dev/null 2&gt;&amp;1 ;
+@@ -2710,7 +2703,7 @@ function DoList {
+     if [[ $BLOCKTYPE = &quot;interface&quot; ]] ; then
+       if Intf=${UT_DHCP_INTERFACE} ; then
+         if [[ ! -s ${HOSTNAME_R}.${Intf} ]]; then
+-        IntfAddr=&quot;&quot;*MISSING*&quot;&quot;
++        IntfAddr=`ipadm show-addr -p -o ADDR ${Intf}/ | awk '{split($1,a,&quot;/&quot;); print a[1]}'`
+         else
+             typeset H=`getIfname ${Intf}`
+             IntfAddr=`getent hosts $H | awk '{ print $1 }'`
+@@ -3151,14 +3144,6 @@ function DoPrint {
+
+     INTF=${UT_DHCP_INTERFACE}
+
+-    #
+-    # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
+-    # defined in the file may not be configured locally in the hosts file.
+-    #
+-    if [ ! -f ${HOSTNAME_R}.${INTF} ]; then
+-        print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}.${INTF}\&quot; file.&quot;
+-        return 1
+-    fi
+     H=`getIfname ${INTF}`
+     if [ -z &quot;${H}&quot; ]; then
+         print -u2 &quot;Error: interface ${INTF} is partially configured.  Hostname not&quot; \
+@@ -3452,19 +3437,7 @@ function getIfname {
+     awk '{print $1 ; exit}' &quot;${HOSTNAME_R}.$1&quot;
+     return
+     else
+-    # With ipadm, there's no way to create a persistent
+-    # configuration without it immediately being reflected in the
+-    # runtime configuration, nor does ipadm provide any convenient
+-    # way to find the IPv4 addrobj for the interface, so just
+-    # check runtime configuration via ifconfig.
+-    IPADDR=$(ifconfig $1 | awk '
+-        /[     ]inet /{
+-            for (i = 1; i &lt; NF; ++i) {
+-                if ($i == &quot;inet&quot;) {
+-                    print $(i+1)
+-                }
+-            }
+-        }')
++    IPADDR=`ipadm show-addr -p -o ADDR $1/ | awk '{split($1,a,&quot;/&quot;); print a[1] }'`
+     if [ -z &quot;$IPADDR&quot; ]; then
+         print -u2 &quot;Error in parsing of ifconfig addresses&quot;
+         exit 2
+--
+2.23.0
+
+</code></pre>
+
+<h3 id="java-runtime-environment">Java Runtime Environment</h3>
+<p>The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun Ray Software.</p>
+<h2 id="config">Config</h2>
+<p>You can run <code>utconfig</code> and <code>utadm</code> the way described in the <a href="https://docs.oracle.com/cd/E35310_01/index.html">Sun Ray Software</a> document.</p>
+<h1 id="how-to-get-gnome-on-current-hipster">How to get GNOME on current Hipster</h1>
+<p>As already mentioned the Sun Ray Software cannot handled by LightDM and we still have to use GDM and some GNOME components necessary for the gnome-greeter session.</p>
+<p>Be sure you have installed:</p>
+<pre><code class="shell"># pkg install libbonoboui
+</code></pre>
+
+<p>Make sure that they actually install as in the future they may be eventually obsoleted from Hipster
+(no empty metapackages or obsoleted packages).</p>
+<h2 id="update-older-hipster">update older Hipster</h2>
+<p>If you have Sun Ray running on Hipster with GNOME, you can prevent GNOME components removal by "freezing" them and releasing their version locks:</p>
+<pre><code class="shell"># pkg freeze gdm libgnomekbd gnome-session gnome-settings-daemon
+</code></pre>
+
+<p>and release the version locks:</p>
+<pre><code># pkg change-facet facet.version-lock.gnome/gnome-session=false
+# pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
+# pkg change-facet facet.version-lock.system/display-manager/gdm=false
+# pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
+</code></pre>
+
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+On IPS there are meta-packages which define package dependencies of <code>type=incorporate</code>, which means:</p>
+<p>If a package will installed, it have to have the version defined in the incorporate dependency.</p>
+<p>We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.
+</div></p>
+<h2 id="install-on-current-hipster-2022">Install on current Hipster (2022)</h2>
+<p>If you have installed new Hipster, it is necessary to install GNOME packages for GDM and its greeter-session. For user session it is fine to select 'Mate Session', it is no longer necessary to install other packages needed by Gnome Session (only Gnome packages which Mate session still uses).</p>
+<p>Last known working OpenIndiana GNOME packages versions are the following:</p>
+<pre><code>gnome-session@2.32.1
+gnome-settings-daemon@2.32.1
+gdm@2.30.7
+libgnomekbd@2.32.0
+</code></pre>
+
+<p>These are still in hipster repo, but are obsoleted empty metapackages.</p>
+<p>At <a href="http://pkg.toc.de/sunray/">http://pkg.toc.de/sunray/</a> you can find the old GNOME packages with newer release date, so that these should be able to install it on current Hipster. This publisher is provided and supported by community member Carsten Grzemba not by the OpenIndiana project.
+For this to work add this publisher in a way, that it takes precedence over the default openindiana.org publisher:</p>
+<pre><code class="shell"># pkg set-publisher --search-before=openindiana.org -g http://pkg.toc.de/sunray sunray
+# pkg set-publisher --non-sticky openindiana.org
+</code></pre>
+
+<p>and install all packages from sunray publisher.</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+The version locks of the gnome packages have to relaese like decribed in <a href="#update-older-hipster">update older Hipster</a>.
+</div></p>
+<h3 id="install-from-hipster-2019">Install from Hipster (2019)</h3>
+<p>This is outdated and not necessary anymore. But it is kept here in case someone would still like to run Gnome-Session on Hipster.</p>
+<p>If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.</p>
+<p>Last known working OpenIndiana GNOME packages versions are the following:</p>
+<pre><code>gnome-desktop@2.32.1
+gnome-menus@2.30.5
+gnome-panel@2.32.1
+gnome-session@2.32.1
+gnome-settings-daemon@2.32.1
+gdm@2.30.7
+metacity@2.30.3
+libgnomekbd@2.32.0
+libwnck@2.31.0
+desktop/screensaver@5.42
+</code></pre>
+
+<h2 id="xscreensaver">XScreenSaver</h2>
+<p>Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module
+are shipped as 32-bit only so unlocking works only with 32-bit XScreenSaver.
+That's why we need the XScreenSaver package with 32-bit bins from <a href="http://pkg.toc.de/sunray/">http://pkg.toc.de/sunray/</a>.</p>
+<p>It is more comfortable to use mate-screensaver. For PAM is only the module mate-screensaver-pam-helper needed. This is not an shared object, instead it is an executable and can be shipped in 32bit independent from the other commands.</p>
+<h2 id="gdm">GDM</h2>
+<p>the GDM service has to be enabled. lightdm should not run however.</p>
+<pre><code># svcadm enable graphical-login/gdm
+# svcadm disable graphical-login/lightdm
+</code></pre>
+
+<h1 id="login-screen-gdm-greeter-wont-reapear-after-logout">Login Screen (gdm-greeter) won't reapear after logout</h1>
+<p>After logout the gdm-login won't reappear. Install the following script as <code>/opt/SUNWut/lib/gdm/revivesrsession.py</code> and call it by the <code>/etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession</code> helper script.</p>
+<pre><code>/opt/SUNWut/lib/gdm/revivesrsession.py &amp;
+</code></pre>
+
+<p><code>/opt/SUNWut/lib/gdm/revivesrsession.py</code> contains:</p>
+<pre><code class="python">#!/usr/bin/python3.9
+
+'''
+ Reconnect SunRay X-session: some times after logout, the gdm will not start login screen on the X-session and the DTU remains in state 26D
+ INSTALL: - cp to /opt/SUNWut/lib/gdm/revivesrsession.py
+          - create script /etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession:
+            /opt/SUNWut/lib/gdm/revivesrsession.py &amp;
+'''
+
+import subprocess as sp
+import re
+import pdb
+import time
+import logging
+
+logformat = &quot;%(asctime)s %(levelname)s:%(message)s&quot;
+logging.basicConfig(format = logformat)
+logger = logging.getLogger(__name__)
+
+logger.setLevel(logging.DEBUG)
+
+time.sleep(7)
+
+pid = sp.Popen(['pgrep','gdm-binary'], stdout=sp.PIPE).stdout.readline().strip()
+logger.debug(&quot;GDM pid %s &quot;, pid.decode())
+dpl = [ p.split()[2].strip(b':') for p in sp.Popen(['ptree', pid], stdout=sp.PIPE).stdout.readlines() if b'/opt/SUNWut/lib/Xnewt' in p ]
+logger.debug(&quot;Xnewt display {}&quot;.format( dpl))
+
+# error -4 gdm-simple-slave not started for Display, no UT sessions
+for sess in sp.Popen(['/opt/SUNWut/sbin/utsession','-px'], stdout=sp.PIPE).stdout.readlines():
+    logger.debug(&quot;{}&quot;.format(sess))
+    for t in sess.split(b';'):
+        if b'STATE' in t: state = t.split(b'=')[1]
+        if b'DISPLAY' in t: disp = t.split(b'=')[1]
+    if state == 0 and disp in dpl:
+        # ok
+        pass
+    else:
+        logger.debug(&quot;restart display %s&quot;  % disp.decode())
+        sp.Popen(['/opt/SUNWut/lib/gdm/utgdmdynamic','-a', disp])
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/handbook/systems-administration/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Systems Administration - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../common-tasks/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../network-communications/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/systems-administration.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#hipster-handbook-system-administration">Hipster Handbook - System Administration</a></li>
+            <li><a href="#users-and-account-management">Users and account management</a></li>
+            <li><a href="#management-of-system-resources">Management of System Resources</a></li>
+            <li><a href="#configuring-and-tuning">Configuring and Tuning</a></li>
+            <li><a href="#illumos-boot-process">Illumos boot process</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#zones">Zones</a></li>
+            <li><a href="#storage">Storage</a></li>
+            <li><a href="#virtualization">Virtualization</a></li>
+            <li><a href="#localization">Localization</a></li>
+            <li><a href="#dtrace">Dtrace</a></li>
+            <li><a href="#configuring-networking">Configuring Networking</a></li>
+            <li><a href="#clustering-with-open-ha-cluster">Clustering with Open HA Cluster</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+ (the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="hipster-handbook-system-administration">Hipster Handbook - System Administration</h1>
+<p>Once OpenIndiana has been installed, the system will require monitoring to
+ensure smooth operation. Software will periodically have to be updated,
+redundant software removed, new users added to the system, etc. All these
+activities and many more are referred to as system administration.</p>
+<p>Basic system administration can be reduced to a number of common tasks:</p>
+<ul>
+<li>Users and account management</li>
+<li>Management of system resources</li>
+<li>Installation and maintenance of software</li>
+</ul>
+<p>While it is certainly possible to add more to this list or select alternative
+items, this small selection is readily absorbed and is convenient to illustrate
+a number of essential concepts central to OpenIndiana system administration.</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Administrative commands are usually expected to be run with elevated privileges -
+directly from root user, via <code>sudo(1M)</code> or
+<code>pfexec</code> (if user was granted privileges via RBAC).
+In this document commands which require elevated privileges are prefixed with
+"# ". Commands, which don't require elevated privileges, are prefixed with "$ ".
+</div></p>
+<h2 id="users-and-account-management">Users and account management</h2>
+<p>OpenIndiana allows multiple users to work on the same computer at the same time.
+Only one person can sit in front of the monitor and keyboard.
+However, many can be remotely logged into machine and work on it.
+If a user wants to use the system, he needs an account.</p>
+<p>There are also special service accounts which are used by system services.</p>
+<h3 id="user-accounts">User accounts</h3>
+<p>User accounts are primarily used for day-to-day tasks.
+Every user accessing the system should have his own unique account.
+This allows the administrator of the system to find out who is doing what.
+This also allows him to set different access rights for each user separately.</p>
+<p>When system is installed, usually one user account is created.
+Additional accounts can be added later.</p>
+<p>Every user account has some attributes associated with it.</p>
+<ul>
+<li><strong>username</strong> - name of the account, which is typed at the login screen.
+  Username format is briefly described in <a href="https://illumos.org/man/4/passwd">passwd(4)</a></li>
+<li><strong>password</strong> - password associated with the account.
+<div class="well">
+Accounts without password should not exist on the system as they could put the system at the security risk!
+</div></li>
+<li><strong>UID</strong> (user ID) - unique numerical ID of the account in the system.
+The maximum value for uid is 2147483647.
+However, for compatibility reasons one should not use numbers over 65535.</li>
+<li><strong>GID</strong> (group ID) - unique numerical ID of the account's primary group.</li>
+<li><strong>comment</strong> (also referred to as gecos) - account description
+Often this filed is set to real user name.</li>
+<li><strong>home directory</strong> - a path where user will be after he logs into the system.</li>
+<li><strong>login shell</strong> - user's initial shell program.</li>
+<li><strong>password last change time</strong> - time when the password was lastly changed.</li>
+<li>password aging information - several <a href="https://illumos.org/man/4/shadow">shadow(4)</a> fields determining when password should be changed<ul>
+<li><strong>min</strong> - the minimum number of days required between password changes;</li>
+<li><strong>max</strong> - the maximum number of days the password is valid;</li>
+<li><strong>warn</strong> - the number of days before password expires that the user is warned.</li>
+</ul>
+</li>
+</ul>
+<h3 id="service-accounts">Service accounts</h3>
+<p>Service (system) accounts are used by applications, which are running on the system
+and are providing some services to the network such as DNS, SMTP or WWW.
+For security reasons these services are ran under non-privileged accounts.</p>
+<p>OpenIndiana comes with several service accounts such as <code>webservd</code> for web servers,
+<code>pkg5srv</code> for <code>pkg(5)</code> server or <code>nobody</code>.
+<code>nobody</code> is a system account for services needing unprivileged user.
+However, the more services are ran under this account,
+the more privileged it becomes as it gains access to service processes and files.</p>
+<h3 id="roles">Roles</h3>
+<p>A role is a basic unit of Role-Based access control (RBAC) or set of privileges one can assume.
+A role can be thought of as a no-login account.
+It has most of the attributes of normal user account and is identified like normal user,
+but is not allowed to log into a system directly.
+One should login using regular account and use <a href="https://illumos.org/man/1M/su">su(1M)</a> to assume the role.</p>
+<h3 id="superuser-account">Superuser account</h3>
+<p>Every UNIX-like system has the superuser account, named root, used for system administrative tasks.
+This account has UID 0.</p>
+<p>Using this account for everyday usage like web browsing, email reading or movie watching is not recommended
+as root account can operate without any restrictions or limits and could cause serious damage to the system.</p>
+<p>If you created user during installation, root is created as role (not a regular account).
+This role is assigned to the user created during the installation.
+This means that you can't directly log into a system using the root account.
+One has to log in as the created user and switch to root role using <a href="https://illumos.org/man/1M/su">su(1M)</a>.</p>
+<p>However, if the user was not created during installation, then the root is created as regular account and
+is able to log in directly.
+Note, that even when root is created as role, one can use this account directly to log into the system when it's
+booted in single user mode.</p>
+<h4 id="superuser-do-sudo1m">SUperuser DO: sudo(1m)</h4>
+<p>It is not always feasible for one user to perform all administrative
+tasks. It would be more flexible if some tasks could be performed by some, say,
+experienced users. To enable some users to carry out a command with <em>all</em> root
+privileges, or to <em>do</em> an administrative command <code>sudo(1M)</code> can be used.</p>
+<p>The <code>sudo</code> command, i.e., superuser do, permits a regular user to execute the specified
+set of commands with supperuser privileges without having to become the superuser.</p>
+<p>If user was permitted to use some commands with superuser privileges via <code>sudo</code>
+he/she can execute them with elevated privileges simply starting command with <code>sudo</code>.</p>
+<p>To permit a user to use <code>sudo</code>, the superuser edits <code>/etc/sudoers</code>.</p>
+<p>This can be done using special <code>visudo(1M)</code> tool.
+<code>visudo</code> tool edits <code>/etc/sudoers</code> file performing various syntax checks.
+<code>sudoers(1)</code> provides details on the precise
+means to appropriately grant user elevated privileges via sudo.</p>
+<p>Example:</p>
+<p>To shutdown the system, root privileges are required. If a standard user issues
+the <code>shutdown</code> command, the system will issue a warning. However, if the user has
+been enabled to use sudo, then the user can now shutdown the system:</p>
+<pre><code>$ sudo shutdown -i5 -g0 -y
+</code></pre>
+
+<h3 id="managing-accounts">Managing accounts</h3>
+<p>There are several tools in OpenIndiana to manage user accounts.
+They are listed in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://illumos.org/man/1M/useradd">useradd(1M)</a></td>
+<td>creates new account on the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/userdel">userdel(1M)</a></td>
+<td>deletes account from the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/usermod">usermod(1M)</a></td>
+<td>modifies account information on the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/groupadd">groupadd(1M)</a></td>
+<td>creates group on the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/groupdel">groupdel(1M)</a></td>
+<td>deletes group from the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/groupdel">groupmod(1M)</a></td>
+<td>modifies group information on the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/roleadd">roleadd(1M)</a></td>
+<td>creates new role on the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/roledel">roledel(1M)</a></td>
+<td>deletes role from the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1M/rolemod">rolemod(1M)</a></td>
+<td>modifies role information in the system</td>
+</tr>
+<tr>
+<td><a href="https://illumos.org/man/1/passwd">passwd(1)</a></td>
+<td>changes login password and password attributes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="useradd">useradd</h4>
+<p>useradd is a program to create user accounts on the system.
+When creating account one can set some attributes of the newly created account such as comment, group membership, home directory path, UID number of the account or login shell.</p>
+<h4 id="userdel">userdel</h4>
+<p>One can use <code>userdel</code> to remove the account from the system.</p>
+<h4 id="usermod">usermod</h4>
+<p><code>usermod</code> is used to modify properties of existing account.</p>
+<h4 id="groupadd">groupadd</h4>
+<p><code>groupadd</code> creates a new group definition on the system by adding the appropriate to the /etc/group file.</p>
+<h4 id="groupdel">groupdel</h4>
+<p><code>groupdel</code> deletes a group definition from the system.</p>
+<h4 id="groupmod">groupmod</h4>
+<p>When one needs to modify group attributes, <code>groupmod</code> should be used.</p>
+<h4 id="roleadd">roleadd</h4>
+<p><code>roleadd</code> is used create roles in the system.</p>
+<h4 id="roledel">roledel</h4>
+<p><code>roledel</code> deletes selected role from the system.</p>
+<h4 id="rolemod">rolemod</h4>
+<p><code>rolemod</code> modifies role's information on the system.</p>
+<h4 id="passwd">passwd</h4>
+<p><code>passwd</code> changes password for user accounts.
+An unprivileged user may only change the password for his/her own account, while the superuser may change the password for any account.
+Privileged user can also use <code>paasswd</code> to change login password attributes (such as expiration date) or lock the account.</p>
+<h3 id="role-based-access-control-rbac">Role-Based Access Control (RBAC)</h3>
+<p>The <em>all-or-nothing</em> power assigned to the root user has its obvious
+limitations.  While sudo is an improvement by limiting root privileges for only
+several commands, more granular control is often desired.</p>
+<p>An improvement on the above systems would be one in which privileges could be
+assigned on a more fine-grained and selective basis.</p>
+<p>Imagine a user assigned the task of administrating some particular hardware, for
+example, printers attached to the system.  A more desirable system would be one
+in which this user had the ability to permit users to use a printing device,
+remove print jobs from the print spool or add new printers to the system.
+Moreover, it would be advantageous if it were possible to assign privileges to
+perform only these actions and none other.</p>
+<p>RBAC was developed to accomplish this.</p>
+<h4 id="what-is-rbac">What is RBAC</h4>
+<h4 id="how-to-use-rbac">How to use RBAC</h4>
+<p>The root user or a user with sudo enabled can shutdown the system.
+We can use RBAC to enable a user to be able to shutdown the system. However, we
+can create a role that allows only the privilege to shutdown the system, and
+no additional privileges. We can then assign this role to one or several users.</p>
+<ul>
+<li>assign a privilege to a role to shutdown the system</li>
+</ul>
+<pre><code># roleadd shutdown
+</code></pre>
+
+<ul>
+<li>Assign a password</li>
+</ul>
+<pre><code># passwd shutdown
+</code></pre>
+
+<ul>
+<li>Assign this role to a user</li>
+</ul>
+<pre><code># usermod -R shutdown whoever
+</code></pre>
+
+<ul>
+<li>Create a SHUTDOWN profile</li>
+</ul>
+<pre><code># echo &quot;SHUTDOWN:::profile to shutdown:help=shutdown.html&quot; &gt;&gt; /etc/security/prof_attr
+</code></pre>
+
+<ul>
+<li>Okay, now assign the role profile SHUTDOWN to the role shutdown</li>
+</ul>
+<pre><code># rolemod -P SHUTDOWN shutdown
+</code></pre>
+
+<ul>
+<li>Assign some administrative command to profile</li>
+</ul>
+<pre><code># echo &quot;SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0&quot; &gt;&gt; /etc/security/exec_attr
+</code></pre>
+
+<ul>
+<li>Use it</li>
+</ul>
+<pre><code>$ su shutdown
+# shutdown -i5 -g0 -y
+</code></pre>
+
+<p>Now user whoever can shutdown the system.</p>
+<p>The <code>pfexec</code> command is more flexible in the number of privileges that can be
+assigned to a user.</p>
+<h3 id="active-directory-integration">Active Directory Integration</h3>
+<h4 id="introduction">Introduction</h4>
+<p>There are at least three different possible approaches for Active Directory authentication and each has its pros and cons.</p>
+<ol>
+<li>Use the new native AD integration with <strong>idmap</strong>, <strong>nss_ad</strong> and <strong>kclient</strong>, this will work with CIFS and NFS out of the box.</li>
+<li>Use Kerberos and LDAP (<strong>kclient</strong>, <strong>ldapclient</strong>, <strong>pam_krb5</strong> and <strong>nss_ldap</strong>).</li>
+<li>Use <strong>windbind</strong> (<strong>pam_winbind</strong> and <strong>nss_winbind</strong>).</li>
+</ol>
+<h4 id="native-ad-integration">Native AD integration</h4>
+<ul>
+<li>Pro: Fully integrated and native tools only</li>
+<li>Cons: Doesn't work for UNIX services other than CIFS and NFS. The ephemeral id mapping strategy supposedly wasn't designed for other UNIX services. As a result several problems arrise, one of them is that the mappings aren't constant over the lifetime of UNIX processes which severly breaks UNIX semantics. Depending on your UNIX service you will see unexpected results or even process crashing.</li>
+</ul>
+<p>In order to use this approach with any UNIX service (eg <strong>FTP</strong>) you need to enable <em>directory-based name mapping</em> and install <strong>IDMU</strong> (Identity Management for UNIX) on the AD server.</p>
+<p>Refer to the original documentation from Oracle for getting this working: <a href="http://docs.oracle.com/cd/E23824_01/html/821-1455/adsetup-10.html">nss_ad</a>, <a href="http://docs.oracle.com/cd/E19963-01/html/821-1449/manageidmutm.html">CIFS</a>.</p>
+<h4 id="kerberos-and-ldap">Kerberos and LDAP</h4>
+<ul>
+<li>Pro: Fully integrated and native tools only</li>
+<li>Cons: Requires installation of additional role services (IDMU, Identity Management for UNIX) on the Active Directory side</li>
+</ul>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on configuration of Windows Server 2008 Active Directory to work with OI. As of 2021, Windows Server 2008 is EoL. This section should not be migrated until it has been checked and updated for recent Windows. Ideally this information should be on a separate page (potentially community contributions) as it’s large and contains a lot of Windows information.
+</div></p>
+<h4 id="winbind">winbind</h4>
+<ul>
+<li>Pro: Easy setup, no AD modification</li>
+<li>Cons: Depends on 3rd party software (Samba), group membership resolution didn't work</li>
+</ul>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+As above note, the 'winbind' page was a separate detailed article which needs to be checked and updated before it's migrated.
+</div></p>
+<h2 id="management-of-system-resources">Management of System Resources</h2>
+<h3 id="basic-system-information">Basic system information</h3>
+<h4 id="system-processes">System processes</h4>
+<pre><code class="bash">$ prstat
+</code></pre>
+
+<p>This command provides a host of information on all processes running on the system.
+Some of the information provided is as follows:</p>
+<ul>
+<li>percentage of CPU used by each process</li>
+<li>amount of memory consumed by each process</li>
+<li>unique id of each process (which can, for example, be used to stop the process)</li>
+</ul>
+<h4 id="disk-usage">Disk usage</h4>
+<pre><code class="bash"># df -h
+</code></pre>
+
+<p>Provides information on disk size, amount of space used and available free space
+for all attached storage devices. The <code>-h</code> option reports this information in
+human readable format.</p>
+<h4 id="largest-files-in-a-directory">Largest files in a directory</h4>
+<p>Go to the directory using the <code>cd</code> command and issue the following command:</p>
+<pre><code class="bash">$ du | sort -n
+</code></pre>
+
+<p>This will list the size of each file in the current directory and all
+sub-directories, starting with the smallest up to the largest files.</p>
+<h4 id="who-is-logged-on-to-the-system">Who is logged on to the system</h4>
+<pre><code class="bash">$ listusers
+</code></pre>
+
+<h4 id="list-all-software-packages-installed-on-the-system">List all software packages installed on the system</h4>
+<pre><code class="bash">$ pkg list
+</code></pre>
+
+<h3 id="system-shutdown-reboot">System shutdown, reboot, ...</h3>
+<p>OpenIndiana defines a number of different system states known as run-levels. You
+can change from one system state to another by using the <code>shutdown</code> command and
+specify the run-level using the <code>i</code> option. You can always determine the
+run-level via <code>who -r</code>.</p>
+<p>You must be root or have root privileges (e.g., using <code>sudo</code>) to send the system
+into a different state, i.e., turn off, reboot, etc. Shutdown and turn off all
+hardware (if supported by the hardware) now:</p>
+<pre><code># shutdown -i5 -g0 -y
+</code></pre>
+
+<p>Changing the run-level of the system can be disruptive to other users currently
+using the system. Thus, it is always wise to establish who is currently logged
+onto the system before changing the run-level.</p>
+<ul>
+<li><code>-i [run-level]</code> is used to specify the run-level. This is either a digit or a
+  single letter. Here are some run-levels available:<ul>
+<li><code>5</code> stop all system services, and turns off hardware devices, etc.</li>
+<li><code>6</code> reboot the system.</li>
+<li><code>1</code> single-user mode. Primarily used for system maintenance.</li>
+<li><code>S</code> single-user mode where only a command line terminal is available.</li>
+</ul>
+</li>
+<li><code>-g [seconds]</code> is used to specify the number of seconds after which to commence
+   shutting down services. <code>0</code> immediately intiates shutting down all services.</li>
+<li><code>-y</code> automatically answers all system questions with 'yes'. The shutdown
+   process is not interrupted by system prompts requiring user-interactive
+   intervention.</li>
+</ul>
+<h2 id="configuring-and-tuning">Configuring and Tuning</h2>
+<p>There are a few tools to configure and tune an OpenIndiana system.   One of the tools is sysding,  a tool that is used by the current OpenIndiana installer to setup static IP addresses when NWAM (automatic network configuration) is not used.</p>
+<p>For more information on sysding, see the manpage and example config file :</p>
+<pre><code class="bash"># man sysding
+</code></pre>
+
+<p>The configuration file is :</p>
+<pre><code class="bash">/etc/sysding.conf
+</code></pre>
+
+<p>There is also a logfile :</p>
+<pre><code class="bash">/var/log/sysding.log
+</code></pre>
+
+<p>For example a simple /etc/sysding.conf configuration file for a static IP is :</p>
+<pre><code class="bash">setup_interface e1000g0 v4 10.0.2.16
+setup_route default 10.0.2.2
+</code></pre>
+
+<p>This service is meant to be run only once and sets a boolean flag config/finished.  In case you want to run sysding again, you'll have to force the finished flag to false :</p>
+<pre><code class="bash">svccfg -s sysding:system
+setprop config/finished = false
+refresh
+</code></pre>
+
+<h3 id="configuring-a-ups">Configuring a UPS</h3>
+<ul>
+<li>NUT?</li>
+</ul>
+<h3 id="fault-management-fma">Fault management (FMA)</h3>
+<p>&lt; place holder &gt;</p>
+<h3 id="virtual-terminalsconsoles-vt">Virtual Terminals/Consoles (VT)</h3>
+<p>Virtual Terminals/Virtual Consoles (VT) are used to switch between terminals and using system in text mode with <em>Ctrl+Alt+F1,F2..F8</em> key combinations.</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Switching to VTs using <em>Ctrl+Alt+Fn</em> during current desktop session (at <strong>VT7</strong>) can result in <strong>X server</strong> and <strong>lightdm</strong> (or <strong>gdm</strong>) restarting and stopping all applications running within it.
+Currently, there could be problems with getting back to gdm/Xorg session if switching to VTs after gdm restart. Use <code>svcadm restart ligthdm</code> (or <code>svcadm restart gdm</code>) command again, to have lightdm/gdm Xorg session restarted at <strong>VT8</strong> (<em>Ctrl+Alt+F8</em>).
+</div></p>
+<p>At fresh Openindiana install, VT/Consoles are <strong>not enabled by default</strong>. One needs to set up vtdaemon and console-login:vt2 (till :vt6) and enable <strong>vtdaemon</strong> options/hotkeys property:</p>
+<pre><code>pfexec svcadm enable vtdaemon
+pfexec svcadm enable console-login:vt2
+pfexec svcadm enable console-login:vt3
+pfexec svcadm enable console-login:vt4
+pfexec svcadm enable console-login:vt5
+pfexec svcadm enable console-login:vt6
+</code></pre>
+
+<p>Or do that in a one-liner Bash script: <code>for i in 2 3 4 5 6 ; do pfexec svcadm enable console-login:vt$i; done;</code></p>
+<p>Then, enable options/hotkeys property (<em>Ctrl+Alt+Fn</em>) to switch VTs and refresh and restart <strong>vtdaemon</strong> service:</p>
+<pre><code>pfexec svccfg -s vtdaemon setprop options/hotkeys=true
+pfexec svcadm refresh vtdaemon
+pfexec svcadm restart vtdaemon
+</code></pre>
+
+<p>Optionally, you can also disable VT consoles auto screen locking (recommended for personal use, not recommended on server): <code>pfexec svccfg -s vtdaemon setprop options/secure=false</code></p>
+<p>The above was inspired by <a href="https://web.archive.org/web/20160424040330/https://blogs.oracle.com/DanX/entry/solaris_virtual_consoles">this blog by Danx on Virtual Consoles</a>.</p>
+<h3 id="service-management-smf">Service management (SMF)</h3>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT: provide more detailed explanations.
+</div></p>
+<p>List services:</p>
+<pre><code>$ svcs # list (permanently) enabled services
+$ svcs -a # list all services
+$ svcs -vx # list faulty services
+</code></pre>
+
+<p>Get information about a service:</p>
+<pre><code>$ svcs &lt;service name&gt; # one-line status
+$ svcs -x &lt;service name&gt; # important information
+$ svcs -d &lt;service name&gt; # check the service's dependencies
+$ svcs -l &lt;service name&gt; # all the available information
+</code></pre>
+
+<p>Start a service:</p>
+<pre><code># svcadm enable &lt;service name&gt; # permanently enable/start
+# svcadm enable -t &lt;service name&gt; # temporary start (won't survive a reboot)
+# svcadm enable -r &lt;service name&gt; # permanently enable/start service along with its dependencies
+</code></pre>
+
+<p>Restart / reload a service:</p>
+<pre><code># svcadm refresh &lt;service name&gt; # reload the service's configuration
+# svcadm restart &lt;service name&gt; # restart the service
+</code></pre>
+
+<h3 id="systems-logging-and-monitoring">Systems logging and monitoring</h3>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>Where to find the logs (<code>/var/log</code>, <code>/var/svc/log</code>).
+</div></li>
+</ul>
+<h2 id="illumos-boot-process">Illumos boot process</h2>
+<p>&lt; place holder &gt;</p>
+<h2 id="security">Security</h2>
+<p>&lt; place holder &gt;</p>
+<h2 id="zones">Zones</h2>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>Need to mention some of the changes to zone management...e.g..<ul>
+<li>sys-unconfig gone.</li>
+<li>sysding replaced syscfg</li>
+<li>now have to have DNS, root password, etc. all configured inside the zone before being able to logon using <code>zlogin -C &lt;zonename&gt;</code>, otherwise have to do <code>zlogin &lt;zonename&gt;</code>.</li>
+</ul>
+</li>
+</ul>
+<p>So a fair amount of stuff has changed there.</p>
+</div>
+
+<p>Zones are an OpenIndiana feature that provides <a href="http://www.wikipedia.org/wiki/Operating_system-level_virtualization">operating system-level virtualization</a>. Each zone is managed as a completely separate OpenIndiana machine. Zones have very low overhead and are one of the most efficient forms of OS virtualization.</p>
+<p>The global zone (GZ) is the operating system itself, which has hardware access. From the global zone, non-global zones (NGZ) are created and booted. Boot time for non-global zones is very fast, often a few seconds. The CPU, network, and memory resources for each zone can be controlled from the global zone, ensuring fair access to system resources. Disk space access is usually controlled by ZFS (with quotas and reservations if needed), as well as mounting of filesystem resources with NFS or lofs. As with other forms of virtualization, each zone is isolated from the other zones – zones cannot see processes or resources used in other zones. The low marginal cost of a zone allows large systems have tens or even hundreds of zones without significant overhead. The theoretical limit to the number of zones on a single platform is 8,192.</p>
+<p>Different releases of (Open)Solaris used different packaging distribution method for the global zone. OpenIndiana zones use two basic brands - "ipkg" and "nlipkg", which are based on IPS Packaging. The brand determines how zone is initialized and how zone's processes are treated by kernel. Both type of zones represent a PKG image. "ipkg"-branded zones are tightly coupled with GZ. Image pakaging system (IPS) knows about ipkg-branded zones and can perform several actions simultaneously in GZ and NGZ. For example, you can update all your zones and GZ with a single "pkg update -r" command. IPS can ensure some depenencies between packages in GZ and NGZ. To allow this it cheks that NGZ's publishers are a superset of GZ's publishers and their properties are the same (for example, stickiness or repository location). As this is not always suitable for development zones, "nlipkg"-branded zones were introduced. "nlipkg"-branded zone behave like completely independent instance and IPS ignores them during operations in GZ.</p>
+<p>An easy way to implement zones is to use a separate ZFS file system as the zone root's backing store. File systems are easy to create in ZFS and zones can take advantage of the ZFS snapshot and clone features. Due to the strong isolation between zones, sharing a file system must be done with traditional file sharing methods (eg NFS).</p>
+<p>When each zone is created  it comes with a minimal set of packages, and from there you can add and use most packages and applications as required.</p>
+<h3 id="zone-networking-model">Zone networking model</h3>
+<p>OpenIndiana zones can use one of two networking models: a shared IP stack and an exclusive IP stack. There are pros and cons to each of them.</p>
+<p>Low-level system networking components, such as the ipfilter firewall and the kernel IP routing tables attach to an "IP stack", and are thus either unique to a zone or shared by all zones with the one shared stack. There are also some other nuances, such as that the zones with the shared stack can communicate over IP directly, regardless of their subnetting and, to some extent, default firewall packet filtering (that has to be specially configured), while exclusive-IP zones with addresses in different subnets have to communicate over external routers and are subject to common firewall filtering.</p>
+<p>The global zone defines which physical networks and VLANs the NGZ has access to, and hands down the predefined networking interfaces (the NGZ can not use or create other interfaces). Also, while shared networking allows to configure and attach (or detach) network interfaces from GZ to the NGZ "on the fly", changes in exclusive networking require reboot of the zone to propagate device delegation.</p>
+<p>A zone with an exclusive IP stack can have all the benefits of dedicated hardware networking, including a firewall, access to promiscuous sniffing, routing, configuration of its own IP address (including use of DHCP and static network addressing), etc. This requires a fully dedicated NIC. Usually this is a VNICs - a virtual adapter with own MAC address, that operate as if the VNIC was plugged directly into local LAN in a particular (or default) VLAN. Note also that the local zones with an exclusive IP stack are not subject to the host's shared-stack firewall.</p>
+<div class="well">
+Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.
+</div>
+
+<h3 id="quick-setup-example">Quick Setup Example</h3>
+<p>Zone creation consists of two steps - creating zone configuration and zone installation or cloning. Zone configuration determines basic parameters, such as zone's root location and provided resources.
+Zone configuration is performed using zonecfg tool, zone administration (for example, installation) is performed using zoneadm tool.</p>
+<p>For example, we create a simple zone with shared networking model:</p>
+<pre><code># zonecfg -z example
+example: No such zone configured
+Use 'create' to begin configuring a new zone.
+zonecfg:example&gt; create
+zonecfg:example&gt; add net
+zonecfg:example:net&gt; set physical=e1000g0
+zonecfg:example:net&gt; set address=192.168.0.10/24
+zonecfg:example:net&gt; end
+zonecfg:example&gt; set zonepath=/zones/example
+zonecfg:example&gt; verify
+zonecfg:example&gt; commit
+zonecfg:example&gt; exit
+
+</code></pre>
+
+<p>Here <code>create</code> puts you inside the zone configuration program where you can change and update settings particular to the zone specified with -z.
+<code>zonecfg</code> break different resource groups of data, you add a new resource with add.
+The next block adds ressource "net", configuring network in default <code>shared</code> ip-type mode. It allows zone to share IP stack with GZ. If you want to
+get dedicated nic in NGZ, you have to use <code>set ip-type=exclusive</code>. In exclusive mode zone has complete control over network interface and you
+can't assigned address in zonecfg prompt.
+After network configuration <code>zonepath</code> is set. It's a location for zone's root file system, which should be a ZFS filesystem.
+The <code>verify</code> command checks that no mistakes were made.
+Finally changes are committed (saved to zone configuration file).</p>
+<p>If you want to use dedicated networking for your zone, you should create VNIC and delegate it to the zone.</p>
+<pre><code># dladm create-vnic -l e1000g0 vnic0
+</code></pre>
+
+<p>If you want to specify VLAN id for VNIC, use <code>-v</code> <code>dladm create-vnic</code> option:</p>
+<pre><code># dladm create-vnic -l e1000g0 -v 123 vnic0
+</code></pre>
+
+<p>Now you can create your zone and delegate VNIC to it (note that we set zone's <code>ip-type</code> to <code>exclusive</code>):</p>
+<pre><code># zonecfg -z example
+example: No such zone configured
+Use 'create' to begin configuring a new zone.
+zonecfg:example&gt; create
+zonecfg:example&gt; set ip-type=exclusive
+zonecfg:example&gt; add net
+zonecfg:example:net&gt; set physical=vnic0
+zonecfg:example:net&gt; end
+zonecfg:example&gt; set zonepath=/zones/example
+zonecfg:example&gt; verify
+zonecfg:example&gt; commit
+zonecfg:example&gt; exit
+
+</code></pre>
+
+<p>After configuring a zone you can install it with <code>zoneadm install</code> subcommand:</p>
+<pre><code># zoneadm -z example install
+</code></pre>
+
+<p>During installation pkg image rooted at $zonepath/root is created and minimal set of packages is installed to the image.
+When installation finishes, zone can be booted with <code>zoneadm -z example boot</code> command. If you want your zone to boot automatically during system startup,
+you should set autoboot parameter to true during zone configuration:</p>
+<pre><code>zonecfg:example&gt; set autoboot=true
+</code></pre>
+
+<p>Once zone is booted you can log in locally with <code>zlogin example</code>. If you created zone with dedicated network adapter, you should configure it inside zone.</p>
+<div class="well">
+Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
+</div>
+
+<h3 id="system-repository-configuration">System repository configuration</h3>
+<p>On OpenIndiana it is possible to allow NGZs to access configured publishers via GZ proxy service (so-called zone proxy daemon).
+This can be useful for sharing pkg cache between zones or to provide network access for performing updates to otherwise restricted zone environment (i.e. to zone without Internet access).</p>
+<p>The functionality is provided by series of services in GZ and NGZs. In GZ two services are running: system repository service and zones proxy daemon (see <code>pkg.sysrepo(1M)</code>). In NGZ zones proxy client
+communicates with GZ's zone proxy daemon.
+System repository service <code>svc:/application/pkg/system-repository</code>  is responsible for providing access to the package repositories configured in a reference image through a centralized proxy.
+Zones proxy daemon service <code>svc:/application/pkg/zones-proxyd</code> starts on system boot and registers door in each running ipkg-branded zone (the door is created at <code>/var/tmp/zoneproxy_door</code> path).
+Later, on zone startup or shutdown /usr/lib/zones/zoneproxy-adm is used to notify zones-proxyd, so that it could create the door for the zone or to cleanup it.
+Zones proxy daemon client <code>svc:/application/pkg/zones-proxy-client:default</code> runs in NGZ and talks to GZ's zones-proxyd via created door.
+<div class="well">
+Note, you can't use system repository with nlipkg-branded zones.
+</div></p>
+<p>IPS determines if it should use zones proxy client in zone based on image's <code>use-system-repo</code> property (defaults to False).</p>
+<p>To configure your system to use system repository, perform the following actions.</p>
+<p>1) In global zone:</p>
+<pre><code># pkg install pkg:/package/pkg/system-repository pkg:/package/pkg/zones-proxy
+# svcadm enable svc:/application/pkg/system-repository:default
+# svcadm enable svc:/application/pkg/zones-proxyd:default
+</code></pre>
+
+<p>2) In non-global zone:</p>
+<pre><code># pkg install pkg:/package/pkg/zones-proxy
+# svcadm enable svc:/application/pkg/zones-proxy-client:default
+# pkg set-property use-system-repo True
+</code></pre>
+
+<p>After this in NGZ's publisher description you'll see system-repository location:</p>
+<pre><code># pkg publisher
+PUBLISHER                   TYPE     STATUS P LOCATION
+openindiana.org (non-sticky, syspub) origin   online T &lt;system-repository&gt;
+hipster-encumbered (syspub)     origin   online T &lt;system-repository&gt;
+</code></pre>
+
+<p>You can check if your configuration works by issuing <code>pkg refresh</code> command in the zone. <code>pkg(1M)</code> should contact repository indirectly via zones-proxy-client.</p>
+<p>To revert your zone to proxy-less configuration, run</p>
+<pre><code># pkg set-property use-system-repo False
+</code></pre>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>Zone configuration and management operations can fail for a number of reasons, sometimes obscure.
+This section contains information on how to solve different well-known issues.</p>
+<h4 id="fixing-zone-installation-issues">Fixing zone installation issues</h4>
+<p>Zones on OpenIndiana use ZFS features to manage boot environments.
+Zone's root and its parent directory should be a ZFS dataset.
+It's not enough for zone's root (or its parent directory) to be just a directory on ZFS filesystem.
+If you try to create a zone which root doesn't satisfy this requirement, you can get the following error:</p>
+<pre><code># zoneadm -z example install
+Sanity Check: Looking for 'entire' incorporation.
+ERROR: the zonepath must be a ZFS dataset.
+The parent directory of the zonepath must be a ZFS dataset so that the
+zonepath ZFS dataset can be created properly.
+</code></pre>
+
+<p>To fix this, you can just uninstall the zone and create its root dataset manually:</p>
+<pre><code># zoneadm -z example uninstall
+Are you sure you want to uninstall zone example (y/[n])? y
+# zfs create rpool/zones/example
+# chmod 700 /zones/example
+# zoneadm -z example install
+</code></pre>
+
+<h2 id="storage">Storage</h2>
+<p>&lt; place holder &gt;</p>
+<h3 id="mounting-file-systems">Mounting file systems</h3>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>Need a walkthrough of mounting options for other filesystems...FAT, UFS, etc.</li>
+</ul>
+</div>
+
+<h4 id="mounting-and-unmounting-iso-images">Mounting and Unmounting ISO images</h4>
+<p>One can use <a href="https://illumos.org/man/1M/lofiadm">lofiadm(1M)</a> to mount ISO images by attaching them to a block device.</p>
+<pre><code>pfexec lofiadm -a /path/to/foo.iso /dev/lofi/1
+</code></pre>
+
+<p>When the above line is repeated for several ISO images, issue the <code>lofiadm</code> command to list which ISO images are attached to which block devices.</p>
+<pre><code class="sh">pfexec lofiadm
+Block Device File Options
+/dev/lofi/1 /home/scarcry/foo.iso -
+/dev/lofi/2 /home/scarcry/bar.iso -
+</code></pre>
+
+<p>Use the <a href="https://illumos.org/man/1M/mount">mount(1M)</a> command to mount an image:</p>
+<pre><code>pfexec mount -F hsfs -o ro /dev/lofi/1 /mnt
+</code></pre>
+
+<p>Check the mounted image by issuing <code>ls</code> on the mount point.</p>
+<pre><code>ls /mnt
+</code></pre>
+
+<p>To unmount and detach the image(s):</p>
+<pre><code>pfexec umount /mnt
+pfexec lofiadm -d /dev/lofi/1
+</code></pre>
+
+<h4 id="mounting-ntfs-volumes-3rd-party-support">Mounting NTFS Volumes - 3rd party support</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+For removable storage devices, first make sure your external disk drive is connected and powered on.</p>
+<p>To list attached removable storage devices: <code>rmformat -l</code>
+</div></p>
+<p>Verify the pX partition number that contains the NTFS filesystem, typically "p1", using fdisk. Even though it may seem counterintuitive, include the partition number "p0" as shown by rmformat in fdisk inquiries.</p>
+<pre><code>pfexec fdisk /dev/rdsk/c6t0d0p0
+</code></pre>
+
+<h5 id="additional-software-installation-and-configuration">Additional software installation and configuration</h5>
+<p>NTFS and FUSE support is provided by Tuxera's NTFS-3G project that aims at providing a stable NTFS driver for several operating systems.</p>
+<p>It is made possible thanks to Jean-Pierre André, on Openindiana page:  <a href="http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html">http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html</a> Follow instructions on this page to install. Please install 64-bit package on 64-bit installations.</p>
+<h5 id="mounting-the-ntfs-filesystem">Mounting the NTFS filesystem</h5>
+<p>Now mount the NTFS partition using:</p>
+<pre><code class="bash">pfexec ntfs-3g /dev/dsk/c6t0d0p1 /mnt/backup/
+</code></pre>
+
+<p>You can now also add a vfstab entry like so:</p>
+<pre><code class="bash">/dev/dsk/c6t0d0p1 /dev/rdsk/c6t0d0p1 /mnt/backup ntfs-3g - no -
+</code></pre>
+
+<h3 id="configuring-openindiana-as-an-iscsi-target-server-comstar">Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)</h3>
+<p>&lt; Place holder for content &gt;</p>
+<h3 id="system-backups">System backups</h3>
+<p>OpenIndiana offers several backup solutions.
+Here are just a few of them:</p>
+<ul>
+<li><a href="https://borgbackup.readthedocs.io/en/stable/">Borg Backup</a></li>
+<li><a href="http://blog.bacula.org/">Bacula</a></li>
+<li>Time-Slider</li>
+<li><a href="http://www.nongnu.org/rdiff-backup/">rdiff-backup</a></li>
+<li>Rsync</li>
+<li><a href="https://labs.omniti.com/labs/zetaback">Zetaback</a></li>
+<li>ZFS exports</li>
+<li>cpio</li>
+<li>tar, zip, etc.</li>
+</ul>
+<h3 id="zfs">ZFS</h3>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<p>Gotcha's such as the following:</p>
+<pre><code>&lt;e^ipi&gt; don't suppose there's any solution to this:
+&lt;e^ipi&gt; cannot replace 1509280528045021472 with /dev/dsk/c0t5000C5009204EB9Bd0s0: devices have different sector alignment
+&lt;tsoome&gt; thats 512 versus non-512 sector issue
+&lt;tsoome&gt; you need to build new pool based on larger sector
+&lt;tsoome&gt; if its mirror, you can attach 512B disk to 4k pool, but not vice versa...
+&lt;e^ipi&gt; well, damn.
+&lt;tsoome&gt; that error message is too confusing, should be replaced by more clear one;)
+&lt;e^ipi&gt; I swear this pool is already mix &amp; match, freebsd complained about it
+&lt;e^ipi&gt; (but still used it)
+&lt;tsoome&gt; there is that thing that ashift is vdev property;)
+&lt;tsoome&gt; not pool property (one reason why that linux zpool create ashift= option is bad)
+&lt;tsoome&gt; or sort of bad anyhow
+</code></pre>
+
+</div>
+
+<h4 id="importing-zfs-disks">Importing ZFS disks</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>Talk about the ZFS import command.</li>
+</ul>
+</div>
+
+<h4 id="how-does-one-mirror-their-root-zpool">How does one mirror their root zpool?</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>Adding a 2nd disk to the root pool</li>
+</ul>
+</div>
+
+<h4 id="how-does-one-create-additional-zpools">How does one create additional zpools?</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>zpool create command<ul>
+<li>Mirrors</li>
+<li>Raidz</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h4 id="modifying-zpool-settings-and-attributes">Modifying zpool settings and attributes</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>zpool get/set commands</li>
+</ul>
+</div>
+
+<h4 id="modifying-zfs-file-system-settings-and-attributes">Modifying zfs file system settings and attributes</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>zfs get/set commands</li>
+</ul>
+</div>
+
+<h4 id="how-does-one-create-additional-zfs-datasets">How does one create additional zfs datasets?</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>zfs create command</li>
+</ul>
+</div>
+
+<h4 id="configuring-system-swap">Configuring system swap</h4>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>zfs set command</li>
+<li>swap -l</li>
+</ul>
+</div>
+
+<h2 id="virtualization">Virtualization</h2>
+<p>&lt; Place holder &gt;</p>
+<h3 id="openindiana-as-a-virtualization-host-server">OpenIndiana as a virtualization host server</h3>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<ul>
+<li>Qemu-KVM (KVM) walkthrough<ul>
+<li>illumos KVM port does not support AMD processors.</li>
+<li>Intel processors require EPT support.</li>
+</ul>
+</li>
+<li>Virtualbox walkthrough<ul>
+<li>There is no package for this yet, but folks do have it working, see the wiki for details.</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<p>In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
+Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
+You can check your processor for EPT support via the following link: <a href="http://ark.intel.com/Products/VirtualizationTechnology">http://ark.intel.com/Products/VirtualizationTechnology</a>
+</div></p>
+<h2 id="localization">Localization</h2>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<p>Possible resources to help write this section:</p>
+<ul>
+<li><a href="https://wiki.openindiana.org/oi/4.4+Localization">https://wiki.openindiana.org/oi/4.4+Localization</a></li>
+<li><a href="https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html">https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html</a></li>
+</ul>
+</div>
+
+<h2 id="dtrace">Dtrace</h2>
+<p>&lt; Place Holder &gt;</p>
+<h2 id="configuring-networking">Configuring Networking</h2>
+<h3 id="automatic-configuration-nwam">Automatic Configuration (NWAM)</h3>
+<p>During installation of OpenIndiana, there are three options to configure networking : Automatic, Manual (static IP), and None.</p>
+<p>Option Autamatic enables NWAM and configures all interfaces automatically.</p>
+<p>Network Auto-Magic (NWAM) manages network interfaces as they are dynamically added or removed to or from the system, using network profiles, and is able to change network settings on the fly.</p>
+<p>NWAM is suitable for servers, laptops, desktops and workstations alike, to automatically configure all wired or wireless network interfaces.</p>
+<p>Option Manual disables NWAM and creates a /etc/sysding.conf file to setup static IP addresses.</p>
+<p>Option None can be used to configure networking manually, without NWAM, after installation.</p>
+<h3 id="changing-from-nwam-to-manual-configuration">Changing from NWAM to Manual Configuration</h3>
+<p>If during install you enabled NWAM, and if you want to disable NWAM you can proceed as follows :</p>
+<pre><code class="bash"># svcadm disable physical:nwam
+</code></pre>
+
+<p>Define your IP/hostname in <code>/etc/hosts</code>. For example:</p>
+<pre><code class="bash">192.168.1.22 hostname hostname.local localhost loghost
+# Subsittude 192.168.1.22 for YOUR IP
+</code></pre>
+
+<p>Enable the default physical service with <code>svcadm</code> and configure the <code>interface</code>:</p>
+<pre><code class="bash"># svcadm enable physical:default
+</code></pre>
+
+<p>There are multiple ways to configure the interface : using sysding or directly with ipadm.</p>
+<p>For more information on sysding, see the section on Configuring and Tuning.</p>
+<p>To configure an interface with ipadm:</p>
+<pre><code class="bash"># ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
+</code></pre>
+
+<p>or</p>
+<pre><code class="bash"># ipadm create-addr -T dhcp bge0/dhclient
+</code></pre>
+
+<p>The previous example sets up DHCP without using NWAM.  NWAM is more than DHCP, because NWAM automatically configures any new interfaces, while the above way to manually setup DHCP is fixed for a specific interface.</p>
+<p>If you do not know what the interface name is (bge0 in this case); then type in</p>
+<pre><code class="bash">$ dladm show-link
+</code></pre>
+
+<p>or:</p>
+<pre><code class="bash">$ kstat -c net | grep net
+
+# look for hme0, bge0, e1000g0 or soemthing that resembles the driver in use.
+</code></pre>
+
+<p>Add gateway</p>
+<pre><code class="bash"># route -p add default 192.168.1.121
+</code></pre>
+
+<p>or</p>
+<pre><code class="bash"># nano /etc/defaultrouter
+
+# Enter in your gateways IP
+</code></pre>
+
+<p>or use the /etc/sysding.conf file to configure a default router and DNS servers.</p>
+<p>Set DNS server(s)</p>
+<pre><code class="bash"># nano /etc/resolv.conf
+
+# Enter in the DNS server IP(s)
+nameserver 192.168.1.121
+</code></pre>
+
+<p>or</p>
+<pre><code class="bash">
+# echo &quot;nameserver 192.168.1.121&quot; &gt;&gt; /etc/resolv.conf
+
+</code></pre>
+
+<p>Restart</p>
+<pre><code class="bash"># reboot
+</code></pre>
+
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+IF you cannot ping an external IP (e.g. google.com) run this command and try again.
+</div></p>
+<pre><code class="bash"># cp /etc/nsswitch.dns /etc/nsswitch.conf
+</code></pre>
+
+<p>credit for this section of the docs go to <a href="https://www.reddit.com/user/127b">/u/127b</a></p>
+<h3 id="more-on-automatic-configuration-nwam">More on Automatic Configuration (NWAM)</h3>
+<p>The following is a more in depth discussion of NWAM, which normally works without any user interaction, but NWAM can be customized using profiles by the user.</p>
+<h4 id="using-nwam-configuration-tools">Using NWAM configuration tools</h4>
+<p>Usually NWAM configuration is done via GUI <code>nwam-manager</code> applet and <code>nwam-manager-properties</code> program.</p>
+<p>From CLI all configuration can be done using two tools, <code>nwamcfg</code> to configure network profiles and <code>nwamadm</code> to manage them.</p>
+<p>On its backend, NWAM relies on <code>nwamd</code>, the NWAM policy engine daemon and <code>netcfgd</code>, the NWAM repository daemon.</p>
+<p>Access to the command line and GUI tools is controlled via security profiles 'Network Autoconf Admin' and 'Network Autoconf user'.</p>
+<p>To create NWAM profile use <code>nwamcfg</code> tool.</p>
+<pre><code># nwamcfg
+nwamcfg&gt; create ncp Abroad
+nwamcfg:ncp:Abroad&gt; end
+</code></pre>
+
+<p>Now you can see a new profile in the list of NCPs:</p>
+<pre><code>nwamcfg&gt; list
+NCPs:
+Abroad
+Automatic
+Locations:
+Automatic
+NoNet
+User
+nwamcfg&gt;
+</code></pre>
+
+<p>The network interface to be managed under the new profile can be set and configured with <code>create ncu</code> command:</p>
+<pre><code># nwamcfg
+nwamcfg&gt; select ncp Abroad
+nwamcfg:ncp:Abroad&gt; create ncu phys e1000g0
+Created ncu 'e1000g0'. Walking properties ...
+activation-mode (manual) [manual|prioritized]&gt; prioritized
+enabled (true) [true|false]&gt;
+priority-group&gt; 0
+priority-mode [exclusive|shared|all]&gt; exclusive
+link-mac-addr&gt;
+link-autopush&gt;
+link-mtu&gt;
+nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
+</code></pre>
+
+<p>Most important here is the <code>activation-mode</code>, which states if the profile is to be automatically set based on certain policies or if it is to be manually set using nwamadm.
+The latter should be most likely the case in a server environment.
+The <code>priority-group</code> and <code>priority-mode</code> here are set to (0 / exclusive).
+This says that the profile is for wired access and will always be the only active one at a time.</p>
+<p>If after listing the changes you are satisfied with the configuration, permanently store it using <code>commit</code> command:</p>
+<pre><code>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; list
+ncu:e1000g0
+ type link
+ class phys
+ parent &quot;Abroad&quot;
+ activation-mode prioritized
+ enabled true
+ priority-group 0
+ priority-mode exclusive
+nwamcfg:ncp:Abroad:ncu:e1000g0&gt; commit
+Committed changes
+nwamcfg:ncp:Abroad:ncu:e1000g0&gt; end
+</code></pre>
+
+<p>After an interface has been assigned to the profile, its IP configuration has to be defined:</p>
+<pre><code>nwamcfg:ncp:Abroad&gt; create ncu ip e1000g0
+Created ncu 'e1000g0'. Walking properties ...
+enabled (true) [true|false]&gt;
+ip-version (ipv4,ipv6) [ipv4|ipv6]&gt; ipv4
+ipv4-addrsrc (dhcp) [dhcp|static]&gt; static
+ipv4-addr&gt; 192.168.100.100
+ipv4-default-route&gt; 192.168.100.1
+nwamcfg:ncp:Abroad:ncu:e1000g0&gt; list
+ncu:e1000g0
+ type interface
+ class ip
+ parent &quot;Abroad&quot;
+ enabled true
+ ip-version ipv4
+ ipv4-addrsrc static
+ ipv4-addr &quot;192.168.100.100&quot;
+ ipv4-default-route &quot;192.168.100.1&quot;
+ ipv6-addrsrc dhcp,autoconf
+nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
+</code></pre>
+
+<p>As you can see, the profile uses a static IP address and, for simplicity reasons, only provides IPv4 networking.
+Again, if you're happy with the results, commit them.</p>
+<pre><code>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; commit
+Committed changes
+nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
+</code></pre>
+
+<p>As it stands, now you have defined a pysical and ip layer attached to a network profile:</p>
+<pre><code>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; end
+nwamcfg:ncp:Abroad&gt; list
+NCUs:
+ phys e1000g0
+ ip e1000g0
+nwamcfg:ncp:Abroad&gt;exit
+</code></pre>
+
+<p>To activate the profile, you use nwamadm.
+First of all, check for the current situation:</p>
+<pre><code># nwamadm list
+TYPE     PROFILE    STATE
+ncp      Abroad     disabled
+ncp      Automatic  online
+ncu:phys e1000g0    online
+ncu:ip   e1000g0    online
+loc      Automatic  online
+loc      NoNet      offline
+loc      User       disabled
+</code></pre>
+
+<p>As you can see, Automatic is the active profile while Abroad is currently disabled.
+We can change that easily, but be aware that you might lock yourself out if you are connected via SSH when changing the profile!</p>
+<pre><code># nwamadm enable -p ncp Abroad
+Enabling ncp 'Abroad'
+</code></pre>
+
+<p>To check if the change has worked, you can use nwam again, and also ifconfig should show that interface is up:</p>
+<pre><code># nwamadm list
+TYPE PROFILE STATE
+ncp Abroad online
+ncu:phys e1000g0 online
+ncu:ip e1000g0 online
+ncp Automatic disabled
+loc Automatic online
+loc NoNet offline
+loc User disabled
+</code></pre>
+
+<pre><code># ifconfig e1000g0
+e1000g0: flags=1000843&lt;UP,BROADCAST,RUNNING,MULTICAST,IPv4&gt; mtu 1500 index 8
+inet 192.168.100.100 netmask ffffff00 broadcast 192.168.100.255
+ether 0:c:29:56:46:73
+</code></pre>
+
+<p>If you want to revert to default <code>Automatic</code> ncp, use the following command:</p>
+<pre><code># nwamadm enable -p ncp Automatic
+</code></pre>
+
+<p>Although it is possible to directly modify profiles using an editor, it is not advisable and will be hardly necessary, anyway.
+One of the coolest features of NWAM tools is that they can be completely scripted.
+All steps above could also be put in one line:</p>
+<pre><code># nwamcfg &quot;create ncp Abroad;create ncu phys e1000g0;set activation-mode=manual;set enabled=true;set priority-group=0;set priority-mode=exclusive;end;create ncu ip e1000g0;set enabled=true;set ip-version=ipv4;set ipv4-addrsrc=static;set ipv4-addr=192.168.100.100;set ipv4-default-route=192.168.100.1;commit&quot;
+</code></pre>
+
+<p>Or, more nicely formatted, commented and stored in a file:</p>
+<pre><code>#
+# Profile for use on the road
+#
+# Created on 13/01/2013 by S. Mueller-Wilken
+#
+create ncp Abroad
+
+# Create physical interface definition for 1st network card
+create ncu phys e1000g0
+set activation-mode=manual
+set enabled=true
+set priority-group=0
+set priority-mode=exclusive
+end
+
+# Create IP configuration for first network card
+create ncu ip e1000g0
+set enabled=true
+set ip-version=ipv4
+set ipv4-addrsrc=static
+set ipv4-addr=192.168.100.100
+set ipv4-default-route=192.168.100.1
+
+# Commit the settings
+commit
+</code></pre>
+
+<p>This file can then be read by nwamcfg:</p>
+<pre><code># nwamcfg -f abroad.cfg
+Configuration read.
+</code></pre>
+
+<p>While there is no longer a need to fiddle around in /etc/nwam, the configuration is still completely there, as can be easily verified:</p>
+<pre><code># ls /etc/nwam
+loc loc.conf ncp-Abroad.conf ncp-Automatic.conf
+</code></pre>
+
+<p>All configuration is placed in readable ASCII files so that configuration from a global zone is possible:</p>
+<pre><code># cat /etc/nwam/ncp-Abroad.conf
+link:e1000g0 type=uint64,0;class=uint64,0;parent=string,Abroad;enabled=boolean,true;activation-mode=uint64,4;priority-group=uint64,0;priority-mode=uint64,0;
+interface:e1000g0 type=uint64,1;class=uint64,1;parent=string,Abroad;enabled=boolean,true;ipv6-addrsrc=uint64,0,1;ip-version=uint64,4;ipv4-addrsrc=uint64,2;ipv4-default-route=string,192.168.100.1;ipv4-addr=string,192.168.100.100;
+</code></pre>
+
+<h4 id="network-automagic-online-help">Network automagic online help</h4>
+<p>Comprehensive and fully illustrated online help for using NWAM is available by right clicking the NWAM tray icon and selecting <em>Help</em>.
+This opens help browser.</p>
+<h4 id="troubleshooting-nwam">Troubleshooting NWAM</h4>
+<p>If NWAM is already configured and fails to connect to a wireless network try restarting the service.</p>
+<p>For example:</p>
+<pre><code class="bash"># svcadm restart nwam
+</code></pre>
+
+<p>Sometimes the location gets set to <em>NoNet</em> and it's nessessary to manually change the location to <em>Automatic</em>.</p>
+<p>When the location setting is configured to <em>Switch Locations Automatically</em>, it's not possible to change the location.
+This is resolved by reconfiguring the location to allow manual switching.
+To perform this task, do the following:</p>
+<p>Right click the NWAM tray icon and select <strong><em>Location</em> &gt; <em>Switch Locations Manually</em></strong>.
+Right click the NWAM tray icon and select <strong><em>Location</em> &gt; <em>Automatic</em></strong>.</p>
+<h2 id="clustering-with-open-ha-cluster">Clustering with Open HA Cluster</h2>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<p>See old sun docs</p>
+<ul>
+<li><a href="http://docs.oracle.com/cd/E19735-01/">http://docs.oracle.com/cd/E19735-01/</a></li>
+</ul>
+<p>Also see:</p>
+<ul>
+<li><a href="http://zfs-create.blogspot.nl/">http://zfs-create.blogspot.nl/</a></li>
+</ul>
+</div></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

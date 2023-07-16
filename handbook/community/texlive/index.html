@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/handbook/community/texlive/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>TeX Live Typesetting Software Installation - OpenIndiana Docs</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li class="active">
+    <a href="./">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../squeak/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../vagrant/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/community/texlive.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#hipster-handbook-tex-live-typesetting-software">Hipster Handbook - TeX Live Typesetting Software</a></li>
+            <li><a href="#tex-live-tlmgr-management-tool">TeX Live tlmgr Management Tool</a></li>
+            <li><a href="#tex-live-cross-platform-installer">TeX Live Cross Platform Installer</a></li>
+            <li><a href="#tex-live-cross-platform-installer-main-menus">TeX Live Cross Platform Installer Main Menus</a></li>
+            <li><a href="#tex-live-package-manager-queries">TeX Live Package Manager Queries</a></li>
+            <li><a href="#tex-live-updating">TeX Live Updating</a></li>
+            <li><a href="#removing-tex-live">Removing TeX Live</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+ (the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+
+The Original Documentation is at https://tug.org/texlive/
+
+The Initial Writer of this Documentation is David Stes Copyright (C) 2021.
+All Rights Reserved. (https://sourceforge.net/u/stes/profile).
+
+Contributor(s): David Stes.
+
+-->
+
+<p><img src = "../../../Openindiana.png"></p>
+<h1 id="hipster-handbook-tex-live-typesetting-software">Hipster Handbook - TeX Live Typesetting Software</h1>
+<p>The following notes document the steps to install <a href="http://tug.org/texlive">TeX Live</a> on OpenIndiana Hipster and how to update it using the tlmgr TeX Live package management tool.</p>
+<p>To test a virtual machine running TeXLive on OpenIndiana, you can also run the texlive2021 example Vagrantfiles in the vagrantfiles repository :</p>
+<pre><code class="none">        # git clone https://github.com/openindiana/vagrantfiles
+</code></pre>
+
+<h2 id="tex-live-tlmgr-management-tool">TeX Live tlmgr Management Tool</h2>
+<p>The TeX Live Management Tool has both a command line interface and a GUI.  The GUI (tlmgr gui) uses Perl Tk and works on OpenIndiana.  The following screenshot illustrates tlmgr and the Opendiana MATE desktop :</p>
+<p><img alt="oi-tlmgr" src="../oi-tlmgr.png" /></p>
+<h2 id="tex-live-cross-platform-installer">TeX Live Cross Platform Installer</h2>
+<p>See the full TeX Live guide at <a href="http://tug.org/texlive/doc/texlive-en/texlive-en.html#installation">http://tug.org/texlive</a> for detailed information.</p>
+<p>Download the TeX Live Cross Platform Installer from <a href="http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz">http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz</a>.</p>
+<p>There is a script in this package, called install-tl.   The goal is to install TeX Live using the cross platform installer as follows :</p>
+<pre><code class="none">        # install-tl
+</code></pre>
+
+<p>Before doing so, create a special BE (Boot Environment) if you plan to install TeX Live as root (installing as non-root user is recommended by TeX Live).</p>
+<pre><code class="none">        # beadm create -a texlive
+</code></pre>
+
+<p>Alternatively create a snapshot of the BE to have a possibility to rollback.</p>
+<p>The install-tl script installs a utility called tlmgr, the package management utility for TeX Live and, in principle, tlmgr is able to remove (uninstall) a TeX Live installation:</p>
+<pre><code class="none">        # tlmgr remove --all
+        If you answer yes here the whole TeX Live installation here,
+        under /usr/texlive/2020, will be removed!
+        Remove TeX Live (y/N): y
+        Ok, removing the whole installation:
+</code></pre>
+
+<p>A snapshot of the old BE or a special BE for TeX Live, allows one to rollback to the situation before install without having to use tlmgr to uninstall.</p>
+<p>After rebooting into a new BE, run the perl installer script :</p>
+<pre><code class="none">        # install-tl --help
+</code></pre>
+
+<p>If you wish to use the TeX Live GUI, install the OpenIndiana Perl Tk package (the tk-perl IPS package is available on OpenIndiana release 2022 or higher) :</p>
+<pre><code class="none">        # pkg install -v tk-perl
+</code></pre>
+
+<p>Then run the TeX Live installer GUI as follows :</p>
+<pre><code class="none">        # install-tl --gui
+</code></pre>
+
+<p>The next section discusses the interactive mode of the install-tl script.</p>
+<h2 id="tex-live-cross-platform-installer-main-menus">TeX Live Cross Platform Installer Main Menus</h2>
+<p>The cross platform installer version 57337 of install-tl detects OpenIndiana as Solaris on Intel :</p>
+<pre><code class="none">./install-tl --version
+install-tl (TeX Live Cross Platform Installer) revision 57337
+TeX Live (https://tug.org/texlive) version 2020
+</code></pre>
+
+<p>The command to detect the platform is:</p>
+<pre><code class="none">./install-tl --print-arch
+i386-solaris
+</code></pre>
+
+<p>The main menus in interactive mode are :</p>
+<pre><code class="none">./install-tl
+Loading http://ctan.cs.uu.nl/systems/texlive/tlnet/tlpkg/texlive.tlpdb
+Installing TeX Live 2020 from: http://ctan.cs.uu.nl/systems/texlive/tlnet (verified)
+Platform: i386-solaris =&gt; 'Solaris on Intel x86'
+Distribution: net  (downloading)
+Using URL: http://ctan.cs.uu.nl/systems/texlive/tlnet
+Directory for temporary files: /tmp/eCcsGDKJWY
+======================&gt; TeX Live installation procedure &lt;=====================
+
+======&gt;   Letters/digits in &lt;angle brackets&gt; indicate   &lt;=======
+======&gt;   menu items for actions or customizations      &lt;=======
+
+ Detected platform: Solaris on Intel x86
+
+ &lt;B&gt; set binary platforms: 1 out of 16
+
+ &lt;S&gt; set installation scheme: scheme-full
+
+ &lt;C&gt; set installation collections:
+     40 collections out of 41, disk space required: 7130 MB
+
+ &lt;D&gt; set directories:
+   TEXDIR (the main TeX directory):
+     !! default location: /usr/local/texlive/2020
+
+ &lt;O&gt; options:
+   [ ] use letter size instead of A4 by default
+   [X] allow execution of restricted list of programs via \write18
+   [X] create all format files
+   [X] install macro/font doc tree
+   [X] install macro/font source tree
+   [ ] create symlinks to standard directories
+
+ &lt;V&gt; set up for portable installation
+
+Actions:
+ &lt;I&gt; start installation to hard disk
+ &lt;P&gt; save installation profile to 'texlive.profile' and exit
+ &lt;H&gt; help
+ &lt;Q&gt; quit
+
+Enter command:
+</code></pre>
+
+<p>To add the 64bit executables go into menu "B" :</p>
+<pre><code class="none">===============================================================================
+Available platforms:
+
+   a [ ] Cygwin on Intel x86 (i386-cygwin)
+   b [ ] Cygwin on x86_64 (x86_64-cygwin)
+   c [ ] MacOSX current (10.13-) on x86_64 (x86_64-darwin)
+   d [ ] MacOSX legacy (10.6-) on x86_64 (x86_64-darwinlegacy)
+   e [ ] FreeBSD on x86_64 (amd64-freebsd)
+   f [ ] FreeBSD on Intel x86 (i386-freebsd)
+   g [ ] GNU/Linux on ARM64 (aarch64-linux)
+   h [ ] GNU/Linux on ARMv6/RPi (armhf-linux)
+   i [ ] GNU/Linux on Intel x86 (i386-linux)
+   j [ ] GNU/Linux on x86_64 (x86_64-linux)
+   k [ ] GNU/Linux on x86_64 with musl (x86_64-linuxmusl)
+   l [ ] NetBSD on x86_64 (amd64-netbsd)
+   m [ ] NetBSD on Intel x86 (i386-netbsd)
+   o [X] Solaris on Intel x86 (i386-solaris)
+   p [ ] Solaris on x86_64 (x86_64-solaris)
+   s [ ] Windows (win32)
+</code></pre>
+
+<p>Select "p" to add Solaris on x86_64 for the TeX Live binaries for that architecture.</p>
+<p>TeX Live works with "schemes"; the basic scheme (TeX and latex) requires about 270 MB of space :</p>
+<pre><code class="none">===============================================================================
+Select scheme:
+
+ a [ ] full scheme (everything)
+ b [ ] medium scheme (small + more packages and languages)
+ c [ ] small scheme (basic + xetex, metapost, a few languages)
+ d [X] basic scheme (plain and latex)
+ e [ ] minimal scheme (plain only)
+ f [ ] ConTeXt scheme
+ g [ ] GUST TeX Live scheme
+ h [ ] infrastructure-only scheme (no TeX at all)
+ i [ ] teTeX scheme (more than medium, but nowhere near full)
+ j [ ] custom selection of collections
+
+Actions: (disk space required: 270 MB)
+ &lt;R&gt; return to main menu
+ &lt;Q&gt; quit
+</code></pre>
+
+<p>The default installation is going to /usr/local/texlive/2020, but in the Directories menu this can be changed :</p>
+<pre><code class="none">Directories customization:
+
+ &lt;1&gt; TEXDIR:         /usr/texlive/2020
+     main tree:      /usr/texlive/2020/texmf-dist
+
+ &lt;2&gt; TEXMFLOCAL:     /usr/texlive/texmf-local
+ &lt;3&gt; TEXMFSYSVAR:    /usr/texlive/2020/texmf-var
+ &lt;4&gt; TEXMFSYSCONFIG: /usr/texlive/2020/texmf-config
+ &lt;5&gt; TEXMFVAR:       ~/.texlive2020/texmf-var
+ &lt;6&gt; TEXMFCONFIG:    ~/.texlive2020/texmf-config
+ &lt;7&gt; TEXMFHOME:      ~/texmf
+</code></pre>
+
+<p>The installer can also create symbolic links such as /usr/bin/tex to the /usr/texlive/2020 binaries, as can be set in the Options menu :</p>
+<pre><code class="none">===============================================================================
+Options customization:
+
+ &lt;P&gt; use letter size instead of A4 by default: [ ]
+ &lt;E&gt; execution of restricted list of programs: [X]
+ &lt;F&gt; create all format files:                  [X]
+ &lt;D&gt; install font/macro doc tree:              [X]
+ &lt;S&gt; install font/macro source tree:           [X]
+ &lt;L&gt; create symlinks in standard directories:  [X]
+            binaries to: /usr/bin
+            manpages to: /usr/share/man
+                info to: /usr/share/info
+</code></pre>
+
+<h2 id="tex-live-package-manager-queries">TeX Live Package Manager Queries</h2>
+<p>After installation of TeX Live, it is possible to make queries on what is exactly installed :</p>
+<pre><code class="none"># tlmgr info schemes
+i scheme-basic: basic scheme (plain and latex)
+  scheme-context: ConTeXt scheme
+  scheme-full: full scheme (everything)
+  scheme-gust: GUST TeX Live scheme
+i scheme-infraonly: infrastructure-only scheme (no TeX at all)
+  scheme-medium: medium scheme (small + more packages and languages)
+i scheme-minimal: minimal scheme (plain only)
+  scheme-small: small scheme (basic + xetex, metapost, a few languages)
+  scheme-tetex: teTeX scheme (more than medium, but nowhere near full)
+</code></pre>
+
+<p>The above output shows that scheme-minimal, scheme-infraonly and scheme-basic were installed.</p>
+<p>New updates can be retrieved from the repository.  Unless a special repository was used during installation (with the --repository switch for install-tl), the output of the default package repository can be something like :</p>
+<pre><code class="none"># tlmgr option repository
+Default package repository (repository): http://ctan.cs.uu.nl/systems/texlive/tlnet
+</code></pre>
+
+<p>Information on specific packages can be obtained with tlmgr :</p>
+<pre><code class="none"># tlmgr info babel
+package:     babel
+category:    Package
+shortdesc:   Multilingual support for Plain TeX or LaTeX
+longdesc:    This package manages culturally-determined typographical (and other) rules for a wide range of languages. A document may select a single language to be supported, or it may select several, in which case the document may switch from one language to another in a variety of ways. Babel uses contributed configuration files that provide the detail of what has to be done for each language. Included is also a set of ini files for about 200 languages. Many language styles work with pdfLaTeX, as well as with XeLaTeX and LuaLaTeX, out of the box. A few even work with plain formats.
+installed:   Yes
+revision:    57530
+sizes:       src: 1469k, doc: 809k, run: 3729k
+relocatable: No
+cat-version: 3.53
+cat-license: lppl1.3
+cat-topics:  multilingual
+cat-related: polyglossia
+cat-contact-repository: https://github.com/latex3/babel
+cat-contact-bugs: https://github.com/latex3/babel/issues
+collection:  collection-latex
+</code></pre>
+
+<h2 id="tex-live-updating">TeX Live Updating</h2>
+<p>Suppose that you have installed a version of TeX Live from a specific date :</p>
+<pre><code class="none"># ./install-tl --repository https://texlive.info/tlnet-archive/2020/12/28/tlnet/
+</code></pre>
+
+<p>After installation, you have TeX Live from December 28, 2020.</p>
+<p>It is possible then to change the repository and update to the latest version.</p>
+<pre><code class="none"># tlmgr option repository https://texlive.info/tlnet-archive/2021/01/28/tlnet
+tlmgr: setting default package repository to https://texlive.info/tlnet-archive/2021/01/28/tlnet
+tlmgr: updating /usr/texlive/2020/tlpkg/texlive.tlpdb
+</code></pre>
+
+<p>To update the packages of TeX Live to the default repository :</p>
+<pre><code class="none"># tlmgr update --all
+</code></pre>
+
+<p>The TeX Live package management tool has its own mechanism of making backups:</p>
+<pre><code class="none">/usr/texlive/2020/tlpkg/backups
+</code></pre>
+
+<h2 id="removing-tex-live">Removing TeX Live</h2>
+<p>In principle, tlmgr is able to remove (uninstall) a TeX Live installation:</p>
+<pre><code class="none">        # tlmgr remove --all
+        If you answer yes here the whole TeX Live installation here,
+        under /usr/texlive/2020, will be removed!
+        Remove TeX Live (y/N): y
+        Ok, removing the whole installation:
+</code></pre>
+
+<p>If you have made a BE (boot environment) from before the TeX Live installation you can also rollback to an older BE as an alternative to uninstalling the software with tlmgr.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

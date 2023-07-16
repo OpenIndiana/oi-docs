@@ -1,0 +1,2542 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/dev/graphics-stack/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Graphics stack - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li class="active">
+    <a href="./">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../legacy-consolidations/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../pdf/ips-dev-guide.pdf">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/dev/graphics-stack.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#graphics-stack">Graphics stack</a></li>
+            <li><a href="#xorg">Xorg</a></li>
+            <li><a href="#mesa">Mesa</a></li>
+            <li><a href="#fonts">Fonts</a></li>
+            <li><a href="#nvidia">Nvidia</a></li>
+            <li><a href="#gfx-drm">gfx-drm</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is Aurelien Larcher 2017.
+All Rights Reserved.
+
+Portions created by Ken Mays are Copyright (C) 2017.
+Portions created by Alexander Pyhalov are Copyright (C) 2019.
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="graphics-stack">Graphics stack</h1>
+<p>Like most UNIX/Linux operating systems, OpenIndiana's GUI environment is based on
+the X Window System bundled with libraries and applications developed by
+the <a href="https://www.freedesktop.org/">freedesktop.org</a> community.</p>
+<p>Therefore the Graphic Stack is comprised of:
+* the opensource X11 display server Xorg, client libraries and utilities developed by the <a href="https://www.x.org/">X.org Project</a>,
+* an OpenGL implementation in the form of the opensource <a href="https://www.mesa3d.org/">Mesa</a> library,
+* and illumos kernel drivers for different graphics adapters provided by the <a href="https://github.com/illumos/gfx-drm">gfx-drm</a> gate,
+* together with the <a href="https://gitlab.freedesktop.org/mesa/drm">libdrm</a> implementing communication between kernel drivers and user-space components through the Direct Rendering Infrastructure (DRI) protocol.</p>
+<p>All these components can be installed using the unified build system <a href="https://github.com/OpenIndiana/oi-userland">oi-userland</a> or simply installed from the package repositories.</p>
+<p>Notes concerning different components are provided:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#Xorg">Xorg</a></td>
+<td>Building the Xorg display server, protocol headers, client libraries and applications.</td>
+</tr>
+<tr>
+<td><a href="#Mesa">Mesa</a></td>
+<td>Building the Mesa library and testing OpenGL capabilities.</td>
+</tr>
+<tr>
+<td><a href="#Fonts">Fonts</a></td>
+<td>Packaging new fonts for OpenIndiana.</td>
+</tr>
+<tr>
+<td><a href="#Nvidia">Nvidia</a></td>
+<td>Installation of Nvidia's proprietary graphics driver for Solaris.</td>
+</tr>
+<tr>
+<td><a href="#gfx-drm">gfx-drm</a></td>
+<td>Building the illumos KMS drivers and libdrm from the gfx-drm gate.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="xorg">Xorg</h2>
+<p>All the Xorg components are build in oi-userland and located in the x11 directory:</p>
+<p><a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/x11">https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/x11</a></p>
+<p>A bogus component is provided to rebuild the X11 gate:
+<a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/x11/x11-gate">https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/x11/x11-gate</a></p>
+<p>The upstream Solaris code is located at:</p>
+<p><a href="https://github.com/oracle/solaris-userland/tree/master/components/x11">https://github.com/oracle/solaris-userland/tree/master/components/x11</a></p>
+<h2 id="mesa">Mesa</h2>
+<p>To build Mesa use the <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/x11/mesa">x11/mesa</a> component.</p>
+<h2 id="fonts">Fonts</h2>
+<p>Font components in oi-userland are located in the <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/fonts">components/fonts</a> directory.</p>
+<h2 id="nvidia">Nvidia</h2>
+<p>Nvidia provides Solaris x86-64/x86 packages of their proprietary driver for different families of graphic adapters.</p>
+<p>The Nvidia driver shipped with OpenIndiana is built using openindiana/nvidia-XXX <a href="https://github.com/OpenIndiana/oi-userland/tree/oi/hipster/components/openindiana/nvidia-470">e.g. openindiana/nvidia-470</a> component.</p>
+<p>The list of currently supported and legacy drivers is updated on the <a href="https://www.nvidia.com/object/unix.html">Unix Drivers</a> page.</p>
+<table>
+<thead>
+<tr>
+<th>Series</th>
+<th>Label</th>
+<th>Models</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>430.xx</td>
+<td>Current long lived branch</td>
+<td>Quadro RTX 4000-8000, Quadro, Quadro Blade, Quadro NVS, NVS</td>
+<td></td>
+</tr>
+<tr>
+<td>415.xx</td>
+<td>Current short lived branch</td>
+<td>Quadro RTX 4000-6000, Quadro, Quadro Blade, Quadro NVS, NVS</td>
+<td></td>
+</tr>
+<tr>
+<td>396.xx</td>
+<td>Legacy GPU</td>
+<td>GeForce 400 to Geforce GTX 10</td>
+<td>Driver 396.24</td>
+</tr>
+<tr>
+<td>340.xx</td>
+<td>Legacy GPU</td>
+<td>GeForce 8 to GeForce 700 series</td>
+<td>Driver 340.106 ; Delivers libvdpau as part of the package.</td>
+</tr>
+<tr>
+<td>304.xx</td>
+<td>Legacy GPU</td>
+<td>GeForce 6 to GeForce 600 series</td>
+<td>Driver 304.137</td>
+</tr>
+</tbody>
+</table>
+<p>The drivers series 340.xx, 390.xx, and 490.xx are currently part of oi-userland, others may be installed manually following Nvidia's instructions.</p>
+<p>The 390.xx drivers are current default.</p>
+<p>Note on switching driver versions</p>
+<pre><code># beadm create nvidia-460
+# beadm mount nvidia-460 /tmp/nvidia-460
+# pkg -R /tmp/nvidia-460 uninstall xorg-video nvidia nvidia-390
+# pkg -R /tmp/nvidia-460 install nvidia-460
+# beadm activate nvidia-460
+# init 6
+</code></pre>
+
+<p>Note on manual driver installations:</p>
+<pre><code># beadm create oi-nvidia
+# beadm mount oi-nvidia /mnt
+# pkg -R /mnt uninstall x11/server/xorg/driver/xorg-video driver/graphics/nvidia
+# /bin/sh NVIDIA-Solaris-x86-390.48.run --extract-only
+# cd NVIDIA-Solaris-x86-390.48
+# pkgadd -R /mnt -d . NVDAgraphics NVDAgraphicsr
+# bootadm update-archive -R /mnt
+# beadm unmount -f oi-nvidia
+# beadm activate oi-nvidia
+# init 6
+</code></pre>
+
+<h2 id="gfx-drm">gfx-drm</h2>
+<p>The gfx-drm gate consists of different kernel components for support of various graphic adapters in the illumos and the Direct Rendering Infrastructure (DRI) library, libdrm.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>libdrm</td>
+<td>The library enables communication between kernel components and user-space libraries through the DRI protocol.</td>
+</tr>
+<tr>
+<td>agpart</td>
+<td>Kernel driver for the Graphics Address Remapping Table (GART) / Graphics Translation Table (GTT) support.</td>
+</tr>
+<tr>
+<td>header-drm</td>
+<td>System headers for DRM/KMS kernel drivers and user-space libraries.</td>
+</tr>
+<tr>
+<td>i915</td>
+<td>Intel KMS driver for Intel Graphics Media Accelerator (GMA) and Intel HD Graphics adapters.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="intel-kms-driver">Intel KMS driver</h3>
+<p>The xorg-video-intel package is the open-source 2D graphics driver for the X Window System as implemented by X.org. It supports a variety of Intel graphics chipsets including:</p>
+<ul>
+<li>i810/i810e/i810-dc100,i815,</li>
+<li>i830M,845G,852GM,855GM,865G,</li>
+<li>915G/GM,945G/GM/GME,946GZ</li>
+<li>G/GM/GME/Q965,</li>
+<li>G/Q33,G/Q35,G41,G/Q43,G/GM/Q45</li>
+<li>PineView-M (Atom N400 series)</li>
+<li>PineView-D (Atom D400/D500 series)</li>
+<li>Intel(R) HD Graphics,</li>
+<li>Intel(R) Iris(TM) Graphics,</li>
+<li>Intel(R) Iris(TM) Pro Graphics.</li>
+</ul>
+<p>Open source kernel driver(s) by Oracle:</p>
+<p><a href="https://github.com/oracle/solaris-userland/tree/master/components/x11/kernel/sun-src">https://github.com/oracle/solaris-userland/tree/master/components/x11/kernel/sun-src</a></p>
+<p>The relevant kernel code is located in drm and i915 subfolders.</p>
+<p>An illumos port of Oracle code is available here:</p>
+<p><a href="https://github.com/illumos/gfx-drm">https://github.com/illumos/gfx-drm</a></p>
+<p>Martin Bochnig, creator of OpenSXCE, initially backported the S12 driver to illumos available in oi-userland until December 20, 2016.</p>
+<p>It was then superseeded by the new gate providing improvements to the gfx_private interface and agpgart driver, as well as containing userland libraries used by graphics, like libdrm.</p>
+<h4 id="references">References</h4>
+<p>Alan Coopersmith pointed to the following documents regarding DRI/KMS:</p>
+<ul>
+<li><a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=Solaris-DRM-KMS-2015">http://www.phoronix.com/scan.php?page=news_item&amp;px=Solaris-DRM-KMS-2015</a></li>
+<li><a href="http://www.x.org/wiki/Events/XDC2015/Program/#Fishel_status_drm_i915_solaris">http://www.x.org/wiki/Events/XDC2015/Program/#Fishel_status_drm_i915_solaris</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Direct_Rendering_Manager">https://en.wikipedia.org/wiki/Direct_Rendering_Manager</a></li>
+<li><a href="http://dri.freedesktop.org/wiki/">http://dri.freedesktop.org/wiki/</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/kernel_mode_setting">https://wiki.archlinux.org/index.php/kernel_mode_setting</a></li>
+<li><a href="https://web.archive.org/web/20170711030533/http://lanyrd.com/topics/x-window-system/">https://web.archive.org/web/20170711030533/http://lanyrd.com/topics/x-window-system/</a></li>
+</ul>
+<p>Additionally, information about driver development:</p>
+<ul>
+<li><a href="https://01.org/linuxgraphics">https://01.org/linuxgraphics</a></li>
+<li><a href="http://dri.freedesktop.org/docs/drm/">http://dri.freedesktop.org/docs/drm/</a></li>
+<li><a href="http://blog.ffwll.ch/2013/01/i915gem-crashcourse-overview.html">http://blog.ffwll.ch/2013/01/i915gem-crashcourse-overview.html</a></li>
+<li>blog posts from the i915 Linux maintainer <a href="http://blog.ffwll.ch/">http://blog.ffwll.ch/</a></li>
+</ul>
+<h4 id="known-issues">Known Issues</h4>
+<h5 id="sna">SNA</h5>
+<p>SNA may cause segmentation faults if enabled. If so, just disable SNA and you can copy the attached 20-intel-uxa.conf to /etc/X11/xorg.conf.d/.</p>
+<p>For now UXA mode is set by default.</p>
+<h4 id="sandy-bridge-gt1">Sandy Bridge GT1</h4>
+<p>A hardware bug required implementing a workaround in the Intel ringbuffer implementation, occasional 1-2 second hangs may occur.</p>
+<h4 id="gen-8">Gen &gt;= 8</h4>
+<p>Generation 8 (and later) devices are not supported at all.
+They require Intel ringbuffer support, which is not implemented.</p>
+<h3 id="hardware-matrix">Hardware Matrix</h3>
+<p>Reference:</p>
+<ul>
+<li><a href="https://github.com/torvalds/linux/blob/master/include/drm/i915_pciids.h">https://github.com/torvalds/linux/blob/master/include/drm/i915_pciids.h</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_Intel_graphics_processing_units">https://en.wikipedia.org/wiki/List_of_Intel_graphics_processing_units</a></li>
+<li><a href="http://src.illumos.org/source/xref/gfx-drm/usr/src/uts/intel/io/i915/i915_drv.c#294">http://src.illumos.org/source/xref/gfx-drm/usr/src/uts/intel/io/i915/i915_drv.c#294</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Generation</th>
+<th>Family</th>
+<th>Codename</th>
+<th>PCI id</th>
+<th>Model</th>
+<th>i915 support</th>
+<th>xf86-video-intel support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2nd</td>
+<td>I830</td>
+<td>Almador</td>
+<td>0x3577</td>
+<td>I830M, I830MG</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>I845G</td>
+<td>Brookdale</td>
+<td>0x2562</td>
+<td>I845G, I845GL, I845GV</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>I85X</td>
+<td>Montara</td>
+<td>0x3582</td>
+<td>I855GM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>I85X</td>
+<td>Montara</td>
+<td>0x358e</td>
+<td>I855GM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>I865G</td>
+<td>Springdale</td>
+<td>0x2572</td>
+<td>I865G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>I915G</td>
+<td>Grantsdale</td>
+<td>0x2582</td>
+<td>I915G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>I915G</td>
+<td>Grantsdale</td>
+<td>0x258a</td>
+<td>E7221G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>I915GM</td>
+<td>Alviso</td>
+<td>0x2592</td>
+<td>I915GM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>I945G</td>
+<td>Lakeport</td>
+<td>0x2772</td>
+<td>I945G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>I945GM</td>
+<td>Calistoga</td>
+<td>0x27a2</td>
+<td>I945GM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>I945GM</td>
+<td>Calistoga</td>
+<td>0x27ae</td>
+<td>I945GME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>G33</td>
+<td>Bearlake</td>
+<td>0x29b2</td>
+<td>Q35G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>G33</td>
+<td>Bearlake</td>
+<td>0x29c2</td>
+<td>G33G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>G33</td>
+<td>Bearlake</td>
+<td>0x29d2</td>
+<td>Q33G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>PINEVIEW</td>
+<td>Pineview</td>
+<td>0xa001</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>PINEVIEW</td>
+<td>Pineview</td>
+<td>0xa011</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>I965G</td>
+<td>Lakeport</td>
+<td>0x2972</td>
+<td>I946GZ</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>I965G</td>
+<td>Bearlake</td>
+<td>0x2982</td>
+<td>G35G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>I965G</td>
+<td>Broadwater</td>
+<td>0x2992</td>
+<td>I965Q</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>I965G</td>
+<td>Broadwater</td>
+<td>0x29a2</td>
+<td>I965G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>I965GM</td>
+<td>Crestline</td>
+<td>0x2a02</td>
+<td>I965GM</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>I965GM</td>
+<td>Crestline</td>
+<td>0x2a12</td>
+<td>I965GME</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>GM45</td>
+<td>Cantiga</td>
+<td>0x2a42</td>
+<td>GM45G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>G45</td>
+<td>Eaglelake</td>
+<td>0x2e02</td>
+<td>IGDEG</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>G45</td>
+<td>Eaglelake</td>
+<td>0x2e12</td>
+<td>Q45G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>G45</td>
+<td>Eaglelake</td>
+<td>0x2e22</td>
+<td>G45G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>G45</td>
+<td>Eaglelake</td>
+<td>0x2e32</td>
+<td>G41G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>G45</td>
+<td>Eaglelake</td>
+<td>0x2e42</td>
+<td>B43G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4th</td>
+<td>G45</td>
+<td>Eaglelake</td>
+<td>0x2e92</td>
+<td>B43G.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5th</td>
+<td>IRONLAKE D</td>
+<td>Ironlake (Clarkdale)</td>
+<td>0x0042</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5th</td>
+<td>IRONLAKE M</td>
+<td>Ironlake (Arrandale)</td>
+<td>0x0046</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6th</td>
+<td>SANDY BRIDGE D</td>
+<td>Sandy Bridge</td>
+<td>0x0102</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6th</td>
+<td>SANDY BRIDGE D</td>
+<td>Sandy Bridge</td>
+<td>0x0112</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6th</td>
+<td>SANDY BRIDGE D</td>
+<td>Sandy Bridge</td>
+<td>0x0122</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6th</td>
+<td>SANDY BRIDGE D</td>
+<td>Sandy Bridge</td>
+<td>0x010A</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6th</td>
+<td>SANDY BRIDGE M</td>
+<td>Sandy Bridge</td>
+<td>0x0106</td>
+<td></td>
+<td>HW bug causes GPU hangs. Work-around in place, but one may see brief render delays.</td>
+<td></td>
+</tr>
+<tr>
+<td>6th</td>
+<td>SANDY BRIDGE M</td>
+<td>Sandy Bridge</td>
+<td>0x0116</td>
+<td></td>
+<td>HW bug causes GPU hangs. Work-around in place, but one may see brief render delays.</td>
+<td></td>
+</tr>
+<tr>
+<td>6th</td>
+<td>SANDY BRIDGE M</td>
+<td>Sandy Bridge</td>
+<td>0x0126</td>
+<td></td>
+<td>HW bug causes GPU hangs. Work-around in place, but one may see brief render delays.</td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>IVY BRIDGE M</td>
+<td>Ivy Bridge</td>
+<td>0x0156</td>
+<td>GT1 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>IVY BRIDGE M</td>
+<td>Ivy Bridge</td>
+<td>0x0166</td>
+<td>GT2 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>IVY BRIDGE D</td>
+<td>Ivy Bridge</td>
+<td>0x0152</td>
+<td>GT1 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>IVY BRIDGE D</td>
+<td>Ivy Bridge</td>
+<td>0x0162</td>
+<td>GT2 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>IVY BRIDGE D</td>
+<td>Ivy Bridge</td>
+<td>0x015a</td>
+<td>GT1 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>IVY BRIDGE D</td>
+<td>Ivy Bridge</td>
+<td>0x016a</td>
+<td>GT2 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0402</td>
+<td>GT1 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0412</td>
+<td>GT2 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0422</td>
+<td>GT3 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x040a</td>
+<td>GT1 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x041a</td>
+<td>GT2 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x042a</td>
+<td>GT3 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x040B</td>
+<td>GT1 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x041B</td>
+<td>GT2 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x042B</td>
+<td>GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x040E</td>
+<td>GT1 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x041E</td>
+<td>GT2 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x042E</td>
+<td>GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C02</td>
+<td>SDV GT1 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C12</td>
+<td>SDV GT2 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C22</td>
+<td>SDV GT3 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C0A</td>
+<td>SDV GT1 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C1A</td>
+<td>SDV GT2 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C2A</td>
+<td>SDV GT3 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C0B</td>
+<td>SDV GT1 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C1B</td>
+<td>SDV GT2 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C2B</td>
+<td>SDV GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C0E</td>
+<td>SDV GT1 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C1E</td>
+<td>SDV GT2 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0C2E</td>
+<td>SDV GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A02</td>
+<td>ULT GT1 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A12</td>
+<td>ULT GT2 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A22</td>
+<td>ULT GT3 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A0A</td>
+<td>ULT GT1 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A1A</td>
+<td>ULT GT2 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A2A</td>
+<td>ULT GT3 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A0B</td>
+<td>ULT GT1 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A1B</td>
+<td>ULT GT2 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0A2B</td>
+<td>ULT GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D02</td>
+<td>CRW GT1 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D12</td>
+<td>CRW GT2 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D22</td>
+<td>CRW GT3 desktop</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D0A</td>
+<td>CRW GT1 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D1A</td>
+<td>CRW GT2 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D2A</td>
+<td>CRW GT3 server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D0B</td>
+<td>CRW GT1 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D1B</td>
+<td>CRW GT2 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D2B</td>
+<td>CRW GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D0E</td>
+<td>CRW GT1 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D1E</td>
+<td>CRW GT2 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL D</td>
+<td>Haswell</td>
+<td>0x0D2E</td>
+<td>CRW GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0406</td>
+<td>GT1 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0416</td>
+<td>GT2 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0426</td>
+<td>GT2 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0C06</td>
+<td>SDV GT1 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0C16</td>
+<td>SDV GT2 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0C26</td>
+<td>SDV GT3 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0A06</td>
+<td>ULT GT1 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0A16</td>
+<td>ULT GT2 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0A26</td>
+<td>ULT GT3 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0A0E</td>
+<td>ULX GT1 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0A1E</td>
+<td>ULX GT2 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0A2E</td>
+<td>ULT GT3 reserved</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0D06</td>
+<td>CRW GT1 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0D16</td>
+<td>CRW GT2 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>HASWELL M</td>
+<td>Haswell</td>
+<td>0x0D26</td>
+<td>CRW GT3 mobile</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>VALLEY VIEW M</td>
+<td>Valley View (Bay Trail)</td>
+<td>0x0f30</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>VALLEY VIEW M</td>
+<td>Valley View (Bay Trail)</td>
+<td>0x0f31</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>VALLEY VIEW M</td>
+<td>Valley View (Bay Trail)</td>
+<td>0x0f32</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>VALLEY VIEW M</td>
+<td>Valley View (Bay Trail)</td>
+<td>0x0f33</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>VALLEY VIEW M</td>
+<td>Valley View (Bay Trail)</td>
+<td>0x0157</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7th</td>
+<td>VALLEY VIEW D</td>
+<td>Valley View (Bay Trail)</td>
+<td>0x0155</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x1602</td>
+<td>GT1 ULT</td>
+<td>Gen &gt;=8 <strong>NOT</strong> supported at all.</td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x1606</td>
+<td>GT1 ULT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x160B</td>
+<td>GT1 Iris</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x160E</td>
+<td>GT1 ULX</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x1612</td>
+<td>GT2 Halo</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x1616</td>
+<td>GT2 ULT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x161B</td>
+<td>GT2 ULT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12M</td>
+<td>Broadwell</td>
+<td>0x161E</td>
+<td>GT2 ULX</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12D</td>
+<td>Broadwell</td>
+<td>0x160A</td>
+<td>GT1 Server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12D</td>
+<td>Broadwell</td>
+<td>0x160D</td>
+<td>GT1 Workstation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12D</td>
+<td>Broadwell</td>
+<td>0x161A</td>
+<td>GT2 Server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT12D</td>
+<td>Broadwell</td>
+<td>0x161D</td>
+<td>GT2 Workstation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT3M</td>
+<td>Broadwell</td>
+<td>0x1622</td>
+<td>GT3 ULT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT3M</td>
+<td>Broadwell</td>
+<td>0x1626</td>
+<td>GT3 ULT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT3M</td>
+<td>Broadwell</td>
+<td>0x162B</td>
+<td>GT3 Iris</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT3M</td>
+<td>Broadwell</td>
+<td>0x162E</td>
+<td>GT3 ULX</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT3D</td>
+<td>Broadwell</td>
+<td>0x162A</td>
+<td>GT3 Server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL GT3D</td>
+<td>Broadwell</td>
+<td>0x162D</td>
+<td>GT3 Workstation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL RSVDM</td>
+<td>Broadwell</td>
+<td>0x1632</td>
+<td>ULT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL RSVDM</td>
+<td>Broadwell</td>
+<td>0x1636</td>
+<td>ULT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL RSVDM</td>
+<td>Broadwell</td>
+<td>0x163B</td>
+<td>Iris</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL RSVDM</td>
+<td>Broadwell</td>
+<td>0x163E</td>
+<td>ULX</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL RSVDD</td>
+<td>Broadwell</td>
+<td>0x163A</td>
+<td>Server</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>BROADWELL RSVDD</td>
+<td>Broadwell</td>
+<td>0x163D</td>
+<td>Workstation</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>CHERRY VIEW</td>
+<td>Cherry View (Braswell, Cherry Trail)</td>
+<td>0x22b0</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>CHERRY VIEW</td>
+<td>Cherry View (Braswell, Cherry Trail)</td>
+<td>0x22b1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>CHERRY VIEW</td>
+<td>Cherry View (Braswell, Cherry Trail)</td>
+<td>0x22b2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8th</td>
+<td>CHERRY VIEW</td>
+<td>Cherry View (Braswell, Cherry Trail)</td>
+<td>0x22b3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT1</td>
+<td>Skylake</td>
+<td>0x1906</td>
+<td>ULT GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT1</td>
+<td>Skylake</td>
+<td>0x190E</td>
+<td>ULX GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT1</td>
+<td>Skylake</td>
+<td>0x1902</td>
+<td>DT  GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT1</td>
+<td>Skylake</td>
+<td>0x190B</td>
+<td>Halo GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT1</td>
+<td>Skylake</td>
+<td>0x190A</td>
+<td>SRV GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT2</td>
+<td>Skylake</td>
+<td>0x1916</td>
+<td>ULT GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT2</td>
+<td>Skylake</td>
+<td>0x1921</td>
+<td>ULT GT2F</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT2</td>
+<td>Skylake</td>
+<td>0x191E</td>
+<td>ULX GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT2</td>
+<td>Skylake</td>
+<td>0x1912</td>
+<td>DT  GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT2</td>
+<td>Skylake</td>
+<td>0x191B</td>
+<td>Halo GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT2</td>
+<td>Skylake</td>
+<td>0x191A</td>
+<td>SRV GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT2</td>
+<td>Skylake</td>
+<td>0x191D</td>
+<td>WKS GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT3</td>
+<td>Skylake</td>
+<td>0x1923</td>
+<td>ULT GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT3</td>
+<td>Skylake</td>
+<td>0x1926</td>
+<td>ULT GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT3</td>
+<td>Skylake</td>
+<td>0x1927</td>
+<td>ULT GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT3</td>
+<td>Skylake</td>
+<td>0x192B</td>
+<td>Halo GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT3</td>
+<td>Skylake</td>
+<td>0x192A</td>
+<td>SRV GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT4</td>
+<td>Skylake</td>
+<td>0x1932</td>
+<td>DT GT4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT4</td>
+<td>Skylake</td>
+<td>0x193B</td>
+<td>Halo GT4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT4</td>
+<td>Skylake</td>
+<td>0x193D</td>
+<td>WKS GT4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>SKYLAKE GT4</td>
+<td>Skylake</td>
+<td>0x193A</td>
+<td>SRV GT4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>BROXTON</td>
+<td>Goldmont (Apollo Lake)</td>
+<td>0x0A84</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>BROXTON</td>
+<td>Goldmont (Apollo Lake)</td>
+<td>0x1A84</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>BROXTON</td>
+<td>Goldmont (Apollo Lake)</td>
+<td>0x1A85</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>BROXTON</td>
+<td>Goldmont (Apollo Lake)</td>
+<td>0x5A84</td>
+<td>APL HD Graphics 505</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>BROXTON</td>
+<td>Goldmont (Apollo Lake)</td>
+<td>0x5A85</td>
+<td>APL HD Graphics 500</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x5913</td>
+<td>ULT GT1.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x5915</td>
+<td>ULX GT1.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x5917</td>
+<td>DT  GT1.5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x5906</td>
+<td>ULT GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x590E</td>
+<td>ULX GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x5902</td>
+<td>DT  GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x5908</td>
+<td>Halo GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x590B</td>
+<td>Halo GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT1</td>
+<td>Kaby Lake</td>
+<td>0x590A</td>
+<td>SRV GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT2</td>
+<td>Kaby Lake</td>
+<td>0x5916</td>
+<td>ULT GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT2</td>
+<td>Kaby Lake</td>
+<td>0x5921</td>
+<td>ULT GT2F</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT2</td>
+<td>Kaby Lake</td>
+<td>0x591E</td>
+<td>ULX GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT2</td>
+<td>Kaby Lake</td>
+<td>0x5912</td>
+<td>DT  GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT2</td>
+<td>Kaby Lake</td>
+<td>0x591B</td>
+<td>Halo GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT2</td>
+<td>Kaby Lake</td>
+<td>0x591A</td>
+<td>SRV GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT2</td>
+<td>Kaby Lake</td>
+<td>0x591D</td>
+<td>WKS GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT3</td>
+<td>Kaby Lake</td>
+<td>0x5923</td>
+<td>ULT GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT3</td>
+<td>Kaby Lake</td>
+<td>0x5926</td>
+<td>ULT GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT3</td>
+<td>Kaby Lake</td>
+<td>0x5927</td>
+<td>ULT GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>KABY LAKE GT4</td>
+<td>Kaby Lake</td>
+<td>0x593B</td>
+<td>Halo GT4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E90</td>
+<td>GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E91</td>
+<td>DT GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E92</td>
+<td>DT GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E93</td>
+<td>GT1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E94</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E95</td>
+<td>GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E96</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3E9B</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3EA6</td>
+<td>GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3EA7</td>
+<td>GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>COFFEE LAKE</td>
+<td>Coffee Lake</td>
+<td>0x3EA8</td>
+<td>GT3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A52</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A5A</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A42</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A4A</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A51</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A59</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A41</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A49</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A71</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9th</td>
+<td>CANNON LAKE</td>
+<td>Cannon Lake</td>
+<td>0x5A79</td>
+<td>GT2</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-checkout-linux-drm-code-only">How to checkout Linux drm code only</h3>
+<pre><code class="bash">$ mkdir linux-drm
+$ cd linux-drm/
+$ git init
+$ git remote add origin https://github.com/freedesktop/drm-intel.git
+$ git config core.sparsecheckout true
+$ echo &quot;drivers/gpu/drm/*&quot; &gt;&gt; .git/info/sparse-checkout
+$ echo &quot;include/drm/*&quot; &gt;&gt; .git/info/sparse-checkout
+$ git pull --depth=1 origin drm-intel-fixes
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

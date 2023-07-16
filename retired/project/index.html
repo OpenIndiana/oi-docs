@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/retired/project/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Project - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/retired/project.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#improving-the-openindiana-project">Improving the OpenIndiana Project</a></li>
+            <li><a href="#notes">NOTES:</a></li>
+            <li><a href="#governance-board">Governance Board</a></li>
+            <li><a href="#code-of-conduct">Code of Conduct</a></li>
+            <li><a href="#public-relations">Public Relations</a></li>
+            <li><a href="#3rd-party-websites">3rd party websites</a></li>
+            <li><a href="#hipster-news">Hipster News</a></li>
+            <li><a href="#download-mirrors">Download mirrors</a></li>
+            <li><a href="#package-submission-and-maintenance">Package submission and maintenance</a></li>
+            <li><a href="#os-modernizations">OS Modernizations</a></li>
+            <li><a href="#support-forum">Support forum</a></li>
+            <li><a href="#other-periodic-website-updates">Other Periodic Website Updates</a></li>
+            <li><a href="#software-wish-list-to-make-the-desktop-more-usable">Software wish list to make the desktop more usable</a></li>
+            <li><a href="#alternate-desktops">Alternate Desktops</a></li>
+            <li><a href="#audiovideo-editing">Audio/Video Editing</a></li>
+            <li><a href="#benchmarking-tools">Benchmarking tools</a></li>
+            <li><a href="#development-tools">Development tools</a></li>
+            <li><a href="#desktop-publishing">Desktop publishing</a></li>
+            <li><a href="#ebook-tools">Ebook Tools</a></li>
+            <li><a href="#file-backup">File Backup</a></li>
+            <li><a href="#file-sharing">File Sharing</a></li>
+            <li><a href="#file-storage">File Storage</a></li>
+            <li><a href="#graphics">Graphics</a></li>
+            <li><a href="#media-center">Media Center</a></li>
+            <li><a href="#password-manager">Password Manager</a></li>
+            <li><a href="#photography">Photography</a></li>
+            <li><a href="#systems-automation">Systems Automation</a></li>
+            <li><a href="#system-monitoring">System Monitoring</a></li>
+            <li><a href="#virtualization-openindiana-as-a-host">Virtualization - OpenIndiana as a Host</a></li>
+            <li><a href="#virtualization-openindiana-as-a-guest">Virtualization - OpenIndiana as a Guest</a></li>
+            <li><a href="#web-browsers">Web browsers</a></li>
+            <li><a href="#suggestions-for-improving-elements-of-the-distro-itself">Suggestions for improving elements of the distro itself</a></li>
+            <li><a href="#wiki-improvements">Wiki Improvements</a></li>
+            <li><a href="#wordpress-improvements">WordPress Improvements</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<h1 id="improving-the-openindiana-project">Improving the OpenIndiana Project</h1>
+<h4 id="notes">NOTES:</h4>
+<p>For expert community building guidance from a seasoned OpenSolaris veteran, see <a href="https://jimgrisanzio.wordpress.com/communities/">Jim Grisianzio's communities page</a>.</p>
+<h3 id="governance-board">Governance Board</h3>
+<p>At this time the OpenIndiana project does not have a formal governance board.
+Creating a formal governance board would help steer the OpenIndiana project.</p>
+<h3 id="code-of-conduct">Code of Conduct</h3>
+<p>At this time the OpenIndiana project does not have a formal code of conduct.
+Creating a formal code of conduct would be a healthy step towards ensuring harmony within the project.</p>
+<h3 id="public-relations">Public Relations</h3>
+<p>Public relations is an important aspect of project management, even if it's limited to updating 3rd party websites as to the current status of the project.</p>
+<h3 id="3rd-party-websites">3rd party websites</h3>
+<ul>
+<li>Distrowatch<ul>
+<li>For the next Distrowatch update, there is a mapping from DistroWatch to Hipster names:</li>
+<li><a href="http://hub.openindiana.ninja/?q#content/distrowatch-openindiana-hipster-packages">http://hub.openindiana.ninja/?q#content/distrowatch-openindiana-hipster-packages</a></li>
+</ul>
+</li>
+<li><a href="http://opensolaris.linuxfreedom.com/">http://opensolaris.linuxfreedom.com/</a> - didn't see OpenIndiana here anywhere (still showing OpenSolaris)</li>
+<li>Slashdot</li>
+<li>Phoronix</li>
+<li><a href="http://www.cyberciti.biz/">nixcraft</a></li>
+<li><a href="https://www.unixmen.com/">Unixmen</a></li>
+<li><a href="https://www.reddit.com/r/unix">Reddit r/unix</a></li>
+<li><a href="https://www.reddit.com/r/illumos">Reddit r/illumos</a></li>
+<li><a href="https://www.reddit.com/r/HomeServer/">Reddit r/homeserver</a></li>
+<li><a href="https://www.reddit.com/r/homelab/">Reddit r/homelab</a></li>
+<li><a href="http://www.servethehome.com/">servethehome</a></li>
+</ul>
+<h3 id="hipster-news">Hipster News</h3>
+<ul>
+<li>Current events with OI Hipster distro</li>
+<li>OI/illumos news stories</li>
+<li>Featured new packages</li>
+<li>Tips and Tricks</li>
+</ul>
+<h3 id="download-mirrors">Download mirrors</h3>
+<ul>
+<li>Some of the currently listed mirrors are offline or outdated.<ul>
+<li>Need to update the landing pages for some of the mirrors.</li>
+</ul>
+</li>
+<li>Really need a North American mirror.</li>
+<li>Provide more ways of trying out oi<ul>
+<li>Vagrant box for virtualbox is done</li>
+<li>KVM and VMware are still needed</li>
+</ul>
+</li>
+</ul>
+<h3 id="package-submission-and-maintenance">Package submission and maintenance</h3>
+<ul>
+<li>Make contributing and maintaining packages super easy - it should be dead simple to add new package</li>
+</ul>
+<h3 id="os-modernizations">OS Modernizations</h3>
+<ul>
+<li>Modernize our base system - cron, syslog, mta etc so people get a software they are expected to find on any modern linux distro</li>
+</ul>
+<h3 id="support-forum">Support forum</h3>
+<ul>
+<li>While the project as irc and ml, perhaps a user forum would be helpful as well.</li>
+</ul>
+<h3 id="other-periodic-website-updates">Other Periodic Website Updates</h3>
+<ul>
+<li>Publish new pictures for the Community and update the Roadmap every 6 months</li>
+</ul>
+<h3 id="software-wish-list-to-make-the-desktop-more-usable">Software wish list to make the desktop more usable</h3>
+<ul>
+<li>The desktop is really what makes OpenIndiana Hipster unique among all the different illumos distributions.<ul>
+<li>The project should really capitalize on the desktop, and by extension include lots of GUI software.</li>
+</ul>
+</li>
+</ul>
+<h3 id="alternate-desktops">Alternate Desktops</h3>
+<ul>
+<li><a href="http://mate-desktop.com/">Mate</a></li>
+<li><a href="https://www.kde.org/">KDE</a></li>
+<li><a href="https://github.com/linuxmint/Cinnamon">Cinnamon</a></li>
+</ul>
+<h3 id="audiovideo-editing">Audio/Video Editing</h3>
+<ul>
+<li><a href="http://www.audacityteam.org/">Audacity</a></li>
+<li><a href="https://handbrake.fr/">Handbrake</a></li>
+</ul>
+<h3 id="benchmarking-tools">Benchmarking tools</h3>
+<ul>
+<li><a href="http://www.phoronix-test-suite.com/">Phoronix Test Suite</a></li>
+</ul>
+<h3 id="development-tools">Development tools</h3>
+<ul>
+<li><a href="https://atom.io/">ATOM - Text Editor</a></li>
+<li><a href="http://www.vim.org/">GVIM - Text Editor</a></li>
+<li><a href="https://eclipse.org/">Eclipse - IDE</a></li>
+<li><a href="http://meldmerge.org/">Meld - Diff Viewer</a></li>
+<li><a href="https://www.sublimetext.com/3">Sublime - Text Editor</a></li>
+</ul>
+<h3 id="desktop-publishing">Desktop publishing</h3>
+<ul>
+<li><a href="http://www.scribus.net/">Scribus</a></li>
+<li><a href="https://inkscape.org/en/">Inkscape</a></li>
+<li><a href="https://www.calligra.org/">Calligra Suite</a></li>
+</ul>
+<h3 id="ebook-tools">Ebook Tools</h3>
+<ul>
+<li><a href="https://calibre-ebook.com/">Calibre</a></li>
+</ul>
+<h3 id="file-backup">File Backup</h3>
+<ul>
+<li><a href="https://www.code42.com/crashplan/">CrashPlan</a></li>
+</ul>
+<h3 id="file-sharing">File Sharing</h3>
+<ul>
+<li><a href="http://deluge-torrent.org/">Deluge</a></li>
+</ul>
+<h3 id="file-storage">File Storage</h3>
+<ul>
+<li><a href="http://www.dropbox.com">Dropbox</a></li>
+</ul>
+<h3 id="graphics">Graphics</h3>
+<ul>
+<li><a href="https://www.blender.org/">Blender</a></li>
+<li><a href="https://krita.org/">Krita</a></li>
+<li><a href="http://www.xaraxtreme.org/">Xara</a></li>
+<li><a href="http://www.povray.org/">POV-Ray</a></li>
+<li><a href="http://www.radiance-online.org/">Radiance</a></li>
+</ul>
+<h3 id="media-center">Media Center</h3>
+<ul>
+<li><a href="https://plex.tv/Plex">Media Server &amp; Plex Home Theater (client)</a></li>
+<li><a href="https://kodi.tv/">Kodi</a></li>
+</ul>
+<h3 id="password-manager">Password Manager</h3>
+<ul>
+<li><a href="http://keepass.info/">Keypass</a></li>
+</ul>
+<h3 id="photography">Photography</h3>
+<ul>
+<li><a href="http://www.darktable.org/">Darktable</a></li>
+<li><a href="http://rawtherapee.com/">RawTherapee</a></li>
+<li><a href="https://www.digikam.org/">Digikam</a></li>
+<li><a href="http://hugin.sourceforge.net/">Hugin</a></li>
+<li><a href="https://picasa.google.com/">Picasa</a></li>
+</ul>
+<h3 id="systems-automation">Systems Automation</h3>
+<ul>
+<li>Puppet - Hipster repo has package - version 3.6.2</li>
+</ul>
+<h3 id="system-monitoring">System Monitoring</h3>
+<ul>
+<li>Nagios (outdated - but might be a starting point) - <a href="https://www.opencsw.org/package/nagios/">https://www.opencsw.org/package/nagios/</a></li>
+</ul>
+<h3 id="virtualization-openindiana-as-a-host">Virtualization - OpenIndiana as a Host</h3>
+<ul>
+<li><a href="https://virt-manager.org/">Virt-Manager</a></li>
+<li><a href="http://www.ovirt.org/">O-virt</a></li>
+<li><a href="https://www.virtualbox.org/">Virtualbox</a></li>
+</ul>
+<h3 id="virtualization-openindiana-as-a-guest">Virtualization - OpenIndiana as a Guest</h3>
+<ul>
+<li><a href="http://www.spice-space.org/">Native Spice Protocol Support for an OpenIndiana Guest OS</a></li>
+<li><a href="https://my.vmware.com/web/vmware/details?productId#491&amp;downloadGroup#VMTOOLS1000">Native Vmware tools support for an OpenIndiana Guest OS</a></li>
+<li>Native Virtualbox support for an OpenIndiana Guest OS.</li>
+</ul>
+<h3 id="web-browsers">Web browsers</h3>
+<ul>
+<li><a href="http://www.chromium.org/Home">Chromium</a></li>
+</ul>
+<h3 id="suggestions-for-improving-elements-of-the-distro-itself">Suggestions for improving elements of the distro itself</h3>
+<ul>
+<li>Updated Custom desktop background for OI - Perhaps downloads from the website, or included in distro.</li>
+<li>Updated Custom splash screen for grub (or Forth bootloader)</li>
+<li>Updated "Welcome to OpenIndiana" desktop page.</li>
+<li>Update the welcome HTML: <a href="https://github.com/OpenIndiana/openindiana-welcome/blob/master/data/html/en/index.html">https://github.com/OpenIndiana/openindiana-welcome/blob/master/data/html/en/index.html</a></li>
+</ul>
+<h3 id="wiki-improvements">Wiki Improvements</h3>
+<h4 id="wiki-usability-on-mobile-devices">Wiki Usability on Mobile Devices</h4>
+<p>The OpenIndiana Wiki does not render well on mobile devices.</p>
+<ul>
+<li>The left hand navigation menu is completely absent when browsing the Wiki from Android phones and tablets.</li>
+</ul>
+<p>Possible solutions:</p>
+<ul>
+<li>Add in page navigation menus</li>
+<li>Replace the Wiki with a mobile aware Wiki</li>
+<li>Replace the Wiki with a user forum</li>
+<li>Replace the Wiki as part of a larger web presence transformation</li>
+</ul>
+<h4 id="need-to-create-a-wiki-style-guide">Need to Create a Wiki Style Guide</h4>
+<p>Should the Wiki be retained, it may be helpful to create a Wiki style guide.
+This would be very helpful by ensuring consistency between the different pages.
+It may also be helpful to modify the existing CSS to help improve the aesthetics of the site.</p>
+<h5 id="possible-suggestions">Possible suggestions</h5>
+<ul>
+<li>This would be very helpful for providing some consistency between different pages.<ul>
+<li>Use horizontal lines (top and bottom) to separate code blocks from the text body.</li>
+<li>Makes it easier to tell what is or isn't code.
+Also provides for a more efficient use of space (don't have to use so many line breaks).</li>
+</ul>
+</li>
+<li>Develop standards for displaying certain types of information...e.g. code blocks, commands, tips, warnings, info, etc.</li>
+<li>
+<p>consider whether it's possible to enable Wiki page navigation by placing breadcrumbs navigational elements within the page itself, rather than relying entirely on Wiki navigation menu in left hand navigation pane.</p>
+</li>
+<li>
+<p>Can look at other Illumos Wikis for ideas and inspiration</p>
+<ul>
+<li><a href="https://Wiki.smartos.org/display/DOC/Doc+Team+Notes">https://Wiki.smartos.org/display/DOC/Doc+Team+Notes</a></li>
+<li><a href="http://omnios.omniti.com/Wiki.php/WikiStart">http://omnios.omniti.com/Wiki.php/WikiStart</a></li>
+<li><a href="http://Wiki.illumos.org/display/illumos/illumos+Home">http://Wiki.illumos.org/display/illumos/illumos+Home</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="some-notes-for-updating-wiki-pages">Some notes for updating Wiki pages</h4>
+<p>While replacing the Wiki with some kind of continuous integration content management system would likely be the most ideal solution, there are still things which can be done to help improve the Wiki.</p>
+<h5 id="clean-up-old-user-comments">Clean up old user comments</h5>
+<ul>
+<li>Many, many comments from 2010 - 2012.<ul>
+<li>Probably a good idea to clean these up and incorporated the information into the page as appropriate.</li>
+<li>Comments with such old timestamps suggests little site activity has occurred in last 4-5 years.</li>
+</ul>
+</li>
+</ul>
+<h5 id="mark-old-pages-for-deprecation">Mark old pages for deprecation</h5>
+<ul>
+<li>Go through the Wiki and mark content as obsolete.</li>
+<li>Retain items of value and either pull them into the new handbook (if it's helpful for new users), or set it aside for reference when updating the OpenSolaris books.</li>
+<li>Reorganize things which are not being moved.</li>
+</ul>
+<h3 id="wordpress-improvements">WordPress Improvements</h3>
+<p>Improve the presentation of reference materials</p>
+<h4 id="illumos-and-openindiana-hcls">illumos and OpenIndiana HCL's</h4>
+<ul>
+<li>Start a discussion about ways to improve and update this.</li>
+<li>Illumos HLC: <a href="https://www.illumos.org/hcl/">https://www.illumos.org/hcl/</a></li>
+</ul>
+<h4 id="publishing-man-pages-online">Publishing man pages online</h4>
+<ul>
+<li>Start a discussion about getting the Hipster man pages published.<ul>
+<li>illumos core man pages are available on illumos.org</li>
+<li>OI specific man pages are not published.</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;leoric&gt; looking at Ubuntu dhcp.conf online man page, I thought it would be good to have automatic extractor and search interface, extracting man pages from package repository and publishing them on OI site...
+&lt;alanc&gt; http://illumos.org/man/ covers the illumos ones, but not all the other packages
+&lt;leoric&gt; I know about illumos man pages, but thought about all available man pages
+&lt;alanc&gt; yeah, I figured that's what you meant
+</code></pre>
+
+<h4 id="links-to-source-code">Links to source code</h4>
+<ul>
+<li>Talk about the links to the source code and what can be found in each repository.<ul>
+<li><a href="https://hg.openindiana.org/sustaining/">https://hg.openindiana.org/sustaining/</a></li>
+<li><a href="https://hg.openindiana.org/upstream/">https://hg.openindiana.org/upstream/</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="the-future-of-openindianas-web-presence">The future of OpenIndiana's web presence</h4>
+<ul>
+<li>The current OI website is a marked improvement over what previously existed.
+But anything that is already good can be further improved.</li>
+<li>We should begin a strategic discussion about the future direction of web content in general.<ul>
+<li>e.g. do we continue using CMS systems, or start looking at static html?</li>
+</ul>
+</li>
+<li>Wondering if we can expand on the Hipster name, perhaps by theming the website in a similar manor.</li>
+<li>Hipster denotes something trendy, or in fashion, etc., the website theme should exploit this in some way.</li>
+<li>Could try something some like big fashionable buttons as follows:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Button label</th>
+<th>URL points to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get it</td>
+<td>Hipster Downloads</td>
+</tr>
+<tr>
+<td>Install it</td>
+<td>Installation Guidance/Tutorials/Instructions</td>
+</tr>
+<tr>
+<td>Use it</td>
+<td>Hipster Handbook</td>
+</tr>
+<tr>
+<td>Discuss it</td>
+<td>OI Mailing lists/IRC, etc.</td>
+</tr>
+<tr>
+<td>Extend it</td>
+<td>Developer Handbook</td>
+</tr>
+</tbody>
+</table>
+<h4 id="favicon">Favicon</h4>
+<ul>
+<li>Can we add the OI favicon to WordPress like we see on the Wiki?</li>
+</ul>
+<h4 id="mobile-devices">Mobile Devices</h4>
+<ul>
+<li>Due to the dark blue color scheme, this menu is hard to see and easily missed.<ul>
+<li>Maybe we should put something on the front page mentioning the mobile menu which is available in the upper left hand corner.</li>
+<li>Perhaps the color of the 3 bars mobile menu can be changed to white or something?</li>
+</ul>
+</li>
+</ul>
+<h4 id="other-thoughts-in-no-particular-order">Other Thoughts (in no particular order)</h4>
+<ul>
+<li>Add some links to the Community &gt; Getting Involved page.</li>
+<li><a href="http://echelog.com/logs/browse/oi-dev/">#oi-dev IRC chat archives</a></li>
+<li><a href="http://echelog.com/logs/browse/openindiana/">#openindiana IRC chat archives</a></li>
+<li><a href="http://openindiana.org/pipermail/oi-dev/">oi-dev mailing list archives</a></li>
+<li><a href="http://openindiana.org/pipermail/openindiana-discuss/">openindiana mailing list archives</a></li>
+<li>
+<p>twitter @openindiana
+<!-- [Already listed there but maybe it is more a matter of reorganizing the content for better readability - alarcher ] --></p>
+</li>
+<li>
+<p>Have redirects (mailing lists, illumos links, etc., ) open into a new tab so OI webpage remains open.</p>
+</li>
+<li>
+<p>Move link to WIKI to a more prominent location (e.g. its own first level tab on home page). Wiki is currently listed last under documentation.
+<!-- [Agreed but after the Wiki is turned into something else than a pile of obsolete or unstructured info. Currently I do not want to direct people to this mess - alarcher] --></p>
+</li>
+<li>
+<p>More frequent updates to Latest News.
+<!-- [Agreed but need people to write them... - alarcher] --></p>
+</li>
+<li>
+<p>Community &gt; Security Advisories is misleading.</p>
+<ul>
+<li>This only leads to page to report problems, not view already reported advisories as the breadcrumbs would suggest.</li>
+<li>Perhaps we could find a way to make this more clear (e.g. Report security issues)</li>
+</ul>
+</li>
+<li>
+<p>Documentation &gt; Gallery - Lets update the screenshots - should be from Hipster.</p>
+</li>
+<li>
+<p>Remove old pingbacks.</p>
+<ul>
+<li>They don’t look to offer any real value (e.g. the download page has 68 pingbacks).
+<!-- [Already disabled, these are oldies - alarcher] --></li>
+</ul>
+</li>
+<li>
+<p>Blog aggregator</p>
+</li>
+<li>Post old OpenSolaris docs (as they are updated)<ul>
+<li>As the books are updated, replace them.</li>
+</ul>
+</li>
+<li>
+<p>Provide PDF and Epub alternatives.</p>
+</li>
+<li>
+<p>Add list of mirrors, torrents, etc., to download page on website.</p>
+<ul>
+<li>Need to find more places to mirror, preferably some in north america too.</li>
+<li><a href="https://web.archive.org/web/20091223051956/http://www.opensolaris.com/get/index.jsp">Original list of mirrors</a></li>
+</ul>
+</li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,3195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/community-hcl/components/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Components - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li class="active">
+    <a href="./">Components</a>
+</li>
+            
+<li >
+    <a href="../systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../getting-hardware-info/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../systems/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/community-hcl/components.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#components">Components</a></li>
+            <li><a href="#audio">Audio</a></li>
+            <li><a href="#drives">Drives</a></li>
+            <li><a href="#network-interface-controllers">Network interface controllers</a></li>
+            <li><a href="#external-disk-arrays">External disk arrays</a></li>
+            <li><a href="#graphics-adapters">Graphics Adapters</a></li>
+            <li><a href="#motherboards">Motherboards</a></li>
+            <li><a href="#peripheral-devices">Peripheral Devices</a></li>
+            <li><a href="#serial-controllers">Serial Controllers</a></li>
+            <li><a href="#storage-controllers">Storage Controllers</a></li>
+            <li><a href="#webcams">Webcams</a></li>
+            <li><a href="#wifi-adapters">WiFi Adapters</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is Matt Wilby Copyright (C) 2011.
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s):  Alexander Pyhalov, Aurelien Larcher, Deano Calver, Nikola M., David Stes
+
+Portions created by Deano Calver are Copyright (C) 2011.
+Portions created by Aurelien Larcher are Copyright (C) 2017.
+Portions created by Nikola M. are Copyright (C) 2017.
+Portions created by Alexander Pyhalov are Copyright (C) 2019.
+Portions created by David Stes are Copyright (C) 2021.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="components">Components</h1>
+<ol>
+<li><a href="#audio">Audio</a></li>
+<li><a href="#drives">Drives (HDD, CD, DVD or Tape)</a></li>
+<li><a href="#network-interface-controllers">Network interface controllers</a></li>
+<li><a href="#external-disk-arrays">External disk arrays</a></li>
+<li><a href="#graphics-adapters">Graphics Adapters</a></li>
+<li><a href="#motherboards">Motherboards</a></li>
+<li><a href="#peripheral-devices">Peripheral Devices (Printers, keyboards, mice)</a></li>
+<li><a href="#serial-controllers">Serial Controllers</a></li>
+<li><a href="#storage-controllers">Storage Controllers (HBA, Raid etc)</a></li>
+<li><a href="#webcams">Webcams</a></li>
+<li><a href="#wifi-adapters">WiFi adapters</a></li>
+</ol>
+<h2 id="audio">Audio</h2>
+<p>These soundcards are compatible and 'known to work' with OpenIndiana.</p>
+<table>
+<thead>
+<tr>
+<th>Soundcard</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ALI M5451/M5455</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AMD 786 / AMD 8111</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASUS Xonar D1 / D2 / DG / DGX / DS / DSX / DX</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Erik Irsch</td>
+</tr>
+<tr>
+<td>ASUS Xonar Essence STX II / STX II 7.1</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td></td>
+</tr>
+<tr>
+<td>ASUS Xonar U3/U5/U7 (USB)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASUS ROG Xonar Phoebus (PCI-E)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ATI High Definition Audio (SB450/SB600/SB710)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ATI IXP200 / IXP300 / IXP400</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Audiotrak Prodigy 7.1 HiFi</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Audiotrak Prodigy HD2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C-Media CMI8788 PCI audio controllers</td>
+<td>Use driver/audio/audiocmihd, Oxygen HD Audio</td>
+<td></td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Creative Sound Blaster Audigy series</td>
+<td>Audigy RX, PCIe soundcard, oss_sblive</td>
+<td></td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Creative Sound Blaster Live! series</td>
+<td>oss_sblive</td>
+<td></td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Creative Sound Blaster X-Fi series</td>
+<td>oss_sbxfi</td>
+<td></td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Crystal CS4280 / CS4281 / CS4610 / CS4615</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Ego Systems Juli@ XTE soundcard</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Envy24HT PCIe</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ESS Solo-1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ForteMedia FM 801</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Generic ENVY24 / ENVY24HT devices</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Generic M Audio USB MIDI interface (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Generic USB audio/MIDI device (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Genius Sound Maker Value 5.1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Guillemot Maxi Sound MUSE</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hercules Game Theater XP / XP+</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hercules Gamesurround MUSE Pocket (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HT OMEGA eCLARO 7.1 Channel PCI Express Sound Card</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>HT Omega CLARO II</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>HT Omega Claro halo XT</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>HT Omega Claro halo</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>HT Omega Claro plus+</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>HT Omega Claro</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>HT Omega STRIKER 7.1</td>
+<td>Use driver/audio/audiocmihd</td>
+<td>audiocmihd</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Intel 440MX (440MX)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel AC97 series</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel High Definition Audio series</td>
+<td></td>
+<td>audiohd</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Comet Lake PCH cAVS</td>
+<td>Dell Precision 3640 with i3-10100 CPU</td>
+<td>audiohd</td>
+<td>David Stes</td>
+</tr>
+<tr>
+<td>LynxTWO AES16e</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Audiophile 192</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Audiophile 2496</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Delta 44/66/410/1010/1010LT series</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Delta DiO 2496</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Delta TDIF</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio OmniStudio USB (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Oygen8 MIDI keyboard</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Revolution series</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio Sonica Theater USB (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio USB AudioSport</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M-Audio USB MIDISPORT series</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MIDIMan DiO 2448</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft LifeChat LX-6000 (USB)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSI K7T266</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSI KT3 Ultra</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>National Semiconductor Geode LX/NX/GX/GX1/GX2</td>
+<td>aka AMD Geode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nvidia CK8/CK8S</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nvidia High Definition Audio (MCP4/MCP51-&gt;MCP79)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Nvidia nForce motherboard chipsets</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Philips ToUcam Pro (mic) (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Plantronics C510 / C520 (P/N: 88861-01)</td>
+<td></td>
+<td></td>
+<td>Erik Irsch</td>
+</tr>
+<tr>
+<td>RealTek ALC1xx/ALC2xx/ALC6xx/ALC8xx</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RME Digi96/8 series</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SiS 7012/7018</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SiS High Definition Audio</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Terratec Aureon 7.1 (PCIe/USB/Dual USB)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Terratec DMX 6Fire USB</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Terratec EWS88D / EWS88MT / EWX 24/96 / PHASE 28</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Trident 4DWave-CX/DX/NX</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TurtleBeach SantaCruz 6-speaker sound card</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TurtleBeach Amigo II USB sound card/headset adapter</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TurtleBeach Micro II USB sound card/digital adapter</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ULI High Definition Audio</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VIA High Definition Audio</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>VIA VT82C686/VT8233/VT8233A/8235/8237/VT82C686</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Yamaha DS-XG YMF724/YMF734/YMF74x/YMF754</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Yamaha PSR-1K USB MIDI Keyboard (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Yamaha UX16 USB MIDI interface (BETA)</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="drives">Drives</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDD 2.5 SATA-3</td>
+<td>Crucial</td>
+<td>M4-128GB</td>
+<td>yes</td>
+<td>25nm MLC SSD</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>PCIe</td>
+<td>DDRdrive</td>
+<td>X1</td>
+<td>yes</td>
+<td>Intended as ZIL. Works flawlessly</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 3.5 SATA-3</td>
+<td>Hitachi</td>
+<td>HDS72404</td>
+<td>yes</td>
+<td>4TB of "Spinning Rust" properly recognized on LSI Falcon</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 2.5</td>
+<td>Intel</td>
+<td>520</td>
+<td>yes</td>
+<td> </td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 2.5</td>
+<td>Intel</td>
+<td>710</td>
+<td>yes</td>
+<td> </td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>PCIe</td>
+<td>Intel</td>
+<td>910</td>
+<td>yes</td>
+<td>Works out of the box</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 2.5 SATA-3</td>
+<td>Intel</td>
+<td>DC S3500 480GB</td>
+<td>yes</td>
+<td>six drives configured in mirrors yields 50k+ random reads/sec on ZFS, reports as ashift=9</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 2.5 SATA-3</td>
+<td>Intel</td>
+<td>DC S3700 800GB</td>
+<td>yes</td>
+<td>Works as advertised, bench marking indicates 10% higher performance on 8k writes. Drives are 4K may or may not advertise 512bytes varies on firmware revision. Beware, you cannot mix 4K/512B drives within a VDEV</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 3.5 SAS</td>
+<td>Seagate</td>
+<td>ST4000NM0023</td>
+<td>yes</td>
+<td>4TB SAS spinning rust. Just works. 4K Advanced Sector  130MB/s seq writes</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 3.5 SAS</td>
+<td>Seagate</td>
+<td>ST6000NM0014</td>
+<td>yes</td>
+<td>6TB 7200-rpm 12Gb/s SAS HDD (4KN model, 512E model is ST6000NM0034)</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>SCSI</td>
+<td>Sun Microsystems</td>
+<td>C5683A</td>
+<td>yes</td>
+<td>SUN C5683A (HP Rebrand) DDS4 DAT Tape drive</td>
+<td>Jon Green</td>
+</tr>
+<tr>
+<td>SATA</td>
+<td>Seagate/Dell</td>
+<td>ST1000NM0001</td>
+<td>yes</td>
+<td>Disks not powered on (Dell Firmware problem), the trick is: in <code>/kernel/drv/sd.conf</code> set <code>sd-config-list="SEAGATE ST1000NM0001","power-condition: false";</code></td>
+<td>Jorge Palma Escobar</td>
+</tr>
+<tr>
+<td>HDD 3.5" SATA-2</td>
+<td>Samsung</td>
+<td>F4EG HD204UI/Z4</td>
+<td>yes</td>
+<td>SATA - Advanced Format and 4K Sector drives</td>
+<td>Deano Calver</td>
+</tr>
+<tr>
+<td>HDD 3.5" SATA-2</td>
+<td>Seagate</td>
+<td>ST2000DL003-9VT1</td>
+<td>yes</td>
+<td>Barracuda Green. 4kB sectors with 512-byte emulation</td>
+<td>Matt Connolly</td>
+</tr>
+<tr>
+<td>HDD 2.5 SAS</td>
+<td>Seagate</td>
+<td>ST9146852SS</td>
+<td>yes</td>
+<td>146GB 15k RPM Savvio</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>HDD 2.5 SATA-3</td>
+<td>Western Digital</td>
+<td>WD20NPVT-00Z</td>
+<td>yes</td>
+<td>2 TB SATA disk, reports as ashift=12 (adv format), recognized on LSI 9207-8i</td>
+<td>Jason Matthews</td>
+</tr>
+</tbody>
+</table>
+<h2 id="network-interface-controllers">Network interface controllers</h2>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+For a number of NICs, which are not currently supported "out of the box" by the illumos kernel or OpenIndiana distribution, over 30 open-sourced drivers covering many more chipsets and NIC models are available as part of the separate "Free NIC drivers for OpenSolaris" project by Masayuki Murayama and generally do just work on OpenIndiana (binaries are available as part of the source code tarballs, but you're encouraged to recompile them with GLDv3 Makefile's on OpenIndiana, see details on <a href="http://freenicdrivers.la.coocan.jp/">the project's web page</a>).
+</div></p>
+<table>
+<thead>
+<tr>
+<th>NIC</th>
+<th>Works (yes/no)</th>
+<th>Notes</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asix AX88772A</td>
+<td>yes</td>
+<td></td>
+<td>axf</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Asix AX88772B</td>
+<td>no</td>
+<td> </td>
+<td> </td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Atheros AR8132 Fast Ethernet</td>
+<td>yes</td>
+<td></td>
+<td>atge</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Atheros AR8131 Gigabit Ethernet</td>
+<td>yes</td>
+<td></td>
+<td>atge</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Atheros AR8151 v1.0 Gigabit Ethernet</td>
+<td>yes</td>
+<td></td>
+<td>atge</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Atheros AR8151 v2.0 Gigabit Ethernet</td>
+<td>yes</td>
+<td></td>
+<td>atge</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Atheros AR8152 v1.1 Fast Ethernet</td>
+<td>yes</td>
+<td></td>
+<td>atge</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Atheros AR8152 v2.0 Fast Ethernet</td>
+<td>yes</td>
+<td></td>
+<td>atge</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>AR8161 Gigabit</td>
+<td>no</td>
+<td>Toshiba Satellite L855</td>
+<td> </td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Broadcom NetLink &amp; NetXtreme I 57xx Gigabit adapters</td>
+<td>yes</td>
+<td>BCM5700/5701/5703/5704/5705/5705M/5714/5721/5751/5751M/5782/5788</td>
+<td>bge</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Broadcom NetXtreme II Gigabit Ethernet</td>
+<td>yes</td>
+<td>Tested BCM5709</td>
+<td>bnx</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Broadcom NetXtreme II Gigabit Ethernet</td>
+<td>yes</td>
+<td>BCM5706, 5708, 5709, 5716</td>
+<td>bnx</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Broadcom NetXtreme II 10GbE controllers</td>
+<td>yes</td>
+<td>BCM57710, 57711, 57711E, 57712, 57800, 57810</td>
+<td>bnxe</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Intel 82540EM Gigabit Ethernet Controller</td>
+<td>yes</td>
+<td>PCI-ID: 8086:1000e</td>
+<td>e1000g</td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>Intel 82575, 82576, 82580, I210, I211, I340, I350, I354</td>
+<td>yes</td>
+<td> </td>
+<td>igb</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Intel 82563/6/7, 82571/2/3/4/8/9, 82583, I217-LM, I217-VM, I218-LM, I218-VM ethernet controllers</td>
+<td>yes</td>
+<td>Intel S1200 &amp; Supermicro X10SAE motherboards. Added new PCI IDs.</td>
+<td>e1000g</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Intel 82597EX 10GbE Ethernet Controller</td>
+<td>yes</td>
+<td> </td>
+<td>ixgb</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Intel 82574L</td>
+<td>yes</td>
+<td><code>scanpci: pci bus 0x0003 cardnum 0x00 function 0x00: vendor 0x8086 device 0x10d3</code> Intel Corporation 82574L Gigabit Network Connection</td>
+<td>e1000g</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Intel 82575EB</td>
+<td>yes</td>
+<td>pci bus 0x0001 cardnum 0x00 function 0x01: vendor 0x8086 device 0x10a7</td>
+<td>igb</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Intel 82576</td>
+<td>yes</td>
+<td>pci bus 0x0002 cardnum 0x00 function 0x00: vendor 0x8086 device 0x10c9</td>
+<td>igb</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Intel 82579LM</td>
+<td>yes</td>
+<td>In Dell Optiplex 9010 workstation.</td>
+<td>e1000g</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Intel Ethernet Connection (11) I219-LM</td>
+<td>yes</td>
+<td>In Dell Precision 3640 workstation.</td>
+<td>e1000g</td>
+<td>David Stes</td>
+</tr>
+<tr>
+<td>Intel 82599EB 10-Gigabit SFI/SFP+</td>
+<td>yes</td>
+<td>Tested on 151a8, could work on older releases. Performance moderately sucks on a dell r720. RX is good, TX is poor. On an r820 TX performance is less than that of 1g ethernet most of the time.</td>
+<td>ixgbe</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Intel I210 Gigabit Network</td>
+<td>no</td>
+<td>Partly works with the igb driver but DHCP fails on this card for me</td>
+<td>igb</td>
+<td>David Stes</td>
+</tr>
+<tr>
+<td>Intel I350 Gigabit Network</td>
+<td>yes</td>
+<td> </td>
+<td> </td>
+<td>Christof Haemmerle</td>
+</tr>
+<tr>
+<td>Intel X520, Intel X540, Intel 82598, 82599 series (10Gb)</td>
+<td>yes</td>
+<td> </td>
+<td>ixgbe</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Realtek RTL8101/RTL8110/RTL8168/RTL8169</td>
+<td>yes</td>
+<td>Supercedes rge driver for most Realtek 81xx/816x PCI-E ethernet adapters as of gani-2.6.10. See: RTL8111B/RTL8168B/RTL8111/RTL8168/RTL8111C/RTL8111CP/RTL8111D(L)/RTL8168C/RTL8111DP/RTL8111E/RTL8168E/RTL8111F/RTL8411</td>
+<td>gani</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Realtek RTL8101E/8102E PCI Express Fast Ethernet controller</td>
+<td>yes</td>
+<td>Onboard controller for MSI G31TM-P21 motherboard</td>
+<td>rge</td>
+<td>Philip Robar</td>
+</tr>
+<tr>
+<td>Realtek RTL8139/8139C/8139C+ PCI Express Fast Ethernet controller</td>
+<td>yes</td>
+<td>PCI-ID: 10ec:8139</td>
+<td>rtls</td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>Realtek RTL8111/8168B PCI Express Gigabit Ethernet controller (rev 03)</td>
+<td>yes</td>
+<td>PCI-ID: 10ec:8168</td>
+<td>rge</td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller</td>
+<td>yes</td>
+<td>PCI-ID: 10ec:8168</td>
+<td>rge</td>
+<td>Predrag Zečević</td>
+</tr>
+<tr>
+<td>Realtek RTL-8169 Gigabit Ethernet (rev 10)</td>
+<td>yes</td>
+<td>PCI-ID: 10ec:8169</td>
+<td>rge</td>
+<td>Ancoron Luciferis</td>
+</tr>
+</tbody>
+</table>
+<h2 id="external-disk-arrays">External disk arrays</h2>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3PAR</td>
+<td>F200</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Matt Wilby</td>
+</tr>
+<tr>
+<td>3PAR</td>
+<td>F400</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Matt Wilby</td>
+</tr>
+<tr>
+<td>EMC</td>
+<td>Clariion CX700</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Matt Wilby</td>
+</tr>
+<tr>
+<td>Newisys/Sanmina-SC</td>
+<td>NDS2241</td>
+<td>yes</td>
+<td>SAS with MPxIO</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>Nexsan</td>
+<td>SATABeast2</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Matt Wilby</td>
+</tr>
+<tr>
+<td>NetApp</td>
+<td>FAS6040</td>
+<td>no</td>
+<td>Sees targets but refuses to see LUNs.  Possibly HBA FW issue.</td>
+<td>Matt Wilby</td>
+</tr>
+<tr>
+<td>EMC</td>
+<td>Symmetrix DMX-4</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Tom Kranz</td>
+</tr>
+<tr>
+<td>HDS</td>
+<td>UPS-V</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Tom Kranz</td>
+</tr>
+<tr>
+<td>HDS</td>
+<td>AMS-500</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Tom Kranz</td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>A5000 (Photon)</td>
+<td>yes</td>
+<td>FC-AL with MPxIO</td>
+<td>Tom Kranz</td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>T3</td>
+<td>yes</td>
+<td>Fabric/FC with MPxIO</td>
+<td>Tom Kranz</td>
+</tr>
+</tbody>
+</table>
+<h2 id="graphics-adapters">Graphics Adapters</h2>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+For most video cards, which are not explicitly supported, vgatext driver will work, but will not provide any DRI capabilities.<br>
+Systems with combined discrete graphics and Intel integrated adapter (like Nvidia Optimus) are likely to be unusable with Xorg.
+</div></p>
+<table>
+<thead>
+<tr>
+<th>Video adapter</th>
+<th>Works (yes/no/vgatext)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel 945GM Express</td>
+<td>yes</td>
+<td></td>
+<td>i915</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Intel 945GM Graphics</td>
+<td>no</td>
+<td>Dell Latitude D620. Tested at 1280x800 resolution (crashes, seems problematic in NVIDIA Optimus configurations)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel GMA 950</td>
+<td>yes</td>
+<td></td>
+<td>i915</td>
+<td>nikolam</td>
+</tr>
+<tr>
+<td>Intel HD Graphics 520</td>
+<td>yes</td>
+<td>HP 15t Laptop (Part#: V1Z72AV_1). Tested at 1920x1080.</td>
+<td>i915</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel HD Graphics 530</td>
+<td>no</td>
+<td>HP ZBook Studio G3. Crashes, system has both discrete graphics and Intel graphics</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel CometLake-S GT2 [UHD Graphics 630]</td>
+<td>no</td>
+<td>Dell Precision 3640 with i3-10100 CPU, does NOT work for X11/MATE, only text console</td>
+<td>vgatext</td>
+<td>David Stes</td>
+</tr>
+<tr>
+<td>Intel HD Graphics 2000</td>
+<td>yes</td>
+<td>ThinkCentre M91p. Working, tested from 1024x768 to 1920x1080, GPU hangs and wrong screen adjustment.</td>
+<td>i915</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel HD Graphics 3000</td>
+<td>yes</td>
+<td>Lenovo ThinkPad X220. Has a <a href="https://www.illumos.org/issues/8757">glitch</a> on embedded display (<a href="https://www.illumos.org/issues/8049#note-7">workaround</a>). Display Port &amp; VGA D-Sub work.</td>
+<td>i915</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Intel HD Graphics 4000</td>
+<td>yes</td>
+<td></td>
+<td>i915 </td>
+<td>Aurélien Larcher</td>
+</tr>
+<tr>
+<td>Intel HD Graphics 4600</td>
+<td>yes</td>
+<td>Dell Precision M2800. Tested at 1920x1080.</td>
+<td>i915</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Iris Pro Graphics</td>
+<td>yes</td>
+<td></td>
+<td>i915 </td>
+<td>Martin Bochnig</td>
+</tr>
+<tr>
+<td>Intel Iris Pro Graphics P6300</td>
+<td>yes</td>
+<td>Tested at 1920x1080 (Intel Xeon E3-1285V4 w/Supermicro X10SLH-F motherboard)</td>
+<td>i915</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel Iris Pro Graphics 580</td>
+<td>yes</td>
+<td>Tested at 1920x1080. (Intel Core i7-6785R, BGA1364 socket)</td>
+<td>i915</td>
+<td></td>
+</tr>
+<tr>
+<td>Intel UHD Graphics 620</td>
+<td>yes</td>
+<td>Thinkpad T580. OI-Hipster MATE 2017.10, 2D (UXA)/3D Visual Effects works - Xserver 1.19.5, 3840x2160 resolution</td>
+<td>i915</td>
+<td></td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GT 730</td>
+<td>yes</td>
+<td>Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce 210</td>
+<td>yes</td>
+<td>PCI-ID: 10de:0a23, Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Alex Viskovatoff</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce 220</td>
+<td>yes</td>
+<td>Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Guy</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce 8400 GS</td>
+<td>yes</td>
+<td>PCI-ID: 10de:06e4, Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GT 430</td>
+<td>yes</td>
+<td>Nvidia 340.107</td>
+<td>nvidia</td>
+<td>openbabel</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GT 440</td>
+<td>yes</td>
+<td>Nvidia 390.143</td>
+<td>nvidia</td>
+<td>David Stes</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GT 620</td>
+<td>yes</td>
+<td>PCI-ID 10de:0f01, Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Michael Kruger</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GTX 480</td>
+<td>yes</td>
+<td>PCI-ID: 10de:06c0, Nvidia 340.107</td>
+<td>nvidia</td>
+<td>catable</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GTX 580</td>
+<td>yes</td>
+<td>Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Vladimir Smirnov</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GTX 780 Ti</td>
+<td>yes</td>
+<td>PCI-ID: 10de:100a, Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Yoweri Museveni</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GTX 765M</td>
+<td>yes</td>
+<td>PCI-ID: 10de:11e2, Nvidia 340.107</td>
+<td>nvidia</td>
+<td>WarGrey Ju</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GTX 780M</td>
+<td>yes</td>
+<td>PCI-ID: 10de:119f, Nvidia 340.107</td>
+<td>nvidia</td>
+<td>Jim Gorzelany</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GTX 880M</td>
+<td>yes</td>
+<td>PCI-ID: 10de:1198 - Tested on Asus ROG G750JZ with hipster-070114 ISO</td>
+<td>nvidia</td>
+<td>Mike Kelley</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce TITAN X </td>
+<td>yes</td>
+<td>Nvidia 340.107</td>
+<td>nvidia</td>
+<td>John Hahnua</td>
+</tr>
+<tr>
+<td>NVIDIA Titan Xp</td>
+<td>yes</td>
+<td><a href="http://http.download.nvidia.com/solaris/390.67/NVIDIA-Solaris-x86-390.67.run">Nvidia 390.67</a></td>
+<td>nvidia</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>AMD/ATI Radeon HD 4770 [RV740] PCI-e</td>
+<td>vgatext</td>
+<td>PCI-ID: 1002:94b3 - DVI ports work (but trying to rotate broke X) - overall resolution limited to 2560x2560</td>
+<td>vgatext</td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>AMD/ATI Radeon HD 5770 PCI-e</td>
+<td>vgatext</td>
+<td>PCI-ID: 1002:68b8 - DVI ports work (but trying to rotate broke X) - overall resolution limited to 2560x2560</td>
+<td>vgatext</td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>ASUS EAH4350 (ATI RV710 - Radeon HD 4350)</td>
+<td>vgatext</td>
+<td>Have only tried the DVI port</td>
+<td>vgatext</td>
+<td>Philip Robar</td>
+</tr>
+<tr>
+<td>ATI Radeon VT7000 (VisionTek VTKRad7K64P)</td>
+<td>vgatext</td>
+<td>PCI-ID: 1002:4c59, DVI port works (only port tested)</td>
+<td>vgatext</td>
+<td>Eduardo Sanchez</td>
+</tr>
+<tr>
+<td>AMD Mobility Radeon 5730/6570M</td>
+<td>vgatext</td>
+<td>Not 3D HW-accelerated</td>
+<td>vgatext</td>
+<td>gweiss</td>
+</tr>
+<tr>
+<td>AMD Radeon HD 7670M</td>
+<td>vgatext</td>
+<td>PCI-ID: 1002:6840 - nor HDMI nor VGA output (D-Sub) work</td>
+<td>vgatext</td>
+<td>Michal Nowak</td>
+</tr>
+</tbody>
+</table>
+<h2 id="motherboards">Motherboards</h2>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Drivers</th>
+<th>Notes</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASRock</td>
+<td>939Dual-VSTA/</td>
+<td> </td>
+<td>works correctly</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>ASRock</td>
+<td>870iCafe</td>
+<td> </td>
+<td>Test System: AMD Phenom II X6 1055T</td>
+<td>Dave Koelmeyer</td>
+</tr>
+<tr>
+<td>ASRock</td>
+<td>B150M-ITX</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ASRock</td>
+<td>H170M-ITX/DL</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ASRock</td>
+<td>M3A770DE</td>
+<td> </td>
+<td>Test System: AMD Phenom II X6 1090T, 4x 4GB DDR3</td>
+<td>Marc D. Williams</td>
+</tr>
+<tr>
+<td>ASRock</td>
+<td>N68C-GS FX</td>
+<td> </td>
+<td>Test System: AMD Phenom X4 9550, 2x4GB DDR2<br/>needed to  <code># update_drv -a -i '"pci10de,3d6"' nvidia</code> <br/> and   <code># update_drv -a -i "pci10de,3f6" nv_sata</code> and manually update ogl-select to NVIDIA using NVIDIA driver 173.14.32</td>
+<td>Richard PALO</td>
+</tr>
+<tr>
+<td>ASRock</td>
+<td>B150M Pro4S</td>
+<td> </td>
+<td>Works (with USB Legacy set to ""auto""); Added:<ul><li>NVIDIA graphics (no onborad "Intel" is supported)</li><li>Network card (onborad "Intel Corporation Ethernet Connection (2) I219-V" not supported)</li><li>PCIe USB 2.0 card (no USB 3.0 support yet; Internal USB 2.0 is not recognized)</li></ul></td>
+<td>Predrag Zečević</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>C60M1-I</td>
+<td> </td>
+<td>Test System: 2x 2GB, Passively cooled with 4 of 6 SATA ports in use</td>
+<td>Justin Warwick</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>H97I-PLUS</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>H110I-PLUS/CSM</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>P7H55-M Pro</td>
+<td> </td>
+<td> </td>
+<td>Apostolos Syropoulos</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>M2N</td>
+<td> </td>
+<td>Everything OK including sound</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>M2NPV-VM</td>
+<td> </td>
+<td> </td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>A8N-SLI Deluxe</td>
+<td> </td>
+<td> </td>
+<td>Alex Viskovatoff</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>A8V-XE</td>
+<td>vr audio hd</td>
+<td>boots from pata and sata everything works perfectly</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>KPGE-D16</td>
+<td> </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>M2N-SLI Deluxe</td>
+<td> </td>
+<td> </td>
+<td>Alex Viskovatoff</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>M4N68T-M V2</td>
+<td> </td>
+<td>NVIDIA GeForce 7025 / nForce 630a motherboard</td>
+<td> </td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>M4A77D</td>
+<td>rge</td>
+<td>Works correctly</td>
+<td>Quentin Sanchez</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>P5N-D</td>
+<td> </td>
+<td>Works perfectly including sound</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>P5N-T Deluxe</td>
+<td>nv_sata, nge, mpt-sas, e1000g</td>
+<td>Intel Q9550, 8 GB RAM, NVIDIA nForce 780i SLI chipset, LSI 9201-16i, Intel PRO/1000 Dual Port Ethernet.</td>
+<td>Chris Kurlinski</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>P5B-Plus Vista Edition</td>
+<td> </td>
+<td>Intel QX6800, 4 GB RAM, NVIDIA 9400 GT. Running with 8 HDD (1 from JMicron Internal SATA and 1 from JMicron eSATA as OS boot, mirrored in OI. Running AHCI on remaining 6 HDD on Intel ICH8R and RAIDZ1 in OI.  Take note: The board has 2 SATA controllers, Intel ICH8R and JMicron JMB363. OpenIndiana can only see drives in AHCI mode for JMicron. RAID mode will not work. Intel controller works fine.</td>
+<td>Dedy Johan</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>P5Q3</td>
+<td>rge</td>
+<td>Everything works ok</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>P5SQPL-AM</td>
+<td> </td>
+<td>Everything works ok</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>P8H77-I</td>
+<td> </td>
+<td>Intel Celeron G1610, 8GB RAM, onboard video. Using ASMedia ASM1061-based 2-port SATA /eSATA card. Total 7 HDDs (6 data disks on onboard connectors, 1 OS disk on add-on card).  Realtek RTL8111F SUPPORTED. All other components SUPPORTED except onboard Intel USB 3.0 controller.</td>
+<td>Dedy Johan</td>
+</tr>
+<tr>
+<td>ASUS</td>
+<td>PRIME B350M-A CPU: AMD Ryzen 3 1200 Quad-Core</td>
+<td>All devices have drivers except for the Platform Security Processor</td>
+<td>Had to set Power supply idle in BIOS setup to Typical in order to ensure stability.</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>CLEVO</td>
+<td>L287</td>
+<td> </td>
+<td>Everything works</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>DELL</td>
+<td>OPTIPLEX GX520</td>
+<td> </td>
+<td>Everything works and system shutdown is ok</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>DELL</td>
+<td>OPTIPLEX 330</td>
+<td> </td>
+<td>Works ok X ok</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-990FXA-UD3</td>
+<td> </td>
+<td>Etron Technology USB3.0 controllers are unsupported, otherwise the motherboard is compatible.</td>
+<td>Dave Koelmeyer</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>K8NUSLI</td>
+<td> </td>
+<td>151_a9 : All except audio works (ALC850 ) boots from pata and sata. hipster crashes after boot -r</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-770TA-UD3</td>
+<td>rge, audiohd, ahci</td>
+<td>Test System: AMD Phenom II X6 1090T, 4x 2GB DDR3, AMD/ATI Radeon HD 5770 PCI-e<ul><li>Marvell 88SE9128 SATA-3 controller: UNSUPPORTED (should be disabled, otherwise expect kernel panic at boot)</li><li>NEC USB-3 controller: UNSUPPORTED</li><li>Everything else seems to work quite well</li></ul></td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-MA785GMT-UD2H</td>
+<td>rge, ahci</td>
+<td>Test System: AMD 240e<ul><li>No issues (rge not extensively tested, was not reliable in earlier opensolaris builds).</li><li>ECC RAM: UNSUPPORTED (although accepts ECC unbuffered RAM)</li></ul></td>
+<td>James D. Brenton</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-790XTA-UD4</td>
+<td>audiohd, rge, ahci, pci-ide, ohci, ehci, hci1394</td>
+<td>Test System: AMD Phenom II X4 955, 4x 2GB DDR3, AMD/ATI Radeon HD 4770 PCI-e<ul><li>Marvell 88SE9128 SATA-3 controller : UNSUPPORTED (should be disabled, otherwise expect kernel panic at boot)</li><li>NEC USB-3 controller: UNSUPPORTED</li><li>Everything else seems to work quite well</li></ul></td>
+<td>Ancoron Luciferis</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-EG31MF-S2</td>
+<td> </td>
+<td> </td>
+<td>Dave Koelmeyer</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-EP45-DS3R</td>
+<td> </td>
+<td> </td>
+<td>Erol Zavidic</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-EP45-UD3R</td>
+<td> </td>
+<td>Works when "Enhanced Intel Speedstep Technology" (CPU EIST Function) is disabled in BIOS. (Intel speedstep causes abnormally high kernel CPU usage).</td>
+<td>Michael Kruger</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-F2A78M</td>
+<td> </td>
+<td> </td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>GA-P67A-UD7-B3</td>
+<td> </td>
+<td>Test System: LGA 1155 Sandy Bridge 2600K<ul><li>Marvell 88SE9128 SATA controller: UNSUPPORTED</li><li>P67A SATA controller: SUPPORTED</li><li>RealTek RTL8111E Ethernet: SUPPORTED (despite being warned off!)</li></ul></td>
+<td>Lou Picciano</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>P45T-ES3G</td>
+<td> </td>
+<td>Works when "Enhanced Intel Speedstep Technology" (CPU EIST Function) is disabled in BIOS. (Intel speedstep causes abnormally high kernel CPU usage).</td>
+<td>Michael Kruger</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>B460MADRUSPRO</td>
+<td> </td>
+<td>Intel(R) Core(TM) i5-10400F, BIOS American Megatrends Inc. F4</td>
+<td>Carl</td>
+</tr>
+<tr>
+<td>Gigabyte</td>
+<td>H370M-D3H</td>
+<td> </td>
+<td>Intel(R) Core(TM) i5-8400, BIOS American Megatrends Inc. F2</td>
+<td>Carl</td>
+</tr>
+<tr>
+<td>Hewlett-Packard</td>
+<td>Workstation XW4200</td>
+<td> </td>
+<td>Works Ok.  X with Nvidia gt9600 and 340.93 tested OK</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>ThinkCentre</td>
+<td> </td>
+<td>Works ok with bge0 and integrated graphics</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>D510MO</td>
+<td> </td>
+<td>Live CD will only boot with BIOS set to USB Legacy=Disable. Note, this also results in USB keyboard not usable in GRUB menu (annoying), but works once OS has booted. Only supports VESA graphics driver.</td>
+<td>Matt Connolly</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>DG43GT</td>
+<td> </td>
+<td>Works without any known problems - Basic desktop board with Intel G43 Express chipset, Pro 1000 LAN, Realtek Audio</td>
+<td>Michael Kruger</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>S1200BTLR</td>
+<td> </td>
+<td>Works</td>
+<td>Marcel Telka</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>S1400FP2 / S1400FP4</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>S1</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>S2600 (CP/GZ/IP)</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MSI</td>
+<td>B150I</td>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td>MSI</td>
+<td>G31TM-P21</td>
+<td>rge, audiohd</td>
+<td>Intel G31/ICH7 Chipset<ul><li>Realtek RTL8101/8102E: SUPPORTED</li><li>ICH7 audio: SUPPORTED</li><li>Intel GMA3100: UNKNOWN (I haven't tried the built-in video)</li></ul></td>
+<td>Philip Robar</td>
+</tr>
+<tr>
+<td>MSI</td>
+<td>MS 7069</td>
+<td>bge</td>
+<td>works with Celeron 3ghz X with onboard graphics</td>
+<td>Quentin Sanchez</td>
+</tr>
+<tr>
+<td>MSI</td>
+<td>MS 7301</td>
+<td>vr</td>
+<td>works with Pentium D and X</td>
+<td>Quentin Sanchez</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>A1SAi-2750F</td>
+<td> </td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>A1SRi-2758F</td>
+<td> </td>
+<td></td>
+<td> </td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>H8SGL-F</td>
+<td> </td>
+<td> </td>
+<td>Richard Palo</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>X7DB8</td>
+<td>mpt, e1000</td>
+<td> </td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>X7BSi</td>
+<td> </td>
+<td>Test System: Using a lower-speed Xeon Quad and 8GB ECC memory, plus two Seagate 7200.11 disks.<ul><li>IPMI: SUPPORTED</li></ul></td>
+<td>anonymous</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>X7SPA-H</td>
+<td>e1000g ahci</td>
+<td>Test System: Atom D510. <ul><li>Intel 82574L Ethernet: SUPPORTED</li></ul></td>
+<td>Cyril Plisko</td>
+</tr>
+<tr>
+<td>SuperMicro</td>
+<td>X8DTU-6F+</td>
+<td> </td>
+<td> </td>
+<td>Geoff Flarity</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X8SI6-F</td>
+<td> </td>
+<td><ul><li>LSI 2008 8-Port 6Gbps SAS Controller: SUPPORTED</li><li>Intel 82574L Ethernet: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul></td>
+<td>Alexander Lesle</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X8SIA-F</td>
+<td> </td>
+<td><ul><li>Intel 82574L Ethernet: SUPPORTED</li><li>IPMI 2.0 (IPMI View v2.7.19): SUPPORTED</li></ul></td>
+<td>Alexander Lesle</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X8SIL-F</td>
+<td> </td>
+<td><ul><li>Intel 82574L Ethernet: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul></td>
+<td>Alexander Lesle</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X9SCM-F-O</td>
+<td>mpt/sd, usb_mid/hid, e1000g, vgatext, ahci/sd</td>
+<td>Test System: 4x 4-gig ECC DIMMs and an Intel E3-1220 CPU.<ul><li>Intel 82574L Ethernet: SUPPORTED</li><li>Intel 82579LM Ethernet: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul></td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X9SCA-F</td>
+<td>mpt/sd, usb_mid/hid, e1000g, vgatext/matrox-graphics, ahci/sd</td>
+<td>Test System: 4x 4-gig ECC DIMMs and an Intel E3-1270 CPU.<ul><li>Intel 82574L: SUPPORTED</li><li>IPMI: SUPPORTED</li></ul></td>
+<td>Jon Strabala</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X9DRi-LN4F+</td>
+<td> </td>
+<td> </td>
+<td>Christof Haemmerle</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X9DRH-IF</td>
+<td> </td>
+<td>Test System: 2x XEON E5-2609, 16x8GB ECC DIMMs<ul><li>SATA only working on AHCI ports not SCU ports</li></ul></td>
+<td>Carsten</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X9DRD-7LN4F-JBOD</td>
+<td>mga, ahci</td>
+<td></td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>X10SLM-F</td>
+<td> npe, e1000g, vgatext, igb, pcieb</td>
+<td>igb and e1000g compiled from illumos git source, for SOL console sol1 use ttyb</td>
+<td>Carsten Grzemba</td>
+</tr>
+<tr>
+<td>Tyan</td>
+<td>Tomcat K8E (S2865 AG2NRF)</td>
+<td> </td>
+<td> </td>
+<td>Ken Gunderson</td>
+</tr>
+<tr>
+<td>Tyan</td>
+<td>S2927-E</td>
+<td> </td>
+<td>Tyan Thunder n3600B S2927-E (S2927G2NR-E) motherboard</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Tyan</td>
+<td>S5510GM3NR</td>
+<td> </td>
+<td>Test System: Xeon LGA1155 C204 with Intel Core i3 2100.<ul><li>IPMI: SUPPORTED with BIOS V2.01c or bug <a href="https://www.illumos.org/issues/2560">#2560</a> fix.</li></ul></td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Zotac</td>
+<td>G43ITX-A-E</td>
+<td> </td>
+<td>Intel Q8400, 4 GB RAM, onboard Intel X4500 VGA (see note below).<br/>Running with 8 HDDs:<br><ul><li>5 using Intel ICH10R internal SATA (AHCI)</li><li>1 using Intel ICH10R eSATA (AHCI)</li><li>2 using add-on ASMedia ASM1061 PCI-E X1 SATA card (Device supported and detected by OI but HDD not detected. Possibly due to other unrelated issues. Still testing.)</li></ul>Note: The Intel X4500 VGA adapter will throw up some errors pertaining to "regiter error" and "vga init error" either during setup or boot. However, it will still work fine and OI will install / boot without problems. Unsupported driver issues?</td>
+<td>Dedy Johan</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peripheral-devices">Peripheral Devices</h2>
+<h3 id="monitors">Monitors</h3>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Description</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sun</td>
+<td>X7236A-N</td>
+<td>24.1-Inch TFT LCD Color Monitor</td>
+<td>yes</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>PX2370</td>
+<td>23" LED Monitor</td>
+<td>yes</td>
+<td>HDMI2.0/DisplayPort 1.2a</td>
+<td></td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>LU28H750UQNXZA</td>
+<td>28" UH750 QLED UHD Monitor (3840 x 2160 resolution)</td>
+<td>yes</td>
+<td>HDMI2.0/DisplayPort 1.2a</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="keyboardsmice">Keyboards/Mice</h3>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logitech</td>
+<td>TrackMan Wheel</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Logitech</td>
+<td>K120 Keyboard</td>
+<td>yes</td>
+<td> </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>Basic Optical Wheel Mouse</td>
+<td>yes</td>
+<td> </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>Wired Keyboard 600</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>Type 6 USB Mouse</td>
+<td>yes</td>
+<td>Middle button does not work.</td>
+<td>usbms</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="printers">Printers</h3>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brother</td>
+<td>MFC-9970CDW</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Canon</td>
+<td>PIXMA MG8120</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Canon</td>
+<td>imageCLASS D420</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Epson</td>
+<td>WorkForce 840</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HP</td>
+<td>Officejet Pro 8500 series</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HP</td>
+<td>Envy 100 (D410a)</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HP</td>
+<td>Color LaserJet CM3530fs MFP</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Lexmark</td>
+<td>X543dn/X544(dn/dw)/X546dtn</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Oki</td>
+<td>MB480 MFP</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Oki</td>
+<td>CX2731 MFP</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>SCX-3205</td>
+<td>yes</td>
+<td>Install <code>print/splix</code>.</td>
+<td>scx3200.ppd</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Xerox</td>
+<td>WorkCentre 6400</td>
+<td>yes</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="serial-controllers">Serial Controllers</h2>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keyspan</td>
+<td>USA-19HS</td>
+<td>yes</td>
+<td>USB DB9M Serial adapter.<br/>Note: Does not play well with APC UPS and results in connection failures.</td>
+<td>usbsksp</td>
+<td>Jon Green</td>
+</tr>
+<tr>
+<td>MOXA</td>
+<td>CP-102EL-DB9M</td>
+<td>yes</td>
+<td>2-Port serial PCI-Express card<br/>2-Port PCIe Board with DB9M RS-232 cable.<br/>Use Solaris 10 drivers available from MOXA site (works with APC UPS)</td>
+<td>mxsieboard</td>
+<td>Jon Green</td>
+</tr>
+<tr>
+<td>StarTech</td>
+<td>PEX2S553</td>
+<td>no</td>
+<td>2-Port serial PCI-Express card</td>
+<td></td>
+<td>Jon Green</td>
+</tr>
+</tbody>
+</table>
+<h2 id="storage-controllers">Storage Controllers</h2>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Controller</th>
+<th>Assic</th>
+<th>Connectors</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3Ware</td>
+<td>SAS 9550SX/9650SE/9690SA/9750 controller series</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Adaptec</td>
+<td>6405, 6445, 6805, 7805,78165, 71605, 71685, 72405, 8805, 8885, 81605</td>
+<td>PMC</td>
+<td>PMC 8001 and others</td>
+<td>SFF</td>
+<td>yes</td>
+<td></td>
+<td>aacraid</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Adaptec</td>
+<td>29320LPE Ultra320 Single Channel Low-Profile PCIe x1 SCSI Card</td>
+<td>29320LPE</td>
+<td>Adaptec 29320</td>
+<td>1x VHDCI (External)<br/>1x LVD (Internal)</td>
+<td>yes</td>
+<td></td>
+<td>adpu320</td>
+<td>Jon Green</td>
+</tr>
+<tr>
+<td>Addonics</td>
+<td>Hybrid HDD - mSATA SSD Controller (AD2SAHMSA)</td>
+<td>AD2SAHMSA</td>
+<td>Marvell 88SE9128</td>
+<td>1 x SATAIII (internal)<br/>1 x mSATA</td>
+<td>yes</td>
+<td></td>
+<td>ahci</td>
+<td>Marcel Telka</td>
+</tr>
+<tr>
+<td>Areca</td>
+<td>SATA II RAID Controller driver (ARC-11xx/12xx/16xx/18xx)</td>
+<td>ARC-1880</td>
+<td>LSI SAS2308</td>
+<td>2x SFF-8087</td>
+<td>yes</td>
+<td></td>
+<td>arcmsr</td>
+<td>Garrett D'Amore</td>
+</tr>
+<tr>
+<td>Avago</td>
+<td>SAS 9305 Controllers  (12Gb/s SAS-3 Compliant)</td>
+<td>Avago 9305-16i</td>
+<td>LSI SAS3224</td>
+<td>4 x SFF8643</td>
+<td>yes</td>
+<td>To use sas3ircu (wwn to bay assignment, led alerting), read <a href="https://www.illumos.org/issues/6784">https://www.illumos.org/issues/6784</a></td>
+<td>mpt_sas</td>
+<td>Guenther Alka</td>
+</tr>
+<tr>
+<td>Axago</td>
+<td>Axago PCES-SA</td>
+<td>PCES-SA</td>
+<td>ASMedia ASM1062 (according pci.ids) / ASM1061 (on the chip)</td>
+<td>2 x SATAIII (internal)</td>
+<td>yes</td>
+<td></td>
+<td>ahci</td>
+<td>Marcel Telka</td>
+</tr>
+<tr>
+<td>Axago</td>
+<td>Axago</td>
+<td>PCIS-60</td>
+<td>SiI3124-2</td>
+<td>4x SATAII</td>
+<td>yes</td>
+<td></td>
+<td>si3124</td>
+<td>Milan Jurik</td>
+</tr>
+<tr>
+<td>Broadcom</td>
+<td>SAS 9305 Controllers  (12Gb/s SAS-3 Compliant)</td>
+<td>Avago 9305-16i</td>
+<td>LSI SAS3224</td>
+<td>4 x SFF8643</td>
+<td>yes</td>
+<td>To use sas3ircu (wwn to bay assignment, led alerting), read <a href="https://www.illumos.org/issues/6784">https://www.illumos.org/issues/6784</a></td>
+<td>mpt_sas</td>
+<td>Guenther Alka</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PERC H200/H220i SAS/SATA 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9212-4i4e</td>
+<td>LSI SAS2004/2008/2108/2116</td>
+<td>4x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mpt_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Dell</td>
+<td>PERC H310/H700/H710/H710P/H800/H810 SAS/SATA 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Emulex</td>
+<td>Emulex LP8000</td>
+<td> </td>
+<td> </td>
+<td>SC</td>
+<td>yes</td>
+<td></td>
+<td>emlxs</td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>H210i/H220/H220i/H221/H222 SAS/SATA 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>HP</td>
+<td>Smart Array SAS/SATA PCIe Controllers (5i/6i, 5xx/5xxx/6xx/6xxx, E200/200i, P2xx/4xx/5xx/6xx/7xx)</td>
+<td>P411/256</td>
+<td>SA-P411</td>
+<td>2x SAS ports</td>
+<td>yes</td>
+<td></td>
+<td>cpqary3</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>M1015/M1115/M5014/M5015/M5016/5025/5110/5120 SAS/SATA 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>ServeRAID H1110 SAS/SATA 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9212-4i4e</td>
+<td>LSI SAS2004/2008/2108/2116</td>
+<td>4x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mpt_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>RS25AB080/ RMS2AF040/RS2WC040/RS2WC080 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>SASWT4I/SASUC8I</td>
+<td> </td>
+<td>LSI SAS1064, SAS1068</td>
+<td> </td>
+<td>yes</td>
+<td></td>
+<td>mpt</td>
+<td>Jason Matthews</td>
+</tr>
+<tr>
+<td>LSI</td>
+<td>SAS 3008 Controllers - LSI SAS 9300 / LSI SAS 9311 12Gb/s SAS HBAs (SAS 3.0-compliant)</td>
+<td>LSI 9300-4i4e</td>
+<td>LSI SAS3008</td>
+<td>1 Mini-SAS HD SFF-8643</td>
+<td>yes</td>
+<td>To use sas3ircu (wwn to bay assignment, led alerting), read <a href="https://www.illumos.org/issues/6784">https://www.illumos.org/issues/6784</a></td>
+<td>mpt_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>LSI</td>
+<td>SAS 3041E-R/SAS 3442E/SAS 3442X/SAS 3801E/SAS 3801X</td>
+<td> </td>
+<td>LSI SAS1064, SAS1068</td>
+<td> </td>
+<td>yes</td>
+<td></td>
+<td>mpt</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>LSI</td>
+<td>9200/9201/9202/9210/9211/9212 SAS/SATA 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9212-4i4e</td>
+<td>LSI SAS2004/2008/2108/2116</td>
+<td>4x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mpt_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>LSI</td>
+<td>9207/9217/9240/9260/9261/9262/9264/9265/9266/9270/9271/9280/9281/9285/9286 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>LSI</td>
+<td>SAS 9305 Controllers  (12Gb/s SAS-3 Compliant)</td>
+<td>Avago 9305-16i</td>
+<td>LSI SAS3224</td>
+<td>4 x SFF8643</td>
+<td>yes</td>
+<td>To use sas3ircu (wwn to bay assignment, led alerting), read <a href="https://www.illumos.org/issues/6784">https://www.illumos.org/issues/6784</a></td>
+<td>mpt_sas</td>
+<td>Guenther Alka</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>Sun StorageTek 6Gb/s SAS-2.0</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>QLogic</td>
+<td>2340</td>
+<td>ISP 2312</td>
+<td> </td>
+<td> </td>
+<td>yes</td>
+<td>initiator works</td>
+<td></td>
+<td>Johan Sanchez</td>
+</tr>
+<tr>
+<td>StarTech.com</td>
+<td>StarTech.com 4 port PCI SATA RAID controller <br/> (Silicon Image (SI) 3114 - 4 port SATA raid card)</td>
+<td>SI 3114</td>
+<td>Sil3114</td>
+<td>4 x SATA150</td>
+<td>yes</td>
+<td>For illumos to recognize the drives, the card must be flashed with the IDE version of the BIOS</td>
+<td></td>
+<td>Hugo Wilkinson</td>
+</tr>
+<tr>
+<td>Supermicro</td>
+<td>SMC2008-iMR - SAS/SATA 6Gb/s PCIe 2.0 controllers</td>
+<td>LSI 9207-4i4e</td>
+<td>LSI SAS2108/2208/2308</td>
+<td>1x SFF-8087, 1x SFF-8088</td>
+<td>yes</td>
+<td></td>
+<td>mr_sas</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Syba</td>
+<td>IOCrest SI-PEX40108</td>
+<td>Marvell 88SE9215</td>
+<td> </td>
+<td>4 x SATA</td>
+<td>no</td>
+<td></td>
+<td></td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Vantec</td>
+<td>UGT-ST220R</td>
+<td>Sil3512</td>
+<td></td>
+<td>2x SATA</td>
+<td>no</td>
+<td></td>
+<td></td>
+<td>Eduardo Sanchez</td>
+</tr>
+</tbody>
+</table>
+<h2 id="webcams">Webcams</h2>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creative</td>
+<td>Creative Live! Cam Optia</td>
+<td>no</td>
+<td>Error while accessing video device Generic USB videoclass device</td>
+<td>usbvc</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Logitech</td>
+<td>C310 HD Webcam</td>
+<td>yes</td>
+<td></td>
+<td>usbvc</td>
+<td>Russell Aspinwall</td>
+</tr>
+<tr>
+<td>Logitech</td>
+<td>Webcam C905</td>
+<td>yes</td>
+<td></td>
+<td>usbvc</td>
+<td>Aurélien Larcher</td>
+</tr>
+<tr>
+<td>Logitech</td>
+<td>HD Pro Webcam C920</td>
+<td>yes</td>
+<td></td>
+<td>usbvc</td>
+<td>Franklin Morier</td>
+</tr>
+<tr>
+<td>Logitech</td>
+<td>Webcam C930e</td>
+<td>no</td>
+<td>xhci USB 3.1 attached to Dell Precision 3640, Microphone works fine with audacity, no video applications on OpenIndiana to test video with this webcam</td>
+<td>usbvc</td>
+<td>David Stes</td>
+</tr>
+<tr>
+<td>Philips</td>
+<td>Webcam SPC2050NC Pro</td>
+<td>yes</td>
+<td></td>
+<td>usbvc</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Trust</td>
+<td>SpotLight Webcam Pro</td>
+<td>yes</td>
+<td></td>
+<td>usbvc</td>
+<td>Udo Grabowski</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wifi-adapters">WiFi Adapters</h2>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Model</th>
+<th>Works (yes/no)</th>
+<th>WiFi standard</th>
+<th>Notes and/or specific usage instructions</th>
+<th>Driver</th>
+<th>Contributor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASUS</td>
+<td>USB-AC50 (chip: MediaTek MT7610U)</td>
+<td>no</td>
+<td>802.11a/b/g/n/ac</td>
+<td>USB 2.0 dongle</td>
+<td> </td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Atheros</td>
+<td>AR242x</td>
+<td>yes</td>
+<td>802.11abg</td>
+<td>PCI Express (pci168c,1c)</td>
+<td>ath</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>Atheros</td>
+<td>AR5523</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>USB</td>
+<td>uath</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Atheros</td>
+<td>AR5000 series</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>Mini PCI Express.</td>
+<td>ath</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Atheros</td>
+<td>AR5006</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>Mini PCI Express. ASUS Eee PC 900A</td>
+<td>ath</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Atheros</td>
+<td>AR5007EG</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>Mini PCI Express. Acer Aspire One AOA110</td>
+<td>ath</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Atheros</td>
+<td>AR9285</td>
+<td>yes</td>
+<td>802.11b/g/n</td>
+<td>Mini PCI Express. ASUS Eee PC 1005PE</td>
+<td>arn</td>
+<td>Gary Mills</td>
+</tr>
+<tr>
+<td>Atheros</td>
+<td>AR9485</td>
+<td>no</td>
+<td>802.11b/g/n</td>
+<td>Mini PCI Express. Toshiba Satellite L855</td>
+<td> </td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Broadcom</td>
+<td>BCM4313</td>
+<td>yes</td>
+<td>802.11b/g/n</td>
+<td><a href="https://www.illumos.org/issues/3367">NDIS</a></td>
+<td>bcmndis</td>
+<td>Jim Klimov</td>
+</tr>
+<tr>
+<td>D-Link</td>
+<td>DWA-171</td>
+<td>yes</td>
+<td>802.11abgn+ac</td>
+<td>USB 2.0 </td>
+<td>rtl</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>D-Link</td>
+<td>DWA-192</td>
+<td>yes</td>
+<td>802.11abgn+ac</td>
+<td>USB 3.0 </td>
+<td>rtl</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>D-Link</td>
+<td>DWA-582</td>
+<td>yes</td>
+<td>802.11abgn+ac</td>
+<td>PCI Express (PCIe)</td>
+<td>rtl</td>
+<td>Ken Mays</td>
+</tr>
+<tr>
+<td>D-Link</td>
+<td>DWL-G122</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>USB</td>
+<td>rum</td>
+<td>Jay Undernet</td>
+</tr>
+<tr>
+<td>Edimax</td>
+<td>AC600 (type: EW-7811UTC, chip: rtl8812au)</td>
+<td>no</td>
+<td>802.11a/b/g/n/ac</td>
+<td>USB 2.0 dongle</td>
+<td> </td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Intel PRO/Wireless 2100</td>
+<td>yes</td>
+<td>802.11b</td>
+<td>Mini PCI</td>
+<td>ipw</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Intel PRO/Wireless 2200BG</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>Mini PCI</td>
+<td>iwi</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Intel PRO/Wireless 2915ABG</td>
+<td>yes</td>
+<td>802.11a/b/g</td>
+<td>Mini PCI</td>
+<td>iwi</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Intel PRO/Wireless 3945ABG</td>
+<td>yes</td>
+<td>802.11a/b/g</td>
+<td>Mini PCI Express</td>
+<td>wpi</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>WiFi Link 4965AGN</td>
+<td>yes</td>
+<td>802.11a/g/n</td>
+<td>Mini PCI Express</td>
+<td>iwk</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>WiFi Link 5100AGN (ShirleyPeak/EchoPeak)</td>
+<td>yes</td>
+<td>802.11a/g/n</td>
+<td>Half/Full Mini PCI Express</td>
+<td>iwh</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>WiFi Link 5300AGN (ShirleyPeak/EchoPeak)</td>
+<td>yes</td>
+<td>802.11a/g/n</td>
+<td>Half/Full Mini PCI Express</td>
+<td>iwh</td>
+<td>Albert Lee</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>WiFi Link 5300 (pciex8086,4236)</td>
+<td>yes</td>
+<td>802.11a/b/g/n</td>
+<td>Half/Full Mini PCI Express</td>
+<td>iwn</td>
+<td>Marcel Telka</td>
+</tr>
+<tr>
+<td>Intel</td>
+<td>Centrino Advanced-N 6205 (Taylor Peak)</td>
+<td>yes</td>
+<td>802.11a/g/n</td>
+<td>Half Mini PCI Express</td>
+<td>iwn</td>
+<td>Michal Nowak</td>
+</tr>
+<tr>
+<td>Marvell</td>
+<td>88W8363 v1.1</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td> </td>
+<td>mwl</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Ralink</td>
+<td>RT2500/RT2501/RT2600</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td> </td>
+<td>ral</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Ralink</td>
+<td>RT252x/RT257x</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>USB</td>
+<td>ural</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Ralink</td>
+<td>RT2501/2601</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>USB</td>
+<td>rum</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Ralink</td>
+<td>RT2561/RT2561S/RT2661 driver v1.1</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td> </td>
+<td>rwd</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Ralink</td>
+<td>RT2700/RT2800</td>
+<td>yes</td>
+<td>802.11a/b/g/n</td>
+<td> </td>
+<td>rwn</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Realtek</td>
+<td>RTL8187L/B driver v1.2</td>
+<td>yes</td>
+<td>802.11b/g</td>
+<td>USB</td>
+<td>urtw</td>
+<td>enricop</td>
+</tr>
+<tr>
+<td>Realtek</td>
+<td>RTL8188CE</td>
+<td>no</td>
+<td>802.11b/g/n</td>
+<td> </td>
+<td> </td>
+<td>Marcel Telka</td>
+</tr>
+<tr>
+<td>Zydas</td>
+<td>ZD1211(B)</td>
+<td>yes</td>
+<td>802.11a/b/g</td>
+<td>USB</td>
+<td>zyd</td>
+<td>enricop</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

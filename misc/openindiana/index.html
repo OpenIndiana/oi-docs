@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/misc/openindiana/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>About OpenIndiana - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li class="active">
+    <a href="./">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../..">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../oi-docs/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/misc/openindiana.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#about-openindiana">About OpenIndiana</a></li>
+            <li><a href="#what-is-the-openindiana-operating-system">What is the OpenIndiana Operating System?</a></li>
+            <li><a href="#what-is-openindiana-project">What is OpenIndiana Project?</a></li>
+            <li><a href="#why-is-it-called-openindiana">Why is it called OpenIndiana?</a></li>
+            <li><a href="#how-are-openindiana-and-illumos-related">How are OpenIndiana and Illumos related?</a></li>
+            <li><a href="#how-does-openindiana-differ-from-opensolaris">How does OpenIndiana differ from OpenSolaris?</a></li>
+            <li><a href="#how-does-openindiana-compare-to-bsd-or-linux">How does OpenIndiana compare to BSD or Linux?</a></li>
+            <li><a href="#what-features-does-openindiana-have">What features does OpenIndiana have?</a></li>
+            <li><a href="#what-is-the-openindiana-release-schedule">What is the OpenIndiana release schedule?</a></li>
+            <li><a href="#what-are-the-recommended-hardware-specifications">What are the recommended hardware specifications?</a></li>
+            <li><a href="#does-openindiana-support-internationalization-and-localization">Does OpenIndiana support internationalization and localization?</a></li>
+            <li><a href="#does-openindiana-provide-security-and-bug-fixes">Does OpenIndiana provide security and bug fixes?</a></li>
+            <li><a href="#where-can-i-download-openindiana-hipster">Where can I download OpenIndiana Hipster?</a></li>
+            <li><a href="#what-package-manager-does-openindiana-use">What package manager does OpenIndiana use?</a></li>
+            <li><a href="#what-books-are-available-to-help-with-learning-openindiana">What books are available to help with learning OpenIndiana?</a></li>
+            <li><a href="#how-can-i-contact-openindiana-community">How can I contact OpenIndiana community?</a></li>
+            <li><a href="#how-do-i-get-involved-with-the-openindiana-project">How do I get involved with the OpenIndiana Project?</a></li>
+            <li><a href="#does-openindiana-provide-a-sparc-release">Does OpenIndiana provide a SPARC release?</a></li>
+            <li><a href="#what-are-the-licensing-terms-for-openindiana">What are the licensing terms for OpenIndiana?</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="about-openindiana">About OpenIndiana</h1>
+<h2 id="what-is-the-openindiana-operating-system">What is the OpenIndiana Operating System?</h2>
+<p>OpenIndiana is an advanced enterprise OS from the Sun branch of the Unix-like family tree, and as such it can sometimes seem quite complex (<em>Spending several decades running important servers can do that to an OS!</em>).
+But with a little help and information, once you know the basics, you'll find it actually has some of the nicest and friendliest tools around.
+As with most Unix-like operating systems it can be completely controlled via a Command Line Interface shell, but it also supports a windowing GUI system.</p>
+<p>From the CLI, it supports a number of different shells, the two main ones being ksh93 and Bash.
+It also supports the original <a href="http://en.wikipedia.org/wiki/SunOS">SunOS</a> <a href="http://en.wikipedia.org/wiki/SVR4#SVR4">SVR4</a> commands, Like the command and syntax familiar to BSD users, and a large portion of the GNU userland commands that most Linux users are familiar with.
+You can select any or all of those different commands from your shell configuration, giving you the environment you are most happy with.</p>
+<p>By default, the windowing GUI system is based on the popular Mate system.</p>
+<p>OpenIndiana also has a powerful package manager, IPS, for updating and installing new software.
+Although powerful, it may seem complicated at first; but, help is provided in these pages.</p>
+<p>OpenIndiana supports a wide range of popular software, including the main open source Internet server software, databases, Internet client software, development languages and tools and more.
+The Popular Software provides some links and notes about some of the community favorites, but many more are supported.
+In addition to the Hipster IPS repositories, OpenIndiana can also use the <a href="http://sfe.opencsw.org/">SFE</a> and <a href="https://pkgsrc.joyent.com/">pkgsrc</a> package repositories which provide additional software options.</p>
+<h2 id="what-is-openindiana-project">What is OpenIndiana Project?</h2>
+<p>The OpenIndiana project is the open source community which develops, maintains, and supports the <a href="https://en.wikipedia.org/wiki/OpenIndiana">OpenIndiana</a> distribution, an <a href="https://en.wikipedia.org/wiki/Illumos">Illumos</a> based Unix-like operating system derived from OpenSolaris.
+The purpose of the OpenIndiana Project is to ensure the continued availability of an openly developed distribution based on OpenSolaris.
+The OpenIndiana project is also a continuation of the collaborative effort and community spirit of the <a href="https://en.wikipedia.org/wiki/OpenSolaris">OpenSolaris project</a>.</p>
+<p>For a comprehensive history of the OpenSolaris project, see Jim Grisanzio's <a href="https://jimgrisanzio.wordpress.com/opensolaris/">OpenSolaris timeline</a>.</p>
+<h2 id="why-is-it-called-openindiana">Why is it called OpenIndiana?</h2>
+<p>OpenIndiana obtains its name from Project Indiana, an open source effort by Sun Microsystems (now Oracle Corporation) to produce OpenSolaris, a community developed Unix-like distribution based on Sun Solaris.
+Project Indiana was led by Ian Murdock, founder of the Debian Linux Distribution.</p>
+<h2 id="how-are-openindiana-and-illumos-related">How are OpenIndiana and Illumos related?</h2>
+<p>The <a href="https://illumos.org">Illumos project</a> is the open source community which develops, maintains, and supports <a href="https://github.com/illumos/illumos-gate">illumos-gate</a>, the core software used by the OpenIndiana distribution.
+Similar to a BSD <code>src</code> tree, illumos-gate includes the illumos kernel, along with many of the device drivers, core libraries, and system utilities.</p>
+<p>To form a complete distribution, the OpenIndiana project combines illumos-gate with <a href="https://github.com/OpenIndiana/oi-userland">oi-userland</a>, and with other free and open-source software.
+This melding of software from many different open-source projects is similar to how Linux distributions use the Linux kernel along with software from the GNU and various other open source projects.</p>
+<h2 id="how-does-openindiana-differ-from-opensolaris">How does OpenIndiana differ from OpenSolaris?</h2>
+<p>Some of the differences between OpenIndiana and OpenSolaris can be characterized as follows:</p>
+<ul>
+<li>Sun's OS/NET consolidation (closed by Oracle) has been replaced with <a href="https://github.com/OpenIndiana/illumos-gate">illumos-gate</a>.</li>
+<li>Many of the original OpenSolaris software consolidations have been reorganized into a single oi-userland consolidation.</li>
+<li>Oracle's Sun Studio has been replaced with the open source GNU GCC compiler.</li>
+<li>XVM (XEN) has been replaced with the illumos-kvm port.</li>
+</ul>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+OpenIndiana Hipster's transition from Sun Studio to GCC has resulted in a discontinuance of C++ ABI compatibility with previous releases of OpenIndiana, Oracle Solaris, and OpenSolaris.
+</div></p>
+<h2 id="how-does-openindiana-compare-to-bsd-or-linux">How does OpenIndiana compare to BSD or Linux?</h2>
+<p>All of these operating systems follow the Unix paradigm and contain tools and commands which bear a similar resemblance, although specific feature sets and command usage may be dissimilar.
+If you are coming to OpenIndiana from either BSD or Linux, you will quickly learn these differences.
+In no time at all, you'll feel right at home working with OpenIndiana's tools and commands.</p>
+<h2 id="what-features-does-openindiana-have">What features does OpenIndiana have?</h2>
+<p>OpenIndiana contains the following enterprise class features and more:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZFS</td>
+<td><a href="https://en.wikipedia.org/wiki/ZFS">ZFS File System and Volume Manager</a></td>
+</tr>
+<tr>
+<td>DTrace</td>
+<td><a href="https://en.wikipedia.org/wiki/DTrace">Dynamic Tracing Framework - (System Introspection)</a></td>
+</tr>
+<tr>
+<td>Crossbow</td>
+<td><a href="https://en.wikipedia.org/wiki/OpenSolaris_Network_Virtualization_and_Resource_Control">Network Virtualization and Resource Control</a></td>
+</tr>
+<tr>
+<td>SMF</td>
+<td><a href="http://illumos.org/man/5/smf">Service Management Facility</a></td>
+</tr>
+<tr>
+<td>FMA</td>
+<td><a href="http://illumos.org/man/1M/fmd">Fault Management Architecture</a></td>
+</tr>
+<tr>
+<td>COMSTAR</td>
+<td><a href="http://illumos.org/man/1m/itadm">Common Multiprotocol SCSI TARget - (ISCSI Target Framework)</a></td>
+</tr>
+<tr>
+<td>KVM</td>
+<td><a href="https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine">Kernel Virtual Machine - (Operating System Virtualization)</a></td>
+</tr>
+<tr>
+<td>Zones</td>
+<td><a href="https://en.wikipedia.org/wiki/Solaris_Containers">OS Level Virtualized Application Containers</a></td>
+</tr>
+<tr>
+<td>Time-Slider</td>
+<td><a href="https://web.archive.org/web/20160420090032/http://www.serverwatch.com/tutorials/article.php/3831881/Say-Cheese-OpenSolaris-Time-Slider.htm">Automated ZFS Snapshots and Rollbacks</a></td>
+</tr>
+<tr>
+<td>RBAC</td>
+<td><a href="http://www.c0t0d0s0.org/2008-02-04/less-known-solaris-features-rbac-and-privileges-part-1-introduction.c0t0d0s0">Role-Based Access Control</a></td>
+</tr>
+<tr>
+<td>IPMP</td>
+<td><a href="http://www.c0t0d0s0.org/2010-01-21/less-known-solaris-features-ip-multipathing-part-1-introduction.c0t0d0s0">IP Network Multipathing</a></td>
+</tr>
+<tr>
+<td>DLMP</td>
+<td><a href="http://www.c0t0d0s0.org/2013-03-21/less-known-solaris-features-data-link-multipathing.c0t0d0s0">Data Link Multipathing</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-is-the-openindiana-release-schedule">What is the OpenIndiana release schedule?</h2>
+<p>Approximately every six months, the OpenIndiana project releases a snapshot of the Hipster rolling release branch.
+Ideally suited for both workstations and servers, simply choose the installer type which best serves your needs.</p>
+<table>
+<thead>
+<tr>
+<th>Workstation</th>
+<th>Server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Live installer (Gnome desktop)</td>
+<td>Text installer (command line console)</td>
+</tr>
+</tbody>
+</table>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well"></p>
+<ul>
+<li>The legacy oi-dev-151x branch is no longer maintained.</li>
+<li>While upgrades to Hipster are possible, the most trouble free method is to perform a clean install.</li>
+</ul>
+</div>
+
+<p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> <strong>CAUTION:</strong>
+<div class="well">
+Hipster is a rapid development branch where software versions are frequently updated.
+While every package is tested to ensure stability, caution is nevertheless warranted when deploying Hipster into mission critical production environments.
+</div></p>
+<h2 id="what-are-the-recommended-hardware-specifications">What are the recommended hardware specifications?</h2>
+<table>
+<thead>
+<tr>
+<th>CPU</th>
+<th>Disk Space</th>
+<th>Memory (RAM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>64 Bit</td>
+<td>20GB (or more)</td>
+<td>2GB (or more)</td>
+</tr>
+</tbody>
+</table>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well"></p>
+<ul>
+<li>For the best performance (and to reduce the possibility of disk swapping), allocate 4GB RAM or more.</li>
+<li>For desktops, ensure total system memory (RAM + swap) are at least 4GB or greater.</li>
+<li>The default size of the OpenIndiana swap file is 50% of installed memory.<ul>
+<li>Minimum and maximum default swap allocations are 512MB and 32GB respectively.</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2 id="does-openindiana-support-internationalization-and-localization">Does OpenIndiana support internationalization and localization?</h2>
+<p>Yes, when installing OpenIndiana, you may choose from 47 different keyboard layouts and 22 different languages.</p>
+<h2 id="does-openindiana-provide-security-and-bug-fixes">Does OpenIndiana provide security and bug fixes?</h2>
+<p>Yes, absolutely.
+For the actively maintained Hipster rolling release, the OpenIndiana project seeks to ensure all known flaws are quickly mitigated.
+For this effort to succeed, we ask our user base to diligently bring security and bugfix concerns to our attention by submitting a ticket with the <a href="https://www.illumos.org/projects/openindiana/issues">OpenIndiana Bug Tracker</a>.</p>
+<h2 id="where-can-i-download-openindiana-hipster">Where can I download OpenIndiana Hipster?</h2>
+<p>Primary download mirror (London, England):</p>
+<ul>
+<li><a href="http://dlc.openindiana.org/isos/hipster">ISO's and USB Images</a></li>
+<li><a href="http://dlc.openindiana.org/torrents">Torrents</a></li>
+</ul>
+<p>Alternate mirrors (Asia, Europe, and North America)</p>
+<ul>
+<li><a href="../../handbook/openindiana-download-mirrors/">OpenIndiana Mirrors</a></li>
+</ul>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+For detailed information about creating a bootable OpenIndiana DVD or USB flash drive, please consult the following sections of the OpenIndiana Handbook:</p>
+<ul>
+<li><a href="../../handbook/getting-started/#creating-a-bootable-openindiana-dvd">Creating a bootable OpenIndiana DVD</a></li>
+<li><a href="../../handbook/getting-started/#creating-a-bootable-openindiana-usb-flash-drive">Creating a bootable OpenIndiana USB flash drive</a>
+</div></li>
+</ul>
+<h2 id="what-package-manager-does-openindiana-use">What package manager does OpenIndiana use?</h2>
+<p>OpenIndiana uses the network based <a href="https://en.wikipedia.org/wiki/Image_Packaging_System">Image Packaging System (IPS)</a>.
+For those coming to OpenIndiana from BSD or Linux, the IPS package manager will be an easy transition.
+You may also continue to use the legacy <code>pkgadd/pkgrm</code> commands.</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+The OpenIndiana distribution provides a basic set of packages, along with some extras.
+There are also 3rd party repositories which provide additional packages.
+If you wish to contribute by helping to expand package availability, please read further down about how to get involved with the OpenIndiana project.
+</div></p>
+<p>The following IPS repositories are available:</p>
+<table>
+<thead>
+<tr>
+<th>Repository Name</th>
+<th>Repository URL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>openindiana.org</td>
+<td><a href="https://pkg.openindiana.org/hipster">https://pkg.openindiana.org/hipster</a></td>
+<td>Hipster primary package repository</td>
+</tr>
+<tr>
+<td>hipster-encumbered</td>
+<td><a href="https://pkg.openindiana.org/hipster-encumbered">https://pkg.openindiana.org/hipster-encumbered</a></td>
+<td>Hipster encumbered license packages</td>
+</tr>
+<tr>
+<td>localhostoih</td>
+<td><a href="http://sfe.opencsw.org/localhostoih">http://sfe.opencsw.org/localhostoih</a></td>
+<td>3rd party <a href="http://sfe.opencsw.org">Spec Files Extra (SFE)</a> packages</td>
+</tr>
+</tbody>
+</table>
+<h3 id="adding-a-new-publisher">Adding a new publisher</h3>
+<p><code>pkg set-publisher -g repository_url repository_name</code></p>
+<h3 id="changing-an-existing-publisher">Changing an existing publisher</h3>
+<pre><code class="bash">pkg set-publisher \
+-G http://pkg.openindiana.org/hipster-2015 \
+-g https://pkg.openindiana.org/hipster openindiana.org
+</code></pre>
+
+<p>For further information about using the IPS <code>pkg</code> command consult the <a href="../../handbook/getting-started/#the-image-package-system-ips">Getting Started</a> section of the OpenIndiana Handbook as well as the pkg<sup>1</sup> man page included with OpenIndiana Hipster.</p>
+<h2 id="what-books-are-available-to-help-with-learning-openindiana">What books are available to help with learning OpenIndiana?</h2>
+<p>There are several resources which will assist you with learning to use OpenIndiana.
+While somewhat dated now, these resources are largely still relevant.</p>
+<ul>
+<li>
+<p><a href="http://www.bookfinder.com/search/?keywords=1430218916&amp;new=&amp;used=&amp;ebooks=&amp;classic=&amp;lang=en&amp;st=sh&amp;ac=qr&amp;submit=">Pro OpenSolaris</a></p>
+<ul>
+<li>A gentle and well written introduction to OpenSolaris. It weighs in at 250 pages.</li>
+</ul>
+</li>
+<li>
+<p><a href="http://www.bookfinder.com/search/?keywords=0470385480&amp;new=&amp;used=&amp;ebooks=&amp;classic=&amp;lang=en&amp;st=sh&amp;ac=qr&amp;submit=">OpenSolaris Bible</a></p>
+<ul>
+<li>A much larger and more comprehensive reference book of nearly 1000 Pages.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://illumos.org/books/">The illumos bookshelf</a></p>
+<ul>
+<li>Updated for illumos, the illumos bookshelf consists of several original OpenSolaris advanced administration and development titles.</li>
+</ul>
+</li>
+<li>
+<p><a href="../../books/about/">OpenSolaris 2009.06 Docs</a></p>
+<ul>
+<li>Originally released by the OpenSolaris project, this collection consists of over 40 titles ranging from development to systems administration.</li>
+</ul>
+</li>
+</ul>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well"></p>
+<p>An effort currently exists within the OpenIndiana community to review these books and provide errata.
+A longer term goal is to use the errata to revise and condense these titles into a significantly smaller collection which more closely follows the current development state of OpenIndiana Hipster.</p>
+<p>The documentation team is also working to produce an updated OpenIndiana handbook as well as task based tutorials.
+If you wish to participate in this effort, please indicate your interest via the IRC channels or the mailing lists.</p>
+</div>
+
+<h2 id="how-can-i-contact-openindiana-community">How can I contact OpenIndiana community?</h2>
+<p>There are several IRC channels and mailing lists, where you can discuss OpenIndiana and ask your questions to the wider community.</p>
+<p>Below is a list of OpenIndiana community resources you may find helpful:</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General Discussion IRC channel</td>
+<td><a href="irc://irc.libera.chat/openindiana">#openindiana on irc.libera.chat</a></td>
+</tr>
+<tr>
+<td>Development IRC channel</td>
+<td><a href="irc://irc.libera.chat/oi-dev">#oi-dev on irc.libera.chat</a></td>
+</tr>
+<tr>
+<td>General OpenIndiana Discussion Mailing List</td>
+<td><a href="https://openindiana.org/mailman/listinfo/openindiana-discuss">https://openindiana.org/mailman/listinfo/openindiana-discuss</a></td>
+</tr>
+<tr>
+<td>OpenIndiana Development Mailing List</td>
+<td><a href="https://openindiana.org/mailman/listinfo/oi-dev">https://openindiana.org/mailman/listinfo/oi-dev</a></td>
+</tr>
+<tr>
+<td>illumos Mailing Lists</td>
+<td><a href="https://illumos.org/docs/community/lists/">https://illumos.org/docs/community/lists/</a></td>
+</tr>
+<tr>
+<td>OpenIndiana Bug Tracker</td>
+<td><a href="https://www.illumos.org/projects/openindiana/issues">https://www.illumos.org/projects/openindiana/issues</a></td>
+</tr>
+<tr>
+<td>illumos Bug Tracker</td>
+<td><a href="https://www.illumos.org/projects/illumos-gate/issues">https://www.illumos.org/projects/illumos-gate/issues</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-do-i-get-involved-with-the-openindiana-project">How do I get involved with the OpenIndiana Project?</h2>
+<p>OpenIndiana is a community-based project, it relies on contributions from the community.
+There are different aspects of the project and opportunities to contribute.</p>
+<p>Below is a brief overview of different ways to get involved in the project.
+In addition, there is a more specific <a href="../../dev/existing-tasks/">list of existing tasks</a>.
+If you are interested in working in one of these areas or if you have further questions please do not hesitate to get in touch with us.</p>
+<p>Our small community is always happy to welcome new users and contributors:</p>
+<ul>
+<li>present yourself so we get to know each other,</li>
+<li>ask all the questions you have in mind,</li>
+<li>report anything that seems unclear to you,</li>
+<li>share any project idea you would like to develop.</li>
+</ul>
+<p>Overview of recurring technical tasks at the OpenIndiana Project</p>
+<ul>
+<li>Maintaining packages to <a href="../../dev/building-openindiana/">OpenIndiana itself</a> or to additional software repositories, like <a href="http://sfe.opencsw.org/">SFE</a>.</li>
+<li>Release management and testing.</li>
+<li>Developing code specific to OpenIndiana.</li>
+<li>Bug fixing and bugs triage, QA</li>
+<li>Project infrastructure maintenance, coordination with mirrors.</li>
+<li>Operating mirrors.</li>
+<li>Monitoring and handling security issues.</li>
+<li>Website and wiki maintenance</li>
+</ul>
+<p>There are also non-technical ways to contribute:</p>
+<ul>
+<li><a href="https://www.illumos.org/projects/openindiana/issues">Reporting issues</a> you find.</li>
+<li>Create artwork for OpenIndiana.</li>
+<li><a href="../../contrib/getting-started/">Writing documentation</a> or just blogging about OpenIndiana.</li>
+<li>Maintaining translations of OI-specific software and documentation.</li>
+</ul>
+<p>Just ask on the <a href="#how-can-i-contact-openindiana-community">IRC channels or mailing lists</a> about how you may contribute.</p>
+<h2 id="does-openindiana-provide-a-sparc-release">Does OpenIndiana provide a SPARC release?</h2>
+<p>OpenIndiana Hipster is not currently available for the SPARC platform.</p>
+<p>In regards to the creation of a SPARC port of OpenIndiana Hipster, there have been periodic discussions on the <a href="https://openindiana.org/mailman/listinfo">OpenIndiana mailing lists</a>.
+If you would like to see SPARC become a supported platform, please help us by joining the <a href="https://www.openindiana.org/community/getting-involved">OpenIndiana community</a>.</p>
+<h3 id="historical-sparc-releases">Historical SPARC releases</h3>
+<p>In 2009, the OpenSolaris project released an <a href="http://dlc.openindiana.org/isos/archive/opensolaris">OpenSolaris text install ISO</a>, and much more recently, there was work done by Adam Glasgall who produced an <a href="http://neutron-star.mit.edu/OpenIndiana_Text_SPARC.iso">unofficial SPARC text install ISO</a> based on oi-dev-151-a8.</p>
+<h3 id="illumos-distributions-with-sparc-releases">illumos distributions with SPARC releases</h3>
+<p>The following illumos based distributions are known to support the SPARC platform:</p>
+<ul>
+<li><a href="http://www.dilos.org/download">Dilos</a></li>
+<li><a href="http://opensxce.org">OpenSCXE</a></li>
+<li><a href="http://www.tribblix.org/download.html">Tribblix</a></li>
+</ul>
+<h3 id="commercial-distributions-with-sparc-releases">Commercial distributions with SPARC releases</h3>
+<p>For production use on modern SPARC hardware, there is also commercial <a href="https://www.oracle.com/solaris/solaris11/index.html">Oracle Solaris</a></p>
+<h2 id="what-are-the-licensing-terms-for-openindiana">What are the licensing terms for OpenIndiana?</h2>
+<p>OpenIndiana is composed of software from multiple different sources, each with its own licensing terms.</p>
+<p>Here is a list of the most commonly used licenses:</p>
+<ul>
+<li><a href="https://opensource.org/licenses/CDDL-1.0">Common Development and Distribution License (CDDL-1.0)</a></li>
+<li><a href="http://illumos.org/license/PDL">PUBLIC DOCUMENTATION LICENSE (PDL), Version 1.01</a></li>
+<li><a href="https://opensource.org/licenses/MIT">The MIT License (MIT)</a></li>
+<li><a href="https://opensource.org/licenses/BSD-2-Clause">The BSD 2-Clause License</a></li>
+<li><a href="http://www.gnu.org/licenses/licenses.en.html">GNU licenses</a></li>
+</ul></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

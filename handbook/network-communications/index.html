@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/handbook/network-communications/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Network Communications - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../systems-administration/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../appendix/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/network-communications.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#hipster-handbook-network-communications">Hipster Handbook - Network Communications</a></li>
+            <li><a href="#ppp">PPP</a></li>
+            <li><a href="#pppoe">PPPoE</a></li>
+            <li><a href="#email">Email</a></li>
+            <li><a href="#www-server">WWW server</a></li>
+            <li><a href="#firewalls">Firewalls</a></li>
+            <li><a href="#nat-network-address-translation">NAT (Network Address Translation)</a></li>
+            <li><a href="#advanced-networking">Advanced Networking</a></li>
+            <li><a href="#crossbow">Crossbow</a></li>
+            <li><a href="#hipster-as-a-nas">Hipster as a NAS</a></li>
+            <li><a href="#hipster-as-an-nis-server">Hipster as an NIS server</a></li>
+            <li><a href="#hipster-as-an-ldap-server">Hipster as an LDAP server</a></li>
+            <li><a href="#hipster-as-a-dhcp-server">Hipster as a DHCP server</a></li>
+            <li><a href="#hipster-as-an-ftp-server">Hipster as an FTP server</a></li>
+            <li><a href="#hipster-as-a-dns-server">Hipster as a DNS server</a></li>
+            <li><a href="#hipster-as-a-ntp-server">Hipster as a NTP server</a></li>
+            <li><a href="#hipster-as-a-inetd-server">Hipster as a INETD server</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+ (the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="hipster-handbook-network-communications">Hipster Handbook - Network Communications</h1>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+This is a <strong>DRAFT</strong> document which may contain errors!</p>
+<p>Help us improve and expand this site.</p>
+<p>Please see the <strong>Contrib</strong> section for more details about joining the OpenIndiana Documentation Team.</p>
+</div>
+
+<p>&lt; Place holder for Introduction content &gt;</p>
+<h2 id="ppp">PPP</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="pppoe">PPPoE</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="email">Email</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="www-server">WWW server</h2>
+<ul>
+<li>Apache</li>
+<li>nginx</li>
+</ul>
+<h2 id="firewalls">Firewalls</h2>
+<p>Firewalls are used to filter network traffic based on rules set by the system administrator. Firewall can protect your personal computer or whole company's network from unauthorized network while allowing passage of legitimate network traffic.</p>
+<h3 id="ip-filter">IP Filter</h3>
+<p>OpenIndiana comes with built-in firewall, IP Filter. IP Filter is the stateful packet filtering and network address translation (NAT) mechanism. IP filter can filter any kind of traffic based on source or destination IP address or pool of IP addresses, source or destination ports, interface or direction of the network traffic. OpenIndiana IP Filter is derived from open source IPFilter software.</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+To manage IP Filter rules one must assume a role that includes IP Filter Management profile rights or superuser (<strong>root</strong>).
+</div></p>
+<h3 id="ip-filter-configuration">IP Filter configuration</h3>
+<p>IP Filter is configured by loadable configurations files stored in <code>/etc/ipf</code>. One can create several configuration files in <code>/etc/ipf</code> for firewall configuration:</p>
+<ul>
+<li><strong>ipf.conf</strong> - stores packet filtering rules</li>
+<li><strong>ipnat.conf</strong> - defines NAT rules</li>
+<li><strong>ippol.conf</strong> - address pool configuration</li>
+</ul>
+<p>If IP Filter SMF service is enabled then the configured rules will be automatically loaded at every boot time of the operating system.</p>
+<h3 id="packet-filtering">Packet Filtering</h3>
+<p>IP Filter ruleset can be configured with the <a href="https://illumos.org/man/1M/ipf">ipf(1M)</a> or <code>/etc/ipf/ipf.conf</code> file. Rules are processed by the <em>"the last matching rule wins"</em> logic. This means that packet passing the IP Filter ruleset from the beggining and the action of the last rule that matched the packet is applied. There are two exceptions, which change this processing. The first one is the use of <strong>quick</strong> keyword, which will apply the rule on the packet and stop further filter rules checks. Another exception is the <strong>group</strong> keyword, which matches packet. Only rules with <strong>group</strong> keyword are used for packet processing.</p>
+<h4 id="filtering-rules-syntax">Filtering rules syntax</h4>
+<p>The following format is used to create filtering rules:</p>
+<p><strong>action [in|out] option keyword, keyword..</strong></p>
+<p>Every rule begins with the action. Action can be one of these:</p>
+<ul>
+<li><strong>block</strong> - denies packets from passing the filter</li>
+<li><strong>pass</strong> - allows packets to pass the filter</li>
+<li><strong>log</strong> - logs the packet. <a href="https://illumos.org/man/1M/ipmon">ipmon(1M)</a> is used to view the log file.</li>
+<li><strong>count</strong> - counts packet into the filter statistics. Use <a href="https://illumos.org/man/1M/ipfstat">ipfstat(1M)</a> to display the statistics.</li>
+<li><strong>skip</strong> number - skips the filter over number filtering rules</li>
+<li><strong>auth</strong> - user program is requested to perform packet authentification in order to decide if the packet should be passed or not</li>
+</ul>
+<p>Following the action, the next word is <strong>in</strong> or <strong>out</strong>. This determines in which direction rules are applied, e.g incoming or outgoing packets.</p>
+<p>The option keyword is next. One can choose from:</p>
+<ul>
+<li><strong>log</strong> - logs the packet is the packet matched the rule. Use <a href="https://illumos.org/man/1M/ipmon">ipmon(1M)</a> to view the log.</li>
+<li><strong>quick</strong> - rule with quick keyword is executed if packet matches it. No further rules checking is done.</li>
+<li><strong>on</strong> interface - rule is applied only on interface in both directions</li>
+<li><strong>dup-to</strong> interface - packet is copied and sent out on interface to specified IP address</li>
+<li><strong>to</strong> interface - packet is moved to an outbound queue on interface</li>
+</ul>
+<p>Next are the keywords that determine if the packet matches the rule. The following keywords shown here can be used:</p>
+<ul>
+<li><strong>tos</strong> - packet is filtered based on the type-of-service value written as decimal or hexadecimal integer.</li>
+<li><strong>ttl</strong>- packet is matched based on its time-to-live value.</li>
+<li><strong>proto</strong> - used to match a specific protocol. Any protocol name from /etc/protocols or its decimal representation can be used.</li>
+<li><strong>from/to/all/any</strong> - matches either source or destination IP address of the packet and the port number. All accepts packet from any source to any destination.</li>
+<li><strong>with</strong> - matches specified attributes associated with the packet. Inserted not/no in front of the keyword matches the packet only if the option is not present.</li>
+<li><strong>flags</strong> - filters based on TCP flags that are set.</li>
+<li><strong>icmp-type</strong> - filters based on ICMP type.</li>
+<li><strong>keep</strong> keep-options - determines whetever state should be kept for a packet. state stores information about the session and can be kept on TCP, UDP, and ICMP packets. The frags keeps information about packet fragments and apllies them to later fragments. This option allows matching packets to pass without further ruleset evalution.</li>
+<li><strong>head</strong> number - creates new group for filtering rules denoted by number.</li>
+<li><strong>group</strong> number - adds the rule to group number. The default group value is 0.</li>
+</ul>
+<p>In the following example we will block all incoming packet on igb0 from 10.0.0.0/8. This rule should be included in one's ruleset:</p>
+<p><code>block in quick on igb0 from 10.0.0.0/8 to any</code></p>
+<h4 id="address-pools">Address pools</h4>
+<p>Address pools group multiple IP addresses/networks into a single reference that can be used in IP Filter rules.</p>
+<h2 id="nat-network-address-translation">NAT (Network Address Translation)</h2>
+<p>NAT is used in case when one needs to do address or port translation. This happens when one wants to connect multiple computers at home and share the network connection or when one wants to do port forwarding. NAT on OpenIndiana is set up in <code>/etc/ipf/ipnat.conf</code> and work regarding NATs is done with <a href="https://illumos.org/man/1M/ipnat">ipnat(1M)</a>.</p>
+<h3 id="nat-rules-syntax">NAT rules syntax</h3>
+<p>To create NAT rules use the following syntax:</p>
+<p>command interface-name parameters</p>
+<p>Every rule begins with command from one of these:</p>
+<ul>
+<li><strong>map</strong> - maps one IP address or network to another IP address or network.</li>
+<li><strong>rdr</strong> - redirects packet from one IP address and port to another IP address and port.</li>
+<li><strong>bimap</strong> - creates bidirectorial NAT between an external and an internal IP address.</li>
+<li><strong>map-block</strong> - establishes static IP address-based translation.</li>
+</ul>
+<p>Interface named is used after command, e.g. <strong>igb0</strong>.</p>
+<p>To determine NAT configuration one has to use one of the following parameters:</p>
+<ul>
+<li><strong>ipmask</strong> - designates the network mask.</li>
+<li><strong>dstipmask</strong> - designates the address ipmask is translated to.</li>
+<li><strong>mapport</strong> - designates TCP or UDP protocols along with range of ports.</li>
+</ul>
+<p>Assuming we have an external IP address 10.0.0.1/24 on interface eg1000 and an internal range of 192.168.1.0/24. The example NAT rule would look like this:</p>
+<p><code>map eg1000 192.168.0.0/24 -&gt; 10.0.0.1/24</code></p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+NAT is not usable with IPv6 IP filter as NAT is deprecated in IPv6. NAT can be only used with IPv4 addresses.
+</div></p>
+<h2 id="advanced-networking">Advanced Networking</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="crossbow">Crossbow</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="hipster-as-a-nas">Hipster as a NAS</h2>
+<p>OpenIndiana provides several ways to share data with network clients.</p>
+<table>
+<thead>
+<tr>
+<th>Implementation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CIFS</td>
+<td>Kernel based SMB file sharing solution offering ZFS integration, ease of use, and relatively simple configuration.</td>
+</tr>
+<tr>
+<td>SAMBA</td>
+<td>Modern userland based SMB file sharing solution providing support for newer SMB protocols (SMB 2.1) and better compatibility with modern Windows clients.</td>
+</tr>
+<tr>
+<td>NFS</td>
+<td>The Network File System was originally developed by Sun Microsystems.</td>
+</tr>
+</tbody>
+</table>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
+<div class="well">
+ITEMS TO WRITE ABOUT:</p>
+<p>For a variation of configuring a home NAS - this could be done virtually as well</p>
+<ul>
+<li>Running OI as a VMware EXSI guest<ul>
+<li>Local storage hardware is passed through to the OI guest and then shared via ISCSI, CIFS, NFS, etc.</li>
+</ul>
+</li>
+</ul>
+<p>For help writing this section, see the following OpenSolaris references:</p>
+<ul>
+<li><a href="https://web.archive.org/web/20091008234550/http://developers.sun.com/openstorage/articles/opensolaris_nas.html">Setting Up an OpenSolaris NAS Box</a></li>
+<li><a href="https://web.archive.org/web/20091005070838/http://wiki.genunix.org/wiki/index.php/Getting_Started_With_the_Solaris_CIFS_Service">Getting Started With the Solaris CIFS Service</a></li>
+<li><a href="https://web.archive.org/web/20091021005616/http://blogs.sun.com/afshinsa/entry/how_to_enable_guest_access">How to enable guest access to a Solaris CIFS share</a></li>
+<li><a href="https://web.archive.org/web/20091126111451/http://wiki.genunix.org/wiki/index.php/Solaris_CIFS_Service_Troubleshooting">Solaris CIFS Service Troubleshooting</a></li>
+<li><a href="https://web.archive.org/web/20091124124935/http://wiki.genunix.org/wiki/index.php/What's_New_With_Solaris_CIFS">What's New With Solaris CIFS</a></li>
+<li><a href="https://web.archive.org/web/20090725231658/http://wiki.genunix.org/wiki/index.php/CIFS_Technical_References">CIFS Technical References</a></li>
+</ul>
+<p>Also have a look at the <a href="https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf">OpenSolaris CIFS Administration Guide</a>
+</div></p>
+<h3 id="hipster-as-a-cifs-server-workgroup">Hipster as a CIFS server (workgroup)</h3>
+<p>&lt; Placeholder for introduction content &gt;</p>
+<h4 id="commands-used">Commands used</h4>
+<ul>
+<li><code>sharemgr</code> - configure and manage file sharing</li>
+<li><code>smbadm</code> - configure and manage CIFS local groups and users, and manage domain membership</li>
+<li><code>zfs</code> - configures ZFS file systems</li>
+<li><code>passwd</code> - change login password and password attributes</li>
+<li><code>chown</code> - change file ownership</li>
+</ul>
+<h4 id="configuration-steps">Configuration steps</h4>
+<p>Start by listing available storage pools.</p>
+<p><code>zfs list</code></p>
+<pre><code class="bash">NAME                           USED  AVAIL  REFER  MOUNTPOINT
+storage                        498K   899G    19K  /storage
+</code></pre>
+
+<p>Create your ZFS dataset to be shared via CIFS/SMB.</p>
+<pre><code class="bash">zfs create -o casesensitivity=mixed -o sharesmb=on storage/backup
+</code></pre>
+
+<p>Start the CIFS service.</p>
+<pre><code class="bash">svcadm enable -r smb/server
+</code></pre>
+
+<p>Join the CIFS server to a workgroup.</p>
+<pre><code class="bash">smbadm join -w WORKGROUP
+</code></pre>
+
+<p>Configure PAM authentication for the CIFS service.</p>
+<pre><code class="bash">echo &quot;other password required pam_smb_passwd.so.1 nowarn&quot; &gt;&gt; /etc/pam.conf
+</code></pre>
+
+<p>Reset the password for the local user accounts which will be used for remotely accessing the CIFS/SMB share.</p>
+<pre><code class="bash">passwd &lt;user_account&gt;
+</code></pre>
+
+<p>Set the share name to be used for the CIFS/SMB share.</p>
+<pre><code class="bash">zfs set sharesmb=name=backup storage/backup
+</code></pre>
+
+<p>Change the ownership of ZFS dataset to the user account which will be used for remotely accessing the CIFS/SMB share.</p>
+<pre><code class="bash">chown -R &lt;user_account&gt; /storage/backup
+</code></pre>
+
+<p>Verify everything is all set to go.</p>
+<p><code>sharemgr show -vp</code></p>
+<pre><code class="bash">default nfs=()
+smb smb=()
+        * /var/smb/cvol  smb=() &quot;&quot;
+                  c$=/var/smb/cvol       smb=(abe=&quot;false&quot; guestok=&quot;false&quot;)      &quot;Default Share&quot;
+zfs smb=()
+    zfs/storage/backup smb=()
+          backup=/storage/backup
+</code></pre>
+
+<p>You can create additional CIFS datasets using the following 4 commands.</p>
+<ul>
+<li><code>zfs create -o casesensitivity=mixed -o sharesmb=on &lt;pool_name/dataset_name&gt;</code></li>
+<li><code>zfs set sharesmb=name=&lt;new_share_name&gt; &lt;pool_name/dataset_name&gt;</code></li>
+<li><code>chown -R &lt;user_account&gt; &lt;path_to_dataset&gt;</code></li>
+<li><code>sharemgr show -vp</code></li>
+</ul>
+<h3 id="hipster-as-a-cifs-server-domain">Hipster as a CIFS server (domain)</h3>
+<p>&lt; Placeholder for introduction content &gt;</p>
+<h3 id="hipster-as-a-samba-server">Hipster as a SAMBA server</h3>
+<p>&lt; Place holder for content &gt;</p>
+<h3 id="configuring-cifssmb-client-connectivity">Configuring CIFS/SMB client connectivity</h3>
+<p>&lt; Place holder for content &gt;</p>
+<h4 id="adding-a-remote-share-using-the-linux-smbclient">Adding a remote share using the Linux smbclient</h4>
+<ul>
+<li><a href="http://www.tldp.org/HOWTO/SMB-HOWTO-8.html">Accessing an SMB Share With Linux Machines</a></li>
+</ul>
+<h4 id="adding-a-remote-share-using-the-kde-dolphin-file-manager-gui">Adding a remote share using the KDE Dolphin file manager GUI</h4>
+<ul>
+<li>In the left hand pane click <em>Network</em></li>
+<li>In the right hand pane click <em>Add Network Folder</em></li>
+<li>The Network Folder Wizard opens</li>
+<li>Select the radio button for <em>Microsoft Windows network drive</em> and click next</li>
+<li>Specify a name for the share - can be anything - this is just a label</li>
+<li>Specify the remote CIFS/SMB server name (or IP address)</li>
+<li>Specify the share name of the remote CIFS/SMB share</li>
+<li>Click the save and connect button</li>
+<li>You'll be prompted for a remote username and password</li>
+<li>Ensure the checkbox is marked to save credentials or you'll be asked for everything you do.</li>
+</ul>
+<h4 id="adding-a-remote-share-using-a-windows-client">Adding a remote share using a Windows client</h4>
+<p>&lt; Place holder for content &gt;</p>
+<h3 id="hipster-as-an-nfs-server">Hipster as an NFS server</h3>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="hipster-as-an-nis-server">Hipster as an NIS server</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="hipster-as-an-ldap-server">Hipster as an LDAP server</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="hipster-as-a-dhcp-server">Hipster as a DHCP server</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="hipster-as-an-ftp-server">Hipster as an FTP server</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="hipster-as-a-dns-server">Hipster as a DNS server</h2>
+<p>see https://docs.oracle.com/cd/E23824_01/html/821-1455/dnsref-31.html
+specifically pkg install pkg:/service/network/dns/bind</p>
+<h2 id="hipster-as-a-ntp-server">Hipster as a NTP server</h2>
+<p>&lt; Place holder for content &gt;</p>
+<h2 id="hipster-as-a-inetd-server">Hipster as a INETD server</h2>
+<p>&lt; Place holder for content &gt;</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

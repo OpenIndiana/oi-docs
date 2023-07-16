@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/handbook/community/squeak/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>Squeak Smalltalk-80 Installation - OpenIndiana Docs</title>
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li class="active">
+    <a href="./">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../inputmethod/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../texlive/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/community/squeak.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#hipster-handbook-squeak-cuis-and-smalltalk-80">Hipster Handbook - Squeak, Cuis and Smalltalk-80</a></li>
+            <li><a href="#classic-vm-and-opensmalltalk-vm">Classic VM and OpenSmalltalk VM</a></li>
+            <li><a href="#openindiana-prerequisites">OpenIndiana Prerequisites</a></li>
+            <li><a href="#installing-squeak-the-classic-vm">Installing squeak, the classic VM</a></li>
+            <li><a href="#installing-the-opensmalltalk-vm">Installing the OpenSmalltalk VM</a></li>
+            <li><a href="#modifying-the-policyconf-file-for-opensmalltalk">Modifying the policy.conf file for OpenSmalltalk</a></li>
+            <li><a href="#updating-squeak">Updating Squeak</a></li>
+            <li><a href="#uninstalling-squeak">Uninstalling Squeak</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+ (the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+
+The Original Documentation is at https://squeak.org/documentation/
+
+The Initial Writer of this Documentation is David Stes Copyright (C) 2020.
+All Rights Reserved. (https://sourceforge.net/u/stes/profile).
+
+Contributor(s): David Stes.
+
+-->
+
+<p><img src = "../../../Openindiana.png"></p>
+<h1 id="hipster-handbook-squeak-cuis-and-smalltalk-80">Hipster Handbook - Squeak, Cuis and Smalltalk-80</h1>
+<p>The following notes document the steps to install Squeak and Cuis on OpenIndiana Hipster, and how to use these implementations of Smalltalk-80.</p>
+<p>A set of example Vagrantfiles that use the OpenIndiana Hipster operating system to run Squeak Smalltalk can be cloned from github by :</p>
+<pre><code class="none">        # git clone https://github.com/openindiana/vagrantfiles
+</code></pre>
+
+<p>These Vagrant guests can be ran on a Linux host or OpenIndiana host, assuming that you have the Vagrant software on the host.  Vagrant forwards the X11 DISPLAY over SSH so that it is possible to forward the Squeak display in an OpenIndiana guest to a Linux host, for example.</p>
+<p>Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href="http://files.squeak.org">files.squeak.org</a> or at <a href="http://cuis-smalltalk.org">cuis-smalltalk.org</a>.</p>
+<p>Cuis and Squeak both use the Squeak VM, but they offer different Smalltalk images.  The Squeak images have traditional MVC (Model, View, Controller) and Morphic graphical user interface classes.   Cuis has Morphic-3, which is an enhanced set of Morphic classes.</p>
+<p>See the <a href="http://www.squeak.org">Squeak website</a> for more and general information on Squeak, specifically the documentation section.  See <a href="http://cuis-smalltalk.org">cuis-smalltalk.org</a> for more info Cuis.  Also see the Squeak Wiki : <a href="http://wiki.squeak.org">Squeak Wiki</a></p>
+<h2 id="classic-vm-and-opensmalltalk-vm">Classic VM and OpenSmalltalk VM</h2>
+<p>There are currently three Squeak packages for OpenIndiana : squeak, stack-spur and cog-spur.  Their package names begin with pkg:/runtime/smalltalk.  These packages can be installed simultaneously mediated by the squeak mediator (see below).</p>
+<pre><code class="none">        # pkg list | grep smalltalk
+        runtime/smalltalk/squeak                4.19.6-2020.0.1.4          i--
+        runtime/smalltalk/squeak-display-X11    4.19.6-2020.0.1.4          i--
+        runtime/smalltalk/squeak-nodisplay      4.19.6-2020.0.1.4          i--
+        runtime/smalltalk/cog-spur              5.0.2957-2020.0.1.0        i--
+        runtime/smalltalk/cog-spur-display-X11  5.0.2957-2020.0.1.0        i--
+        runtime/smalltalk/cog-spur-nodisplay    5.0.2957-2020.0.1.0        i--
+</code></pre>
+
+<p>The basic squeak package corresponds to the classical virtual machine (VM).  The stack-spur and cog-spur packages are OpenSmalltalk based virtual machines, where stack-spur is the OpenSmalltalk stack VM, using the Spur memory management, and cog-spur is the OpenSmalltalk cog VM, also using the Spur memory management; the cog VM is a just-in-time compiler (JIT) which is a faster implementation of Squeak.</p>
+<p>A first screenshot illustrates squeak, version 4.19.6, running on OpenIndiana, with an old style MVC (Model, View, Controller) look and feel :</p>
+<p><img alt="mvc" src="../oi-squeak-4-mvc.png" /></p>
+<p>The following screenshot illustrates squeak, version 4.19.3, with the (default) Morphic user interface, running on OpenIndiana, playing bachFugue through pulseaudio, and with a classical Smalltalk bouncing atoms animation :</p>
+<p><img alt="bouncing atoms" src="../atoms-4.19.3-oi.png" /></p>
+<p>Squeak has a Test Runner.  The following screenshot illustrates squeak and the results of running a number of tests :</p>
+<p><img alt="test run atoms" src="../testrun-4.19.3-oi.png" /></p>
+<p>The following screenshot illustrates cog-spur, version 5.0.2967 and the results of running a number of tests on a 64-bit Squeak 6.0.20536 image :</p>
+<p><img alt="test run atoms" src="../testrun-6.0-oi.png" /></p>
+<p>The last screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :</p>
+<p><img alt="cuis magician" src="../oi-cuis-magician.png" /></p>
+<h2 id="openindiana-prerequisites">OpenIndiana Prerequisites</h2>
+<p>Before installing, the OpenIndiana system should have some required packages installed.</p>
+<p>To check the required dependencies for Squeak, use the command:</p>
+<pre><code class="none">        # pkg contents -r -t depend squeak
+</code></pre>
+
+<p>or</p>
+<pre><code class="none">        # pkg contents -r -t depend stack-spur
+</code></pre>
+
+<p>or</p>
+<pre><code class="none">        # pkg contents -r -t depend cog-spur
+</code></pre>
+
+<p>This will list a number of dependencies.  If those are not met, you should upgrade OpenIndiana before attempting to install Squeak.</p>
+<p>You can upgrade OpenIndiana and check the dependencies again:</p>
+<pre><code class="none">        # pkg update -v
+</code></pre>
+
+<p>Squeak is in the OpenIndiana userland-incorporation package since version 0.5.11-2020.0.1.13018.</p>
+<p>Use the following command to check the installed consolidation:</p>
+<pre><code class="none">        # pkg list userland-incorporation
+</code></pre>
+
+<p>The installed version should be more recent than 0.5.11-2020.0.1.13018.</p>
+<p>Squeak for OpenIndiana provides a vm-display-X11 plugin for using the X11 window system.  By setting the X11 DISPLAY variable or by using X11 forwarding over SSH, it is possible to run Squeak remotely and forward the display to another machine.</p>
+<p>It is also possible to run Squeak without display, or headlessly.</p>
+<h2 id="installing-squeak-the-classic-vm">Installing squeak, the classic VM</h2>
+<p>On OpenIndiana install squeak as follows:</p>
+<pre><code class="none">       # pkg install -v squeak
+</code></pre>
+
+<p>After installation, see the squeak(1) manpage for documentation:</p>
+<pre><code class="none">       # man squeak
+</code></pre>
+
+<p>After installation you can verify the installation as follows:</p>
+<pre><code class="none">       # pkg list squeak
+       # pkg list squeak-nodisplay
+       # pkg list squeak-display-X11
+</code></pre>
+
+<p>The squeak-nodisplay package is for running squeak with the -nodisplay option, headless, without display.  The squeak-display-X11 adds the necessary plugins for running X11, but still without all plugins.  squeak depends on squeak-nodisplayand squeak-display-X11 and it installs all plugins.</p>
+<p>During installation you may also notice:</p>
+<pre><code class="none">       Changed mediators:
+         mediator squeak:
+         version: None -&gt; 4 (system default)
+</code></pre>
+
+<p>The OpenIndiana mediator squeak selects which version of Squeak to use: squeak or one of the stack-spur or cog-spur.</p>
+<p>There is a utility included to start using Squeak :</p>
+<pre><code class="none">       # inisqueak
+</code></pre>
+
+<p>This is equivalent to downloading the Smalltalk sources and image from the Squeak website:</p>
+<pre><code class="none">       # unzip SqueakV46.sources.zip
+</code></pre>
+
+<p>and</p>
+<pre><code class="none">       # unzip Squeak4.6-15102.zip
+</code></pre>
+
+<p>You would then launch Squeak as follows (also see the manpage for further details) :</p>
+<pre><code class="none">       # squeak Squeak4.6-15102.image
+</code></pre>
+
+<h2 id="installing-the-opensmalltalk-vm">Installing the OpenSmalltalk VM</h2>
+<p>It is possible to simultaneously install squeak and opensmalltalk as follows:</p>
+<pre><code class="none">         # pkg install -v stack-spur
+</code></pre>
+
+<p>At the end of installation the hardlink squeak will point to the stack-spur binary.  You will notice that the mediator changed to version 5.</p>
+<pre><code class="none">        # pkg mediator squeak
+</code></pre>
+
+<p>The system-administrator can override the OpenIndiana choice by using the pkg set-mediator or pkg unset-mediator commands.</p>
+<p>After installation of opensmalltalk, it is possible again to use inisqueak :</p>
+<pre><code class="none">        # inisqueak
+</code></pre>
+
+<p>This is equivalent to downloading sources and Smalltalk images from the Squeak website :</p>
+<pre><code class="none">         # unzip SqueakV50.sources.zip
+</code></pre>
+
+<p>and</p>
+<pre><code class="none">         # unzip Squeak5.3-19431-64bit.zip
+</code></pre>
+
+<p>You would then launch squeak as follows:</p>
+<pre><code class="none">         # squeak Squeak5.3-19431-64bit.image
+</code></pre>
+
+<p>Squeak V5 can also run Cuis images.  See the Cuis website for more details.  Given the CuisV5.sources and Cuis5.0-4112.image :</p>
+<pre><code class="none">         # squeak Cuis5.0-4112.image
+</code></pre>
+
+<p>Because both packages can be installed simultaneously it is possible to run side-by-side Squeak 4.6 and Squeak 5.3, Cuis Smalltalk or Squeak 6.0 alpha images.</p>
+<p>There is an additional package cog-spur which is the Cog implementation of Squeak.  This is a faster implementation of the Squeak virtual machine.</p>
+<p>It can be installed as follows:</p>
+<pre><code class="none">         # pkg install -v cog-spur
+</code></pre>
+
+<p>During installation of the cog implementation, the mediator will be changed as follows:</p>
+<pre><code class="none">         Changed mediators:
+         mediator squeak:
+           version: None -&gt; 5 (system default)
+           implementation: None -&gt; cog-spur (system default)
+</code></pre>
+
+<p>The stack-spur and cog-spur packages can be installed at the same time, and the system administrator can choose the implementation with the pkg unset-mediator and set-mediator commands.</p>
+<h2 id="modifying-the-policyconf-file-for-opensmalltalk">Modifying the policy.conf file for OpenSmalltalk</h2>
+<p>The following notes do not apply to classic squeak, they only apply to OpenSmalltalk.</p>
+<p>The OpenSmalltalk VM stack-spur or cog-spur will print the following error:</p>
+<pre><code class="none">        # pthread_setschedparam failed: Not owner
+</code></pre>
+
+<p>This is due to a lack of "proc_priocntl" privilege.</p>
+<pre><code class="none">        # ppriv -v -l proc_priocntl
+</code></pre>
+
+<p>This privilege allows a process to elevate its priority above its current level.  It allows a process to change its scheduling class to any scheduling class, including the RT class.</p>
+<p>You can change the following in the /etc/security/policy.conf:</p>
+<pre><code class="none">        # cp /etc/security/policy.conf /etc/security/policy.conf.orig
+</code></pre>
+
+<p>change</p>
+<pre><code class="none">        #PRIV_DEFAULT=basic
+</code></pre>
+
+<p>to</p>
+<pre><code class="none">        PRIV_DEFAULT=basic,proc_priocntl
+</code></pre>
+
+<p>You can run squeak in a zone and do the above in a zone only.
+If you run squeak in a zone, you may also have to set the privilege limit:</p>
+<pre><code class="none">        # zonecfg -z example-zone info | grep limitpriv
+        limitpriv: default,proc_priocntl
+</code></pre>
+
+<h2 id="updating-squeak">Updating Squeak</h2>
+<p>The complete OpenIndiana system can be updated with:</p>
+<pre><code class="none">         # pkg update
+</code></pre>
+
+<p>to update the entire userland-incorporation.</p>
+<p>If there is a need to install a different version of squeak, without upgrading the userland-incorporation, you can do :</p>
+<pre><code class="none">         # pkg change-facet facet.version-lock.runtime/stack-spur=false
+</code></pre>
+
+<p>and</p>
+<pre><code class="none">         # pkg change-facet facet.version-lock.runtime/stack-spur-nodisplay=false
+</code></pre>
+
+<p>This can make it possible to update stack-spur without updating the userland-incorporation:</p>
+<pre><code class="none">         # pkg list userland-incorporation
+</code></pre>
+
+<p>and then update stack-spur or any other squeak package separately:</p>
+<pre><code class="none">         # pkg update stack-spur
+</code></pre>
+
+<h2 id="uninstalling-squeak">Uninstalling Squeak</h2>
+<p>To uninstall squeak, the command is :</p>
+<pre><code class="none">         # pkg uninstall squeak squeak-nodisplay squeak-display-X11
+</code></pre>
+
+<p>For opensmalltalk :</p>
+<pre><code class="none">         # pkg uninstall cog-spur cog-spur-nodisplay cog-spur-display-X11
+</code></pre>
+
+<p>Note that the nodisplay package is not necessarily uninstalled by uninstalling squeak or cog-spur.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/books/advanced/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Advanced Administration - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../basic/">Basic Administration</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../basic/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../express/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/books/advanced.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#intermediate-advanced-systems-administration">Intermediate &amp; Advanced Systems Administration</a></li>
+            <li><a href="#opensolaris-managing-boot-environments">OpenSolaris Managing Boot Environments</a></li>
+            <li><a href="#opensolaris-200906-image-packaging-system-guide">OpenSolaris 2009.06 Image Packaging System Guide</a></li>
+            <li><a href="#solaris-cifs-administration-guide">Solaris CIFS Administration Guide</a></li>
+            <li><a href="#solaris-zfs-administration-guide">Solaris ZFS Administration Guide</a></li>
+            <li><a href="#opensolaris-automated-installer-guide">OpenSolaris Automated Installer Guide</a></li>
+            <li><a href="#system-administration-guide-advanced-administration">System Administration Guide: Advanced Administration</a></li>
+            <li><a href="#system-administration-guide-devices-and-file-systems">System Administration Guide: Devices and File Systems</a></li>
+            <li><a href="#system-administration-guide-ip-services">System Administration Guide: IP Services</a></li>
+            <li><a href="#system-administration-guide-network-services">System Administration Guide: Network Services</a></li>
+            <li><a href="#system-administration-guide-naming-and-directory-services-dns-nis-and-ldap">System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)</a></li>
+            <li><a href="#system-administration-guide-solaris-printing">System Administration Guide: Solaris Printing</a></li>
+            <li><a href="#system-administration-guide-security-services">System Administration Guide: Security Services</a></li>
+            <li><a href="#system-administration-guide-virtualization-using-the-solaris-operating-system">System Administration Guide: Virtualization Using the Solaris Operating System</a></li>
+            <li><a href="#solaris-volume-manager-administration-guide">Solaris Volume Manager Administration Guide</a></li>
+            <li><a href="#solaris-tunable-parameters-reference-manual">Solaris Tunable Parameters Reference Manual</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="intermediate-advanced-systems-administration">Intermediate &amp; Advanced Systems Administration</h1>
+<h2 id="opensolaris-managing-boot-environments">OpenSolaris Managing Boot Environments</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/snapupgrade/html/solarisinstall.html" target="_blank">OpenSolaris Managing Boot Environments</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>A boot environment is a bootable instance of an OpenSolaris™ operating system image plus any other application software packages installed into that image. System administrators can maintain multiple boot environments on their systems, and each boot environment can have different software versions installed.</p>Upon the initial installation of OpenSolaris onto a system, a boot environment is created. Use the beadm(1M) utility or the Package Manager to administer additional boot environments on your system.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering one or more systems running the OpenSolaris operating system.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opensolaris-200906-image-packaging-system-guide">OpenSolaris 2009.06 Image Packaging System Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/IMGPACKAGESYS/html/ips.html" target="_blank">OpenSolaris 2009.06 Image Packaging System Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The Image Packaging System, pkg(5), is a framework that provides for software lifecycle management such as installation, upgrade, and removal of packages. IPS also provides users the ability to create their own software packages, create and manage packaging repositories, and mirror existing packaging repositories.</p>With IPS, users can perform the following tasks: <ul><li>Create and manage images</li><li>Install new packages and update existing packages</li><li>Manage and search the software on your system</li></ul></p>With the IPS publication tools, developers can perform the following:<ul><li>Create and manage packaging repositories</li><li>Create and publish packages to a packaging repository</li><li>Provide a content mirror for an existing packaging repository</li><li>Retrieve the contents of an existing package from a packaging repository</li><li>Republish the contents of an existing package to a packaging repository</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for system administrators, end users, and developers.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solaris-cifs-administration-guide">Solaris CIFS Administration Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SSMBAG/html/ssmbag.html" target="_blank">Solaris CIFS Administration Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>Solaris CIFS service, which enables you to configure a Solaris system to make CIFS shares available to CIFS clients.</li><li>Native identity mapping services, which enables you to map user and group identities between Solaris systems and Windows systems.</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for system administrators and end users. Both Solaris and Windows system administrators can use this information to configure and integrate the Solaris CIFS service into a Windows environment.</p>In addition, system administrators can configure the identity mapping service. Finally, the chapter about the Solaris CIFS client is primarily intended for Solaris users who would like to mount CIFS shares. The Solaris CIFS client chapter also includes tasks to be performed by a system administrator.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solaris-zfs-administration-guide">Solaris ZFS Administration Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/ZFSADMIN/html/zfsadmin.html" target="_blank">Solaris ZFS Administration Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>ZFS storage pool and file system creation and management</li><li>Snapshots</li><li>Clones</li><li>Backups</li><li>Using access control lists (ACLs) to protect ZFS files</li><li>Using ZFS on a Solaris system with zones installed</li><li>Emulated volumes</li><li>Troubleshooting</li><li>Data recovery</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This guide is intended for anyone who is interested in setting up and managing Solaris ZFS file systems.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opensolaris-automated-installer-guide">OpenSolaris Automated Installer Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/AIinstall/html/solarisinstall.html" target="_blank">OpenSolaris Automated Installer Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>If you want to install the OpenSolaris operating system (OS) on multiple client systems on a network, you can use the automated installer (AI) to accomplish that task. The automated installer performs essentially “hands-free” network installations of the OpenSolaris OS.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-advanced-administration">System Administration Guide: Advanced Administration</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV2/html/sysadv2.html" target="_blank">System Administration Guide: Advanced Administration</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>Terminals and modems</li><li>System resources (disk quotas, accounting, and crontabs)</li><li>System processes</li><li>Troubleshooting Solaris software problems</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>This book assumes that you have installed the SunOS™ Solaris Operating System. It also assumes that you have set up any networking software that you plan to use. To use this book, you should have 1-2 years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-devices-and-file-systems">System Administration Guide: Devices and File Systems</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SAGDFS/html/sagdfs.html" target="_blank">System Administration Guide: Devices and File Systems</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>Disks and devices</li><li>File systems</li><li>Backing up and restoring data</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering one or more systems running the Solaris release.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>This book assumes you have installed the SunOS 5.11 Operating System and set up all the networking software that you plan to use. To use this book, you should have 1–2 years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-ip-services">System Administration Guide: IP Services</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV3/html/sysadv3.html" target=_blank">System Administration Guide: IP Services</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>TCP/IP network administration</li><li>IPv4 and IPv6 address administration</li><li>DHCP</li><li>IPsec</li><li>IKE</li><li>Solaris IP filter</li><li>Mobile IP</li><li>IP network multipathing (IPMP)</li><li>IPQoS</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering systems that run the Solaris OS release, which are configured in a network.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>This book assumes that you have already installed the Solaris operating system (Solaris OS). You should be ready to configure your network or ready to configure any networking software that is required on your network. To use this book, you should have at least two years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-network-services">System Administration Guide: Network Services</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV4/html/sysadv4.html" target="_blank">System Administration Guide: Network Services</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>Web cache servers</li><li>Time-related services</li><li>Network file systems (NFS and Autofs)</li><li>Mail</li><li>SLP</li><li>PPP</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering one or more systems that run the Solaris 10 release.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>This book assumes that you have already installed the SunOS™ 5.10 operating system, and you have set up any networking software that you plan to use. To use this book, you should have one to two years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-naming-and-directory-services-dns-nis-and-ldap">System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV5/html/sysadv5.html" target="_blank">System Administration Guide: Naming and Directory Services (DNS, NIS, and LDAP)</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>DNS</li><li>NIS</li><li>LDAP (including transitioning from NIS to LDAP and transitioning from NIS+ to LDAP)</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This manual is written for experienced system and network administrators.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Although this book introduces networking concepts relevant to Solaris naming and directory services, it explains neither the networking fundamentals nor the administration tools in the Solaris OS. To use this book, you should have a firm understanding of UNIX® networking and systems administration fundamentals.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-solaris-printing">System Administration Guide: Solaris Printing</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADPRTSVCS/html/sysadprtsvcs.html" target="_blank">System Administration Guide: Solaris Printing</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>Solaris printing topics and tasks</li><li>Using services, tools, protocols, and technologies to set up and administer printing services and printers</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td><strong>OBSOLETE; although portions may still be valid</strong>.</p><strong>Deprecation notes:</strong> Subsequent to the release of OpenSolaris 2009.06, the Common UNIX Printing System (CUPS) was selected as the default print service, however, the lp print service was retained. This change was implemented in preparation for the OpenSolaris 2010.03 release.</p>The proposed release notes for OpenSolaris 2010.03 included this statement: "CUPS support includes a web and graphical interface to manage your printing environment. A system that is running CUPS becomes a host that can accept print requests from client systems, process those requests, and then send them to the appropriate printer. To facilitate CUPS support, a new print-service command has been introduced that provides a mechanism for switching between CUPS print service and the LP print service, including 2 new SMF services."</p><strong>Doc Team Notes:</strong> Oracle Solaris dropped support for lp when they introduced CUPS in the Solaris 11.0 release. The OpenIndiana project retained both print subsystems, which are managed by the <code>print-service</code> command. Both <code>lp</code> and <code>lpr</code> are symbolically linked to <code>print-service</code>. Issuing the command <code>print-service -q</code> shows the active print subsystem, which by default is CUPS. More information can be found in the print-service (1M) man page.</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>This book assumes that you have installed the SunOS™ Solaris Operating System. It also assumes that you have set up any networking software that you plan to use. To use this book, you should have 1-2 years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-security-services">System Administration Guide: Security Services</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADV6/html/sysadv6.html" target="_blank">System Administration Guide: Security Services</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>Auditing</li><li>Device management</li><li>File security</li><li>BART</li><li>Kerberos services</li><li>PAM</li><li>Solaris Cryptographic Framework</li><li>Privileges</li><li>RBAC</li><li>SASL</li><li>Solaris Secure Shell</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone who is responsible for administering one or more systems that run a Solaris Express Community Edition release.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To use this book, you should have more than two years of UNIX® system administration experience. Attending training courses in UNIX system administration might be helpful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-administration-guide-virtualization-using-the-solaris-operating-system">System Administration Guide: Virtualization Using the Solaris Operating System</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SYSADRM/html/sysadrm.html" target="_blank">System Administration Guide: Virtualization Using the Solaris Operating System</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><ul><li>Resource management features, which enable you to control how applications use available system resources</li><li>Zones software partitioning technology, which virtualizes operating system services to create an isolated environment for running applications</li><li>Virtualization using Sun™ xVM hypervisor technology, which supports multiple operating system instances simultaneously</li></ul></td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for anyone responsible for administering one or more systems that run the Solaris release.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>This book assumes that you have already installed the operating system and set up any networking software that you plan to use. To use this book, you should have at least one to two years of UNIX® system administration experience.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solaris-volume-manager-administration-guide">Solaris Volume Manager Administration Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/LOGVOLMGRADMIN/html/logvolmgradmin.html" target="_blank">Solaris Volume Manager Administration Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The Solaris Volume Manager Administration Guide explains how to use Solaris™ Volume Manager to manage your system's storage needs. Solaris Volume Manager enables you to create, modify, and use RAID-0 (concatenation and stripe) volumes, RAID-1 (mirror) volumes.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>System and storage administrators can use this book to identify:<ul><li>Tasks supported by Solaris Volume Manager</li><li>Ways to use Solaris Volume Manager to provide more reliable and accessible data</li></ul></td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>This book assumes that you have installed the SunOS™ Solaris Operating System. It also assumes that you have set up any networking software that you plan to use. To use this book, you should have 1-2 years of UNIX® system administration experience. Attending UNIX system administration training courses might be helpful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solaris-tunable-parameters-reference-manual">Solaris Tunable Parameters Reference Manual</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/SOLTUNEPARAMREF/html/soltuneparamref.html" target="_blank">Solaris Tunable Parameters Reference Manual</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The Solaris Tunable Parameters Reference Manual provides reference information about Solaris™ OS kernel and network tunable parameters. This manual does not provide tunable parameter information about the CDE, GNOME, or Java™ environments.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for experienced Solaris system administrators who might need to change kernel tunable parameters in certain situations.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To use this book, you should have more than two years of UNIX® system administration experience. Attending training courses in UNIX system administration might be helpful.</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

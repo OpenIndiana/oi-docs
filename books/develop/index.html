@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/books/develop/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Development Titles - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../contrib/content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li >
+    <a href="../../contrib/git/">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../trusted/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../../contrib/content/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/books/develop.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#development">Development</a></li>
+            <li><a href="#solaris-dynamic-tracing-guide">Solaris Dynamic Tracing Guide</a></li>
+            <li><a href="#solaris-modular-debugger-guide">Solaris Modular Debugger Guide</a></li>
+            <li><a href="#device-driver-tutorial">Device Driver Tutorial</a></li>
+            <li><a href="#writing-device-drivers">Writing Device Drivers</a></li>
+            <li><a href="#application-packaging-developers-guide">Application Packaging Developer's Guide</a></li>
+            <li><a href="#opensolaris-distribution-constructor-guide">OpenSolaris Distribution Constructor Guide</a></li>
+            <li><a href="#memory-and-thread-placement-optimization-developers-guide">Memory and Thread Placement Optimization Developer's Guide</a></li>
+            <li><a href="#solaris-containers-resource-management-and-solaris-zones-developers-guide">Solaris Containers: Resource Management and Solaris Zones Developer's Guide</a></li>
+            <li><a href="#solaris-trusted-extensions-developers-guide">Solaris Trusted Extensions Developer's Guide</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="development">Development</h1>
+<h2 id="solaris-dynamic-tracing-guide">Solaris Dynamic Tracing Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/DYNMCTRCGGD/html/dynmctrcggd.html" target="_blank">Solaris Dynamic Tracing Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>DTrace is a comprehensive dynamic tracing framework for the Solaris™ Operating System. DTrace provides a powerful infrastructure to permit administrators, developers, and service personnel to concisely answer arbitrary questions about the behavior of the operating system and user programs.</p>The Solaris Dynamic Tracing Guide describes how to use DTrace to observe, debug, and tune system behavior. This book also includes a complete reference for bundled DTrace observability tools and the <code>D</code> programming language.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>If you have ever wanted to understand the behavior of your system, DTrace is the tool for you. DTrace is a comprehensive dynamic tracing facility that is built into Solaris. The DTrace facility can be used to examine the behavior of user programs. The DTrace facility can also be used to examine the behavior of the operating system.</p>DTrace can be used by system administrators or application developers, and is suitable for use with live production systems. DTrace will allow you to explore your system to understand how it works, track down performance problems across many layers of software, or locate the cause of aberrant behavior. </p>As you'll see, DTrace lets you create your own custom programs to dynamically instrument the system and provide immediate, concise answers to arbitrary questions you can formulate using the DTrace <code>D</code> programming language. </p>DTrace allows all Solaris users to:<ul><li>Dynamically enable and manage thousands of probes</li><li>Dynamically associate logical predicates and actions with probes</li><li>Dynamically manage trace buffers and buffer policies</li><li>Display and examine trace data from the live system or a crash dump</li></ul></p>DTrace allows Solaris developers and administrators to:<ul><li>Implement custom scripts that use the DTrace facility</li><li>Implement layered tools that use DTrace to retrieve trace data</li></ul></td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Basic familiarity with a programming language such as <code>C</code> or a scripting language such as <code>awk(1)</code> or <code>perl(1)</code> will help you learn DTrace and the <code>D</code> programming language faster, but you need not be an expert in any of these areas. If you have never written a program or script before in any language, Related Information provides references to other documents you might find useful.</td>
+</tr>
+</tbody>
+</table>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Updated by the illumos project, this title is available in a more recent version:
+<a href="http://dtrace.org/guide/preface.html" target="_blank">Dynamic Tracing Guide</a>
+</div></p>
+<h2 id="solaris-modular-debugger-guide">Solaris Modular Debugger Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/MODDEBUG/html/moddebug.html" target="_blank">Solaris Modular Debugger Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The Modular Debugger (MDB) is a highly extensible, general purpose debugging tool for the Solaris™ Operating System (Solaris OS). The Solaris Modular Debugger Guide describes how to use MDB to debug complex software systems, with a particular emphasis on the facilities available for debugging the Solaris kernel and associated device drivers and modules. It also includes a complete reference for and discussion of the MDB language syntax, debugger features, and MDB Module Programming API.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>If you were a detective and were investigating at the scene of a crime, you might interview the witnesses and ask them to describe what happened and who they saw. However, if there were no witnesses or these descriptions proved insufficient, you might consider collecting fingerprints and forensic evidence that could be examined for DNA to help solve the case.</p>Often, software program failures divide into analogous categories: problems that can be solved with source-level debugging tools, and problems that require low-level debugging facilities, examination of core files, and knowledge of assembly language to diagnose and correct.</p>MDB facilitates analysis of this second class of problems.</p>MDB is most useful when you are programming a complex low-level software system such as an operating system. The MDB debugging framework allows you to construct your own custom analysis tools to aid in the diagnosis of these low-level problems. MDB also provides a powerful set of built-in commands that enable you to analyze the state of your program at the assembly language level.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Familiarity with assembly language programming and debugging</td>
+</tr>
+</tbody>
+</table>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Updated by the illumos project, this title is available in a more recent version:
+<a href="https://illumos.org/books/mdb/preface.html" target="_blank">Modular Debugger Guide</a>
+</div></p>
+<h2 id="device-driver-tutorial">Device Driver Tutorial</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/DRIVERTUT/html/drivertut.html" target="_blank">Device Driver Tutorial</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>This Device Driver Tutorial is a hands-on guide that shows you how to develop a simple device driver for the Solaris™ Operating System (Solaris OS). Device Driver Tutorial also explains how device drivers work in the Solaris OS. This book is a companion to <em>Writing Device Drivers</em>.</p><em>Writing Device Drivers</em> is a thorough reference document that discusses many types of devices and drivers. Device Driver Tutorial examines complete drivers but does not provide a comprehensive treatment of all driver types. Device Driver Tutorial often points to Writing Device Drivers and other content for further information.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>You should read this tutorial if you need to develop, install, and configure device drivers for the Solaris OS. You also should read this book if you need to maintain existing drivers or add new functionality to existing Solaris OS drivers. Information about the kernel provided in this book also will help you troubleshoot any problems you might encounter installing or configuring Solaris systems.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To write device drivers for the Solaris OS, you should have the following background:<ul><li>Be a confident C programmer</li><li>Have experience with data structures, especially with linked lists</li><li>Understand bit operations</li><li>Understand indirect function calls</li><li>Understand caching</li><li>Understand multi-threading (see the Multi-threaded Programming Guide)</li><li>Be familiar with a UNIX® shell</li><li>Understand the basics of UNIX system and I/O architecture</li></ul></p>The most important information you need to have to write a device driver are the characteristics of the device. Get a detailed specification for the device you want to drive.</p>Experience with Solaris OS compilers, debuggers, and other tools will be very helpful to you. You also need to understand where the file system fits with the kernel and the application layer. These topics are discussed in this tutorial.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="writing-device-drivers">Writing Device Drivers</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/DRIVER/html/driver.html" target="_blank">Writing Device Drivers</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>Writing Device Drivers provides information on developing drivers for:<ul><li>character-oriented devices</li><li>block-oriented devices</li><li>network devices</li><li>SCSI target and HBA devices</li><li>USB devices</li></ul></p>This book discusses how to develop multi-threaded reentrant device drivers for all architectures that conform to the Solaris OS DDI/DKI (Device Driver Interface, Driver-Kernel Interface). A common driver programming approach is described that enables drivers to be written without concern for platform-specific issues such as endianness and data ordering.</p>Additional topics include:<ul><li>hardening Solaris drivers</li><li>power management</li><li>driver auto-configuration</li><li>programmed I/O; Direct Memory Access (DMA)</li><li>device context management</li><li>compilation</li><li>installation</li><li>and testing drivers</li><li>debugging driver</li><li>porting Solaris drivers to a 64-bit environment</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is written for UNIX® programmers who are familiar with UNIX device drivers. Overview information is provided, but the book is not intended to serve as a general tutorial on device drivers.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To be determined</td>
+</tr>
+</tbody>
+</table>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Updated by the illumos project, this title is available in a more recent version:
+<a href="https://illumos.org/books/wdd/preface.html" target="_blank">Writing Device Drivers</a>
+</div></p>
+<h2 id="application-packaging-developers-guide">Application Packaging Developer's Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/PACKINSTALL/html/packinstall.html" target="_blank">Application Packaging Developer's Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The Application Packaging Developers Guide provides step-by-step instructions and relevant background information for designing, building, and verifying packages. This guide also includes advanced techniques that you might find helpful during the package creation process.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for application developers whose responsibilities include designing and building packages. Though much of the book is directed towards novice package developers, it also contains information useful to more experienced package developers.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To be determined</td>
+</tr>
+</tbody>
+</table>
+<h2 id="opensolaris-distribution-constructor-guide">OpenSolaris Distribution Constructor Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/DistroConst/html/distroconst.html" target="_blank">OpenSolaris Distribution Constructor Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The distribution constructor is a tool that application developers can use to build their own custom OpenSolaris™ image which they can then distribute to their contacts and customers.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To be determined</td>
+</tr>
+</tbody>
+</table>
+<h2 id="memory-and-thread-placement-optimization-developers-guide">Memory and Thread Placement Optimization Developer's Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/MTPODG/html/mtpodg.html" target="_blank">Memory and Thread Placement Optimization Developer's Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The Memory and Thread Placement Optimization Developer's Guide provides information on locality groups and the technologies that are available to optimize the use of computing resources in the Solaris operating system.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is intended for use by developers who are writing applications in an environment with multiple CPUs and a non-uniform memory architecture. The programming interfaces and tools that are described in this book give the developer control over the system's behavior and resource allocation.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To be determined</td>
+</tr>
+</tbody>
+</table>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
+<div class="well">
+Updated by the illumos project, this title is available in a more recent version:
+<a href="https://illumos.org/books/lgrps/preface.html" target="_blank">Memory and Thread Placement Optimization Developer's Guide</a>
+</div></p>
+<h2 id="solaris-containers-resource-management-and-solaris-zones-developers-guide">Solaris Containers: Resource Management and Solaris Zones Developer's Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/RSCMGRDEVGD/html/rscmgrdevgd.html" target="_blank">Solaris Containers: Resource Management and Solaris Zones Developer's Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>The Solaris Containers: Resource Management and Solaris Zones Developer's Guide describes how to write applications that partition and manage system resources and discusses which APIs to use. This book provides programming examples and a discussion of programming issues to consider when writing an application.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>This book is for application developers and ISVs who write applications that control or monitor the Solaris Operating System resources.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>To be determined</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solaris-trusted-extensions-developers-guide">Solaris Trusted Extensions Developer's Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document Link</td>
+<td><a href="http://dlc.openindiana.org/docs/osol/20090715/TRSOLDEV/html/trsoldev.html" target="_blank">Solaris Trusted Extensions Developer's Guide</a></td>
+</tr>
+<tr>
+<td>Topics</td>
+<td>Describes how to develop applications with Solaris Trusted Extensions. </p>The Solaris Trusted Extensions Developer's Guide describes how to use the application programming interfaces (APIs) to write new trusted applications for systems that are configured with the Solaris™ Trusted Extensions software.</td>
+</tr>
+<tr>
+<td>Relevancy to OpenIndiana Hipster</td>
+<td>To be determined</td>
+</tr>
+<tr>
+<td>Target Audience</td>
+<td>Developers, administrators</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Readers must be familiar with UNIX® programming and understand security policy concepts.</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

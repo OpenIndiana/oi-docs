@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://docs.openindiana.org/contrib/git/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Git Usage Guide - OpenIndiana Docs</title>
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77447740-2', 'auto');
+            ga('send', 'pageview');
+        </script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../..">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../misc/openindiana/">About OpenIndiana</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
+</li>
+                                    
+<li >
+    <a href="../../misc/pdl/">Public Documentation License</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Release Notes</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../release-notes/latest-changes/">Latest changes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
+</li>
+            
+<li >
+    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../handbook/getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/common-tasks/">Common Tasks</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/systems-administration/">Systems Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/network-communications/">Network Communications</a>
+</li>
+                                    
+<li >
+    <a href="../../handbook/appendix/">Appendix</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Contributed Tutorials</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/sunray/">Sun Ray Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
+</li>
+            
+<li >
+    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Community Hardware Compatibility List</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/components/">Components</a>
+</li>
+            
+<li >
+    <a href="../../community-hcl/systems/">Systems</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Developer's Corner</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
+</li>
+            
+<li >
+    <a href="../../dev/userland/">Building with oi-userland</a>
+</li>
+            
+<li >
+    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
+</li>
+            
+<li >
+    <a href="../../dev/graphics-stack/">Graphics stack</a>
+</li>
+            
+<li >
+    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
+</li>
+            
+<li >
+    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
+</li>
+            
+<li >
+    <a href="../../dev/existing-tasks/">Existing tasks</a>
+</li>
+            
+<li >
+    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../../books/about/">About OpenSolaris Books</a>
+</li>
+                                    
+<li >
+    <a href="../../books/basic/">Basic Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/advanced/">Advanced Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/express/">Solaris Express Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/trusted/">Trusted Extensions Administration</a>
+</li>
+                                    
+<li >
+    <a href="../../books/develop/">Development Titles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../content/">Content Creation</a>
+</li>
+                                    
+<li >
+    <a href="../getting-started/">Getting Started</a>
+</li>
+                                    
+<li >
+    <a href="../tools/">Contributor Tools</a>
+</li>
+                                    
+<li >
+    <a href="../roles/">Contributor Roles</a>
+</li>
+                                    
+<li >
+    <a href="../topics/">Contributor Topics</a>
+</li>
+                                    
+<li >
+    <a href="../style/">Contributor Style Guide</a>
+</li>
+                                    
+<li >
+    <a href="../markdown/">Markdown Syntax Guide</a>
+</li>
+                                    
+<li class="active">
+    <a href="./">Git Usage Guide</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../markdown/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="disabled">
+                                <a rel="prev" >
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/contrib/git.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#git-usage-guide">Git Usage Guide</a></li>
+            <li><a href="#introduction-to-version-control">Introduction to Version Control</a></li>
+            <li><a href="#introduction-to-git">Introduction to Git</a></li>
+            <li><a href="#git-vocabulary-repositories">Git Vocabulary - Repositories</a></li>
+            <li><a href="#git-vocabulary-commands">Git Vocabulary - Commands</a></li>
+            <li><a href="#git-pull-requests">Git Pull Requests</a></li>
+            <li><a href="#git-usage-scenario">Git Usage Scenario</a></li>
+            <li><a href="#installing-git">Installing Git</a></li>
+            <li><a href="#further-reading">Further Reading</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<!--
+
+The contents of this Documentation are subject to the Public Documentation License Version 1.01
+(the "License"); you may only use this Documentation if you comply with the terms of this License.
+A copy of the License is available at http://illumos.org/license/PDL.
+
+The Original Documentation is _________________.
+
+The Initial Writer of the Original Documentation is ___________ Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Initial Writer contact(s):________________[Insert hyperlink/alias]).
+
+Contributor(s): ______________________________________.
+
+Portions created by ______ are Copyright (C)_________[Insert year(s)].
+All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
+
+-->
+
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="git-usage-guide">Git Usage Guide</h1>
+<h2 id="introduction-to-version-control">Introduction to Version Control</h2>
+<p>At the most basic level, a version control system is used to help automate the following tasks:</p>
+<ul>
+<li>Store files and folders in a centralized master repository.</li>
+<li>Tracks changes made to files and files.</li>
+<li>Allows multiple people to edit the same set of files.</li>
+<li>Allows multiple people to share their changes with others.</li>
+<li>Allows you to determine who made a particular change.</li>
+<li>Allows you to roll back changes as needed.</li>
+</ul>
+<p>Now, you might be thinking at this point: <strong>That's all very nice, but what does it all really mean?_</strong></p>
+<p>I'm so glad you asked, read on and I'll do my best to break it all down for you.</p>
+<h2 id="introduction-to-git">Introduction to Git</h2>
+<p>Git is a distributed version control system written by Linus (<strong><em>the terrible</em></strong>) Torvalds, the <strong><em>BDFL</em></strong> of the Linux operating system.
+Fortunately, Git isn't terrible at all.
+In fact it's one of the best version control systems ever.</p>
+<p>While Git is quite powerful and provides many different capabilities (<em>some of which may be a little intimidating at first</em>), only a small subset of commands are actually required for working with OpenIndiana Docs.</p>
+<p>Read on to learn more....</p>
+<h2 id="git-vocabulary-repositories">Git Vocabulary - Repositories</h2>
+<p>Before diving into the mechanics of what Git does, or even how to use it, let's review some basic Git vocabulary as it pertains to working with Git repositories.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Upstream Repository</td>
+<td>The <strong><em>Upstream</em></strong> repository is the repository under the direct control of the project. It contains the <strong><em>Golden Copy</em></strong> of all the files and folders held in Git version control. Nobody can make changes to this repository, unless the project allows it.</td>
+</tr>
+<tr>
+<td>Fork</td>
+<td>Before contributing to a project using Git, you first need to make a server side copy of the upstream repository. When you do this, you are <strong><em>Forking</em></strong> the upstream repository. This copy of the repository is under your control. When you submit changes, they are stored in this copy of the upstream repository.</td>
+</tr>
+<tr>
+<td>Clone</td>
+<td>Before editing any files, you first need to <strong><em>Clone</em></strong> your forked copy of the upstream repository. Cloning creates a local working copy of the files and folders which resides on your computer. When you make changes, you are making changes to your cloned copy of the files and folders. You may locally clone the repository on as many computers as you wish.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="git-vocabulary-commands">Git Vocabulary - Commands</h2>
+<p>Now let's review some of the most commonly used Git commands and how you might use them.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git clone</code></td>
+<td>In the previous section, we already mentioned a little about clones and what they are. Therefore, you would use the <strong><em>git clone</em></strong> command to create your editable local working copy of the files and folders.</td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>The <strong><em>git status</em></strong> command shows you whether any local files have been changed.</td>
+</tr>
+<tr>
+<td><code>git diff</code></td>
+<td>The <strong><em>git diff</em></strong> command shows you precisely what changed, for each local file which changed.</td>
+</tr>
+<tr>
+<td><code>git add</code></td>
+<td>The <strong><em>git add</em></strong> command lets you stage local files so their changes may be recorded locally by Git.</td>
+</tr>
+<tr>
+<td><code>git commit</code></td>
+<td>The <strong><em>git commit</em></strong> command allows you to locally record changes to staged local files and even include a nice little message describing your changes.</td>
+</tr>
+<tr>
+<td><code>git pull</code></td>
+<td>The <strong><em>git pull</em></strong> command allows you to pull in (merge) changes originating from a remote repository (either your fork or the upstream repository).</td>
+</tr>
+<tr>
+<td><code>git push</code></td>
+<td>The <strong><em>git push</em></strong> command lets you push locally recorded changes (your commits) up to your forked copy of the upstream repository.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="git-pull-requests">Git Pull Requests</h2>
+<p>Now that we've explained several of the most basic Git commands, you might be left thinking:</p>
+<p><strong><em>Great, so how do changes which now reside in my forked copy of the repository, find their way to the upstream repository?</em></strong></p>
+<p>That's an excellent question; I am so happy you asked.
+The answer is of course, by submitting a <strong><em>pull request</em></strong>.</p>
+<p>When you submit a <strong><em>pull request</em></strong> you are <strong><em>requesting</em></strong> the differences found in your forked copy of the upstream repository to be <strong><em>pulled</em></strong> into the upstream repository itself.
+At this point other members of project will perform a quality assurance review of your changes.
+If your changes are accepted by the project, they will be pulled (merged) into the upstream repository.</p>
+<h2 id="git-usage-scenario">Git Usage Scenario</h2>
+<p>Git does not limit you to working on a single computer.
+In fact, you can work with the very same set of files using multiple computers.
+Two different git commands make this possible.</p>
+<ul>
+<li><code>git push</code></li>
+<li><code>git pull</code></li>
+</ul>
+<p>Sound pretty simple huh?
+Well that's because it is.</p>
+<p>Here is a practical examples of how you might use Git:</p>
+<h3 id="scenario-1">Scenario 1</h3>
+<p>You're at home in the morning drinking your coffee, wearing your favorite bunny slippers, and busily working on the computer.
+Morning is your most creative time so you've made lots of changes to your files.</p>
+<p>When finished, you do the following:</p>
+<ul>
+<li>View a list of changed files using <code>git status</code>.</li>
+<li>View the file differences using <code>git diff</code>.</li>
+<li>Locally stage changed files for commit using <code>git add &lt;file name&gt;</code> or using <code>git add .</code> to stage all changed files..</li>
+<li>Locally record your changes using <code>git commit -m &lt;message&gt;</code>.</li>
+<li>Safeguard your local commits by pushing them up to your forked copy of the upstream repository using the <code>git push</code> command.</li>
+</ul>
+<h3 id="scenario-2">Scenario 2</h3>
+<p>Now it's time to go to work and while on lunch break you want to make some more edits to your files.
+That's simple enough, perform the following steps.</p>
+<p>If the local clone already exists:</p>
+<ul>
+<li>Execute the <code>git pull</code> command to pull in (merge) the changes you made earlier in the morning.</li>
+</ul>
+<p>If the clone does not already exist:</p>
+<ul>
+<li>Pull down a local working copy of your forked upstream repository using the command: <code>git clone &lt;URL of fork&gt;</code></li>
+</ul>
+<p>Now let's throw a little twist to this scenario.</p>
+<p>You have just received an email from another member of the project development team.
+In the email contains a note advising you of a completed (accepted and merged) pull request relating to the upstream repository.
+No problem, you'll simply do the following:</p>
+<ul>
+<li>Pull in (merge) those upstream changes into your local working copy using the command <code>git pull upstream master</code>.</li>
+</ul>
+<p>Now your local working copy contains all the changes from both your fork as well the upstream repository.</p>
+<p>When you're finished making changes, you'll safeguard those changes with another cycle of  <strong><em>stage</em></strong>, <strong><em>commit</em></strong>, and <strong><em>push</em></strong>.
+And whenever you're ready, submit a <strong><em>pull request</em></strong> to have the differences found in your fork pulled into the upstream repository.</p>
+<p>Now that wasn't so bad was it?</p>
+<h2 id="installing-git">Installing Git</h2>
+<p>Installing Git on OpenIndiana Hipster is simple.</p>
+<p><code>pkg install git</code></p>
+<p>After Git is installed, be sure to configure your name and email address.</p>
+<p>For further details about configuring GIT, see: <a href="https://help.github.com/articles/set-up-git/">https://help.github.com/articles/set-up-git/</a></p>
+<h2 id="further-reading">Further Reading</h2>
+<p>If you're really excited about Git and desire to become a Git Ninja, here is a great book to further your education: <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+<p>There is also the book <a href="https://git-scm.com/book/en/v2">Pro Git</a> which is available for free under a Creative Commons license.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
