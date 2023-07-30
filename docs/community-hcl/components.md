@@ -344,6 +344,7 @@ Logitech      | K120 Keyboard              | yes             |                 
 Microsoft     | Basic Optical Wheel Mouse  | yes             |                                          |         |
 Microsoft     | Wired Keyboard 600         | yes             |                                          |         |
 Sun           | Type 6 USB Mouse           | yes             | Middle button does not work.             | usbms   |
+Razer         | Cynosa V2 Keyboard         | yes             |                                          |         |
 
 ### Printers
 
