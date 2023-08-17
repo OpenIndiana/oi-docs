@@ -805,7 +805,7 @@ When ready to begin, click the _**Next**_ button to continue on with the install
     _**A bug has been opened to correct this issue**_.
 
 
-    The release notes can be found [on this page](../release-notes/latest-changes).
+    The release notes can be found [on the main site](https://www.openindiana.org/).
 </div>
 
 

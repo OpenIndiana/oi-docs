@@ -74,7 +74,7 @@ This complex Release Engineering has been deprecated in favour of the unified bu
 <div class="caution" markdown="1">
 !!! danger "Caution"
     **oi-build is a legacy consolidation which was superceded with oi-userland !!!**
-    For building oi-userland see [Building with oi-userland](../userland/)
+    For building oi-userland see [Building with oi-userland](userland.md)
 </div>
 
 Following instructions describe building oi-build on legacy OpenIndiana /dev distribution.
