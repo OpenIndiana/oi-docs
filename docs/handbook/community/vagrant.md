@@ -14,7 +14,7 @@ Contributor(s): David Stes.
 
 -->
 
-# Hipster Handbook - Vagrant
+# Vagrant Installation
 
 The following notes document the steps to install Vagrant on OpenIndiana Hipster.
 

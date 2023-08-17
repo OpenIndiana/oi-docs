@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Network Communications
+# Network Communications
 
 <div class="note" markdown="1">
 !!! note

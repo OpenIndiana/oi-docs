@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Appendix
+# Appendix
 
 <div class="note" markdown="1">
 !!! note

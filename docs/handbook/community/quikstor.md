@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Using RDX Quikstor media
+# Using RDX Quikstor media
 
 Originally contributed by Bryan Iotti on the OpenIndiana Wiki.
 

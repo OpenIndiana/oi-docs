@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Community Tutorials
+# Community Tutorials
 
 <div class="info" markdown="1">
 !!! info "Call for Contributions"

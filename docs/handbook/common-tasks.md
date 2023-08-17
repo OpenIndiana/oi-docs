@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Common Tasks
+# Common Tasks
 
 <div class="note" markdown="1">
 !!! note

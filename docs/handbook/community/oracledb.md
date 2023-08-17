@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Installing Oracle Databases (Native or Vagrant)
+# Installing Oracle Databases (Native or Vagrant)
 
 Originally contributed by OpenIndiana community member Franklin Ronald, Franklin Ronald's article details the steps required for the native installation of Oracle Database 11R2 on OpenIndiana Hipster.  Alternatively it is possible to run Oracle RAC or any other Oracle Database software using VirtualBox and Vagrant.
 

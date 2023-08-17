@@ -20,7 +20,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Installing OpenIndiana /dev and upgrading to /hipster
+# Installing OpenIndiana /dev and upgrading to /hipster
 
 <div class="caution" markdown="1">
 !!! danger "Caution"

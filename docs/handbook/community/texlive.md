@@ -14,7 +14,7 @@ Contributor(s): David Stes.
 
 -->
 
-# Hipster Handbook - TeX Live Typesetting Software
+# TeX Live Typesetting Software
 
 The following notes document the steps to install [TeX Live](http://tug.org/texlive) on OpenIndiana Hipster and how to update it using the tlmgr TeX Live package management tool.
 

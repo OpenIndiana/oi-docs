@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Getting Started with OpenIndiana
+# Getting Started with OpenIndiana
 
 <div class="note" markdown="1">
 !!! note

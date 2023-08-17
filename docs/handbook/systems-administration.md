@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - System Administration
+# System Administration
 
 Once OpenIndiana has been installed, the system will require monitoring to
 ensure smooth operation. Software will periodically have to be updated,

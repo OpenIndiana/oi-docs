@@ -11,7 +11,7 @@ Contributor(s): David Stes.
 
 -->
 
-# Hipster Handbook - How to enable the Intelligent Input Bus (IBus)
+# How to enable the Intelligent Input Bus (IBus)
 
 Input Methods (IM) can be used if you regularly use languages that have large number of characters or complex characters, for example Asian languages like Chinese, Japanese or Korean, but IBus can also be used for Latin languages.
 

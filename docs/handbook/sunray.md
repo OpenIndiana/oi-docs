@@ -17,7 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-# Hipster Handbook - Sun Ray Software
+# Sun Ray Software
 
 Some notes for installation of Sun Ray Software on OpenIndiana Hipster.
 
