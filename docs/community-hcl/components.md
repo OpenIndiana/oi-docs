@@ -288,6 +288,8 @@ Gigabyte     | GA-EP45-UD3R                       |             | Works when "E
 Gigabyte     | GA-F2A78M                          |             |                                                       | Johan Sanchez
 Gigabyte     | GA-P67A-UD7-B3                     |             | Test System: LGA 1155 Sandy Bridge 2600K<ul><li>Marvell 88SE9128 SATA controller: UNSUPPORTED</li><li>P67A SATA controller: SUPPORTED</li><li>RealTek RTL8111E Ethernet: SUPPORTED (despite being warned off!)</li></ul> | Lou Picciano
 Gigabyte     | P45T-ES3G                          |             | Works when "Enhanced Intel Speedstep Technology" (CPU EIST Function) is disabled in BIOS. (Intel speedstep causes abnormally high kernel CPU usage). | Michael Kruger
+Gigabyte     | B460MADRUSPRO                      |             | Intel(R) Core(TM) i5-10400F, BIOS American Megatrends Inc. F4   | Carl
+Gigabyte     | H370M-D3H                          |             | Intel(R) Core(TM) i5-8400, BIOS American Megatrends Inc. F2     | Carl
 Hewlett-Packard | Workstation XW4200              |             | Works Ok.  X with Nvidia gt9600 and 340.93 tested OK | Johan Sanchez
 IBM          | ThinkCentre                        |             | Works ok with bge0 and integrated graphics           | Johan Sanchez
 Intel        | D510MO                             |             | Live CD will only boot with BIOS set to USB Legacy=Disable. Note, this also results in USB keyboard not usable in GRUB menu (annoying), but works once OS has booted. Only supports VESA graphics driver. | Matt Connolly
@@ -340,6 +342,7 @@ Logitech      | K120 Keyboard              | yes             |                 
 Microsoft     | Basic Optical Wheel Mouse  | yes             |                                          |         |
 Microsoft     | Wired Keyboard 600         | yes             |                                          |         |
 Sun           | Type 6 USB Mouse           | yes             | Middle button does not work.             | usbms   |
+Razer         | Cynosa V2 Keyboard         | yes             |                                          |         |
 
 ### Printers
 

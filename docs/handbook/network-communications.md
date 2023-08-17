@@ -356,7 +356,8 @@ You can create additional CIFS datasets using the following 4 commands.
 
 ## Hipster as a DNS server
 
-< Place holder for content >
+see https://docs.oracle.com/cd/E23824_01/html/821-1455/dnsref-31.html
+specifically pkg install pkg:/service/network/dns/bind
 
 
 ## Hipster as a NTP server
