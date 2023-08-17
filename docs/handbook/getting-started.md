@@ -209,9 +209,11 @@ Prior to installing OpenIndiana:
 !!! danger "Caution"
     Installing OpenIndiana on unsupported hardware may cause excessive CPU usage, instability, or other problems.
 
+    Please be sure to consult the hardware compatibility list (HCL):
+
     * [Illumos HLC](https://www.illumos.org/hcl/)
-    * [OpenIndiana HCL - components](https://wiki.openindiana.org/oi/Components)
-    * [OpenIndiana HCL - systems](https://wiki.openindiana.org/oi/Systems)
+    * [OpenIndiana HCL - components](../community-hcl/components.md)
+    * [OpenIndiana HCL - systems](../community-hcl/systems.md)
 </div>
 
 ### Backing up data
