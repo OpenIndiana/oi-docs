@@ -23,7 +23,7 @@ jobs:
       - name: Change to repository & Build PDFs
         run: | 
           cd $GITHUB_WORKSPACE
-          ./makepdf.sh
+          ./makepdf.sh -v
 
       - name: Upload PDF Artifact
         if: ${{ github.event_name == 'push' }}
@@ -69,7 +69,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build mkdocs
-        run: mkdocs build
+        run: mkdocs build -s
 
       - name: Deploy mkdocs
         if: ${{ github.event_name == 'push' }}

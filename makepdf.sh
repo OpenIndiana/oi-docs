@@ -631,7 +631,7 @@ main ()
                                 fi
                                 $(do_conversion $file_basename $root_dir $this_path $outformat $outstyle)
                                 if [ "$?" -ne "0" ]; then
-                                        echo "ERROR: severe error. Could not get current path"
+                                        echo "ERROR: severe error. PDF Generation Failed for: $file_basename.md"
                                         clean_up
                                         exit $?
                                 fi
