@@ -1,377 +1,2085 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <link rel="canonical" href="http://docs.openindiana.org/handbook/community/samqfs/">
-        <link rel="shortcut icon" href="../../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.openindiana.org/handbook/community/samqfs/">
+      
+      
+        <link rel="prev" href="../oracledb/">
+      
+      
+        <link rel="next" href="../../sunray/">
+      
+      
+      <link rel="icon" href="../../../oi_logo.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.7">
+    
+    
+      
         <title>Storage Archive Manager Installation - OpenIndiana Docs</title>
-        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
 
-        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-77447740-2', 'auto');
-            ga('send', 'pageview');
-        </script> 
-    </head>
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-    <body>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#storage-archive-manager-file-system-on-openindiana-hipster" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+  
 
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../../..">OpenIndiana Docs</a>
-                </div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="OpenIndiana Docs" class="md-header__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../../oi_logo.png" alt="logo">
 
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../../..">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../../misc/openindiana/">About OpenIndiana</a>
-</li>
-                                    
-<li >
-    <a href="../../../misc/oi-docs/">About OpenIndiana Docs</a>
-</li>
-                                    
-<li >
-    <a href="../../../misc/conduct/">OpenIndiana Code of Conduct</a>
-</li>
-                                    
-<li >
-    <a href="../../../misc/pdl/">Public Documentation License</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Release Notes</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../release-notes/latest-changes/">Latest changes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../common-tasks/">Common Tasks</a>
-</li>
-                                    
-<li >
-    <a href="../../systems-administration/">Systems Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../network-communications/">Network Communications</a>
-</li>
-                                    
-<li >
-    <a href="../../appendix/">Appendix</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Contributed Tutorials</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../">About Community Contributed Tutorials</a>
-</li>
-            
-<li >
-    <a href="../oracledb/">Oracle Database Installation</a>
-</li>
-            
-<li class="active">
-    <a href="./">Storage Archive Manager Installation</a>
-</li>
-            
-<li >
-    <a href="../../sunray/">Sun Ray Installation</a>
-</li>
-            
-<li >
-    <a href="../inputmethod/">Intelligent Input Bus (IBus)</a>
-</li>
-            
-<li >
-    <a href="../squeak/">Squeak Smalltalk-80 Installation</a>
-</li>
-            
-<li >
-    <a href="../texlive/">TeX Live Typesetting Software Installation</a>
-</li>
-            
-<li >
-    <a href="../vagrant/">Vagrant Installation</a>
-</li>
-            
-<li >
-    <a href="../quikstor/">Using RDX Quikstor media</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Hardware Compatibility List</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
-</li>
-            
-<li >
-    <a href="../../../community-hcl/components/">Components</a>
-</li>
-            
-<li >
-    <a href="../../../community-hcl/systems/">Systems</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Developer's Corner</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../../dev/building-openindiana/">Building OpenIndiana</a>
-</li>
-            
-<li >
-    <a href="../../../dev/userland/">Building with oi-userland</a>
-</li>
-            
-<li >
-    <a href="../../../dev/legacy-consolidations/">Building legacy consolidations</a>
-</li>
-            
-<li >
-    <a href="../../../dev/graphics-stack/">Graphics stack</a>
-</li>
-            
-<li >
-    <a href="../../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
-</li>
-            
-<li >
-    <a href="../../../dev/distribution-constructor/">Using distribution constructor</a>
-</li>
-            
-<li >
-    <a href="../../../dev/existing-tasks/">Existing tasks</a>
-</li>
-            
-<li >
-    <a href="../../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
-</li>
-    </ul>
-  </li>
-                                    
-<li >
-    <a href="../../pdfdocs/">PDF Documentation</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../../books/about/">About OpenSolaris Books</a>
-</li>
-                                    
-<li >
-    <a href="../../../books/basic/">Basic Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../../books/advanced/">Advanced Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../../books/express/">Solaris Express Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../../books/trusted/">Trusted Extensions Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../../books/develop/">Development Titles</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../../contrib/content/">Content Creation</a>
-</li>
-                                    
-<li >
-    <a href="../../../contrib/getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../../contrib/tools/">Contributor Tools</a>
-</li>
-                                    
-<li >
-    <a href="../../../contrib/roles/">Contributor Roles</a>
-</li>
-                                    
-<li >
-    <a href="../../../contrib/topics/">Contributor Topics</a>
-</li>
-                                    
-<li >
-    <a href="../../../contrib/style/">Contributor Style Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../../contrib/markdown/">Markdown Syntax Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../../contrib/git/">Git Usage Guide</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../oracledb/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../../sunray/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/community/samqfs.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIndiana Docs
+          </span>
         </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Storage Archive Manager Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#storage-archive-manager-file-system-on-openindiana-hipster">Storage Archive Manager File System on OpenIndiana Hipster</a></li>
-            <li><a href="#samfs-versus-qfs">SamFS versus QFS</a></li>
-            <li><a href="#notes-about-this-release">Notes about this release</a></li>
-            <li><a href="#install">Install</a></li>
-            <li><a href="#a-small-home-server-setup">A small home server setup</a></li>
-            <li><a href="#a-vtl-setup">A VTL setup</a></li>
-            <li><a href="#samfs-at-work">SamFS at work</a></li>
-            <li><a href="#samfs-usage">SamFS usage</a></li>
-            <li><a href="#samfs-administration">SamFS administration</a></li>
-        <li class="main "><a href="#external-documentation-references">External documentation references</a></li>
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../misc/openindiana/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../getting-started/" class="md-tabs__link">
+          
+  
+  Handbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../books/about/" class="md-tabs__link">
+          
+  
+  OpenSolaris Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../contrib/content/" class="md-tabs__link">
+          
+  
+  Contrib
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="OpenIndiana Docs" class="md-nav__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../../oi_logo.png" alt="logo">
+
+    </a>
+    OpenIndiana Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/oi-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenIndiana Code of Conduct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/pdl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public Documentation License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Release Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/latest-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2020.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2020.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2019.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2019.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2018.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2018.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2017.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2017.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2016.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2016.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2015.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/2015.03-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.03 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Handbook
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Handbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems-administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network-communications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Contributed Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Community Contributed Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Community Contributed Tutorials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oracledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oracle Database Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Storage Archive Manager Installation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Storage Archive Manager Installation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-versus-qfs" class="md-nav__link">
+    SamFS versus QFS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-about-this-release" class="md-nav__link">
+    Notes about this release
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-home-server-setup" class="md-nav__link">
+    A small home server setup
+  </a>
+  
+    <nav class="md-nav" aria-label="A small home server setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#samfs-file-system" class="md-nav__link">
+    SamFS file system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-storage" class="md-nav__link">
+    Archive Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-rule" class="md-nav__link">
+    Archive Rule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-configuration" class="md-nav__link">
+    check the configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate-the-configuration" class="md-nav__link">
+    activate the configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-vtl-setup" class="md-nav__link">
+    A VTL setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-at-work" class="md-nav__link">
+    SamFS at work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-usage" class="md-nav__link">
+    SamFS usage
+  </a>
+  
+    <nav class="md-nav" aria-label="SamFS usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-versioning" class="md-nav__link">
+    File versioning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-administration" class="md-nav__link">
+    SamFS administration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sunray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sun Ray Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inputmethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intelligent Input Bus (IBus)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../squeak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Squeak Smalltalk-80 Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../texlive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TeX Live Typesetting Software Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vagrant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vagrant Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quikstor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RDX Quikstor media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Hardware Compatibility List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community Hardware Compatibility List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community-hcl/getting-hardware-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting information about hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community-hcl/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community-hcl/systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer's Corner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer's Corner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/building-openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/userland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building with oi-userland
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/legacy-consolidations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building legacy consolidations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/graphics-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/pdf/ips-dev-guide.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging and Delivering Software with IPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/distribution-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using distribution constructor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/existing-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Existing tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dev/repo-cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleaning up OpenIndiana repository
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pdfdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDF Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenSolaris Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenSolaris Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenSolaris Books
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solaris Express Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/trusted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trusted Extensions Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../books/develop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development Titles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contrib
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Contrib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Roles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Style Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Syntax Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contrib/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-versus-qfs" class="md-nav__link">
+    SamFS versus QFS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-about-this-release" class="md-nav__link">
+    Notes about this release
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-small-home-server-setup" class="md-nav__link">
+    A small home server setup
+  </a>
+  
+    <nav class="md-nav" aria-label="A small home server setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#samfs-file-system" class="md-nav__link">
+    SamFS file system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-storage" class="md-nav__link">
+    Archive Storage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archive-rule" class="md-nav__link">
+    Archive Rule
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-the-configuration" class="md-nav__link">
+    check the configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate-the-configuration" class="md-nav__link">
+    activate the configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-vtl-setup" class="md-nav__link">
+    A VTL setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-at-work" class="md-nav__link">
+    SamFS at work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-usage" class="md-nav__link">
+    SamFS usage
+  </a>
+  
+    <nav class="md-nav" aria-label="SamFS usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-versioning" class="md-nav__link">
+    File versioning
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samfs-administration" class="md-nav__link">
+    SamFS administration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/community/samqfs.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
 
 <!--
 
@@ -394,10 +2102,12 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 <h1 id="storage-archive-manager-file-system-on-openindiana-hipster">Storage Archive Manager File System on OpenIndiana Hipster</h1>
 <p>Some notes for installation and use of Storage Archive Manager on OpenIndiana Hipster.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-This configuration is not supported by OI nor by Oracle.
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is not supported by OI nor by Oracle.</p>
+</div>
+</div>
 <h2 id="samfs-versus-qfs">SamFS versus QFS</h2>
 <p>It seems like this product contains two different filesystems. QFS (quick file system) can be shared between multiple hosts, if you use shared storge like it is possible in FC-SAN. For QFS you need two different kinds of block storage, one for metadata and one for the file data.</p>
 <p>If you configure the archive service then QFS becomes SamFS. Archive service means here, the filesystem content can automatically create up to 4 copies on different storage devices. The archiving is controlled by policies. The archive storage can be inexpensive disk storage, NFS-Share or tape storage. Nowadays tape storage is managed by generic SCSI libraries. So policy based storage tiering is applied.</p>
@@ -420,14 +2130,12 @@ This configuration is not supported by OI nor by Oracle.
 </ul>
 <h2 id="install">Install</h2>
 <p>SamQFS can simply installed by:</p>
-<pre><code># pkg install samqfs
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># pkg install samqfs
+</span></code></pre></div>
 <p>This will install the entire software, add the filesystem driver <code>samfs</code>, two additional pseudo device drivers <code>samioc</code> and <code>samaio</code> as well as two SMF services:</p>
-<pre><code>online         Feb_08   svc:/system/samqfs-postinstall:default
-online         Feb_08   svc:/system/sam-fsd:default
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>online         Feb_08   svc:/system/samqfs-postinstall:default
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>online         Feb_08   svc:/system/sam-fsd:default
+</span></code></pre></div>
 <p>Keep in mind that the service 'sam-fsd' only needs to enabled temporarily.</p>
 <p>The <code>system/samqfs-postinstall</code> SMF will setup the <code>/etc/opt/SUNWsamfs</code> directory from template files. All the configuration files of Storage Archive Manager reside within this directory. The local state files are in <code>/var/opt/SUNWsamfs</code>.</p>
 <h2 id="a-small-home-server-setup">A small home server setup</h2>
@@ -435,184 +2143,165 @@ online         Feb_08   svc:/system/sam-fsd:default
 <h3 id="samfs-file-system">SamFS file system</h3>
 <p>Configure two Zvols, one Zvol <code>rpool/samfsmm</code> for metadata e.g. 10g size and one Zvol <code>rpool/samfsmr</code> for the file content e.g. 1TB.</p>
 <p>Configure the SamFS file system in the <code>/etc/opt/SUNWsamfs/mcf</code> (main configuration file) as follows:</p>
-<pre><code>#
-# Sun StorEdge SAM-FS file system configuration example
-#
-# Equipment       Eq Eq Family Dev Additional
-# Identifier      Nm Tp Set    St  Parameters
-# --------------- -- -- ------ --- ----------
-samfs1            10 ma samfs1
-/dev/zvol/dsk/rpool/samfsmm 11 mm samfs1 -
-/dev/zvol/dsk/rpool/samfsmr 12 mr samfs1 -
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>#
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a># Sun StorEdge SAM-FS file system configuration example
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>#
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># Equipment       Eq Eq Family Dev Additional
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a># Identifier      Nm Tp Set    St  Parameters
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a># --------------- -- -- ------ --- ----------
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>samfs1            10 ma samfs1
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>/dev/zvol/dsk/rpool/samfsmm 11 mm samfs1 -
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>/dev/zvol/dsk/rpool/samfsmr 12 mr samfs1 -
+</span></code></pre></div>
 <p>run</p>
-<pre><code># sam-fsd
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># sam-fsd
+</span></code></pre></div>
 <p>and check output for errors</p>
 <p>and then</p>
-<pre><code># sammkfs samfs1
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># sammkfs samfs1
+</span></code></pre></div>
 <p>then you can mount the SamFS file system</p>
-<pre><code># mount -T samfs samfs1 /archive
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># mount -T samfs samfs1 /archive
+</span></code></pre></div>
 <p>It is suggested to add the following to <code>/etc/vfstab</code>.</p>
-<pre><code>samfs1  -  /sam1   samfs  -  no   -
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>samfs1  -  /sam1   samfs  -  no   -
+</span></code></pre></div>
 <h3 id="archive-storage">Archive Storage</h3>
 <p>The copies should be stored on external USB-drives. Hence we connect two USB-drives and create two Zpools <code>usbdisk1</code> and <code>usbdisk2</code> on  them. For the archive service create the config file <code>/etc/opt/SUNWsamfs/diskvols.conf</code></p>
-<pre><code>#
-#       diskvols.conf
-#
-#  VSN Name [Host Name:]Path
-#
-usbdisk01 /usbdisk1/samarch
-usbdisk02 /usbdisk2/samarch
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>#
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>#       diskvols.conf
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>#
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>#  VSN Name [Host Name:]Path
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>#
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>usbdisk01 /usbdisk1/samarch
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>usbdisk02 /usbdisk2/samarch
+</span></code></pre></div>
 <p>On the Zpools two ZFS datasets <code>usbdisk[12]/samarch</code> are created.</p>
 <h3 id="archive-rule">Archive Rule</h3>
 <p>Now we determine the archive policies in the config file <code>/etc/opt/SUNWsamfs/archiver.cmd</code>.</p>
-<pre><code>#
-#       Global Directives
-#
-#
-logfile = /var/opt/SUNWsamfs/logs/archiver.log
-#
-#
-#       File System Directives
-#
-fs = samfs1
-        1 4m -norelease
-        2 16m
-#
-#       VSN Directives
-#
-vsns
-samfs1.1 dk usbdisk01
-samfs1.2 dk usbdisk02
-endvsns
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>#
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>#       Global Directives
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>#
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>#
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>logfile = /var/opt/SUNWsamfs/logs/archiver.log
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>#
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>#
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>#       File System Directives
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>#
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>fs = samfs1
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        1 4m -norelease
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>        2 16m
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>#
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>#       VSN Directives
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>#
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>vsns
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>samfs1.1 dk usbdisk01
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>samfs1.2 dk usbdisk02
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>endvsns
+</span></code></pre></div>
 <p>We define to create 2 copies of your data files on <code>/archive</code>, after 4 minutes write the first copy on <code>usbdisk1</code>, the second after 16m on <code>usbdisk02</code>. The file should stay online on the filesystem until the second copy is made.</p>
 <h3 id="check-the-configuration">check the configuration</h3>
-<pre><code># sam-fsd
-...
-# archiver -lv
-...
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># sam-fsd
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>...
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a># archiver -lv
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>...
+</span></code></pre></div>
 <h3 id="activate-the-configuration">activate the configuration</h3>
-<pre><code># samd config
-# pkill -HUP sam-fsd
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a># samd config
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a># pkill -HUP sam-fsd
+</span></code></pre></div>
 <h2 id="a-vtl-setup">A VTL setup</h2>
 <p>For use of a SCSI Tape Library we have to configure <code>sgen</code> for use with an autochanger
 run the following:</p>
-<pre><code>update_drv -a -i '&quot;scsiclass,08&quot;' sgen
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>update_drv -a -i &#39;&quot;scsiclass,08&quot;&#39; sgen
+</span></code></pre></div>
 <p>If no physical tape library is available, the Quadstor VTL is a simple alternative.</p>
 <p>https://www.quadstor.com/</p>
 <p>The VTL will connected via ISCSI. Install ISCSI client:</p>
-<pre><code>root@oi-sr:~# pkg install network/iscsi/initiator
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>root@oi-sr:~# pkg install network/iscsi/initiator
+</span></code></pre></div>
 <p>If you have successfully configured ISCSI initiator, then you can see ISCSI devices. In this example we see a Quantum i500 VTL with two tape drives:</p>
-<pre><code>root@oi-sr:~# iscsiadm list target -S
-Target: iqn.2006-06.com.quadstor.vtl.i500.drive2
-        Alias: -
-        TPGT: 1
-        ISID: 4000002a0000
-        Connections: 1
-        LUN: 0
-             Vendor:  IBM
-             Product: ULT3580-TD8
-             OS Device Name: /dev/rmt/2n
-
-Target: iqn.2006-06.com.quadstor.vtl.i500.drive1
-        Alias: -
-        TPGT: 1
-        ISID: 4000002a0000
-        Connections: 1
-        LUN: 0
-             Vendor:  IBM
-             Product: ULT3580-TD8
-             OS Device Name: /dev/rmt/3n
-
-Target: iqn.2006-06.com.quadstor.vtl.i500.autoloader
-        Alias: -
-        TPGT: 1
-        ISID: 4000002a0000
-        Connections: 1
-        LUN: 0
-             Vendor:  QUANTUM
-             Product: Scalar i500
-             OS Device Name: /dev/scsi/changer/c1t0d0
-
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>root@oi-sr:~# iscsiadm list target -S
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Target: iqn.2006-06.com.quadstor.vtl.i500.drive2
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        Alias: -
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        TPGT: 1
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        ISID: 4000002a0000
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        Connections: 1
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        LUN: 0
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>             Vendor:  IBM
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>             Product: ULT3580-TD8
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>             OS Device Name: /dev/rmt/2n
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>Target: iqn.2006-06.com.quadstor.vtl.i500.drive1
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>        Alias: -
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>        TPGT: 1
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>        ISID: 4000002a0000
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>        Connections: 1
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>        LUN: 0
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>             Vendor:  IBM
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>             Product: ULT3580-TD8
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>             OS Device Name: /dev/rmt/3n
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>Target: iqn.2006-06.com.quadstor.vtl.i500.autoloader
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>        Alias: -
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>        TPGT: 1
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>        ISID: 4000002a0000
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>        Connections: 1
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>        LUN: 0
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>             Vendor:  QUANTUM
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>             Product: Scalar i500
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>             OS Device Name: /dev/scsi/changer/c1t0d0
+</span></code></pre></div>
 <p>Now you are ready to configure the tape library for SamFS. Add to the /etc/opt/SUNWsamfs/mcf:</p>
-<pre><code>/dev/scsi/changer/c1t0d0 50 rb i500 on i500
-/dev/rmt/1cbn   51      tp      i500     on
-/dev/rmt/2cbn   52      tp      i500     on
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/dev/scsi/changer/c1t0d0 50 rb i500 on i500
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>/dev/rmt/1cbn   51      tp      i500     on
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>/dev/rmt/2cbn   52      tp      i500     on
+</span></code></pre></div>
 <p>Unfortunately the inquiry of the virtual LTO-8 devices does not work, therefore the config has to be manually added to '/kernel/drv/st.conf'</p>
-<pre><code>tape-config-list= &quot;IBM     ULT3580-TD8&quot;, &quot;IBM     ULT3580-TD8&quot;, &quot;CFGIBMULT3580TD8&quot;;
-
-CFGIBMULT3580TD8 = 2,0x3B,0,0x1018619,4,0x5C,0x5D,0x5E,0x5E,3,60,2340,600,2940,960,960,65535;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>tape-config-list= &quot;IBM     ULT3580-TD8&quot;, &quot;IBM     ULT3580-TD8&quot;, &quot;CFGIBMULT3580TD8&quot;;
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>CFGIBMULT3580TD8 = 2,0x3B,0,0x1018619,4,0x5C,0x5D,0x5E,0x5E,3,60,2340,600,2940,960,960,65535;
+</span></code></pre></div>
 <h2 id="samfs-at-work">SamFS at work</h2>
 <p>If a SAM files system is mounted, the following system state is seen:</p>
 <p>Three kernel modules are loaded:</p>
-<pre><code>$ modinfo | grep SAM-QFS
-204 fffffffff8158000  e8450   6   1  samfs (SAM-QFS: Storage Archiving Mgmt)
-205 fffffffff7e787b8    9a0 312   1  samioc (SAM-QFS system call interface)
-206 fffffffff8096000   15b8 314   1  samaio (SAM-QFS pseudo AIO driver)
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$ modinfo | grep SAM-QFS
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>204 fffffffff8158000  e8450   6   1  samfs (SAM-QFS: Storage Archiving Mgmt)
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>205 fffffffff7e787b8    9a0 312   1  samioc (SAM-QFS system call interface)
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>206 fffffffff8096000   15b8 314   1  samaio (SAM-QFS pseudo AIO driver)
+</span></code></pre></div>
 <p>Two SMF's are online</p>
-<pre><code>$ svcs | grep sam
-online         Feb._07  svc:/system/sam-fsd:default
-online         Feb._07  svc:/system/samqfs-postinstall:default
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ svcs | grep sam
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>online         Feb._07  svc:/system/sam-fsd:default
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>online         Feb._07  svc:/system/samqfs-postinstall:default
+</span></code></pre></div>
 <p>In userland the services are controled by the sam-fsd</p>
-<pre><code>$ ptree `pgrep sam-fsd`
-568    /opt/SUNWsamfs/sbin/sam-fsd -D
-  617    sam-archiverd
-    737    sam-arfind samfs1
-  618    sam-stagealld
-  619    sam-stagerd
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$ ptree `pgrep sam-fsd`
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>568    /opt/SUNWsamfs/sbin/sam-fsd -D
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>  617    sam-archiverd
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    737    sam-arfind samfs1
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>  618    sam-stagealld
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>  619    sam-stagerd
+</span></code></pre></div>
 <p>Once you have tape-library configured the library daemons will be started.</p>
-<pre><code>$ ptree `pgrep sam-fsd`
-9043   /opt/SUNWsamfs/sbin/sam-fsd -D
-  9044   sam-stagealld
-  9054   sam-archiverd
-    9057   sam-arfind samfsfc
-    9058   sam-arfind samfs1
-  9055   sam-stagerd
-  9528   sam-amld
-    9530   sam-catserverd 201326610 201326611
-    9829   sam-scannerd 201326610 201326611
-    9830   sam-robotsd 201326610 201326611
-      9854   sam-genericd 201326610 201326611 50
-      9855   sam-genericd 201326610 201326611 60
-      9872   sam-stkd 201326610 201326611 70
-        9885 /opt/SUNWsamfs/sbin/ssi_so 9885 50025 23
-        9895 sam-stk_helper 201326610 70
-    9831   sam-rpcd 201326610 201326611
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>$ ptree `pgrep sam-fsd`
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>9043   /opt/SUNWsamfs/sbin/sam-fsd -D
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  9044   sam-stagealld
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  9054   sam-archiverd
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    9057   sam-arfind samfsfc
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>    9058   sam-arfind samfs1
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>  9055   sam-stagerd
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>  9528   sam-amld
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    9530   sam-catserverd 201326610 201326611
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    9829   sam-scannerd 201326610 201326611
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    9830   sam-robotsd 201326610 201326611
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>      9854   sam-genericd 201326610 201326611 50
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>      9855   sam-genericd 201326610 201326611 60
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>      9872   sam-stkd 201326610 201326611 70
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>        9885 /opt/SUNWsamfs/sbin/ssi_so 9885 50025 23
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>        9895 sam-stk_helper 201326610 70
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>    9831   sam-rpcd 201326610 201326611
+</span></code></pre></div>
 <p>In this example two SAM file systems 'samfsfc' and 'samfs1' are mounted and two libraries configured, one of them via ACSLS. The RPC service is started for remote controlling the SamFS.</p>
 <h2 id="samfs-usage">SamFS usage</h2>
 <p>A SamFS filesystem can never be become full as long as the archive storage is not full. Because the SamFS is a hierachical filesystem it can release data blocks of files which not needed in the moment. On SamFS such file is called 'offline'.</p>
@@ -665,84 +2354,114 @@ online         Feb._07  svc:/system/samqfs-postinstall:default
 <p>Product documentation from wikis.[sun|oracle].com</p>
 <ul>
 <li><a href="http://web.archive.org/web/20150515215725/https://wikis.oracle.com/display/SAMQFS/Sun+SAM-QFS+5.2">Sun SAM-QFS</a></li>
-</ul></div>
-        </div>
+</ul>
 
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../../js/base.js" defer></script>
-        <script src="../../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-05-23 18:35:25</span>
+      
+    
+  </small>
 </div>
 
-    </body>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../oracledb/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Oracle Database Installation" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Oracle Database Installation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../sunray/" class="md-footer__link md-footer__link--next" aria-label="Next: Sun Ray Installation" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Sun Ray Installation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "content.action.edit", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
 </html>

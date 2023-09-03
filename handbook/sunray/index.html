@@ -1,376 +1,1933 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <link rel="canonical" href="http://docs.openindiana.org/handbook/sunray/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.openindiana.org/handbook/sunray/">
+      
+      
+        <link rel="prev" href="../community/samqfs/">
+      
+      
+        <link rel="next" href="../community/inputmethod/">
+      
+      
+      <link rel="icon" href="../../oi_logo.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.7">
+    
+    
+      
         <title>Sun Ray Installation - OpenIndiana Docs</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-77447740-2', 'auto');
-            ga('send', 'pageview');
-        </script> 
-    </head>
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-    <body>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sun-ray-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+  
 
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
-                </div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenIndiana Docs" class="md-header__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
 
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../misc/openindiana/">About OpenIndiana</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/pdl/">Public Documentation License</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Release Notes</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../release-notes/latest-changes/">Latest changes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../common-tasks/">Common Tasks</a>
-</li>
-                                    
-<li >
-    <a href="../systems-administration/">Systems Administration</a>
-</li>
-                                    
-<li >
-    <a href="../network-communications/">Network Communications</a>
-</li>
-                                    
-<li >
-    <a href="../appendix/">Appendix</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Contributed Tutorials</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../community/">About Community Contributed Tutorials</a>
-</li>
-            
-<li >
-    <a href="../community/oracledb/">Oracle Database Installation</a>
-</li>
-            
-<li >
-    <a href="../community/samqfs/">Storage Archive Manager Installation</a>
-</li>
-            
-<li class="active">
-    <a href="./">Sun Ray Installation</a>
-</li>
-            
-<li >
-    <a href="../community/inputmethod/">Intelligent Input Bus (IBus)</a>
-</li>
-            
-<li >
-    <a href="../community/squeak/">Squeak Smalltalk-80 Installation</a>
-</li>
-            
-<li >
-    <a href="../community/texlive/">TeX Live Typesetting Software Installation</a>
-</li>
-            
-<li >
-    <a href="../community/vagrant/">Vagrant Installation</a>
-</li>
-            
-<li >
-    <a href="../community/quikstor/">Using RDX Quikstor media</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Hardware Compatibility List</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/components/">Components</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/systems/">Systems</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Developer's Corner</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
-</li>
-            
-<li >
-    <a href="../../dev/userland/">Building with oi-userland</a>
-</li>
-            
-<li >
-    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
-</li>
-            
-<li >
-    <a href="../../dev/graphics-stack/">Graphics stack</a>
-</li>
-            
-<li >
-    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
-</li>
-            
-<li >
-    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
-</li>
-            
-<li >
-    <a href="../../dev/existing-tasks/">Existing tasks</a>
-</li>
-            
-<li >
-    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
-</li>
-    </ul>
-  </li>
-                                    
-<li >
-    <a href="../pdfdocs/">PDF Documentation</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../books/about/">About OpenSolaris Books</a>
-</li>
-                                    
-<li >
-    <a href="../../books/basic/">Basic Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/advanced/">Advanced Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/express/">Solaris Express Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/trusted/">Trusted Extensions Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/develop/">Development Titles</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../contrib/content/">Content Creation</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/tools/">Contributor Tools</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/roles/">Contributor Roles</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/topics/">Contributor Topics</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/style/">Contributor Style Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/git/">Git Usage Guide</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../community/samqfs/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../community/inputmethod/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/sunray.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIndiana Docs
+          </span>
         </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sun Ray Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#hipster-handbook-sun-ray-software">Hipster Handbook - Sun Ray Software</a></li>
-            <li><a href="#install">Install</a></li>
-            <li><a href="#config">Config</a></li>
-        <li class="main "><a href="#how-to-get-gnome-on-current-hipster">How to get GNOME on current Hipster</a></li>
-            <li><a href="#update-older-hipster">update older Hipster</a></li>
-            <li><a href="#install-on-current-hipster-2022">Install on current Hipster (2022)</a></li>
-            <li><a href="#xscreensaver">XScreenSaver</a></li>
-            <li><a href="#gdm">GDM</a></li>
-        <li class="main "><a href="#login-screen-gdm-greeter-wont-reapear-after-logout">Login Screen (gdm-greeter) won't reapear after logout</a></li>
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../misc/openindiana/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  Handbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/about/" class="md-tabs__link">
+          
+  
+  OpenSolaris Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../contrib/content/" class="md-tabs__link">
+          
+  
+  Contrib
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenIndiana Docs" class="md-nav__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
+
+    </a>
+    OpenIndiana Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/oi-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenIndiana Code of Conduct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/pdl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public Documentation License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Release Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/latest-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.03-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.03 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Handbook
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Handbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems-administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-communications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Contributed Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Community Contributed Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Community Contributed Tutorials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/oracledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oracle Database Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/samqfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Archive Manager Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Sun Ray Installation
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Sun Ray Installation
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-isc-dhcp" class="md-nav__link">
+    Configure isc-dhcp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-runtime-environment" class="md-nav__link">
+    Java Runtime Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/inputmethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intelligent Input Bus (IBus)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/squeak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Squeak Smalltalk-80 Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/texlive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TeX Live Typesetting Software Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/vagrant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vagrant Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/quikstor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RDX Quikstor media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Hardware Compatibility List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community Hardware Compatibility List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/getting-hardware-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting information about hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer's Corner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer's Corner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/building-openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/userland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building with oi-userland
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/legacy-consolidations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building legacy consolidations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/graphics-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/pdf/ips-dev-guide.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging and Delivering Software with IPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/distribution-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using distribution constructor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/existing-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Existing tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/repo-cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleaning up OpenIndiana repository
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdfdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDF Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenSolaris Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenSolaris Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenSolaris Books
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solaris Express Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/trusted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trusted Extensions Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/develop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development Titles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contrib
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Contrib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Roles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Style Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Syntax Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+    <nav class="md-nav" aria-label="Install">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-isc-dhcp" class="md-nav__link">
+    Configure isc-dhcp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-runtime-environment" class="md-nav__link">
+    Java Runtime Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    Config
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/sunray.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
 
 <!--
 
@@ -391,317 +1948,311 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<p><img src = "../../Openindiana.png"></p>
-<h1 id="hipster-handbook-sun-ray-software">Hipster Handbook - Sun Ray Software</h1>
+<h1 id="sun-ray-software">Sun Ray Software</h1>
 <p>Some notes for installation of Sun Ray Software on OpenIndiana Hipster.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-This configuration is not supported by OI nor by Oracle.
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is not supported by OI nor by Oracle.</p>
 </div>
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.</p>
+</div>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.</p>
 <p>Limitations:</p>
-<p>Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.
-</div></p>
+<p>Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.</p>
+</div>
+</div>
 <h2 id="install">Install</h2>
 <p>Sun Ray Software still can be downloaded at http://edelivery.oracle.com (registration required). Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.</p>
 <p>Extract the archives.</p>
 <p>The Solaris packages require Sun DHCP server, which we do not provide anymore. To solve this problem we replace the dependency with isc-dhcp in the IPS packages SUNWutr and SUNWuto with the following script:</p>
 <p>update_dhcp_dependency</p>
-<pre><code class="shell">#!/bin/ksh
-
-# set -x
-
-if [ -z $1 ] || [ ! -d $1 ]; then
-    echo &quot;usage: $0 repodirectory&quot;
-    exit
-fi
-
-if [[ $1 != /* ]]; then
-   repo=$(pwd)/$1
-else
-   repo=$1
-fi
-
-republish=&quot;republish$$&quot;
-
-mkdir ${republish}
-
-for p in SUNWutr SUNWuto; {
-(cd ${republish}
-  pkgrecv -d . --raw -s $repo $p || exit 2
-  for d in $(ls $p); {
-      (cd $p/$d
-        sed -i s#service/network/dhcp#service/network/dhcp/isc-dhcp# manifest
-        pkgrepo -s $repo remove $p
-        pkgsend publish -s $repo -d . manifest
-      )
-  }
-);
-}
-rm -r ${republish}
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/ksh</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># set -x</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;usage: </span><span class="nv">$0</span><span class="s2"> repodirectory&quot;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nb">exit</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">fi</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span>/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">   </span><span class="nv">repo</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/<span class="nv">$1</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">else</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">   </span><span class="nv">repo</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">fi</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nv">republish</span><span class="o">=</span><span class="s2">&quot;republish</span><span class="nv">$$</span><span class="s2">&quot;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>mkdir<span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">for</span><span class="w"> </span>p<span class="w"> </span><span class="k">in</span><span class="w"> </span>SUNWutr<span class="w"> </span>SUNWuto<span class="p">;</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="o">(</span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span>pkgrecv<span class="w"> </span>-d<span class="w"> </span>.<span class="w"> </span>--raw<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span><span class="nv">$p</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span><span class="nv">$p</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span><span class="nv">$p</span>/<span class="nv">$d</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span>sed<span class="w"> </span>-i<span class="w"> </span>s#service/network/dhcp#service/network/dhcp/isc-dhcp#<span class="w"> </span>manifest
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span>pkgrepo<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span>remove<span class="w"> </span><span class="nv">$p</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span>pkgsend<span class="w"> </span>publish<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span>-d<span class="w"> </span>.<span class="w"> </span>manifest
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="o">)</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="o">}</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="o">}</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>rm<span class="w"> </span>-r<span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
+</span></code></pre></div>
 <p>Run the script <code>update_dhcp_dependency &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/</code> to replace the dependcy of package <code>service/network/dhcp</code> by <code>service/network/dhcp/isc-dhcp</code>.</p>
 <p>Install IPS packages of the Sun Ray Software from the local repository</p>
-<pre><code class="shell"># pkg set-publisher -g &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/ sunray
-# pkg install SUNWut-srss SUNWut-srwc SUNWuti
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># pkg set-publisher -g &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/ sunray</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># pkg install SUNWut-srss SUNWut-srwc SUNWuti</span>
+</span></code></pre></div>
 <p>Do <strong>not</strong> use <code>utinstall</code> script, because its will setup a sunray publisher by its own which will interfere with our publisher of GNOME packages.</p>
 <p>Due to package dependencies following packages will be installed:</p>
-<pre><code>SUNWut-srss (sunray)                              5.4.5.0.38-0.0             i--
-SUNWuta (sunray)                                  4.5.4.0.38-0.0             i--
-SUNWutdso (sunray)                                3.5.0.0.2-0.0              i--
-SUNWutdsr (sunray)                                3.5.0.0.2-0.0              i--
-SUNWutesa (sunray)                                4.5.0.0.44-0.0             i--
-SUNWutgsm (sunray)                                4.5.0.0.44-0.0             i--
-SUNWuti (sunray)                                  4.5.5.0.38-0.0             i--
-SUNWutid (sunray)                                 4.5.5.0.38-0.0             i--
-SUNWutk (sunray)                                  4.5.0.0.44-0.0             i--
-SUNWutm (sunray)                                  4.5.4.0.38-0.0             i--
-SUNWuto (sunray)                                  4.5.4.0.38-0.0             i--
-SUNWutps (sunray)                                 4.5.0.0.44-0.0             i--
-SUNWutr (sunray)                                  4.5.0.0.44-0.0             i--
-SUNWutref (sunray)                                4.5.0.0.44-0.0             i--
-SUNWutscr (sunray)                                4.5.4.0.38-0.0             i--
-SUNWutsrs (sunray)                                4.5.5.0.38-0.0             i--
-SUNWutstk (sunray)                                4.5.0.0.44-0.0             i--
-SUNWutsto (sunray)                                4.5.0.0.44-0.0             i--
-SUNWutstr (sunray)                                4.5.0.0.44-0.0             i--
-SUNWutsvt (sunray)                                1.1.0.0.3-0.0              i--
-SUNWuttsc (sunray)                                2.6.4.0.11-0.0             i--
-SUNWuttscd (sunray)                               2.6.4.0.11-0.0             i--
-SUNWuttscr (sunray)                               2.6.4.0.11-0.0             i--
-SUNWutu (sunray)                                  4.5.0.0.44-0.0             i--
-SUNWutwa (sunray)                                 4.5.2.0.5-0.0              i--
-SUNWutwar (sunray)                                4.5.0.0.44-0.0             i--
-SUNWutwh (sunray)                                 4.5.0.0.44-0.0             i--
-SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SUNWut-srss (sunray)                              5.4.5.0.38-0.0             i--
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>SUNWuta (sunray)                                  4.5.4.0.38-0.0             i--
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>SUNWutdso (sunray)                                3.5.0.0.2-0.0              i--
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>SUNWutdsr (sunray)                                3.5.0.0.2-0.0              i--
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>SUNWutesa (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>SUNWutgsm (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>SUNWuti (sunray)                                  4.5.5.0.38-0.0             i--
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>SUNWutid (sunray)                                 4.5.5.0.38-0.0             i--
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>SUNWutk (sunray)                                  4.5.0.0.44-0.0             i--
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>SUNWutm (sunray)                                  4.5.4.0.38-0.0             i--
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>SUNWuto (sunray)                                  4.5.4.0.38-0.0             i--
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>SUNWutps (sunray)                                 4.5.0.0.44-0.0             i--
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>SUNWutr (sunray)                                  4.5.0.0.44-0.0             i--
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>SUNWutref (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>SUNWutscr (sunray)                                4.5.4.0.38-0.0             i--
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>SUNWutsrs (sunray)                                4.5.5.0.38-0.0             i--
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>SUNWutstk (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>SUNWutsto (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>SUNWutstr (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>SUNWutsvt (sunray)                                1.1.0.0.3-0.0              i--
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>SUNWuttsc (sunray)                                2.6.4.0.11-0.0             i--
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>SUNWuttscd (sunray)                               2.6.4.0.11-0.0             i--
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>SUNWuttscr (sunray)                               2.6.4.0.11-0.0             i--
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>SUNWutu (sunray)                                  4.5.0.0.44-0.0             i--
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>SUNWutwa (sunray)                                 4.5.2.0.5-0.0              i--
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>SUNWutwar (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>SUNWutwh (sunray)                                 4.5.0.0.44-0.0             i--
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
+</span></code></pre></div>
 <h3 id="configure-isc-dhcp">Configure isc-dhcp</h3>
 <p>On Hipster ISC DHCP replaced the Sun DHCP server, but that's not a problem as ISC DHCP server for Sun Ray Server was used on Linux already.</p>
 <p>So Sun Ray Server on Hipster has to use DHCP scripts like on Linux. But it is also possible to configure DHCP manually and to skip the <code>utadm</code> step. Here an example:</p>
-<pre><code>ddns-update-style none;
-
-# option definitions common to all supported networks...
-option domain-name &quot;sunray.lan&quot;;
-option domain-name-servers 192.168.1.6, 192.168.1.1;
-option subnet-mask 255.255.255.0;
-option broadcast-address 192.168.1.255;
-option routers 192.168.1.1;
-option space SunRay;
-option SunRay.Intf code 33 = text;
-option SunRay.Intf &quot;nge1&quot;;
-option SunRay.AuthSrvr code 21 = ip-address;
-option SunRay.AuthSrvr 192.168.1.2;
-option SunRay.AltAuth code 35 = array of ip-address;
-option SunRay.AltAuth 192.168.1.2;
-option SunRay.FWSrvr code 31 = ip-address;
-option SunRay.FWSrvr 192.168.1.2;
-option SunRay.NewTVer code 23 = text;
-option SunRay.NewTVer &quot;11.1.7.0_38_2016.10.27.13.09&quot;;
-option SunRay.AuthPort code 22 = integer 16;
-option SunRay.AuthPort 7009;
-option SunRay.LogHost  code 24 = ip-address;
-option SunRay.LogHost 192.168.1.2;
-option SunRay.LogKern code 25 = integer 8;
-option SunRay.LogKern 6;
-option SunRay.LogNet code 26 = integer 8;
-option SunRay.LogNet 6;
-option SunRay.LogUSB code 27 = integer 8;
-option SunRay.LogUSB 6;
-option SunRay.LogVid code 28 = integer 8;
-option SunRay.LogVid 6;
-option SunRay.LogAppl code 29 = integer 8;
-option SunRay.LogAppl 6;
-option SunRay.sunray-servers code 68 = text;
-option SunRay.sunray-servers &quot;oi-sr.sunray.lan&quot;;
-option SunRay.sunray-config-servers code 67 = text;
-option SunRay.sunray-config-servers &quot;oi-sr.sunray.lan&quot;;
-
-default-lease-time 86400;
-max-lease-time 86400;
-
-class &quot;sun&quot; {
-  match if substring (option vendor-class-identifier, 0, 4) = &quot;SUNW&quot;;
-}
-
-log-facility local7;
-
-host sr1.sunray.lan {
-  hardware ethernet 00:14:4f:57:a0:c1;
-  fixed-address 192.168.1.50;
-  vendor-option-space SunRay;
-}
-
-subnet 192.168.1.0 netmask 255.255.255.0 {
-  range 192.168.1.51 192.168.1.59;
-}
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ddns-update-style none;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a># option definitions common to all supported networks...
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>option domain-name &quot;sunray.lan&quot;;
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>option domain-name-servers 192.168.1.6, 192.168.1.1;
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>option subnet-mask 255.255.255.0;
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>option broadcast-address 192.168.1.255;
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>option routers 192.168.1.1;
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>option space SunRay;
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>option SunRay.Intf code 33 = text;
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>option SunRay.Intf &quot;nge1&quot;;
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>option SunRay.AuthSrvr code 21 = ip-address;
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>option SunRay.AuthSrvr 192.168.1.2;
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>option SunRay.AltAuth code 35 = array of ip-address;
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>option SunRay.AltAuth 192.168.1.2;
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>option SunRay.FWSrvr code 31 = ip-address;
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>option SunRay.FWSrvr 192.168.1.2;
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>option SunRay.NewTVer code 23 = text;
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>option SunRay.NewTVer &quot;11.1.7.0_38_2016.10.27.13.09&quot;;
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>option SunRay.AuthPort code 22 = integer 16;
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>option SunRay.AuthPort 7009;
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>option SunRay.LogHost  code 24 = ip-address;
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>option SunRay.LogHost 192.168.1.2;
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>option SunRay.LogKern code 25 = integer 8;
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>option SunRay.LogKern 6;
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>option SunRay.LogNet code 26 = integer 8;
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>option SunRay.LogNet 6;
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>option SunRay.LogUSB code 27 = integer 8;
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>option SunRay.LogUSB 6;
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>option SunRay.LogVid code 28 = integer 8;
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>option SunRay.LogVid 6;
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>option SunRay.LogAppl code 29 = integer 8;
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>option SunRay.LogAppl 6;
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>option SunRay.sunray-servers code 68 = text;
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>option SunRay.sunray-servers &quot;oi-sr.sunray.lan&quot;;
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>option SunRay.sunray-config-servers code 67 = text;
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>option SunRay.sunray-config-servers &quot;oi-sr.sunray.lan&quot;;
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>default-lease-time 86400;
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>max-lease-time 86400;
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>class &quot;sun&quot; {
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>  match if substring (option vendor-class-identifier, 0, 4) = &quot;SUNW&quot;;
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>}
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>log-facility local7;
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>host sr1.sunray.lan {
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>  hardware ethernet 00:14:4f:57:a0:c1;
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>  fixed-address 192.168.1.50;
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>  vendor-option-space SunRay;
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>}
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>subnet 192.168.1.0 netmask 255.255.255.0 {
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>  range 192.168.1.51 192.168.1.59;
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>}
+</span></code></pre></div>
 <p>Vendor specific DHCP options are described in the <a href="https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options">Sun Ray Software: Alternate Client Initialization Reqs Using DHCP</a> document.
 The config file <code>/etc/dhcp/dhcpd.conf</code> has to link to <code>/etc/inet/dhcp4.conf</code> so that the <code>svc:/network/dhcp/server:ipv4</code> service can leverage it.</p>
 <p>To switch Sun Ray Software to isc-dhcp we take scripts located in path <code>/opt/SUNWut/lib/dhcp/isc</code> from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with <code>rpm2cpio</code>:</p>
-<pre><code class="shell"># pkg install rpm
-$ rpm2cpio SUNWuto-4.5-44.i386.rpm | cpio -idv &lt;tmprpmdirectory&gt;
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># pkg install rpm</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>rpm2cpio<span class="w"> </span>SUNWuto-4.5-44.i386.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idv<span class="w"> </span>&lt;tmprpmdirectory&gt;
+</span></code></pre></div>
 <p>Rename <code>dhcp_config_linux</code> to <code>dhcp_config_solaris</code> and
 replace the <code>sort</code> command with his GNU implementation <code>gsort</code> by appling this patch on script `dhcp_config_linux:</p>
-<pre><code class="shell">diff --git a/dhcp_config_linux b/dhcp_config_linux
-index 001aa42..0165941 100755
---- a/dhcp_config_linux
-+++ b/dhcp_config_linux
-@@ -462,7 +462,7 @@ TranslateEther() {
-        BEGAN=false
-        VALUE=&quot;&quot;
-
--   ls $UTDHCPDIR | sort -g | grep &quot;SunRay-ether&quot; &gt; $TMPLISTFILE
-+ ls $UTDHCPDIR | gsort -g | grep &quot;SunRay-ether&quot; &gt; $TMPLISTFILE
-        if [[ $? != 0 ]]; then
-                rm -f $TMPLISTFILE 2&gt;/dev/null
-                return 1
-@@ -552,7 +552,7 @@ TranslateSubnet() {
-
-        if [ -z &quot;$INFILE&quot; ]; then
-                # list all the subnet files
--           ls $UTDHCPDIR | sort -g | grep &quot;SunRay-subnet&quot; &gt; $TMPLISTFILE
-+         ls $UTDHCPDIR | gsort -g | grep &quot;SunRay-subnet&quot; &gt; $TMPLISTFILE
-                if [[ $? != 0 ]]; then
-                        rm -f $TMPLISTFILE 2&gt;/dev/null
-                        return 1
-@@ -616,7 +616,7 @@ TranslateInterface() {
-        BEGAN=false
-        VALUE=&quot;&quot;
-
--   ls $UTDHCPDIR | sort -g | grep &quot;SunRay-interface&quot; &gt; $TMPLISTFILE
-+ ls $UTDHCPDIR | gsort -g | grep &quot;SunRay-interface&quot; &gt; $TMPLISTFILE
-        if [[ $? != 0 ]]; then
-                rm -f $TMPLISTFILE 2&gt;/dev/null
-                return 1
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>diff<span class="w"> </span>--git<span class="w"> </span>a/dhcp_config_linux<span class="w"> </span>b/dhcp_config_linux
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>index<span class="w"> </span>001aa42..0165941<span class="w"> </span><span class="m">100755</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>---<span class="w"> </span>a/dhcp_config_linux
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>+++<span class="w"> </span>b/dhcp_config_linux
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>@@<span class="w"> </span>-462,7<span class="w"> </span>+462,7<span class="w"> </span>@@<span class="w"> </span>TranslateEther<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nv">BEGAN</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>-<span class="w">   </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-ether&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>+<span class="w"> </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-ether&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">                </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>@@<span class="w"> </span>-552,7<span class="w"> </span>+552,7<span class="w"> </span>@@<span class="w"> </span>TranslateSubnet<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INFILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">                </span><span class="c1"># list all the subnet files</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>-<span class="w">           </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-subnet&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>+<span class="w">         </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-subnet&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">                        </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>@@<span class="w"> </span>-616,7<span class="w"> </span>+616,7<span class="w"> </span>@@<span class="w"> </span>TranslateInterface<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="nv">BEGAN</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>-<span class="w">   </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-interface&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>+<span class="w"> </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-interface&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">                </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+</span></code></pre></div>
 <p>put the scripts below <code>&lt;tmprpmdirectory&gt;/opt/SUNWut/lib/dhcp/isc</code> in <code>/opt/SUNWut/lib/dhcp/isc</code></p>
 <p>Reference the scripts by setting this link:</p>
-<pre><code>root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
+</span></code></pre></div>
 <p><code>utadm</code> command needs changes shown in the following patch:</p>
-<pre><code class="patch">From a1072acfffd91457d91cd6d202a988d88bc3fb8a Mon Sep 17 00:00:00 2001
-From: Carsten Grzemba &lt;cgrzemba@opencsw.org&gt;
-Date: Mon, 3 Feb 2020 10:58:31 +0100
-Subject: [PATCH] apply changes for:
-* change the dhcp config file name
-* different ipadm argument names
-* name IP interface utadm to refer to the IP address creator
-* do not use /etc/hostname.&lt;if&gt;
-
----
- utadm | 41 +++++++----------------------------------
- 1 file changed, 7 insertions(+), 34 deletions(-)
-
-diff --git a/utadm b/utadm
-index cffac27..448c171 100644
---- a/utadm
-+++ b/utadm
-@@ -116,7 +116,7 @@ UTDHCPSERVICE_SUCCESS=0
- UTDHCPSERVICE_DISABLED=3
-
- SVCADM=&quot;/usr/sbin/svcadm&quot;
--DHCP_FMRI=&quot;svc:/network/dhcp-server:default&quot;
-+DHCP_FMRI=&quot;svc:/network/dhcp-server:ipv4&quot;
-
- UTLIB=&quot;/opt/SUNWut/lib&quot;
- UTSBIN=&quot;/opt/SUNWut/sbin&quot;
-@@ -207,6 +207,7 @@ function SetPlatformDependencies  {
-         IFCONFIG_KEY_NETMASK=&quot;netmask&quot;
-         if [ -x /usr/sbin/ipadm ]; then
-           IPADM_CONF=true
-+          DHCPCONFIG=&quot;/etc/dhcp/dhcpd.conf&quot;
-         fi
-
-         ;;    # end case SunOS
-@@ -1783,14 +1784,6 @@ function DoAddNetworkConfig {
-     DHCPONLY=&quot;N&quot;
-     for test in ${INTF_ALL}; do
-         if [ &quot;${INTF}&quot; = &quot;${test}&quot; -a -f &quot;${HOSTNAME_C}${INTF}&quot; ]; then
--        #
--        # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
--        # defined in the file may not be configured locally in the hosts file.
--        #
--        if [ ! -f ${HOSTNAME_C}${INTF} ]; then
--            print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}${INTF}\&quot; file.&quot;
--            return 1
--        fi
-         if [[ $OS == &quot;SunOS&quot; ]]; then
-             NAME=`getIfname ${INTF}`
-             if [ -z &quot;${NAME}&quot; ]; then
-@@ -2567,9 +2560,9 @@ should an auth server be located by broadcasting on the network?&quot; &quot;Y&quot;
-         fi
-         # Clear any pre-existing state on interface, then create
-         # new persistent configuration
--        ipadm delete-ip ${INTF} 2&gt;/dev/null
--        ipadm create-ip ${INTF}
--        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4static
-+        ipadm delete-if ${INTF} 2&gt;/dev/null
-+        ipadm create-if ${INTF}
-+        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4utadm
-       else
-         # ifconfig the new interface
-         ifconfig ${INTF} plumb &gt;/dev/null 2&gt;&amp;1 ;
-@@ -2710,7 +2703,7 @@ function DoList {
-     if [[ $BLOCKTYPE = &quot;interface&quot; ]] ; then
-       if Intf=${UT_DHCP_INTERFACE} ; then
-         if [[ ! -s ${HOSTNAME_R}.${Intf} ]]; then
--        IntfAddr=&quot;&quot;*MISSING*&quot;&quot;
-+        IntfAddr=`ipadm show-addr -p -o ADDR ${Intf}/ | awk '{split($1,a,&quot;/&quot;); print a[1]}'`
-         else
-             typeset H=`getIfname ${Intf}`
-             IntfAddr=`getent hosts $H | awk '{ print $1 }'`
-@@ -3151,14 +3144,6 @@ function DoPrint {
-
-     INTF=${UT_DHCP_INTERFACE}
-
--    #
--    # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
--    # defined in the file may not be configured locally in the hosts file.
--    #
--    if [ ! -f ${HOSTNAME_R}.${INTF} ]; then
--        print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}.${INTF}\&quot; file.&quot;
--        return 1
--    fi
-     H=`getIfname ${INTF}`
-     if [ -z &quot;${H}&quot; ]; then
-         print -u2 &quot;Error: interface ${INTF} is partially configured.  Hostname not&quot; \
-@@ -3452,19 +3437,7 @@ function getIfname {
-     awk '{print $1 ; exit}' &quot;${HOSTNAME_R}.$1&quot;
-     return
-     else
--    # With ipadm, there's no way to create a persistent
--    # configuration without it immediately being reflected in the
--    # runtime configuration, nor does ipadm provide any convenient
--    # way to find the IPv4 addrobj for the interface, so just
--    # check runtime configuration via ifconfig.
--    IPADDR=$(ifconfig $1 | awk '
--        /[     ]inet /{
--            for (i = 1; i &lt; NF; ++i) {
--                if ($i == &quot;inet&quot;) {
--                    print $(i+1)
--                }
--            }
--        }')
-+    IPADDR=`ipadm show-addr -p -o ADDR $1/ | awk '{split($1,a,&quot;/&quot;); print a[1] }'`
-     if [ -z &quot;$IPADDR&quot; ]; then
-         print -u2 &quot;Error in parsing of ifconfig addresses&quot;
-         exit 2
---
-2.23.0
-
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>From a1072acfffd91457d91cd6d202a988d88bc3fb8a Mon Sep 17 00:00:00 2001
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>From: Carsten Grzemba &lt;cgrzemba@opencsw.org&gt;
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Date: Mon, 3 Feb 2020 10:58:31 +0100
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Subject: [PATCH] apply changes for:
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>* change the dhcp config file name
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>* different ipadm argument names
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>* name IP interface utadm to refer to the IP address creator
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>* do not use /etc/hostname.&lt;if&gt;
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>---
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a> utadm | 41 +++++++----------------------------------
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a> 1 file changed, 7 insertions(+), 34 deletions(-)
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>diff --git a/utadm b/utadm
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>index cffac27..448c171 100644
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>--- a/utadm
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>+++ b/utadm
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>@@ -116,7 +116,7 @@ UTDHCPSERVICE_SUCCESS=0
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a> UTDHCPSERVICE_DISABLED=3
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a> SVCADM=&quot;/usr/sbin/svcadm&quot;
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>-DHCP_FMRI=&quot;svc:/network/dhcp-server:default&quot;
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>+DHCP_FMRI=&quot;svc:/network/dhcp-server:ipv4&quot;
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a> UTLIB=&quot;/opt/SUNWut/lib&quot;
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a> UTSBIN=&quot;/opt/SUNWut/sbin&quot;
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>@@ -207,6 +207,7 @@ function SetPlatformDependencies  {
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>         IFCONFIG_KEY_NETMASK=&quot;netmask&quot;
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>         if [ -x /usr/sbin/ipadm ]; then
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>           IPADM_CONF=true
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>+          DHCPCONFIG=&quot;/etc/dhcp/dhcpd.conf&quot;
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>         fi
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>         ;;    # end case SunOS
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>@@ -1783,14 +1784,6 @@ function DoAddNetworkConfig {
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>     DHCPONLY=&quot;N&quot;
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>     for test in ${INTF_ALL}; do
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>         if [ &quot;${INTF}&quot; = &quot;${test}&quot; -a -f &quot;${HOSTNAME_C}${INTF}&quot; ]; then
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>-        #
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>-        # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>-        # defined in the file may not be configured locally in the hosts file.
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>-        #
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>-        if [ ! -f ${HOSTNAME_C}${INTF} ]; then
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>-            print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}${INTF}\&quot; file.&quot;
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>-            return 1
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>-        fi
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>         if [[ $OS == &quot;SunOS&quot; ]]; then
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>             NAME=`getIfname ${INTF}`
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>             if [ -z &quot;${NAME}&quot; ]; then
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>@@ -2567,9 +2560,9 @@ should an auth server be located by broadcasting on the network?&quot; &quot;Y&quot;
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>         fi
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>         # Clear any pre-existing state on interface, then create
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>         # new persistent configuration
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>-        ipadm delete-ip ${INTF} 2&gt;/dev/null
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>-        ipadm create-ip ${INTF}
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>-        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4static
+</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>+        ipadm delete-if ${INTF} 2&gt;/dev/null
+</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>+        ipadm create-if ${INTF}
+</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>+        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4utadm
+</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>       else
+</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>         # ifconfig the new interface
+</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>         ifconfig ${INTF} plumb &gt;/dev/null 2&gt;&amp;1 ;
+</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>@@ -2710,7 +2703,7 @@ function DoList {
+</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>     if [[ $BLOCKTYPE = &quot;interface&quot; ]] ; then
+</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>       if Intf=${UT_DHCP_INTERFACE} ; then
+</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a>         if [[ ! -s ${HOSTNAME_R}.${Intf} ]]; then
+</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>-        IntfAddr=&quot;&quot;*MISSING*&quot;&quot;
+</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>+        IntfAddr=`ipadm show-addr -p -o ADDR ${Intf}/ | awk &#39;{split($1,a,&quot;/&quot;); print a[1]}&#39;`
+</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>         else
+</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>             typeset H=`getIfname ${Intf}`
+</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>             IntfAddr=`getent hosts $H | awk &#39;{ print $1 }&#39;`
+</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>@@ -3151,14 +3144,6 @@ function DoPrint {
+</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>
+</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a>     INTF=${UT_DHCP_INTERFACE}
+</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a>
+</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>-    #
+</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a>-    # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
+</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a>-    # defined in the file may not be configured locally in the hosts file.
+</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a>-    #
+</span><span id="__span-7-80"><a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a>-    if [ ! -f ${HOSTNAME_R}.${INTF} ]; then
+</span><span id="__span-7-81"><a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a>-        print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}.${INTF}\&quot; file.&quot;
+</span><span id="__span-7-82"><a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a>-        return 1
+</span><span id="__span-7-83"><a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a>-    fi
+</span><span id="__span-7-84"><a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a>     H=`getIfname ${INTF}`
+</span><span id="__span-7-85"><a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>     if [ -z &quot;${H}&quot; ]; then
+</span><span id="__span-7-86"><a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a>         print -u2 &quot;Error: interface ${INTF} is partially configured.  Hostname not&quot; \
+</span><span id="__span-7-87"><a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a>@@ -3452,19 +3437,7 @@ function getIfname {
+</span><span id="__span-7-88"><a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a>     awk &#39;{print $1 ; exit}&#39; &quot;${HOSTNAME_R}.$1&quot;
+</span><span id="__span-7-89"><a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a>     return
+</span><span id="__span-7-90"><a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a>     else
+</span><span id="__span-7-91"><a id="__codelineno-7-91" name="__codelineno-7-91" href="#__codelineno-7-91"></a>-    # With ipadm, there&#39;s no way to create a persistent
+</span><span id="__span-7-92"><a id="__codelineno-7-92" name="__codelineno-7-92" href="#__codelineno-7-92"></a>-    # configuration without it immediately being reflected in the
+</span><span id="__span-7-93"><a id="__codelineno-7-93" name="__codelineno-7-93" href="#__codelineno-7-93"></a>-    # runtime configuration, nor does ipadm provide any convenient
+</span><span id="__span-7-94"><a id="__codelineno-7-94" name="__codelineno-7-94" href="#__codelineno-7-94"></a>-    # way to find the IPv4 addrobj for the interface, so just
+</span><span id="__span-7-95"><a id="__codelineno-7-95" name="__codelineno-7-95" href="#__codelineno-7-95"></a>-    # check runtime configuration via ifconfig.
+</span><span id="__span-7-96"><a id="__codelineno-7-96" name="__codelineno-7-96" href="#__codelineno-7-96"></a>-    IPADDR=$(ifconfig $1 | awk &#39;
+</span><span id="__span-7-97"><a id="__codelineno-7-97" name="__codelineno-7-97" href="#__codelineno-7-97"></a>-        /[     ]inet /{
+</span><span id="__span-7-98"><a id="__codelineno-7-98" name="__codelineno-7-98" href="#__codelineno-7-98"></a>-            for (i = 1; i &lt; NF; ++i) {
+</span><span id="__span-7-99"><a id="__codelineno-7-99" name="__codelineno-7-99" href="#__codelineno-7-99"></a>-                if ($i == &quot;inet&quot;) {
+</span><span id="__span-7-100"><a id="__codelineno-7-100" name="__codelineno-7-100" href="#__codelineno-7-100"></a>-                    print $(i+1)
+</span><span id="__span-7-101"><a id="__codelineno-7-101" name="__codelineno-7-101" href="#__codelineno-7-101"></a>-                }
+</span><span id="__span-7-102"><a id="__codelineno-7-102" name="__codelineno-7-102" href="#__codelineno-7-102"></a>-            }
+</span><span id="__span-7-103"><a id="__codelineno-7-103" name="__codelineno-7-103" href="#__codelineno-7-103"></a>-        }&#39;)
+</span><span id="__span-7-104"><a id="__codelineno-7-104" name="__codelineno-7-104" href="#__codelineno-7-104"></a>+    IPADDR=`ipadm show-addr -p -o ADDR $1/ | awk &#39;{split($1,a,&quot;/&quot;); print a[1] }&#39;`
+</span><span id="__span-7-105"><a id="__codelineno-7-105" name="__codelineno-7-105" href="#__codelineno-7-105"></a>     if [ -z &quot;$IPADDR&quot; ]; then
+</span><span id="__span-7-106"><a id="__codelineno-7-106" name="__codelineno-7-106" href="#__codelineno-7-106"></a>         print -u2 &quot;Error in parsing of ifconfig addresses&quot;
+</span><span id="__span-7-107"><a id="__codelineno-7-107" name="__codelineno-7-107" href="#__codelineno-7-107"></a>         exit 2
+</span><span id="__span-7-108"><a id="__codelineno-7-108" name="__codelineno-7-108" href="#__codelineno-7-108"></a>--
+</span><span id="__span-7-109"><a id="__codelineno-7-109" name="__codelineno-7-109" href="#__codelineno-7-109"></a>2.23.0
+</span></code></pre></div>
 <h3 id="java-runtime-environment">Java Runtime Environment</h3>
 <p>The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun Ray Software.</p>
 <h2 id="config">Config</h2>
@@ -709,66 +2260,64 @@ index cffac27..448c171 100644
 <h1 id="how-to-get-gnome-on-current-hipster">How to get GNOME on current Hipster</h1>
 <p>As already mentioned the Sun Ray Software cannot handled by LightDM and we still have to use GDM and some GNOME components necessary for the gnome-greeter session.</p>
 <p>Be sure you have installed:</p>
-<pre><code class="shell"># pkg install libbonoboui
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># pkg install libbonoboui</span>
+</span></code></pre></div>
 <p>Make sure that they actually install as in the future they may be eventually obsoleted from Hipster
 (no empty metapackages or obsoleted packages).</p>
 <h2 id="update-older-hipster">update older Hipster</h2>
 <p>If you have Sun Ray running on Hipster with GNOME, you can prevent GNOME components removal by "freezing" them and releasing their version locks:</p>
-<pre><code class="shell"># pkg freeze gdm libgnomekbd gnome-session gnome-settings-daemon
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># pkg freeze gdm libgnomekbd gnome-session gnome-settings-daemon</span>
+</span></code></pre></div>
 <p>and release the version locks:</p>
-<pre><code># pkg change-facet facet.version-lock.gnome/gnome-session=false
-# pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
-# pkg change-facet facet.version-lock.system/display-manager/gdm=false
-# pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
-</code></pre>
-
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-On IPS there are meta-packages which define package dependencies of <code>type=incorporate</code>, which means:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a># pkg change-facet facet.version-lock.gnome/gnome-session=false
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a># pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a># pkg change-facet facet.version-lock.system/display-manager/gdm=false
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a># pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
+</span></code></pre></div>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On IPS there are meta-packages which define package dependencies of <code>type=incorporate</code>, which means:</p>
 <p>If a package will installed, it have to have the version defined in the incorporate dependency.</p>
-<p>We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.
-</div></p>
+<p>We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.</p>
+</div>
+</div>
 <h2 id="install-on-current-hipster-2022">Install on current Hipster (2022)</h2>
 <p>If you have installed new Hipster, it is necessary to install GNOME packages for GDM and its greeter-session. For user session it is fine to select 'Mate Session', it is no longer necessary to install other packages needed by Gnome Session (only Gnome packages which Mate session still uses).</p>
 <p>Last known working OpenIndiana GNOME packages versions are the following:</p>
-<pre><code>gnome-session@2.32.1
-gnome-settings-daemon@2.32.1
-gdm@2.30.7
-libgnomekbd@2.32.0
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>gnome-session@2.32.1
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>gnome-settings-daemon@2.32.1
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>gdm@2.30.7
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>libgnomekbd@2.32.0
+</span></code></pre></div>
 <p>These are still in hipster repo, but are obsoleted empty metapackages.</p>
 <p>At <a href="http://pkg.toc.de/sunray/">http://pkg.toc.de/sunray/</a> you can find the old GNOME packages with newer release date, so that these should be able to install it on current Hipster. This publisher is provided and supported by community member Carsten Grzemba not by the OpenIndiana project.
 For this to work add this publisher in a way, that it takes precedence over the default openindiana.org publisher:</p>
-<pre><code class="shell"># pkg set-publisher --search-before=openindiana.org -g http://pkg.toc.de/sunray sunray
-# pkg set-publisher --non-sticky openindiana.org
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># pkg set-publisher --search-before=openindiana.org -g http://pkg.toc.de/sunray sunray</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># pkg set-publisher --non-sticky openindiana.org</span>
+</span></code></pre></div>
 <p>and install all packages from sunray publisher.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-The version locks of the gnome packages have to relaese like decribed in <a href="#update-older-hipster">update older Hipster</a>.
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The version locks of the gnome packages have to relaese like decribed in <a href="#update-older-hipster">update older Hipster</a>.</p>
+</div>
+</div>
 <h3 id="install-from-hipster-2019">Install from Hipster (2019)</h3>
 <p>This is outdated and not necessary anymore. But it is kept here in case someone would still like to run Gnome-Session on Hipster.</p>
 <p>If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.</p>
 <p>Last known working OpenIndiana GNOME packages versions are the following:</p>
-<pre><code>gnome-desktop@2.32.1
-gnome-menus@2.30.5
-gnome-panel@2.32.1
-gnome-session@2.32.1
-gnome-settings-daemon@2.32.1
-gdm@2.30.7
-metacity@2.30.3
-libgnomekbd@2.32.0
-libwnck@2.31.0
-desktop/screensaver@5.42
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>gnome-desktop@2.32.1
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>gnome-menus@2.30.5
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>gnome-panel@2.32.1
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>gnome-session@2.32.1
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>gnome-settings-daemon@2.32.1
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>gdm@2.30.7
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>metacity@2.30.3
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>libgnomekbd@2.32.0
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>libwnck@2.31.0
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>desktop/screensaver@5.42
+</span></code></pre></div>
 <h2 id="xscreensaver">XScreenSaver</h2>
 <p>Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module
 are shipped as 32-bit only so unlocking works only with 32-bit XScreenSaver.
@@ -776,134 +2325,162 @@ That's why we need the XScreenSaver package with 32-bit bins from <a href="http:
 <p>It is more comfortable to use mate-screensaver. For PAM is only the module mate-screensaver-pam-helper needed. This is not an shared object, instead it is an executable and can be shipped in 32bit independent from the other commands.</p>
 <h2 id="gdm">GDM</h2>
 <p>the GDM service has to be enabled. lightdm should not run however.</p>
-<pre><code># svcadm enable graphical-login/gdm
-# svcadm disable graphical-login/lightdm
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># svcadm enable graphical-login/gdm
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a># svcadm disable graphical-login/lightdm
+</span></code></pre></div>
 <h1 id="login-screen-gdm-greeter-wont-reapear-after-logout">Login Screen (gdm-greeter) won't reapear after logout</h1>
 <p>After logout the gdm-login won't reappear. Install the following script as <code>/opt/SUNWut/lib/gdm/revivesrsession.py</code> and call it by the <code>/etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession</code> helper script.</p>
-<pre><code>/opt/SUNWut/lib/gdm/revivesrsession.py &amp;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>/opt/SUNWut/lib/gdm/revivesrsession.py &amp;
+</span></code></pre></div>
 <p><code>/opt/SUNWut/lib/gdm/revivesrsession.py</code> contains:</p>
-<pre><code class="python">#!/usr/bin/python3.9
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="ch">#!/usr/bin/python3.9</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="sd"> Reconnect SunRay X-session: some times after logout, the gdm will not start login screen on the X-session and the DTU remains in state 26D</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="sd"> INSTALL: - cp to /opt/SUNWut/lib/gdm/revivesrsession.py</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="sd">          - create script /etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession:</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="sd">            /opt/SUNWut/lib/gdm/revivesrsession.py &amp;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="nn">sp</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="kn">import</span> <span class="nn">re</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="kn">import</span> <span class="nn">pdb</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="kn">import</span> <span class="nn">logging</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="n">logformat</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2">:</span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span> <span class="o">=</span> <span class="n">logformat</span><span class="p">)</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="n">pid</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;pgrep&#39;</span><span class="p">,</span><span class="s1">&#39;gdm-binary&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;GDM pid </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">pid</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="n">dpl</span> <span class="o">=</span> <span class="p">[</span> <span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ptree&#39;</span><span class="p">,</span> <span class="n">pid</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;/opt/SUNWut/lib/Xnewt&#39;</span> <span class="ow">in</span> <span class="n">p</span> <span class="p">]</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Xnewt display </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">dpl</span><span class="p">))</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="c1"># error -4 gdm-simple-slave not started for Display, no UT sessions</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;/opt/SUNWut/sbin/utsession&#39;</span><span class="p">,</span><span class="s1">&#39;-px&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sess</span><span class="p">))</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">sess</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;;&#39;</span><span class="p">):</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;STATE&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span> <span class="n">state</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;DISPLAY&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span> <span class="n">disp</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a>    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">disp</span> <span class="ow">in</span> <span class="n">dpl</span><span class="p">:</span>
+</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>        <span class="c1"># ok</span>
+</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a>        <span class="k">pass</span>
+</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;restart display </span><span class="si">%s</span><span class="s2">&quot;</span>  <span class="o">%</span> <span class="n">disp</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>        <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;/opt/SUNWut/lib/gdm/utgdmdynamic&#39;</span><span class="p">,</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="n">disp</span><span class="p">])</span>
+</span></code></pre></div>
 
-'''
- Reconnect SunRay X-session: some times after logout, the gdm will not start login screen on the X-session and the DTU remains in state 26D
- INSTALL: - cp to /opt/SUNWut/lib/gdm/revivesrsession.py
-          - create script /etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession:
-            /opt/SUNWut/lib/gdm/revivesrsession.py &amp;
-'''
-
-import subprocess as sp
-import re
-import pdb
-import time
-import logging
-
-logformat = &quot;%(asctime)s %(levelname)s:%(message)s&quot;
-logging.basicConfig(format = logformat)
-logger = logging.getLogger(__name__)
-
-logger.setLevel(logging.DEBUG)
-
-time.sleep(7)
-
-pid = sp.Popen(['pgrep','gdm-binary'], stdout=sp.PIPE).stdout.readline().strip()
-logger.debug(&quot;GDM pid %s &quot;, pid.decode())
-dpl = [ p.split()[2].strip(b':') for p in sp.Popen(['ptree', pid], stdout=sp.PIPE).stdout.readlines() if b'/opt/SUNWut/lib/Xnewt' in p ]
-logger.debug(&quot;Xnewt display {}&quot;.format( dpl))
-
-# error -4 gdm-simple-slave not started for Display, no UT sessions
-for sess in sp.Popen(['/opt/SUNWut/sbin/utsession','-px'], stdout=sp.PIPE).stdout.readlines():
-    logger.debug(&quot;{}&quot;.format(sess))
-    for t in sess.split(b';'):
-        if b'STATE' in t: state = t.split(b'=')[1]
-        if b'DISPLAY' in t: disp = t.split(b'=')[1]
-    if state == 0 and disp in dpl:
-        # ok
-        pass
-    else:
-        logger.debug(&quot;restart display %s&quot;  % disp.decode())
-        sp.Popen(['/opt/SUNWut/lib/gdm/utgdmdynamic','-a', disp])
-</code></pre></div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2021-02-27 11:11:22</span>
+      
+    
+  </small>
 </div>
 
-    </body>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../community/samqfs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Storage Archive Manager Installation" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Storage Archive Manager Installation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../community/inputmethod/" class="md-footer__link md-footer__link--next" aria-label="Next: Intelligent Input Bus (IBus)" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Intelligent Input Bus (IBus)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
 </html>

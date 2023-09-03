@@ -1,374 +1,1949 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <link rel="canonical" href="http://docs.openindiana.org/release-notes/2017.10-release-notes/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.openindiana.org/release-notes/2017.10-release-notes/">
+      
+      
+        <link rel="prev" href="../2018.04-release-notes/">
+      
+      
+        <link rel="next" href="../2017.04-release-notes/">
+      
+      
+      <link rel="icon" href="../../oi_logo.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.7">
+    
+    
+      
         <title>2017.10 Release Notes - OpenIndiana Docs</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-77447740-2', 'auto');
-            ga('send', 'pageview');
-        </script> 
-    </head>
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-    <body>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#201710-release-notes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+  
 
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
-                </div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenIndiana Docs" class="md-header__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
 
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../misc/openindiana/">About OpenIndiana</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/pdl/">Public Documentation License</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Release Notes</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../latest-changes/">Latest changes</a>
-</li>
-            
-<li >
-    <a href="../2020.10-release-notes/">2020.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2020.04-release-notes/">2020.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2019.10-release-notes/">2019.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2019.04-release-notes/">2019.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2018.10-release-notes/">2018.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2018.04-release-notes/">2018.04 Release Notes</a>
-</li>
-            
-<li class="active">
-    <a href="./">2017.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2017.04-release-notes/">2017.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2016.10-release-notes/">2016.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2016.04-release-notes/">2016.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2015.10-release-notes/">2015.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../2015.03-release-notes/">2015.03 Release Notes</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../handbook/getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/common-tasks/">Common Tasks</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/systems-administration/">Systems Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/network-communications/">Network Communications</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/appendix/">Appendix</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Contributed Tutorials</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/sunray/">Sun Ray Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Hardware Compatibility List</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/components/">Components</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/systems/">Systems</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Developer's Corner</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
-</li>
-            
-<li >
-    <a href="../../dev/userland/">Building with oi-userland</a>
-</li>
-            
-<li >
-    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
-</li>
-            
-<li >
-    <a href="../../dev/graphics-stack/">Graphics stack</a>
-</li>
-            
-<li >
-    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
-</li>
-            
-<li >
-    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
-</li>
-            
-<li >
-    <a href="../../dev/existing-tasks/">Existing tasks</a>
-</li>
-            
-<li >
-    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
-</li>
-    </ul>
-  </li>
-                                    
-<li >
-    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../books/about/">About OpenSolaris Books</a>
-</li>
-                                    
-<li >
-    <a href="../../books/basic/">Basic Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/advanced/">Advanced Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/express/">Solaris Express Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/trusted/">Trusted Extensions Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/develop/">Development Titles</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../contrib/content/">Content Creation</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/tools/">Contributor Tools</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/roles/">Contributor Roles</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/topics/">Contributor Topics</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/style/">Contributor Style Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/git/">Git Usage Guide</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../2018.04-release-notes/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../2017.04-release-notes/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/release-notes/2017.10-release-notes.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIndiana Docs
+          </span>
         </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2017.10 Release Notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#201710-release-notes">2017.10 Release notes</a></li>
-            <li><a href="#security">Security</a></li>
-            <li><a href="#general-system-changes">General system changes</a></li>
-            <li><a href="#desktop-software-and-libraries">Desktop software and libraries</a></li>
-            <li><a href="#common-tools-and-libraries">Common tools and libraries</a></li>
-            <li><a href="#development-tools-and-libraries">Development tools and libraries</a></li>
-            <li><a href="#server-software">Server software</a></li>
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../misc/openindiana/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../handbook/getting-started/" class="md-tabs__link">
+          
+  
+  Handbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/about/" class="md-tabs__link">
+          
+  
+  OpenSolaris Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../contrib/content/" class="md-tabs__link">
+          
+  
+  Contrib
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenIndiana Docs" class="md-nav__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
+
+    </a>
+    OpenIndiana Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/oi-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenIndiana Code of Conduct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/pdl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public Documentation License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Release Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../latest-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2020.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2019.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2019.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2018.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2017.10 Release Notes
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2017.10 Release Notes
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-system-changes" class="md-nav__link">
+    General system changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desktop-software-and-libraries" class="md-nav__link">
+    Desktop software and libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-tools-and-libraries" class="md-nav__link">
+    Common tools and libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-tools-and-libraries" class="md-nav__link">
+    Development tools and libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-software" class="md-nav__link">
+    Server software
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2017.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2016.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2015.03-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.03 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Handbook
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Handbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/common-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/systems-administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/network-communications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Contributed Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Community Contributed Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Community Contributed Tutorials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/oracledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oracle Database Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/samqfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Archive Manager Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/sunray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sun Ray Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/inputmethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intelligent Input Bus (IBus)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/squeak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Squeak Smalltalk-80 Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/texlive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TeX Live Typesetting Software Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/vagrant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vagrant Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/quikstor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RDX Quikstor media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Hardware Compatibility List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community Hardware Compatibility List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/getting-hardware-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting information about hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer's Corner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer's Corner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/building-openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/userland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building with oi-userland
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/legacy-consolidations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building legacy consolidations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/graphics-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/pdf/ips-dev-guide.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging and Delivering Software with IPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/distribution-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using distribution constructor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/existing-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Existing tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/repo-cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleaning up OpenIndiana repository
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/pdfdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDF Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenSolaris Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenSolaris Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenSolaris Books
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solaris Express Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/trusted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trusted Extensions Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/develop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development Titles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contrib
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Contrib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Roles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Style Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Syntax Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-system-changes" class="md-nav__link">
+    General system changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desktop-software-and-libraries" class="md-nav__link">
+    Desktop software and libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-tools-and-libraries" class="md-nav__link">
+    Common tools and libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-tools-and-libraries" class="md-nav__link">
+    Development tools and libraries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-software" class="md-nav__link">
+    Server software
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/release-notes/2017.10-release-notes.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
 
 <!--
 
@@ -391,7 +1966,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<p><img src = "../../Openindiana.png"></p>
 <h1 id="201710-release-notes">2017.10 Release notes</h1>
 <p>We are glad to announce that Hipster 2017.10 snapshot is available.</p>
 <table>
@@ -439,73 +2013,70 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <h2 id="security">Security</h2>
 <p>This release is signed and verifiable by GPG. The OpenIndiana Release Engineering key has key id 0x3a021afadbe31887.</p>
 <p>The public key:</p>
-<pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
-mQINBFkHrmsBEADCHjW1mu/SgnV0nshQO6Ma+mQ6NNumGN6NdCTaWyfvjLGde17o
-RBLLLVbt0+OpB3EW2Im+X6Zxnisq+V2LsFsamqGJXH84y0ubPxZH9y8O86CGBJPX
-USsG9rldpLkBAkHtxDrDAt4GyD5090Z9otH2RgBmjWTzEHqVBwrKEUUJkiWP0QUY
-5kZ60suX3DtqdC3uCEg4NNTMCPLOY3WJr6X2eDJ6DjZYFZ+SmjCD9X5rCzLQqmvW
-bADO839815pUSZa+YJn6chgSGwqtWcg62al3EXB+TaqLyoiwO2Xw1qlWfUitMc6Q
-rTYD+K4gh/8Fiz7Mn7MUYzPUT+vHBGui2/MzQycXGRH3kK3j7/a/lsN2AmxYJWag
-wSMTDiOlm6f/eAk/E5mnquGzgSQkDcMAYijUDW98Zwy7y4zMLT2D2il6FalZkTYj
-3ALdcewFSdZjsm7vJxG2uHRNh7vNcZyOZkYgvBoD4Ndb0vkj2LaO1lIUvTyVPeS4
-sbyTUw38asw3jPU2A6hd9YMZypfd5YsiyQCDrWGuVCCl3lfb4dfCra+3wwyExDz0
-3YGzfVvxSgSexljvQQQ/xbATbDstBYj+JD16fH6mEJg0cEzp84rlTIOXCpksluFL
-yJQ9xkHVmAUYQhBRHhRpm3H6B12hze/zp/RwIAIG53CSsbSY5c7hbJIMlwARAQAB
-tB9PcGVuSW5kaWFuYSBSZWxlYXNlIEVuZ2luZWVyaW5niQI9BBMBCgAnBQJZB65r
-AhsDBQkFo5qABQsJCAcDBRUKCQgLBRYCAwEAAh4BAheAAAoJEDoCGvrb4xiHfPkP
-/A9MlvGKkuinRv7O+R//CBKCFmW6MgHWdcvA4FEAkvlHCJ/vYeBahKd0LIog642t
-LmhLZ+wVUhsGZIq4ORRLCM4s/SLXohMuaWNdghGu1EhIYrTq8jhj2Ph1OChFXo9S
-RhXn4Pnd7CtyNypECw291tO8d70RcEGM4kWiZLQE755luU7TrXM2X7YEcUeakzvv
-mTbJ+SQhDpeAEIP4qtHru+EvwbHtyemdYKMBPHXE98ucrqfqCqFKDFdqxWpvbdUe
-TeSgme+PSz25V3DxDcuSqHp4+WM6vSfiZ5T6Tk2u40vyu9kWePTeYWoFMvzXlbjq
-mYwrIPmcQ6B1iifzOfI/cZHyFbcLxBLDf3uuQb7I8JNYkZB70IHHCTif1HIBKiUv
-g/zZQq+0q4IelbSEXq+COZ0uFCjhDpZaPJ1DXFHXOKD5BJeOct9LnuDAg4Usenq1
-yBmFuWut0U/Z9NY7U3TES6ZaG25i9/QZa59qFY6YW5n9WiSiuCP2vYhi9p33iLEy
-uUHnmdk/XgRHA1if5tkRQqVsj5RkoDP5xAhADnJe2tW11cCZAe8yc0LA/VAiQLdA
-9iz5NgNLgSDfDUAw0jGtH96xClGaMlv9ysnsnamH9SIkRs+HA4/eD4/kaQiXjKWc
-pcX95GCFCTHMYW4iVPV/m7gjx4IMGUdJZWVHSGMcTAk0uQINBFkHrmsBEADPJ23B
-EVN3kdM/zuvG8B41k9yk9MNQXLzI/FnTJ1hgTQH+HvRSix4bIsOo7U2t4+CB6wUy
-5xRVcIO7DKdoHzMBqXfVFIkUti1k9CFZx37oLaYBsldE6rL7ZchQKileICYAWze3
-bnTe/b6ZaWNVs1yMk79MJ/DF8z1RNeZsPFxBrXE5vh973+k0hkDZfi9bULdmQroL
-gniBS5aSc2pGdl3UNqSx+CcyS+/Jrn4LDnPHj3mx7WGlJLc/Lw0uYZxSZM3FAj7/
-zrsLgnP4/xdcCMTcbVbC6L7VBSIE+hE6ppdrKwoLp7C2cyA14DnHM+heqx8Dqtf6
-acIc8txyUB7zShGC5Fhp37YnhrHGnUrDxxYi99OfNChXAbwtR5z8Leicijplc/NF
-oibGSLLC8NvFkzuWIIuqZK8l2/UZmER7Nt7hhHszilsnAJenwvYCIVEqJsrdsTUf
-iiYm5AifwhU018Ia5As9kvBqymMy2bYSbZZVic+WXb6StWHugjKSFJmCo2h66QsI
-giHNJEvOxybANlSkxI6t38EipGvvW1dlROBuL/RZOQvSJL7SRlclOeQF4ZtPBMFy
-yI5p3DBZbIHChdaH5OE0U7zk+qt1hvO+HSh8Yc1OVBd6pziAay5L6S8jsBKDPjJr
-7OTUuHJL00teBe3SORS8BACkg6+/6Yk9a3lSiQARAQABiQIlBBgBCgAPBQJZB65r
-AhsMBQkFo5qAAAoJEDoCGvrb4xiHUqcP/iOUf55a2rU5N/tlZsn2fd+O6U2V4Iym
-YYysJ5OZJj0baDmL+SSmNarem+ogRcpBmKX3LFNgGnEoRVaeILQApri5JelCSEhC
-Ex5Xwk1WOqXTRWV9flbVU/rTSiCNDUySaaJDCVOQ07TEQ/bDShkR0X+MyCzklgbZ
-rZnj+spaPeDnpIkfwfG2aKiJ0hq9KATBwdREcP9f/R7LaAdmcbr89Ya4iPEmaDYO
-gh/t83zH45XKiWxXwb9rn9U2szWLOfx8rMTTRhYWBPB+K7RX8mGoiphqtMOJYhNA
-N7AVm+9LRVxRcnmWyf1cQKF8FG1j9FBlaeNUAFefpvvcBffTFvPnpqOaSZm7nu6l
-NwWT2N0IHdr9daET0ewvL2poMkE9P3abPmEjQYFMobg3ZiPs7e5TeplvVFtC2y89
-47Gow54KIVS2cbeSVCPlCj/B8GmEjkAsGmjDtGTk45LiJptv6h5lH95YGUafI97U
-xLSEJJ+mab1iSRqDCn8lVlfjvAp6Hv/DW9sr6lutQuzZjxhFi5rsly1C40rkOni/
-pByJDW47+VERp2wxvJdVVUZEge53IHTgrruHs/tWUsJNEswkHQ7OsY5u7bEcPUlW
-Stua8WJo5U4cN0abgrRAXnXXBWi2bNbYe8xnH+OsOghb1gRg3N99G/TthoziPQ1I
-cuYxZQalebJS
-=fC+/
------END PGP PUBLIC KEY BLOCK-----
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-----BEGIN PGP PUBLIC KEY BLOCK-----
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mQINBFkHrmsBEADCHjW1mu/SgnV0nshQO6Ma+mQ6NNumGN6NdCTaWyfvjLGde17o
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>RBLLLVbt0+OpB3EW2Im+X6Zxnisq+V2LsFsamqGJXH84y0ubPxZH9y8O86CGBJPX
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>USsG9rldpLkBAkHtxDrDAt4GyD5090Z9otH2RgBmjWTzEHqVBwrKEUUJkiWP0QUY
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>5kZ60suX3DtqdC3uCEg4NNTMCPLOY3WJr6X2eDJ6DjZYFZ+SmjCD9X5rCzLQqmvW
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>bADO839815pUSZa+YJn6chgSGwqtWcg62al3EXB+TaqLyoiwO2Xw1qlWfUitMc6Q
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>rTYD+K4gh/8Fiz7Mn7MUYzPUT+vHBGui2/MzQycXGRH3kK3j7/a/lsN2AmxYJWag
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>wSMTDiOlm6f/eAk/E5mnquGzgSQkDcMAYijUDW98Zwy7y4zMLT2D2il6FalZkTYj
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>3ALdcewFSdZjsm7vJxG2uHRNh7vNcZyOZkYgvBoD4Ndb0vkj2LaO1lIUvTyVPeS4
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>sbyTUw38asw3jPU2A6hd9YMZypfd5YsiyQCDrWGuVCCl3lfb4dfCra+3wwyExDz0
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>3YGzfVvxSgSexljvQQQ/xbATbDstBYj+JD16fH6mEJg0cEzp84rlTIOXCpksluFL
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>yJQ9xkHVmAUYQhBRHhRpm3H6B12hze/zp/RwIAIG53CSsbSY5c7hbJIMlwARAQAB
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>tB9PcGVuSW5kaWFuYSBSZWxlYXNlIEVuZ2luZWVyaW5niQI9BBMBCgAnBQJZB65r
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>AhsDBQkFo5qABQsJCAcDBRUKCQgLBRYCAwEAAh4BAheAAAoJEDoCGvrb4xiHfPkP
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>/A9MlvGKkuinRv7O+R//CBKCFmW6MgHWdcvA4FEAkvlHCJ/vYeBahKd0LIog642t
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>LmhLZ+wVUhsGZIq4ORRLCM4s/SLXohMuaWNdghGu1EhIYrTq8jhj2Ph1OChFXo9S
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>RhXn4Pnd7CtyNypECw291tO8d70RcEGM4kWiZLQE755luU7TrXM2X7YEcUeakzvv
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>mTbJ+SQhDpeAEIP4qtHru+EvwbHtyemdYKMBPHXE98ucrqfqCqFKDFdqxWpvbdUe
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>TeSgme+PSz25V3DxDcuSqHp4+WM6vSfiZ5T6Tk2u40vyu9kWePTeYWoFMvzXlbjq
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>mYwrIPmcQ6B1iifzOfI/cZHyFbcLxBLDf3uuQb7I8JNYkZB70IHHCTif1HIBKiUv
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>g/zZQq+0q4IelbSEXq+COZ0uFCjhDpZaPJ1DXFHXOKD5BJeOct9LnuDAg4Usenq1
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>yBmFuWut0U/Z9NY7U3TES6ZaG25i9/QZa59qFY6YW5n9WiSiuCP2vYhi9p33iLEy
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>uUHnmdk/XgRHA1if5tkRQqVsj5RkoDP5xAhADnJe2tW11cCZAe8yc0LA/VAiQLdA
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>9iz5NgNLgSDfDUAw0jGtH96xClGaMlv9ysnsnamH9SIkRs+HA4/eD4/kaQiXjKWc
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>pcX95GCFCTHMYW4iVPV/m7gjx4IMGUdJZWVHSGMcTAk0uQINBFkHrmsBEADPJ23B
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>EVN3kdM/zuvG8B41k9yk9MNQXLzI/FnTJ1hgTQH+HvRSix4bIsOo7U2t4+CB6wUy
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>5xRVcIO7DKdoHzMBqXfVFIkUti1k9CFZx37oLaYBsldE6rL7ZchQKileICYAWze3
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>bnTe/b6ZaWNVs1yMk79MJ/DF8z1RNeZsPFxBrXE5vh973+k0hkDZfi9bULdmQroL
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>gniBS5aSc2pGdl3UNqSx+CcyS+/Jrn4LDnPHj3mx7WGlJLc/Lw0uYZxSZM3FAj7/
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>zrsLgnP4/xdcCMTcbVbC6L7VBSIE+hE6ppdrKwoLp7C2cyA14DnHM+heqx8Dqtf6
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>acIc8txyUB7zShGC5Fhp37YnhrHGnUrDxxYi99OfNChXAbwtR5z8Leicijplc/NF
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>oibGSLLC8NvFkzuWIIuqZK8l2/UZmER7Nt7hhHszilsnAJenwvYCIVEqJsrdsTUf
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>iiYm5AifwhU018Ia5As9kvBqymMy2bYSbZZVic+WXb6StWHugjKSFJmCo2h66QsI
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>giHNJEvOxybANlSkxI6t38EipGvvW1dlROBuL/RZOQvSJL7SRlclOeQF4ZtPBMFy
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>yI5p3DBZbIHChdaH5OE0U7zk+qt1hvO+HSh8Yc1OVBd6pziAay5L6S8jsBKDPjJr
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>7OTUuHJL00teBe3SORS8BACkg6+/6Yk9a3lSiQARAQABiQIlBBgBCgAPBQJZB65r
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>AhsMBQkFo5qAAAoJEDoCGvrb4xiHUqcP/iOUf55a2rU5N/tlZsn2fd+O6U2V4Iym
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>YYysJ5OZJj0baDmL+SSmNarem+ogRcpBmKX3LFNgGnEoRVaeILQApri5JelCSEhC
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>Ex5Xwk1WOqXTRWV9flbVU/rTSiCNDUySaaJDCVOQ07TEQ/bDShkR0X+MyCzklgbZ
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>rZnj+spaPeDnpIkfwfG2aKiJ0hq9KATBwdREcP9f/R7LaAdmcbr89Ya4iPEmaDYO
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>gh/t83zH45XKiWxXwb9rn9U2szWLOfx8rMTTRhYWBPB+K7RX8mGoiphqtMOJYhNA
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>N7AVm+9LRVxRcnmWyf1cQKF8FG1j9FBlaeNUAFefpvvcBffTFvPnpqOaSZm7nu6l
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>NwWT2N0IHdr9daET0ewvL2poMkE9P3abPmEjQYFMobg3ZiPs7e5TeplvVFtC2y89
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>47Gow54KIVS2cbeSVCPlCj/B8GmEjkAsGmjDtGTk45LiJptv6h5lH95YGUafI97U
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>xLSEJJ+mab1iSRqDCn8lVlfjvAp6Hv/DW9sr6lutQuzZjxhFi5rsly1C40rkOni/
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>pByJDW47+VERp2wxvJdVVUZEge53IHTgrruHs/tWUsJNEswkHQ7OsY5u7bEcPUlW
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>Stua8WJo5U4cN0abgrRAXnXXBWi2bNbYe8xnH+OsOghb1gRg3N99G/TthoziPQ1I
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>cuYxZQalebJS
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>=fC+/
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>-----END PGP PUBLIC KEY BLOCK-----
+</span></code></pre></div>
 <p>How to verify:</p>
 <ul>
 <li>Download <code>&lt;ISO&gt;.sig</code> file from mirror</li>
 <li>Run: <code>gpg2 --verify &lt;ISO&gt;.sig &lt;ISO&gt;</code>. You should see the following output:</li>
 </ul>
-<pre><code>    gpg: Signature made Tue 31 Oct 2017 11:19:40 AM MSK using RSA key ID DBE31887
-    gpg: Good signature from &quot;OpenIndiana Release Engineering&quot; [unknown]
-    Primary key fingerprint: F5E9 84E5 ADD2 9578 D45C  C1FE 3A02 1AFA DBE3 1887
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>    gpg: Signature made Tue 31 Oct 2017 11:19:40 AM MSK using RSA key ID DBE31887
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    gpg: Good signature from &quot;OpenIndiana Release Engineering&quot; [unknown]
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    Primary key fingerprint: F5E9 84E5 ADD2 9578 D45C  C1FE 3A02 1AFA DBE3 1887
+</span></code></pre></div>
 <p>Even if the output includes:</p>
-<pre><code>    gpg: WARNING: This key is not certified with a trusted signature!
-    gpg: There is no indication that the signature belongs to the owner.
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>    gpg: WARNING: This key is not certified with a trusted signature!
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    gpg: There is no indication that the signature belongs to the owner.
+</span></code></pre></div>
 <p>The signature is still correct.</p>
 <h2 id="general-system-changes">General system changes</h2>
 <p>Xorg was updated to 1.19.5 (Note, that if you run OI as VirtualBox guest, you should switch to vesa driver, as latest VirtualBox guest additions (currently 5.1.30 or 5.2.0) don't provide Solaris xorg drivers for Xorg 1.19). An issue causing Xorg being launched as root was fixed.</p>
@@ -577,84 +2148,114 @@ cuYxZQalebJS
 <li>Nodejs was updated to 0.12.18, 6.11.5, 7.10.1 and 8.8.1</li>
 </ul>
 <p>A lot of other bug fixes and minor software updates included.</p>
-<p>As always, we are proud to deliver to you latest illumos-gate bits (<a href="https://github.com/illumos/illumos-gate/commit/2727bb055f7c5df6135eafd90bde85347d04d071">2727bb055f</a>).</p></div>
-        </div>
+<p>As always, we are proud to deliver to you latest illumos-gate bits (<a href="https://github.com/illumos/illumos-gate/commit/2727bb055f7c5df6135eafd90bde85347d04d071">2727bb055f</a>).</p>
 
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2019-05-27 10:39:25</span>
+      
+    
+  </small>
 </div>
 
-    </body>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../2018.04-release-notes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 2018.04 Release Notes" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                2018.04 Release Notes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2017.04-release-notes/" class="md-footer__link md-footer__link--next" aria-label="Next: 2017.04 Release Notes" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2017.04 Release Notes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
 </html>

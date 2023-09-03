@@ -1,383 +1,2127 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <link rel="canonical" href="http://docs.openindiana.org/contrib/markdown/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.openindiana.org/contrib/markdown/">
+      
+      
+        <link rel="prev" href="../style/">
+      
+      
+        <link rel="next" href="../git/">
+      
+      
+      <link rel="icon" href="../../oi_logo.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.7">
+    
+    
+      
         <title>Markdown Syntax Guide - OpenIndiana Docs</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-77447740-2', 'auto');
-            ga('send', 'pageview');
-        </script> 
-    </head>
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-    <body>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#markdown-syntax-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+  
 
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
-                </div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenIndiana Docs" class="md-header__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
 
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../misc/openindiana/">About OpenIndiana</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/pdl/">Public Documentation License</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Release Notes</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../release-notes/latest-changes/">Latest changes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../handbook/getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/common-tasks/">Common Tasks</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/systems-administration/">Systems Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/network-communications/">Network Communications</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/appendix/">Appendix</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Contributed Tutorials</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/sunray/">Sun Ray Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Hardware Compatibility List</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/components/">Components</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/systems/">Systems</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Developer's Corner</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
-</li>
-            
-<li >
-    <a href="../../dev/userland/">Building with oi-userland</a>
-</li>
-            
-<li >
-    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
-</li>
-            
-<li >
-    <a href="../../dev/graphics-stack/">Graphics stack</a>
-</li>
-            
-<li >
-    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
-</li>
-            
-<li >
-    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
-</li>
-            
-<li >
-    <a href="../../dev/existing-tasks/">Existing tasks</a>
-</li>
-            
-<li >
-    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
-</li>
-    </ul>
-  </li>
-                                    
-<li >
-    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../books/about/">About OpenSolaris Books</a>
-</li>
-                                    
-<li >
-    <a href="../../books/basic/">Basic Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/advanced/">Advanced Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/express/">Solaris Express Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/trusted/">Trusted Extensions Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/develop/">Development Titles</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../content/">Content Creation</a>
-</li>
-                                    
-<li >
-    <a href="../getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../tools/">Contributor Tools</a>
-</li>
-                                    
-<li >
-    <a href="../roles/">Contributor Roles</a>
-</li>
-                                    
-<li >
-    <a href="../topics/">Contributor Topics</a>
-</li>
-                                    
-<li >
-    <a href="../style/">Contributor Style Guide</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Markdown Syntax Guide</a>
-</li>
-                                    
-<li >
-    <a href="../git/">Git Usage Guide</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../style/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../git/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/contrib/markdown.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIndiana Docs
+          </span>
         </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Markdown Syntax Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#markdown-syntax-guide">Markdown Syntax Guide</a></li>
-            <li><a href="#italics-and-bold-text">Italics and bold text</a></li>
-            <li><a href="#headers">Headers</a></li>
-            <li><a href="#ordered-lists">Ordered lists</a></li>
-            <li><a href="#unordered-lists">Unordered lists</a></li>
-            <li><a href="#nested-lists">Nested lists</a></li>
-            <li><a href="#tables">Tables</a></li>
-            <li><a href="#external-urls">External URL's</a></li>
-            <li><a href="#internal-urls">Internal URL's</a></li>
-            <li><a href="#images">Images</a></li>
-            <li><a href="#block-quotes">Block quotes</a></li>
-            <li><a href="#code-blocks">Code blocks</a></li>
-            <li><a href="#in-line-code">In-line code</a></li>
-            <li><a href="#in-line-html">In-line HTML</a></li>
-            <li><a href="#in-line-html-advanced">In-line HTML - Advanced</a></li>
-            <li><a href="#further-reading">Further reading</a></li>
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../misc/openindiana/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../handbook/getting-started/" class="md-tabs__link">
+          
+  
+  Handbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/about/" class="md-tabs__link">
+          
+  
+  OpenSolaris Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../content/" class="md-tabs__link">
+          
+  
+  Contrib
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenIndiana Docs" class="md-nav__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
+
+    </a>
+    OpenIndiana Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/oi-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenIndiana Code of Conduct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/pdl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public Documentation License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Release Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/latest-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.03-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.03 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Handbook
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Handbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/common-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/systems-administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/network-communications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Contributed Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Community Contributed Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Community Contributed Tutorials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/oracledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oracle Database Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/samqfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Archive Manager Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/sunray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sun Ray Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/inputmethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intelligent Input Bus (IBus)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/squeak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Squeak Smalltalk-80 Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/texlive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TeX Live Typesetting Software Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/vagrant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vagrant Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/quikstor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RDX Quikstor media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Hardware Compatibility List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community Hardware Compatibility List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/getting-hardware-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting information about hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer's Corner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer's Corner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/building-openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/userland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building with oi-userland
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/legacy-consolidations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building legacy consolidations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/graphics-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/pdf/ips-dev-guide.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging and Delivering Software with IPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/distribution-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using distribution constructor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/existing-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Existing tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/repo-cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleaning up OpenIndiana repository
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/pdfdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDF Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenSolaris Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenSolaris Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenSolaris Books
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solaris Express Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/trusted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trusted Extensions Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/develop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development Titles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contrib
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Contrib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Roles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Style Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Markdown Syntax Guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Syntax Guide
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#italics-and-bold-text" class="md-nav__link">
+    Italics and bold text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordered-lists" class="md-nav__link">
+    Ordered lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unordered-lists" class="md-nav__link">
+    Unordered lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-lists" class="md-nav__link">
+    Nested lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-urls" class="md-nav__link">
+    External URL's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-urls" class="md-nav__link">
+    Internal URL's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-quotes" class="md-nav__link">
+    Block quotes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-blocks" class="md-nav__link">
+    Code blocks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-line-code" class="md-nav__link">
+    In-line code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-line-html" class="md-nav__link">
+    In-line HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-line-html-advanced" class="md-nav__link">
+    In-line HTML - Advanced
+  </a>
+  
+    <nav class="md-nav" aria-label="In-line HTML - Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-html-within-markdown-tables" class="md-nav__link">
+    Using HTML within Markdown tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-elements" class="md-nav__link">
+    Bootstrap elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-awesome-elements" class="md-nav__link">
+    Font Awesome elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further reading
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#italics-and-bold-text" class="md-nav__link">
+    Italics and bold text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordered-lists" class="md-nav__link">
+    Ordered lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unordered-lists" class="md-nav__link">
+    Unordered lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nested-lists" class="md-nav__link">
+    Nested lists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-urls" class="md-nav__link">
+    External URL's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-urls" class="md-nav__link">
+    Internal URL's
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#images" class="md-nav__link">
+    Images
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-quotes" class="md-nav__link">
+    Block quotes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-blocks" class="md-nav__link">
+    Code blocks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-line-code" class="md-nav__link">
+    In-line code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-line-html" class="md-nav__link">
+    In-line HTML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-line-html-advanced" class="md-nav__link">
+    In-line HTML - Advanced
+  </a>
+  
+    <nav class="md-nav" aria-label="In-line HTML - Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-html-within-markdown-tables" class="md-nav__link">
+    Using HTML within Markdown tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bootstrap-elements" class="md-nav__link">
+    Bootstrap elements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#font-awesome-elements" class="md-nav__link">
+    Font Awesome elements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    Further reading
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/contrib/markdown.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
 
 <!--
 
@@ -397,98 +2141,74 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<p><img src = "../../Openindiana.png"></p>
 <h1 id="markdown-syntax-guide">Markdown Syntax Guide</h1>
 <h3 id="italics-and-bold-text">Italics and bold text</h3>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">This is plain text
-
-_This is italic text_
-
-**This is bold text**
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>This is plain text
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="ge">_This is italic text_</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="gs">**This is bold text**</span>
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <p>This is plain text</p>
 <p><em>This is italic text</em></p>
 <p><strong>This is bold text</strong></p>
-</div>
-
 <h3 id="headers">Headers</h3>
 <p>Headers in markdown (much like HTML) come in various sizes.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown"># First level header
-## Second level header
-### Third level header
-#### Fourth level header
-##### Fifth level header
-###### Sixth level header
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gh"># First level header</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="gu">## Second level header</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="gu">### Third level header</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="gu">#### Fourth level header</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="gu">##### Fifth level header</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="gu">###### Sixth level header</span>
+</span></code></pre></div>
 <p>In this simple example you can see some headers have less hashes then others.
 The more hashes added, the smaller the header will be, for example.</p>
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <h1>First level header</h1>
-
 <h2>Second level header</h2>
-
 <h3>Third level header</h3>
-
 <h4>Fourth level header</h4>
-
 <h5>Fifth level header</h5>
-
 <h6>Sixth level header</h6>
-
-</div>
 
 <h3 id="ordered-lists">Ordered lists</h3>
 <p>Ordered or numbered lists are fairly simple to do in markdown.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">1. First item
-2. Second item
-3. Third item
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">1.</span> First item
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">2.</span> Second item
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">3.</span> Third item
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <ol>
 <li>First item</li>
 <li>Second item</li>
 <li>Third item</li>
 </ol>
-</div>
-
 <h3 id="unordered-lists">Unordered lists</h3>
 <p>Unordered lists are great for general lists that don't need to be done
 in specific steps.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">* this
-* is
-* unordered
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">*</span><span class="w"> </span>this
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">*</span><span class="w"> </span>is
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">*</span><span class="w"> </span>unordered
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <ul>
 <li>this</li>
 <li>is</li>
 <li>unordered</li>
 </ul>
-</div>
-
 <h3 id="nested-lists">Nested lists</h3>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">* Markdown lists are:
-    * awesome
-    * amazing
-    * really cool
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">*</span><span class="w"> </span>Markdown lists are:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">*</span><span class="w"> </span>awesome
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">*</span><span class="w"> </span>amazing
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">*</span><span class="w"> </span>really cool
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <ul>
 <li>Markdown lists are:<ul>
 <li>awesome</li>
@@ -497,18 +2217,14 @@ in specific steps.</p>
 </ul>
 </li>
 </ul>
-</div>
-
 <h3 id="tables">Tables</h3>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">| Table Header 1 | Table Header 2
-| --- | ---
-| Row 1, Column 1 | Row 1, Column 2
-| Row 2, Column 1 | Row 2, Column 2
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>| Table Header 1 | Table Header 2
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>| --- | ---
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>| Row 1, Column 1 | Row 1, Column 2
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>| Row 2, Column 1 | Row 2, Column 2
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <table>
 <thead>
 <tr>
@@ -527,119 +2243,97 @@ in specific steps.</p>
 </tr>
 </tbody>
 </table>
-</div>
-
 <h3 id="external-urls">External URL's</h3>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">[The OpenIndiana Website](http://www.openindiana.org)
-
-or (bare url's)
-
-&lt;http://www.openindiana.org&gt;
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[<span class="nt">The OpenIndiana Website</span>](<span class="na">http://www.openindiana.org</span>)
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>or (bare url&#39;s)
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>&lt;http://www.openindiana.org&gt;
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <p><a href="http://www.openindiana.org">The OpenIndiana Website</a></p>
 <p>or (bare url's)</p>
 <p><a href="http://www.openindiana.org">http://www.openindiana.org</a></p>
-</div>
-
 <h3 id="internal-urls">Internal URL's</h3>
 <p>Internal URL's operate a little differently than external URL's.
 Simply specify the relative path to the document.
 You can even target a specific section of the document.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">[The OpenIndiana Handbook - getting started](../handbook/getting-started.md)
-
-[Handbook - Appendix - Finding Help and Support](../handbook/appendix.md#finding-help-and-support)
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[<span class="nt">The OpenIndiana Handbook - getting started</span>](<span class="na">../handbook/getting-started.md</span>)
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>[<span class="nt">Handbook - Appendix - Finding Help and Support</span>](<span class="na">../handbook/appendix.md#finding-help-and-support</span>)
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <p><a href="../../handbook/getting-started/">The OpenIndiana Handbook - getting started</a></p>
 <p><a href="../../handbook/appendix/#finding-help-and-support">Handbook - Appendix - Finding Help and Support</a></p>
-</div>
-
 <h3 id="images">Images</h3>
 <p>Specify the relative path to the image, just like an internal URL.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">![openindiana logo](../Openindiana.png)
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>![<span class="nt">openindiana logo</span>](<span class="na">../Openindiana.png</span>)
+</span></code></pre></div>
 <p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <p><img alt="openindiana logo" src="../../Openindiana.png" /></p>
 <h3 id="block-quotes">Block quotes</h3>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">&gt; This is a block quote.
-&gt; And here is the 2nd line of the quote.
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">&gt; </span><span class="ge">This is a block quote.</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">&gt; </span><span class="ge">And here is the 2nd line of the quote.</span>
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <blockquote>
 <p>This is a block quote.
 And here is the 2nd line of the quote.</p>
 </blockquote>
-</div>
-
 <h3 id="code-blocks">Code blocks</h3>
 <p>Code blocks are created by "fencing" the block of code using three (3) backtick marks.
 For the purpose of syntax highlighting, you may also specify the programming language.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code>```markdown
+<div class="language-text highlight"><pre><span></span><code>```markdown
 #!/bin/bash
-  if [ "foo" = "foo" ]; then
-    echo expression evaluated as true
-  fi
-```
-</code></pre>
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
-<pre><code class="bash">#!/bin/bash
   if [ &quot;foo&quot; = &quot;foo&quot; ]; then
     echo expression evaluated as true
   fi
-</code></pre>
-
+```
+</code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;foo&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span>expression<span class="w"> </span>evaluated<span class="w"> </span>as<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">fi</span>
+</span></code></pre></div>
 <h3 id="in-line-code">In-line code</h3>
 <p>In-line code is delineated with a single backtick mark at each end of the text.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code>Here is some plain Markdown followed by `a section of in-line code`.
-</code></pre>
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-text highlight"><pre><span></span><code>Here is some plain Markdown followed by `a section of in-line code`.
+</code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <p>Here is some plain Markdown followed by <code>a section of in-line code</code>.</p>
-</div>
-
 <h3 id="in-line-html">In-line HTML</h3>
 <p>In addition to Markdown plain text markup, the Mkdocs frameworks also supports the inclusion of in-line HTML.
 For example, sometimes you may find Markdown doesn't do quite what you need to do.
 In these cases you may include some in-line HTML.</p>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">&lt;!-- This is a single line comment --&gt;
-
-&lt;!--
-This comment
-spans multiple
-lines
---&gt;
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>&lt;!-- This is a single line comment --&gt;
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>&lt;!--
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>This comment
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>spans multiple
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>lines
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>--&gt;
+</span></code></pre></div>
 <p>Comments are meant to be hidden, so they not rendered as HTML.
 You'll likely find them very useful for adding TODO lists, or other useful notes.
 Comments are primarily for internal use by members of the OpenIndiana documentation team.</p>
 <h3 id="in-line-html-advanced">In-line HTML - Advanced</h3>
 <h4 id="using-html-within-markdown-tables">Using HTML within Markdown tables</h4>
 <p><strong>Markdown Code</strong> <i class="fa fa-code fa-lg" aria-hidden="true"></i></p>
-<pre><code class="markdown">| Item | Description
-| --- | ---
-| Item 1 | This is a single line description
-| Item 2 | This is a multi line description with an unordered list:&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second item&lt;/li&gt;&lt;/ul&gt;Lets add another paragraph to that.&lt;/p&gt; And here it is.
-| Item 3 | We can also use multiple sentences within tables. Here is the second sentence. And here is a third.
-</code></pre>
-
-<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well"></p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>| Item | Description
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>| --- | ---
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>| Item 1 | This is a single line description
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>| Item 2 | This is a multi line description with an unordered list:&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second item&lt;/li&gt;&lt;/ul&gt;Lets add another paragraph to that.&lt;/p&gt; And here it is.
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>| Item 3 | We can also use multiple sentences within tables. Here is the second sentence. And here is a third.
+</span></code></pre></div>
+<p><strong>Rendered HTML</strong> <i class="fa fa-html5" aria-hidden="true"></i></p>
 <table>
 <thead>
 <tr>
@@ -662,8 +2356,6 @@ Comments are primarily for internal use by members of the OpenIndiana documentat
 </tr>
 </tbody>
 </table>
-</div>
-
 <h4 id="bootstrap-elements">Bootstrap elements</h4>
 <p>The OpenIndiana Docs website uses a CSS theme derived from Bootstrap.
 More specifically it uses the Spacelab theme from Bootswatch.
@@ -679,84 +2371,114 @@ This means elements from the Bootstrap framework may be used in-line right along
 <ul>
 <li><a href="http://spec.commonmark.org/0.25/">The Commonmark Markdown Standard</a></li>
 <li><a href="https://github.com/mivok/markdownlint/blob/master/docs/RULES.md">Rules for mdl (Markdown Linter)</a></li>
-</ul></div>
-        </div>
+</ul>
 
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2016-06-06 02:47:56</span>
+      
+    
+  </small>
 </div>
 
-    </body>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../style/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Contributor Style Guide" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Contributor Style Guide
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../git/" class="md-footer__link md-footer__link--next" aria-label="Next: Git Usage Guide" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Git Usage Guide
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
 </html>

@@ -1,380 +1,3117 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <link rel="canonical" href="http://docs.openindiana.org/handbook/systems-administration/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.openindiana.org/handbook/systems-administration/">
+      
+      
+        <link rel="prev" href="../common-tasks/">
+      
+      
+        <link rel="next" href="../network-communications/">
+      
+      
+      <link rel="icon" href="../../oi_logo.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.7">
+    
+    
+      
         <title>Systems Administration - OpenIndiana Docs</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-77447740-2', 'auto');
-            ga('send', 'pageview');
-        </script> 
-    </head>
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-    <body>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#system-administration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+  
 
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
-                </div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenIndiana Docs" class="md-header__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
 
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../misc/openindiana/">About OpenIndiana</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/pdl/">Public Documentation License</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Release Notes</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../release-notes/latest-changes/">Latest changes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../common-tasks/">Common Tasks</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Systems Administration</a>
-</li>
-                                    
-<li >
-    <a href="../network-communications/">Network Communications</a>
-</li>
-                                    
-<li >
-    <a href="../appendix/">Appendix</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Contributed Tutorials</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../community/">About Community Contributed Tutorials</a>
-</li>
-            
-<li >
-    <a href="../community/oracledb/">Oracle Database Installation</a>
-</li>
-            
-<li >
-    <a href="../community/samqfs/">Storage Archive Manager Installation</a>
-</li>
-            
-<li >
-    <a href="../sunray/">Sun Ray Installation</a>
-</li>
-            
-<li >
-    <a href="../community/inputmethod/">Intelligent Input Bus (IBus)</a>
-</li>
-            
-<li >
-    <a href="../community/squeak/">Squeak Smalltalk-80 Installation</a>
-</li>
-            
-<li >
-    <a href="../community/texlive/">TeX Live Typesetting Software Installation</a>
-</li>
-            
-<li >
-    <a href="../community/vagrant/">Vagrant Installation</a>
-</li>
-            
-<li >
-    <a href="../community/quikstor/">Using RDX Quikstor media</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Hardware Compatibility List</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/components/">Components</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/systems/">Systems</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Developer's Corner</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
-</li>
-            
-<li >
-    <a href="../../dev/userland/">Building with oi-userland</a>
-</li>
-            
-<li >
-    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
-</li>
-            
-<li >
-    <a href="../../dev/graphics-stack/">Graphics stack</a>
-</li>
-            
-<li >
-    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
-</li>
-            
-<li >
-    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
-</li>
-            
-<li >
-    <a href="../../dev/existing-tasks/">Existing tasks</a>
-</li>
-            
-<li >
-    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
-</li>
-    </ul>
-  </li>
-                                    
-<li >
-    <a href="../pdfdocs/">PDF Documentation</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../books/about/">About OpenSolaris Books</a>
-</li>
-                                    
-<li >
-    <a href="../../books/basic/">Basic Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/advanced/">Advanced Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/express/">Solaris Express Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/trusted/">Trusted Extensions Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/develop/">Development Titles</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../contrib/content/">Content Creation</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/tools/">Contributor Tools</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/roles/">Contributor Roles</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/topics/">Contributor Topics</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/style/">Contributor Style Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/markdown/">Markdown Syntax Guide</a>
-</li>
-                                    
-<li >
-    <a href="../../contrib/git/">Git Usage Guide</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../common-tasks/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../network-communications/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/systems-administration.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIndiana Docs
+          </span>
         </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Systems Administration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#hipster-handbook-system-administration">Hipster Handbook - System Administration</a></li>
-            <li><a href="#users-and-account-management">Users and account management</a></li>
-            <li><a href="#management-of-system-resources">Management of System Resources</a></li>
-            <li><a href="#configuring-and-tuning">Configuring and Tuning</a></li>
-            <li><a href="#illumos-boot-process">Illumos boot process</a></li>
-            <li><a href="#security">Security</a></li>
-            <li><a href="#zones">Zones</a></li>
-            <li><a href="#storage">Storage</a></li>
-            <li><a href="#virtualization">Virtualization</a></li>
-            <li><a href="#localization">Localization</a></li>
-            <li><a href="#dtrace">Dtrace</a></li>
-            <li><a href="#configuring-networking">Configuring Networking</a></li>
-            <li><a href="#clustering-with-open-ha-cluster">Clustering with Open HA Cluster</a></li>
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../misc/openindiana/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../getting-started/" class="md-tabs__link">
+          
+  
+  Handbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/about/" class="md-tabs__link">
+          
+  
+  OpenSolaris Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../contrib/content/" class="md-tabs__link">
+          
+  
+  Contrib
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenIndiana Docs" class="md-nav__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
+
+    </a>
+    OpenIndiana Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/oi-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenIndiana Code of Conduct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/pdl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public Documentation License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Release Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/latest-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.03-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.03 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Handbook
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Handbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Systems Administration
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Systems Administration
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#users-and-account-management" class="md-nav__link">
+    Users and account management
+  </a>
+  
+    <nav class="md-nav" aria-label="Users and account management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-accounts" class="md-nav__link">
+    User accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    Service accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superuser-account" class="md-nav__link">
+    Superuser account
+  </a>
+  
+    <nav class="md-nav" aria-label="Superuser account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#superuser-do-sudo1m" class="md-nav__link">
+    SUperuser DO: sudo(1m)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-accounts" class="md-nav__link">
+    Managing accounts
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useradd" class="md-nav__link">
+    useradd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userdel" class="md-nav__link">
+    userdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usermod" class="md-nav__link">
+    usermod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupadd" class="md-nav__link">
+    groupadd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupdel" class="md-nav__link">
+    groupdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupmod" class="md-nav__link">
+    groupmod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roleadd" class="md-nav__link">
+    roleadd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roledel" class="md-nav__link">
+    roledel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rolemod" class="md-nav__link">
+    rolemod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwd" class="md-nav__link">
+    passwd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-based-access-control-rbac" class="md-nav__link">
+    Role-Based Access Control (RBAC)
+  </a>
+  
+    <nav class="md-nav" aria-label="Role-Based Access Control (RBAC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-rbac" class="md-nav__link">
+    What is RBAC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-rbac" class="md-nav__link">
+    How to use RBAC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-directory-integration" class="md-nav__link">
+    Active Directory Integration
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Directory Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#native-ad-integration" class="md-nav__link">
+    Native AD integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos-and-ldap" class="md-nav__link">
+    Kerberos and LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#winbind" class="md-nav__link">
+    winbind
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management-of-system-resources" class="md-nav__link">
+    Management of System Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Management of System Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-system-information" class="md-nav__link">
+    Basic system information
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic system information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-processes" class="md-nav__link">
+    System processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-usage" class="md-nav__link">
+    Disk usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#largest-files-in-a-directory" class="md-nav__link">
+    Largest files in a directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-is-logged-on-to-the-system" class="md-nav__link">
+    Who is logged on to the system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-software-packages-installed-on-the-system" class="md-nav__link">
+    List all software packages installed on the system
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-shutdown-reboot" class="md-nav__link">
+    System shutdown, reboot, ...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-and-tuning" class="md-nav__link">
+    Configuring and Tuning
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring and Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-ups" class="md-nav__link">
+    Configuring a UPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault-management-fma" class="md-nav__link">
+    Fault management (FMA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-terminalsconsoles-vt" class="md-nav__link">
+    Virtual Terminals/Consoles (VT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-management-smf" class="md-nav__link">
+    Service management (SMF)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systems-logging-and-monitoring" class="md-nav__link">
+    Systems logging and monitoring
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#illumos-boot-process" class="md-nav__link">
+    Illumos boot process
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zones" class="md-nav__link">
+    Zones
+  </a>
+  
+    <nav class="md-nav" aria-label="Zones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zone-networking-model" class="md-nav__link">
+    Zone networking model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-setup-example" class="md-nav__link">
+    Quick Setup Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-repository-configuration" class="md-nav__link">
+    System repository configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixing-zone-installation-issues" class="md-nav__link">
+    Fixing zone installation issues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mounting-file-systems" class="md-nav__link">
+    Mounting file systems
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting file systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mounting-and-unmounting-iso-images" class="md-nav__link">
+    Mounting and Unmounting ISO images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-ntfs-volumes-3rd-party-support" class="md-nav__link">
+    Mounting NTFS Volumes - 3rd party support
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting NTFS Volumes - 3rd party support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-software-installation-and-configuration" class="md-nav__link">
+    Additional software installation and configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-the-ntfs-filesystem" class="md-nav__link">
+    Mounting the NTFS filesystem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-openindiana-as-an-iscsi-target-server-comstar" class="md-nav__link">
+    Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-backups" class="md-nav__link">
+    System backups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zfs" class="md-nav__link">
+    ZFS
+  </a>
+  
+    <nav class="md-nav" aria-label="ZFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-zfs-disks" class="md-nav__link">
+    Importing ZFS disks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-one-mirror-their-root-zpool" class="md-nav__link">
+    How does one mirror their root zpool?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-one-create-additional-zpools" class="md-nav__link">
+    How does one create additional zpools?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-zpool-settings-and-attributes" class="md-nav__link">
+    Modifying zpool settings and attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-zfs-file-system-settings-and-attributes" class="md-nav__link">
+    Modifying zfs file system settings and attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-one-create-additional-zfs-datasets" class="md-nav__link">
+    How does one create additional zfs datasets?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-system-swap" class="md-nav__link">
+    Configuring system swap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualization" class="md-nav__link">
+    Virtualization
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openindiana-as-a-virtualization-host-server" class="md-nav__link">
+    OpenIndiana as a virtualization host server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localization" class="md-nav__link">
+    Localization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtrace" class="md-nav__link">
+    Dtrace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-networking" class="md-nav__link">
+    Configuring Networking
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-configuration-nwam" class="md-nav__link">
+    Automatic Configuration (NWAM)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-from-nwam-to-manual-configuration" class="md-nav__link">
+    Changing from NWAM to Manual Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-on-automatic-configuration-nwam" class="md-nav__link">
+    More on Automatic Configuration (NWAM)
+  </a>
+  
+    <nav class="md-nav" aria-label="More on Automatic Configuration (NWAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-nwam-configuration-tools" class="md-nav__link">
+    Using NWAM configuration tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-automagic-online-help" class="md-nav__link">
+    Network automagic online help
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-nwam" class="md-nav__link">
+    Troubleshooting NWAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-with-open-ha-cluster" class="md-nav__link">
+    Clustering with Open HA Cluster
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-communications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Contributed Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Community Contributed Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Community Contributed Tutorials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/oracledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oracle Database Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/samqfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Archive Manager Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sunray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sun Ray Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/inputmethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intelligent Input Bus (IBus)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/squeak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Squeak Smalltalk-80 Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/texlive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TeX Live Typesetting Software Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/vagrant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vagrant Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../community/quikstor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RDX Quikstor media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Hardware Compatibility List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community Hardware Compatibility List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/getting-hardware-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting information about hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer's Corner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer's Corner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/building-openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/userland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building with oi-userland
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/legacy-consolidations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building legacy consolidations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/graphics-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/pdf/ips-dev-guide.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging and Delivering Software with IPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/distribution-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using distribution constructor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/existing-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Existing tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/repo-cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleaning up OpenIndiana repository
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdfdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDF Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenSolaris Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenSolaris Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenSolaris Books
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solaris Express Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/trusted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trusted Extensions Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/develop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development Titles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contrib
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Contrib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Roles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Style Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Syntax Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contrib/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#users-and-account-management" class="md-nav__link">
+    Users and account management
+  </a>
+  
+    <nav class="md-nav" aria-label="Users and account management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user-accounts" class="md-nav__link">
+    User accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-accounts" class="md-nav__link">
+    Service accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    Roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superuser-account" class="md-nav__link">
+    Superuser account
+  </a>
+  
+    <nav class="md-nav" aria-label="Superuser account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#superuser-do-sudo1m" class="md-nav__link">
+    SUperuser DO: sudo(1m)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-accounts" class="md-nav__link">
+    Managing accounts
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useradd" class="md-nav__link">
+    useradd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userdel" class="md-nav__link">
+    userdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usermod" class="md-nav__link">
+    usermod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupadd" class="md-nav__link">
+    groupadd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupdel" class="md-nav__link">
+    groupdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupmod" class="md-nav__link">
+    groupmod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roleadd" class="md-nav__link">
+    roleadd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#roledel" class="md-nav__link">
+    roledel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rolemod" class="md-nav__link">
+    rolemod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwd" class="md-nav__link">
+    passwd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-based-access-control-rbac" class="md-nav__link">
+    Role-Based Access Control (RBAC)
+  </a>
+  
+    <nav class="md-nav" aria-label="Role-Based Access Control (RBAC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-rbac" class="md-nav__link">
+    What is RBAC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-rbac" class="md-nav__link">
+    How to use RBAC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-directory-integration" class="md-nav__link">
+    Active Directory Integration
+  </a>
+  
+    <nav class="md-nav" aria-label="Active Directory Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#native-ad-integration" class="md-nav__link">
+    Native AD integration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos-and-ldap" class="md-nav__link">
+    Kerberos and LDAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#winbind" class="md-nav__link">
+    winbind
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management-of-system-resources" class="md-nav__link">
+    Management of System Resources
+  </a>
+  
+    <nav class="md-nav" aria-label="Management of System Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-system-information" class="md-nav__link">
+    Basic system information
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic system information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-processes" class="md-nav__link">
+    System processes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-usage" class="md-nav__link">
+    Disk usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#largest-files-in-a-directory" class="md-nav__link">
+    Largest files in a directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-is-logged-on-to-the-system" class="md-nav__link">
+    Who is logged on to the system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-software-packages-installed-on-the-system" class="md-nav__link">
+    List all software packages installed on the system
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-shutdown-reboot" class="md-nav__link">
+    System shutdown, reboot, ...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-and-tuning" class="md-nav__link">
+    Configuring and Tuning
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring and Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-a-ups" class="md-nav__link">
+    Configuring a UPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault-management-fma" class="md-nav__link">
+    Fault management (FMA)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-terminalsconsoles-vt" class="md-nav__link">
+    Virtual Terminals/Consoles (VT)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service-management-smf" class="md-nav__link">
+    Service management (SMF)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systems-logging-and-monitoring" class="md-nav__link">
+    Systems logging and monitoring
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#illumos-boot-process" class="md-nav__link">
+    Illumos boot process
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zones" class="md-nav__link">
+    Zones
+  </a>
+  
+    <nav class="md-nav" aria-label="Zones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zone-networking-model" class="md-nav__link">
+    Zone networking model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-setup-example" class="md-nav__link">
+    Quick Setup Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-repository-configuration" class="md-nav__link">
+    System repository configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixing-zone-installation-issues" class="md-nav__link">
+    Fixing zone installation issues
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    Storage
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mounting-file-systems" class="md-nav__link">
+    Mounting file systems
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting file systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mounting-and-unmounting-iso-images" class="md-nav__link">
+    Mounting and Unmounting ISO images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-ntfs-volumes-3rd-party-support" class="md-nav__link">
+    Mounting NTFS Volumes - 3rd party support
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting NTFS Volumes - 3rd party support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#additional-software-installation-and-configuration" class="md-nav__link">
+    Additional software installation and configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-the-ntfs-filesystem" class="md-nav__link">
+    Mounting the NTFS filesystem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-openindiana-as-an-iscsi-target-server-comstar" class="md-nav__link">
+    Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-backups" class="md-nav__link">
+    System backups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zfs" class="md-nav__link">
+    ZFS
+  </a>
+  
+    <nav class="md-nav" aria-label="ZFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importing-zfs-disks" class="md-nav__link">
+    Importing ZFS disks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-one-mirror-their-root-zpool" class="md-nav__link">
+    How does one mirror their root zpool?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-one-create-additional-zpools" class="md-nav__link">
+    How does one create additional zpools?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-zpool-settings-and-attributes" class="md-nav__link">
+    Modifying zpool settings and attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-zfs-file-system-settings-and-attributes" class="md-nav__link">
+    Modifying zfs file system settings and attributes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-one-create-additional-zfs-datasets" class="md-nav__link">
+    How does one create additional zfs datasets?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-system-swap" class="md-nav__link">
+    Configuring system swap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtualization" class="md-nav__link">
+    Virtualization
+  </a>
+  
+    <nav class="md-nav" aria-label="Virtualization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openindiana-as-a-virtualization-host-server" class="md-nav__link">
+    OpenIndiana as a virtualization host server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#localization" class="md-nav__link">
+    Localization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtrace" class="md-nav__link">
+    Dtrace
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-networking" class="md-nav__link">
+    Configuring Networking
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring Networking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-configuration-nwam" class="md-nav__link">
+    Automatic Configuration (NWAM)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-from-nwam-to-manual-configuration" class="md-nav__link">
+    Changing from NWAM to Manual Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-on-automatic-configuration-nwam" class="md-nav__link">
+    More on Automatic Configuration (NWAM)
+  </a>
+  
+    <nav class="md-nav" aria-label="More on Automatic Configuration (NWAM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-nwam-configuration-tools" class="md-nav__link">
+    Using NWAM configuration tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-automagic-online-help" class="md-nav__link">
+    Network automagic online help
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-nwam" class="md-nav__link">
+    Troubleshooting NWAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clustering-with-open-ha-cluster" class="md-nav__link">
+    Clustering with Open HA Cluster
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/handbook/systems-administration.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
 
 <!--
 
@@ -395,8 +3132,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<p><img src = "../../Openindiana.png"></p>
-<h1 id="hipster-handbook-system-administration">Hipster Handbook - System Administration</h1>
+<h1 id="system-administration">System Administration</h1>
 <p>Once OpenIndiana has been installed, the system will require monitoring to
 ensure smooth operation. Software will periodically have to be updated,
 redundant software removed, new users added to the system, etc. All these
@@ -410,14 +3146,16 @@ activities and many more are referred to as system administration.</p>
 <p>While it is certainly possible to add more to this list or select alternative
 items, this small selection is readily absorbed and is convenient to illustrate
 a number of essential concepts central to OpenIndiana system administration.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-Administrative commands are usually expected to be run with elevated privileges -
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Administrative commands are usually expected to be run with elevated privileges -
 directly from root user, via <code>sudo(1M)</code> or
 <code>pfexec</code> (if user was granted privileges via RBAC).
 In this document commands which require elevated privileges are prefixed with
-"# ". Commands, which don't require elevated privileges, are prefixed with "$ ".
-</div></p>
+"# ". Commands, which don't require elevated privileges, are prefixed with "$ ".</p>
+</div>
+</div>
 <h2 id="users-and-account-management">Users and account management</h2>
 <p>OpenIndiana allows multiple users to work on the same computer at the same time.
 Only one person can sit in front of the monitor and keyboard.
@@ -435,10 +3173,15 @@ Additional accounts can be added later.</p>
 <ul>
 <li><strong>username</strong> - name of the account, which is typed at the login screen.
   Username format is briefly described in <a href="https://illumos.org/man/4/passwd">passwd(4)</a></li>
-<li><strong>password</strong> - password associated with the account.
-<div class="well">
-Accounts without password should not exist on the system as they could put the system at the security risk!
-</div></li>
+<li><strong>password</strong> - password associated with the account.</li>
+</ul>
+<div class="warning">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Accounts without password should not exist on the system as they could put the system at the security risk!</p>
+</div>
+</div>
+<ul>
 <li><strong>UID</strong> (user ID) - unique numerical ID of the account in the system.
 The maximum value for uid is 2147483647.
 However, for compatibility reasons one should not use numbers over 65535.</li>
@@ -501,9 +3244,8 @@ means to appropriately grant user elevated privileges via sudo.</p>
 <p>To shutdown the system, root privileges are required. If a standard user issues
 the <code>shutdown</code> command, the system will issue a warning. However, if the user has
 been enabled to use sudo, then the user can now shutdown the system:</p>
-<pre><code>$ sudo shutdown -i5 -g0 -y
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ sudo shutdown -i5 -g0 -y
+</span></code></pre></div>
 <h3 id="managing-accounts">Managing accounts</h3>
 <p>There are several tools in OpenIndiana to manage user accounts.
 They are listed in the table below.</p>
@@ -602,46 +3344,39 @@ no additional privileges. We can then assign this role to one or several users.<
 <ul>
 <li>assign a privilege to a role to shutdown the system</li>
 </ul>
-<pre><code># roleadd shutdown
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># roleadd shutdown
+</span></code></pre></div>
 <ul>
 <li>Assign a password</li>
 </ul>
-<pre><code># passwd shutdown
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># passwd shutdown
+</span></code></pre></div>
 <ul>
 <li>Assign this role to a user</li>
 </ul>
-<pre><code># usermod -R shutdown whoever
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># usermod -R shutdown whoever
+</span></code></pre></div>
 <ul>
 <li>Create a SHUTDOWN profile</li>
 </ul>
-<pre><code># echo &quot;SHUTDOWN:::profile to shutdown:help=shutdown.html&quot; &gt;&gt; /etc/security/prof_attr
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># echo &quot;SHUTDOWN:::profile to shutdown:help=shutdown.html&quot; &gt;&gt; /etc/security/prof_attr
+</span></code></pre></div>
 <ul>
 <li>Okay, now assign the role profile SHUTDOWN to the role shutdown</li>
 </ul>
-<pre><code># rolemod -P SHUTDOWN shutdown
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># rolemod -P SHUTDOWN shutdown
+</span></code></pre></div>
 <ul>
 <li>Assign some administrative command to profile</li>
 </ul>
-<pre><code># echo &quot;SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0&quot; &gt;&gt; /etc/security/exec_attr
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># echo &quot;SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0&quot; &gt;&gt; /etc/security/exec_attr
+</span></code></pre></div>
 <ul>
 <li>Use it</li>
 </ul>
-<pre><code>$ su shutdown
-# shutdown -i5 -g0 -y
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$ su shutdown
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a># shutdown -i5 -g0 -y
+</span></code></pre></div>
 <p>Now user whoever can shutdown the system.</p>
 <p>The <code>pfexec</code> command is more flexible in the number of privileges that can be
 assigned to a user.</p>
@@ -665,25 +3400,28 @@ assigned to a user.</p>
 <li>Pro: Fully integrated and native tools only</li>
 <li>Cons: Requires installation of additional role services (IDMU, Identity Management for UNIX) on the Active Directory side</li>
 </ul>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on configuration of Windows Server 2008 Active Directory to work with OI. As of 2021, Windows Server 2008 is EoL. This section should not be migrated until it has been checked and updated for recent Windows. Ideally this information should be on a separate page (potentially community contributions) as it’s large and contains a lot of Windows information.
-</div></p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on configuration of Windows Server 2008 Active Directory to work with OI. As of 2021, Windows Server 2008 is EoL. This section should not be migrated until it has been checked and updated for recent Windows. Ideally this information should be on a separate page (potentially community contributions) as it’s large and contains a lot of Windows information.</p>
+</div>
+</div>
 <h4 id="winbind">winbind</h4>
 <ul>
 <li>Pro: Easy setup, no AD modification</li>
 <li>Cons: Depends on 3rd party software (Samba), group membership resolution didn't work</li>
 </ul>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-As above note, the 'winbind' page was a separate detailed article which needs to be checked and updated before it's migrated.
-</div></p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>As above note, the 'winbind' page was a separate detailed article which needs to be checked and updated before it's migrated.</p>
+</div>
+</div>
 <h2 id="management-of-system-resources">Management of System Resources</h2>
 <h3 id="basic-system-information">Basic system information</h3>
 <h4 id="system-processes">System processes</h4>
-<pre><code class="bash">$ prstat
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>prstat
+</span></code></pre></div>
 <p>This command provides a host of information on all processes running on the system.
 Some of the information provided is as follows:</p>
 <ul>
@@ -692,27 +3430,23 @@ Some of the information provided is as follows:</p>
 <li>unique id of each process (which can, for example, be used to stop the process)</li>
 </ul>
 <h4 id="disk-usage">Disk usage</h4>
-<pre><code class="bash"># df -h
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># df -h</span>
+</span></code></pre></div>
 <p>Provides information on disk size, amount of space used and available free space
 for all attached storage devices. The <code>-h</code> option reports this information in
 human readable format.</p>
 <h4 id="largest-files-in-a-directory">Largest files in a directory</h4>
 <p>Go to the directory using the <code>cd</code> command and issue the following command:</p>
-<pre><code class="bash">$ du | sort -n
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>du<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-n
+</span></code></pre></div>
 <p>This will list the size of each file in the current directory and all
 sub-directories, starting with the smallest up to the largest files.</p>
 <h4 id="who-is-logged-on-to-the-system">Who is logged on to the system</h4>
-<pre><code class="bash">$ listusers
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>listusers
+</span></code></pre></div>
 <h4 id="list-all-software-packages-installed-on-the-system">List all software packages installed on the system</h4>
-<pre><code class="bash">$ pkg list
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>pkg<span class="w"> </span>list
+</span></code></pre></div>
 <h3 id="system-shutdown-reboot">System shutdown, reboot, ...</h3>
 <p>OpenIndiana defines a number of different system states known as run-levels. You
 can change from one system state to another by using the <code>shutdown</code> command and
@@ -721,9 +3455,8 @@ run-level via <code>who -r</code>.</p>
 <p>You must be root or have root privileges (e.g., using <code>sudo</code>) to send the system
 into a different state, i.e., turn off, reboot, etc. Shutdown and turn off all
 hardware (if supported by the hardware) now:</p>
-<pre><code># shutdown -i5 -g0 -y
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a># shutdown -i5 -g0 -y
+</span></code></pre></div>
 <p>Changing the run-level of the system can be disruptive to other users currently
 using the system. Thus, it is always wise to establish who is currently logged
 onto the system before changing the run-level.</p>
@@ -745,28 +3478,23 @@ onto the system before changing the run-level.</p>
 <h2 id="configuring-and-tuning">Configuring and Tuning</h2>
 <p>There are a few tools to configure and tune an OpenIndiana system.   One of the tools is sysding,  a tool that is used by the current OpenIndiana installer to setup static IP addresses when NWAM (automatic network configuration) is not used.</p>
 <p>For more information on sysding, see the manpage and example config file :</p>
-<pre><code class="bash"># man sysding
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># man sysding</span>
+</span></code></pre></div>
 <p>The configuration file is :</p>
-<pre><code class="bash">/etc/sysding.conf
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>/etc/sysding.conf
+</span></code></pre></div>
 <p>There is also a logfile :</p>
-<pre><code class="bash">/var/log/sysding.log
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>/var/log/sysding.log
+</span></code></pre></div>
 <p>For example a simple /etc/sysding.conf configuration file for a static IP is :</p>
-<pre><code class="bash">setup_interface e1000g0 v4 10.0.2.16
-setup_route default 10.0.2.2
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>setup_interface<span class="w"> </span>e1000g0<span class="w"> </span>v4<span class="w"> </span><span class="m">10</span>.0.2.16
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>setup_route<span class="w"> </span>default<span class="w"> </span><span class="m">10</span>.0.2.2
+</span></code></pre></div>
 <p>This service is meant to be run only once and sets a boolean flag config/finished.  In case you want to run sysding again, you'll have to force the finished flag to false :</p>
-<pre><code class="bash">svccfg -s sysding:system
-setprop config/finished = false
-refresh
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>svccfg<span class="w"> </span>-s<span class="w"> </span>sysding:system
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>setprop<span class="w"> </span>config/finished<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>refresh
+</span></code></pre></div>
 <h3 id="configuring-a-ups">Configuring a UPS</h3>
 <ul>
 <li>NUT?</li>
@@ -775,74 +3503,75 @@ refresh
 <p>&lt; place holder &gt;</p>
 <h3 id="virtual-terminalsconsoles-vt">Virtual Terminals/Consoles (VT)</h3>
 <p>Virtual Terminals/Virtual Consoles (VT) are used to switch between terminals and using system in text mode with <em>Ctrl+Alt+F1,F2..F8</em> key combinations.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-Switching to VTs using <em>Ctrl+Alt+Fn</em> during current desktop session (at <strong>VT7</strong>) can result in <strong>X server</strong> and <strong>lightdm</strong> (or <strong>gdm</strong>) restarting and stopping all applications running within it.
-Currently, there could be problems with getting back to gdm/Xorg session if switching to VTs after gdm restart. Use <code>svcadm restart ligthdm</code> (or <code>svcadm restart gdm</code>) command again, to have lightdm/gdm Xorg session restarted at <strong>VT8</strong> (<em>Ctrl+Alt+F8</em>).
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Switching to VTs using <em>Ctrl+Alt+Fn</em> during current desktop session (at <strong>VT7</strong>) can result in <strong>X server</strong> and <strong>lightdm</strong> (or <strong>gdm</strong>) restarting and stopping all applications running within it.
+Currently, there could be problems with getting back to gdm/Xorg session if switching to VTs after gdm restart. Use <code>svcadm restart ligthdm</code> (or <code>svcadm restart gdm</code>) command again, to have lightdm/gdm Xorg session restarted at <strong>VT8</strong> (<em>Ctrl+Alt+F8</em>).</p>
+</div>
+</div>
 <p>At fresh Openindiana install, VT/Consoles are <strong>not enabled by default</strong>. One needs to set up vtdaemon and console-login:vt2 (till :vt6) and enable <strong>vtdaemon</strong> options/hotkeys property:</p>
-<pre><code>pfexec svcadm enable vtdaemon
-pfexec svcadm enable console-login:vt2
-pfexec svcadm enable console-login:vt3
-pfexec svcadm enable console-login:vt4
-pfexec svcadm enable console-login:vt5
-pfexec svcadm enable console-login:vt6
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pfexec svcadm enable vtdaemon
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>pfexec svcadm enable console-login:vt2
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>pfexec svcadm enable console-login:vt3
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>pfexec svcadm enable console-login:vt4
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>pfexec svcadm enable console-login:vt5
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>pfexec svcadm enable console-login:vt6
+</span></code></pre></div>
 <p>Or do that in a one-liner Bash script: <code>for i in 2 3 4 5 6 ; do pfexec svcadm enable console-login:vt$i; done;</code></p>
 <p>Then, enable options/hotkeys property (<em>Ctrl+Alt+Fn</em>) to switch VTs and refresh and restart <strong>vtdaemon</strong> service:</p>
-<pre><code>pfexec svccfg -s vtdaemon setprop options/hotkeys=true
-pfexec svcadm refresh vtdaemon
-pfexec svcadm restart vtdaemon
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pfexec svccfg -s vtdaemon setprop options/hotkeys=true
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>pfexec svcadm refresh vtdaemon
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>pfexec svcadm restart vtdaemon
+</span></code></pre></div>
 <p>Optionally, you can also disable VT consoles auto screen locking (recommended for personal use, not recommended on server): <code>pfexec svccfg -s vtdaemon setprop options/secure=false</code></p>
 <p>The above was inspired by <a href="https://web.archive.org/web/20160424040330/https://blogs.oracle.com/DanX/entry/solaris_virtual_consoles">this blog by Danx on Virtual Consoles</a>.</p>
 <h3 id="service-management-smf">Service management (SMF)</h3>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT: provide more detailed explanations.
-</div></p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT: provide more detailed explanations.</p>
+</div>
+</div>
 <p>List services:</p>
-<pre><code>$ svcs # list (permanently) enabled services
-$ svcs -a # list all services
-$ svcs -vx # list faulty services
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$ svcs # list (permanently) enabled services
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>$ svcs -a # list all services
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>$ svcs -vx # list faulty services
+</span></code></pre></div>
 <p>Get information about a service:</p>
-<pre><code>$ svcs &lt;service name&gt; # one-line status
-$ svcs -x &lt;service name&gt; # important information
-$ svcs -d &lt;service name&gt; # check the service's dependencies
-$ svcs -l &lt;service name&gt; # all the available information
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$ svcs &lt;service name&gt; # one-line status
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>$ svcs -x &lt;service name&gt; # important information
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>$ svcs -d &lt;service name&gt; # check the service&#39;s dependencies
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>$ svcs -l &lt;service name&gt; # all the available information
+</span></code></pre></div>
 <p>Start a service:</p>
-<pre><code># svcadm enable &lt;service name&gt; # permanently enable/start
-# svcadm enable -t &lt;service name&gt; # temporary start (won't survive a reboot)
-# svcadm enable -r &lt;service name&gt; # permanently enable/start service along with its dependencies
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a># svcadm enable &lt;service name&gt; # permanently enable/start
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a># svcadm enable -t &lt;service name&gt; # temporary start (won&#39;t survive a reboot)
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a># svcadm enable -r &lt;service name&gt; # permanently enable/start service along with its dependencies
+</span></code></pre></div>
 <p>Restart / reload a service:</p>
-<pre><code># svcadm refresh &lt;service name&gt; # reload the service's configuration
-# svcadm restart &lt;service name&gt; # restart the service
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a># svcadm refresh &lt;service name&gt; # reload the service&#39;s configuration
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a># svcadm restart &lt;service name&gt; # restart the service
+</span></code></pre></div>
 <h3 id="systems-logging-and-monitoring">Systems logging and monitoring</h3>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
-<li>Where to find the logs (<code>/var/log</code>, <code>/var/svc/log</code>).
-</div></li>
+<li>Where to find the logs (<code>/var/log</code>, <code>/var/svc/log</code>).</li>
 </ul>
+</div>
+</div>
 <h2 id="illumos-boot-process">Illumos boot process</h2>
 <p>&lt; place holder &gt;</p>
 <h2 id="security">Security</h2>
 <p>&lt; place holder &gt;</p>
 <h2 id="zones">Zones</h2>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>Need to mention some of the changes to zone management...e.g..<ul>
 <li>sys-unconfig gone.</li>
@@ -853,7 +3582,7 @@ ITEMS TO WRITE ABOUT:</p>
 </ul>
 <p>So a fair amount of stuff has changed there.</p>
 </div>
-
+</div>
 <p>Zones are an OpenIndiana feature that provides <a href="http://www.wikipedia.org/wiki/Operating_system-level_virtualization">operating system-level virtualization</a>. Each zone is managed as a completely separate OpenIndiana machine. Zones have very low overhead and are one of the most efficient forms of OS virtualization.</p>
 <p>The global zone (GZ) is the operating system itself, which has hardware access. From the global zone, non-global zones (NGZ) are created and booted. Boot time for non-global zones is very fast, often a few seconds. The CPU, network, and memory resources for each zone can be controlled from the global zone, ensuring fair access to system resources. Disk space access is usually controlled by ZFS (with quotas and reservations if needed), as well as mounting of filesystem resources with NFS or lofs. As with other forms of virtualization, each zone is isolated from the other zones – zones cannot see processes or resources used in other zones. The low marginal cost of a zone allows large systems have tens or even hundreds of zones without significant overhead. The theoretical limit to the number of zones on a single platform is 8,192.</p>
 <p>Different releases of (Open)Solaris used different packaging distribution method for the global zone. OpenIndiana zones use two basic brands - "ipkg" and "nlipkg", which are based on IPS Packaging. The brand determines how zone is initialized and how zone's processes are treated by kernel. Both type of zones represent a PKG image. "ipkg"-branded zones are tightly coupled with GZ. Image pakaging system (IPS) knows about ipkg-branded zones and can perform several actions simultaneously in GZ and NGZ. For example, you can update all your zones and GZ with a single "pkg update -r" command. IPS can ensure some depenencies between packages in GZ and NGZ. To allow this it cheks that NGZ's publishers are a superset of GZ's publishers and their properties are the same (for example, stickiness or repository location). As this is not always suitable for development zones, "nlipkg"-branded zones were introduced. "nlipkg"-branded zone behave like completely independent instance and IPS ignores them during operations in GZ.</p>
@@ -864,29 +3593,29 @@ ITEMS TO WRITE ABOUT:</p>
 <p>Low-level system networking components, such as the ipfilter firewall and the kernel IP routing tables attach to an "IP stack", and are thus either unique to a zone or shared by all zones with the one shared stack. There are also some other nuances, such as that the zones with the shared stack can communicate over IP directly, regardless of their subnetting and, to some extent, default firewall packet filtering (that has to be specially configured), while exclusive-IP zones with addresses in different subnets have to communicate over external routers and are subject to common firewall filtering.</p>
 <p>The global zone defines which physical networks and VLANs the NGZ has access to, and hands down the predefined networking interfaces (the NGZ can not use or create other interfaces). Also, while shared networking allows to configure and attach (or detach) network interfaces from GZ to the NGZ "on the fly", changes in exclusive networking require reboot of the zone to propagate device delegation.</p>
 <p>A zone with an exclusive IP stack can have all the benefits of dedicated hardware networking, including a firewall, access to promiscuous sniffing, routing, configuration of its own IP address (including use of DHCP and static network addressing), etc. This requires a fully dedicated NIC. Usually this is a VNICs - a virtual adapter with own MAC address, that operate as if the VNIC was plugged directly into local LAN in a particular (or default) VLAN. Note also that the local zones with an exclusive IP stack are not subject to the host's shared-stack firewall.</p>
-<div class="well">
-Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.</p>
 </div>
-
+</div>
 <h3 id="quick-setup-example">Quick Setup Example</h3>
 <p>Zone creation consists of two steps - creating zone configuration and zone installation or cloning. Zone configuration determines basic parameters, such as zone's root location and provided resources.
 Zone configuration is performed using zonecfg tool, zone administration (for example, installation) is performed using zoneadm tool.</p>
 <p>For example, we create a simple zone with shared networking model:</p>
-<pre><code># zonecfg -z example
-example: No such zone configured
-Use 'create' to begin configuring a new zone.
-zonecfg:example&gt; create
-zonecfg:example&gt; add net
-zonecfg:example:net&gt; set physical=e1000g0
-zonecfg:example:net&gt; set address=192.168.0.10/24
-zonecfg:example:net&gt; end
-zonecfg:example&gt; set zonepath=/zones/example
-zonecfg:example&gt; verify
-zonecfg:example&gt; commit
-zonecfg:example&gt; exit
-
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a># zonecfg -z example
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>example: No such zone configured
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>Use &#39;create&#39; to begin configuring a new zone.
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>zonecfg:example&gt; create
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>zonecfg:example&gt; add net
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>zonecfg:example:net&gt; set physical=e1000g0
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>zonecfg:example:net&gt; set address=192.168.0.10/24
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>zonecfg:example:net&gt; end
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>zonecfg:example&gt; set zonepath=/zones/example
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>zonecfg:example&gt; verify
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>zonecfg:example&gt; commit
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>zonecfg:example&gt; exit
+</span></code></pre></div>
 <p>Here <code>create</code> puts you inside the zone configuration program where you can change and update settings particular to the zone specified with -z.
 <code>zonecfg</code> break different resource groups of data, you add a new resource with add.
 The next block adds ressource "net", configuring network in default <code>shared</code> ip-type mode. It allows zone to share IP stack with GZ. If you want to
@@ -896,44 +3625,40 @@ After network configuration <code>zonepath</code> is set. It's a location for zo
 The <code>verify</code> command checks that no mistakes were made.
 Finally changes are committed (saved to zone configuration file).</p>
 <p>If you want to use dedicated networking for your zone, you should create VNIC and delegate it to the zone.</p>
-<pre><code># dladm create-vnic -l e1000g0 vnic0
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a># dladm create-vnic -l e1000g0 vnic0
+</span></code></pre></div>
 <p>If you want to specify VLAN id for VNIC, use <code>-v</code> <code>dladm create-vnic</code> option:</p>
-<pre><code># dladm create-vnic -l e1000g0 -v 123 vnic0
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a># dladm create-vnic -l e1000g0 -v 123 vnic0
+</span></code></pre></div>
 <p>Now you can create your zone and delegate VNIC to it (note that we set zone's <code>ip-type</code> to <code>exclusive</code>):</p>
-<pre><code># zonecfg -z example
-example: No such zone configured
-Use 'create' to begin configuring a new zone.
-zonecfg:example&gt; create
-zonecfg:example&gt; set ip-type=exclusive
-zonecfg:example&gt; add net
-zonecfg:example:net&gt; set physical=vnic0
-zonecfg:example:net&gt; end
-zonecfg:example&gt; set zonepath=/zones/example
-zonecfg:example&gt; verify
-zonecfg:example&gt; commit
-zonecfg:example&gt; exit
-
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a># zonecfg -z example
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>example: No such zone configured
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>Use &#39;create&#39; to begin configuring a new zone.
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>zonecfg:example&gt; create
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>zonecfg:example&gt; set ip-type=exclusive
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>zonecfg:example&gt; add net
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>zonecfg:example:net&gt; set physical=vnic0
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>zonecfg:example:net&gt; end
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>zonecfg:example&gt; set zonepath=/zones/example
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>zonecfg:example&gt; verify
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>zonecfg:example&gt; commit
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>zonecfg:example&gt; exit
+</span></code></pre></div>
 <p>After configuring a zone you can install it with <code>zoneadm install</code> subcommand:</p>
-<pre><code># zoneadm -z example install
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a># zoneadm -z example install
+</span></code></pre></div>
 <p>During installation pkg image rooted at $zonepath/root is created and minimal set of packages is installed to the image.
 When installation finishes, zone can be booted with <code>zoneadm -z example boot</code> command. If you want your zone to boot automatically during system startup,
 you should set autoboot parameter to true during zone configuration:</p>
-<pre><code>zonecfg:example&gt; set autoboot=true
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>zonecfg:example&gt; set autoboot=true
+</span></code></pre></div>
 <p>Once zone is booted you can log in locally with <code>zlogin example</code>. If you created zone with dedicated network adapter, you should configure it inside zone.</p>
-<div class="well">
-Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.</p>
 </div>
-
+</div>
 <h3 id="system-repository-configuration">System repository configuration</h3>
 <p>On OpenIndiana it is possible to allow NGZs to access configured publishers via GZ proxy service (so-called zone proxy daemon).
 This can be useful for sharing pkg cache between zones or to provide network access for performing updates to otherwise restricted zone environment (i.e. to zone without Internet access).</p>
@@ -942,36 +3667,35 @@ communicates with GZ's zone proxy daemon.
 System repository service <code>svc:/application/pkg/system-repository</code>  is responsible for providing access to the package repositories configured in a reference image through a centralized proxy.
 Zones proxy daemon service <code>svc:/application/pkg/zones-proxyd</code> starts on system boot and registers door in each running ipkg-branded zone (the door is created at <code>/var/tmp/zoneproxy_door</code> path).
 Later, on zone startup or shutdown /usr/lib/zones/zoneproxy-adm is used to notify zones-proxyd, so that it could create the door for the zone or to cleanup it.
-Zones proxy daemon client <code>svc:/application/pkg/zones-proxy-client:default</code> runs in NGZ and talks to GZ's zones-proxyd via created door.
-<div class="well">
-Note, you can't use system repository with nlipkg-branded zones.
-</div></p>
+Zones proxy daemon client <code>svc:/application/pkg/zones-proxy-client:default</code> runs in NGZ and talks to GZ's zones-proxyd via created door.</p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note, you can't use system repository with nlipkg-branded zones.</p>
+</div>
+</div>
 <p>IPS determines if it should use zones proxy client in zone based on image's <code>use-system-repo</code> property (defaults to False).</p>
 <p>To configure your system to use system repository, perform the following actions.</p>
 <p>1) In global zone:</p>
-<pre><code># pkg install pkg:/package/pkg/system-repository pkg:/package/pkg/zones-proxy
-# svcadm enable svc:/application/pkg/system-repository:default
-# svcadm enable svc:/application/pkg/zones-proxyd:default
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a># pkg install pkg:/package/pkg/system-repository pkg:/package/pkg/zones-proxy
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a># svcadm enable svc:/application/pkg/system-repository:default
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a># svcadm enable svc:/application/pkg/zones-proxyd:default
+</span></code></pre></div>
 <p>2) In non-global zone:</p>
-<pre><code># pkg install pkg:/package/pkg/zones-proxy
-# svcadm enable svc:/application/pkg/zones-proxy-client:default
-# pkg set-property use-system-repo True
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a># pkg install pkg:/package/pkg/zones-proxy
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a># svcadm enable svc:/application/pkg/zones-proxy-client:default
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a># pkg set-property use-system-repo True
+</span></code></pre></div>
 <p>After this in NGZ's publisher description you'll see system-repository location:</p>
-<pre><code># pkg publisher
-PUBLISHER                   TYPE     STATUS P LOCATION
-openindiana.org (non-sticky, syspub) origin   online T &lt;system-repository&gt;
-hipster-encumbered (syspub)     origin   online T &lt;system-repository&gt;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a># pkg publisher
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>PUBLISHER                   TYPE     STATUS P LOCATION
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>openindiana.org (non-sticky, syspub) origin   online T &lt;system-repository&gt;
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>hipster-encumbered (syspub)     origin   online T &lt;system-repository&gt;
+</span></code></pre></div>
 <p>You can check if your configuration works by issuing <code>pkg refresh</code> command in the zone. <code>pkg(1M)</code> should contact repository indirectly via zones-proxy-client.</p>
 <p>To revert your zone to proxy-less configuration, run</p>
-<pre><code># pkg set-property use-system-repo False
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a># pkg set-property use-system-repo False
+</span></code></pre></div>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>Zone configuration and management operations can fail for a number of reasons, sometimes obscure.
 This section contains information on how to solve different well-known issues.</p>
@@ -980,79 +3704,72 @@ This section contains information on how to solve different well-known issues.</
 Zone's root and its parent directory should be a ZFS dataset.
 It's not enough for zone's root (or its parent directory) to be just a directory on ZFS filesystem.
 If you try to create a zone which root doesn't satisfy this requirement, you can get the following error:</p>
-<pre><code># zoneadm -z example install
-Sanity Check: Looking for 'entire' incorporation.
-ERROR: the zonepath must be a ZFS dataset.
-The parent directory of the zonepath must be a ZFS dataset so that the
-zonepath ZFS dataset can be created properly.
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a># zoneadm -z example install
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Sanity Check: Looking for &#39;entire&#39; incorporation.
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>ERROR: the zonepath must be a ZFS dataset.
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>The parent directory of the zonepath must be a ZFS dataset so that the
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>zonepath ZFS dataset can be created properly.
+</span></code></pre></div>
 <p>To fix this, you can just uninstall the zone and create its root dataset manually:</p>
-<pre><code># zoneadm -z example uninstall
-Are you sure you want to uninstall zone example (y/[n])? y
-# zfs create rpool/zones/example
-# chmod 700 /zones/example
-# zoneadm -z example install
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a># zoneadm -z example uninstall
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Are you sure you want to uninstall zone example (y/[n])? y
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a># zfs create rpool/zones/example
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a># chmod 700 /zones/example
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a># zoneadm -z example install
+</span></code></pre></div>
 <h2 id="storage">Storage</h2>
 <p>&lt; place holder &gt;</p>
 <h3 id="mounting-file-systems">Mounting file systems</h3>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>Need a walkthrough of mounting options for other filesystems...FAT, UFS, etc.</li>
 </ul>
 </div>
-
+</div>
 <h4 id="mounting-and-unmounting-iso-images">Mounting and Unmounting ISO images</h4>
 <p>One can use <a href="https://illumos.org/man/1M/lofiadm">lofiadm(1M)</a> to mount ISO images by attaching them to a block device.</p>
-<pre><code>pfexec lofiadm -a /path/to/foo.iso /dev/lofi/1
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>pfexec lofiadm -a /path/to/foo.iso /dev/lofi/1
+</span></code></pre></div>
 <p>When the above line is repeated for several ISO images, issue the <code>lofiadm</code> command to list which ISO images are attached to which block devices.</p>
-<pre><code class="sh">pfexec lofiadm
-Block Device File Options
-/dev/lofi/1 /home/scarcry/foo.iso -
-/dev/lofi/2 /home/scarcry/bar.iso -
-</code></pre>
-
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>pfexec<span class="w"> </span>lofiadm
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>Block<span class="w"> </span>Device<span class="w"> </span>File<span class="w"> </span>Options
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>/dev/lofi/1<span class="w"> </span>/home/scarcry/foo.iso<span class="w"> </span>-
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>/dev/lofi/2<span class="w"> </span>/home/scarcry/bar.iso<span class="w"> </span>-
+</span></code></pre></div>
 <p>Use the <a href="https://illumos.org/man/1M/mount">mount(1M)</a> command to mount an image:</p>
-<pre><code>pfexec mount -F hsfs -o ro /dev/lofi/1 /mnt
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>pfexec mount -F hsfs -o ro /dev/lofi/1 /mnt
+</span></code></pre></div>
 <p>Check the mounted image by issuing <code>ls</code> on the mount point.</p>
-<pre><code>ls /mnt
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>ls /mnt
+</span></code></pre></div>
 <p>To unmount and detach the image(s):</p>
-<pre><code>pfexec umount /mnt
-pfexec lofiadm -d /dev/lofi/1
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>pfexec umount /mnt
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>pfexec lofiadm -d /dev/lofi/1
+</span></code></pre></div>
 <h4 id="mounting-ntfs-volumes-3rd-party-support">Mounting NTFS Volumes - 3rd party support</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-For removable storage devices, first make sure your external disk drive is connected and powered on.</p>
-<p>To list attached removable storage devices: <code>rmformat -l</code>
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For removable storage devices, first make sure your external disk drive is connected and powered on.</p>
+<p>To list attached removable storage devices: <code>rmformat -l</code></p>
+</div>
+</div>
 <p>Verify the pX partition number that contains the NTFS filesystem, typically "p1", using fdisk. Even though it may seem counterintuitive, include the partition number "p0" as shown by rmformat in fdisk inquiries.</p>
-<pre><code>pfexec fdisk /dev/rdsk/c6t0d0p0
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>pfexec fdisk /dev/rdsk/c6t0d0p0
+</span></code></pre></div>
 <h5 id="additional-software-installation-and-configuration">Additional software installation and configuration</h5>
 <p>NTFS and FUSE support is provided by Tuxera's NTFS-3G project that aims at providing a stable NTFS driver for several operating systems.</p>
 <p>It is made possible thanks to Jean-Pierre André, on Openindiana page:  <a href="http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html">http://jp-andre.pagesperso-orange.fr/openindiana-ntfs-3g.html</a> Follow instructions on this page to install. Please install 64-bit package on 64-bit installations.</p>
 <h5 id="mounting-the-ntfs-filesystem">Mounting the NTFS filesystem</h5>
 <p>Now mount the NTFS partition using:</p>
-<pre><code class="bash">pfexec ntfs-3g /dev/dsk/c6t0d0p1 /mnt/backup/
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>pfexec<span class="w"> </span>ntfs-3g<span class="w"> </span>/dev/dsk/c6t0d0p1<span class="w"> </span>/mnt/backup/
+</span></code></pre></div>
 <p>You can now also add a vfstab entry like so:</p>
-<pre><code class="bash">/dev/dsk/c6t0d0p1 /dev/rdsk/c6t0d0p1 /mnt/backup ntfs-3g - no -
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>/dev/dsk/c6t0d0p1<span class="w"> </span>/dev/rdsk/c6t0d0p1<span class="w"> </span>/mnt/backup<span class="w"> </span>ntfs-3g<span class="w"> </span>-<span class="w"> </span>no<span class="w"> </span>-
+</span></code></pre></div>
 <h3 id="configuring-openindiana-as-an-iscsi-target-server-comstar">Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)</h3>
 <p>&lt; Place holder for content &gt;</p>
 <h3 id="system-backups">System backups</h3>
@@ -1070,48 +3787,51 @@ Here are just a few of them:</p>
 <li>tar, zip, etc.</li>
 </ul>
 <h3 id="zfs">ZFS</h3>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <p>Gotcha's such as the following:</p>
-<pre><code>&lt;e^ipi&gt; don't suppose there's any solution to this:
-&lt;e^ipi&gt; cannot replace 1509280528045021472 with /dev/dsk/c0t5000C5009204EB9Bd0s0: devices have different sector alignment
-&lt;tsoome&gt; thats 512 versus non-512 sector issue
-&lt;tsoome&gt; you need to build new pool based on larger sector
-&lt;tsoome&gt; if its mirror, you can attach 512B disk to 4k pool, but not vice versa...
-&lt;e^ipi&gt; well, damn.
-&lt;tsoome&gt; that error message is too confusing, should be replaced by more clear one;)
-&lt;e^ipi&gt; I swear this pool is already mix &amp; match, freebsd complained about it
-&lt;e^ipi&gt; (but still used it)
-&lt;tsoome&gt; there is that thing that ashift is vdev property;)
-&lt;tsoome&gt; not pool property (one reason why that linux zpool create ashift= option is bad)
-&lt;tsoome&gt; or sort of bad anyhow
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>&lt;e^ipi&gt; don&#39;t suppose there&#39;s any solution to this:
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>&lt;e^ipi&gt; cannot replace 1509280528045021472 with /dev/dsk/c0t5000C5009204EB9Bd0s0: devices have different sector alignment
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>&lt;tsoome&gt; thats 512 versus non-512 sector issue
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>&lt;tsoome&gt; you need to build new pool based on larger sector
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>&lt;tsoome&gt; if its mirror, you can attach 512B disk to 4k pool, but not vice versa...
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>&lt;e^ipi&gt; well, damn.
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>&lt;tsoome&gt; that error message is too confusing, should be replaced by more clear one;)
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>&lt;e^ipi&gt; I swear this pool is already mix &amp; match, freebsd complained about it
+</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>&lt;e^ipi&gt; (but still used it)
+</span><span id="__span-45-10"><a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>&lt;tsoome&gt; there is that thing that ashift is vdev property;)
+</span><span id="__span-45-11"><a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a>&lt;tsoome&gt; not pool property (one reason why that linux zpool create ashift= option is bad)
+</span><span id="__span-45-12"><a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a>&lt;tsoome&gt; or sort of bad anyhow
+</span></code></pre></div>
 </div>
-
+</div>
 <h4 id="importing-zfs-disks">Importing ZFS disks</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>Talk about the ZFS import command.</li>
 </ul>
 </div>
-
+</div>
 <h4 id="how-does-one-mirror-their-root-zpool">How does one mirror their root zpool?</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>Adding a 2nd disk to the root pool</li>
 </ul>
 </div>
-
+</div>
 <h4 id="how-does-one-create-additional-zpools">How does one create additional zpools?</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>zpool create command<ul>
 <li>Mirrors</li>
@@ -1120,50 +3840,55 @@ ITEMS TO WRITE ABOUT:</p>
 </li>
 </ul>
 </div>
-
+</div>
 <h4 id="modifying-zpool-settings-and-attributes">Modifying zpool settings and attributes</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>zpool get/set commands</li>
 </ul>
 </div>
-
+</div>
 <h4 id="modifying-zfs-file-system-settings-and-attributes">Modifying zfs file system settings and attributes</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>zfs get/set commands</li>
 </ul>
 </div>
-
+</div>
 <h4 id="how-does-one-create-additional-zfs-datasets">How does one create additional zfs datasets?</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>zfs create command</li>
 </ul>
 </div>
-
+</div>
 <h4 id="configuring-system-swap">Configuring system swap</h4>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>zfs set command</li>
 <li>swap -l</li>
 </ul>
 </div>
-
+</div>
 <h2 id="virtualization">Virtualization</h2>
 <p>&lt; Place holder &gt;</p>
 <h3 id="openindiana-as-a-virtualization-host-server">OpenIndiana as a virtualization host server</h3>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <ul>
 <li>Qemu-KVM (KVM) walkthrough<ul>
 <li>illumos KVM port does not support AMD processors.</li>
@@ -1176,25 +3901,28 @@ ITEMS TO WRITE ABOUT:</p>
 </li>
 </ul>
 </div>
-
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+</div>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <p>In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
 Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
-You can check your processor for EPT support via the following link: <a href="http://ark.intel.com/Products/VirtualizationTechnology">http://ark.intel.com/Products/VirtualizationTechnology</a>
-</div></p>
+You can check your processor for EPT support via the following link: <a href="http://ark.intel.com/Products/VirtualizationTechnology">http://ark.intel.com/Products/VirtualizationTechnology</a></p>
+</div>
+</div>
 <h2 id="localization">Localization</h2>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <p>Possible resources to help write this section:</p>
 <ul>
 <li><a href="https://wiki.openindiana.org/oi/4.4+Localization">https://wiki.openindiana.org/oi/4.4+Localization</a></li>
 <li><a href="https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html">https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html</a></li>
 </ul>
 </div>
-
+</div>
 <h2 id="dtrace">Dtrace</h2>
 <p>&lt; Place Holder &gt;</p>
 <h2 id="configuring-networking">Configuring Networking</h2>
@@ -1207,74 +3935,61 @@ ITEMS TO WRITE ABOUT:</p>
 <p>Option None can be used to configure networking manually, without NWAM, after installation.</p>
 <h3 id="changing-from-nwam-to-manual-configuration">Changing from NWAM to Manual Configuration</h3>
 <p>If during install you enabled NWAM, and if you want to disable NWAM you can proceed as follows :</p>
-<pre><code class="bash"># svcadm disable physical:nwam
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="c1"># svcadm disable physical:nwam</span>
+</span></code></pre></div>
 <p>Define your IP/hostname in <code>/etc/hosts</code>. For example:</p>
-<pre><code class="bash">192.168.1.22 hostname hostname.local localhost loghost
-# Subsittude 192.168.1.22 for YOUR IP
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="m">192</span>.168.1.22<span class="w"> </span>hostname<span class="w"> </span>hostname.local<span class="w"> </span>localhost<span class="w"> </span>loghost
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="c1"># Subsittude 192.168.1.22 for YOUR IP</span>
+</span></code></pre></div>
 <p>Enable the default physical service with <code>svcadm</code> and configure the <code>interface</code>:</p>
-<pre><code class="bash"># svcadm enable physical:default
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="c1"># svcadm enable physical:default</span>
+</span></code></pre></div>
 <p>There are multiple ways to configure the interface : using sysding or directly with ipadm.</p>
 <p>For more information on sysding, see the section on Configuring and Tuning.</p>
 <p>To configure an interface with ipadm:</p>
-<pre><code class="bash"># ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="c1"># ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static</span>
+</span></code></pre></div>
 <p>or</p>
-<pre><code class="bash"># ipadm create-addr -T dhcp bge0/dhclient
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="c1"># ipadm create-addr -T dhcp bge0/dhclient</span>
+</span></code></pre></div>
 <p>The previous example sets up DHCP without using NWAM.  NWAM is more than DHCP, because NWAM automatically configures any new interfaces, while the above way to manually setup DHCP is fixed for a specific interface.</p>
 <p>If you do not know what the interface name is (bge0 in this case); then type in</p>
-<pre><code class="bash">$ dladm show-link
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>$<span class="w"> </span>dladm<span class="w"> </span>show-link
+</span></code></pre></div>
 <p>or:</p>
-<pre><code class="bash">$ kstat -c net | grep net
-
-# look for hme0, bge0, e1000g0 or soemthing that resembles the driver in use.
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>$<span class="w"> </span>kstat<span class="w"> </span>-c<span class="w"> </span>net<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>net
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>
+</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="c1"># look for hme0, bge0, e1000g0 or soemthing that resembles the driver in use.</span>
+</span></code></pre></div>
 <p>Add gateway</p>
-<pre><code class="bash"># route -p add default 192.168.1.121
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># route -p add default 192.168.1.121</span>
+</span></code></pre></div>
 <p>or</p>
-<pre><code class="bash"># nano /etc/defaultrouter
-
-# Enter in your gateways IP
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c1"># nano /etc/defaultrouter</span>
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>
+</span><span id="__span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="c1"># Enter in your gateways IP</span>
+</span></code></pre></div>
 <p>or use the /etc/sysding.conf file to configure a default router and DNS servers.</p>
 <p>Set DNS server(s)</p>
-<pre><code class="bash"># nano /etc/resolv.conf
-
-# Enter in the DNS server IP(s)
-nameserver 192.168.1.121
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># nano /etc/resolv.conf</span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="c1"># Enter in the DNS server IP(s)</span>
+</span><span id="__span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>nameserver<span class="w"> </span><span class="m">192</span>.168.1.121
+</span></code></pre></div>
 <p>or</p>
-<pre><code class="bash">
-# echo &quot;nameserver 192.168.1.121&quot; &gt;&gt; /etc/resolv.conf
-
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="c1"># echo &quot;nameserver 192.168.1.121&quot; &gt;&gt; /etc/resolv.conf</span>
+</span></code></pre></div>
 <p>Restart</p>
-<pre><code class="bash"># reboot
-</code></pre>
-
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-IF you cannot ping an external IP (e.g. google.com) run this command and try again.
-</div></p>
-<pre><code class="bash"># cp /etc/nsswitch.dns /etc/nsswitch.conf
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="c1"># reboot</span>
+</span></code></pre></div>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IF you cannot ping an external IP (e.g. google.com) run this command and try again.</p>
+</div>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="c1"># cp /etc/nsswitch.dns /etc/nsswitch.conf</span>
+</span></code></pre></div>
 <p>credit for this section of the docs go to <a href="https://www.reddit.com/user/127b">/u/127b</a></p>
 <h3 id="more-on-automatic-configuration-nwam">More on Automatic Configuration (NWAM)</h3>
 <p>The following is a more in depth discussion of NWAM, which normally works without any user interaction, but NWAM can be customized using profiles by the user.</p>
@@ -1284,195 +3999,177 @@ IF you cannot ping an external IP (e.g. google.com) run this command and try aga
 <p>On its backend, NWAM relies on <code>nwamd</code>, the NWAM policy engine daemon and <code>netcfgd</code>, the NWAM repository daemon.</p>
 <p>Access to the command line and GUI tools is controlled via security profiles 'Network Autoconf Admin' and 'Network Autoconf user'.</p>
 <p>To create NWAM profile use <code>nwamcfg</code> tool.</p>
-<pre><code># nwamcfg
-nwamcfg&gt; create ncp Abroad
-nwamcfg:ncp:Abroad&gt; end
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a># nwamcfg
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>nwamcfg&gt; create ncp Abroad
+</span><span id="__span-59-3"><a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>nwamcfg:ncp:Abroad&gt; end
+</span></code></pre></div>
 <p>Now you can see a new profile in the list of NCPs:</p>
-<pre><code>nwamcfg&gt; list
-NCPs:
-Abroad
-Automatic
-Locations:
-Automatic
-NoNet
-User
-nwamcfg&gt;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>nwamcfg&gt; list
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>NCPs:
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>Abroad
+</span><span id="__span-60-4"><a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>Automatic
+</span><span id="__span-60-5"><a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>Locations:
+</span><span id="__span-60-6"><a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>Automatic
+</span><span id="__span-60-7"><a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a>NoNet
+</span><span id="__span-60-8"><a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a>User
+</span><span id="__span-60-9"><a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a>nwamcfg&gt;
+</span></code></pre></div>
 <p>The network interface to be managed under the new profile can be set and configured with <code>create ncu</code> command:</p>
-<pre><code># nwamcfg
-nwamcfg&gt; select ncp Abroad
-nwamcfg:ncp:Abroad&gt; create ncu phys e1000g0
-Created ncu 'e1000g0'. Walking properties ...
-activation-mode (manual) [manual|prioritized]&gt; prioritized
-enabled (true) [true|false]&gt;
-priority-group&gt; 0
-priority-mode [exclusive|shared|all]&gt; exclusive
-link-mac-addr&gt;
-link-autopush&gt;
-link-mtu&gt;
-nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a># nwamcfg
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>nwamcfg&gt; select ncp Abroad
+</span><span id="__span-61-3"><a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>nwamcfg:ncp:Abroad&gt; create ncu phys e1000g0
+</span><span id="__span-61-4"><a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>Created ncu &#39;e1000g0&#39;. Walking properties ...
+</span><span id="__span-61-5"><a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>activation-mode (manual) [manual|prioritized]&gt; prioritized
+</span><span id="__span-61-6"><a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a>enabled (true) [true|false]&gt;
+</span><span id="__span-61-7"><a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a>priority-group&gt; 0
+</span><span id="__span-61-8"><a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a>priority-mode [exclusive|shared|all]&gt; exclusive
+</span><span id="__span-61-9"><a id="__codelineno-61-9" name="__codelineno-61-9" href="#__codelineno-61-9"></a>link-mac-addr&gt;
+</span><span id="__span-61-10"><a id="__codelineno-61-10" name="__codelineno-61-10" href="#__codelineno-61-10"></a>link-autopush&gt;
+</span><span id="__span-61-11"><a id="__codelineno-61-11" name="__codelineno-61-11" href="#__codelineno-61-11"></a>link-mtu&gt;
+</span><span id="__span-61-12"><a id="__codelineno-61-12" name="__codelineno-61-12" href="#__codelineno-61-12"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
+</span></code></pre></div>
 <p>Most important here is the <code>activation-mode</code>, which states if the profile is to be automatically set based on certain policies or if it is to be manually set using nwamadm.
 The latter should be most likely the case in a server environment.
 The <code>priority-group</code> and <code>priority-mode</code> here are set to (0 / exclusive).
 This says that the profile is for wired access and will always be the only active one at a time.</p>
 <p>If after listing the changes you are satisfied with the configuration, permanently store it using <code>commit</code> command:</p>
-<pre><code>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; list
-ncu:e1000g0
- type link
- class phys
- parent &quot;Abroad&quot;
- activation-mode prioritized
- enabled true
- priority-group 0
- priority-mode exclusive
-nwamcfg:ncp:Abroad:ncu:e1000g0&gt; commit
-Committed changes
-nwamcfg:ncp:Abroad:ncu:e1000g0&gt; end
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; list
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>ncu:e1000g0
+</span><span id="__span-62-3"><a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a> type link
+</span><span id="__span-62-4"><a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a> class phys
+</span><span id="__span-62-5"><a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a> parent &quot;Abroad&quot;
+</span><span id="__span-62-6"><a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a> activation-mode prioritized
+</span><span id="__span-62-7"><a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a> enabled true
+</span><span id="__span-62-8"><a id="__codelineno-62-8" name="__codelineno-62-8" href="#__codelineno-62-8"></a> priority-group 0
+</span><span id="__span-62-9"><a id="__codelineno-62-9" name="__codelineno-62-9" href="#__codelineno-62-9"></a> priority-mode exclusive
+</span><span id="__span-62-10"><a id="__codelineno-62-10" name="__codelineno-62-10" href="#__codelineno-62-10"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; commit
+</span><span id="__span-62-11"><a id="__codelineno-62-11" name="__codelineno-62-11" href="#__codelineno-62-11"></a>Committed changes
+</span><span id="__span-62-12"><a id="__codelineno-62-12" name="__codelineno-62-12" href="#__codelineno-62-12"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; end
+</span></code></pre></div>
 <p>After an interface has been assigned to the profile, its IP configuration has to be defined:</p>
-<pre><code>nwamcfg:ncp:Abroad&gt; create ncu ip e1000g0
-Created ncu 'e1000g0'. Walking properties ...
-enabled (true) [true|false]&gt;
-ip-version (ipv4,ipv6) [ipv4|ipv6]&gt; ipv4
-ipv4-addrsrc (dhcp) [dhcp|static]&gt; static
-ipv4-addr&gt; 192.168.100.100
-ipv4-default-route&gt; 192.168.100.1
-nwamcfg:ncp:Abroad:ncu:e1000g0&gt; list
-ncu:e1000g0
- type interface
- class ip
- parent &quot;Abroad&quot;
- enabled true
- ip-version ipv4
- ipv4-addrsrc static
- ipv4-addr &quot;192.168.100.100&quot;
- ipv4-default-route &quot;192.168.100.1&quot;
- ipv6-addrsrc dhcp,autoconf
-nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>nwamcfg:ncp:Abroad&gt; create ncu ip e1000g0
+</span><span id="__span-63-2"><a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>Created ncu &#39;e1000g0&#39;. Walking properties ...
+</span><span id="__span-63-3"><a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>enabled (true) [true|false]&gt;
+</span><span id="__span-63-4"><a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>ip-version (ipv4,ipv6) [ipv4|ipv6]&gt; ipv4
+</span><span id="__span-63-5"><a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>ipv4-addrsrc (dhcp) [dhcp|static]&gt; static
+</span><span id="__span-63-6"><a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>ipv4-addr&gt; 192.168.100.100
+</span><span id="__span-63-7"><a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>ipv4-default-route&gt; 192.168.100.1
+</span><span id="__span-63-8"><a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; list
+</span><span id="__span-63-9"><a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>ncu:e1000g0
+</span><span id="__span-63-10"><a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a> type interface
+</span><span id="__span-63-11"><a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a> class ip
+</span><span id="__span-63-12"><a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a> parent &quot;Abroad&quot;
+</span><span id="__span-63-13"><a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a> enabled true
+</span><span id="__span-63-14"><a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a> ip-version ipv4
+</span><span id="__span-63-15"><a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a> ipv4-addrsrc static
+</span><span id="__span-63-16"><a id="__codelineno-63-16" name="__codelineno-63-16" href="#__codelineno-63-16"></a> ipv4-addr &quot;192.168.100.100&quot;
+</span><span id="__span-63-17"><a id="__codelineno-63-17" name="__codelineno-63-17" href="#__codelineno-63-17"></a> ipv4-default-route &quot;192.168.100.1&quot;
+</span><span id="__span-63-18"><a id="__codelineno-63-18" name="__codelineno-63-18" href="#__codelineno-63-18"></a> ipv6-addrsrc dhcp,autoconf
+</span><span id="__span-63-19"><a id="__codelineno-63-19" name="__codelineno-63-19" href="#__codelineno-63-19"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
+</span></code></pre></div>
 <p>As you can see, the profile uses a static IP address and, for simplicity reasons, only provides IPv4 networking.
 Again, if you're happy with the results, commit them.</p>
-<pre><code>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; commit
-Committed changes
-nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; commit
+</span><span id="__span-64-2"><a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>Committed changes
+</span><span id="__span-64-3"><a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt;
+</span></code></pre></div>
 <p>As it stands, now you have defined a pysical and ip layer attached to a network profile:</p>
-<pre><code>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; end
-nwamcfg:ncp:Abroad&gt; list
-NCUs:
- phys e1000g0
- ip e1000g0
-nwamcfg:ncp:Abroad&gt;exit
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>nwamcfg:ncp:Abroad:ncu:e1000g0&gt; end
+</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>nwamcfg:ncp:Abroad&gt; list
+</span><span id="__span-65-3"><a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>NCUs:
+</span><span id="__span-65-4"><a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a> phys e1000g0
+</span><span id="__span-65-5"><a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a> ip e1000g0
+</span><span id="__span-65-6"><a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>nwamcfg:ncp:Abroad&gt;exit
+</span></code></pre></div>
 <p>To activate the profile, you use nwamadm.
 First of all, check for the current situation:</p>
-<pre><code># nwamadm list
-TYPE     PROFILE    STATE
-ncp      Abroad     disabled
-ncp      Automatic  online
-ncu:phys e1000g0    online
-ncu:ip   e1000g0    online
-loc      Automatic  online
-loc      NoNet      offline
-loc      User       disabled
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a># nwamadm list
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>TYPE     PROFILE    STATE
+</span><span id="__span-66-3"><a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a>ncp      Abroad     disabled
+</span><span id="__span-66-4"><a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a>ncp      Automatic  online
+</span><span id="__span-66-5"><a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a>ncu:phys e1000g0    online
+</span><span id="__span-66-6"><a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a>ncu:ip   e1000g0    online
+</span><span id="__span-66-7"><a id="__codelineno-66-7" name="__codelineno-66-7" href="#__codelineno-66-7"></a>loc      Automatic  online
+</span><span id="__span-66-8"><a id="__codelineno-66-8" name="__codelineno-66-8" href="#__codelineno-66-8"></a>loc      NoNet      offline
+</span><span id="__span-66-9"><a id="__codelineno-66-9" name="__codelineno-66-9" href="#__codelineno-66-9"></a>loc      User       disabled
+</span></code></pre></div>
 <p>As you can see, Automatic is the active profile while Abroad is currently disabled.
 We can change that easily, but be aware that you might lock yourself out if you are connected via SSH when changing the profile!</p>
-<pre><code># nwamadm enable -p ncp Abroad
-Enabling ncp 'Abroad'
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a># nwamadm enable -p ncp Abroad
+</span><span id="__span-67-2"><a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a>Enabling ncp &#39;Abroad&#39;
+</span></code></pre></div>
 <p>To check if the change has worked, you can use nwam again, and also ifconfig should show that interface is up:</p>
-<pre><code># nwamadm list
-TYPE PROFILE STATE
-ncp Abroad online
-ncu:phys e1000g0 online
-ncu:ip e1000g0 online
-ncp Automatic disabled
-loc Automatic online
-loc NoNet offline
-loc User disabled
-</code></pre>
-
-<pre><code># ifconfig e1000g0
-e1000g0: flags=1000843&lt;UP,BROADCAST,RUNNING,MULTICAST,IPv4&gt; mtu 1500 index 8
-inet 192.168.100.100 netmask ffffff00 broadcast 192.168.100.255
-ether 0:c:29:56:46:73
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a># nwamadm list
+</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>TYPE PROFILE STATE
+</span><span id="__span-68-3"><a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a>ncp Abroad online
+</span><span id="__span-68-4"><a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a>ncu:phys e1000g0 online
+</span><span id="__span-68-5"><a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a>ncu:ip e1000g0 online
+</span><span id="__span-68-6"><a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a>ncp Automatic disabled
+</span><span id="__span-68-7"><a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a>loc Automatic online
+</span><span id="__span-68-8"><a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a>loc NoNet offline
+</span><span id="__span-68-9"><a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a>loc User disabled
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a># ifconfig e1000g0
+</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>e1000g0: flags=1000843&lt;UP,BROADCAST,RUNNING,MULTICAST,IPv4&gt; mtu 1500 index 8
+</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>inet 192.168.100.100 netmask ffffff00 broadcast 192.168.100.255
+</span><span id="__span-69-4"><a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>ether 0:c:29:56:46:73
+</span></code></pre></div>
 <p>If you want to revert to default <code>Automatic</code> ncp, use the following command:</p>
-<pre><code># nwamadm enable -p ncp Automatic
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a># nwamadm enable -p ncp Automatic
+</span></code></pre></div>
 <p>Although it is possible to directly modify profiles using an editor, it is not advisable and will be hardly necessary, anyway.
 One of the coolest features of NWAM tools is that they can be completely scripted.
 All steps above could also be put in one line:</p>
-<pre><code># nwamcfg &quot;create ncp Abroad;create ncu phys e1000g0;set activation-mode=manual;set enabled=true;set priority-group=0;set priority-mode=exclusive;end;create ncu ip e1000g0;set enabled=true;set ip-version=ipv4;set ipv4-addrsrc=static;set ipv4-addr=192.168.100.100;set ipv4-default-route=192.168.100.1;commit&quot;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a># nwamcfg &quot;create ncp Abroad;create ncu phys e1000g0;set activation-mode=manual;set enabled=true;set priority-group=0;set priority-mode=exclusive;end;create ncu ip e1000g0;set enabled=true;set ip-version=ipv4;set ipv4-addrsrc=static;set ipv4-addr=192.168.100.100;set ipv4-default-route=192.168.100.1;commit&quot;
+</span></code></pre></div>
 <p>Or, more nicely formatted, commented and stored in a file:</p>
-<pre><code>#
-# Profile for use on the road
-#
-# Created on 13/01/2013 by S. Mueller-Wilken
-#
-create ncp Abroad
-
-# Create physical interface definition for 1st network card
-create ncu phys e1000g0
-set activation-mode=manual
-set enabled=true
-set priority-group=0
-set priority-mode=exclusive
-end
-
-# Create IP configuration for first network card
-create ncu ip e1000g0
-set enabled=true
-set ip-version=ipv4
-set ipv4-addrsrc=static
-set ipv4-addr=192.168.100.100
-set ipv4-default-route=192.168.100.1
-
-# Commit the settings
-commit
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>#
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a># Profile for use on the road
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>#
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a># Created on 13/01/2013 by S. Mueller-Wilken
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>#
+</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a>create ncp Abroad
+</span><span id="__span-72-7"><a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a>
+</span><span id="__span-72-8"><a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a># Create physical interface definition for 1st network card
+</span><span id="__span-72-9"><a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a>create ncu phys e1000g0
+</span><span id="__span-72-10"><a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a>set activation-mode=manual
+</span><span id="__span-72-11"><a id="__codelineno-72-11" name="__codelineno-72-11" href="#__codelineno-72-11"></a>set enabled=true
+</span><span id="__span-72-12"><a id="__codelineno-72-12" name="__codelineno-72-12" href="#__codelineno-72-12"></a>set priority-group=0
+</span><span id="__span-72-13"><a id="__codelineno-72-13" name="__codelineno-72-13" href="#__codelineno-72-13"></a>set priority-mode=exclusive
+</span><span id="__span-72-14"><a id="__codelineno-72-14" name="__codelineno-72-14" href="#__codelineno-72-14"></a>end
+</span><span id="__span-72-15"><a id="__codelineno-72-15" name="__codelineno-72-15" href="#__codelineno-72-15"></a>
+</span><span id="__span-72-16"><a id="__codelineno-72-16" name="__codelineno-72-16" href="#__codelineno-72-16"></a># Create IP configuration for first network card
+</span><span id="__span-72-17"><a id="__codelineno-72-17" name="__codelineno-72-17" href="#__codelineno-72-17"></a>create ncu ip e1000g0
+</span><span id="__span-72-18"><a id="__codelineno-72-18" name="__codelineno-72-18" href="#__codelineno-72-18"></a>set enabled=true
+</span><span id="__span-72-19"><a id="__codelineno-72-19" name="__codelineno-72-19" href="#__codelineno-72-19"></a>set ip-version=ipv4
+</span><span id="__span-72-20"><a id="__codelineno-72-20" name="__codelineno-72-20" href="#__codelineno-72-20"></a>set ipv4-addrsrc=static
+</span><span id="__span-72-21"><a id="__codelineno-72-21" name="__codelineno-72-21" href="#__codelineno-72-21"></a>set ipv4-addr=192.168.100.100
+</span><span id="__span-72-22"><a id="__codelineno-72-22" name="__codelineno-72-22" href="#__codelineno-72-22"></a>set ipv4-default-route=192.168.100.1
+</span><span id="__span-72-23"><a id="__codelineno-72-23" name="__codelineno-72-23" href="#__codelineno-72-23"></a>
+</span><span id="__span-72-24"><a id="__codelineno-72-24" name="__codelineno-72-24" href="#__codelineno-72-24"></a># Commit the settings
+</span><span id="__span-72-25"><a id="__codelineno-72-25" name="__codelineno-72-25" href="#__codelineno-72-25"></a>commit
+</span></code></pre></div>
 <p>This file can then be read by nwamcfg:</p>
-<pre><code># nwamcfg -f abroad.cfg
-Configuration read.
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a># nwamcfg -f abroad.cfg
+</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>Configuration read.
+</span></code></pre></div>
 <p>While there is no longer a need to fiddle around in /etc/nwam, the configuration is still completely there, as can be easily verified:</p>
-<pre><code># ls /etc/nwam
-loc loc.conf ncp-Abroad.conf ncp-Automatic.conf
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a># ls /etc/nwam
+</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>loc loc.conf ncp-Abroad.conf ncp-Automatic.conf
+</span></code></pre></div>
 <p>All configuration is placed in readable ASCII files so that configuration from a global zone is possible:</p>
-<pre><code># cat /etc/nwam/ncp-Abroad.conf
-link:e1000g0 type=uint64,0;class=uint64,0;parent=string,Abroad;enabled=boolean,true;activation-mode=uint64,4;priority-group=uint64,0;priority-mode=uint64,0;
-interface:e1000g0 type=uint64,1;class=uint64,1;parent=string,Abroad;enabled=boolean,true;ipv6-addrsrc=uint64,0,1;ip-version=uint64,4;ipv4-addrsrc=uint64,2;ipv4-default-route=string,192.168.100.1;ipv4-addr=string,192.168.100.100;
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a># cat /etc/nwam/ncp-Abroad.conf
+</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>link:e1000g0 type=uint64,0;class=uint64,0;parent=string,Abroad;enabled=boolean,true;activation-mode=uint64,4;priority-group=uint64,0;priority-mode=uint64,0;
+</span><span id="__span-75-3"><a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>interface:e1000g0 type=uint64,1;class=uint64,1;parent=string,Abroad;enabled=boolean,true;ipv6-addrsrc=uint64,0,1;ip-version=uint64,4;ipv4-addrsrc=uint64,2;ipv4-default-route=string,192.168.100.1;ipv4-addr=string,192.168.100.100;
+</span></code></pre></div>
 <h4 id="network-automagic-online-help">Network automagic online help</h4>
 <p>Comprehensive and fully illustrated online help for using NWAM is available by right clicking the NWAM tray icon and selecting <em>Help</em>.
 This opens help browser.</p>
 <h4 id="troubleshooting-nwam">Troubleshooting NWAM</h4>
 <p>If NWAM is already configured and fails to connect to a wireless network try restarting the service.</p>
 <p>For example:</p>
-<pre><code class="bash"># svcadm restart nwam
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a><span class="c1"># svcadm restart nwam</span>
+</span></code></pre></div>
 <p>Sometimes the location gets set to <em>NoNet</em> and it's nessessary to manually change the location to <em>Automatic</em>.</p>
 <p>When the location setting is configured to <em>Switch Locations Automatically</em>, it's not possible to change the location.
 This is resolved by reconfiguring the location to allow manual switching.
@@ -1480,95 +4177,127 @@ To perform this task, do the following:</p>
 <p>Right click the NWAM tray icon and select <strong><em>Location</em> &gt; <em>Switch Locations Manually</em></strong>.
 Right click the NWAM tray icon and select <strong><em>Location</em> &gt; <em>Automatic</em></strong>.</p>
 <h2 id="clustering-with-open-ha-cluster">Clustering with Open HA Cluster</h2>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>DOC TEAM NOTE:</strong>
-<div class="well">
-ITEMS TO WRITE ABOUT:</p>
+<div class="info">
+<div class="admonition info">
+<p class="admonition-title">Documentation Team</p>
+<p>ITEMS TO WRITE ABOUT:</p>
 <p>See old sun docs</p>
 <ul>
-<li><a href="http://docs.oracle.com/cd/E19735-01/">http://docs.oracle.com/cd/E19735-01/</a></li>
+<li><http://docs.oracle.com/cd/E19735-01/></li>
 </ul>
 <p>Also see:</p>
 <ul>
-<li><a href="http://zfs-create.blogspot.nl/">http://zfs-create.blogspot.nl/</a></li>
+<li><http://zfs-create.blogspot.nl/></li>
 </ul>
-</div></div>
-        </div>
-
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 
-    </body>
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2016-06-13 01:47:32</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../common-tasks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Common Tasks" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Common Tasks
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../network-communications/" class="md-footer__link md-footer__link--next" aria-label="Next: Network Communications" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Network Communications
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
 </html>

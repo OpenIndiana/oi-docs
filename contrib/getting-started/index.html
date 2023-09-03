@@ -1,383 +1,2209 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        <link rel="canonical" href="http://docs.openindiana.org/contrib/getting-started/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.openindiana.org/contrib/getting-started/">
+      
+      
+        <link rel="prev" href="../content/">
+      
+      
+        <link rel="next" href="../tools/">
+      
+      
+      <link rel="icon" href="../../oi_logo.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.7">
+    
+    
+      
         <title>Getting Started - OpenIndiana Docs</title>
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
 
-        <script src="../../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../../js/bootstrap-3.0.3.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-            ga('create', 'UA-77447740-2', 'auto');
-            ga('send', 'pageview');
-        </script> 
-    </head>
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-    <body>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#getting-started-with-openindiana-docs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
+  
 
-                <!-- Collapsed navigation -->
-                <div class="navbar-header">
-                    <!-- Expander button -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="../..">OpenIndiana Docs</a>
-                </div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenIndiana Docs" class="md-header__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
 
-                <!-- Expanded navigation -->
-                <div class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a href="../..">Home</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../misc/openindiana/">About OpenIndiana</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/oi-docs/">About OpenIndiana Docs</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/conduct/">OpenIndiana Code of Conduct</a>
-</li>
-                                    
-<li >
-    <a href="../../misc/pdl/">Public Documentation License</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Release Notes</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../release-notes/latest-changes/">Latest changes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.10-release-notes/">2020.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2020.04-release-notes/">2020.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.10-release-notes/">2019.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2019.04-release-notes/">2019.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.10-release-notes/">2018.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2018.04-release-notes/">2018.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.10-release-notes/">2017.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2017.04-release-notes/">2017.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.10-release-notes/">2016.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2016.04-release-notes/">2016.04 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.10-release-notes/">2015.10 Release Notes</a>
-</li>
-            
-<li >
-    <a href="../../release-notes/2015.03-release-notes/">2015.03 Release Notes</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Handbook <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../handbook/getting-started/">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/common-tasks/">Common Tasks</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/systems-administration/">Systems Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/network-communications/">Network Communications</a>
-</li>
-                                    
-<li >
-    <a href="../../handbook/appendix/">Appendix</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Contributed Tutorials</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../handbook/community/">About Community Contributed Tutorials</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/oracledb/">Oracle Database Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/samqfs/">Storage Archive Manager Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/sunray/">Sun Ray Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/inputmethod/">Intelligent Input Bus (IBus)</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/squeak/">Squeak Smalltalk-80 Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/texlive/">TeX Live Typesetting Software Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/vagrant/">Vagrant Installation</a>
-</li>
-            
-<li >
-    <a href="../../handbook/community/quikstor/">Using RDX Quikstor media</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Community Hardware Compatibility List</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../community-hcl/getting-hardware-info/">Getting information about hardware</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/components/">Components</a>
-</li>
-            
-<li >
-    <a href="../../community-hcl/systems/">Systems</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#">Developer's Corner</a>
-    <ul class="dropdown-menu">
-            
-<li >
-    <a href="../../dev/building-openindiana/">Building OpenIndiana</a>
-</li>
-            
-<li >
-    <a href="../../dev/userland/">Building with oi-userland</a>
-</li>
-            
-<li >
-    <a href="../../dev/legacy-consolidations/">Building legacy consolidations</a>
-</li>
-            
-<li >
-    <a href="../../dev/graphics-stack/">Graphics stack</a>
-</li>
-            
-<li >
-    <a href="../../dev/pdf/ips-dev-guide.pdf">Packaging and Delivering Software with IPS</a>
-</li>
-            
-<li >
-    <a href="../../dev/distribution-constructor/">Using distribution constructor</a>
-</li>
-            
-<li >
-    <a href="../../dev/existing-tasks/">Existing tasks</a>
-</li>
-            
-<li >
-    <a href="../../dev/repo-cleanup/">Cleaning up OpenIndiana repository</a>
-</li>
-    </ul>
-  </li>
-                                    
-<li >
-    <a href="../../handbook/pdfdocs/">PDF Documentation</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">OpenSolaris Books <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../../books/about/">About OpenSolaris Books</a>
-</li>
-                                    
-<li >
-    <a href="../../books/basic/">Basic Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/advanced/">Advanced Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/express/">Solaris Express Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/trusted/">Trusted Extensions Administration</a>
-</li>
-                                    
-<li >
-    <a href="../../books/develop/">Development Titles</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contrib <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li >
-    <a href="../content/">Content Creation</a>
-</li>
-                                    
-<li class="active">
-    <a href="./">Getting Started</a>
-</li>
-                                    
-<li >
-    <a href="../tools/">Contributor Tools</a>
-</li>
-                                    
-<li >
-    <a href="../roles/">Contributor Roles</a>
-</li>
-                                    
-<li >
-    <a href="../topics/">Contributor Topics</a>
-</li>
-                                    
-<li >
-    <a href="../style/">Contributor Style Guide</a>
-</li>
-                                    
-<li >
-    <a href="../markdown/">Markdown Syntax Guide</a>
-</li>
-                                    
-<li >
-    <a href="../git/">Git Usage Guide</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li >
-                                <a rel="next" href="../content/">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li >
-                                <a rel="prev" href="../tools/">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/contrib/getting-started.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenIndiana Docs
+          </span>
         </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Getting Started
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-        <div class="container">
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#getting-started-with-openindiana-docs">Getting Started with OpenIndiana Docs</a></li>
-            <li><a href="#prerequisites">Prerequisites</a></li>
-            <li><a href="#fork-the-openindiana-docs-repository">Fork the OpenIndiana Docs repository</a></li>
-            <li><a href="#create-a-local-clone-of-your-fork">Create a local clone of your fork</a></li>
-            <li><a href="#add-the-upstream-repository">Add the upstream repository</a></li>
-            <li><a href="#sync-and-merge-changes-from-the-upstream-repository">Sync and merge changes from the upstream repository</a></li>
-            <li><a href="#openindiana-docs-site-structure-master-branch">OpenIndiana Docs site structure (master branch)</a></li>
-            <li><a href="#make-some-changes">Make some changes</a></li>
-            <li><a href="#adding-new-pages-to-the-site-menu">Adding new pages to the site menu</a></li>
-            <li><a href="#visualize-your-changes-using-live-preview">Visualize your changes using live preview</a></li>
-            <li><a href="#running-markdown-lint-locally">Running Markdown Lint (locally)</a></li>
-            <li><a href="#generating-pdfs-locally">Generating PDFs (locally)</a></li>
-            <li><a href="#enabling-spell-checking-in-vim">Enabling spell checking in vim</a></li>
-            <li><a href="#commit-and-push-your-changes">Commit and push your changes.</a></li>
-            <li><a href="#send-a-pull-request">Send a pull request.</a></li>
-            <li><a href="#what-happens-next">What happens next?</a></li>
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../misc/openindiana/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../handbook/getting-started/" class="md-tabs__link">
+          
+  
+  Handbook
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../books/about/" class="md-tabs__link">
+          
+  
+  OpenSolaris Books
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../content/" class="md-tabs__link">
+          
+  
+  Contrib
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
-</div></div>
-                <div class="col-md-9" role="main">
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenIndiana Docs" class="md-nav__button md-logo" aria-label="OpenIndiana Docs" data-md-component="logo">
+      
+  <img src="../../oi_logo.png" alt="logo">
+
+    </a>
+    OpenIndiana Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OpenIndiana/oi-docs/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/oi-docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenIndiana Docs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/conduct/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenIndiana Code of Conduct
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/pdl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public Documentation License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Release Notes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/latest-changes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Latest changes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2020.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2020.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2019.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2019.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2018.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2018.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2017.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2017.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2016.04-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2016.04 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.10-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.10 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes/2015.03-release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2015.03 Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Handbook
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Handbook
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/common-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/systems-administration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/network-communications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network Communications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/appendix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Contributed Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Community Contributed Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About Community Contributed Tutorials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/oracledb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Oracle Database Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/samqfs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Archive Manager Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/sunray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sun Ray Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/inputmethod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intelligent Input Bus (IBus)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/squeak/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Squeak Smalltalk-80 Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/texlive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TeX Live Typesetting Software Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/vagrant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vagrant Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/community/quikstor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RDX Quikstor media
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Community Hardware Compatibility List
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community Hardware Compatibility List
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/getting-hardware-info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting information about hardware
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Components
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community-hcl/systems/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systems
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8" >
+        
+          <label class="md-nav__link" for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Developer's Corner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            Developer's Corner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/building-openindiana/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building OpenIndiana
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/userland/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building with oi-userland
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/legacy-consolidations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building legacy consolidations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/graphics-stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/pdf/ips-dev-guide.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Packaging and Delivering Software with IPS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/distribution-constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using distribution constructor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/existing-tasks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Existing tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/repo-cleanup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cleaning up OpenIndiana repository
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../handbook/pdfdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PDF Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OpenSolaris Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            OpenSolaris Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About OpenSolaris Books
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/express/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solaris Express Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/trusted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trusted Extensions Administration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../books/develop/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development Titles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contrib
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Contrib
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Content Creation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-and-configure-git" class="md-nav__link">
+    Install and configure Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-pip" class="md-nav__link">
+    Install python-pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-rubygems" class="md-nav__link">
+    Install rubygems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-mkdocs" class="md-nav__link">
+    Install mkdocs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-markdown-lint-mdl" class="md-nav__link">
+    Install Markdown Lint (mdl)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-markdown-plugin-for-vim-or-emacs-optional" class="md-nav__link">
+    Install Markdown plugin for VIM or Emacs (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-pandoc-xetex-optional" class="md-nav__link">
+    Install Pandoc &amp; XeTex (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fork-the-openindiana-docs-repository" class="md-nav__link">
+    Fork the OpenIndiana Docs repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-local-clone-of-your-fork" class="md-nav__link">
+    Create a local clone of your fork
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-upstream-repository" class="md-nav__link">
+    Add the upstream repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sync-and-merge-changes-from-the-upstream-repository" class="md-nav__link">
+    Sync and merge changes from the upstream repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openindiana-docs-site-structure-master-branch" class="md-nav__link">
+    OpenIndiana Docs site structure (master branch)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-some-changes" class="md-nav__link">
+    Make some changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-new-pages-to-the-site-menu" class="md-nav__link">
+    Adding new pages to the site menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualize-your-changes-using-live-preview" class="md-nav__link">
+    Visualize your changes using live preview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-markdown-lint-locally" class="md-nav__link">
+    Running Markdown Lint (locally)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-pdfs-locally" class="md-nav__link">
+    Generating PDFs (locally)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-spell-checking-in-vim" class="md-nav__link">
+    Enabling spell checking in vim
+  </a>
+  
+    <nav class="md-nav" aria-label="Enabling spell checking in vim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts-for-spell-checking-in-vim" class="md-nav__link">
+    Keyboard shortcuts for spell checking in vim
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-and-push-your-changes" class="md-nav__link">
+    Commit and push your changes.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-a-pull-request" class="md-nav__link">
+    Send a pull request.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-next" class="md-nav__link">
+    What happens next?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Tools
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Roles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Topics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributor Style Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Markdown Syntax Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git Usage Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-and-configure-git" class="md-nav__link">
+    Install and configure Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-pip" class="md-nav__link">
+    Install python-pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-rubygems" class="md-nav__link">
+    Install rubygems
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-mkdocs" class="md-nav__link">
+    Install mkdocs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-markdown-lint-mdl" class="md-nav__link">
+    Install Markdown Lint (mdl)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-markdown-plugin-for-vim-or-emacs-optional" class="md-nav__link">
+    Install Markdown plugin for VIM or Emacs (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-pandoc-xetex-optional" class="md-nav__link">
+    Install Pandoc &amp; XeTex (optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fork-the-openindiana-docs-repository" class="md-nav__link">
+    Fork the OpenIndiana Docs repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-local-clone-of-your-fork" class="md-nav__link">
+    Create a local clone of your fork
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-the-upstream-repository" class="md-nav__link">
+    Add the upstream repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sync-and-merge-changes-from-the-upstream-repository" class="md-nav__link">
+    Sync and merge changes from the upstream repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openindiana-docs-site-structure-master-branch" class="md-nav__link">
+    OpenIndiana Docs site structure (master branch)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-some-changes" class="md-nav__link">
+    Make some changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-new-pages-to-the-site-menu" class="md-nav__link">
+    Adding new pages to the site menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualize-your-changes-using-live-preview" class="md-nav__link">
+    Visualize your changes using live preview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-markdown-lint-locally" class="md-nav__link">
+    Running Markdown Lint (locally)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-pdfs-locally" class="md-nav__link">
+    Generating PDFs (locally)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-spell-checking-in-vim" class="md-nav__link">
+    Enabling spell checking in vim
+  </a>
+  
+    <nav class="md-nav" aria-label="Enabling spell checking in vim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts-for-spell-checking-in-vim" class="md-nav__link">
+    Keyboard shortcuts for spell checking in vim
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-and-push-your-changes" class="md-nav__link">
+    Commit and push your changes.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-a-pull-request" class="md-nav__link">
+    Send a pull request.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-next" class="md-nav__link">
+    What happens next?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/OpenIndiana/oi-docs/edit/master/docs/contrib/getting-started.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
 
 <!--
 
@@ -397,12 +2223,12 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<p><img src = "../../Openindiana.png"></p>
 <h1 id="getting-started-with-openindiana-docs">Getting Started with OpenIndiana Docs</h1>
 <p>The process for contributing to OpenIndiana Docs is simple and follows the same best practices used in the development of the OpenIndiana distribution.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>First and foremost, we understand using development tools and techniques to write end user documentation is not for everyone.
 For this reason, we're happy to accept your contribution in any format you wish to provide.</p>
 <p>After receiving your submission, we will review the document for conversion to markdown and subsequent incorporation into OpenIndiana Docs.
 Contributions may be submitted in plain text, .doc, .docx, .odt, html, xml, latex, pdf, GitHub Gist, etc.</p>
@@ -413,9 +2239,10 @@ For further information, please contact us via one of the methods provided below
 <p>You may also inquire via IRC:</p>
 <ul>
 <li><a href="irc://irc.libera.chat/openindiana">#openindiana (libera.chat)</a></li>
-<li><a href="irc://irc.libera.chat/oi-dev">#oi-dev (libera.chat)</a>
-</div></li>
+<li><a href="irc://irc.libera.chat/oi-dev">#oi-dev (libera.chat)</a></li>
 </ul>
+</div>
+</div>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>If you would like to make a contribution using the development tools, you must
 have a GitHub account. If you do not already have a GitHub account, sign up for
@@ -451,13 +2278,15 @@ a <a href="https://github.com">Github</a> account.</p>
 </tr>
 </tbody>
 </table>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-After GIT is installed, be sure to configure your name and email address.</p>
-<p>For further details about configuring GIT, see: <a href="https://help.github.com/articles/set-up-git/">https://help.github.com/articles/set-up-git/</a></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After GIT is installed, be sure to configure your name and email address.</p>
+<p>For further details about configuring GIT, see: <https://help.github.com/articles/set-up-git/></p>
 <p>Also, if you need a good book for quickly getting up to speed with GIT, see here: <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
-<p>Fear not though, only basic git commands are required for working with OI-DOCS.
-</div></p>
+<p>Fear not though, only basic git commands are required for working with OI-DOCS.</p>
+</div>
+</div>
 <h3 id="install-python-pip">Install python-pip</h3>
 <p>If your OS doesn't provide pre-packaged mkdocs, you'll need to install python-pip.
 This is not necessary on OpenIndiana.</p>
@@ -526,19 +2355,22 @@ This is not necessary on OpenIndiana.</p>
 </table>
 <h3 id="install-mkdocs">Install mkdocs</h3>
 <p>For OpenIndiana Hipster, MKDocs and all of it's dependencies have been packaged and are available in the OI Hipster repository.
-So, if you're already running Hipster, installing MKDocs is as simple as: <code>pkg install mkdocs</code></p>
+So, if you're already running Hipster, installing MKDocs is as simple as: <code>pkg install mkdocs</code>.
+However, the MKDocs Material theme may need to be installed additionally using <code>pip</code>.</p>
 <ul>
-<li>Most other operating systems: <code>pip install mkdocs mkdocs-bootswatch</code></li>
+<li>Most other operating systems: <code>pip install mkdocs-material</code></li>
 </ul>
 <p>After MKDocs has been installed, be sure to verify your installation with <code>mkdocs --version</code></p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-If you experience difficulties installing mkdocs, try using the python 3 version of <code>pip</code>.</p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you experience difficulties installing mkdocs, try using the python 3 version of <code>pip</code>.</p>
 <p>For example:</p>
 <ul>
-<li>For Linux Mint 18, the python 3 version of <code>pip</code> would be <code>pip3</code>.
-</div></li>
+<li>For Linux Mint 18, the python 3 version of <code>pip</code> would be <code>pip3</code>.</li>
 </ul>
+</div>
+</div>
 <h3 id="install-markdown-lint-mdl">Install Markdown Lint (mdl)</h3>
 <p>On OpenIndiana you can install mdl using standard package management tools:</p>
 <ul>
@@ -587,13 +2419,15 @@ Pandoc is not yet avalible packaged on OpenIndiana.</p>
 </tr>
 </tbody>
 </table>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-Not all OS distro repositories contain XeTex.
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all OS distro repositories contain XeTex.
 In this case it could be installed as part of a manual TeX Live installation.</p>
 <p>As of Summer 2021, the version of Pandoc available from OS distro repositories may be too old (was the case for Centos/RHEL and Debian &lt; 11).
-In this case you can try and use the Pandoc GitHub release versions instead.
-</div></p>
+In this case you can try and use the Pandoc GitHub release versions instead.</p>
+</div>
+</div>
 <h2 id="fork-the-openindiana-docs-repository">Fork the OpenIndiana Docs repository</h2>
 <ul>
 <li>Open your web browser to the <a href="https://github.com/OpenIndiana/oi-docs">OpenIndiana Docs GitHub Repository</a>.</li>
@@ -604,48 +2438,43 @@ In this case you can try and use the Pandoc GitHub release versions instead.
 </li>
 </ul>
 <h2 id="create-a-local-clone-of-your-fork">Create a local clone of your fork</h2>
-<pre><code class="bash">git clone https://github.com/YOUR-USER-NAME/oi-docs.git
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR-USER-NAME/oi-docs.git
+</span></code></pre></div>
 <p>The local clone is where you will perform your work.
 Think of your local clone as your working copy of the repository.
 The local clone is also where you will commit your changes.
 Periodically you will push these local changes to your fork residing on Github.</p>
 <h2 id="add-the-upstream-repository">Add the upstream repository</h2>
-<pre><code class="bash">cd oi-docs
-git remote add upstream https://github.com/OpenIndiana/oi-docs.git
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>oi-docs
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/OpenIndiana/oi-docs.git
+</span></code></pre></div>
 <p>Verify things with <code>git remote -v</code></p>
 <p>You should now see:</p>
-<pre><code class="bash">origin  https://github.com/YOUR-USER-NAME/oi-docs.git (fetch)
-origin  https://github.com/YOUR-USER-NAME/oi-docs.git (push)
-upstream        https://github.com/OpenIndiana/oi-docs.git (fetch)
-upstream        https://github.com/OpenIndiana/oi-docs.git (push)
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>origin<span class="w">  </span>https://github.com/YOUR-USER-NAME/oi-docs.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>origin<span class="w">  </span>https://github.com/YOUR-USER-NAME/oi-docs.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>upstream<span class="w">        </span>https://github.com/OpenIndiana/oi-docs.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>upstream<span class="w">        </span>https://github.com/OpenIndiana/oi-docs.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+</span></code></pre></div>
 <h2 id="sync-and-merge-changes-from-the-upstream-repository">Sync and merge changes from the upstream repository</h2>
 <p>Periodically you will want to <em>rebase</em> your local copy by bringing in changes from the upstream repository.
 In plain English, this means the upstream repository is locally registered so you can periodically <em>pull down</em> changes from the upstream master repository and merge them into your local clone.
 This way your local clone remains in synchronization with the master upstream repository.
 It is always a good idea to perform a pull from the upstream master repository prior to making changes to your local clone (working copy).</p>
-<pre><code class="bash">git pull upstream master
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>pull<span class="w"> </span>upstream<span class="w"> </span>master
+</span></code></pre></div>
 <h2 id="openindiana-docs-site-structure-master-branch">OpenIndiana Docs site structure (master branch)</h2>
 <p>All site development occurs within the master branch.</p>
-<pre><code class="markdown">oi-docs/
-├── docs/
-├── link_validator.py
-├── makepdf.sh
-├── markdownlint-rules.rb
-├── mkdocs.yml
-├── pandoc/
-├── pdf/
-├── README.md
-└── site/
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oi-docs/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── docs/
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├── link_validator.py
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>├── makepdf.sh
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>├── markdownlint-rules.rb
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>├── mkdocs.yml
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>├── pandoc/
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>├── pdf/
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>├── README.md
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>└── site/
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -696,8 +2525,9 @@ It is always a good idea to perform a pull from the upstream master repository p
 </tr>
 </tbody>
 </table>
-<p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> <strong>CAUTION:</strong>
-<div class="well"></p>
+<div class="caution">
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
 <ul>
 <li>Please do <strong>NOT</strong> perform any work within the <code>site/</code> or <code>pdf/</code> folder.<ul>
 <li><code>site/</code> is a temporary folder created by MkDocs when the site is run locally in preview mode.</li>
@@ -705,25 +2535,25 @@ It is always a good idea to perform a pull from the upstream master repository p
 </ul>
 </li>
 <li>Also, please do <strong>NOT</strong> perform any work within the gh-pages branch.<ul>
-<li>The gh-branch is destroyed and rebuilt each time the site is deployed to GitHub pages.
-</div></li>
+<li>The gh-branch is destroyed and rebuilt each time the site is deployed to GitHub pages.</li>
 </ul>
 </li>
 </ul>
-<pre><code class="markdown">docs/
-├── books/
-├── community-hcl/
-├── contrib/
-├── dev/
-├── favicon.ico
-├── handbook/
-├── index.md
-├── misc/
-├── Openindiana.png
-├── release-notes/
-└── retired/
-</code></pre>
-
+</div>
+</div>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docs/
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>├── books/
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>├── community-hcl/
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>├── contrib/
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>├── dev/
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>├── favicon.ico
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>├── handbook/
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>├── index.md
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>├── misc/
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>├── Openindiana.png
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>├── release-notes/
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>└── retired/
+</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -782,10 +2612,12 @@ It is always a good idea to perform a pull from the upstream master repository p
 <p>Open your favorite text editor and begin authoring content.</p>
 <p>For example: <code>vim somefile.md</code> or <code>emacs somefile.md</code></p>
 <p>Some text editors (Atom, VIM, etc.) natively include Markdown syntax highlighting (or offer it as a plugin).</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-Major changes should be performed within a separate branch, appropriately named to reflect the changes being made.
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Major changes should be performed within a separate branch, appropriately named to reflect the changes being made.</p>
+</div>
+</div>
 <p>For a list of subject to write about:</p>
 <ul>
 <li>See the site TODO list.</li>
@@ -798,19 +2630,18 @@ Major changes should be performed within a separate branch, appropriately named 
 <p>Site configuration settings and menus are located in <code>mkdocs.yml</code>.
 To add a page to the menu, simply add a line to this file.
 See the code snippet below for examples.</p>
-<pre><code class="markdown">- Docs:
-        - 'OpenIndiana Code of Conduct': misc/conduct.md
-        - 'OpenIndiana FAQ': misc/faq.md
-        - 'OpenIndiana Handbook': handbook/handbook.md
-        - OpenSolaris Books:
-                - 'Book Index': books/index.md
-                - 'Basic Administration': books/basic.md
-                - 'Advanced Administration': books/advanced.md
-                - 'Solaris Express Administration': books/express.md
-                - 'Trusted Extensions Administration': books/trusted.md
-                - 'Development Titles': books/develop.md
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">-</span><span class="w"> </span>Docs:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">        </span><span class="k">-</span><span class="w"> </span>&#39;OpenIndiana Code of Conduct&#39;: misc/conduct.md
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="k">-</span><span class="w"> </span>&#39;OpenIndiana FAQ&#39;: misc/faq.md
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="k">-</span><span class="w"> </span>&#39;OpenIndiana Handbook&#39;: handbook/handbook.md
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="k">-</span><span class="w"> </span>OpenSolaris Books:
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">                </span><span class="k">-</span><span class="w"> </span>&#39;Book Index&#39;: books/index.md
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">                </span><span class="k">-</span><span class="w"> </span>&#39;Basic Administration&#39;: books/basic.md
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                </span><span class="k">-</span><span class="w"> </span>&#39;Advanced Administration&#39;: books/advanced.md
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">                </span><span class="k">-</span><span class="w"> </span>&#39;Solaris Express Administration&#39;: books/express.md
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">                </span><span class="k">-</span><span class="w"> </span>&#39;Trusted Extensions Administration&#39;: books/trusted.md
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">                </span><span class="k">-</span><span class="w"> </span>&#39;Development Titles&#39;: books/develop.md
+</span></code></pre></div>
 <h2 id="visualize-your-changes-using-live-preview">Visualize your changes using live preview</h2>
 <p>To assist with the content authoring process, it may be helpful to visualize your changes using a live preview.</p>
 <ul>
@@ -822,34 +2653,36 @@ See the code snippet below for examples.</p>
 </ul>
 <p>Each time you save your changes, the site page is automatically reloaded within your web browser.</p>
 <p>To shut down the live preview web server, use <code>CTRL</code> + <code>C</code>.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-If you wish to preview your changes on a remotely networked system or on a networked mobile device such as a tablet, the site can also be served on your LAN IP address.</p>
-<p>To do so, issue the following command: <code>mkdocs serve --dev-addr=0.0.0.0:8000</code>
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you wish to preview your changes on a remotely networked system or on a networked mobile device such as a tablet, the site can also be served on your LAN IP address.</p>
+<p>To do so, issue the following command: <code>mkdocs serve --dev-addr=0.0.0.0:8000</code></p>
+</div>
+</div>
 <h2 id="running-markdown-lint-locally">Running Markdown Lint (locally)</h2>
 <p>Markdown Lint is used to check your changes for Markdown syntax errors.
 Prior to submitting a pull request (PR), please consider running Markdown Lint locally on your computer.</p>
 <p>From the root of the <code>oi-docs/</code> directory, execute the following command:</p>
-<pre><code class="bash">mdl -s markdownlint-rules.rb .
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>mdl<span class="w"> </span>-s<span class="w"> </span>markdownlint-rules.rb<span class="w"> </span>.
+</span></code></pre></div>
 <p>Markdown Lint will automatically traverse the entire folder structure looking for problems.
 Alternately you may also run <code>mdl</code> on a specific file.
 Simply replace the period (.) with the path to the file.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-Before you can run <code>mdl</code>, it may be necessary to modify your <code>$PATH</code> variable:
-see “<a href="#install-markdown-lint-mdl">Install Markdown Lint</a>” above.
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before you can run <code>mdl</code>, it may be necessary to modify your <code>$PATH</code> variable:
+see “<a href="#install-markdown-lint-mdl">Install Markdown Lint</a>” above.</p>
+</div>
+</div>
 <h2 id="generating-pdfs-locally">Generating PDFs (locally)</h2>
 <p>Pandoc (via XeLaTex) is used to create PDF versions of pages.
 The <code>makepdf.sh</code> bash script automatically moves through a subset of the docs directories creating a PDF for every Markdown file.
 Prior to submitting a pull request (PR), please consider running the Pandoc PDF generation script locally on your computer to ensure no Pandoc incompatibilities have been introduced.</p>
 <p>To convert multiple pages to PDF, execute the following command from the root of the <code>oi-docs/</code> directory:</p>
-<pre><code class="bash">./makepdf.sh
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>./makepdf.sh
+</span></code></pre></div>
 <p>This will produce PDF versions (placed in <code>oi-docs/pdf/</code>) of most of the doc pages.
 Not all pages are suitible for conversion yet, some contain incompatible HTML which needs to be fixed before they can be converted.</p>
 <p>To convert a single file, the <code>-f</code> option can be used.
@@ -860,12 +2693,14 @@ Currently the only other option is 'opensolaris' which produces PDFs in the styl
 <p>The formatting and restyling required for the PDFs is configured with files in the <code>pandoc/</code> folder of the root directory.
 Each style uses a pair of files, a <code>.yaml</code> file to specifiy Pandoc settings &amp; LaTex/XeLaTex headers and a <code>.lua</code> Lua script to apply formatting to the Pandoc native representation (AST).
 For more information on Pandoc, see the <a href="https://pandoc.org/MANUAL.html">official Pandoc Manual</a>.</p>
-<p><i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i> <strong>CAUTION:</strong>
-<div class="well">
-Inline HTML is not supported by Pandoc for PDF output and is not rendered at all in PDFs produced.
+<div class="caution">
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
+<p>Inline HTML is not supported by Pandoc for PDF output and is not rendered at all in PDFs produced.
 Ensure that you only use Markdown in your edits.
-The only exception is for the mkdocs <code>div</code> elements used to create these 'Note' breakouts - support for these has been manually programmed into the Pandoc lua filters.
-</div></p>
+The only exception is for the mkdocs <code>div</code> elements used to create these 'Note' breakouts - support for these has been manually programmed into the Pandoc lua filters.</p>
+</div>
+</div>
 <h2 id="enabling-spell-checking-in-vim">Enabling spell checking in vim</h2>
 <p>You can invoke spell checking in your current session by inputting the command:</p>
 <p><code>:set spell spelllang=en_us</code></p>
@@ -881,12 +2716,11 @@ The only exception is for the mkdocs <code>div</code> elements used to create th
 <li><code>zw</code> is used to mark a word as incorrect.</li>
 </ul>
 <h2 id="commit-and-push-your-changes">Commit and push your changes.</h2>
-<pre><code class="bash">git status
-git add some-file-you-just-edited
-git commit -m 'your commit message'
-git push
-</code></pre>
-
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>status
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>git<span class="w"> </span>add<span class="w"> </span>some-file-you-just-edited
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;your commit message&#39;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>git<span class="w"> </span>push
+</span></code></pre></div>
 <p>When you make a commit, you are committing those changes locally to your clone.
 When you perform a push, your are pushing your commits from your local clone to your fork residing on Github.</p>
 <h2 id="send-a-pull-request">Send a pull request.</h2>
@@ -900,91 +2734,123 @@ When you perform a push, your are pushing your commits from your local clone to 
 <li>Submit your PR (pull request).</li>
 </ul>
 <p>Pull requests are used to request a <em>pull in</em> of changes from your fork to the master repository.</p>
-<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong>
-<div class="well">
-After a pull request has been submitted, and for the duration of time your pull request remains open and uncommitted to the OI-DOCS master repository, any additional commits you make to your own fork of the oi-docs repository will automatically be included in your open pull request.
-</div></p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After a pull request has been submitted, and for the duration of time your pull request remains open and uncommitted to the OI-DOCS master repository, any additional commits you make to your own fork of the oi-docs repository will automatically be included in your open pull request.</p>
+</div>
+</div>
 <h2 id="what-happens-next">What happens next?</h2>
 <p>At this point a member of the OpenIndiana Project docs team will review your changes.
 If no corrections are required, your changes will be accepted and merged into the upstream repository.</p>
-<p>Upon commit, publishing occurs automatically using Travis-CI.</p></div>
-        </div>
+<p>Upon commit, publishing occurs automatically using Travis-CI.</p>
 
-        <footer class="col-md-12">
-            <hr>
-                <p>Copyright &copy; 2021 <a href="https://www.openindiana.org">The OpenIndiana Project</a></p>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js" defer></script>
-        <script src="../../search/main.js" defer></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-            </div>
-            <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
-                <form role="form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2016-06-11 03:01:03</span>
+      
+    
+  </small>
 </div>
 
-    </body>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../content/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Content Creation" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Content Creation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../tools/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributor Tools" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Contributor Tools
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://www.openindiana.org">The OpenIndiana Project</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "content.action.edit", "content.code.copy"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
 </html>
