@@ -17,18 +17,15 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
+# Network Communications
 
-# Hipster Handbook - Network Communications
+<div class="note" markdown="1">
+!!! note
+    This is a **DRAFT** document which may contain errors!
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This is a **DRAFT** document which may contain errors!
+    Help us improve and expand this site.
 
-Help us improve and expand this site.
-
-Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
-
+    Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 </div>
 
 < Place holder for Introduction content >
@@ -63,9 +60,9 @@ Firewalls are used to filter network traffic based on rules set by the system ad
 
 OpenIndiana comes with built-in firewall, IP Filter. IP Filter is the stateful packet filtering and network address translation (NAT) mechanism. IP filter can filter any kind of traffic based on source or destination IP address or pool of IP addresses, source or destination ports, interface or direction of the network traffic. OpenIndiana IP Filter is derived from open source IPFilter software.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-To manage IP Filter rules one must assume a role that includes IP Filter Management profile rights or superuser (**root**).
+<div class="note" markdown="1">
+!!! note
+    To manage IP Filter rules one must assume a role that includes IP Filter Management profile rights or superuser (**root**).
 </div>
 
 ### IP Filter configuration
@@ -157,9 +154,9 @@ Assuming we have an external IP address 10.0.0.1/24 on interface eg1000 and an i
 
 `map eg1000 192.168.0.0/24 -> 10.0.0.1/24`
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-NAT is not usable with IPv6 IP filter as NAT is deprecated in IPv6. NAT can be only used with IPv4 addresses.
+<div class="note" markdown="1">
+!!! note
+    NAT is not usable with IPv6 IP filter as NAT is deprecated in IPv6. NAT can be only used with IPv4 addresses.
 </div>
 
 ## Advanced Networking
@@ -182,25 +179,25 @@ OpenIndiana provides several ways to share data with network clients.
 | SAMBA | Modern userland based SMB file sharing solution providing support for newer SMB protocols (SMB 2.1) and better compatibility with modern Windows clients.
 | NFS | The Network File System was originally developed by Sun Microsystems.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-For a variation of configuring a home NAS - this could be done virtually as well
+    For a variation of configuring a home NAS - this could be done virtually as well
 
-* Running OI as a VMware EXSI guest
-    * Local storage hardware is passed through to the OI guest and then shared via ISCSI, CIFS, NFS, etc.
+    * Running OI as a VMware EXSI guest
+        * Local storage hardware is passed through to the OI guest and then shared via ISCSI, CIFS, NFS, etc.
 
-For help writing this section, see the following OpenSolaris references:
+    For help writing this section, see the following OpenSolaris references:
 
-* [Setting Up an OpenSolaris NAS Box](https://web.archive.org/web/20091008234550/http://developers.sun.com/openstorage/articles/opensolaris_nas.html)
-* [Getting Started With the Solaris CIFS Service](https://web.archive.org/web/20091005070838/http://wiki.genunix.org/wiki/index.php/Getting_Started_With_the_Solaris_CIFS_Service)
-* [How to enable guest access to a Solaris CIFS share](https://web.archive.org/web/20091021005616/http://blogs.sun.com/afshinsa/entry/how_to_enable_guest_access)
-* [Solaris CIFS Service Troubleshooting](https://web.archive.org/web/20091126111451/http://wiki.genunix.org/wiki/index.php/Solaris_CIFS_Service_Troubleshooting)
-* [What's New With Solaris CIFS](https://web.archive.org/web/20091124124935/http://wiki.genunix.org/wiki/index.php/What's_New_With_Solaris_CIFS)
-* [CIFS Technical References](https://web.archive.org/web/20090725231658/http://wiki.genunix.org/wiki/index.php/CIFS_Technical_References)
+    * [Setting Up an OpenSolaris NAS Box](https://web.archive.org/web/20091008234550/http://developers.sun.com/openstorage/articles/opensolaris_nas.html)
+    * [Getting Started With the Solaris CIFS Service](https://web.archive.org/web/20091005070838/http://wiki.genunix.org/wiki/index.php/Getting_Started_With_the_Solaris_CIFS_Service)
+    * [How to enable guest access to a Solaris CIFS share](https://web.archive.org/web/20091021005616/http://blogs.sun.com/afshinsa/entry/how_to_enable_guest_access)
+    * [Solaris CIFS Service Troubleshooting](https://web.archive.org/web/20091126111451/http://wiki.genunix.org/wiki/index.php/Solaris_CIFS_Service_Troubleshooting)
+    * [What's New With Solaris CIFS](https://web.archive.org/web/20091124124935/http://wiki.genunix.org/wiki/index.php/What's_New_With_Solaris_CIFS)
+    * [CIFS Technical References](https://web.archive.org/web/20090725231658/http://wiki.genunix.org/wiki/index.php/CIFS_Technical_References)
 
-Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf)
+    Also have a look at the [OpenSolaris CIFS Administration Guide](https://docs.oracle.com/cd/E19120-01/open.solaris/820-2429/820-2429.pdf)
 </div>
 
 

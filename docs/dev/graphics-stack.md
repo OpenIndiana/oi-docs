@@ -14,8 +14,6 @@ Portions created by Alexander Pyhalov are Copyright (C) 2019.
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Graphics stack
 
 Like most UNIX/Linux operating systems, OpenIndiana's GUI environment is based on

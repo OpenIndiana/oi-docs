@@ -14,9 +14,7 @@ Contributor(s): David Stes.
 
 -->
 
-<img src = "../../../Openindiana.png">
-
-# Hipster Handbook - Vagrant
+# Vagrant Installation
 
 The following notes document the steps to install Vagrant on OpenIndiana Hipster.
 

@@ -343,20 +343,20 @@ do_conversion_pdf()
 
         
         if [ "$this_style" == "opensolaris" ]; then
-                $(pandoc --pdf-engine=xelatex \
-                         --lua-filter $OLDPWD/pandoc/filter-sb.lua \
-                         --metadata-file $OLDPWD/pandoc/config-sb.yaml \
-                         -o $this_output $this_basename".md")
+                this_suffix="sb"
         elif [ "$this_style" == "web" ]; then
-                $(pandoc --pdf-engine=xelatex \
-                         --lua-filter $OLDPWD/pandoc/filter-web.lua \
-                         --metadata-file $OLDPWD/pandoc/config-web.yaml \
-                         -o $this_output $this_basename".md")
-        
-        else
-                echo "ERROR: can only process one of these styles: opensolaris or web"
-                exit 1
+                this_suffix="web"
         fi
+
+        # sed required to remove '!!!' annotation and indentation from note/warning blocks
+        # This needs to be done prior to processing by Pandoc because it otherwise treats the
+        # indentation as a code block and this cannot be reversed internally in Pandoc
+        $(sed -E '/^!!! .*$/d ; s/^    (.*)$/\1/' \
+                $this_basename".md" | \
+        pandoc --pdf-engine=xelatex \
+                --lua-filter $OLDPWD/pandoc/filter-$this_suffix.lua \
+                --metadata-file $OLDPWD/pandoc/config-$this_suffix.yaml \
+                -o $this_output)
 }
 
 
@@ -420,6 +420,8 @@ is_dir_valid()
         is_dir_valid_result="False"
 
         if [ -d "$indir" ]; then
+                is_dir_valid_result="True"
+        elif [ -d "./docs/$in_dir" ]; then
                 is_dir_valid_result="True"
         fi
 }
@@ -629,7 +631,7 @@ main ()
                                 fi
                                 $(do_conversion $file_basename $root_dir $this_path $outformat $outstyle)
                                 if [ "$?" -ne "0" ]; then
-                                        echo "ERROR: severe error. Could not get current path"
+                                        echo "ERROR: severe error. PDF Generation Failed for: $file_basename.md"
                                         clean_up
                                         exit $?
                                 fi

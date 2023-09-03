@@ -21,9 +21,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 Some notes for installation and use of Storage Archive Manager on OpenIndiana Hipster.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This configuration is not supported by OI nor by Oracle.
+<div class="note" markdown="1">
+!!! note
+    This configuration is not supported by OI nor by Oracle.
 </div>
 
 ## SamFS versus QFS

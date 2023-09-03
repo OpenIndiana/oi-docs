@@ -17,23 +17,22 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
-# Hipster Handbook - Sun Ray Software
+# Sun Ray Software
 
 Some notes for installation of Sun Ray Software on OpenIndiana Hipster.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This configuration is not supported by OI nor by Oracle.
+<div class="note" markdown="1">
+!!! note
+    This configuration is not supported by OI nor by Oracle.
 </div>
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.
 
-Limitations:
+<div class="note" markdown="1">
+!!! note
+    Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.
 
-Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.
+    Limitations:
+
+    Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.
 </div>
 
 ## Install
@@ -398,13 +397,13 @@ and release the version locks:
 # pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
 ```
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-On IPS there are meta-packages which define package dependencies of `type=incorporate`, which means:
+<div class="note" markdown="1">
+!!! note
+    On IPS there are meta-packages which define package dependencies of `type=incorporate`, which means:
 
-If a package will installed, it have to have the version defined in the incorporate dependency.
+    If a package will installed, it have to have the version defined in the incorporate dependency.
 
-We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.
+    We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.
 </div>
 
 ## Install on current Hipster (2022)
@@ -432,10 +431,9 @@ For this to work add this publisher in a way, that it takes precedence over the 
 
 and install all packages from sunray publisher.
 
-
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-The version locks of the gnome packages have to relaese like decribed in [update older Hipster](#update-older-hipster).
+<div class="note" markdown="1">
+!!! note
+    The version locks of the gnome packages have to relaese like decribed in [update older Hipster](#update-older-hipster).
 </div>
 
 ### Install from Hipster (2019)

@@ -13,8 +13,6 @@ Portions created by Alexander Pyhalov are Copyright (C) 2019.
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Using distribution constructor
 
 Distribution constructor allows you to build OpenIndiana installation images (iso and usb).

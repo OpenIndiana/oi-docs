@@ -17,17 +17,15 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../../Openindiana.png">
-
-# Hipster Handbook - Installing Oracle Databases (Native or Vagrant)
+# Installing Oracle Databases (Native or Vagrant)
 
 Originally contributed by OpenIndiana community member Franklin Ronald, Franklin Ronald's article details the steps required for the native installation of Oracle Database 11R2 on OpenIndiana Hipster.  Alternatively it is possible to run Oracle RAC or any other Oracle Database software using VirtualBox and Vagrant.
 
 Link to PDF Document: [How to Install Oracle Database 11R2 on OpenIndiana Hipster](../pdf/HowToInstallOracleDB.pdf)
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-It is not recommended to run Oracle Database on OpenIndiana in a production environment. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of the Installing 11R2 on OI article is to install the Oracle Database for use in a development environment.
+<div class="note" markdown="1">
+!!! note
+    It is not recommended to run Oracle Database on OpenIndiana in a production environment. Oracle has a restricted list of supported operating systems and unfortunately OpenIndiana is not in it. The purpose of the Installing 11R2 on OI article is to install the Oracle Database for use in a development environment.
 </div>
 
 For development purposes it is also possible to setup Oracle Database 18, 19 and 21.3 using Vagrant.  See the Vagrant documentation for more information.
