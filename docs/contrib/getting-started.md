@@ -102,9 +102,10 @@ This is not necessary on OpenIndiana.
 ### Install mkdocs
 
 For OpenIndiana Hipster, MKDocs and all of it's dependencies have been packaged and are available in the OI Hipster repository.
-So, if you're already running Hipster, installing MKDocs is as simple as: `pkg install mkdocs`
+So, if you're already running Hipster, installing MKDocs is as simple as: `pkg install mkdocs`.
+However, the MKDocs Material theme may need to be installed additionally using `pip`.
 
-* Most other operating systems: `pip install mkdocs mkdocs-bootswatch`
+* Most other operating systems: `pip install mkdocs-material`
 
 After MKDocs has been installed, be sure to verify your installation with `mkdocs --version`
 
