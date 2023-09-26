@@ -81,18 +81,12 @@ if FORMAT:match 'latex' then
       local cautionBegin = pandoc.RawBlock('latex', "\\begin{adjustwidth}{1.2em}{0pt}{\\Large \\textbf{Caution}}")
       local noteEnd = pandoc.RawBlock('latex', "\\end{adjustwidth}")
       while i <= #blocks do
-        if (blocks[i].t == "Div" and blocks[i].classes[1] == "well" and blocks[i-1].t == "Plain" and blocks[i-1].content[1].t == "RawInline") then
-          if (blocks[i-1].content[1].text == "<i class=\"fa fa-info-circle fa-lg\" aria-hidden=\"true\">" and blocks[i-1].content[4].content[1].text == "NOTE:") then
-            table.remove(blocks,i-1)
-            i = i - 1
-            table.insert(blocks[i].content,1,noteBegin)
-            table.insert(blocks[i].content,noteEnd)
-          elseif (blocks[i-1].content[1].text == "<i class=\"fa fa-exclamation-triangle fa-lg\" aria-hidden=\"true\">" and blocks[i-1].content[4].content[1].text == "CAUTION:") then
-            table.remove(blocks,i-1)
-            i = i - 1
-            table.insert(blocks[i].content,1,cautionBegin)
-            table.insert(blocks[i].content,noteEnd)
-          end
+        if (blocks[i].t == "Div" and (blocks[i].classes[1] == "note" or blocks[i].classes[1] == "info")) then
+          table.insert(blocks[i].content,1,noteBegin)
+          table.insert(blocks[i].content,noteEnd)
+        elseif (blocks[i].t == "Div" and (blocks[i].classes[1] == "warning" or blocks[i].classes[1] == "caution")) then
+          table.insert(blocks[i].content,1,cautionBegin)
+          table.insert(blocks[i].content,noteEnd)
         end
         i = i + 1
       end

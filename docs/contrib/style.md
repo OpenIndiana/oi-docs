@@ -16,18 +16,16 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Contributor Style Guide
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This document is a work in progress.
-Help us make it grow.
+<div class="note" markdown="1">
+!!! note
+    This document is a work in progress.
+    Help us make it grow.
 
-Until then, you may find the following resource helpful:
+    Until then, you may find the following resource helpful:
 
-* [Documentation Style Guide for OpenSolaris](https://web.archive.org/web/20081207155129/http://opensolaris.org/os/community/documentation/files/OSOLDOCSG.pdf) - Internet Archive - PDF (270 pages)
+    * [Documentation Style Guide for OpenSolaris](https://web.archive.org/web/20081207155129/http://opensolaris.org/os/community/documentation/files/OSOLDOCSG.pdf) - Internet Archive - PDF (270 pages)
 </div>
 
 ## Style recommendations

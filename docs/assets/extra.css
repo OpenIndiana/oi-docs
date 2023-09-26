@@ -1,0 +1,25 @@
+.center {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #eee;
+}
+
+.box {
+  background-color: #eee;
+  color: #000;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.box h3 {
+  padding: 0;
+  margin: 0;
+}

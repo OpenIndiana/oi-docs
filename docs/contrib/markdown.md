@@ -16,8 +16,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Markdown Syntax Guide
 
 ### Italics and bold text
@@ -33,15 +31,12 @@ _This is italic text_
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 This is plain text
 
 _This is italic text_
 
 **This is bold text**
-
-</div>
 
 
 ### Headers
@@ -63,7 +58,6 @@ In this simple example you can see some headers have less hashes then others.
 The more hashes added, the smaller the header will be, for example.
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 <h1>First level header</h1>
 <h2>Second level header</h2>
@@ -71,8 +65,6 @@ The more hashes added, the smaller the header will be, for example.
 <h4>Fourth level header</h4>
 <h5>Fifth level header</h5>
 <h6>Sixth level header</h6>
-
-</div>
 
 
 ### Ordered lists
@@ -88,14 +80,10 @@ Ordered or numbered lists are fairly simple to do in markdown.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 1. First item
 2. Second item
 3. Third item
-
-</div>
-
 
 ### Unordered lists
 
@@ -111,13 +99,10 @@ in specific steps.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 * this
 * is
 * unordered
-
-</div>
 
 
 ### Nested lists
@@ -132,14 +117,11 @@ in specific steps.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 * Markdown lists are:
     * awesome
     * amazing
     * really cool
-
-</div>
 
 
 ### Tables
@@ -154,14 +136,11 @@ in specific steps.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 | Table Header 1 | Table Header 2
 | --- | ---
 | Row 1, Column 1 | Row 1, Column 2
 | Row 2, Column 1 | Row 2, Column 2
-
-</div>
 
 
 ### External URL's
@@ -177,15 +156,12 @@ or (bare url's)
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 [The OpenIndiana Website](http://www.openindiana.org)
 
 or (bare url's)
 
 <http://www.openindiana.org>
-
-</div>
 
 
 ### Internal URL's
@@ -203,13 +179,11 @@ You can even target a specific section of the document.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 [The OpenIndiana Handbook - getting started](../handbook/getting-started.md)
 
 [Handbook - Appendix - Finding Help and Support](../handbook/appendix.md#finding-help-and-support)
 
-</div>
 
 ### Images
 
@@ -226,7 +200,6 @@ Specify the relative path to the image, just like an internal URL.
 ![openindiana logo](../Openindiana.png)
 
 
-
 ### Block quotes
 
 **Markdown Code** <i class="fa fa-code fa-lg" aria-hidden="true"></i>
@@ -237,12 +210,9 @@ Specify the relative path to the image, just like an internal URL.
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 > This is a block quote.
 > And here is the 2nd line of the quote.
-
-</div>
 
 
 ### Code blocks
@@ -278,11 +248,9 @@ In-line code is delineated with a single backtick mark at each end of the text.
 
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 Here is some plain Markdown followed by `a section of in-line code`.
 
-</div>
 
 ### In-line HTML
 
@@ -323,15 +291,12 @@ Comments are primarily for internal use by members of the OpenIndiana documentat
 ```
 
 **Rendered HTML** <i class="fa fa-html5" aria-hidden="true"></i>
-<div class="well">
 
 | Item | Description
 | --- | ---
 | Item 1 | This is a single line description
 | Item 2 | This is a multi line description with an unordered list:<ul><li>First item</li><li>Second item</li></ul>Lets add another paragraph to that.</p> And here it is.
 | Item 3 | We can also use multiple sentences within tables. Here is the second sentence. And here is a third.
-
-</div>
 
 
 #### Bootstrap elements

@@ -11,13 +11,11 @@ All Rights Reserved.
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Cleaning up OpenIndiana repository
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This is an internal document provided mostly for OpenIndiana maintainers
+<div class="note" markdown="1">
+!!! note
+    This is an internal document provided mostly for OpenIndiana maintainers
 </div>
 
 Due to current CI practices, OpenIndiana Hipster repository tend to bloat with old package versions.

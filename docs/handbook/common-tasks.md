@@ -17,18 +17,15 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
+# Common Tasks
 
-# Hipster Handbook - Common Tasks
+<div class="note" markdown="1">
+!!! note
+    This is a **DRAFT** document which may contain errors!
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This is a **DRAFT** document which may contain errors!
+    Help us improve and expand this site.
 
-Help us improve and expand this site.
-
-Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
-
+    Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 </div>
 
 < place holder for introduction content >
@@ -100,23 +97,22 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 
 ### How can the desktop be modified?
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* Gnome or (MATE) walkthrough
-* Appearance applet
-    * Enabling Compiz
-    * Configuring font anti-aliasing
-    * Desktop backgrounds
+    * Gnome or (MATE) walkthrough
+    * Appearance applet
+        * Enabling Compiz
+        * Configuring font anti-aliasing
+        * Desktop backgrounds
 
-In regards to the default terminal emulator, see: <https://www.illumos.org/issues/7525>
+    In regards to the default terminal emulator, see: <https://www.illumos.org/issues/7525>
 
-* we introduce mediator x-terminal-emulator for link /usr/bin/x-terminal-emulator with possible implementations gnome-terminal, mate-terminal and xterm;
-* mate-terminal implementation has the highest priority (if it is installed, by default it wins);
-* glib is modified to use link /usr/bin/x-terminal-emulator if it's found for running applications with Terminal=true.
+    * we introduce mediator x-terminal-emulator for link /usr/bin/x-terminal-emulator with possible implementations gnome-terminal, mate-terminal and xterm;
+    * mate-terminal implementation has the highest priority (if it is installed, by default it wins);
+    * glib is modified to use link /usr/bin/x-terminal-emulator if it's found for running applications with Terminal=true.
 </div>
-
 
 ## Multimedia - Audio
 
@@ -125,55 +121,47 @@ In regards to the default terminal emulator, see: <https://www.illumos.org/issue
 
 ## Multimedia - Video
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* How to get OI to play a DVD
-* How to get flash player installed and working.
-* How to get VLC installed and working.
-* Totem (video player)
-
+    * How to get OI to play a DVD
+    * How to get flash player installed and working.
+    * How to get VLC installed and working.
+    * Totem (video player)
 </div>
-
 
 ### Using OpenIndiana as a media server, HTPC, etc.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* <http://forum.kodi.tv/showthread.php?tid=44315&page=2>
-* <https://web.archive.org/web/20180822163548/http://lightsandshapes.com/plex-on-smartos.html>
-
+    * <http://forum.kodi.tv/showthread.php?tid=44315&page=2>
+    * <https://web.archive.org/web/20180822163548/http://lightsandshapes.com/plex-on-smartos.html>
 </div>
-
 
 ## Printing
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* OI uses CUPS as the primary print system.
-* GNOME print manager (`system-config-printer`)
+    * OI uses CUPS as the primary print system.
+    * GNOME print manager (`system-config-printer`)
 
-See the additional information about printing in contrib/topics.md
-Also see the deprecation comments in the OSOL printing guide.
-
+    See the additional information about printing in contrib/topics.md
+    Also see the deprecation comments in the OSOL printing guide.
 </div>
-
 
 ## Graphics workstation
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* GIMP
-
+    * GIMP
 </div>
-
 
 ## Desktop Publishing system, Etc.
 

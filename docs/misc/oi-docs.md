@@ -16,8 +16,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # About OpenIndiana Docs
 
 This website and its content uses a number of different technologies:
@@ -68,7 +66,7 @@ The OI-DOCS website can be navigated in several ways:
 * Using the full text search function found in the top navigation bar.
 
 <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
+<div class="card card-body bg-light">
 The table of contents lists top level sectional titles only.
 
 To find lower level sectional titles, or to search for topics by keyword, please use the full text search function of the website.

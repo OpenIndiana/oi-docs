@@ -17,9 +17,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
-# Hipster Handbook - System Administration
+# System Administration
 
 Once OpenIndiana has been installed, the system will require monitoring to
 ensure smooth operation. Software will periodically have to be updated,
@@ -485,9 +483,9 @@ Refer to the original documentation from Oracle for getting this working: [nss_a
 - Pro: Fully integrated and native tools only
 - Cons: Requires installation of additional role services (IDMU, Identity Management for UNIX) on the Active Directory side
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on configuration of Windows Server 2008 Active Directory to work with OI. As of 2021, Windows Server 2008 is EoL. This section should not be migrated until it has been checked and updated for recent Windows. Ideally this information should be on a separate page (potentially community contributions) as it’s large and contains a lot of Windows information.
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on configuration of Windows Server 2008 Active Directory to work with OI. As of 2021, Windows Server 2008 is EoL. This section should not be migrated until it has been checked and updated for recent Windows. Ideally this information should be on a separate page (potentially community contributions) as it’s large and contains a lot of Windows information.
 </div>
 
 #### winbind
@@ -495,9 +493,9 @@ On the Wiki the 'Kerberos and LDAP' page was a separate detailed article on conf
 - Pro: Easy setup, no AD modification
 - Cons: Depends on 3rd party software (Samba), group membership resolution didn't work
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-As above note, the 'winbind' page was a separate detailed article which needs to be checked and updated before it's migrated.
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    As above note, the 'winbind' page was a separate detailed article which needs to be checked and updated before it's migrated.
 </div>
 
 ## Management of System Resources
@@ -581,6 +579,360 @@ onto the system before changing the run-level.
    process is not interrupted by system prompts requiring user-interactive
    intervention.
 
+## Service Management Facility
+
+Services are an extension to processes.
+The administration of services is carried out on OpenIndian using *Service Management Facility*, commonly known as *SMF*.
+
+As application become more complex, their demands on system resources and peripheral resource increase.
+Modern applications often require more resource to provide more services.
+Resources such as an internet connection, a web server running in the background, a databank up and running in an appropriate state or mode of operation are increasingly found to be the prerequisite of modern applications.
+Although the application may provide users with a single service, the application might require many processes before it can itself run.
+
+To provide some system functionality, more than one process is required and some of these processes might depend on other processes.
+A modern application that provides some functionality might require a group of interrelated processes.
+We would like to start, stop, analyse, diagnose, in other words, manage the group as a single unit.
+We refer to such a unit as a *service* and the mechanism of providing this on OpenIndiana as *Service Management Facility*.
+
+SMF was originally developed to improve limitations of the old startup mechanism of the Solaris operating system using scripts known as `init.d`.
+
+ **Service Management Framework on OI** | **Purpose**
+ ---------------------------------------|-----------------------------
+ [smf(7)](https://illumos.org/man/7/smf)| Service Management Facility
+
+A service is a definition of how a service should be started while a service instance is a precise configuration.
+Some services can have multiple instances whereas others are defined to be a singleton.
+
+Each service instance can be identified by a FMRI which uniquely defines each instance, which is why the SMF commands use FMRIs to identify services.
+A SMF FMRI is composed of three sections, the sections are delimited by a colon:
+
+```bash
+    service resource:service name:service instance
+```
+
+FMRIs are found in various areas: software packages, ZFS, etc., and the first part denotes this area or *scheme*.
+For software packages the scheme is  `pkg:`, while for services the scheme is `svc`.
+
+Many commands use the FMRI to identify service instances, but it is not the only way of specifying a service instance to the commands.
+In this manual, nomenclature is simplified as `[service]` as a unique identification of a service.
+
+- [Opensolaris documentation](https://dlc.openindiana.org/docs/osol/20090715/IMGPACKAGESYS/html/index.html)
+
+
+### SMF Basic Commands
+
+ | **Command** | **Purpose**                                  |
+ |-------------|------------------------------------------|
+ | [svcs(1)](https://illumos.org/man/8/mpstat)     | display information about services       |
+ | [svcadm(7)](https://illumos.org/man/7/scvadm)   | manage services (enable/disable, ...)    |
+ | [svccfg(8)](https://illumos.org/man/8//svccfg)   | configure services                       |
+ | [svcprop(1)](https://illumos.org/man/1/svcprop)  | display service configuration properties |
+ | [inetadm(8)](https://illumos.org/man/8/inetadm)  | initialise service managed by `inetd`      |
+ | [inetconv(8)](https://illumos.org/man/8/inetconv) | convert `inetd` service to smf services    |
+
+Use of the SMF commands require relevant privileges.
+The following RBAC profiles can be made available to all a user to become a SMF administrator:
+
+ | **RBAC profile**   | **Purpose**                                        |
+ |--------------------|----------------------------------------------------|
+ | Service Management | manage services. A service manager can manipulate any service in any way|
+ | Service Operator   | administer services. A service operator can enable or disable any service.|
+
+Further details: [smf_security(7)](https://illumos.org/man/7/smf_security)
+
+#### svcs
+
+This command is used to display services and their relevant status.
+It is also used to provide a list of services that depend on a service, and it can also display a list of services that a service requires to operate.
+
+All services generate log files and the location of a log file associated with a service can be obtained using this command.
+A list of processes requirred by a service can be displayed using this command.
+
+*Usage*: `svcs [options] [FMRI]`
+
+| **Option**     | **Information to Display**                     |
+|----------------|------------------------------------------------|
+|                | enabled services                               |
+| `?`            | detailed help                                  |
+| `a`            | all services                                   |
+| `d [service]`  | services that this service requires            |
+| `D [service]`  | services that require this service             |
+| `l [service]`  | verbose information on service                 |
+| `L [service]`  | log file associated with service               |
+| `o column,...` | various information as defined by *columns*    |
+| `p [service]`  | processes associated with service              |
+| `x`            | details on services that are enabled but not running or prevent other services |
+|                | from running |
+| `v`            | more verbose output for some options           |
+| `z [zone]`     | services in `zone`                             |
+
+* **service:** to specify a service use the FMRI, an FRMI instance or a FMRI pattern. Obtain a list of service FMRIs via `-o FMRI`.
+  * **column:** comma separated column names
+     * **desc:**: description of service
+     * **fmri:**: Fault Management Resource Identifier
+     * **inst:**: service instance
+     * **svc:**: name of service
+     * **state:**: service state: uninitialised, offline, online, maintenance, disabled, degraded
+
+##### Examples
+
+**List services and their status**
+
+```bash
+    svcs
+    svcs -a
+    svcs -o svc,state,desc
+```
+
+**Get printer information**
+
+```bash
+    > svcs -o svcs,desc | grep -i print
+    application/print/service-selector print service selector
+    application/cups/scheduler CUPS Print Spooler
+    > svcs -l scheduler
+    fmri         svc:/system/scheduler:default
+    name         default scheduling class configuration
+    enabled      true
+    state        online
+    next_state   none
+    state_time   March 27, 2023 at 08:03:54 AM CEST
+    logfile      /var/svc/log/system-scheduler:default.log
+    restarter    svc:/system/svc/restarter:default
+    dependency   require_all/none svc:/system/filesystem/root (online)
+
+    fmri         svc:/application/cups/scheduler:default
+    name         CUPS Print Spooler
+    enabled      true
+    state        online
+    next_state   none
+    state_time   March 27, 2023 at 08:03:57 AM CEST
+    logfile      /var/svc/log/application-cups-scheduler:default.log
+    restarter    svc:/system/svc/restarter:default
+    contract_id  42
+    dependency   require_all/none file://localhost/etc/cups/cupsd.conf (online)
+    dependency   require_all/none svc:/system/filesystem/minimal (online)
+    dependency   optional_all/error svc:/network/loopback (online)
+    dependency   optional_all/error svc:/milestone/network (online)
+```
+
+
+#### svcadm
+
+Use this command to change the status of a service: enable, disable, etc.
+
+*Usage*: `svcadm [options] [subcommand] [subcommand options] [service]`
+
+ | **options** | **purpose**                           |
+ |-------------|---------------------------------------|
+ | `v`         | verbose                               |
+ | `z [zone]`  | command applies to the zone specified |
+
+
+
+ | **subsommand** | **subcommand option** | **Purpose**                                   |
+ |--------------|--------------|-----------------------------------------------------------|
+ | `enable`       |              | enable `service` to `online` state                        |
+ |              | `r`          | enable `service`, but also recursively enable its dependencies             |
+ |              | `t`          | enabling a service as persistent, even after rebooting.   |
+ |              |              | This option enables the service *only temporarily* until the next  |
+ |              |              | system boot                                      |
+ | `disable`      |              | disable `service`  to `offline` state                     |
+ |              | `c`          | add a comment which can be viewed by `svcs`               |
+ |              | `t`          | disable service *temporarily*. The service will be enabled on ensuing boots       |
+ | `restart`      |              | restart `service`                                         |
+ | `refresh`      |              | re-read service configuration, so                         |
+ |              |              | any configuration changes will take effect after a service `restart` |
+  | `clear`        |              | for a service in a *maintenance* state, signal the        |
+ |              |              | service as repaired.                                      |
+ |              |              | for a service in a *degraded* state, attempt to bring the service online|
+
+
+##### Examples
+
+**Restart a service**
+
+```bash
+    $ date
+    XXXXX, 2023 at 03:26:50 PM CEST
+    # svcadm restart application/cups/scheduler
+    # svcs -l application/cups/scheduler | grep state_time
+    XXXXX, 2023 at 03:27:02 PM CEST
+```
+
+First, we check the system time which is 3:26:30 PM.
+We then restart the CUPS printer scheduler, then check the status of the service using `-l` and extract the service property `stat_time` to obtain the time at which the service became online.
+
+#### svccfg
+
+This command is used to manage service configurations.
+
+*Usage*: `svccfg [options] -s [FMRI]`
+
+#### svcprop
+
+This is used to retrieve service instance properties.
+It is also used to snapshots.
+It can also be used to validate the existence of a property.
+
+| **options** | **purpose**                           |
+|-------------|---------------------------------------|
+| `[service]`   | display all properties of `service`   |
+| `v`         | verbose                               |
+| `z [zone]`  | command applies to the zone specified |
+
+Refer to the manual page for details: [scvprop(1)](https://illumos.org/man/1/svcprop)
+
+
+#### inetadm
+
+#### inetconv
+
+### Troubleshooting
+
+#### Basic Strategy
+
+Here is general methodology intended as an introduction in how to resolve a service that fails.
+
+```bash
+    svcs -xv
+```
+
+This command provides the following information:
+- a possible reason for the failure
+- location of the log file associated with the service
+- references for further reading
+
+Analysis during this step will frequently suffice to resolve your issue.
+However, this is not alway the case.
+
+```bash
+    svcs -d FMRI
+```
+
+This command provides a list of services that the failed service requires.
+The failed service might be failing due to a service that it depends on not operating appropriately, although its status is online and it *appears* to function correctly.
+
+```bash
+    svcs -l FMRI
+```
+
+While this command provides similar information provided by the first command, this command will also provide information on services that are online and but might exhibit dubious behaviour.
+This command will provide information similar to the first command.
+
+```bash
+    svcs -d FMRI
+```
+
+Should analysis of the previous commands not be sufficient to resolve the issue, examination of the processes associated with suspicioous service might be necessary.
+Use this command to list all processes associated with the service.
+Use the tools from the previous section, System Monitoring, to scrutinise each process listed.
+
+##### Examples
+
+To illustrate troubleshooting, we manipulate a service by removing a dependency:
+
+- move a dependency file `/etc/cups/cupsd.conf`
+- `refresh` and `restart` the service
+- Use SMF commands in an attempt to reveal the cause of the failure
+
+```bash
+    # svcs -l svc:/application/cups/scheduler:default
+    fmri         svc:/application/cups/scheduler:default
+    name         CUPS Print Spooler
+    enabled      true
+    state        online
+    next_state   none
+    state_time   XXXXX XX, 2023 at 09:18:13 AM CEST
+    logfile      /var/svc/log/application-cups-scheduler:default.log
+    restarter    svc:/system/svc/restarter:default
+    contract_id  42
+    dependency   require_all/none file://localhost/etc/cups/cupsd.conf (online)
+    dependency   require_all/none svc:/system/filesystem/minimal (online)
+    dependency   optional_all/error svc:/network/loopback (online)
+    dependency   optional_all/error svc:/milestone/network (online)
+```
+
+The service is `online` and is operating satisfactorily.
+
+Rename `/etc/cups/cupsd.conf`,  refresh the configuration and restart the service, will cause the service to fail:
+
+```bash
+    # mv /etc/cups/cupsd.conf /etc/cups/cupsd.conf.orig
+    # svcadm refresh svc:/application/cups/scheduler:default
+    # svcadm restart svc:/application/cups/scheduler:default
+```
+
+Obtain a list of failed services:
+
+```bash
+    # svcs -xv
+    svc:/application/cups/scheduler:default (CUPS Print Spooler)
+     State: offline since March 29, 2023 at 07:25:48 PM CEST
+    Reason: Dependency file://localhost/etc/cups/cupsd.conf is absent.
+       See: http://illumos.org/msg/SMF-8000-E2
+       See: man -M /usr/share/man -s 8 cupsd
+       See: /var/svc/log/application-cups-scheduler:default.log
+    Impact: This service is not running.
+```
+
+We always obtain a reason which in our case pinpoints the error precisely.
+This is not always the case.
+
+#### Corrupt Service Configuration: Revert to an Old Configuration
+
+SMF periodically takes snapshots of the service configuration so that it is alway possible to revert to a previous configuration.
+
+```bash
+    # List all cups services:
+    $ svcs | grep -i cups
+    legacy_run     16:33:35 lrc:/etc/rc3_d/S99cups-browsed
+    online         14:33:25 svc:/application/cups/scheduler:default
+    # list snapshots associated with the cups service
+    $ svccfg -s svc:/application/cups/scheduler:default listsnap
+    initial
+    last-import
+    running
+    start
+    # There are four snapshots available one of which is currently running.
+    # Lets suppose we had a corrupt config and would live to revert to the initial
+    # cups service configuration:
+    $ svccfg -s svc:/application/cups/scheduler:default revert initial
+    # re-read configuration
+    svcadm refresh svc:/application/cups/scheduler:default
+    svcadm restart svc:/application/cups/scheduler:default
+```
+
+
+#### Boot Failure
+
+- On the boot menu, select =3= to load boot prompt
+
+```bash
+    3. Escape to loader prompt
+```
+
+- Now boot without services by entering: `boot -m milestone=none`:
+
+```bash
+    OK boot -m milestone=none
+```
+
+- Login as root and enable all services:
+
+```bash
+    svcadm milestone all
+```
+
+- Now the system will boot and fail. So use `svcs` to determine which services are failing:
+
+
+```bash
+    svcs -a
+```
+
+#### Maintenance Mode
+
 
 ## Configuring and Tuning
 
@@ -633,10 +985,10 @@ refresh
 
 Virtual Terminals/Virtual Consoles (VT) are used to switch between terminals and using system in text mode with _Ctrl+Alt+F1,F2..F8_ key combinations.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-Switching to VTs using _Ctrl+Alt+Fn_ during current desktop session (at **VT7**) can result in **X server** and **lightdm** (or **gdm**) restarting and stopping all applications running within it.
-Currently, there could be problems with getting back to gdm/Xorg session if switching to VTs after gdm restart. Use `svcadm restart ligthdm` (or `svcadm restart gdm`) command again, to have lightdm/gdm Xorg session restarted at **VT8** (_Ctrl+Alt+F8_).
+<div class="note" markdown="1">
+!!! note
+    Switching to VTs using _Ctrl+Alt+Fn_ during current desktop session (at **VT7**) can result in **X server** and **lightdm** (or **gdm**) restarting and stopping all applications running within it.
+    Currently, there could be problems with getting back to gdm/Xorg session if switching to VTs after gdm restart. Use `svcadm restart ligthdm` (or `svcadm restart gdm`) command again, to have lightdm/gdm Xorg session restarted at **VT8** (_Ctrl+Alt+F8_).
 </div>
 
 At fresh Openindiana install, VT/Consoles are **not enabled by default**. One needs to set up vtdaemon and console-login:vt2 (till :vt6) and enable **vtdaemon** options/hotkeys property:
@@ -666,9 +1018,9 @@ The above was inspired by [this blog by Danx on Virtual Consoles](https://web.ar
 
 ### Service management (SMF)
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT: provide more detailed explanations.
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT: provide more detailed explanations.
 </div>
 
 List services:
@@ -706,13 +1058,12 @@ Restart / reload a service:
 
 ### Systems logging and monitoring
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* Where to find the logs (`/var/log`, `/var/svc/log`).
+    * Where to find the logs (`/var/log`, `/var/svc/log`).
 </div>
-
 
 ## Illumos boot process
 
@@ -725,17 +1076,16 @@ ITEMS TO WRITE ABOUT:
 
 ## Zones
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* Need to mention some of the changes to zone management...e.g..
-    * sys-unconfig gone.
-    * sysding replaced syscfg
-    * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`.
+    * Need to mention some of the changes to zone management...e.g..
+        * sys-unconfig gone.
+        * sysding replaced syscfg
+        * now have to have DNS, root password, etc. all configured inside the zone before being able to logon using `zlogin -C <zonename>`, otherwise have to do `zlogin <zonename>`.
 
-So a fair amount of stuff has changed there.
-
+    So a fair amount of stuff has changed there.
 </div>
 
 Zones are an OpenIndiana feature that provides [operating system-level virtualization](http://www.wikipedia.org/wiki/Operating_system-level_virtualization). Each zone is managed as a completely separate OpenIndiana machine. Zones have very low overhead and are one of the most efficient forms of OS virtualization.
@@ -758,8 +1108,9 @@ The global zone defines which physical networks and VLANs the NGZ has access to,
 
 A zone with an exclusive IP stack can have all the benefits of dedicated hardware networking, including a firewall, access to promiscuous sniffing, routing, configuration of its own IP address (including use of DHCP and static network addressing), etc. This requires a fully dedicated NIC. Usually this is a VNICs - a virtual adapter with own MAC address, that operate as if the VNIC was plugged directly into local LAN in a particular (or default) VLAN. Note also that the local zones with an exclusive IP stack are not subject to the host's shared-stack firewall.
 
-<div class="well">
-Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.
+<div class="note" markdown="1">
+!!! note
+    Note that if you create zone in VM, the hypervisor can require you to provide some information about its mac addresses. For example, if you configure bridged networking on VirtualBox running on OpenIndiana, you must set secondary-macs property of the VNIC, delegated to VM, to the set of mac addresses  of VNICs created inside VMs and enable promiscous mode on VirtualBox network adapter.
 </div>
 
 ### Quick Setup Example
@@ -840,8 +1191,9 @@ zonecfg:example> set autoboot=true
 
 Once zone is booted you can log in locally with `zlogin example`. If you created zone with dedicated network adapter, you should configure it inside zone.
 
-<div class="well">
-Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
+<div class="note" markdown="1">
+!!! note
+    Note, that on first zone boot sysding(1M) will set root's password to NP. Before this happened you will not be able to login to zone with zlogin, so this command will not work on early startup stage.
 </div>
 
 ### System repository configuration
@@ -855,8 +1207,10 @@ System repository service `svc:/application/pkg/system-repository`  is responsib
 Zones proxy daemon service `svc:/application/pkg/zones-proxyd` starts on system boot and registers door in each running ipkg-branded zone (the door is created at `/var/tmp/zoneproxy_door` path).
 Later, on zone startup or shutdown /usr/lib/zones/zoneproxy-adm is used to notify zones-proxyd, so that it could create the door for the zone or to cleanup it.
 Zones proxy daemon client `svc:/application/pkg/zones-proxy-client:default` runs in NGZ and talks to GZ's zones-proxyd via created door.
-<div class="well">
-Note, you can't use system repository with nlipkg-branded zones.
+
+<div class="note" markdown="1">
+!!! note
+    Note, you can't use system repository with nlipkg-branded zones.
 </div>
 
 IPS determines if it should use zones proxy client in zone based on image's `use-system-repo` property (defaults to False).
@@ -933,12 +1287,11 @@ Are you sure you want to uninstall zone example (y/[n])? y
 
 ### Mounting file systems
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* Need a walkthrough of mounting options for other filesystems...FAT, UFS, etc.
-
+    * Need a walkthrough of mounting options for other filesystems...FAT, UFS, etc.
 </div>
 
 #### Mounting and Unmounting ISO images
@@ -979,11 +1332,11 @@ pfexec lofiadm -d /dev/lofi/1
 
 #### Mounting NTFS Volumes - 3rd party support
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-For removable storage devices, first make sure your external disk drive is connected and powered on.
+<div class="note" markdown="1">
+!!! note
+    For removable storage devices, first make sure your external disk drive is connected and powered on.
 
-To list attached removable storage devices: `rmformat -l`
+    To list attached removable storage devices: `rmformat -l`
 </div>
 
 Verify the pX partition number that contains the NTFS filesystem, typically "p1", using fdisk. Even though it may seem counterintuitive, include the partition number "p0" as shown by rmformat in fdisk inquiries.
@@ -1038,157 +1391,136 @@ Here are just a few of them:
 
 ### ZFS
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-Gotcha's such as the following:
+    Gotcha's such as the following:
 
-```
-<e^ipi> don't suppose there's any solution to this:
-<e^ipi> cannot replace 1509280528045021472 with /dev/dsk/c0t5000C5009204EB9Bd0s0: devices have different sector alignment
-<tsoome> thats 512 versus non-512 sector issue
-<tsoome> you need to build new pool based on larger sector
-<tsoome> if its mirror, you can attach 512B disk to 4k pool, but not vice versa...
-<e^ipi> well, damn.
-<tsoome> that error message is too confusing, should be replaced by more clear one;)
-<e^ipi> I swear this pool is already mix & match, freebsd complained about it
-<e^ipi> (but still used it)
-<tsoome> there is that thing that ashift is vdev property;)
-<tsoome> not pool property (one reason why that linux zpool create ashift= option is bad)
-<tsoome> or sort of bad anyhow
-```
+    ```
+    <e^ipi> don't suppose there's any solution to this:
+    <e^ipi> cannot replace 1509280528045021472 with /dev/dsk/c0t5000C5009204EB9Bd0s0: devices have different sector alignment
+    <tsoome> thats 512 versus non-512 sector issue
+    <tsoome> you need to build new pool based on larger sector
+    <tsoome> if its mirror, you can attach 512B disk to 4k pool, but not vice versa...
+    <e^ipi> well, damn.
+    <tsoome> that error message is too confusing, should be replaced by more clear one;)
+    <e^ipi> I swear this pool is already mix & match, freebsd complained about it
+    <e^ipi> (but still used it)
+    <tsoome> there is that thing that ashift is vdev property;)
+    <tsoome> not pool property (one reason why that linux zpool create ashift= option is bad)
+    <tsoome> or sort of bad anyhow
+    ```
 
 </div>
-
 
 #### Importing ZFS disks
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* Talk about the ZFS import command.
-
+    * Talk about the ZFS import command.
 </div>
-
 
 #### How does one mirror their root zpool?
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* Adding a 2nd disk to the root pool
-
+    * Adding a 2nd disk to the root pool
 </div>
-
 
 #### How does one create additional zpools?
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* zpool create command
-    * Mirrors
-    * Raidz
-
+    * zpool create command
+        * Mirrors
+        * Raidz
 </div>
-
 
 #### Modifying zpool settings and attributes
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* zpool get/set commands
-
+    * zpool get/set commands
 </div>
-
 
 #### Modifying zfs file system settings and attributes
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* zfs get/set commands
-
+    * zfs get/set commands
 </div>
-
 
 #### How does one create additional zfs datasets?
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* zfs create command
-
+    * zfs create command
 </div>
-
 
 #### Configuring system swap
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* zfs set command
-* swap -l
-
+    * zfs set command
+    * swap -l
 </div>
 
 ## Virtualization
 
 < Place holder >
 
-
 ### OpenIndiana as a virtualization host server
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-* Qemu-KVM (KVM) walkthrough
-    * illumos KVM port does not support AMD processors.
-    * Intel processors require EPT support.
-* Virtualbox walkthrough
-    * There is no package for this yet, but folks do have it working, see the wiki for details.
-
+    * Qemu-KVM (KVM) walkthrough
+        * illumos KVM port does not support AMD processors.
+        * Intel processors require EPT support.
+    * Virtualbox walkthrough
+        * There is no package for this yet, but folks do have it working, see the wiki for details.
 </div>
 
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
-
-In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
-Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
-You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
+    In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
+    Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
+    You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
 </div>
-
 
 ## Localization
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-Possible resources to help write this section:
+    Possible resources to help write this section:
 
-* <https://wiki.openindiana.org/oi/4.4+Localization>
-* <https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html>
-
+    * <https://wiki.openindiana.org/oi/4.4+Localization>
+    * <https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html>
 </div>
-
 
 ## Dtrace
 
 < Place Holder >
-
 
 ## Configuring Networking
 
@@ -1298,9 +1630,9 @@ Restart
 # reboot
 ```
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-IF you cannot ping an external IP (e.g. google.com) run this command and try again.
+<div class="note" markdown="1">
+!!! note
+    IF you cannot ping an external IP (e.g. google.com) run this command and try again.
 </div>
 
 ```bash
@@ -1566,17 +1898,14 @@ Right click the NWAM tray icon and select **_Location_ > _Automatic_**.
 
 ## Clustering with Open HA Cluster
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-ITEMS TO WRITE ABOUT:
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    ITEMS TO WRITE ABOUT:
 
-See old sun docs
+    See old sun docs
 
-* <http://docs.oracle.com/cd/E19735-01/>
+    * <http://docs.oracle.com/cd/E19735-01/>
 
-Also see:
+    Also see:
 
-* <http://zfs-create.blogspot.nl/>
-
-</div>
-
+    * <http://zfs-create.blogspot.nl/>

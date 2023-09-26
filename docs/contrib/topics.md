@@ -16,8 +16,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Contributor Topics
 
 The goal of this page is to provide a 'TO DO' list of things which need to be documented.
@@ -68,40 +66,35 @@ Take some time to look them over for ideas and inspiration for writing new conte
 
 ## Handbook - Getting Started
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-* Page URL: <https://openindiana.github.io/oi-docs/handbook/getting-started/>
-* Page location within docs site: `/oi-docs/docs/handbook/getting-started.md`
-
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    * Page URL: <https://openindiana.github.io/oi-docs/handbook/getting-started/>
+    * Page location within docs site: `/oi-docs/docs/handbook/getting-started.md`
 </div>
 
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    This document is likely to change significantly over the course of it's development.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
+    * Some topics may be moved to more relevant locations within other documents.
+    * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
 
-This document is likely to change significantly over the course of it's development.
+    The **Getting Started** document has been initially structured to cover the following topics:
 
-* Some topics may be moved to more relevant locations within other documents.
-* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
-
-The **Getting Started** document has been initially structured to cover the following topics:
-
-* Introduction
-* OpenIndiana software releases
-* System requirements
-* Exploring OpenIndiana
-* Preparation for installing OpenIndiana
-* Creating a bootable OpenIndiana DVD
-* Creating a bootable OpenIndiana USB flash drive
-* Booting OpenIndiana installer media
-* Installing OpenIndiana
-* Post installation steps
-* Troubleshooting installations
-* The Image Package System (IPS)
-* Managing boot environments
-* The X-Window system
-
+    * Introduction
+    * OpenIndiana software releases
+    * System requirements
+    * Exploring OpenIndiana
+    * Preparation for installing OpenIndiana
+    * Creating a bootable OpenIndiana DVD
+    * Creating a bootable OpenIndiana USB flash drive
+    * Booting OpenIndiana installer media
+    * Installing OpenIndiana
+    * Post installation steps
+    * Troubleshooting installations
+    * The Image Package System (IPS)
+    * Managing boot environments
+    * The X-Window system
 </div>
 
 ### Suggested topics:
@@ -122,40 +115,34 @@ Have a look at the following resources for ideas and inspiration for writing new
 
 ## Handbook - Common Tasks
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-* Page URL: <https://openindiana.github.io/oi-docs/handbook/common-tasks/>
-* Page location within docs site: `/oi-docs/docs/handbook/common-tasks.md`
-
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    * Page URL: <https://openindiana.github.io/oi-docs/handbook/common-tasks/>
+    * Page location within docs site: `/oi-docs/docs/handbook/common-tasks.md`
 </div>
 
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    This document is likely to change significantly over the course of it's development.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
+    * Some topics may be moved to more relevant locations within other documents.
+    * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
 
-This document is likely to change significantly over the course of it's development.
+    The **Common Tasks** document has been initially structured to cover the following topics:
 
-* Some topics may be moved to more relevant locations within other documents.
-* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+    * Basic UNIX commands
+    * Basic system administration
+    * Desktop applications
+    * Multimedia - Audio
+    * Multimedia - Video
+    * Printing
+    * Graphics workstation
+    * Desktop Publishing system, Etc.
 
-The **Common Tasks** document has been initially structured to cover the following topics:
-
-* Basic UNIX commands
-* Basic system administration
-* Desktop applications
-* Multimedia - Audio
-* Multimedia - Video
-* Printing
-* Graphics workstation
-* Desktop Publishing system, Etc.
-
-Currently this section is largely desktop oriented.
-Perhaps some additional items such as system backups might fit better in this section.
-As previously mentioned, this is a living document and things will likely get shuffled around as the document matures.
-
+    Currently this section is largely desktop oriented.
+    Perhaps some additional items such as system backups might fit better in this section.
+    As previously mentioned, this is a living document and things will likely get shuffled around as the document matures.
 </div>
-
 
 ### Suggested topics:
 
@@ -175,49 +162,43 @@ In contrast, Oracle dropped lp completely in the Solaris 11.0 release.
 
 ## Handbook - Systems Administration
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-* Page URL: <https://openindiana.github.io/oi-docs/handbook/systems-administration/>
-* Page location within docs site: `/oi-docs/docs/handbook/systems-administration.md`
-
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    * Page URL: <https://openindiana.github.io/oi-docs/handbook/systems-administration/>
+    * Page location within docs site: `/oi-docs/docs/handbook/systems-administration.md`
 </div>
 
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    This document is likely to change significantly over the course of it's development.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
+    * Some topics may be moved to more relevant locations within other documents.
+    * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
 
-This document is likely to change significantly over the course of it's development.
+    The **systems administration** document has been initially structured to cover the following topics:
 
-* Some topics may be moved to more relevant locations within other documents.
-* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
-
-The **systems administration** document has been initially structured to cover the following topics:
-
-* Configuration and tuning
-    * Configuring a UPS
-    * Fault Management (FMA)
-    * Service Management (SMF)
-    * Systems logging and monitoring
-* Illumos boot process
-* Security
-    * Role Based Access Control (RBAC)
-* Zones
-* Storage
-    * Mounting file systems
-    * NTFS support - 3rd party
-    * Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
-    * System backups
-    * ZFS
-* Virtualization
-* Localization
-* Dtrace
-* Configuring Networking
-    * NWAM
-* Clustering
-
+    * Configuration and tuning
+        * Configuring a UPS
+        * Fault Management (FMA)
+        * Service Management (SMF)
+        * Systems logging and monitoring
+    * Illumos boot process
+    * Security
+        * Role Based Access Control (RBAC)
+    * Zones
+    * Storage
+        * Mounting file systems
+        * NTFS support - 3rd party
+        * Configuring OpenIndiana as an ISCSI Target Server - (COMSTAR)
+        * System backups
+        * ZFS
+    * Virtualization
+    * Localization
+    * Dtrace
+    * Configuring Networking
+        * NWAM
+    * Clustering
 </div>
-
 
 ### Suggested topics:
 
@@ -272,46 +253,40 @@ Write about Virtualization
 
 ## Handbook - Network Communications
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-* Page URL: <https://openindiana.github.io/oi-docs/handbook/network-communications/>
-* Page location within docs site: `/oi-docs/docs/handbook/network-communications.md`
-
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    * Page URL: <https://openindiana.github.io/oi-docs/handbook/network-communications/>
+    * Page location within docs site: `/oi-docs/docs/handbook/network-communications.md`
 </div>
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    This document is likely to change significantly over the course of it's development.
 
-This document is likely to change significantly over the course of it's development.
+    * Some topics may be moved to more relevant locations within other documents.
+    * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
 
-* Some topics may be moved to more relevant locations within other documents.
-* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+    The **network communications** document has been initially structured to cover the following network related topics:
 
-The **network communications** document has been initially structured to cover the following network related topics:
-
-* PPP
-* PPPoE
-* Email servers
-* WWW servers
-* Firewalls
-* Advanced networking
-* Crossbow
-* Using OpenIndiana as a NAS
-    * CIFS
-    * SAMBA
-    * NFS
-* NIS
-* LDAP
-* DHCP
-* FTP
-* DNS
-* NTP
-* INETD
-
-
+    * PPP
+    * PPPoE
+    * Email servers
+    * WWW servers
+    * Firewalls
+    * Advanced networking
+    * Crossbow
+    * Using OpenIndiana as a NAS
+        * CIFS
+        * SAMBA
+        * NFS
+    * NIS
+    * LDAP
+    * DHCP
+    * FTP
+    * DNS
+    * NTP
+    * INETD
 </div>
-
 
 ### Suggested topics:
 
@@ -365,37 +340,31 @@ Also can look at Oracle docs for reference: [https://docs.oracle.com/cd/E26502_0
 
 ## Handbook - Appendix
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-* Page URL: <https://openindiana.github.io/oi-docs/handbook/appendix/>
-* Page location within docs site: `/oi-docs/docs/handbook/appendix.md`
-
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    * Page URL: <https://openindiana.github.io/oi-docs/handbook/appendix/>
+    * Page location within docs site: `/oi-docs/docs/handbook/appendix.md`
 </div>
 
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    This document is likely to change significantly over the course of it's development.
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
+    * Some topics may be moved to more relevant locations within other documents.
+    * As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
 
-This document is likely to change significantly over the course of it's development.
+    The **appendix** document has been initially structured to cover the following topics:
 
-* Some topics may be moved to more relevant locations within other documents.
-* As the document grows and matures, it is likely to become necessary to break things up into smaller more manageable pieces.
+    * Finding help and support
+    * Developing with OpenIndiana
+    * Software Development Testing
 
-The **appendix** document has been initially structured to cover the following topics:
+    This document might also be a good place to put the following topics:
 
-* Finding help and support
-* Developing with OpenIndiana
-* Software Development Testing
-
-This document might also be a good place to put the following topics:
-
-* Basic UNIX commands
-* Contrast and comparison tables (e.g. Unix versus Linux, etc.)
-* Feature comparison tables
-
+    * Basic UNIX commands
+    * Contrast and comparison tables (e.g. Unix versus Linux, etc.)
+    * Feature comparison tables
 </div>
-
 
 ### Suggested topics:
 
@@ -424,32 +393,27 @@ Write some comparison tables
 
 ## OpenSolaris Redistributable Books
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-
-* Page URL: <https://openindiana.github.io/oi-docs/books/about/>
-* Page location within docs site: `/oi-docs/docs/books/about.md`
-
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    * Page URL: <https://openindiana.github.io/oi-docs/books/about/>
+    * Page location within docs site: `/oi-docs/docs/books/about.md`
 </div>
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    The OpenSolaris books are from the 2009.06 release of OpenSolaris.
+    As OpenIndiana has diverged from it's OpenSolaris roots, the relevancy of this documentation has diminished.
+    Some of the documentation was obsolete even when it was published.
 
-The OpenSolaris books are from the 2009.06 release of OpenSolaris.
-As OpenIndiana has diverged from it's OpenSolaris roots, the relevancy of this documentation has diminished.
-Some of the documentation was obsolete even when it was published.
+    The primary value of this documentation may be to use it as inspiration for writing new content for the handbook.
+    The documentation is all PDL licensed so it may be copied verbatim without incurring any legal risks.
 
-The primary value of this documentation may be to use it as inspiration for writing new content for the handbook.
-The documentation is all PDL licensed so it may be copied verbatim without incurring any legal risks.
+    As for the future of these documents, the project has some choices:
 
-As for the future of these documents, the project has some choices:
-
-* Pull in any and all reverent content into the new handbook and then discard the books.
-* Write errata for the books, pointing out what has changed between OpenSolaris and OpenIndiana.
-* Use the books to write task specific tutorials.
-
+    * Pull in any and all reverent content into the new handbook and then discard the books.
+    * Write errata for the books, pointing out what has changed between OpenSolaris and OpenIndiana.
+    * Use the books to write task specific tutorials.
 </div>
-
 
 ### Suggested topics:
 

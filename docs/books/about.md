@@ -24,8 +24,6 @@ Add a row to each table describing the relevancy of the book in relation to Open
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # About OpenSolaris Redistributable Books
 
 Consisting of 41 titles and originally published on July 15th, 2009, this collection represents the final docs release of the OpenSolaris project.
@@ -35,19 +33,17 @@ Otherwise, the books are exactly as originally published.
 No editing of any kind has been performed on any of the titles.
 This documentation collection has been released under the [Public Documentation License (PDL)](../misc/pdl.md).
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
+<div class="note" markdown="1">
+!!! note
+    When using these books, please bear in mind:
 
-When using these books, please bear in mind:
-
-* The OpenIndiana Project has republished these books primarily for their reference value.
-* Although vast portions of these books are still relevant, significant divergence has occurred between OpenIndiana Hipster and OpenSolaris/Solaris Express.
-* Some of the books in this collection reference publications which were either never open-sourced by Sun Microsystems or never released by the OpenSolaris Project.
-    * For example, the _OpenSolaris Developer's Reference Guide_ was never released as part of this collection.
-  However, the illumos project has published a similar title: [The illumos Developer's Guide](https://illumos.org/books/dev/)
-* There are lots of broken links to OpenSolaris.org and Sun Microsystems.
-* In some cases, it may be possible to follow broken links by using the [Internet Archive Wayback Machine](https://archive.org/web/).
-
+    * The OpenIndiana Project has republished these books primarily for their reference value.
+    * Although vast portions of these books are still relevant, significant divergence has occurred between OpenIndiana Hipster and OpenSolaris/Solaris Express.
+    * Some of the books in this collection reference publications which were either never open-sourced by Sun Microsystems or never released by the OpenSolaris Project.
+        * For example, the _OpenSolaris Developer's Reference Guide_ was never released as part of this collection.
+      However, the illumos project has published a similar title: [The illumos Developer's Guide](https://illumos.org/books/dev/)
+    * There are lots of broken links to OpenSolaris.org and Sun Microsystems.
+    * In some cases, it may be possible to follow broken links by using the [Internet Archive Wayback Machine](https://archive.org/web/).
 </div>
 
 ## Book categories

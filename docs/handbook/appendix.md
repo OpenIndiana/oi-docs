@@ -17,18 +17,15 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
+# Appendix
 
-# Hipster Handbook - Appendix
+<div class="note" markdown="1">
+!!! note
+    This is a **DRAFT** document which may contain errors!
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-This is a **DRAFT** document which may contain errors!
+    Help us improve and expand this site.
 
-Help us improve and expand this site.
-
-Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
-
+    Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 </div>
 
 < place holder for introduction content >
@@ -81,22 +78,19 @@ Please see the **Contrib** section for more details about joining the OpenIndian
 
 ## Developing with OpenIndiana
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    The book titled "Introduction to Operating Systems: A Hands-On Approach Using the OpenSolaris Project" may be a good resource for helping to complete this part of the handbook.
 
-Questions to ask:
+    Questions to ask:
 
-* How can OI be used as a development platform?
-* What programming tools, languages, etc., are available?
-* How can OI be used to further the development of OI itself?
+    * How can OI be used as a development platform?
+    * What programming tools, languages, etc., are available?
+    * How can OI be used to further the development of OI itself?
 </div>
 
 ## Software Development Testing
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **DOC TEAM NOTE:**
-<div class="well">
-Need to add some guidance about how to add a test repo to test specific packages, etc.
-</div>
-
-
+<div class="info" markdown="1">
+!!! info "Documentation Team"
+    Need to add some guidance about how to add a test repo to test specific packages, etc.

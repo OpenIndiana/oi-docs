@@ -22,8 +22,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # Components
 
 1. [Audio](#audio)
@@ -144,9 +142,9 @@ These soundcards are compatible and 'known to work' with OpenIndiana.
 
 ## Network interface controllers
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-For a number of NICs, which are not currently supported "out of the box" by the illumos kernel or OpenIndiana distribution, over 30 open-sourced drivers covering many more chipsets and NIC models are available as part of the separate "Free NIC drivers for OpenSolaris" project by Masayuki Murayama and generally do just work on OpenIndiana (binaries are available as part of the source code tarballs, but you're encouraged to recompile them with GLDv3 Makefile's on OpenIndiana, see details on [the project's web page](http://freenicdrivers.la.coocan.jp/)).
+<div class="note" markdown="1">
+!!! note
+    For a number of NICs, which are not currently supported "out of the box" by the illumos kernel or OpenIndiana distribution, over 30 open-sourced drivers covering many more chipsets and NIC models are available as part of the separate "Free NIC drivers for OpenSolaris" project by Masayuki Murayama and generally do just work on OpenIndiana (binaries are available as part of the source code tarballs, but you're encouraged to recompile them with GLDv3 Makefile's on OpenIndiana, see details on [the project's web page](http://freenicdrivers.la.coocan.jp/)).
 </div>
 
 NIC                                                  | Works (yes/no)  | Notes                  | Driver | Contributor
@@ -202,10 +200,10 @@ Sun          | T3              | yes            | Fabric/FC with MPxIO          
 
 ## Graphics Adapters
 
-<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> **NOTE:**
-<div class="well">
-For most video cards, which are not explicitly supported, vgatext driver will work, but will not provide any DRI capabilities.<br>
-Systems with combined discrete graphics and Intel integrated adapter (like Nvidia Optimus) are likely to be unusable with Xorg.
+<div class="note" markdown="1">
+!!! note
+    For most video cards, which are not explicitly supported, vgatext driver will work, but will not provide any DRI capabilities.
+    Systems with combined discrete graphics and Intel integrated adapter (like Nvidia Optimus) are likely to be unusable with Xorg.
 </div>
 
 Video adapter                            | Works (yes/no/vgatext) | Notes and/or specific usage instructions | Driver |  Contributor
@@ -344,6 +342,7 @@ Logitech      | K120 Keyboard              | yes             |                 
 Microsoft     | Basic Optical Wheel Mouse  | yes             |                                          |         |
 Microsoft     | Wired Keyboard 600         | yes             |                                          |         |
 Sun           | Type 6 USB Mouse           | yes             | Middle button does not work.             | usbms   |
+Razer         | Cynosa V2 Keyboard         | yes             |                                          |         |
 
 ### Printers
 

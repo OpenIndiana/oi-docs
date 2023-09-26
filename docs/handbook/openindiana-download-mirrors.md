@@ -20,8 +20,6 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<img src = "../../Openindiana.png">
-
 # OpenIndiana download mirrors
 
 List of DLC Mirrors
