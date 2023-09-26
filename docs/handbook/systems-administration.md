@@ -414,6 +414,360 @@ onto the system before changing the run-level.
    process is not interrupted by system prompts requiring user-interactive
    intervention.
 
+## Service Management Facility
+
+Services are an extension to processes.
+The administration of services is carried out on OpenIndian using *Service Management Facility*, commonly known as *SMF*.
+
+As application become more complex, their demands on system resources and peripheral resource increase.
+Modern applications often require more resource to provide more services.
+Resources such as an internet connection, a web server running in the background, a databank up and running in an appropriate state or mode of operation are increasingly found to be the prerequisite of modern applications.
+Although the application may provide users with a single service, the application might require many processes before it can itself run.
+
+To provide some system functionality, more than one process is required and some of these processes might depend on other processes.
+A modern application that provides some functionality might require a group of interrelated processes.
+We would like to start, stop, analyse, diagnose, in other words, manage the group as a single unit.
+We refer to such a unit as a *service* and the mechanism of providing this on OpenIndiana as *Service Management Facility*.
+
+SMF was originally developed to improve limitations of the old startup mechanism of the Solaris operating system using scripts known as `init.d`.
+
+ **Service Management Framework on OI** | **Purpose**
+ ---------------------------------------|-----------------------------
+ [smf(7)](https://illumos.org/man/7/smf)| Service Management Facility
+
+A service is a definition of how a service should be started while a service instance is a precise configuration.
+Some services can have multiple instances whereas others are defined to be a singleton.
+
+Each service instance can be identified by a FMRI which uniquely defines each instance, which is why the SMF commands use FMRIs to identify services.
+A SMF FMRI is composed of three sections, the sections are delimited by a colon:
+
+```bash
+    service resource:service name:service instance
+```
+
+FMRIs are found in various areas: software packages, ZFS, etc., and the first part denotes this area or *scheme*.
+For software packages the scheme is  `pkg:`, while for services the scheme is `svc`.
+
+Many commands use the FMRI to identify service instances, but it is not the only way of specifying a service instance to the commands.
+In this manual, nomenclature is simplified as `[service]` as a unique identification of a service.
+
+- [Opensolaris documentation](https://dlc.openindiana.org/docs/osol/20090715/IMGPACKAGESYS/html/index.html)
+
+
+### SMF Basic Commands
+
+ | **Command** | **Purpose**                                  |
+ |-------------|------------------------------------------|
+ | [svcs(1)](https://illumos.org/man/8/mpstat)     | display information about services       |
+ | [svcadm(7)](https://illumos.org/man/7/scvadm)   | manage services (enable/disable, ...)    |
+ | [svccfg(8)](https://illumos.org/man/8//svccfg)   | configure services                       |
+ | [svcprop(1)](https://illumos.org/man/1/svcprop)  | display service configuration properties |
+ | [inetadm(8)](https://illumos.org/man/8/inetadm)  | initialise service managed by `inetd`      |
+ | [inetconv(8)](https://illumos.org/man/8/inetconv) | convert `inetd` service to smf services    |
+
+Use of the SMF commands require relevant privileges.
+The following RBAC profiles can be made available to all a user to become a SMF administrator:
+
+ | **RBAC profile**   | **Purpose**                                        |
+ |--------------------|----------------------------------------------------|
+ | Service Management | manage services. A service manager can manipulate any service in any way|
+ | Service Operator   | administer services. A service operator can enable or disable any service.|
+
+Further details: [smf_security(7)](https://illumos.org/man/7/smf_security)
+
+#### svcs
+
+This command is used to display services and their relevant status.
+It is also used to provide a list of services that depend on a service, and it can also display a list of services that a service requires to operate.
+
+All services generate log files and the location of a log file associated with a service can be obtained using this command.
+A list of processes requirred by a service can be displayed using this command.
+
+*Usage*: `svcs [options] [FMRI]`
+
+| **Option**     | **Information to Display**                     |
+|----------------|------------------------------------------------|
+|                | enabled services                               |
+| `?`            | detailed help                                  |
+| `a`            | all services                                   |
+| `d [service]`  | services that this service requires            |
+| `D [service]`  | services that require this service             |
+| `l [service]`  | verbose information on service                 |
+| `L [service]`  | log file associated with service               |
+| `o column,...` | various information as defined by *columns*    |
+| `p [service]`  | processes associated with service              |
+| `x`            | details on services that are enabled but not running or prevent other services |
+|                | from running |
+| `v`            | more verbose output for some options           |
+| `z [zone]`     | services in `zone`                             |
+
+* **service:** to specify a service use the FMRI, an FRMI instance or a FMRI pattern. Obtain a list of service FMRIs via `-o FMRI`.
+  * **column:** comma separated column names
+     * **desc:**: description of service
+     * **fmri:**: Fault Management Resource Identifier
+     * **inst:**: service instance
+     * **svc:**: name of service
+     * **state:**: service state: uninitialised, offline, online, maintenance, disabled, degraded
+
+##### Examples
+
+**List services and their status**
+
+```bash
+    svcs
+    svcs -a
+    svcs -o svc,state,desc
+```
+
+**Get printer information**
+
+```bash
+    > svcs -o svcs,desc | grep -i print
+    application/print/service-selector print service selector
+    application/cups/scheduler CUPS Print Spooler
+    > svcs -l scheduler
+    fmri         svc:/system/scheduler:default
+    name         default scheduling class configuration
+    enabled      true
+    state        online
+    next_state   none
+    state_time   March 27, 2023 at 08:03:54 AM CEST
+    logfile      /var/svc/log/system-scheduler:default.log
+    restarter    svc:/system/svc/restarter:default
+    dependency   require_all/none svc:/system/filesystem/root (online)
+
+    fmri         svc:/application/cups/scheduler:default
+    name         CUPS Print Spooler
+    enabled      true
+    state        online
+    next_state   none
+    state_time   March 27, 2023 at 08:03:57 AM CEST
+    logfile      /var/svc/log/application-cups-scheduler:default.log
+    restarter    svc:/system/svc/restarter:default
+    contract_id  42
+    dependency   require_all/none file://localhost/etc/cups/cupsd.conf (online)
+    dependency   require_all/none svc:/system/filesystem/minimal (online)
+    dependency   optional_all/error svc:/network/loopback (online)
+    dependency   optional_all/error svc:/milestone/network (online)
+```
+
+
+#### svcadm
+
+Use this command to change the status of a service: enable, disable, etc.
+
+*Usage*: `svcadm [options] [subcommand] [subcommand options] [service]`
+
+ | **options** | **purpose**                           |
+ |-------------|---------------------------------------|
+ | `v`         | verbose                               |
+ | `z [zone]`  | command applies to the zone specified |
+
+
+
+ | **subsommand** | **subcommand option** | **Purpose**                                   |
+ |--------------|--------------|-----------------------------------------------------------|
+ | `enable`       |              | enable `service` to `online` state                        |
+ |              | `r`          | enable `service`, but also recursively enable its dependencies             |
+ |              | `t`          | enabling a service as persistent, even after rebooting.   |
+ |              |              | This option enables the service *only temporarily* until the next  |
+ |              |              | system boot                                      |
+ | `disable`      |              | disable `service`  to `offline` state                     |
+ |              | `c`          | add a comment which can be viewed by `svcs`               |
+ |              | `t`          | disable service *temporarily*. The service will be enabled on ensuing boots       |
+ | `restart`      |              | restart `service`                                         |
+ | `refresh`      |              | re-read service configuration, so                         |
+ |              |              | any configuration changes will take effect after a service `restart` |
+  | `clear`        |              | for a service in a *maintenance* state, signal the        |
+ |              |              | service as repaired.                                      |
+ |              |              | for a service in a *degraded* state, attempt to bring the service online|
+
+
+##### Examples
+
+**Restart a service**
+
+```bash
+    $ date
+    XXXXX, 2023 at 03:26:50 PM CEST
+    # svcadm restart application/cups/scheduler
+    # svcs -l application/cups/scheduler | grep state_time
+    XXXXX, 2023 at 03:27:02 PM CEST
+```
+
+First, we check the system time which is 3:26:30 PM.
+We then restart the CUPS printer scheduler, then check the status of the service using `-l` and extract the service property `stat_time` to obtain the time at which the service became online.
+
+#### svccfg
+
+This command is used to manage service configurations.
+
+*Usage*: `svccfg [options] -s [FMRI]`
+
+#### svcprop
+
+This is used to retrieve service instance properties.
+It is also used to snapshots.
+It can also be used to validate the existence of a property.
+
+| **options** | **purpose**                           |
+|-------------|---------------------------------------|
+| `[service]`   | display all properties of `service`   |
+| `v`         | verbose                               |
+| `z [zone]`  | command applies to the zone specified |
+
+Refer to the manual page for details: [scvprop(1)](https://illumos.org/man/1/svcprop)
+
+
+#### inetadm
+
+#### inetconv
+
+### Troubleshooting
+
+#### Basic Strategy
+
+Here is general methodology intended as an introduction in how to resolve a service that fails.
+
+```bash
+    svcs -xv
+```
+
+This command provides the following information:
+- a possible reason for the failure
+- location of the log file associated with the service
+- references for further reading
+
+Analysis during this step will frequently suffice to resolve your issue.
+However, this is not alway the case.
+
+```bash
+    svcs -d FMRI
+```
+
+This command provides a list of services that the failed service requires.
+The failed service might be failing due to a service that it depends on not operating appropriately, although its status is online and it *appears* to function correctly.
+
+```bash
+    svcs -l FMRI
+```
+
+While this command provides similar information provided by the first command, this command will also provide information on services that are online and but might exhibit dubious behaviour.
+This command will provide information similar to the first command.
+
+```bash
+    svcs -d FMRI
+```
+
+Should analysis of the previous commands not be sufficient to resolve the issue, examination of the processes associated with suspicioous service might be necessary.
+Use this command to list all processes associated with the service.
+Use the tools from the previous section, System Monitoring, to scrutinise each process listed.
+
+##### Examples
+
+To illustrate troubleshooting, we manipulate a service by removing a dependency:
+
+- move a dependency file `/etc/cups/cupsd.conf`
+- `refresh` and `restart` the service
+- Use SMF commands in an attempt to reveal the cause of the failure
+
+```bash
+    # svcs -l svc:/application/cups/scheduler:default
+    fmri         svc:/application/cups/scheduler:default
+    name         CUPS Print Spooler
+    enabled      true
+    state        online
+    next_state   none
+    state_time   XXXXX XX, 2023 at 09:18:13 AM CEST
+    logfile      /var/svc/log/application-cups-scheduler:default.log
+    restarter    svc:/system/svc/restarter:default
+    contract_id  42
+    dependency   require_all/none file://localhost/etc/cups/cupsd.conf (online)
+    dependency   require_all/none svc:/system/filesystem/minimal (online)
+    dependency   optional_all/error svc:/network/loopback (online)
+    dependency   optional_all/error svc:/milestone/network (online)
+```
+
+The service is `online` and is operating satisfactorily.
+
+Rename `/etc/cups/cupsd.conf`,  refresh the configuration and restart the service, will cause the service to fail:
+
+```bash
+    # mv /etc/cups/cupsd.conf /etc/cups/cupsd.conf.orig
+    # svcadm refresh svc:/application/cups/scheduler:default
+    # svcadm restart svc:/application/cups/scheduler:default
+```
+
+Obtain a list of failed services:
+
+```bash
+    # svcs -xv
+    svc:/application/cups/scheduler:default (CUPS Print Spooler)
+     State: offline since March 29, 2023 at 07:25:48 PM CEST
+    Reason: Dependency file://localhost/etc/cups/cupsd.conf is absent.
+       See: http://illumos.org/msg/SMF-8000-E2
+       See: man -M /usr/share/man -s 8 cupsd
+       See: /var/svc/log/application-cups-scheduler:default.log
+    Impact: This service is not running.
+```
+
+We always obtain a reason which in our case pinpoints the error precisely.
+This is not always the case.
+
+#### Corrupt Service Configuration: Revert to an Old Configuration
+
+SMF periodically takes snapshots of the service configuration so that it is alway possible to revert to a previous configuration.
+
+```bash
+    # List all cups services:
+    $ svcs | grep -i cups
+    legacy_run     16:33:35 lrc:/etc/rc3_d/S99cups-browsed
+    online         14:33:25 svc:/application/cups/scheduler:default
+    # list snapshots associated with the cups service
+    $ svccfg -s svc:/application/cups/scheduler:default listsnap
+    initial
+    last-import
+    running
+    start
+    # There are four snapshots available one of which is currently running.
+    # Lets suppose we had a corrupt config and would live to revert to the initial
+    # cups service configuration:
+    $ svccfg -s svc:/application/cups/scheduler:default revert initial
+    # re-read configuration
+    svcadm refresh svc:/application/cups/scheduler:default
+    svcadm restart svc:/application/cups/scheduler:default
+```
+
+
+#### Boot Failure
+
+- On the boot menu, select =3= to load boot prompt
+
+```bash
+    3. Escape to loader prompt
+```
+
+- Now boot without services by entering: `boot -m milestone=none`:
+
+```bash
+    OK boot -m milestone=none
+```
+
+- Login as root and enable all services:
+
+```bash
+    svcadm milestone all
+```
+
+- Now the system will boot and fail. So use `svcs` to determine which services are failing:
+
+
+```bash
+    svcs -a
+```
+
+#### Maintenance Mode
+
 
 ## Configuring and Tuning
 
