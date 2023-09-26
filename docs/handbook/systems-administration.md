@@ -459,6 +459,178 @@ Now user *whoever* can shutdown the system.
 
 The `pfexec` command is more flexible in the number of privileges that can be assigned to a user.
 
+
+## [Software management](#software-management)
+
+OpenIndiana uses the Image Packaging System, *IPS*, to manage software packages.
+IPS supports installing, updating and searching OpenIndiana software repositories.
+It also allows users to create and publish software packages to provide new software for other users.
+Its features are vast and we only present the *essentials* here.
+
+Software packages are *published* to a publisher.
+An IPS software package consists of files, directories, links and dependencies to other packages.
+
+The user interface to install, update, query, generate, etc packages on a publisher is `pkg`:
+
+[pkg(1M)](https://illumos.org/man/1M/pkg) is the client for **I**mage **P**acking **S**ystem.
+
+Usage:
+
+```bash
+pkg [options] command [cmd_options] [operands]
+```
+
+  | Command           | cmd_options | operands       | Purpose                                                  |
+  |-------------------|-------------|---------------|----------------------------------------------------------|
+  | `help`            |             |               | list all commands                                        |
+  |                   |             | *command*     | command usage                                            |
+  |                   |             |               |                                                          |
+  | `publisher`       |             |               | list package repositories (known as _publisher_ on OI)   |
+  |                   |             | *a_publisher* | list details on *a_publisher*                    |
+  | `set-publisher`   |             |               | add a publisher                                          |
+  | `unset-publisher` |             |               | Remove a publisher                                       |
+  | `refresh`         |             |               | update local package catalogue with new packages         |
+  | `update`          |             |               | update all packages to the latest versions               |
+  |                   |             | *a_package*   | only update *a_package* to the latest version            |
+  |                   |             |               |                                                          |
+  | `list`            |             |               | list packages installed on the system                    |
+  |                   | `-a`        |               | also list non-installed packages from publishers         |
+  | `contents`        |             |               | list files in a package installed on the system          |
+  |                   | `-r`        |               | list files on remote (publisher) package                |
+  | `info`            |             |               | get information on all packages on the system            |
+  |                   |             | *a_package*   | get information on a particular package on the system    |
+  |                   | `-r`        | *a_package*   | get information on a remote package                      |
+  | `search`          |             |               | **search for a package on the system**                   |
+  |                   | `-r`        |               | **search for a package not on the system**               |
+  |                   |             |               |                                                          |
+  | `install`         |             | *a_package*   | install *a_package* onto the current boot environment    |
+  |                   | `--be-name` *name* | *a_package*| install on a new boot environment called *name*.The current be remains unchanged.|
+  | `uninstall`       |             | *a_package*   | remove a package from the system                         |
+  | `revert`          |             |               | restore files to their original installed states        |
+  |                   |             | */the/path/file*| restore *file* located in /the/path/ to its original state |
+  | `verify`          |             |               | verify all packages. Only report with a message on error |
+  |                   |             | *a_package*   | verify only *a_package*                                  |
+  | `fix`             |             |               | fix any errors detected by `verify`                      |
+  |                   |             | *a_package*   | fix any errors detected by `verify` for *a_package* |
+
+- `help`: Without any commands will provide a list of all commands supported by `pkg`.
+When followed by a command, usage on that command will be provided.
+ - `publisher`: a package repository is known as a _publisher_ on OI.
+ A publisher contains one or more packages that can be queried or installed by `pkg` using an appropriate pkg command.
+ A list of all publishers configured to be used by `pkg` can be obtained by using this command without any options.
+ By supplying a publisher, details of the publisher will be provided.
+- `set-publisher`: add a new publisher to the user's list of publishers
+- `refresh`: the local system has a catalogue of all packages provided by all publishers.
+Using this command without any operands will update the catalogue for all publishers configured by the user.
+By supplying a publisher, only packages provided by that publisher will be updated.
+- `list`: by default will list installed packages. Use `-a` to also list packages in publishers.
+- `contents`: this command lists files in a package that is currently installed. Use `-r` to list files in packages not installed on a *r*emote publisher.
+- `info`: by default provides information on installed packages.
+   Add the `-r` option for information from publishers.
+- `install`: by default, a package is installed to the current boot environment.
+It is possible to install to a boot environment, leaving the current boot environment untouched. For example, to create a clone of the current boot environment, and install the package to the new boot environment, use the `--be-name` option. This is the recommended way to install new packages.
+- `search`: by default queries only installed packages, `-r` extends to publishers.
+   Support for wildcards *?* and *\** in the query.
+- `revert`: this will adjust a software package to that state it originally had after installation, including configuration files and file permissions.
+
+### Example
+
+To illustrate, look for, install and validate a package called `ffmpeg`, which is a video and audio processing application.
+
+```
+$ pkg refresh && pkg update
+```
+
+```
+$ pkg list -a | grep -i ffmpeg
+$
+```
+
+The result of running this command is empty: nothing found. Post a question to the OI community or ask on IRC [About OpenIndiana, How can I contact OpenIndiana community](../misc/openindiana.md#how-can-i-contact-openindiana-community).
+Assuming someone informs you that the package does exit and can be found on the publisher *hipster-encumbered* with address *http://pkg.openindiana.org/hipster/* then you can continue.
+
+Add the *hipster-encumbered* publisher and try again:
+
+```
+# sudo pkg set-publisher -G'*' -g http://pkg.openindiana.org/hipster hipster-encumbered
+$ pkg publisher
+    PUBLISHER                   TYPE     STATUS P LOCATION
+    userland                    origin   online F file:///export/home/benn/devl/oi-userland/i386/repo/
+    openindiana.org (non-sticky) origin   online F http://pkg.openindiana.org/hipster/
+    hipster-encumbered              origin   online F https://pkg.openindiana.org/hipster-encumbered/
+```
+
+So *hipster-encumbered* has been added as the last publisher to our list of publishers. Obtain information on the publisher:
+
+```
+$  pkg publisher hipster-encumbered
+
+            Publisher: hipster-encumbered
+                Alias:
+           Origin URI: https://pkg.openindiana.org/hipster-encumbered/
+        Origin Status: Online
+              SSL Key: None
+             SSL Cert: None
+          Client UUID: 7501a944-6bce-11ec-893c-880027010518
+      Catalog Updated: December 21, 2021 at 10:58:33 PM
+              Enabled: Yes
+```
+
+So the publisher is online, i.e., is up and ready to accept requests.
+
+Search again for out package:
+
+```
+$ pkg list -a | grep -i ffmpeg
+    video/ffmpeg (hipster-encumbered)                 4.4.1-2020.0.1.0           ---
+$ pkg info -r video/ffmpeg
+    Name: video/ffmpeg
+              Summary: A very fast video and audio converter
+             Category: System/Multimedia Libraries
+                State: Installed
+            Publisher: hipster-encumbered
+              Version: 4.4.1
+               Branch: 2020.0.1.0
+       Packaging Date: November  9, 2021 at 01:39:02 PM
+    Last Install Time: January  2, 2022 at 01:34:22 PM
+                 Size: 58.88 MB
+                 FMRI: pkg://hipster-encumbered/video/ffmpeg@4.4.1-2020.0.1.0:20211109T133902Z
+           Source URL: https://www.ffmpeg.org/releases/ffmpeg-4.4.1.tar.bz2
+          Project URL: https://www.ffmpeg.org/
+```
+
+We can list all files in the package with `pkg contents -r video/ffpmeg`. Finally, install:
+
+```
+# pkg install video/ffmpeg
+$ pkg verify pkg://hipster-encumbered/video/ffmpeg@4.4.1-2020.0.1.0:20211109T133902Z
+```
+
+### Common Idioms
+
+#### Find the name of a package to which a file on the system belongs
+
+```
+$ pkg search -o pkg.name -l path:*ffmpeg
+    PKG.NAME
+    video/ffmpeg
+```
+
+### Publishers
+
+  | Publisher | Location | Notes |
+  | ----------- | ------------- | ---- |
+  | `openindiana.org` | `http://pkg.openindiana.org/hipster/` | Primary OI publisher |
+  | `hipster-encumbered` |`https://pkg.openindiana.org/hipster-encumbered/` | many multimedia packages |
+  | `localhostoih` | `https://sfe.opencsw.org/localhostoih` | experimental, be careful with version conflicts |
+
+### References
+
+This section provides the fundamentals of `pkg`. More detailed information is available here:
+
+* [Getting Started, section: Image Package System (IPS)](getting-started.md#image-package-system-ips) for details.
+* [OpenSolaris 2009.06 Image Packaging System Guide](https://docs.openindiana.org/dev/pdf/ips-dev-guide.pdf "whatever") is a thorough treatment.
+
 ### Active Directory Integration
 
 #### Introduction
