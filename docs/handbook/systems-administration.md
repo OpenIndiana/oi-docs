@@ -26,273 +26,438 @@ activities and many more are referred to as system administration.
 
 Basic system administration can be reduced to a number of common tasks:
 
-- Users and account management
-- Management of system resources
-- Installation and maintenance of software
+- [Accounts](#accounts)
+- [Software management](#software-management)
+- [System monitoring](#system-monitoring)
+- [Virtualisation](#virtualisation)
+- [Network configuration](#network-configuration)
+- [Network file systems (NFS)](#network-file-systems)
 
 While it is certainly possible to add more to this list or select alternative
 items, this small selection is readily absorbed and is convenient to illustrate
 a number of essential concepts central to OpenIndiana system administration.
 
-<div class="note" markdown="1">
-!!! note
-    Administrative commands are usually expected to be run with elevated privileges -
-    directly from root user, via `sudo(1M)` or
-    `pfexec` (if user was granted privileges via RBAC).
-    In this document commands which require elevated privileges are prefixed with
-    "# ". Commands, which don't require elevated privileges, are prefixed with "$ ".
-</div>
+## [Accounts](#accounts)
 
-## Users and account management
+There are different types of accounts provided by OpenIndiana:
 
-OpenIndiana allows multiple users to work on the same computer at the same time.
-Only one person can sit in front of the monitor and keyboard.
-However, many can be remotely logged into machine and work on it.
-If a user wants to use the system, he needs an account.
+- [User accounts](#user-accounts)
+- [System (or Service) accounts](#accounts-service)
+    - [Superuser account](#superuser-account)
+    - [Roles (Role-Based Access Control)](#roles-and-role-based-access-control)
 
-There are also special service accounts which are used by system services.
+It is also possible to *group* users together:
 
-### User accounts
+- [Groups](#groups)
 
-User accounts are primarily used for day-to-day tasks.
-Every user accessing the system should have his own unique account.
-This allows the administrator of the system to find out who is doing what.
-This also allows him to set different access rights for each user separately.
+### [User accounts](#user-accounts)
 
-When system is installed, usually one user account is created.
+OpenIndiana supports multiple users to work on the same computer at the same time.
+While only one person can sit in front of the monitor and keyboard, many users can be remotely logged onto the machine and all work simultaneously on it.
+To use the system, a user requires an account, which are known as _user accounts_.
+
+A user account facilitates interactive access to the system and is primarily used for day-to-day tasks.
+Each user requiring access to the system should have a unique account specifically assigned to that user.
+System administrators can thereby monitor user activity and establish system dignostics to optimise system performance.
+Moreover permission to perform various system activities can be separately assigned to each user on an individual basis.
+
+When the system is initially installed, usually only one user account is created.
 Additional accounts can be added later.
 
-Every user account has some attributes associated with it.
+Each user account has a number of attributes associated with it:
 
-* **username** - name of the account, which is typed at the login screen.
-  Username format is briefly described in [passwd(4)](https://illumos.org/man/4/passwd)
-* **password** - password associated with the account.
-
-<div class="warning" markdown="1">
-!!! warning
-    Accounts without password should not exist on the system as they could put the system at the security risk!
-</div>
-
-* **UID** (user ID) - unique numerical ID of the account in the system.
-The maximum value for uid is 2147483647.
-However, for compatibility reasons one should not use numbers over 65535.
-* **GID** (group ID) - unique numerical ID of the account's primary group.
+* **UID** (user ID) a unique number which is the account ID on the system.
+The UID is limited to a number less than 2147483647.
+However, for compatibility reasons, a number above 65535 should not be used.
+* **GID** (group ID) a unique number designating the primary group of the account.
+* **username** the name of the account, which is frequently displayed on the login
+  screen, depending on the login display manager in use.
+  The username format is briefly described in [passwd(4)](https://illumos.org/man/4/passwd)
+* **password** the password required to access the account.
+                  *Passwords are used for security concerns.
+                  Accounts without a password should are
+                  a security hazard.*
 * **comment** (also referred to as gecos) - account description
-Often this filed is set to real user name.
-* **home directory** - a path where user will be after he logs into the system.
-* **login shell** - user's initial shell program.
-* **password last change time** - time when the password was lastly changed.
+This is often the user's real name.
+* **home directory** the path to the directory which is _home_ to the user and
+  where the user is placed by default after logging onto the system.
+* **login shell** user's initial shell program.
+* **password last change time** time at which the the user password was last changed.
 * password aging information - several [shadow(4)](https://illumos.org/man/4/shadow) fields determining when password should be changed
-    * **min** - the minimum number of days required between password changes;
-    * **max** - the maximum number of days the password is valid;
-    * **warn** - the number of days before password expires that the user is warned.
+    * **min** the minimum number of days required between password changes;
+    * **max** the maximum number of days the password is valid;
+    * **warn** the number of days before password expires that the user is warned.
 
-### Service accounts
+### [System (or Service) accounts](#accounts-service)
 
-Service (system) accounts are used by applications, which are running on the system
-and are providing some services to the network such as DNS, SMTP or WWW.
-For security reasons these services are ran under non-privileged accounts.
+System accounts, including the root account, are designed to be used for administrative purposes.
+While all such tasks can be performed using the root account, system accounts all have limited powers with respect to root, thereby delegating only those powers necessary to carry out an administrative task to a particular system account.
+System accounts often supply a specific function such as managing mail accounts or services to the network such as DNS, SMTP or WWW.
 
-OpenIndiana comes with several service accounts such as `webservd` for web servers,
-`pkg5srv` for `pkg(5)` server or `nobody`.
-`nobody` is a system account for services needing unprivileged user.
-However, the more services are ran under this account,
-the more privileged it becomes as it gains access to service processes and files.
+All system accounts have a `UID` less than 100.
 
-### Roles
+All system accounts -- the one notable exception being root -- are supplied with either `LK` or `NP` in the second column of the `/etc/shadow` file.
+In other words, it is possible to obtain a list of all system accounts:
 
-A role is a basic unit of Role-Based access control (RBAC) or set of privileges one can assume.
-A role can be thought of as a no-login account.
-It has most of the attributes of normal user account and is identified like normal user,
-but is not allowed to log into a system directly.
-One should login using regular account and use [su(1M)](https://illumos.org/man/1M/su) to assume the role.
+```bash
+# more /etc/shadow | grep -e NP -e LK | cut -d: -f1
+```
 
-### Superuser account
+  | **Service account**  | **Purpose**|
+  |----------------------|----------|
+  | `nobody`             | for services that require no privileges |
+  | `pkg5srv`            | for the `pkg(5)` server |
+  | `webservd`           | for web servers |
+  |  ...                 |                 |
 
-Every UNIX-like system has the superuser account, named root, used for system administrative tasks.
+
+#### [Superuser account](#superuser-account)
+
+| **Command**  | **Purpose** |
+|----------------------|----------|
+| [su(1M)](https://illumos.org/man/1M/su) | switch user |
+
+Although the superuser account is a system account, its unique features and importance justify a section solely devoted to it.
+
+Every UNIX-like system has one superuser account, named `root`, used for system administrative tasks.
 This account has UID 0.
 
-Using this account for everyday usage like web browsing, email reading or movie watching is not recommended
-as root account can operate without any restrictions or limits and could cause serious damage to the system.
+It is highly inadvisable to use this account for day-to-day usage such as browsing the web, reading emails or to watch movies.
+The root account is not limited to any restrictions and any vulnerability while operating as root can cause serious damage to the system.
 
-If you created user during installation, root is created as role (not a regular account).
-This role is assigned to the user created during the installation.
-This means that you can't directly log into a system using the root account.
-One has to log in as the created user and switch to root role using [su(1M)](https://illumos.org/man/1M/su).
+If a user is created during the OI installation process, then this user is assigned the root [role](#accounts-rbac), while the root account is not created by the system.
+This means that it is not possible to directly log into a system using the root account as it does not exist.
+It is, however, possible to log in as the user created during the installation and then switch to root using [su(1M)](https://illumos.org/man/1M/su).
 
-However, if the user was not created during installation, then the root is created as regular account and
-is able to log in directly.
-Note, that even when root is created as role, one can use this account directly to log into the system when it's
-booted in single user mode.
+However, if a user is not created during the OI installation, then the root account is created as a regular account and it is possible to directly log in to the root account.
+Note, that even when root is created as a role, it is possible to use this account directly to log into the system when it is booted in single-user mode.
 
-#### SUperuser DO: sudo(1m)
 
-It is not always feasible for one user to perform all administrative
-tasks. It would be more flexible if some tasks could be performed by some, say,
-experienced users. To enable some users to carry out a command with _all_ root
-privileges, or to _do_ an administrative command `sudo(1M)` can be used.
+##### SUperuser DO: sudo(1m)
 
-The `sudo` command, i.e., superuser do, permits a regular user to execute the specified
-set of commands with supperuser privileges without having to become the superuser.
+| **Tool**  | **Purpose**
+|----------------------|----------|
+| `sudo(1m)`           | execute a command as superuser |
 
-If user was permitted to use some commands with superuser privileges via `sudo`
-he/she can execute them with elevated privileges simply starting command with `sudo`.
+The `sudo` command, i.e., superuser do, permits a regular user to execute a specified set of commands with superuser privileges without having to become the superuser.
+While `sudo` actually allows one user to execute a command as another user, it is predominantly used to allow a user to execute commands requiring elevated privileges as the superuser.
+It is not always feasible for one user to perform all administrative tasks.
+It would be more flexible if some tasks could be performed by some, say, experienced users.
+To enable some users to carry out a command with root privileges, or to _do_ an administrative command `sudo(1m)` can be used.
+`sudo` can be configured to provide a user with elevated privileges for _all_ commands requiring heightened privileges or configured to make only a select number of commands available to a user.
+Furthermore, in addition to being able to equip users with permission to perform some actions, `sudo` can be applied to a `group`.
+The group can be assigned to users who are then elevated to the powers available to that group.
 
-To permit a user to use `sudo`, the superuser edits `/etc/sudoers`.
+One common strategy is to to define a minimum set of commands to perform some task, e.g., manage a mailserver, and then assign these commands to a group.
+Thereby, mailserver management can be assigned to a user by adding the group membership to a user.
 
-This can be done using special `visudo(1M)` tool.
-`visudo` tool edits `/etc/sudoers` file performing various syntax checks.
-`sudoers(1)` provides details on the precise
-means to appropriately grant user elevated privileges via sudo.
+While elevated user privileges for `sudo` are configured in `/etc/sudoers`, user configuration is preferably performed by adding files to the `/etc/sudoers.d/` directory.
+All files in this directory will be automatically added for use by `sudo`.
+At a glance, any experienced administrator can view system changes to an installation; and system re-installation or migration becomes less ardent.
 
-Example:
 
-To shutdown the system, root privileges are required. If a standard user issues
-the `shutdown` command, the system will issue a warning. However, if the user has
-been enabled to use sudo, then the user can now shutdown the system:
+###### Sudo configuration
+
+| **Tool**  | **Purpose**
+|----------------------|----------|
+| `sudoers(4)`         | sudo security policy |
+| `/etc/sudoers`       | system file containing a list of users and groups allowed to use sudo |
+| `/etc/sudoers.d/`    | directory containing list of users and groups allowed to use sudo as added by system administrator |
+| `visudo(1m)`         | wrapper framework used to edit sudo configuration  files|
+
+Elevated user privileges for `sudo` are configured in `/etc/sudoers`.
+This file contains a list of users and groups allowed to use `sudo`, and the commands each user, or group, are allowed to use with `sudo`.
+
+However, it is well advised to preserve this file in its pristine state upon installation.
+Modifications intended for this file are preferably carried out by creating a new file and making the changes in this new file.
+Add the new file to the `/etc/sudoers.d/` directory.
+All files in this directory will be automatically assigned for use by `sudo`.
+
+To edit any `sudo` configuration files is subject to subtle syntax pitfalls.
+It is also dangerous for more than one user to edit this file at the same time.
+To prevent such mishaps, `visudo` was designed to assist in avoiding such issues.
+`visudo` works in conjunction with an editor, by default `vi`.
+
+A standard installation of OpenIndian supplies an easy to use editor called `pluma`.
+To start `visudo` with it using `pluma`, do the following:
+
+```bash
+$ sudo EDITOR=pluma visudo /etc/sudoers.d/whatever
+```
+
+This will start `pluma` to edit `whatever` with the `visudo` wrapper.
+
+It is also possible to set the default editor in your login profile, e.g., for BASH: add `export EDITOR=pluma` to `$HOME/.bashrc` and start `visudo` as follows:
+
+```bash
+$ sudo -E visudo /etc/sudoers.d/whatever
+```
+
+The `-E` option permits passing environment variables from the user to the `sudo` environment, which is not always guaranteed.
+The `EDITOR` environment variable can be set in your init profile, e.g., `.bashrc` if you are using the BASH shell.
+
+Note: this depends on how `sudo` was compiled.
+Currently, the version of `sudo` packaged with OpenIndiana supports the above mechanism.
+Details can be found in the manpage.
+
+###### Sudoers file format
+
+```bash
+[user] [host]([run-as-user]:[run-as-group]) [command1, command2]
+```
+
+`user` and `host` are separated by a tab.
+
+- **user:** is either a username or the name of a group. the name of a group is preceded
+  an '%'.
+- **host:** the name of one or more machines from which the commands are
+  permitted to run.
+- **run-as-user:** the name of a user by which the commands are permitted to be
+  run.
+- **run-as-group:** the name of a group which must be assigned to a user by
+  which the commands are permitted to be run.
+- **commands:** list of commands separated by commas permitted to be executed
+
+The sudoers file supports a rich collection of features beyond this cursory treatment.
+Consult the `sudoers(1)` manpage, in particular the section titled 'Sudoers File Format' for details.
+
+
+###### Example of a Sudoers file
+
+```bash
+# Sample sudo configuration file
+#
+# User root is assigned all privileges
+root  ALL=(ALL:ALL) ALL
+# Assign all privileges to group admin. Any user assigned to admin has all privileges
+%admin ALL=(ALL) ALL
+...
+```
+
+To illustrate, we provide the following example.
+
+###### Example:
+
+*Problem*
+To shutdown the system, elevated privileges are required.
+If a standard user issues the `shutdown` command, the following occurs:
+
+```bash
+$ sudo shutdown -i5 -g0 -y
+/usr/sbin/shutdown:    Only root can run /usr/sbin/shutdown
+```
+
+In this example, we would like to provide one or more users with the possibility of doing the following:
+
+- the ability to run `/usr/sbin/shutdown` including the ability to specify
+  command line arguments
+- the ability to run only `/usr/sbin/reboot`, without being allowed to specify
+  any command line arguments
+- the ability to run all commands in `/opt/groups/offclub/bin`, a directory
+specifically created for this group by an administrator.
+
+*Solution Strategy:*
+
+- create a group called `offclub`
+- create a file called `/etc/sudoers.d/offclub`
+- edit `/etc/sudoers.d/offclub` and allow any member of group `offclub`
+   to issue `/usr/sbin/shutdown` and `/usr/sbin/reboot`
+- create `/opt/groups/offclub/bin`.
+
+We are going to create a group, `offclub` and all members of the offclub group to issue the required commands with relevant privileges.
+Moreover, for demonstrative purposes rather less than for security concerns, we will create a directory and all members of this group will be allowed to run any command in this directory.
+
+Generate the group.
+The group name is restricted to a maximum of 8 lower case characters and create the directory which contains command that can be executed by members of the `offclub` group:
+
+```bash
+# groupadd offclub
+# sudo mkdir -p /opt/groups/offclub/bin
+```
+
+
+```bash
+$ visudo /etc/sudoers.d/offclub
+```
+
+Add the following line:
+
+```bash
+%offclub    ALL=(root)    /opt/groups/offclub/bin, /usr/sbin/reboot, /usr/sbin/shutdown
+```
+
+The `%` indicates that `offclub` is a group.
+You can, off course, add users instead of groups here.
+The final three indicate the commands, or directory; while ALL=(root) indicates that root privileges are bestowed for these commands.
+
+There are a number of ways of enabling permission to execute files in a directory.
+One way is to assign a file, say *myapp* to the group, and provide the group permission to execute *myapp':
 
 ```
-$ sudo shutdown -i5 -g0 -y
+# chown offclub /opt/groups/offgroup/bin/myapp
+# chmod g+x /opt/groups/offgroup/bin/myapp
+```
+
+All members of the `offclub` can now perform the commands.
+Example, add user *whoever* to the group:
+
+```bash
+usermod -G offclub whoever
+```
+
+
+#### [Roles (and Role-Based Access Control)](#roles-and-role-based-access-control)
+
+| **Tool**  | **Purpose**
+|----------------------|----------|
+| [roles(1)](https://illumos.org/man/1/roles) |  print roles assigned to a user |
+| [auths(1)](https://illumos.org/man/1/auths) |  print authorisations assigned to a user |
+| [privileges(5)](https://illumos.org/man/5/privileges) |   |
+| [ppriv(1)](https://illumos.org/man/1/ppriv) | manage process privileges |
+| [profiles(1)](https://illumos.org/man/1/profiles)         | print user profiles |
+
+A role is a basic unit of Role-Based access control (RBAC) or set of [privileges(5)](https://illumos.org/man/5/privileges) a user account can assume.
+A role can be thought of as a no-login account.
+It has most of the attributes of a normal user account and is identified as a normal user; but it is permissible to log into such an account directly.
+One should login using a regular account and use [su(1M)](https://illumos.org/man/1M/su) to assume the role.
+
+##### Role-Based Access Control (RBAC)
+
+The _all-or-nothing_ power assigned to the root user has its obvious limitations.
+While sudo is an improvement by limiting root privileges for only several commands, more granular control is often desired.
+
+One improvement on the above systems would be one in which privileges could be assigned on a more fine-grained and selective basis; whereby the focus is less on commands and more on performing actions to accomplish some task.
+
+Imagine a user assigned the task of administrating some particular hardware, for example, printers attached to the system.
+A more desirable system would be one in which this user had the ability to permit users to use a printing device, remove print jobs from the print spool or add new printers to the system.
+Moreover, it would be advantageous if it were possible to assign privileges to perform only these actions and none other.
+
+RBAC was developed to accomplish this.
+
+
+###### ProFile EXECute: pfexec(1)
+
+| **Tool**  | **Purpose** |
+|-----------|-------------|
+| [pfexec(1)](https://illumos.org/man/1/pfexec)     |  |
+|       | |
+|     |  |
+|          |  |
+
+
+### [Groups](#groups)
+
+  | **Command**  | **Operand** | **Purpose**|
+  |--------------|--------|----------|
+  | [groups(1)](https://illumos.org/man/1/groups)    | [user] |list groups assigned to a user |
+
+A group is a collection of users which is predominantly used to assign privileges to users.
+
+To obtain a list of groups assigned to a user:
+
+```bash
+    groups [user]
+```
+
+Get a list of all groups on the system:
+
+```
+    $ getent group | cut -d: -f1
 ```
 
 ### Managing accounts
 
-There are several tools in OpenIndiana to manage user accounts.
-They are listed in the table below.
-
  Tool                                                |  Description
 ---------------------------------------------------- | --------------------------------
-[useradd(1M)](https://illumos.org/man/1M/useradd)    | creates new account on the system
-[userdel(1M)](https://illumos.org/man/1M/userdel)    | deletes account from the system
-[usermod(1M)](https://illumos.org/man/1M/usermod)    | modifies account information on the system
-[groupadd(1M)](https://illumos.org/man/1M/groupadd)  | creates group on the system
-[groupdel(1M)](https://illumos.org/man/1M/groupdel)  | deletes group from the system
-[groupmod(1M)](https://illumos.org/man/1M/groupdel)  | modifies group information on the system
-[roleadd(1M)](https://illumos.org/man/1M/roleadd)    | creates new role on the system
-[roledel(1M)](https://illumos.org/man/1M/roledel)    | deletes role from the system
-[rolemod(1M)](https://illumos.org/man/1M/rolemod)    | modifies role information in the system
-[passwd(1)](https://illumos.org/man/1/passwd)        | changes login password and password attributes
+[useradd(1M)](https://illumos.org/man/1M/useradd)    | create a new account on the system
+[userdel(1M)](https://illumos.org/man/1M/userdel)    | delete an account from the system
+[usermod(1M)](https://illumos.org/man/1M/usermod)    | modify account information
+[groupadd(1M)](https://illumos.org/man/1M/groupadd)  | create a group on the system
+[groupdel(1M)](https://illumos.org/man/1M/groupdel)  | delete a group from the system
+[groupmod(1M)](https://illumos.org/man/1M/groupdel)  | modify group information on the system
+[roleadd(1M)](https://illumos.org/man/1M/roleadd)    | create a new role on the system
+[roledel(1M)](https://illumos.org/man/1M/roledel)    | delete a role from the system
+[rolemod(1M)](https://illumos.org/man/1M/rolemod)    | modify role information in the system
+[roles(1)](https://illumos.org/man/1/rolemod)        | print roles assigned to a user
+[passwd(1)](https://illumos.org/man/1/passwd)        | change login password and password attributes
+[id(8)](https://illumos.org/man/8/id)                | print user and groups IDs
 
-#### useradd
-
-useradd is a program to create user accounts on the system.
-When creating account one can set some attributes of the newly created account such as comment, group membership, home directory path, UID number of the account or login shell.
-
-#### userdel
-
-One can use `userdel` to remove the account from the system.
-
-#### usermod
-
-`usermod` is used to modify properties of existing account.
-
-#### groupadd
-
-`groupadd` creates a new group definition on the system by adding the appropriate to the /etc/group file.
-
-#### groupdel
-
-`groupdel` deletes a group definition from the system.
-
-#### groupmod
-
-When one needs to modify group attributes, `groupmod` should be used.
-
-#### roleadd
-
-`roleadd` is used create roles in the system.
-
-#### roledel
-
-`roledel` deletes selected role from the system.
-
-#### rolemod
-
-`rolemod` modifies role's information on the system.
-
-#### passwd
-
-`passwd` changes password for user accounts.
-An unprivileged user may only change the password for his/her own account, while the superuser may change the password for any account.
-Privileged user can also use `paasswd` to change login password attributes (such as expiration date) or lock the account.
-
-### Role-Based Access Control (RBAC)
-
-The _all-or-nothing_ power assigned to the root user has its obvious
-limitations.  While sudo is an improvement by limiting root privileges for only
-several commands, more granular control is often desired.
-
-An improvement on the above systems would be one in which privileges could be
-assigned on a more fine-grained and selective basis.
-
-Imagine a user assigned the task of administrating some particular hardware, for
-example, printers attached to the system.  A more desirable system would be one
-in which this user had the ability to permit users to use a printing device,
-remove print jobs from the print spool or add new printers to the system.
-Moreover, it would be advantageous if it were possible to assign privileges to
-perform only these actions and none other.
-
-RBAC was developed to accomplish this.
-
-#### What is RBAC
+* **useradd** creates a user account on the system.
+Attributes can also be set while an account is created such as a comment, group
+membership, home directory path, UID number of the account or the login shell.
+* **userdel** is used to remove an account from the system.
+* **usermod** is used to modify properties of an existing account.
+* **groupadd** creates a new group on the system by adding appropriate information to the /etc/group file.
+* **groupdel** deletes a group from the system.
+* **groupmod** is used to modify group attributes.
+* **roleadd** is used create roles in the system.
+* **roledel** deletes a role from the system.
+* **rolemod** modifies role information on the system.
+* **roles**
+* **passwd** is used to change the password of a user account.
+An unprivileged user may only change the password of that user's account, whereas the superuser may change the password for any account.
+A privileged user can also use `paasswd` to change login password attributes (such as expiration date) or can lock an account.
 
 
-#### How to use RBAC
+#### Examples
+
+##### Use `sudo` to enable a user to shutdown the system
 
 The root user or a user with sudo enabled can shutdown the system.
-We can use RBAC to enable a user to be able to shutdown the system. However, we
-can create a role that allows only the privilege to shutdown the system, and
-no additional privileges. We can then assign this role to one or several users.
+
+##### Use RBAC to enable a user to shutdown the system
+
+We can use RBAC to enable a user to be able to shutdown the system.
+However, we can create a role that allows only the privilege to shutdown the system, and no additional privileges.
+We can then assign this role to one or several users.
 
 - assign a privilege to a role to shutdown the system
 
-```
-# roleadd shutdown
+```bash
+    # roleadd shutdown
 ```
 
 - Assign a password
 
-```
-# passwd shutdown
+```bash
+    # passwd shutdown
 ```
 
 - Assign this role to a user
 
+```bash
+    # usermod -R shutdown whoever
 ```
-# usermod -R shutdown whoever
-```
-
 
 - Create a SHUTDOWN profile
 
-```
-# echo "SHUTDOWN:::profile to shutdown:help=shutdown.html" >> /etc/security/prof_attr
+```bash
+    # echo "SHUTDOWN:::profile to shutdown:help=shutdown.html" >> /etc/security/prof_attr
 ```
 
 - Okay, now assign the role profile SHUTDOWN to the role shutdown
 
-```
-# rolemod -P SHUTDOWN shutdown
+```bash
+    # rolemod -P SHUTDOWN shutdown
 ```
 
 - Assign some administrative command to profile
 
-```
-# echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0" >> /etc/security/exec_attr
+```bash
+    # echo "SHUTDOWN:suser:cmd:::/usr/sbin/shutdown:uid=0" >> /etc/security/exec_attr
 ```
 
 - Use it
 
+```bash
+    $ su shutdown
+    # shutdown -i5 -g0 -y
 ```
-$ su shutdown
-# shutdown -i5 -g0 -y
-```
 
-Now user whoever can shutdown the system.
+Now user *whoever* can shutdown the system.
 
 
-The `pfexec` command is more flexible in the number of privileges that can be
-assigned to a user.
+The `pfexec` command is more flexible in the number of privileges that can be assigned to a user.
 
 ### Active Directory Integration
 
