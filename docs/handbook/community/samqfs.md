@@ -47,10 +47,11 @@ SamFS is a good solution, if you:
 This version is updated in relation to the original version released by Sun Microsystems 2009:
 
 * current OHSM dumps can be restored, NFSv4 ACL's or LTFS information will be ignored
-* LTO-5 -- LTO-8 tape drives added and tested
+* LTO-5 -- LTO-9 tape drives added and tested
 * samst driver replaced by sgen
 * Sun Support framework removed
 * the Web based managment tool, part of the Sun webconsole was never tested, however the libsammgmt based tools like `samcrondump` are still working.
+* userland daemons and tools now build in 64bit
 
 ## Install
 
