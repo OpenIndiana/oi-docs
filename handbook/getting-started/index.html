@@ -3719,7 +3719,7 @@ See the notes below for optimizing OpenIndiana for several popular hypervisors.<
 </tr>
 <tr>
 <td>KVM</td>
-<td>OS type = Sun OpenSolaris <br>Disk = SATA <br>Remove USB Tablet <br>NIC = e1000 <br>sound = AC97 <br>Processor = Copy host CPU configuration <br>Disable CPU feature <em>'xsave'</em> <br>Video = QXL (QXL driver not supported, but the extra video memory helps) <br>Display = VNC (Spice not supported)</td>
+<td>OS type = Sun OpenSolaris <br>Disk = SATA <br>Remove USB Tablet <br>NIC = e1000 <br>sound = AC97 <br>Processor = Copy host CPU configuration <br>Disable CPU feature <em>'xsave'</em> <br>Video = VMVGA; may not be shown in virt-manager, edit XML to be as:<br/> <code>&lt;model type='vmvga' vram='131072' heads='1' primary='yes'/&gt;</code> <br>Display = VNC (Spice not supported)</td>
 </tr>
 <tr>
 <td>Hyper-V</td>
@@ -5384,7 +5384,7 @@ For example, use the <code>zoneadm</code> list command to view a list of all cur
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-10-30 10:58:22</span>
       
         <br>
         Created:
