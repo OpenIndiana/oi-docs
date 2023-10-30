@@ -16,6 +16,7 @@ theme:
     - navigation.footer
     - content.action.edit
     - content.code.copy
+    - search.highlight
   palette:
     primary: white
   font: false
@@ -33,6 +34,7 @@ markdown_extensions:
 extra_css:
     - 'assets/extra.css'
 plugins:
+  - search
   - git-revision-date-localized:
       enable_creation_date: true
       type: iso_datetime
