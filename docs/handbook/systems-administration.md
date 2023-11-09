@@ -759,7 +759,7 @@ distribution, so to upgrade your system, you simply run `pkg update`
 all packages will be updated to the latest revision:
 
 ```sh
-sudo pkg update
+pfexec pkg update
 ```
 
 New installation images are beneficial for those
