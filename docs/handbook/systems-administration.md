@@ -762,6 +762,9 @@ all packages will be updated to the latest revision:
 pfexec pkg update
 ```
 
+(Note: for `pfexec` to succeed you'll need to have the `Software Installation` profile <a href="../getting-started/#quick-start-to-ips">enabled for your user account</a>.)
+
+
 New installation images are beneficial for those
 with newer hardware that illumos may have added
 support for, but the above command should suffice

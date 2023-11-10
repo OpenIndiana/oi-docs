@@ -1417,7 +1417,45 @@ Use the following steps to change the root password:
     These pages are only available by running the man page viewer locally on your system.
 </div>
 
-### Introduction
+### Quick Start to IPS
+
+As a dekstop user, you will likely want to enable the `Software Installation` profile for
+your user; you can use `sudo` instead of `pfexec` if you are just getting started with
+OpenIndiana and have not yet familiar with roles
+(replace `username` with your actual username):
+
+
+```
+sudo usermod -P "Software Installation" username
+```
+
+Now you can use `pfexec` to execute `pkg install`
+
+
+For instance, you may want to search for the `emacs` editor by running `pkg search -p emacs`
+
+```
+$ pkg search -p emacs
+PACKAGE                                                PUBLISHER
+pkg:/developer/exuberant-ctags@5.8-2020.0.1.1          openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-gtk@29.1-2023.0.0.1    openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-lisp@29.1-2023.0.0.1   openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-no-x11@29.1-2023.0.0.1 openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-x11@29.1-2023.0.0.1    openindiana.org
+pkg:/editor/gnu-emacs@29.1-2023.0.0.1                  openindiana.org
+
+```
+
+
+Then you can install it the one that you like by coping and pasting the FMRI (see more details on that later) into a `pkg install` command:
+
+
+```
+pfexec pkg install pkg:/editor/gnu-emacs/gnu-emacs-no-x11@29.1-2023.0.0.1
+```
+
+
+### IPS Overview
 
 <!--The majority of the text below was taken from the PDL licensed document titled 'Getting Started with OpenSolaris 2008.11' -->
 
