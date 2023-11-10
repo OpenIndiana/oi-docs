@@ -1419,9 +1419,9 @@ Use the following steps to change the root password:
 
 ### Quick Start to IPS
 
-As a dekstop user, you will likely want to enable the `Software Installation` profile for
+As a desktop user, you will likely want to enable the `Software Installation` profile for
 your user; you can use `sudo` instead of `pfexec` if you are just getting started with
-OpenIndiana and have not yet familiar with roles
+OpenIndiana and are not yet familiar with roles
 (replace `username` with your actual username):
 
 
@@ -1447,7 +1447,7 @@ pkg:/editor/gnu-emacs@29.1-2023.0.0.1                  openindiana.org
 ```
 
 
-Then you can install it the one that you like by copying and pasting the FMRI (see more details on that later) into a `pkg install` command:
+Then you can install the one that you like by copying and pasting the FMRI (see more details on that later) into a `pkg install` command:
 
 
 ```
