@@ -562,13 +562,13 @@ As it runs, you will be prompted with a few questions.
 
     Secure boot (UEFI boot path validation) must be disabled (if it is enabled by default) because UEFI secure boot is currently not yet supported.
 
-    For further information, consult the manufacturers documentation for your computer hardware.
+    For further information, consult the manufacturer's documentation for your computer hardware.
 </div>
 
 ### Booting the OpenIndiana installer on virtual hardware
 
 The most efficient way to boot a virtual machine is to boot directly from the DVD ISO file.
-Alternately, you may use host to guest DVD/USB passthrough to boot from physical media.
+Alternately, you may use host-to-guest DVD/USB passthrough to boot from physical media.
 See the notes below for optimizing OpenIndiana for several popular hypervisors.
 
 | Hypervisor | Configuration Notes
@@ -1413,7 +1413,7 @@ Use the following steps to change the root password:
 <div class="note" markdown="1">
 !!! note
     The image packaging system is delivered as part of the OpenIndiana userland.
-    As such, the pkg related man pages are not available on the illumos.org website.
+    As such, the pkg-related man pages are not available on the illumos.org website.
     These pages are only available by running the man page viewer locally on your system.
 </div>
 
@@ -1421,8 +1421,8 @@ Use the following steps to change the root password:
 
 As a desktop user, you will likely want to enable the `Software Installation` profile for
 your user; you can use `sudo` instead of `pfexec` if you are just getting started with
-OpenIndiana and are not yet familiar with roles
-(replace `username` with your actual username):
+OpenIndiana and are not yet familiar with RBAC (role-based authentication), being sure
+to replace `username` with your actual username:
 
 
 ```
