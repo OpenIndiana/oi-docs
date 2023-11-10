@@ -1447,7 +1447,7 @@ pkg:/editor/gnu-emacs@29.1-2023.0.0.1                  openindiana.org
 ```
 
 
-Then you can install it the one that you like by coping and pasting the FMRI (see more details on that later) into a `pkg install` command:
+Then you can install it the one that you like by copying and pasting the FMRI (see more details on that later) into a `pkg install` command:
 
 
 ```
