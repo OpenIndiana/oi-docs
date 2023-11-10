@@ -762,7 +762,7 @@ all packages will be updated to the latest revision:
 pfexec pkg update
 ```
 
-(Note: for `pfexec` to succeed you'll need to have the `Software Installation` profile <a href="../getting-started/#quick-start-to-ips">enabled for your user account</a>.)
+(Note: for `pfexec` to succeed you'll need to have the `Software Installation` profile [enabled for your user account](../getting-started/#quick-start-to-ips).)
 
 
 New installation images are beneficial for those
