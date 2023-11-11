@@ -1208,8 +1208,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#introduction_1" class="md-nav__link">
-    Introduction
+  <a href="#quick-start-to-ips" class="md-nav__link">
+    Quick Start to IPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ips-overview" class="md-nav__link">
+    IPS Overview
   </a>
   
 </li>
@@ -2877,8 +2884,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#introduction_1" class="md-nav__link">
-    Introduction
+  <a href="#quick-start-to-ips" class="md-nav__link">
+    Quick Start to IPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ips-overview" class="md-nav__link">
+    IPS Overview
   </a>
   
 </li>
@@ -3731,12 +3745,12 @@ As it runs, you will be prompted with a few questions.</p>
 <p class="admonition-title">Caution</p>
 <p>OpenIndiana supports UEFI (Unified Extensible Firmware Interface) without secure boot:</p>
 <p>Secure boot (UEFI boot path validation) must be disabled (if it is enabled by default) because UEFI secure boot is currently not yet supported.</p>
-<p>For further information, consult the manufacturers documentation for your computer hardware.</p>
+<p>For further information, consult the manufacturer's documentation for your computer hardware.</p>
 </div>
 </div>
 <h3 id="booting-the-openindiana-installer-on-virtual-hardware">Booting the OpenIndiana installer on virtual hardware</h3>
 <p>The most efficient way to boot a virtual machine is to boot directly from the DVD ISO file.
-Alternately, you may use host to guest DVD/USB passthrough to boot from physical media.
+Alternately, you may use host-to-guest DVD/USB passthrough to boot from physical media.
 See the notes below for optimizing OpenIndiana for several popular hypervisors.</p>
 <table>
 <thead>
@@ -4604,11 +4618,32 @@ The image above illustrates what this looks like on a system with several boot e
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The image packaging system is delivered as part of the OpenIndiana userland.
-As such, the pkg related man pages are not available on the illumos.org website.
+As such, the pkg-related man pages are not available on the illumos.org website.
 These pages are only available by running the man page viewer locally on your system.</p>
 </div>
 </div>
-<h3 id="introduction_1">Introduction</h3>
+<h3 id="quick-start-to-ips">Quick Start to IPS</h3>
+<p>As a desktop user, you will likely want to enable the <code>Software Installation</code> profile for
+your user; you can use <code>sudo</code> instead of <code>pfexec</code> if you are just getting started with
+OpenIndiana and are not yet familiar with RBAC (role-based authentication), being sure
+to replace <code>username</code> with your actual username:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo usermod -P &quot;Software Installation&quot; username
+</span></code></pre></div>
+<p>Now you can use <code>pfexec</code> to execute <code>pkg install</code></p>
+<p>For instance, you may want to search for the <code>emacs</code> editor by running <code>pkg search -p emacs</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ pkg search -p emacs
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>PACKAGE                                                PUBLISHER
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>pkg:/developer/exuberant-ctags@5.8-2020.0.1.1          openindiana.org
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>pkg:/editor/gnu-emacs/gnu-emacs-gtk@29.1-2023.0.0.1    openindiana.org
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>pkg:/editor/gnu-emacs/gnu-emacs-lisp@29.1-2023.0.0.1   openindiana.org
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>pkg:/editor/gnu-emacs/gnu-emacs-no-x11@29.1-2023.0.0.1 openindiana.org
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>pkg:/editor/gnu-emacs/gnu-emacs-x11@29.1-2023.0.0.1    openindiana.org
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>pkg:/editor/gnu-emacs@29.1-2023.0.0.1                  openindiana.org
+</span></code></pre></div>
+<p>Then you can install the one that you like by copying and pasting the FMRI (see more details on that later) into a <code>pkg install</code> command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pfexec pkg install pkg:/editor/gnu-emacs/gnu-emacs-no-x11@29.1-2023.0.0.1
+</span></code></pre></div>
+<h3 id="ips-overview">IPS Overview</h3>
 <!--The majority of the text below was taken from the PDL licensed document titled 'Getting Started with OpenSolaris 2008.11' -->
 
 <p>After an initial installation of the OpenIndiana Hipster operating system, you will find many of the software applications you use on a regular basis are not immediately available to you.
@@ -4681,7 +4716,7 @@ Some actions may optionally have tags that provide meta information about the ac
 The pkg<sup>1</sup> command uses valid FMRI package information to perform its command actions.
 The FMRI includes descriptive information about the package, such as the package name, version information, and date.</p>
 <p>For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.0:20160702T042138Z
 </span></code></pre></div>
 <ul>
 <li>Scheme – pkg</li>
@@ -4701,35 +4736,35 @@ Therefore, be sure to consult the <code>pkg</code><sup>1</sup> man page for full
 <p>To reference command usage directly from the command line, use <code>pkg help</code>.</p>
 <p>For example:</p>
 <p><code>pkg help</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Usage:    pkg [options] command [cmd_options] [operands]
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>The following commands are supported:
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>Package Information  : list           search         info      contents
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>Package Transitions  : update         install        uninstall
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>                       history        exact-install
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>Package Maintenance  : verify         fix            revert
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>Publishers           : publisher      set-publisher  unset-publisher
-</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>Package Configuration: mediator       set-mediator   unset-mediator
-</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>                       facet          change-facet
-</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>                       variant        change-variant
-</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>Image Constraints    : avoid          unavoid        freeze    unfreeze
-</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>Image Configuration  : refresh        rebuild-index  purge-history
-</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>                       property       set-property   add-property-value
-</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>                       unset-property remove-property-value
-</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>Miscellaneous        : image-create   dehydrate      rehydrate
-</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>For more info, run: pkg help &lt;command&gt;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Usage:    pkg [options] command [cmd_options] [operands]
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>The following commands are supported:
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Package Information  : list           search         info      contents
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Package Transitions  : update         install        uninstall
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>                       history        exact-install
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Package Maintenance  : verify         fix            revert
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>Publishers           : publisher      set-publisher  unset-publisher
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>Package Configuration: mediator       set-mediator   unset-mediator
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>                       facet          change-facet
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>                       variant        change-variant
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>Image Constraints    : avoid          unavoid        freeze    unfreeze
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>Image Configuration  : refresh        rebuild-index  purge-history
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>                       property       set-property   add-property-value
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>                       unset-property remove-property-value
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>Miscellaneous        : image-create   dehydrate      rehydrate
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>For more info, run: pkg help &lt;command&gt;
 </span></code></pre></div>
 <p>To retrieve information about a specific command use: <code>pkg help [command]</code></p>
 <p>For example:</p>
 <p><code>pkg help update</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Usage:
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>        pkg update [-fnvq] [-C n] [-g path_or_uri ...] [--accept] [--ignore-missing]
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>            [--licenses] [--no-be-activate] [--no-index] [--no-refresh]
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>            [--no-backup-be | --require-backup-be] [--backup-be-name]
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>            [--deny-new-be | --require-new-be] [--be-name name]
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>            [-r [-z image_name ... | -Z image_name ...]]
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>            [--sync-actuators | --sync-actuators-timeout timeout]
-</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>            [--reject pkg_fmri_pattern ...] [pkg_fmri_pattern ...]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Usage:
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>        pkg update [-fnvq] [-C n] [-g path_or_uri ...] [--accept] [--ignore-missing]
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>            [--licenses] [--no-be-activate] [--no-index] [--no-refresh]
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>            [--no-backup-be | --require-backup-be] [--backup-be-name]
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>            [--deny-new-be | --require-new-be] [--be-name name]
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>            [-r [-z image_name ... | -Z image_name ...]]
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>            [--sync-actuators | --sync-actuators-timeout timeout]
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>            [--reject pkg_fmri_pattern ...] [pkg_fmri_pattern ...]
 </span></code></pre></div>
 <h3 id="searching-for-packages">Searching for packages</h3>
 <p>The <code>pkg search</code> command is used to search locally or remotely for information about packages.
@@ -4738,20 +4773,20 @@ If no search options are specified, the command defaults to performing a search 
 Using the <code>-l</code> option, you may restrict the search to the local system.</p>
 <p>For example:</p>
 <p><code>pkg search xchat</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>INDEX                ACTION VALUE                                   PACKAGE
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>pkg.summary          set    XChat IRC Client                        pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>pkg.summary          set    HexChat is an IRC client based on XChat pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>basename             file   usr/bin/xchat                           pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>com.oracle.info.name set    xchat                                   pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>pkg.fmri             set    openindiana.org/desktop/irc/xchat       pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>INDEX                ACTION VALUE                                   PACKAGE
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>pkg.summary          set    XChat IRC Client                        pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>pkg.summary          set    HexChat is an IRC client based on XChat pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>basename             file   usr/bin/xchat                           pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>com.oracle.info.name set    xchat                                   pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>pkg.fmri             set    openindiana.org/desktop/irc/xchat       pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5
 </span></code></pre></div>
 <p>As you can see, the search results include package names along with additional information.
 To search for package names only, include the <code>-p</code> option.</p>
 <p>For example:</p>
 <p><code>pkg search -p xchat</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>PACKAGE                                    PUBLISHER
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1 openindiana.org
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5    openindiana.org
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>PACKAGE                                    PUBLISHER
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>pkg:/desktop/irc/hexchat@2.12.1-2016.0.0.1 openindiana.org
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>pkg:/desktop/irc/xchat@2.8.8-2016.0.0.5    openindiana.org
 </span></code></pre></div>
 <div class="note">
 <div class="admonition note">
@@ -4763,15 +4798,15 @@ If you have difficulty finding a package you know should exist, try modifying yo
 <p>The <code>pkg search</code> command may also be used to find the package containing a particular file.</p>
 <p>For example:</p>
 <p><code>pkg search -l /usr/bin/gpg2</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>INDEX      ACTION VALUE        PACKAGE
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>INDEX      ACTION VALUE        PACKAGE
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>path       file   usr/bin/gpg2 pkg:/crypto/gnupg@2.0.28-2016.0.0.0
 </span></code></pre></div>
 <h3 id="listing-the-status-of-packages">Listing the status of packages</h3>
 <p>To list the status of locally installed packages, use the <code>pkg list [package]</code> command.</p>
 <p>For example:</p>
 <p><code>pkg list bash</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>NAME (PUBLISHER)                                  VERSION                    IFO
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>shell/bash                                        4.3.46-2016.0.0.0          i--
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>NAME (PUBLISHER)                                  VERSION                    IFO
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>shell/bash                                        4.3.46-2016.0.0.0          i--
 </span></code></pre></div>
 <div class="note">
 <div class="admonition note">
@@ -4784,18 +4819,18 @@ If you have difficulty finding a package you know should exist, try modifying yo
 If the package is not installed on the local system, use the <code>-r</code> option to search the remote repositories defined on the system.</p>
 <p>For example:</p>
 <p><code>pkg info -r gimp</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>          Name: image/editor/gimp
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>       Summary: The Gimp image editor
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>      Category: Applications/Graphics and Imaging
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>         State: Not installed
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>     Publisher: openindiana.org
-</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>       Version: 2.8.16
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>        Branch: 2016.0.0.2
-</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>Packaging Date: July 30, 2016 12:04:41 AM
-</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>          Size: 65.01 MB
-</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>          FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.2:20160730T000441Z
-</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>   Project URL: http://www.gimp.org/
-</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>    Source URL: http://download.gimp.org/pub/gimp/v2.8/gimp-2.8.16.tar.bz2
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>          Name: image/editor/gimp
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>       Summary: The Gimp image editor
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>      Category: Applications/Graphics and Imaging
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>         State: Not installed
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>     Publisher: openindiana.org
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>       Version: 2.8.16
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>        Branch: 2016.0.0.2
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>Packaging Date: July 30, 2016 12:04:41 AM
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>          Size: 65.01 MB
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>          FMRI: pkg://openindiana.org/image/editor/gimp@2.8.16-2016.0.0.2:20160730T000441Z
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>   Project URL: http://www.gimp.org/
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>    Source URL: http://download.gimp.org/pub/gimp/v2.8/gimp-2.8.16.tar.bz2
 </span></code></pre></div>
 <h3 id="listing-the-contents-of-packages">Listing the contents of packages</h3>
 <p>To list the entire contents of a package, use the <code>pkg contents [package]</code> command.
@@ -4805,19 +4840,19 @@ If the package is not installed on the local system, use the <code>-r</code> opt
 If the package is not installed on the local system, be sure to include the <code>-r</code> option.</p>
 <p>For example:</p>
 <p><code>pkg contents -r -t depend -o fmri xchat</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>FMRI
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>pkg:/library/desktop/gdk-pixbuf@2.31.6-2016.0.0.0
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>pkg:/library/desktop/gtk2@2.24.30-2016.0.0.0
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>pkg:/library/desktop/libsexy@0.1.11-2016.0.0.0
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>pkg:/library/desktop/pango@1.36.8-2016.0.0.2
-</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>pkg:/library/glib2@2.43.4-2016.0.0.3
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>pkg:/library/security/openssl@1.0.2.8-2016.0.0.3
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>pkg:/runtime/perl-522@5.22.1-2016.0.0.1
-</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>pkg:/runtime/python-27@2.7.12-2016.0.0.0
-</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>pkg:/runtime/tcl-8@8.5.19-2016.0.0.1
-</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>pkg:/system/library/libdbus-glib@0.100.2-2016.0.0.0
-</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>pkg:/system/library@0.5.11-2016.0.0.15685
-</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>pkg:/x11/library/libx11@1.6.3-2016.0.0.0
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>FMRI
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>pkg:/library/desktop/gdk-pixbuf@2.31.6-2016.0.0.0
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>pkg:/library/desktop/gtk2@2.24.30-2016.0.0.0
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>pkg:/library/desktop/libsexy@0.1.11-2016.0.0.0
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>pkg:/library/desktop/pango@1.36.8-2016.0.0.2
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>pkg:/library/glib2@2.43.4-2016.0.0.3
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>pkg:/library/security/openssl@1.0.2.8-2016.0.0.3
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>pkg:/runtime/perl-522@5.22.1-2016.0.0.1
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>pkg:/runtime/python-27@2.7.12-2016.0.0.0
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>pkg:/runtime/tcl-8@8.5.19-2016.0.0.1
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>pkg:/system/library/libdbus-glib@0.100.2-2016.0.0.0
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>pkg:/system/library@0.5.11-2016.0.0.15685
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a>pkg:/x11/library/libx11@1.6.3-2016.0.0.0
 </span></code></pre></div>
 <h3 id="installing-packages">Installing packages</h3>
 <p>Use the following command to install a package.</p>
@@ -4847,23 +4882,23 @@ If the package is not installed on the local system, be sure to include the <cod
 </table>
 <p>For example:</p>
 <p><code>pkg install xchat</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>           Packages to install:   1
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>            Packages to update:   1
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>            Services to change:   2
-</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>       Create boot environment:  No
-</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>Create backup boot environment: Yes
-</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
-</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>DOWNLOAD                                PKGS         FILES    XFER (MB)   SPEED
-</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>Completed                                2/2         38/38      2.6/2.6  746k/s
-</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
-</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>PHASE                                          ITEMS
-</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>Removing old actions                             4/4
-</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>Installing new actions                         69/69
-</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>Updating modified actions                        2/2
-</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>Updating package state database                 Done
-</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>Updating package cache                           1/1
-</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>Updating image state                            Done
-</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>Creating fast lookup database                   Done
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>           Packages to install:   1
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>            Packages to update:   1
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>            Services to change:   2
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>       Create boot environment:  No
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>Create backup boot environment: Yes
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>DOWNLOAD                                PKGS         FILES    XFER (MB)   SPEED
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>Completed                                2/2         38/38      2.6/2.6  746k/s
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>PHASE                                          ITEMS
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>Removing old actions                             4/4
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>Installing new actions                         69/69
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>Updating modified actions                        2/2
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>Updating package state database                 Done
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>Updating package cache                           1/1
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>Updating image state                            Done
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>Creating fast lookup database                   Done
 </span></code></pre></div>
 <div class="note">
 <div class="admonition note">
@@ -4905,29 +4940,29 @@ Any dependent packages are also automatically updated.</li>
 <p>To update all the packages installed on a system to their latest available version, use the <code>pkg update</code> command without specifying any package names.</p>
 <p>For example:</p>
 <p><code>pkg update</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>            Packages to remove:    4
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>           Packages to install:   11
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>            Packages to update: 1018
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>            Packages to change:    2
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>           Mediators to change:    1
-</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>       Create boot environment:  Yes
-</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>Create backup boot environment:   No
-</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
-</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>DOWNLOAD                                PKGS         FILES    XFER (MB)   SPEED
-</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>Completed                          1035/1035     7502/7502  303.4/303.4  886k/s
-</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>
-</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>PHASE                                          ITEMS
-</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>Removing old actions                       3931/3931
-</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>Installing new actions                     6889/6889
-</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>Updating modified actions                11999/11999
-</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>Updating package state database                 Done
-</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>Updating package cache                     1022/1022
-</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>Updating image state                            Done
-</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>Creating fast lookup database                   Done
-</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>
-</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>A clone of openindiana-1 exists and has been updated and activated.
-</span><span id="__span-26-22"><a id="__codelineno-26-22" name="__codelineno-26-22" href="#__codelineno-26-22"></a>On the next boot the Boot Environment openindiana-2 will be
-</span><span id="__span-26-23"><a id="__codelineno-26-23" name="__codelineno-26-23" href="#__codelineno-26-23"></a>mounted on &#39;/&#39;.  Reboot when ready to switch to this updated BE.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>            Packages to remove:    4
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>           Packages to install:   11
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>            Packages to update: 1018
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>            Packages to change:    2
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>           Mediators to change:    1
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>       Create boot environment:  Yes
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>Create backup boot environment:   No
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>DOWNLOAD                                PKGS         FILES    XFER (MB)   SPEED
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>Completed                          1035/1035     7502/7502  303.4/303.4  886k/s
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>PHASE                                          ITEMS
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>Removing old actions                       3931/3931
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>Installing new actions                     6889/6889
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>Updating modified actions                11999/11999
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>Updating package state database                 Done
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>Updating package cache                     1022/1022
+</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>Updating image state                            Done
+</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a>Creating fast lookup database                   Done
+</span><span id="__span-29-20"><a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a>
+</span><span id="__span-29-21"><a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a>A clone of openindiana-1 exists and has been updated and activated.
+</span><span id="__span-29-22"><a id="__codelineno-29-22" name="__codelineno-29-22" href="#__codelineno-29-22"></a>On the next boot the Boot Environment openindiana-2 will be
+</span><span id="__span-29-23"><a id="__codelineno-29-23" name="__codelineno-29-23" href="#__codelineno-29-23"></a>mounted on &#39;/&#39;.  Reboot when ready to switch to this updated BE.
 </span></code></pre></div>
 <h3 id="removing-packages">Removing packages</h3>
 <p>To remove a package from the system, use the command: <code>pkg uninstall [options] [packages]</code></p>
@@ -4937,9 +4972,9 @@ To downgrade packages, use the <code>pkg update</code> command and specify the v
 Where the package has dependencies, you will need to specify the versions of the dependencies as well.
 The <code>pkg</code> utility will remove the newer versions and replace them with the versions you have specified.</p>
 <p>For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>pkg update pkg://userland/library/audio/gstreamer@0.10.36 \
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>library/audio/gstreamer/plugin/base@0.10.36 \
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>library/audio/gstreamer/plugin/good@0.10.31
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>pkg update pkg://userland/library/audio/gstreamer@0.10.36 \
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>library/audio/gstreamer/plugin/base@0.10.36 \
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>library/audio/gstreamer/plugin/good@0.10.31
 </span></code></pre></div>
 <div class="note">
 <div class="admonition note">
@@ -4952,7 +4987,7 @@ Where packages are not restricted by an incorporation, you may freely revert to 
 <p>To relax the restrictions on a package, the <code>pkg change-facet</code> command is used.</p>
 <p>The syntax of the command is <code>pkg change-facet facet.version-lock.[package]=false</code></p>
 <p>For example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>pkg change-facet facet.version-lock.library/security/gstreamer=false
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>pkg change-facet facet.version-lock.library/security/gstreamer=false
 </span></code></pre></div>
 <h3 id="ips-package-repositories">IPS package repositories</h3>
 <p>As previously mentioned, the IPS repository is the remote network location where IPS packages reside.
@@ -4985,22 +5020,22 @@ Below is a list of commands for adding, removing, or replacing repositories.</p>
 </table>
 <p>Example (Listing the repositories configured on the system):</p>
 <p><code>pkg publisher</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>PUBLISHER                   TYPE     STATUS P LOCATION
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>openindiana.org             origin   online F https://pkg.openindiana.org/hipster/
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>hipster-encumbered          origin   online F https://pkg.openindiana.org/hipster-encumbered/
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>PUBLISHER                   TYPE     STATUS P LOCATION
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>openindiana.org             origin   online F https://pkg.openindiana.org/hipster/
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>hipster-encumbered          origin   online F https://pkg.openindiana.org/hipster-encumbered/
 </span></code></pre></div>
 <p>Example (Replacing a repository):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>pkg set-publisher \
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>-G http://pkg.openindiana.org/hipster-2015 \
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>-g https://pkg.openindiana.org/hipster openindiana.org
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>pkg set-publisher \
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>-G http://pkg.openindiana.org/hipster-2015 \
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>-g https://pkg.openindiana.org/hipster openindiana.org
 </span></code></pre></div>
 <h3 id="listing-information-about-repositories">Listing information about repositories</h3>
 <p>While the <code>pkgrepo</code> command is primarily used for creating and working with IPS repositories.
 It can also be used for querying the contents of a repository.</p>
 <p>For example:</p>
 <p><code>pkgrepo info -s https://pkg.openindiana.org/hipster/</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>PUBLISHER       PACKAGES STATUS           UPDATED
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>openindiana.org 3692     online           2016-08-21T07:03:11.566484Z
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>PUBLISHER       PACKAGES STATUS           UPDATED
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>openindiana.org 3692     online           2016-08-21T07:03:11.566484Z
 </span></code></pre></div>
 <p>If you want to directly query the remote repository for a full list of all available packages, you can do so using the <code>pkgrepo list</code> command.</p>
 <ul>
@@ -5037,30 +5072,30 @@ These rules can be overridden by using explicit publishers and package version n
 <p>To list the IPS transactional history, use the <code>pkg history</code> command.</p>
 <p>For example:</p>
 <p><code>pkg history</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>START                    OPERATION                CLIENT             OUTCOME
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>2016-04-21T03:30:04      purge-history            pkg                Succeeded
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>2016-07-02T16:09:56      uninstall                pkg                Succeeded
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>2016-07-02T16:10:33      uninstall                pkg                Succeeded
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>2016-07-02T16:11:08      uninstall                pkg                Succeeded
-</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>2016-07-02T16:11:42      uninstall                pkg                Succeeded
-</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>2016-07-02T16:12:18      set-property             pkg                Succeeded
-</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>2016-07-02T16:12:22      set-property             pkg                Succeeded
-</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>2016-07-02T16:37:06      refresh-publishers       pkg                Succeeded
-</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>2016-07-02T16:37:06      update                   pkg                Succeeded
-</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>2016-07-02T16:37:32      rebuild-image-catalogs   pkg                Succeeded
-</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>2016-07-02T17:33:44      install                  pkg                Succeeded
-</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>2016-07-02T17:35:11      install                  pkg                Succeeded
-</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>2016-07-02T18:31:39      install                  pkg                Succeeded
-</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>2016-07-04T19:49:19      install                  pkg                Succeeded
-</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>2016-07-04T19:49:23      refresh-publishers       pkg                Succeeded
-</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>2016-07-04T19:49:56      rebuild-image-catalogs   pkg                Succeeded
-</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>2016-07-09T01:16:43      install                  pkg                Succeeded
-</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a>2016-07-09T01:16:45      refresh-publishers       pkg                Succeeded
-</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>2016-07-09T01:17:20      rebuild-image-catalogs   pkg                Succeeded
-</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a>2016-07-09T11:33:05      install                  pkg                Succeeded
-</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a>2016-07-09T11:33:07      refresh-publishers       pkg                Succeeded
-</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a>2016-07-09T11:33:37      rebuild-image-catalogs   pkg                Succeeded
-</span><span id="__span-32-24"><a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a>2016-07-09T12:27:23      update                   pkg                Succeeded
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>START                    OPERATION                CLIENT             OUTCOME
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>2016-04-21T03:30:04      purge-history            pkg                Succeeded
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>2016-07-02T16:09:56      uninstall                pkg                Succeeded
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>2016-07-02T16:10:33      uninstall                pkg                Succeeded
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>2016-07-02T16:11:08      uninstall                pkg                Succeeded
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>2016-07-02T16:11:42      uninstall                pkg                Succeeded
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>2016-07-02T16:12:18      set-property             pkg                Succeeded
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>2016-07-02T16:12:22      set-property             pkg                Succeeded
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>2016-07-02T16:37:06      refresh-publishers       pkg                Succeeded
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>2016-07-02T16:37:06      update                   pkg                Succeeded
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>2016-07-02T16:37:32      rebuild-image-catalogs   pkg                Succeeded
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>2016-07-02T17:33:44      install                  pkg                Succeeded
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>2016-07-02T17:35:11      install                  pkg                Succeeded
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>2016-07-02T18:31:39      install                  pkg                Succeeded
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>2016-07-04T19:49:19      install                  pkg                Succeeded
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>2016-07-04T19:49:23      refresh-publishers       pkg                Succeeded
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>2016-07-04T19:49:56      rebuild-image-catalogs   pkg                Succeeded
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a>2016-07-09T01:16:43      install                  pkg                Succeeded
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a>2016-07-09T01:16:45      refresh-publishers       pkg                Succeeded
+</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a>2016-07-09T01:17:20      rebuild-image-catalogs   pkg                Succeeded
+</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a>2016-07-09T11:33:05      install                  pkg                Succeeded
+</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a>2016-07-09T11:33:07      refresh-publishers       pkg                Succeeded
+</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>2016-07-09T11:33:37      rebuild-image-catalogs   pkg                Succeeded
+</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a>2016-07-09T12:27:23      update                   pkg                Succeeded
 </span></code></pre></div>
 <p>To view more details of a particular IPS transaction, use the command:</p>
 <p><code>pkg history [-l] [-t time_stamp]</code></p>
@@ -5090,28 +5125,28 @@ IPS package archives are also useful for sharing packages for the purpose of tes
 <h4 id="creating-the-p5p-package">Creating the p5p package</h4>
 <p>To create an IPS archive, the <code>pkgrecv</code> command is used.</p>
 <p>For example, to create a <code>.p5p</code> IPS package archive containing the package <code>userland/web/browser/firefox</code> and all of its dependencies from the repository located at <code>http://example.com:10000</code>, use the following command:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>pkgrecv -s http://example.com:10000 -d ~/firefox_test.p5p -a -r pkg://userland/web/browser/firefox@45.3.0-2016.0.0.0:20160817T064143Z
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>pkgrecv -s http://example.com:10000 -d ~/firefox_test.p5p -a -r pkg://userland/web/browser/firefox@45.3.0-2016.0.0.0:20160817T064143Z
 </span></code></pre></div>
 <h4 id="listing-the-contents-of-a-p5p-package">Listing the contents of a p5p package</h4>
 <p>There are at least two different ways to view the contents of an IPS archive.</p>
 <p><code>pkgrepo -s ~/firefox_test.p5p list</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>PUBLISHER NAME                                          O VERSION
-</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>userland  library/expat                                   2.1.0-2015.0.1.1:20150901T125810Z
-</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>userland  library/glib2                                   2.43.4-2016.0.0.4:20160705T121550Z
-</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>userland  library/glib2/charset-alias                     2.43.4-2016.0.0.4:20160705T121609Z
-</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>userland  system/library/fontconfig                       2.11.95-2016.0.0.0:20160512T122747Z
-</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>userland  web/browser/firefox                             45.3.0-2016.0.0.0:20160817T064143Z
-</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>userland  x11/library/toolkit/libxt                       1.1.4-2016.0.0.0:20160706T165209Z
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>PUBLISHER NAME                                          O VERSION
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>userland  library/expat                                   2.1.0-2015.0.1.1:20150901T125810Z
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>userland  library/glib2                                   2.43.4-2016.0.0.4:20160705T121550Z
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>userland  library/glib2/charset-alias                     2.43.4-2016.0.0.4:20160705T121609Z
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>userland  system/library/fontconfig                       2.11.95-2016.0.0.0:20160512T122747Z
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>userland  web/browser/firefox                             45.3.0-2016.0.0.0:20160817T064143Z
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>userland  x11/library/toolkit/libxt                       1.1.4-2016.0.0.0:20160706T165209Z
 </span></code></pre></div>
 <p>This also works:</p>
 <p><code>pkg list -f -g  ~/firefox_test.p5p</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>NAME (PUBLISHER)                                  VERSION                    IFO
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>library/expat (userland)                          2.1.0-2015.0.1.1           ---
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>library/glib2 (userland)                          2.43.4-2016.0.0.4          ---
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>library/glib2/charset-alias (userland)            2.43.4-2016.0.0.4          ---
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>system/library/fontconfig (userland)              2.11.95-2016.0.0.0         ---
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>web/browser/firefox (userland)                    45.3.0-2016.0.0.0          ---
-</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>x11/library/toolkit/libxt (userland)              1.1.4-2016.0.0.0           ---
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>NAME (PUBLISHER)                                  VERSION                    IFO
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>library/expat (userland)                          2.1.0-2015.0.1.1           ---
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>library/glib2 (userland)                          2.43.4-2016.0.0.4          ---
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>library/glib2/charset-alias (userland)            2.43.4-2016.0.0.4          ---
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>system/library/fontconfig (userland)              2.11.95-2016.0.0.0         ---
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>web/browser/firefox (userland)                    45.3.0-2016.0.0.0          ---
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>x11/library/toolkit/libxt (userland)              1.1.4-2016.0.0.0           ---
 </span></code></pre></div>
 <h4 id="adding-the-package-as-a-local-repository">Adding the package as a local repository</h4>
 <p><code>pkg set-publisher -p firefox_test.p5p</code></p>
@@ -5421,7 +5456,7 @@ For example, use the <code>zoneadm</code> list command to view a list of all cur
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-10-30 10:58:22</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-11-11 08:36:20</span>
       
         <br>
         Created:
