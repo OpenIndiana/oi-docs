@@ -562,13 +562,13 @@ As it runs, you will be prompted with a few questions.
 
     Secure boot (UEFI boot path validation) must be disabled (if it is enabled by default) because UEFI secure boot is currently not yet supported.
 
-    For further information, consult the manufacturers documentation for your computer hardware.
+    For further information, consult the manufacturer's documentation for your computer hardware.
 </div>
 
 ### Booting the OpenIndiana installer on virtual hardware
 
 The most efficient way to boot a virtual machine is to boot directly from the DVD ISO file.
-Alternately, you may use host to guest DVD/USB passthrough to boot from physical media.
+Alternately, you may use host-to-guest DVD/USB passthrough to boot from physical media.
 See the notes below for optimizing OpenIndiana for several popular hypervisors.
 
 | Hypervisor | Configuration Notes
@@ -1413,11 +1413,49 @@ Use the following steps to change the root password:
 <div class="note" markdown="1">
 !!! note
     The image packaging system is delivered as part of the OpenIndiana userland.
-    As such, the pkg related man pages are not available on the illumos.org website.
+    As such, the pkg-related man pages are not available on the illumos.org website.
     These pages are only available by running the man page viewer locally on your system.
 </div>
 
-### Introduction
+### Quick Start to IPS
+
+As a desktop user, you will likely want to enable the `Software Installation` profile for
+your user; you can use `sudo` instead of `pfexec` if you are just getting started with
+OpenIndiana and are not yet familiar with RBAC (role-based authentication), being sure
+to replace `username` with your actual username:
+
+
+```
+sudo usermod -P "Software Installation" username
+```
+
+Now you can use `pfexec` to execute `pkg install`
+
+
+For instance, you may want to search for the `emacs` editor by running `pkg search -p emacs`
+
+```
+$ pkg search -p emacs
+PACKAGE                                                PUBLISHER
+pkg:/developer/exuberant-ctags@5.8-2020.0.1.1          openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-gtk@29.1-2023.0.0.1    openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-lisp@29.1-2023.0.0.1   openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-no-x11@29.1-2023.0.0.1 openindiana.org
+pkg:/editor/gnu-emacs/gnu-emacs-x11@29.1-2023.0.0.1    openindiana.org
+pkg:/editor/gnu-emacs@29.1-2023.0.0.1                  openindiana.org
+
+```
+
+
+Then you can install the one that you like by copying and pasting the FMRI (see more details on that later) into a `pkg install` command:
+
+
+```
+pfexec pkg install pkg:/editor/gnu-emacs/gnu-emacs-no-x11@29.1-2023.0.0.1
+```
+
+
+### IPS Overview
 
 <!--The majority of the text below was taken from the PDL licensed document titled 'Getting Started with OpenSolaris 2008.11' -->
 

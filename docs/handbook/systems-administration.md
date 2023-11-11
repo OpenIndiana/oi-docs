@@ -751,6 +751,26 @@ onto the system before changing the run-level.
    process is not interrupted by system prompts requiring user-interactive
    intervention.
 
+
+## Updating All Packages (Upgrading Your System)
+
+OpenIndiana Hipster is a rolling release
+distribution, so to upgrade your system, you simply run `pkg update`
+all packages will be updated to the latest revision:
+
+```sh
+pfexec pkg update
+```
+
+(Note: for `pfexec` to succeed you'll need to have the `Software Installation` profile [enabled for your user account](../getting-started/#quick-start-to-ips).)
+
+
+New installation images are beneficial for those
+with newer hardware that illumos may have added
+support for, but the above command should suffice
+for existing installations.
+
+
 ## Service Management Facility
 
 Services are an extension to processes.
