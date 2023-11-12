@@ -46,7 +46,6 @@ They can also be generated using the old SunBook formatting style, see [Generati
 - [Vagrant Installation](../pdf/handbook/community/vagrant.pdf)
 - [Building OpenIndiana](../pdf/dev/building-openindiana.pdf)
 - [Building with oi-userland](../pdf/dev/userland.pdf)
-- [Building legacy consolidations](../pdf/dev/legacy-consolidations.pdf)
 - [Graphics stack](../pdf/dev/graphics-stack.pdf)
 - [Using distribution constructor](../pdf/dev/distribution-constructor.pdf)
 - [Existing tasks](../pdf/dev/existing-tasks.pdf)
