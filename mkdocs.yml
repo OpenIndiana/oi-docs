@@ -84,7 +84,6 @@ nav:
                 - "Developer's Corner":
                          - 'Building OpenIndiana': dev/building-openindiana.md
                          - 'Building with oi-userland': dev/userland.md
-                         - 'Building legacy consolidations': dev/legacy-consolidations.md
                          - 'Graphics stack': dev/graphics-stack.md
                          - 'Packaging and Delivering Software with IPS': dev/pdf/ips-dev-guide.pdf
                          - 'Using distribution constructor': dev/distribution-constructor.md
