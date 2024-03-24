@@ -26,11 +26,11 @@ A set of example Vagrantfiles that use the OpenIndiana Hipster operating system 
 
 These Vagrant guests can be ran on a Linux host or OpenIndiana host, assuming that you have the Vagrant software on the host.  Vagrant forwards the X11 DISPLAY over SSH so that it is possible to forward the Squeak display in an OpenIndiana guest to a Linux host, for example.
 
-Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at [files.squeak.org](http://files.squeak.org) or at [cuis-smalltalk.org](http://cuis-smalltalk.org).
+Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at [files.squeak.org](http://files.squeak.org) or at [cuis.st](https://cuis.st).
 
 Cuis and Squeak both use the Squeak VM, but they offer different Smalltalk images.  The Squeak images have traditional MVC (Model, View, Controller) and Morphic graphical user interface classes.   Cuis has Morphic-3, which is an enhanced set of Morphic classes.
 
-See the [Squeak website](http://www.squeak.org) for more and general information on Squeak, specifically the documentation section.  See [cuis-smalltalk.org](http://cuis-smalltalk.org) for more info Cuis.  Also see the Squeak Wiki : [Squeak Wiki](http://wiki.squeak.org)
+See the [Squeak website](http://www.squeak.org) for more and general information on Squeak, specifically the documentation section.  See [cuis.st](https://cuis.st) for more info Cuis.  Also see the Squeak Wiki : [Squeak Wiki](http://wiki.squeak.org)
 
 ## Classic VM and OpenSmalltalk VM
 
@@ -64,9 +64,13 @@ The following screenshot illustrates cog-spur, version 5.0.2967 and the results 
 
 ![test run atoms](testrun-6.0-oi.png)
 
-The last screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :
+The next screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :
 
 ![cuis magician](oi-cuis-magician.png)
+
+The last screenshot illustrates Cuis running the DrGeo software on OpenIndiana for teaching and exploring mathematics and geometry :
+
+![cuis drgeo](drgeo-fibonacci.png)
 
 ## OpenIndiana Prerequisites
 
