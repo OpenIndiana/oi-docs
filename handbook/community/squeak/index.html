@@ -1998,9 +1998,9 @@ Contributor(s): David Stes.
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>        # git clone https://github.com/openindiana/vagrantfiles
 </span></code></pre></div>
 <p>These Vagrant guests can be ran on a Linux host or OpenIndiana host, assuming that you have the Vagrant software on the host.  Vagrant forwards the X11 DISPLAY over SSH so that it is possible to forward the Squeak display in an OpenIndiana guest to a Linux host, for example.</p>
-<p>Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href="http://files.squeak.org">files.squeak.org</a> or at <a href="http://cuis-smalltalk.org">cuis-smalltalk.org</a>.</p>
+<p>Squeak consists of a VM (virtual machine) and Smalltalk images.  You can find Smalltalk images at <a href="http://files.squeak.org">files.squeak.org</a> or at <a href="https://cuis.st">cuis.st</a>.</p>
 <p>Cuis and Squeak both use the Squeak VM, but they offer different Smalltalk images.  The Squeak images have traditional MVC (Model, View, Controller) and Morphic graphical user interface classes.   Cuis has Morphic-3, which is an enhanced set of Morphic classes.</p>
-<p>See the <a href="http://www.squeak.org">Squeak website</a> for more and general information on Squeak, specifically the documentation section.  See <a href="http://cuis-smalltalk.org">cuis-smalltalk.org</a> for more info Cuis.  Also see the Squeak Wiki : <a href="http://wiki.squeak.org">Squeak Wiki</a></p>
+<p>See the <a href="http://www.squeak.org">Squeak website</a> for more and general information on Squeak, specifically the documentation section.  See <a href="https://cuis.st">cuis.st</a> for more info Cuis.  Also see the Squeak Wiki : <a href="http://wiki.squeak.org">Squeak Wiki</a></p>
 <h2 id="classic-vm-and-opensmalltalk-vm">Classic VM and OpenSmalltalk VM</h2>
 <p>There are currently three Squeak packages for OpenIndiana : squeak, stack-spur and cog-spur.  Their package names begin with pkg:/runtime/smalltalk.  These packages can be installed simultaneously mediated by the squeak mediator (see below).</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>        # pkg list | grep smalltalk
@@ -2020,8 +2020,10 @@ Contributor(s): David Stes.
 <p><img alt="test run atoms" src="../testrun-4.19.3-oi.png" /></p>
 <p>The following screenshot illustrates cog-spur, version 5.0.2967 and the results of running a number of tests on a 64-bit Squeak 6.0.20536 image :</p>
 <p><img alt="test run atoms" src="../testrun-6.0-oi.png" /></p>
-<p>The last screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :</p>
+<p>The next screenshot illustrates the squeak 4.19.6 running the Cuis Smalltalk system, with the Cuis Morphic userinterface and SVG (Scalable Vector Graphics) support.   The Squeak VM for OpenIndiana has a SVGPluginEngine for fast rendering and manipulation of Scalable Vector Graphics :</p>
 <p><img alt="cuis magician" src="../oi-cuis-magician.png" /></p>
+<p>The last screenshot illustrates Cuis running the DrGeo software on OpenIndiana for teaching and exploring mathematics and geometry :</p>
+<p><img alt="cuis drgeo" src="../drgeo-fibonacci.png" /></p>
 <h2 id="openindiana-prerequisites">OpenIndiana Prerequisites</h2>
 <p>Before installing, the OpenIndiana system should have some required packages installed.</p>
 <p>To check the required dependencies for Squeak, use the command:</p>
@@ -2164,7 +2166,7 @@ If you run squeak in a zone, you may also have to set the privilege limit:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-03-24 09:51:47</span>
       
         <br>
         Created:
