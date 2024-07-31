@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 <!--
 
 The contents of this Documentation are subject to the Public Documentation License Version 1.01
@@ -19,12 +24,6 @@ Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
 
 -->
-
----
-hide:
-  - navigation
-  - toc
----
 
 # OpenIndiana download mirrors
 
