@@ -20,17 +20,23 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
+---
+hide:
+  - navigation
+  - toc
+---
+
 # OpenIndiana download mirrors
 
 List of DLC Mirrors
 
- Mirror                                              | Location            | Connectivity | Provided by                             | Mirror site                      | Status
- --------------------------------------------------  | ------------------- | ------------ | --------------------------------------  | -------------------------------- | ------
-<http://dlc.openindiana.org/>                        | London, UK          | 1000Mbit/s   | EveryCity Ltd                           | <http://everycity.co.uk/>        | Main download location
-<http://ftp.gtlib.gatech.edu/pub/OpenIndiana/>       | Atlanta, GA (USA)   | 1000Mbit/s   | Georgia Institute of Technology         | <http://www.gtlib.gatech.edu/>   |
-<http://mirror.math.princeton.edu/pub/openindiana>   | Princeton, NJ (USA) | 1000Mbit/s   | Princeton University                    | <https://www.princeton.edu/>     |
-<http://www.ftp.ne.jp/OS/OpenIndiana/>               | Toyko, Japan        | 1000Mbit/s   | KDDI R&D Laboratories Inc.              | <http://www.kddilabs.jp/>        |
-<ftp://ftp.ne.jp/OS/OpenIndiana/>                    | Toyko, Japan        | 1000Mbit/s   | KDDI R&D Laboratories Inc.              | <http://www.kddilabs.jp/>        |
-<http://ftp.tsukuba.wide.ad.jp/illumos/openindiana/> | Tsukuba, Japan      | 1000Mbit/s   | Tsukuba WIDE Public Mirror service      | <http://ftp.tsukuba.wide.ad.jp/> |
-<http://iso.nl.netbsd.org/pub/os/openindiana.org/>   | Ede, Netherlands    | 1000Mbit/s   | NLUUG                                   | <https://www.nluug.nl/>          |
-<http://mirrors.dotsrc.org/openindiana/>             | Denmark             | 10000Mbit/s  | Dotsrc.org                              | <https://dotsrc.org/>            |
+ Mirror                                              | Location            | Connectivity | Provided by                             | Mirror site                                               | Status
+ --------------------------------------------------  | ------------------- | ------------ | --------------------------------------  | --------------------------------------------------------- | ----------------------
+<http://dlc.openindiana.org/>                        | London, UK          | 1Gbit/s      | EveryCity Ltd                           | [everycity.co.uk](https://everycity.co.uk/)               | Main download location
+<http://ftp.gtlib.gatech.edu/pub/OpenIndiana/>       | Atlanta, GA (USA)   | 1Gbit/s      | Georgia Institute of Technology         | [gtlib.gatech.edu](https://www.gtlib.gatech.edu/)         | Last updated 2021
+<http://mirror.math.princeton.edu/pub/openindiana>   | Princeton, NJ (USA) | 1Gbit/s      | Princeton University                    | [princeton.edu](https://www.princeton.edu/)               | Up to date
+<http://www.ftp.ne.jp/OS/OpenIndiana/>               | Toyko, Japan        | 1Gbit/s      | KDDI Research, Inc.                     | [kddi-research.jp](https://www.kddi-research.jp/english/) | Up to date
+<ftp://ftp.ne.jp/OS/OpenIndiana/>                    | Toyko, Japan        | 1Gbit/s      | KDDI Research, Inc.                     | [kddi-research.jp](https://www.kddi-research.jp/english/) | Up to date
+<http://ftp.tsukuba.wide.ad.jp/illumos/openindiana/> | Tsukuba, Japan      | 1Gbit/s      | Tsukuba WIDE Public Mirror service      | [tsukuba.wide.ad.jp](https://ftp.tsukuba.wide.ad.jp/)     | Last updated 2021
+<http://iso.nl.netbsd.org/pub/os/openindiana.org/>   | Ede, Netherlands    | 1Gbit/s      | NLUUG                                   | [nluug.nl](https://www.nluug.nl/)                         | Up to date
+<http://mirrors.dotsrc.org/openindiana/>             | Denmark             | 10Gbit/s     | Dotsrc.org                              | [dotsrc.org](https://dotsrc.org/)                         | Up to date
