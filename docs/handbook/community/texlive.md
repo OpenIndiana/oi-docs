@@ -7,7 +7,7 @@ A copy of the License is available at http://illumos.org/license/PDL.
 
 The Original Documentation is at https://tug.org/texlive/
 
-The Initial Writer of this Documentation is David Stes Copyright (C) 2021.
+The Initial Writer of this Documentation is David Stes Copyright (C) 2021-2024.
 All Rights Reserved. (https://sourceforge.net/u/stes/profile).
 
 Contributor(s): David Stes.
@@ -84,7 +84,7 @@ The next section discusses the interactive mode of the install-tl script.
 
 ## TeX Live Cross Platform Installer Main Menus
 
-The cross platform installer version 57337 of install-tl detects OpenIndiana as Solaris on Intel :
+The cross platform installer version 57337 of install-tl incorrectly identifies OpenIndiana as Solaris on Intel :
 
 ```none
 ./install-tl --version
@@ -97,6 +97,13 @@ The command to detect the platform is:
 ```none
 ./install-tl --print-arch
 i386-solaris
+```
+
+This is incorrect, but it may work in some cases.  Because OpenIndiana and Solaris are different systems, it may be necessary to download a TeX Live Cross Platform Installer script from the tlnet-archive, and use it with a --repository option.   For example, to install TeX Live 2023 :
+
+
+```none
+# ./install-tl --repository https://texlive.info/tlnet-archive/2023/10/10/tlnet/
 ```
 
 The main menus in interactive mode are :
