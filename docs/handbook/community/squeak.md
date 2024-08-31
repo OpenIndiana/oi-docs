@@ -7,7 +7,7 @@ A copy of the License is available at http://illumos.org/license/PDL.
 
 The Original Documentation is at https://squeak.org/documentation/
 
-The Initial Writer of this Documentation is David Stes Copyright (C) 2020.
+The Initial Writer of this Documentation is David Stes Copyright (C) 2020-2024
 All Rights Reserved. (https://sourceforge.net/u/stes/profile).
 
 Contributor(s): David Stes.
@@ -298,13 +298,13 @@ to update the entire userland-incorporation.
 If there is a need to install a different version of squeak, without upgrading the userland-incorporation, you can do :
 
 ```none
-         # pkg change-facet facet.version-lock.runtime/stack-spur=false
+         # pkg change-facet facet.version-lock.runtime/smalltalk/stack-spur=false
 ```
 
 and
 
 ```none
-         # pkg change-facet facet.version-lock.runtime/stack-spur-nodisplay=false
+         # pkg change-facet facet.version-lock.runtime/smalltalk/stack-spur-nodisplay=false
 ```
 
 This can make it possible to update stack-spur without updating the userland-incorporation:
