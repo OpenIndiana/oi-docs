@@ -26,7 +26,7 @@ jobs:
           ./makepdf.sh -v
 
       - name: Upload PDF Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PDFs
           path: pdf
@@ -52,7 +52,7 @@ jobs:
         run: mkdir docs/pdf
 
       - name: Download PDF Artifact
-        uses: actions/download-artifact@v4.1.7
+        uses: actions/download-artifact@v4
         with:
           name: PDFs
           path: docs/pdf/
