@@ -1985,7 +1985,7 @@ A copy of the License is available at http://illumos.org/license/PDL.
 
 The Original Documentation is at https://squeak.org/documentation/
 
-The Initial Writer of this Documentation is David Stes Copyright (C) 2020.
+The Initial Writer of this Documentation is David Stes Copyright (C) 2020-2024
 All Rights Reserved. (https://sourceforge.net/u/stes/profile).
 
 Contributor(s): David Stes.
@@ -2141,10 +2141,10 @@ If you run squeak in a zone, you may also have to set the privilege limit:</p>
 </span></code></pre></div>
 <p>to update the entire userland-incorporation.</p>
 <p>If there is a need to install a different version of squeak, without upgrading the userland-incorporation, you can do :</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>         # pkg change-facet facet.version-lock.runtime/stack-spur=false
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>         # pkg change-facet facet.version-lock.runtime/smalltalk/stack-spur=false
 </span></code></pre></div>
 <p>and</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>         # pkg change-facet facet.version-lock.runtime/stack-spur-nodisplay=false
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>         # pkg change-facet facet.version-lock.runtime/smalltalk/stack-spur-nodisplay=false
 </span></code></pre></div>
 <p>This can make it possible to update stack-spur without updating the userland-incorporation:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>         # pkg list userland-incorporation
@@ -2166,7 +2166,7 @@ If you run squeak in a zone, you may also have to set the privilege limit:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-03-24 09:51:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-09-14 13:21:29</span>
       
         <br>
         Created:
