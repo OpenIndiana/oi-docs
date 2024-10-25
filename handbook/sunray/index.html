@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sun-ray-software" class="md-skip">
+        <a href="#hipster-handbook-sun-ray-software" class="md-skip">
           Skip to content
         </a>
       
@@ -1040,11 +1040,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    Install
+  <a href="#install-prerequisites" class="md-nav__link">
+    Install Prerequisites
   </a>
   
-    <nav class="md-nav" aria-label="Install">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-sun-ray-server-software" class="md-nav__link">
+    Install Sun Ray Server Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Sun Ray Server Software">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1055,8 +1062,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#java-runtime-environment" class="md-nav__link">
-    Java Runtime Environment
+  <a href="#note-on-java-runtime-environment" class="md-nav__link">
+    Note on Java Runtime Environment
   </a>
   
 </li>
@@ -1069,6 +1076,20 @@
         <li class="md-nav__item">
   <a href="#config" class="md-nav__link">
     Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xscreensaver" class="md-nav__link">
+    XScreenSaver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gdm" class="md-nav__link">
+    GDM
   </a>
   
 </li>
@@ -1890,11 +1911,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    Install
+  <a href="#install-prerequisites" class="md-nav__link">
+    Install Prerequisites
   </a>
   
-    <nav class="md-nav" aria-label="Install">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-sun-ray-server-software" class="md-nav__link">
+    Install Sun Ray Server Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Sun Ray Server Software">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1905,8 +1933,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#java-runtime-environment" class="md-nav__link">
-    Java Runtime Environment
+  <a href="#note-on-java-runtime-environment" class="md-nav__link">
+    Note on Java Runtime Environment
   </a>
   
 </li>
@@ -1919,6 +1947,20 @@
         <li class="md-nav__item">
   <a href="#config" class="md-nav__link">
     Config
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xscreensaver" class="md-nav__link">
+    XScreenSaver
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gdm" class="md-nav__link">
+    GDM
   </a>
   
 </li>
@@ -1965,439 +2007,417 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 -->
 
-<h1 id="sun-ray-software">Sun Ray Software</h1>
-<p>Some notes for installation of Sun Ray Software on OpenIndiana Hipster.</p>
-<div class="note">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This configuration is not supported by OI nor by Oracle.</p>
+<p><img src = "../../Openindiana.png"></p>
+<h1 id="hipster-handbook-sun-ray-software">Hipster Handbook - Sun Ray Software</h1>
+<p>Some notes for installation of Sun Ray Software on OpenIndiana Hipster. Sun Ray Software is used to drive desktop sessions on SunRay thin clients (desktop unit: DTU).</p>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong></p>
+<div class="well">
+This configuration is not supported by OI nor by Oracle.
 </div>
+<p><i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> <strong>NOTE:</strong></p>
+<div class="well">
+Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use Mate desktop with its applications like pluma or atril.
+
 </div>
-<div class="note">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Since GNOME is replaced by Mate in Hipster, installation is a little bit more difficult. For Sun Ray it is still necessary to use GNOME GDM and some other GNOME applications. But it is possible to use also Mate applications like pluma or atril.</p>
-<p>Limitations:</p>
-<p>Multihead is possible but the Display Switcher Applet on GNOME-panel on the second screen won't start. So you can't reopen minimized  windows on the second screen because these will terminate on minimazing.</p>
-</div>
-</div>
-<h2 id="install">Install</h2>
-<p>Sun Ray Software still can be downloaded at http://edelivery.oracle.com (registration required). Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.</p>
-<p>Extract the archives.</p>
-<p>The Solaris packages require Sun DHCP server, which we do not provide anymore. To solve this problem we replace the dependency with isc-dhcp in the IPS packages SUNWutr and SUNWuto with the following script:</p>
-<p>update_dhcp_dependency</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/ksh</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># set -x</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;usage: </span><span class="nv">$0</span><span class="s2"> repodirectory&quot;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nb">exit</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="k">fi</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span>/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">   </span><span class="nv">repo</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/<span class="nv">$1</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">else</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">   </span><span class="nv">repo</span><span class="o">=</span><span class="nv">$1</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">fi</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nv">republish</span><span class="o">=</span><span class="s2">&quot;republish</span><span class="nv">$$</span><span class="s2">&quot;</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>mkdir<span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">for</span><span class="w"> </span>p<span class="w"> </span><span class="k">in</span><span class="w"> </span>SUNWutr<span class="w"> </span>SUNWuto<span class="p">;</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="o">(</span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span>pkgrecv<span class="w"> </span>-d<span class="w"> </span>.<span class="w"> </span>--raw<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span><span class="nv">$p</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span><span class="nv">$p</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span><span class="nv">$p</span>/<span class="nv">$d</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span>sed<span class="w"> </span>-i<span class="w"> </span>s#service/network/dhcp#service/network/dhcp/isc-dhcp#<span class="w"> </span>manifest
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span>pkgrepo<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span>remove<span class="w"> </span><span class="nv">$p</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span>pkgsend<span class="w"> </span>publish<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span>-d<span class="w"> </span>.<span class="w"> </span>manifest
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">      </span><span class="o">)</span>
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="o">}</span>
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="o">)</span><span class="p">;</span>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="o">}</span>
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>rm<span class="w"> </span>-r<span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
-</span></code></pre></div>
-<p>Run the script <code>update_dhcp_dependency &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/</code> to replace the dependcy of package <code>service/network/dhcp</code> by <code>service/network/dhcp/isc-dhcp</code>.</p>
-<p>Install IPS packages of the Sun Ray Software from the local repository</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># pkg set-publisher -g &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/ sunray</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># pkg install SUNWut-srss SUNWut-srwc SUNWuti</span>
-</span></code></pre></div>
-<p>Do <strong>not</strong> use <code>utinstall</code> script, because its will setup a sunray publisher by its own which will interfere with our publisher of GNOME packages.</p>
-<p>Due to package dependencies following packages will be installed:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>SUNWut-srss (sunray)                              5.4.5.0.38-0.0             i--
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>SUNWuta (sunray)                                  4.5.4.0.38-0.0             i--
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>SUNWutdso (sunray)                                3.5.0.0.2-0.0              i--
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>SUNWutdsr (sunray)                                3.5.0.0.2-0.0              i--
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>SUNWutesa (sunray)                                4.5.0.0.44-0.0             i--
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>SUNWutgsm (sunray)                                4.5.0.0.44-0.0             i--
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>SUNWuti (sunray)                                  4.5.5.0.38-0.0             i--
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>SUNWutid (sunray)                                 4.5.5.0.38-0.0             i--
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>SUNWutk (sunray)                                  4.5.0.0.44-0.0             i--
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>SUNWutm (sunray)                                  4.5.4.0.38-0.0             i--
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>SUNWuto (sunray)                                  4.5.4.0.38-0.0             i--
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>SUNWutps (sunray)                                 4.5.0.0.44-0.0             i--
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>SUNWutr (sunray)                                  4.5.0.0.44-0.0             i--
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>SUNWutref (sunray)                                4.5.0.0.44-0.0             i--
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>SUNWutscr (sunray)                                4.5.4.0.38-0.0             i--
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>SUNWutsrs (sunray)                                4.5.5.0.38-0.0             i--
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>SUNWutstk (sunray)                                4.5.0.0.44-0.0             i--
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>SUNWutsto (sunray)                                4.5.0.0.44-0.0             i--
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>SUNWutstr (sunray)                                4.5.0.0.44-0.0             i--
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>SUNWutsvt (sunray)                                1.1.0.0.3-0.0              i--
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>SUNWuttsc (sunray)                                2.6.4.0.11-0.0             i--
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>SUNWuttscd (sunray)                               2.6.4.0.11-0.0             i--
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>SUNWuttscr (sunray)                               2.6.4.0.11-0.0             i--
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>SUNWutu (sunray)                                  4.5.0.0.44-0.0             i--
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>SUNWutwa (sunray)                                 4.5.2.0.5-0.0              i--
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>SUNWutwar (sunray)                                4.5.0.0.44-0.0             i--
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>SUNWutwh (sunray)                                 4.5.0.0.44-0.0             i--
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
-</span></code></pre></div>
-<h3 id="configure-isc-dhcp">Configure isc-dhcp</h3>
-<p>On Hipster ISC DHCP replaced the Sun DHCP server, but that's not a problem as ISC DHCP server for Sun Ray Server was used on Linux already.</p>
-<p>So Sun Ray Server on Hipster has to use DHCP scripts like on Linux. But it is also possible to configure DHCP manually and to skip the <code>utadm</code> step. Here an example:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ddns-update-style none;
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a># option definitions common to all supported networks...
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>option domain-name &quot;sunray.lan&quot;;
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>option domain-name-servers 192.168.1.6, 192.168.1.1;
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>option subnet-mask 255.255.255.0;
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>option broadcast-address 192.168.1.255;
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>option routers 192.168.1.1;
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>option space SunRay;
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>option SunRay.Intf code 33 = text;
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>option SunRay.Intf &quot;nge1&quot;;
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>option SunRay.AuthSrvr code 21 = ip-address;
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>option SunRay.AuthSrvr 192.168.1.2;
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>option SunRay.AltAuth code 35 = array of ip-address;
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>option SunRay.AltAuth 192.168.1.2;
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>option SunRay.FWSrvr code 31 = ip-address;
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>option SunRay.FWSrvr 192.168.1.2;
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>option SunRay.NewTVer code 23 = text;
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>option SunRay.NewTVer &quot;11.1.7.0_38_2016.10.27.13.09&quot;;
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>option SunRay.AuthPort code 22 = integer 16;
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>option SunRay.AuthPort 7009;
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>option SunRay.LogHost  code 24 = ip-address;
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>option SunRay.LogHost 192.168.1.2;
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>option SunRay.LogKern code 25 = integer 8;
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>option SunRay.LogKern 6;
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>option SunRay.LogNet code 26 = integer 8;
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>option SunRay.LogNet 6;
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>option SunRay.LogUSB code 27 = integer 8;
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>option SunRay.LogUSB 6;
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>option SunRay.LogVid code 28 = integer 8;
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>option SunRay.LogVid 6;
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>option SunRay.LogAppl code 29 = integer 8;
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>option SunRay.LogAppl 6;
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>option SunRay.sunray-servers code 68 = text;
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>option SunRay.sunray-servers &quot;oi-sr.sunray.lan&quot;;
-</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>option SunRay.sunray-config-servers code 67 = text;
-</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>option SunRay.sunray-config-servers &quot;oi-sr.sunray.lan&quot;;
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
-</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>default-lease-time 86400;
-</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>max-lease-time 86400;
-</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
-</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>class &quot;sun&quot; {
-</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>  match if substring (option vendor-class-identifier, 0, 4) = &quot;SUNW&quot;;
-</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>}
-</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>
-</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>log-facility local7;
-</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>
-</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>host sr1.sunray.lan {
-</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>  hardware ethernet 00:14:4f:57:a0:c1;
-</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>  fixed-address 192.168.1.50;
-</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>  vendor-option-space SunRay;
-</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>}
-</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>
-</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>subnet 192.168.1.0 netmask 255.255.255.0 {
-</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>  range 192.168.1.51 192.168.1.59;
-</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>}
-</span></code></pre></div>
-<p>Vendor specific DHCP options are described in the <a href="https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options">Sun Ray Software: Alternate Client Initialization Reqs Using DHCP</a> document.
-The config file <code>/etc/dhcp/dhcpd.conf</code> has to link to <code>/etc/inet/dhcp4.conf</code> so that the <code>svc:/network/dhcp/server:ipv4</code> service can leverage it.</p>
-<p>To switch Sun Ray Software to isc-dhcp we take scripts located in path <code>/opt/SUNWut/lib/dhcp/isc</code> from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with <code>rpm2cpio</code>:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># pkg install rpm</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>rpm2cpio<span class="w"> </span>SUNWuto-4.5-44.i386.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idv<span class="w"> </span>&lt;tmprpmdirectory&gt;
-</span></code></pre></div>
-<p>Rename <code>dhcp_config_linux</code> to <code>dhcp_config_solaris</code> and
-replace the <code>sort</code> command with his GNU implementation <code>gsort</code> by appling this patch on script `dhcp_config_linux:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>diff<span class="w"> </span>--git<span class="w"> </span>a/dhcp_config_linux<span class="w"> </span>b/dhcp_config_linux
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>index<span class="w"> </span>001aa42..0165941<span class="w"> </span><span class="m">100755</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>---<span class="w"> </span>a/dhcp_config_linux
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>+++<span class="w"> </span>b/dhcp_config_linux
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>@@<span class="w"> </span>-462,7<span class="w"> </span>+462,7<span class="w"> </span>@@<span class="w"> </span>TranslateEther<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nv">BEGAN</span><span class="o">=</span><span class="nb">false</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>-<span class="w">   </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-ether&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>+<span class="w"> </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-ether&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">                </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>@@<span class="w"> </span>-552,7<span class="w"> </span>+552,7<span class="w"> </span>@@<span class="w"> </span>TranslateSubnet<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INFILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">                </span><span class="c1"># list all the subnet files</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>-<span class="w">           </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-subnet&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
-</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>+<span class="w">         </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-subnet&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
-</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">                        </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
-</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>@@<span class="w"> </span>-616,7<span class="w"> </span>+616,7<span class="w"> </span>@@<span class="w"> </span>TranslateInterface<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="nv">BEGAN</span><span class="o">=</span><span class="nb">false</span>
-</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>
-</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>-<span class="w">   </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-interface&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
-</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>+<span class="w"> </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-interface&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
-</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">                </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
-</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
-</span></code></pre></div>
-<p>put the scripts below <code>&lt;tmprpmdirectory&gt;/opt/SUNWut/lib/dhcp/isc</code> in <code>/opt/SUNWut/lib/dhcp/isc</code></p>
-<p>Reference the scripts by setting this link:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
-</span></code></pre></div>
-<p><code>utadm</code> command needs changes shown in the following patch:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>From a1072acfffd91457d91cd6d202a988d88bc3fb8a Mon Sep 17 00:00:00 2001
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>From: Carsten Grzemba &lt;cgrzemba@opencsw.org&gt;
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Date: Mon, 3 Feb 2020 10:58:31 +0100
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Subject: [PATCH] apply changes for:
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>* change the dhcp config file name
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>* different ipadm argument names
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>* name IP interface utadm to refer to the IP address creator
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>* do not use /etc/hostname.&lt;if&gt;
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>---
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a> utadm | 41 +++++++----------------------------------
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a> 1 file changed, 7 insertions(+), 34 deletions(-)
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>diff --git a/utadm b/utadm
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>index cffac27..448c171 100644
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>--- a/utadm
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>+++ b/utadm
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>@@ -116,7 +116,7 @@ UTDHCPSERVICE_SUCCESS=0
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a> UTDHCPSERVICE_DISABLED=3
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a> SVCADM=&quot;/usr/sbin/svcadm&quot;
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>-DHCP_FMRI=&quot;svc:/network/dhcp-server:default&quot;
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>+DHCP_FMRI=&quot;svc:/network/dhcp-server:ipv4&quot;
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a> UTLIB=&quot;/opt/SUNWut/lib&quot;
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a> UTSBIN=&quot;/opt/SUNWut/sbin&quot;
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>@@ -207,6 +207,7 @@ function SetPlatformDependencies  {
-</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>         IFCONFIG_KEY_NETMASK=&quot;netmask&quot;
-</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>         if [ -x /usr/sbin/ipadm ]; then
-</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>           IPADM_CONF=true
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>+          DHCPCONFIG=&quot;/etc/dhcp/dhcpd.conf&quot;
-</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>         fi
-</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>
-</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>         ;;    # end case SunOS
-</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>@@ -1783,14 +1784,6 @@ function DoAddNetworkConfig {
-</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>     DHCPONLY=&quot;N&quot;
-</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>     for test in ${INTF_ALL}; do
-</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>         if [ &quot;${INTF}&quot; = &quot;${test}&quot; -a -f &quot;${HOSTNAME_C}${INTF}&quot; ]; then
-</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>-        #
-</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>-        # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
-</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>-        # defined in the file may not be configured locally in the hosts file.
-</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>-        #
-</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>-        if [ ! -f ${HOSTNAME_C}${INTF} ]; then
-</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>-            print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}${INTF}\&quot; file.&quot;
-</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>-            return 1
-</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>-        fi
-</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>         if [[ $OS == &quot;SunOS&quot; ]]; then
-</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>             NAME=`getIfname ${INTF}`
-</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>             if [ -z &quot;${NAME}&quot; ]; then
-</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>@@ -2567,9 +2560,9 @@ should an auth server be located by broadcasting on the network?&quot; &quot;Y&quot;
-</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>         fi
-</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>         # Clear any pre-existing state on interface, then create
-</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>         # new persistent configuration
-</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>-        ipadm delete-ip ${INTF} 2&gt;/dev/null
-</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>-        ipadm create-ip ${INTF}
-</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>-        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4static
-</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>+        ipadm delete-if ${INTF} 2&gt;/dev/null
-</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>+        ipadm create-if ${INTF}
-</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>+        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4utadm
-</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>       else
-</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>         # ifconfig the new interface
-</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>         ifconfig ${INTF} plumb &gt;/dev/null 2&gt;&amp;1 ;
-</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>@@ -2710,7 +2703,7 @@ function DoList {
-</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>     if [[ $BLOCKTYPE = &quot;interface&quot; ]] ; then
-</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>       if Intf=${UT_DHCP_INTERFACE} ; then
-</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a>         if [[ ! -s ${HOSTNAME_R}.${Intf} ]]; then
-</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>-        IntfAddr=&quot;&quot;*MISSING*&quot;&quot;
-</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>+        IntfAddr=`ipadm show-addr -p -o ADDR ${Intf}/ | awk &#39;{split($1,a,&quot;/&quot;); print a[1]}&#39;`
-</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>         else
-</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>             typeset H=`getIfname ${Intf}`
-</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>             IntfAddr=`getent hosts $H | awk &#39;{ print $1 }&#39;`
-</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>@@ -3151,14 +3144,6 @@ function DoPrint {
-</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>
-</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a>     INTF=${UT_DHCP_INTERFACE}
-</span><span id="__span-7-75"><a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a>
-</span><span id="__span-7-76"><a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>-    #
-</span><span id="__span-7-77"><a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a>-    # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
-</span><span id="__span-7-78"><a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a>-    # defined in the file may not be configured locally in the hosts file.
-</span><span id="__span-7-79"><a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a>-    #
-</span><span id="__span-7-80"><a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a>-    if [ ! -f ${HOSTNAME_R}.${INTF} ]; then
-</span><span id="__span-7-81"><a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a>-        print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}.${INTF}\&quot; file.&quot;
-</span><span id="__span-7-82"><a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a>-        return 1
-</span><span id="__span-7-83"><a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a>-    fi
-</span><span id="__span-7-84"><a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a>     H=`getIfname ${INTF}`
-</span><span id="__span-7-85"><a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>     if [ -z &quot;${H}&quot; ]; then
-</span><span id="__span-7-86"><a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a>         print -u2 &quot;Error: interface ${INTF} is partially configured.  Hostname not&quot; \
-</span><span id="__span-7-87"><a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a>@@ -3452,19 +3437,7 @@ function getIfname {
-</span><span id="__span-7-88"><a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a>     awk &#39;{print $1 ; exit}&#39; &quot;${HOSTNAME_R}.$1&quot;
-</span><span id="__span-7-89"><a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a>     return
-</span><span id="__span-7-90"><a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a>     else
-</span><span id="__span-7-91"><a id="__codelineno-7-91" name="__codelineno-7-91" href="#__codelineno-7-91"></a>-    # With ipadm, there&#39;s no way to create a persistent
-</span><span id="__span-7-92"><a id="__codelineno-7-92" name="__codelineno-7-92" href="#__codelineno-7-92"></a>-    # configuration without it immediately being reflected in the
-</span><span id="__span-7-93"><a id="__codelineno-7-93" name="__codelineno-7-93" href="#__codelineno-7-93"></a>-    # runtime configuration, nor does ipadm provide any convenient
-</span><span id="__span-7-94"><a id="__codelineno-7-94" name="__codelineno-7-94" href="#__codelineno-7-94"></a>-    # way to find the IPv4 addrobj for the interface, so just
-</span><span id="__span-7-95"><a id="__codelineno-7-95" name="__codelineno-7-95" href="#__codelineno-7-95"></a>-    # check runtime configuration via ifconfig.
-</span><span id="__span-7-96"><a id="__codelineno-7-96" name="__codelineno-7-96" href="#__codelineno-7-96"></a>-    IPADDR=$(ifconfig $1 | awk &#39;
-</span><span id="__span-7-97"><a id="__codelineno-7-97" name="__codelineno-7-97" href="#__codelineno-7-97"></a>-        /[     ]inet /{
-</span><span id="__span-7-98"><a id="__codelineno-7-98" name="__codelineno-7-98" href="#__codelineno-7-98"></a>-            for (i = 1; i &lt; NF; ++i) {
-</span><span id="__span-7-99"><a id="__codelineno-7-99" name="__codelineno-7-99" href="#__codelineno-7-99"></a>-                if ($i == &quot;inet&quot;) {
-</span><span id="__span-7-100"><a id="__codelineno-7-100" name="__codelineno-7-100" href="#__codelineno-7-100"></a>-                    print $(i+1)
-</span><span id="__span-7-101"><a id="__codelineno-7-101" name="__codelineno-7-101" href="#__codelineno-7-101"></a>-                }
-</span><span id="__span-7-102"><a id="__codelineno-7-102" name="__codelineno-7-102" href="#__codelineno-7-102"></a>-            }
-</span><span id="__span-7-103"><a id="__codelineno-7-103" name="__codelineno-7-103" href="#__codelineno-7-103"></a>-        }&#39;)
-</span><span id="__span-7-104"><a id="__codelineno-7-104" name="__codelineno-7-104" href="#__codelineno-7-104"></a>+    IPADDR=`ipadm show-addr -p -o ADDR $1/ | awk &#39;{split($1,a,&quot;/&quot;); print a[1] }&#39;`
-</span><span id="__span-7-105"><a id="__codelineno-7-105" name="__codelineno-7-105" href="#__codelineno-7-105"></a>     if [ -z &quot;$IPADDR&quot; ]; then
-</span><span id="__span-7-106"><a id="__codelineno-7-106" name="__codelineno-7-106" href="#__codelineno-7-106"></a>         print -u2 &quot;Error in parsing of ifconfig addresses&quot;
-</span><span id="__span-7-107"><a id="__codelineno-7-107" name="__codelineno-7-107" href="#__codelineno-7-107"></a>         exit 2
-</span><span id="__span-7-108"><a id="__codelineno-7-108" name="__codelineno-7-108" href="#__codelineno-7-108"></a>--
-</span><span id="__span-7-109"><a id="__codelineno-7-109" name="__codelineno-7-109" href="#__codelineno-7-109"></a>2.23.0
-</span></code></pre></div>
-<h3 id="java-runtime-environment">Java Runtime Environment</h3>
-<p>The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun Ray Software.</p>
-<h2 id="config">Config</h2>
-<p>You can run <code>utconfig</code> and <code>utadm</code> the way described in the <a href="https://docs.oracle.com/cd/E35310_01/index.html">Sun Ray Software</a> document.</p>
-<h1 id="how-to-get-gnome-on-current-hipster">How to get GNOME on current Hipster</h1>
-<p>As already mentioned the Sun Ray Software cannot handled by LightDM and we still have to use GDM and some GNOME components necessary for the gnome-greeter session.</p>
-<p>Be sure you have installed:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># pkg install libbonoboui</span>
-</span></code></pre></div>
-<p>Make sure that they actually install as in the future they may be eventually obsoleted from Hipster
-(no empty metapackages or obsoleted packages).</p>
-<h2 id="update-older-hipster">update older Hipster</h2>
-<p>If you have Sun Ray running on Hipster with GNOME, you can prevent GNOME components removal by "freezing" them and releasing their version locks:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># pkg freeze gdm libgnomekbd gnome-session gnome-settings-daemon</span>
-</span></code></pre></div>
-<p>and release the version locks:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a># pkg change-facet facet.version-lock.gnome/gnome-session=false
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a># pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a># pkg change-facet facet.version-lock.system/display-manager/gdm=false
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a># pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
-</span></code></pre></div>
-<div class="note">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>On IPS there are meta-packages which define package dependencies of <code>type=incorporate</code>, which means:</p>
-<p>If a package will installed, it have to have the version defined in the incorporate dependency.</p>
-<p>We want to install an other version of the gnome packages as defined in userland-incorporation meta-package and relaese the version locks like shown above.</p>
-</div>
-</div>
-<h2 id="install-on-current-hipster-2022">Install on current Hipster (2022)</h2>
+
+<h2 id="install-prerequisites">Install Prerequisites</h2>
 <p>If you have installed new Hipster, it is necessary to install GNOME packages for GDM and its greeter-session. For user session it is fine to select 'Mate Session', it is no longer necessary to install other packages needed by Gnome Session (only Gnome packages which Mate session still uses).</p>
-<p>Last known working OpenIndiana GNOME packages versions are the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>gnome-session@2.32.1
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>gnome-settings-daemon@2.32.1
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>gdm@2.30.7
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>libgnomekbd@2.32.0
+<p>Be sure to have Mate desktop environment installed:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># pkg install mate_install
+</span></code></pre></div>
+<p>Latest known working OpenIndiana GNOME packages versions are the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gnome-session@2.32.1
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>gnome-settings-daemon@2.32.1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>gdm@2.30.7
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>libgnomekbd@2.32.0
 </span></code></pre></div>
 <p>These are still in hipster repo, but are obsoleted empty metapackages.</p>
 <p>At <a href="http://pkg.toc.de/sunray/">http://pkg.toc.de/sunray/</a> you can find the old GNOME packages with newer release date, so that these should be able to install it on current Hipster. This publisher is provided and supported by community member Carsten Grzemba not by the OpenIndiana project.
 For this to work add this publisher in a way, that it takes precedence over the default openindiana.org publisher:</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># pkg set-publisher --search-before=openindiana.org -g http://pkg.toc.de/sunray sunray</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># pkg set-publisher --non-sticky openindiana.org</span>
+<p>In order to install packages with other versions such as userland-incorporation, it is necessary to release the version locks</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a># pkg change-facet facet.version-lock.gnome/gnome-session=false
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a># pkg change-facet facet.version-lock.gnome/gnome-settings-daemon=false
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a># pkg change-facet facet.version-lock.system/display-manager/gdm=false
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a># pkg change-facet facet.version-lock.library/gnome/libgnomekbd=false
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a># pkg change-facet facet.version-lock.gnome/window-manager/metacity=false
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a># pkg change-facet facet.version-lock.library/desktop/gnome-desktop=false
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a># pkg change-facet facet.version-lock.cde/cde-runtime=false
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a># pkg change-facet facet.version-lock.library/motif=false
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a># pkg change-facet facet.version-lock.library/tooltalk=false
 </span></code></pre></div>
-<p>and install all packages from sunray publisher.</p>
-<div class="note">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The version locks of the gnome packages have to relaese like decribed in <a href="#update-older-hipster">update older Hipster</a>.</p>
-</div>
-</div>
-<h3 id="install-from-hipster-2019">Install from Hipster (2019)</h3>
-<p>This is outdated and not necessary anymore. But it is kept here in case someone would still like to run Gnome-Session on Hipster.</p>
-<p>If you installed new Hipster, it is necessary to install GNOME packages before they were obsoleted from Hipster.</p>
-<p>Last known working OpenIndiana GNOME packages versions are the following:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>gnome-desktop@2.32.1
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>gnome-menus@2.30.5
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>gnome-panel@2.32.1
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>gnome-session@2.32.1
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>gnome-settings-daemon@2.32.1
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>gdm@2.30.7
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>metacity@2.30.3
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>libgnomekbd@2.32.0
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>libwnck@2.31.0
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>desktop/screensaver@5.42
+configure the publisher
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># pkg set-publisher --search-before=openindiana.org -g http://pkg.toc.de/sunray sunray</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># pkg set-publisher --non-sticky openindiana.org</span>
 </span></code></pre></div>
+and install package sunray-essential from sunray publisher
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># pkg install sunray-essential
+</span></code></pre></div>
+This will install all necessary packages for using GDM and Sun Ray Software tools on OI Hipster.</p>
+<h2 id="install-sun-ray-server-software">Install Sun Ray Server Software</h2>
+<p>Sun Ray Software still can be downloaded at http://edelivery.oracle.com (registration required). Download the Software for Solaris x86-64 and for Linux x86-64. From the Linux software we take scripts for configure ISC DHCP server described later.</p>
+<p>Extract the archives.</p>
+<p>The Solaris packages require Sun DHCP server, which we do not provide anymore. To solve this problem we replace the dependency with isc-dhcp in the IPS packages SUNWutr and SUNWuto with the following script:</p>
+<p>update_dhcp_dependency</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/ksh</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># set -x</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span>-d<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;usage: </span><span class="nv">$0</span><span class="s2"> repodirectory&quot;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nb">exit</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">fi</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span>/*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">   </span><span class="nv">repo</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/<span class="nv">$1</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">else</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">   </span><span class="nv">repo</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="k">fi</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nv">republish</span><span class="o">=</span><span class="s2">&quot;republish</span><span class="nv">$$</span><span class="s2">&quot;</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>mkdir<span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="k">for</span><span class="w"> </span>p<span class="w"> </span><span class="k">in</span><span class="w"> </span>SUNWutr<span class="w"> </span>SUNWuto<span class="p">;</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="o">(</span><span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span>pkgrecv<span class="w"> </span>-d<span class="w"> </span>.<span class="w"> </span>--raw<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span><span class="nv">$p</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">2</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span><span class="nv">$p</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">      </span><span class="o">(</span><span class="nb">cd</span><span class="w"> </span><span class="nv">$p</span>/<span class="nv">$d</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span>sed<span class="w"> </span>-i<span class="w"> </span>s#service/network/dhcp#service/network/dhcp/isc-dhcp#<span class="w"> </span>manifest
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">        </span>pkgrepo<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span>remove<span class="w"> </span><span class="nv">$p</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">        </span>pkgsend<span class="w"> </span>publish<span class="w"> </span>-s<span class="w"> </span><span class="nv">$repo</span><span class="w"> </span>-d<span class="w"> </span>.<span class="w"> </span>manifest
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="w">      </span><span class="o">)</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">  </span><span class="o">}</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="o">)</span><span class="p">;</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="o">}</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>rm<span class="w"> </span>-r<span class="w"> </span><span class="si">${</span><span class="nv">republish</span><span class="si">}</span>
+</span></code></pre></div>
+<p>Run the script <code>update_dhcp_dependency &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/</code> to replace the dependcy of package <code>service/network/dhcp</code> by <code>service/network/dhcp/isc-dhcp</code>.</p>
+<p>Install IPS packages of the Sun Ray Software from the local repository</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># pkg set-publisher -g &lt;extractdirectory&gt;/srs_5.4.5.0-Solaris_11plus.i386/IPS.i386/ sunray</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># pkg install SUNWut-srss SUNWut-srwc SUNWuti</span>
+</span></code></pre></div>
+<p>Do <strong>not</strong> use <code>utinstall</code> script, because its will setup a sunray publisher by its own which will interfere with our publisher of GNOME packages.</p>
+<p>Due to package dependencies following packages will be installed:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>SUNWut-srss (sunray)                              5.4.5.0.38-0.0             i--
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>SUNWuta (sunray)                                  4.5.4.0.38-0.0             i--
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>SUNWutdso (sunray)                                3.5.0.0.2-0.0              i--
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>SUNWutdsr (sunray)                                3.5.0.0.2-0.0              i--
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>SUNWutesa (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>SUNWutgsm (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>SUNWuti (sunray)                                  4.5.5.0.38-0.0             i--
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>SUNWutid (sunray)                                 4.5.5.0.38-0.0             i--
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>SUNWutk (sunray)                                  4.5.0.0.44-0.0             i--
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>SUNWutm (sunray)                                  4.5.4.0.38-0.0             i--
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>SUNWuto (sunray)                                  4.5.4.0.38-0.0             i--
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>SUNWutps (sunray)                                 4.5.0.0.44-0.0             i--
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>SUNWutr (sunray)                                  4.5.0.0.44-0.0             i--
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>SUNWutref (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>SUNWutscr (sunray)                                4.5.4.0.38-0.0             i--
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>SUNWutsrs (sunray)                                4.5.5.0.38-0.0             i--
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>SUNWutstk (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>SUNWutsto (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>SUNWutstr (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>SUNWutsvt (sunray)                                1.1.0.0.3-0.0              i--
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>SUNWuttsc (sunray)                                2.6.4.0.11-0.0             i--
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>SUNWuttscd (sunray)                               2.6.4.0.11-0.0             i--
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>SUNWuttscr (sunray)                               2.6.4.0.11-0.0             i--
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>SUNWutu (sunray)                                  4.5.0.0.44-0.0             i--
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>SUNWutwa (sunray)                                 4.5.2.0.5-0.0              i--
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>SUNWutwar (sunray)                                4.5.0.0.44-0.0             i--
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>SUNWutwh (sunray)                                 4.5.0.0.44-0.0             i--
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>SUNWutwl (sunray)                                 4.5.0.0.44-0.0             i--
+</span></code></pre></div>
+<h3 id="configure-isc-dhcp">Configure isc-dhcp</h3>
+<p>On Hipster ISC DHCP replaced the Sun DHCP server, but that's not a problem as ISC DHCP server for Sun Ray Server was used on Linux already.</p>
+<p>So Sun Ray Server on Hipster has to use DHCP scripts like on Linux. But it is also possible to configure DHCP manually and to skip the <code>utadm</code> step. Here an example:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ddns-update-style none;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a># option definitions common to all supported networks...
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>option domain-name &quot;sunray.lan&quot;;
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>option domain-name-servers 192.168.1.6, 192.168.1.1;
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>option subnet-mask 255.255.255.0;
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>option broadcast-address 192.168.1.255;
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>option routers 192.168.1.1;
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>option space SunRay;
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>option SunRay.Intf code 33 = text;
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>option SunRay.Intf &quot;nge1&quot;;
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>option SunRay.AuthSrvr code 21 = ip-address;
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>option SunRay.AuthSrvr 192.168.1.2;
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>option SunRay.AltAuth code 35 = array of ip-address;
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>option SunRay.AltAuth 192.168.1.2;
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>option SunRay.FWSrvr code 31 = ip-address;
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>option SunRay.FWSrvr 192.168.1.2;
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>option SunRay.NewTVer code 23 = text;
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>option SunRay.NewTVer &quot;11.1.7.0_38_2016.10.27.13.09&quot;;
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>option SunRay.AuthPort code 22 = integer 16;
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>option SunRay.AuthPort 7009;
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>option SunRay.LogHost  code 24 = ip-address;
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>option SunRay.LogHost 192.168.1.2;
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>option SunRay.LogKern code 25 = integer 8;
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>option SunRay.LogKern 6;
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>option SunRay.LogNet code 26 = integer 8;
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>option SunRay.LogNet 6;
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>option SunRay.LogUSB code 27 = integer 8;
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>option SunRay.LogUSB 6;
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>option SunRay.LogVid code 28 = integer 8;
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>option SunRay.LogVid 6;
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a>option SunRay.LogAppl code 29 = integer 8;
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a>option SunRay.LogAppl 6;
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a>option SunRay.sunray-servers code 68 = text;
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a>option SunRay.sunray-servers &quot;oi-sr.sunray.lan&quot;;
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>option SunRay.sunray-config-servers code 67 = text;
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a>option SunRay.sunray-config-servers &quot;oi-sr.sunray.lan&quot;;
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a>default-lease-time 86400;
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a>max-lease-time 86400;
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a>
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a>class &quot;sun&quot; {
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a>  match if substring (option vendor-class-identifier, 0, 4) = &quot;SUNW&quot;;
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>}
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a>
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>log-facility local7;
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>host sr1.sunray.lan {
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>  hardware ethernet 00:14:4f:57:a0:c1;
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>  fixed-address 192.168.1.50;
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>  vendor-option-space SunRay;
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>}
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>subnet 192.168.1.0 netmask 255.255.255.0 {
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>  range 192.168.1.51 192.168.1.59;
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a>}
+</span></code></pre></div>
+<p>Vendor specific DHCP options are described in the <a href="https://docs.oracle.com/cd/E25749_01/E25745/html/Alternate-Client-Initialization-Reqs-Using-DHCP.html#Alternate-Vendor-Specific-DHCP-Options">Sun Ray Software: Alternate Client Initialization Reqs Using DHCP</a> document.
+The config file <code>/etc/dhcp/dhcpd.conf</code> has to link to <code>/etc/inet/dhcp4.conf</code> so that the <code>svc:/network/dhcp/server:ipv4</code> service can leverage it.</p>
+<p>To switch Sun Ray Software to isc-dhcp we take scripts located in path <code>/opt/SUNWut/lib/dhcp/isc</code> from the Sun Ray Software package for Linux (SUNWuto-4.5-44.i386.rpm). Extract the package with <code>rpm2cpio</code>:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>rpm2cpio<span class="w"> </span>SUNWuto-4.5-44.i386.rpm<span class="w"> </span><span class="p">|</span><span class="w"> </span>cpio<span class="w"> </span>-idv<span class="w"> </span>&lt;tmprpmdirectory&gt;
+</span></code></pre></div>
+<p>Rename <code>dhcp_config_linux</code> to <code>dhcp_config_solaris</code> and
+replace the <code>sort</code> command with his GNU implementation <code>gsort</code> by appling this patch on script `dhcp_config_linux:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>diff<span class="w"> </span>--git<span class="w"> </span>a/dhcp_config_linux<span class="w"> </span>b/dhcp_config_linux
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>index<span class="w"> </span>001aa42..0165941<span class="w"> </span><span class="m">100755</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>---<span class="w"> </span>a/dhcp_config_linux
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>+++<span class="w"> </span>b/dhcp_config_linux
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>@@<span class="w"> </span>-462,7<span class="w"> </span>+462,7<span class="w"> </span>@@<span class="w"> </span>TranslateEther<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="nv">BEGAN</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>-<span class="w">   </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-ether&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>+<span class="w"> </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-ether&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">                </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>@@<span class="w"> </span>-552,7<span class="w"> </span>+552,7<span class="w"> </span>@@<span class="w"> </span>TranslateSubnet<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INFILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">                </span><span class="c1"># list all the subnet files</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>-<span class="w">           </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-subnet&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>+<span class="w">         </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-subnet&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="w">                        </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>@@<span class="w"> </span>-616,7<span class="w"> </span>+616,7<span class="w"> </span>@@<span class="w"> </span>TranslateInterface<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">        </span><span class="nv">BEGAN</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">        </span><span class="nv">VALUE</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>-<span class="w">   </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-interface&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>+<span class="w"> </span>ls<span class="w"> </span><span class="nv">$UTDHCPDIR</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>gsort<span class="w"> </span>-g<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;SunRay-interface&quot;</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nv">$TMPLISTFILE</span>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$?</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a><span class="w">                </span>rm<span class="w"> </span>-f<span class="w"> </span><span class="nv">$TMPLISTFILE</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+</span></code></pre></div>
+<p>put the scripts below <code>&lt;tmprpmdirectory&gt;/opt/SUNWut/lib/dhcp/isc</code> in <code>/opt/SUNWut/lib/dhcp/isc</code></p>
+<p>Reference the scripts by setting this link:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>root@oi-sr:/etc/opt/SUNWut# ln -s /opt/SUNWut/lib/dhcp/isc dhcp
+</span></code></pre></div>
+<p><code>utadm</code> command needs changes shown in the following patch:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>From a1072acfffd91457d91cd6d202a988d88bc3fb8a Mon Sep 17 00:00:00 2001
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>From: Carsten Grzemba &lt;cgrzemba@opencsw.org&gt;
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Date: Mon, 3 Feb 2020 10:58:31 +0100
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Subject: [PATCH] apply changes for:
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>* change the dhcp config file name
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>* different ipadm argument names
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>* name IP interface utadm to refer to the IP address creator
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>* do not use /etc/hostname.&lt;if&gt;
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>---
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a> utadm | 41 +++++++----------------------------------
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a> 1 file changed, 7 insertions(+), 34 deletions(-)
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>diff --git a/utadm b/utadm
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>index cffac27..448c171 100644
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>--- a/utadm
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>+++ b/utadm
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>@@ -116,7 +116,7 @@ UTDHCPSERVICE_SUCCESS=0
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a> UTDHCPSERVICE_DISABLED=3
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a> SVCADM=&quot;/usr/sbin/svcadm&quot;
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>-DHCP_FMRI=&quot;svc:/network/dhcp-server:default&quot;
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>+DHCP_FMRI=&quot;svc:/network/dhcp-server:ipv4&quot;
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a> UTLIB=&quot;/opt/SUNWut/lib&quot;
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a> UTSBIN=&quot;/opt/SUNWut/sbin&quot;
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>@@ -207,6 +207,7 @@ function SetPlatformDependencies  {
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>         IFCONFIG_KEY_NETMASK=&quot;netmask&quot;
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>         if [ -x /usr/sbin/ipadm ]; then
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>           IPADM_CONF=true
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>+          DHCPCONFIG=&quot;/etc/dhcp/dhcpd.conf&quot;
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a>         fi
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a>         ;;    # end case SunOS
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a>@@ -1783,14 +1784,6 @@ function DoAddNetworkConfig {
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a>     DHCPONLY=&quot;N&quot;
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a>     for test in ${INTF_ALL}; do
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>         if [ &quot;${INTF}&quot; = &quot;${test}&quot; -a -f &quot;${HOSTNAME_C}${INTF}&quot; ]; then
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a>-        #
+</span><span id="__span-12-40"><a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a>-        # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
+</span><span id="__span-12-41"><a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a>-        # defined in the file may not be configured locally in the hosts file.
+</span><span id="__span-12-42"><a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a>-        #
+</span><span id="__span-12-43"><a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a>-        if [ ! -f ${HOSTNAME_C}${INTF} ]; then
+</span><span id="__span-12-44"><a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a>-            print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}${INTF}\&quot; file.&quot;
+</span><span id="__span-12-45"><a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a>-            return 1
+</span><span id="__span-12-46"><a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a>-        fi
+</span><span id="__span-12-47"><a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a>         if [[ $OS == &quot;SunOS&quot; ]]; then
+</span><span id="__span-12-48"><a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a>             NAME=`getIfname ${INTF}`
+</span><span id="__span-12-49"><a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a>             if [ -z &quot;${NAME}&quot; ]; then
+</span><span id="__span-12-50"><a id="__codelineno-12-50" name="__codelineno-12-50" href="#__codelineno-12-50"></a>@@ -2567,9 +2560,9 @@ should an auth server be located by broadcasting on the network?&quot; &quot;Y&quot;
+</span><span id="__span-12-51"><a id="__codelineno-12-51" name="__codelineno-12-51" href="#__codelineno-12-51"></a>         fi
+</span><span id="__span-12-52"><a id="__codelineno-12-52" name="__codelineno-12-52" href="#__codelineno-12-52"></a>         # Clear any pre-existing state on interface, then create
+</span><span id="__span-12-53"><a id="__codelineno-12-53" name="__codelineno-12-53" href="#__codelineno-12-53"></a>         # new persistent configuration
+</span><span id="__span-12-54"><a id="__codelineno-12-54" name="__codelineno-12-54" href="#__codelineno-12-54"></a>-        ipadm delete-ip ${INTF} 2&gt;/dev/null
+</span><span id="__span-12-55"><a id="__codelineno-12-55" name="__codelineno-12-55" href="#__codelineno-12-55"></a>-        ipadm create-ip ${INTF}
+</span><span id="__span-12-56"><a id="__codelineno-12-56" name="__codelineno-12-56" href="#__codelineno-12-56"></a>-        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4static
+</span><span id="__span-12-57"><a id="__codelineno-12-57" name="__codelineno-12-57" href="#__codelineno-12-57"></a>+        ipadm delete-if ${INTF} 2&gt;/dev/null
+</span><span id="__span-12-58"><a id="__codelineno-12-58" name="__codelineno-12-58" href="#__codelineno-12-58"></a>+        ipadm create-if ${INTF}
+</span><span id="__span-12-59"><a id="__codelineno-12-59" name="__codelineno-12-59" href="#__codelineno-12-59"></a>+        ipadm create-addr -T static -a local=${IPADDR}/${MASKBITS} ${INTF}/v4utadm
+</span><span id="__span-12-60"><a id="__codelineno-12-60" name="__codelineno-12-60" href="#__codelineno-12-60"></a>       else
+</span><span id="__span-12-61"><a id="__codelineno-12-61" name="__codelineno-12-61" href="#__codelineno-12-61"></a>         # ifconfig the new interface
+</span><span id="__span-12-62"><a id="__codelineno-12-62" name="__codelineno-12-62" href="#__codelineno-12-62"></a>         ifconfig ${INTF} plumb &gt;/dev/null 2&gt;&amp;1 ;
+</span><span id="__span-12-63"><a id="__codelineno-12-63" name="__codelineno-12-63" href="#__codelineno-12-63"></a>@@ -2710,7 +2703,7 @@ function DoList {
+</span><span id="__span-12-64"><a id="__codelineno-12-64" name="__codelineno-12-64" href="#__codelineno-12-64"></a>     if [[ $BLOCKTYPE = &quot;interface&quot; ]] ; then
+</span><span id="__span-12-65"><a id="__codelineno-12-65" name="__codelineno-12-65" href="#__codelineno-12-65"></a>       if Intf=${UT_DHCP_INTERFACE} ; then
+</span><span id="__span-12-66"><a id="__codelineno-12-66" name="__codelineno-12-66" href="#__codelineno-12-66"></a>         if [[ ! -s ${HOSTNAME_R}.${Intf} ]]; then
+</span><span id="__span-12-67"><a id="__codelineno-12-67" name="__codelineno-12-67" href="#__codelineno-12-67"></a>-        IntfAddr=&quot;&quot;*MISSING*&quot;&quot;
+</span><span id="__span-12-68"><a id="__codelineno-12-68" name="__codelineno-12-68" href="#__codelineno-12-68"></a>+        IntfAddr=`ipadm show-addr -p -o ADDR ${Intf}/ | awk &#39;{split($1,a,&quot;/&quot;); print a[1]}&#39;`
+</span><span id="__span-12-69"><a id="__codelineno-12-69" name="__codelineno-12-69" href="#__codelineno-12-69"></a>         else
+</span><span id="__span-12-70"><a id="__codelineno-12-70" name="__codelineno-12-70" href="#__codelineno-12-70"></a>             typeset H=`getIfname ${Intf}`
+</span><span id="__span-12-71"><a id="__codelineno-12-71" name="__codelineno-12-71" href="#__codelineno-12-71"></a>             IntfAddr=`getent hosts $H | awk &#39;{ print $1 }&#39;`
+</span><span id="__span-12-72"><a id="__codelineno-12-72" name="__codelineno-12-72" href="#__codelineno-12-72"></a>@@ -3151,14 +3144,6 @@ function DoPrint {
+</span><span id="__span-12-73"><a id="__codelineno-12-73" name="__codelineno-12-73" href="#__codelineno-12-73"></a>
+</span><span id="__span-12-74"><a id="__codelineno-12-74" name="__codelineno-12-74" href="#__codelineno-12-74"></a>     INTF=${UT_DHCP_INTERFACE}
+</span><span id="__span-12-75"><a id="__codelineno-12-75" name="__codelineno-12-75" href="#__codelineno-12-75"></a>
+</span><span id="__span-12-76"><a id="__codelineno-12-76" name="__codelineno-12-76" href="#__codelineno-12-76"></a>-    #
+</span><span id="__span-12-77"><a id="__codelineno-12-77" name="__codelineno-12-77" href="#__codelineno-12-77"></a>-    # Need to catch the case where hostname.&lt;intf&gt; exists but the hostname
+</span><span id="__span-12-78"><a id="__codelineno-12-78" name="__codelineno-12-78" href="#__codelineno-12-78"></a>-    # defined in the file may not be configured locally in the hosts file.
+</span><span id="__span-12-79"><a id="__codelineno-12-79" name="__codelineno-12-79" href="#__codelineno-12-79"></a>-    #
+</span><span id="__span-12-80"><a id="__codelineno-12-80" name="__codelineno-12-80" href="#__codelineno-12-80"></a>-    if [ ! -f ${HOSTNAME_R}.${INTF} ]; then
+</span><span id="__span-12-81"><a id="__codelineno-12-81" name="__codelineno-12-81" href="#__codelineno-12-81"></a>-        print -u2 &quot;Error: missing \&quot;${HOSTNAME_R}.${INTF}\&quot; file.&quot;
+</span><span id="__span-12-82"><a id="__codelineno-12-82" name="__codelineno-12-82" href="#__codelineno-12-82"></a>-        return 1
+</span><span id="__span-12-83"><a id="__codelineno-12-83" name="__codelineno-12-83" href="#__codelineno-12-83"></a>-    fi
+</span><span id="__span-12-84"><a id="__codelineno-12-84" name="__codelineno-12-84" href="#__codelineno-12-84"></a>     H=`getIfname ${INTF}`
+</span><span id="__span-12-85"><a id="__codelineno-12-85" name="__codelineno-12-85" href="#__codelineno-12-85"></a>     if [ -z &quot;${H}&quot; ]; then
+</span><span id="__span-12-86"><a id="__codelineno-12-86" name="__codelineno-12-86" href="#__codelineno-12-86"></a>         print -u2 &quot;Error: interface ${INTF} is partially configured.  Hostname not&quot; \
+</span><span id="__span-12-87"><a id="__codelineno-12-87" name="__codelineno-12-87" href="#__codelineno-12-87"></a>@@ -3452,19 +3437,7 @@ function getIfname {
+</span><span id="__span-12-88"><a id="__codelineno-12-88" name="__codelineno-12-88" href="#__codelineno-12-88"></a>     awk &#39;{print $1 ; exit}&#39; &quot;${HOSTNAME_R}.$1&quot;
+</span><span id="__span-12-89"><a id="__codelineno-12-89" name="__codelineno-12-89" href="#__codelineno-12-89"></a>     return
+</span><span id="__span-12-90"><a id="__codelineno-12-90" name="__codelineno-12-90" href="#__codelineno-12-90"></a>     else
+</span><span id="__span-12-91"><a id="__codelineno-12-91" name="__codelineno-12-91" href="#__codelineno-12-91"></a>-    # With ipadm, there&#39;s no way to create a persistent
+</span><span id="__span-12-92"><a id="__codelineno-12-92" name="__codelineno-12-92" href="#__codelineno-12-92"></a>-    # configuration without it immediately being reflected in the
+</span><span id="__span-12-93"><a id="__codelineno-12-93" name="__codelineno-12-93" href="#__codelineno-12-93"></a>-    # runtime configuration, nor does ipadm provide any convenient
+</span><span id="__span-12-94"><a id="__codelineno-12-94" name="__codelineno-12-94" href="#__codelineno-12-94"></a>-    # way to find the IPv4 addrobj for the interface, so just
+</span><span id="__span-12-95"><a id="__codelineno-12-95" name="__codelineno-12-95" href="#__codelineno-12-95"></a>-    # check runtime configuration via ifconfig.
+</span><span id="__span-12-96"><a id="__codelineno-12-96" name="__codelineno-12-96" href="#__codelineno-12-96"></a>-    IPADDR=$(ifconfig $1 | awk &#39;
+</span><span id="__span-12-97"><a id="__codelineno-12-97" name="__codelineno-12-97" href="#__codelineno-12-97"></a>-        /[     ]inet /{
+</span><span id="__span-12-98"><a id="__codelineno-12-98" name="__codelineno-12-98" href="#__codelineno-12-98"></a>-            for (i = 1; i &lt; NF; ++i) {
+</span><span id="__span-12-99"><a id="__codelineno-12-99" name="__codelineno-12-99" href="#__codelineno-12-99"></a>-                if ($i == &quot;inet&quot;) {
+</span><span id="__span-12-100"><a id="__codelineno-12-100" name="__codelineno-12-100" href="#__codelineno-12-100"></a>-                    print $(i+1)
+</span><span id="__span-12-101"><a id="__codelineno-12-101" name="__codelineno-12-101" href="#__codelineno-12-101"></a>-                }
+</span><span id="__span-12-102"><a id="__codelineno-12-102" name="__codelineno-12-102" href="#__codelineno-12-102"></a>-            }
+</span><span id="__span-12-103"><a id="__codelineno-12-103" name="__codelineno-12-103" href="#__codelineno-12-103"></a>-        }&#39;)
+</span><span id="__span-12-104"><a id="__codelineno-12-104" name="__codelineno-12-104" href="#__codelineno-12-104"></a>+    IPADDR=`ipadm show-addr -p -o ADDR $1/ | awk &#39;{split($1,a,&quot;/&quot;); print a[1] }&#39;`
+</span><span id="__span-12-105"><a id="__codelineno-12-105" name="__codelineno-12-105" href="#__codelineno-12-105"></a>     if [ -z &quot;$IPADDR&quot; ]; then
+</span><span id="__span-12-106"><a id="__codelineno-12-106" name="__codelineno-12-106" href="#__codelineno-12-106"></a>         print -u2 &quot;Error in parsing of ifconfig addresses&quot;
+</span><span id="__span-12-107"><a id="__codelineno-12-107" name="__codelineno-12-107" href="#__codelineno-12-107"></a>         exit 2
+</span><span id="__span-12-108"><a id="__codelineno-12-108" name="__codelineno-12-108" href="#__codelineno-12-108"></a>--
+</span><span id="__span-12-109"><a id="__codelineno-12-109" name="__codelineno-12-109" href="#__codelineno-12-109"></a>2.23.0
+</span></code></pre></div>
+<h3 id="note-on-java-runtime-environment">Note on Java Runtime Environment</h3>
+<p>The Sun Ray Software needs the Sun/Oracle JRE 1.7 which is shipped with the Sun Ray Software.</p>
+<h2 id="config">Config</h2>
+<p>You can run <code>utconfig</code> and <code>utadm</code> the way described in the <a href="https://docs.oracle.com/cd/E35310_01/index.html">Sun Ray Software</a> document.</p>
 <h2 id="xscreensaver">XScreenSaver</h2>
 <p>Latest Hipster delivers XScreenSaver only in 64-bit. The SunRay PAM module
 are shipped as 32-bit only so unlocking works only with 32-bit XScreenSaver.
+Newer Xscreensaver has the problem like some other newer Gnome and Mate components,  that they expect, there is a main display :0. This isn't true on SunRay. XScreensaver prefer to crash on SunRay.
 That's why we need the XScreenSaver package with 32-bit bins from <a href="http://pkg.toc.de/sunray/">http://pkg.toc.de/sunray/</a>.</p>
 <p>It is more comfortable to use mate-screensaver. For PAM is only the module mate-screensaver-pam-helper needed. This is not an shared object, instead it is an executable and can be shipped in 32bit independent from the other commands.</p>
 <h2 id="gdm">GDM</h2>
 <p>the GDM service has to be enabled. lightdm should not run however.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># svcadm enable graphical-login/gdm
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a># svcadm disable graphical-login/lightdm
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a># svcadm enable graphical-login/gdm
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a># svcadm disable graphical-login/lightdm
 </span></code></pre></div>
 <h1 id="login-screen-gdm-greeter-wont-reapear-after-logout">Login Screen (gdm-greeter) won't reapear after logout</h1>
 <p>After logout the gdm-login won't reappear. Install the following script as <code>/opt/SUNWut/lib/gdm/revivesrsession.py</code> and call it by the <code>/etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession</code> helper script.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>/opt/SUNWut/lib/gdm/revivesrsession.py &amp;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>/opt/SUNWut/lib/gdm/revivesrsession.py &amp;
 </span></code></pre></div>
 <p><code>/opt/SUNWut/lib/gdm/revivesrsession.py</code> contains:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="ch">#!/usr/bin/python3.9</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="sd"> Reconnect SunRay X-session: some times after logout, the gdm will not start login screen on the X-session and the DTU remains in state 26D</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="sd"> INSTALL: - cp to /opt/SUNWut/lib/gdm/revivesrsession.py</span>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="sd">          - create script /etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession:</span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="sd">            /opt/SUNWut/lib/gdm/revivesrsession.py &amp;</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="sd">&#39;&#39;&#39;</span>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="nn">sp</span>
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="kn">import</span> <span class="nn">re</span>
-</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="kn">import</span> <span class="nn">pdb</span>
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="kn">import</span> <span class="nn">time</span>
-</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="kn">import</span> <span class="nn">logging</span>
-</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
-</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="n">logformat</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2">:</span><span class="si">%(message)s</span><span class="s2">&quot;</span>
-</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span> <span class="o">=</span> <span class="n">logformat</span><span class="p">)</span>
-</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>
-</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>
-</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
-</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="n">pid</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;pgrep&#39;</span><span class="p">,</span><span class="s1">&#39;gdm-binary&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;GDM pid </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">pid</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="n">dpl</span> <span class="o">=</span> <span class="p">[</span> <span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ptree&#39;</span><span class="p">,</span> <span class="n">pid</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;/opt/SUNWut/lib/Xnewt&#39;</span> <span class="ow">in</span> <span class="n">p</span> <span class="p">]</span>
-</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Xnewt display </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">dpl</span><span class="p">))</span>
-</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>
-</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="c1"># error -4 gdm-simple-slave not started for Display, no UT sessions</span>
-</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;/opt/SUNWut/sbin/utsession&#39;</span><span class="p">,</span><span class="s1">&#39;-px&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
-</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sess</span><span class="p">))</span>
-</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">sess</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;;&#39;</span><span class="p">):</span>
-</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;STATE&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span> <span class="n">state</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;DISPLAY&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span> <span class="n">disp</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a>    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">disp</span> <span class="ow">in</span> <span class="n">dpl</span><span class="p">:</span>
-</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a>        <span class="c1"># ok</span>
-</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a>        <span class="k">pass</span>
-</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;restart display </span><span class="si">%s</span><span class="s2">&quot;</span>  <span class="o">%</span> <span class="n">disp</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a>        <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;/opt/SUNWut/lib/gdm/utgdmdynamic&#39;</span><span class="p">,</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="n">disp</span><span class="p">])</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="ch">#!/usr/bin/python3.9</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="sd"> Reconnect SunRay X-session: some times after logout, the gdm will not start login screen on the X-session and the DTU remains in state 26D</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="sd"> INSTALL: - cp to /opt/SUNWut/lib/gdm/revivesrsession.py</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="sd">          - create script /etc/opt/SUNWut/gdm/SunRayPostSession/helpers/revivesession:</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="sd">            /opt/SUNWut/lib/gdm/revivesrsession.py &amp;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="sd">&#39;&#39;&#39;</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="nn">sp</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="kn">import</span> <span class="nn">re</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="kn">import</span> <span class="nn">pdb</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="kn">import</span> <span class="nn">time</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="kn">import</span> <span class="nn">logging</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="n">logformat</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2">:</span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span> <span class="o">=</span> <span class="n">logformat</span><span class="p">)</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="n">pid</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;pgrep&#39;</span><span class="p">,</span><span class="s1">&#39;gdm-binary&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;GDM pid </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">pid</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="n">dpl</span> <span class="o">=</span> <span class="p">[</span> <span class="n">p</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ptree&#39;</span><span class="p">,</span> <span class="n">pid</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;/opt/SUNWut/lib/Xnewt&#39;</span> <span class="ow">in</span> <span class="n">p</span> <span class="p">]</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Xnewt display </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">dpl</span><span class="p">))</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="c1"># error -4 gdm-simple-slave not started for Display, no UT sessions</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="k">for</span> <span class="n">sess</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;/opt/SUNWut/sbin/utsession&#39;</span><span class="p">,</span><span class="s1">&#39;-px&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sess</span><span class="p">))</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a>    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">sess</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;;&#39;</span><span class="p">):</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;STATE&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span> <span class="n">state</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a>        <span class="k">if</span> <span class="sa">b</span><span class="s1">&#39;DISPLAY&#39;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span> <span class="n">disp</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">disp</span> <span class="ow">in</span> <span class="n">dpl</span><span class="p">:</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a>        <span class="c1"># ok</span>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a>        <span class="k">pass</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;restart display </span><span class="si">%s</span><span class="s2">&quot;</span>  <span class="o">%</span> <span class="n">disp</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a>        <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;/opt/SUNWut/lib/gdm/utgdmdynamic&#39;</span><span class="p">,</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="n">disp</span><span class="p">])</span>
 </span></code></pre></div>
+<h1 id="multihead-configuration">Multihead configuration</h1>
+<p>SunRay thin clients can be grouped to a multihead configuration, where multiple monitors can used for a single user session. For two clients this can be done with:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$ /opt/SUNWut/bin/utxconfig -m on -R 2x1 -S 0,1
+</span></code></pre></div>
+<p>Since GTK 3.10 multi screen setup is not supported anymore. The command line option <code>--display</code> whith a dot value greate 0 will not work any more (e.g.: earlier the command <code>firefox --display=:11.1</code> has started firefox on the second display).</p>
+<p>metacity or marco will manage only the default screen. For multihead setup it is now necessary to enable 'xinerama' mode, so that the Window manager expands the screen across all DTU's in a group.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$ opt/SUNWut/bin/utxconfig -x on
+</span></code></pre></div>
+<p>Refer to the original documentation from Oracle for configuration in general: <a href="https://docs.oracle.com/cd/E35310_01/E35309/html/MultipleMonitor.html">Multiple Monitor Configurations</a></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2024-10-25 15:42:32</span>
       
         <br>
         Created:
