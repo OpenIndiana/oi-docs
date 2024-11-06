@@ -69,6 +69,7 @@ In order to install packages with other versions such as userland-incorporation,
 # pkg change-facet facet.version-lock.cde/cde-runtime=false
 # pkg change-facet facet.version-lock.library/motif=false
 # pkg change-facet facet.version-lock.library/tooltalk=false
+# pkg change-facet facet.version-lock.compatibility/packages/SUNWxwplt=false
 ```
 configure the publisher
 ```shell
