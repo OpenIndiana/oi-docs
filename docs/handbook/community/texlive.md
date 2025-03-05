@@ -105,6 +105,13 @@ This is incorrect, but it may work in some cases.  Because OpenIndiana and Solar
 ```none
 # ./install-tl --repository https://texlive.info/tlnet-archive/2023/10/10/tlnet/
 ```
+It is also possible to download custom binaries, and install and use TeX Live with binaries that are not part of the original distribution :
+
+```none
+# ./install-tl --custom-bin=/tmp/foobin
+```
+
+See the instructions at [http://tug.org/texlive/custom-bin.html](http://tug.org/texlive/custom-bin.html) for detailed information.
 
 The main menus in interactive mode are :
 
