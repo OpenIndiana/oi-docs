@@ -739,7 +739,7 @@ The Gparted partition editor allows you to add, remove, or resize partitions in 
     For some guidance writing this section:
 
     * Installation walkthrough: [web link](http://technodrone.blogspot.com/2012/05/openindiana-installation-walkthrough.html)
-    * Installation videos: [web link](https://www.youtube.com/watch?v#VVWP_5oAy3w)
+    * Installation videos: [web link](https://www.youtube.com/watch?v=VVWP_5oAy3w)
 </div>
 
 <div class="caution" markdown="1">
