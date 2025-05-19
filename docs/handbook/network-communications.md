@@ -331,6 +331,99 @@ You can create additional CIFS datasets using the following 4 commands.
 
 ### Hipster as an NFS server
 
+< Placeholder for introduction content >
+
+
+#### Manual pages
+
+You can read more about the commands and files used or mentioned with the `man` pages, and at the provided links in the document.
+
+* [dfstab(5)](https://illumos.org/man/5/dfstab)
+* [share_nfs(8)](https://www.illumos.org/man/8/share_nfs)
+* [share(8)](https://www.illumos.org/man/8/share)
+* [shareall(8)](https://www.illumos.org/man/8/shareall)
+* [svcadm(8)](https://www.illumos.org/man/8/svcadm)
+* [unshare(8)](https://www.illumos.org/man/8/share)
+
+For example to view the full documentation for `share(8)` you can use this command:
+```console
+$ man share.8
+```
+
+
+#### Sharing a folder with NFS
+
+To create a read-only temporary NFS share on an existing folder in this example `/nfs/example` you can use the following [share(8)](https://www.illumos.org/man/8/share) command:
+
+```console
+# share -d example-share -F nfs -o ro /nfs/example
+```
+
+The flags provided can be described in a table such as the following:
+
+|Flag|Description|
+|------|-----------|
+|-d|Adds a description for the share in this case `example-share|
+|-F|Filesystem type, in this case NFS.|
+|-o|Options for the NFS share in this case `rw`|
+
+If you want the share to be persistent, you can write it to the [dfstab(5)](https://illumos.org/man/5/dfstab) by using the `-p` flag on the [share(8)](https://www.illumos.org/man/8/share) command.
+
+You can then use the [share(8)](https://www.illumos.org/man/8/share) command with no arguments to list shares as follows:
+
+```console
+$ share
+-               /nfs/example   ro   "example-share"
+```
+
+After this you can enable the `network/nfs/server` service with [svcadm(8)](https://www.illumos.org/man/8/svcadm) using the following command:
+
+```console
+# svcadm enable network/nfs/server
+```
+
+And then use [shareall(8)](https://www.illumos.org/man/8/shareall) to share it on the network as follows:
+
+```console
+# shareall
+```
+
+
+#### Using an access list
+
+An access list argument is a colon separated list, the access list may include the following:
+
+* A hostname, which must be represented as a fully qualified DNS or LDAP name.
+* A netgroup
+* A domain name suffix
+* A network, IP address or IP subnet
+
+This is an example of creating an NFS share that's read-only for everyone, but provide read-write and root access to a single IP address in this case `192.168.0.100`, IP addresses are prefixed with `@` as they are in the network components:
+
+```console
+# share -F nfs -o ro,rw=@192.168.0.100,root=@192.168.0.100 /nfs/example
+```
+
+
+#### Other useful NFS options
+
+|Option|Description|
+|------|-----------|
+|nosuid|Ignore attempts of clients setting suid bits.|
+|none=*access_list*|Deny all access to clients that match the access list.|
+
+
+#### Removing an NFS share
+
+You can use the [unshare(8)](https://www.illumos.org/man/8/unshare) utility with the NFS share folder as shown here:
+
+```console
+# unshare /nfs/example
+```
+
+
+#### Securing NFS with Kerberos
+
 < Place holder for content >
 
 
