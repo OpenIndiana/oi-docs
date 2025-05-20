@@ -363,7 +363,7 @@ The flags provided can be described in a table such as the following:
 
 |Flag|Description|
 |------|-----------|
-|-d|Adds a description for the share in this case `example-share|
+|-d|Adds a description for the share in this case `example-share`|
 |-F|Filesystem type, in this case NFS.|
 |-o|Options for the NFS share in this case `rw`|
 
