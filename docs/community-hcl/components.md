@@ -15,7 +15,7 @@ Portions created by Deano Calver are Copyright (C) 2011.
 Portions created by Aurelien Larcher are Copyright (C) 2017.
 Portions created by Nikola M. are Copyright (C) 2017.
 Portions created by Alexander Pyhalov are Copyright (C) 2019.
-Portions created by David Stes are Copyright (C) 2021.
+Portions created by David Stes are Copyright (C) 2021, 2025.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
@@ -179,6 +179,7 @@ Realtek RTL8101/RTL8110/RTL8168/RTL8169              | yes             | Superce
 Realtek RTL8101E/8102E PCI Express Fast Ethernet controller | yes      | Onboard controller for MSI G31TM-P21 motherboard | rge | Philip Robar
 Realtek RTL8139/8139C/8139C+ PCI Express Fast Ethernet controller | yes | PCI-ID: 10ec:8139      | rtls  | Ancoron Luciferis
 Realtek RTL8111/8168B PCI Express Gigabit Ethernet controller (rev 03) | yes | PCI-ID: 10ec:8168 | rge | Ancoron Luciferis
+Realtek RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet controller | yes | Onboard ASUS PRIME B550-PLUS | rge | David Stes
 Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller | yes | PCI-ID: 10ec:8168 | rge | Predrag Zečević
 Realtek RTL-8169 Gigabit Ethernet (rev 10)           | yes             | PCI-ID: 10ec:8169       | rge | Ancoron Luciferis
 
@@ -222,6 +223,7 @@ Intel Iris Pro Graphics                  | yes                    |             
 Intel Iris Pro Graphics P6300            | yes                    | Tested at 1920x1080 (Intel Xeon E3-1285V4 w/Supermicro X10SLH-F motherboard) | i915 |
 Intel Iris Pro Graphics 580              | yes                    | Tested at 1920x1080. (Intel Core i7-6785R, BGA1364 socket) | i915 |
 Intel UHD Graphics 620                   | yes                    | Thinkpad T580. OI-Hipster MATE 2017.10, 2D (UXA)/3D Visual Effects works - Xserver 1.19.5, 3840x2160 resolution | i915 |
+NVIDIA GeForce GT 710                    | yes                    | nvidia-390 package (390.157)             | nvidia | David Stes
 NVIDIA GeForce GT 730                    | yes                    | Nvidia 340.107                           | nvidia | Gary Mills
 NVIDIA GeForce 210                       | yes                    | PCI-ID: 10de:0a23, Nvidia 340.107        | nvidia | Alex Viskovatoff
 NVIDIA GeForce 220                       | yes                    | Nvidia 340.107                           | nvidia | Guy
@@ -274,6 +276,7 @@ ASUS         | P5Q3                               | rge         | Everything wor
 ASUS         | P5SQPL-AM                          |             | Everything works ok                                   | Johan Sanchez
 ASUS         | P8H77-I                            |             | Intel Celeron G1610, 8GB RAM, onboard video. Using ASMedia ASM1061-based 2-port SATA /eSATA card. Total 7 HDDs (6 data disks on onboard connectors, 1 OS disk on add-on card).  Realtek RTL8111F SUPPORTED. All other components SUPPORTED except onboard Intel USB 3.0 controller. | Dedy Johan
 ASUS         | PRIME B350M-A CPU: AMD Ryzen 3 1200 Quad-Core    | All devices have drivers except for the Platform Security Processor | Had to set Power supply idle in BIOS setup to Typical in order to ensure stability. | Gary Mills
+ASUS         | PRIME B550-PLUS CPU: AMD Ryzen 7 5800X    | Disabled AMD IOMMU in Advanced AMD CBS (Common Bios Specification) | ASUS UEFI BIOS Ver 3405 (American Megatrends 12/13/2023) | David Stes
 CLEVO        | L287                               |             | Everything works                                      | Johan Sanchez
 DELL         | OPTIPLEX GX520                     |             | Everything works and system shutdown is ok            | Johan Sanchez
 DELL         | OPTIPLEX 330                       |             | Works ok X ok                                         | Johan Sanchez
