@@ -365,7 +365,7 @@ The flags provided can be described in a table such as the following:
 |------|-----------|
 |-d|Adds a description for the share in this case `example-share`|
 |-F|Filesystem type, in this case NFS.|
-|-o|Options for the NFS share in this case `rw`|
+|-o|Options for the NFS share in this case `ro`|
 
 If you want the share to be persistent, you can write it to the [dfstab(5)](https://illumos.org/man/5/dfstab) by using the `-p` flag on the [share(8)](https://www.illumos.org/man/8/share) command.
 
