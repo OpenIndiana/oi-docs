@@ -15,7 +15,7 @@ Portions created by Deano Calver are Copyright (C) 2011.
 Portions created by Aurelien Larcher are Copyright (C) 2017.
 Portions created by Nikola M. are Copyright (C) 2017.
 Portions created by Alexander Pyhalov are Copyright (C) 2019.
-Portions created by David Stes are Copyright (C) 2021.
+Portions created by David Stes are Copyright (C) 2021, 2025.
 
 Portions created by ______ are Copyright (C)_________[Insert year(s)].
 All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/alias]).
@@ -75,6 +75,7 @@ OpenIndiana was tested by our users on the following workstations with UEFI.
 
 Manufacturer |  Model               | BIOS               | Works (yes/no) | Notes and/or specific usage instructions           | Contributor
 ------------ | -------------------- | ------------------ | -------------- | -------------------------------------------------- | ------------
+ASUS         | PRIME B550-PLUS      | ASUS UEFI Bios 3405 | yes          | OpenIndiana 2025.04, AMD Ryzen 7 5800X CPU works, discrete graphics NVIDIA GeForce GT710 works with X11/MATE, network onboard RealTek RTL8111/8168/8211/8411 PCI Express Gigabit ethernet (rge), SATA harddisk works, tested ASUS UEFI Bios 3405 (American Megatrends 12/13/2023) system installs and boots fine both in UEFI only mode, and in Legacy OPROM only mode, CSM (Compatibility Support Module) and AMD CBS (AMD Common Bios Specification) AMD IOMMU disabled   | David Stes
 Dell         | Precision 3640       | Dell UEFI Bios 1.17 | yes          | OpenIndiana 2021.04, i3-10100 CPU works, integrated graphics Intel UHD 630 does NOT work and only supports text console (no X11/MATE), NVIDIA GeForce GT 440 works with X11/MATE, integrated audio Intel works, network onboard Intel I219-LM e1000g works, AHCI disks work, tested Dell UEFI BIOS 1.2, 1.8 and 1.17, system installs and boots fine in UEFI mode with Secure Boot disabled | David Stes
 Dell         | Precision 7720       | Dell Bios 1.24      | yes          | Intel(R) Xeon(R) CPU E3-1535M v6, boot in legacy, not UEFI  | Stephan Althaus
 
