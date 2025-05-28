@@ -1135,6 +1135,54 @@
     Hipster as an NFS server
   </a>
   
+    <nav class="md-nav" aria-label="Hipster as an NFS server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-pages" class="md-nav__link">
+    Manual pages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-a-folder-with-nfs" class="md-nav__link">
+    Sharing a folder with NFS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-an-access-list" class="md-nav__link">
+    Using an access list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-useful-nfs-options" class="md-nav__link">
+    Other useful NFS options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-an-nfs-share" class="md-nav__link">
+    Removing an NFS share
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securing-nfs-with-kerberos" class="md-nav__link">
+    Securing NFS with Kerberos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2345,6 +2393,54 @@
     Hipster as an NFS server
   </a>
   
+    <nav class="md-nav" aria-label="Hipster as an NFS server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-pages" class="md-nav__link">
+    Manual pages
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sharing-a-folder-with-nfs" class="md-nav__link">
+    Sharing a folder with NFS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-an-access-list" class="md-nav__link">
+    Using an access list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-useful-nfs-options" class="md-nav__link">
+    Other useful NFS options
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-an-nfs-share" class="md-nav__link">
+    Removing an NFS share
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securing-nfs-with-kerberos" class="md-nav__link">
+    Securing NFS with Kerberos
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -2680,6 +2776,93 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <h4 id="adding-a-remote-share-using-a-windows-client">Adding a remote share using a Windows client</h4>
 <p>&lt; Place holder for content &gt;</p>
 <h3 id="hipster-as-an-nfs-server">Hipster as an NFS server</h3>
+<p>&lt; Placeholder for introduction content &gt;</p>
+<h4 id="manual-pages">Manual pages</h4>
+<p>You can read more about the commands and files used or mentioned with the <code>man</code> pages, and at the provided links in the document.</p>
+<ul>
+<li><a href="https://illumos.org/man/5/dfstab">dfstab(5)</a></li>
+<li><a href="https://www.illumos.org/man/8/share_nfs">share_nfs(8)</a></li>
+<li><a href="https://www.illumos.org/man/8/share">share(8)</a></li>
+<li><a href="https://www.illumos.org/man/8/shareall">shareall(8)</a></li>
+<li><a href="https://www.illumos.org/man/8/svcadm">svcadm(8)</a></li>
+<li><a href="https://www.illumos.org/man/8/share">unshare(8)</a></li>
+</ul>
+<p>For example to view the full documentation for <code>share(8)</code> you can use this command:
+<div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">$ </span>man<span class="w"> </span>share.8
+</span></code></pre></div></p>
+<h4 id="sharing-a-folder-with-nfs">Sharing a folder with NFS</h4>
+<p>To create a read-only temporary NFS share on an existing folder in this example <code>/nfs/example</code> you can use the following <a href="https://www.illumos.org/man/8/share">share(8)</a> command:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp"># </span>share<span class="w"> </span>-d<span class="w"> </span>example-share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/nfs/example
+</span></code></pre></div>
+<p>The flags provided can be described in a table such as the following:</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>Adds a description for the share in this case <code>example-share</code></td>
+</tr>
+<tr>
+<td>-F</td>
+<td>Filesystem type, in this case NFS.</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>Options for the NFS share in this case <code>ro</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you want the share to be persistent, you can write it to the <a href="https://illumos.org/man/5/dfstab">dfstab(5)</a> by using the <code>-p</code> flag on the <a href="https://www.illumos.org/man/8/share">share(8)</a> command.</p>
+<p>You can then use the <a href="https://www.illumos.org/man/8/share">share(8)</a> command with no arguments to list shares as follows:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span>share
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">-               /nfs/example   ro   &quot;example-share&quot;</span>
+</span></code></pre></div>
+<p>After this you can enable the <code>network/nfs/server</code> service with <a href="https://www.illumos.org/man/8/svcadm">svcadm(8)</a> using the following command:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp"># </span>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>network/nfs/server
+</span></code></pre></div>
+<p>And then use <a href="https://www.illumos.org/man/8/shareall">shareall(8)</a> to share it on the network as follows:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp"># </span>shareall
+</span></code></pre></div>
+<h4 id="using-an-access-list">Using an access list</h4>
+<p>An access list argument is a colon separated list, the access list may include the following:</p>
+<ul>
+<li>A hostname, which must be represented as a fully qualified DNS or LDAP name.</li>
+<li>A netgroup</li>
+<li>A domain name suffix</li>
+<li>A network, IP address or IP subnet</li>
+</ul>
+<p>This is an example of creating an NFS share that's read-only for everyone, but provide read-write and root access to a single IP address in this case <code>192.168.0.100</code>, IP addresses are prefixed with <code>@</code> as they are in the network components:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp"># </span>share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro,rw<span class="o">=</span>@192.168.0.100,root<span class="o">=</span>@192.168.0.100<span class="w"> </span>/nfs/example
+</span></code></pre></div>
+<h4 id="other-useful-nfs-options">Other useful NFS options</h4>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nosuid</td>
+<td>Ignore attempts of clients setting suid bits.</td>
+</tr>
+<tr>
+<td>none=<em>access_list</em></td>
+<td>Deny all access to clients that match the access list.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="removing-an-nfs-share">Removing an NFS share</h4>
+<p>You can use the <a href="https://www.illumos.org/man/8/unshare">unshare(8)</a> utility with the NFS share folder as shown here:</p>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp"># </span>unshare<span class="w"> </span>/nfs/example
+</span></code></pre></div>
+<h4 id="securing-nfs-with-kerberos">Securing NFS with Kerberos</h4>
 <p>&lt; Place holder for content &gt;</p>
 <h2 id="hipster-as-an-nis-server">Hipster as an NIS server</h2>
 <p>&lt; Place holder for content &gt;</p>
@@ -2702,7 +2885,7 @@ specifically pkg install pkg:/service/network/dns/bind</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2023-09-03 19:46:49</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2025-05-28 19:14:40</span>
       
         <br>
         Created:
