@@ -226,6 +226,7 @@ Here
 |---|---|---|
 | COMPONENT_NAME | libjpeg6-ijg | The name of the component, usually it's a well-known software name |
 | COMPONENT_VERSION | 6.0.2 | The software version. If the version contains letters, the IPS_COMPONENT_VERSION variable should define a numerical version used for the package, as the IPS version string doesn't allow for letters |
+| COMPONENT_REVISION | 1 | *Optional*.  The revision of the component.  If you make changes to the package that do not involve changing COMPONENT_VERSION, you must increment this in order for Jenkins to build and publish a new version of the package. It shows up as the last number in the FMRI (e.g., in `pkg:/library/md4c@0.5.2-2024.0.0.0`, it's the last 0) |
 | LIBJPEG_API_VERSION | 6b | In this example this is a local variable declared in the Makefile.  |
 | COMPONENT_FMRI | image/library/libjpeg6-ijg | This variable can be used in an IPS manifest to specify the FMRI (a name) of the package. It should folllow the conventions for package FMRIs. |
 | COMPONENT_CLASSIFICATION | System/Multimedia Libraries | This entry should be in the [OpenSolaris IPS Classification 2008](https://github.com/OpenIndiana/pkg5/blob/oi/doc/dev-guide/appendix-a.txt) |
