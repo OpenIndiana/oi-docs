@@ -35,7 +35,7 @@ Although powerful, it may seem complicated at first; but, help is provided in th
 
 OpenIndiana supports a wide range of popular software, including the main open source Internet server software, databases, Internet client software, development languages and tools and more.
 The Popular Software provides some links and notes about some of the community favorites, but many more are supported.
-In addition to the Hipster IPS repositories, OpenIndiana can also use the [SFE](http://sfe.opencsw.org/) and [pkgsrc](https://pkgsrc.joyent.com/) package repositories which provide additional software options.
+In addition to the Hipster IPS repositories, OpenIndiana can also use the [SFE](http://sfe.opencsw.org/) and [pkgsrc](https://pkgsrc.smartos.org/) package repositories which provide additional software options.
 
 
 ## What is OpenIndiana Project?

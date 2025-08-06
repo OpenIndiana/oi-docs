@@ -2054,8 +2054,8 @@ Here are some of the available tools:
         * [pkgsrc](https://pkgsrc.org/)
           ([wiki page](https://wiki.openindiana.org/oi/pkgsrc+in+OI),
           [NetBSD wiki page](https://wiki.netbsd.org/pkgsrc/how_to_use_pkgsrc_on_solaris/))
-        * [Joyent's pkgsrc binary packages](https://pkgsrc.joyent.com/)
-          ([install on illumos](https://pkgsrc.joyent.com/install-on-illumos/),
+        * [MNX's pkgsrc binary packages](https://pkgsrc.smartos.org/)
+          ([install on illumos](https://pkgsrc.smartos.org/install-on-illumos/),
           [wiki page](https://wiki.openindiana.org/oi/3.+Installing+software+and+package+management))
         * [opencsw](http://sfe.opencsw.org/)
         * [SFE (spec-files-extra)](http://pkgbuild.sourceforge.net/spec-files-extra/)
@@ -2075,7 +2075,7 @@ Here are some of the available tools:
 
 In addition to IPS and SVR4 package management tools, it is also possible to use `pkgsrc`.
 
-For more information about pkgsrc, see the [Joyent package source website](https://pkgsrc.joyent.com/).
+For more information about pkgsrc, see the [MNX pkgsrc website](https://pkgsrc.smartos.org/).
 
 <div class="caution" markdown="1">
 !!! danger "Caution"
