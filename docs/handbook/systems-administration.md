@@ -58,7 +58,7 @@ To use the system, a user requires an account, which are known as _user accounts
 
 A user account facilitates interactive access to the system and is primarily used for day-to-day tasks.
 Each user requiring access to the system should have a unique account specifically assigned to that user.
-System administrators can thereby monitor user activity and establish system dignostics to optimise system performance.
+System administrators can thereby monitor user activity and establish system diagnostics to optimise system performance.
 Moreover permission to perform various system activities can be separately assigned to each user on an individual basis.
 
 When the system is initially installed, usually only one user account is created.
@@ -82,7 +82,7 @@ This is often the user's real name.
 * **home directory** the path to the directory which is _home_ to the user and
   where the user is placed by default after logging onto the system.
 * **login shell** user's initial shell program.
-* **password last change time** time at which the the user password was last changed.
+* **password last change time** time at which the user password was last changed.
 * password aging information - several [shadow(4)](https://illumos.org/man/4/shadow) fields determining when password should be changed
     * **min** the minimum number of days required between password changes;
     * **max** the maximum number of days the password is valid;
@@ -148,7 +148,7 @@ To enable some users to carry out a command with root privileges, or to _do_ an 
 Furthermore, in addition to being able to equip users with permission to perform some actions, `sudo` can be applied to a `group`.
 The group can be assigned to users who are then elevated to the powers available to that group.
 
-One common strategy is to to define a minimum set of commands to perform some task, e.g., manage a mailserver, and then assign these commands to a group.
+One common strategy is to define a minimum set of commands to perform some task, e.g., manage a mailserver, and then assign these commands to a group.
 Thereby, mailserver management can be assigned to a user by adding the group membership to a user.
 
 While elevated user privileges for `sudo` are configured in `/etc/sudoers`, user configuration is preferably performed by adding files to the `/etc/sudoers.d/` directory.
@@ -178,7 +178,7 @@ It is also dangerous for more than one user to edit this file at the same time.
 To prevent such mishaps, `visudo` was designed to assist in avoiding such issues.
 `visudo` works in conjunction with an editor, by default `vi`.
 
-A standard installation of OpenIndian supplies an easy to use editor called `pluma`.
+A standard installation of OpenIndiana supplies an easy to use editor called `pluma`.
 To start `visudo` with it using `pluma`, do the following:
 
 ```bash
@@ -762,7 +762,7 @@ all packages will be updated to the latest revision:
 pfexec pkg update
 ```
 
-(Note: for `pfexec` to succeed you'll need to have the `Software Installation` profile [enabled for your user account](../getting-started/#quick-start-to-ips).)
+(Note: for `pfexec` to succeed you'll need to have the `Software Installation` profile [enabled for your user account](getting-started.md#quick-start-to-ips).)
 
 
 New installation images are beneficial for those
@@ -1700,14 +1700,68 @@ Here are just a few of them:
 
 ## Localization
 
-<div class="info" markdown="1">
-!!! info "Documentation Team"
-    ITEMS TO WRITE ABOUT:
+### Language
 
-    Possible resources to help write this section:
+A *locale* determines the language and encoding use for system and programs' messages, representation of dates and so on. The command `locale` prints the locale currently in use.
 
-    * <https://wiki.openindiana.org/oi/4.4+Localization>
-    * <https://docs.oracle.com/cd/E23824_01/html/E26033/glmen.html>
+<div class="note" markdown="1">
+!!! note
+    The output of `locale` can differ depending on how and where the command is run.
+    For example, ssh sessions from another system usually inherit the client's locale configuration, and different users' desktop environments can use their own locales.
+</div>
+
+#### Installing additional locales
+
+To ensure that a desired locale is present on your system, you can run `locale -a` to list all available locales.
+If the desired locale is not already installed, you must install it. Locale package names follow a naming convention `locale\xx`, where **xx** is a 2 letter language code.
+For example, to add support for the Macedonian locale, install the package `locale/mk`, or for Simplified Chinese `locale/zh_cn` (`_cn` signifies this is one of multiple variations for this language).
+
+#### Setting the system default locale
+
+OpenIndiana stores the default (system) locale in `/etc/default/init`. This is configured during initial installation but can be changed later.
+
+This is done by editing this file, changing the value of `LANG` to your desired language and rebooting the system. You should use a value from `locale -a` ending with `.UTF-8`.
+An invalid value for `LANG` will cause errors and/or American English to be used.
+
+#### Setting user specific locales (Graphical Desktop)
+
+By default, when logging into a graphical session the system default locale will be used. However, when there are multiple users on the same system it may be desirable to set locale on a per-user basis.
+This can be done by creating a configuration file named `.dmrc` in the user's home directory.
+This file is used to specify settings for the display manager (*lightdm*). The example `.dmrc` file below sets the user's locale to German (Germany).
+
+```
+[Desktop]
+Language=de_DE.UTF-8
+```
+
+<div class="note" markdown="1">
+!!! note
+    User specific locale can also be configured in `/var/cache/lightdm/dmrc/user.dmrc` (where *user* is a username). If configured here, all other local configuration (e.g. `.dmrc`) will be **ignored**.
+</div>
+
+### Timezone
+
+The system timezone is configured using the `TZ` key in `/etc/default/init`. As with locale, it should be configured during installation but can be changed later.
+The `tzselect` utility can be used to determine the appropriate timezone name to use in `/etc/default/init`.
+
+### Example system localization defaults
+
+This example of `/etc/default/init` sets the locale to German (Germany) and the timezone to Germany
+
+```
+TZ=Europe/Berlin
+CMASK=022
+LANG=de_DE.UTF-8
+```
+
+### Granular localization customization
+
+It is also possible to configure the system to use certain aspects of one locale in combination with another. Such as using a currency associated with a different language. This is done with `LC_` locale environment variables.
+They can be set in `/etc/default/init`. These variables are common to most Unix-like systems and so are not documented here.
+
+<div class="note" markdown="1">
+!!! note
+    Avoid setting `LC_ALL` globally, as this will override any local user configuration.
 </div>
 
 ## Dtrace
