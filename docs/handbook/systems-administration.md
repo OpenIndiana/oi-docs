@@ -1720,23 +1720,25 @@ For example, to add support for the Macedonian locale, install the package `loca
 
 OpenIndiana stores the default (system) locale in `/etc/default/init`. This is configured during initial installation but can be changed later.
 
-This is done by editing this file, changing the value of `LANG` to your desired language and rebooting the system. You should use a value from `locale -a` ending with `.UTF-8`.
+To set default locale, edit this file and change the value of `LANG` to your desired language, then reboot the system. You should use a value from `locale -a` ending with `.UTF-8`.
 An invalid value for `LANG` will cause errors and/or American English to be used.
 
 #### Setting user specific locales (Graphical Desktop)
 
 By default, when logging into a graphical session the system default locale will be used. However, when there are multiple users on the same system it may be desirable to set locale on a per-user basis.
-This can be done by creating a configuration file named `.dmrc` in the user's home directory.
-This file is used to specify settings for the display manager (*lightdm*). The example `.dmrc` file below sets the user's locale to German (Germany).
+This can be done by editing (or creating) the `.dmrc` configuration file in the user's home directory.
+This file is used to specify settings for the display manager (*lightdm*). The example `.dmrc` file below uses a `Language=` entry to set the user's locale to German (Germany).
 
 ```
 [Desktop]
 Language=de_DE.UTF-8
 ```
 
+The locale can also be configured directly in `.profile` or `.xprofile` using the `LANG` environment variable. In OI, [these files are read when *lightdm* starts](https://github.com/OpenIndiana/oi-userland/blob/oi/hipster/components/desktop/lightdm/files/lightdm-session#L31-L36).
+
 <div class="note" markdown="1">
 !!! note
-    User specific locale can also be configured in `/var/cache/lightdm/dmrc/user.dmrc` (where *user* is a username). If configured here, all other local configuration (e.g. `.dmrc`) will be **ignored**.
+    User specific locale can also be configured in `/var/cache/lightdm/dmrc/user.dmrc` (where *user* is a username). If configured here, all other local configuration (e.g. `.dmrc`, `.xprofile`) will be **ignored**.
 </div>
 
 ### Timezone
@@ -1757,7 +1759,7 @@ LANG=de_DE.UTF-8
 ### Granular localization customization
 
 It is also possible to configure the system to use certain aspects of one locale in combination with another. Such as using a currency associated with a different language. This is done with `LC_` locale environment variables.
-They can be set in `/etc/default/init`. These variables are common to most Unix-like systems and so are not documented here.
+They can be set globally in `/etc/default/init`, or on a per-user basis in `.profile` or other files read by login shells. These variables are common to most Unix-like systems and so are not documented here.
 
 <div class="note" markdown="1">
 !!! note
