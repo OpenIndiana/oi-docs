@@ -1751,11 +1751,19 @@ Enable the default physical service with `svcadm` and configure the `interface`:
 # svcadm enable physical:default
 ```
 
-There are multiple ways to configure the interface : using sysding or directly with ipadm.
+There are multiple ways to configure the interface : using `sysding` or directly with [`ipadm`](https://illumos.org/man/8/ipadm).
 
-For more information on sysding, see the section on Configuring and Tuning.
+For more information on `sysding`, see the section on Configuring and Tuning.
 
-To configure an interface with ipadm:
+To show the currently assigned addresses, you can use `ipadm` with no arguments (same as using the `show-addr` argument). For example, a system with one interface using DHCP and IPv4 would produce this output:
+
+```
+ADDROBJ           TYPE     STATE        ADDR
+lo0/v4            static   ok           127.0.0.1/8
+e1000g0/_b        dhcp     ok           192.168.0.10/24
+```
+
+To configure an interface with `ipadm`:
 
 ```bash
 # ipadm create-addr -T static -a local=192.168.1.22/24 bge0/v4static
@@ -1769,7 +1777,7 @@ or
 
 The previous example sets up DHCP without using NWAM.  NWAM is more than DHCP, because NWAM automatically configures any new interfaces, while the above way to manually setup DHCP is fixed for a specific interface.
 
-If you do not know what the interface name is (bge0 in this case); then type in
+If you do not know what the interface name is (`bge0` in this case); then type in
 
 ```bash
 $ dladm show-link
@@ -1797,7 +1805,7 @@ or
 # Enter in your gateways IP
 ```
 
-or use the /etc/sysding.conf file to configure a default router and DNS servers.
+or use the `/etc/sysding.conf` file to configure a default router and DNS servers.
 
 Set DNS server(s)
 
