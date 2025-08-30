@@ -299,6 +299,65 @@ You can create additional CIFS datasets using the following 4 commands.
 
 < Place holder for content >
 
+### Configuring NFS client connectivity
+
+OpenIndiana has built in NFS client support and automatic mounting capabilities for using remote NFS shares.
+
+#### Manually mounting remote NFS shares
+
+The [`mount -F nfs`](https://illumos.org/man/8/mount_nfs) command is used to manually mount a remote share to a specified location.
+Two forms of remote host and path are supported, `host:/remote/path` and `nfs://host/remote/path`.
+For example, to mount the remote folder `example` on the server `hipster` to the local path `/mnt/example`, this command could be used:
+
+```
+# mount -F nfs nfs://hipster/example /mnt/example/`
+```
+
+#### Automatically mounting remote NFS shares
+
+Automounting is provided by the *autofs* service. This enables automatic on demand mounting and unmounting of remote NFS shares.
+Compared to manually mounting NFS shares, this saves time and doesn't require root access once set up.
+Mounting specific (direct) remote shares requires configuring the `/etc/auto_master` and `/etc/auto_direct` files.
+
+<div class="note" markdown="1">
+!!! note
+    *autofs* has many other features which are likely to be useful for larger networks with multiple users, such as automatic mounting of user home directories.
+    For more information, see [Solaris Network Services documentation](https://docs.oracle.com/cd/E23823_01/html/816-4555/rfsrefer-66.html).
+</div>
+
+Before automounting can be used, the autofs daemon must be running. In OI it should be enabled by default:
+
+```
+# svcs system/filesystem/autofs
+STATE          STIME    FMRI
+online         14:59:45 svc:/system/filesystem/autofs:default
+```
+
+If it is not already running, it can be enabled with `svcadm enable system/filesystem/autofs`.
+
+The paths for direct NFS shares are configured in `/etc/auto_direct`. For this file to be read by autofs, a new line must first be added to the end of `/etc/auto_master`:
+
+```
+# Master map for automounter
+#
++auto_master
+/net            -hosts          -nosuid,nobrowse
+/home           auto_home       -nobrowse
+/-              auto_direct
+```
+
+The `/etc/auto_direct` file can then be created and populated. Entries consist of the local path to mount the NFS share, optional mount options, and the remote NFS path.
+Both the forms in the previous section for specifying the remote path are supported.
+For example, this configures two automatically mounted shares, one using the `ro` option (for read-only):
+
+```
+/mnt/example nfs://hipster/example
+/mnt/reference -ro hipster:/reference
+```
+
+For changes to these files to take effect, reboot or run the `automount` commmand.
+
+The `mount` command is used without arguments to list all current mounts, including any automatically mounted NFS locations and mount time (when the automatic mount was triggered).
 
 ### Configuring CIFS/SMB client connectivity
 
