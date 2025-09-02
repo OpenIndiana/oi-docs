@@ -1702,7 +1702,7 @@ Here are just a few of them:
 
 ### Language
 
-A *locale* determines the language and encoding use for system and programs' messages, representation of dates and so on. The command `locale` prints the locale currently in use.
+A *locale* determines the language and encoding used for system and programs' messages, representation of dates and so on. The command `locale` prints the locale currently in use.
 
 <div class="note" markdown="1">
 !!! note
@@ -1720,7 +1720,7 @@ For example, to add support for the Macedonian locale, install the package `loca
 
 OpenIndiana stores the default (system) locale in `/etc/default/init`. This is configured during initial installation but can be changed later.
 
-To set default locale, edit this file and change the value of `LANG` to your desired language, then reboot the system. You should use a value from `locale -a` ending with `.UTF-8`.
+To set the default locale, edit this file and change the value for `LANG` to your desired language, then reboot the system. You should use a value from `locale -a` ending with `.UTF-8`.
 An invalid value for `LANG` will cause errors and/or American English to be used.
 
 #### Setting user specific locales (Graphical Desktop)
@@ -1743,7 +1743,7 @@ The locale can also be configured directly in `.profile` or `.xprofile` using th
 
 ### Timezone
 
-The system timezone is configured using the `TZ` key in `/etc/default/init`. As with locale, it should be configured during installation but can be changed later.
+The system timezone is configured using the `TZ` key in `/etc/default/init`. As with locale, it is usually defined during installation but can be changed later.
 The `tzselect` utility can be used to determine the appropriate timezone name to use in `/etc/default/init`.
 
 ### Example system localization defaults
