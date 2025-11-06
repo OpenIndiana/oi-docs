@@ -547,7 +547,7 @@ $
 ```
 
 The result of running this command is empty: nothing found. Post a question to the OI community or ask on IRC [About OpenIndiana, How can I contact OpenIndiana community](../misc/openindiana.md#how-can-i-contact-openindiana-community).
-Assuming someone informs you that the package does exit and can be found on the publisher *hipster-encumbered* with address *http://pkg.openindiana.org/hipster/* then you can continue.
+Assuming someone informs you that the package does exist and can be found on the publisher *hipster-encumbered* with address *http://pkg.openindiana.org/hipster/* then you can continue.
 
 Add the *hipster-encumbered* publisher and try again:
 
