@@ -28,7 +28,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 </div>
 
-< place holder for introduction content >
+OpenIndiana can do a fair amount of common tasks you expect from any other system. Given its similarities to Linux and
+BSD, most software that already works on those systems also works on OpenIndiana also. This includes, but is certainly
+not limited to, various UNIX commands, desktop applications, multimedia programs, graphics, and desktop publishing.
 
 
 ## Basic UNIX commands
