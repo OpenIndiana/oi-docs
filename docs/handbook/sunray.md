@@ -148,6 +148,10 @@ run utpolicy
 
 Now the Sun Ray server installation is ready to serve your Sun Ray DTU. For more configuration options you can use the Oracle/Sun documentation.
 
+Check the file /etc/opt/SUNWut/policy/utpolicy that there no hdlogin session is referenced. For hdlogin sessions the application
+/opt/SUNWut/lib/loginGUI is necessary, which needs ancient motif, tooltalk, cde libraries. Without the loginGUI, the session
+will proteced by the mate-screensaver. If you interested to use hotdesk sessions the libraries are available on
+https://pkg.toc.de/sunray. For installation of the old libraries the already installed empty packages have to be replaced.
 
 ### GDM
 
