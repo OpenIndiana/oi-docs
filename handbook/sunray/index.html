@@ -2194,6 +2194,10 @@ If setup of /etc/inet/dhcpd4.conf failed, unconfigure with 'utadm -d bge1' and r
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># utpolicy -a -z both -m -D
 </span></code></pre></div></p>
 <p>Now the Sun Ray server installation is ready to serve your Sun Ray DTU. For more configuration options you can use the Oracle/Sun documentation.</p>
+<p>Check the file <code>/etc/opt/SUNWut/policy/utpolicy</code> that there is no hdlogin session referenced. For hdlogin sessions the application
+<code>/opt/SUNWut/lib/loginGUI</code> is necessary, which needs ancient motif, tooltalk, and cde libraries. Without the loginGUI, the session
+will be protected by the mate-screensaver. If you're interested in using hotdesk sessions the libraries are available on
+<a href="https://pkg.toc.de/sunray">https://pkg.toc.de/sunray</a>. For installation of the old libraries the already installed empty packages have to be replaced.</p>
 <h3 id="gdm">GDM</h3>
 <p>the GDM service has to be enabled. lightdm should not run however.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a># svcadm enable graphical-login/gdm
@@ -2320,7 +2324,7 @@ If setup of /etc/inet/dhcpd4.conf failed, unconfigure with 'utadm -d bge1' and r
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2025-10-18 10:48:10</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2026-02-22 17:43:01</span>
       
         <br>
         Created:
