@@ -103,7 +103,6 @@ Import first section of Wiki page: <http://wiki.openindiana.org/oi/Using+OpenInd
 
 Have a look at the following resources for ideas and inspiration for writing new content:
 
-* [OpenSolaris Automated Installer Guide](https://web.archive.org/web/20100401021842/http://www.opensolaris.com/use/Auto_Installer.pdf)
 * [Linux Versus OpenSolaris](https://web.archive.org/web/20090824053055/http://opensolaris.org/os/project/czosug/events_archive/czosug_muni_20090228_OpenSolaris_and_Linux_Basic_Comparison.pdf)
 * [IPS versus apt - from IPS guide](https://web.archive.org/web/20090924031858/http://dlc.sun.com/osol/docs/content/2009.06/IMGPACKAGESYS/giksz.html)
 * System partitioning, Gparted, etc.

@@ -69,7 +69,7 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 | --- | ---
 | Document Link | <a href="http://dlc.openindiana.org/docs/osol/20090715/AIinstall/html/solarisinstall.html" target="_blank">OpenSolaris Automated Installer Guide</a>
 | Topics | If you want to install the OpenSolaris operating system (OS) on multiple client systems on a network, you can use the automated installer (AI) to accomplish that task. The automated installer performs essentially “hands-free” network installations of the OpenSolaris OS.
-| Relevancy to OpenIndiana Hipster | To be determined
+| Relevancy to OpenIndiana Hipster | [Not Applicable](https://github.com/OpenIndiana/oi-docs/issues/295)
 | Target Audience | This book is intended for anyone responsible for administering one or more systems that are running the Solaris release.
 | Requirements | Experience using the Solaris Operating System (OS) or another UNIX® version is recommended.
 
