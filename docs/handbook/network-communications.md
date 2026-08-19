@@ -295,13 +295,38 @@ You can create additional CIFS datasets using the following 4 commands.
 < Placeholder for introduction content >
 
 
-### Hipster as a SAMBA server
+### Hipster as a SMB/SAMBA server
 
-< Place holder for content >
+OpenIndiana has rich & native support through it's Zettabyte file system to drive modern SAMBA services. First, to start, ensure you have the pool you want to share created. Second, check that any other SMB service (such as one you may have installed or compiled manually) is not running as it will conflict with the native implementation. Third, start the native service as follows:
 
-### Configuring NFS client connectivity
+```
+sudo svcadm enable -r smb/server
+```
 
-OpenIndiana has built in NFS client support and automatic mounting capabilities for using remote NFS shares.
+Then run the following: 
+
+```
+sudo zfs create -o nbmand=on -o sharesmb=on poolname/setname 
+```
+Then, to define the share's name, use the following command:
+
+```
+sudo zfs set sharesmb=name=sharename poolname/setname  
+```
+
+Afterwards, you can test your share with the following command on your OpenIndiana system.
+
+```
+sudo smbclient -L //192.168.1.1/ -U username
+```
+
+You can also verify locally that the system share parameters are to your liking:
+
+```
+sharemgr show
+```
+
+Lastly, ensure that the permissions you set agree with the user account's permissions. For instance, if you want users to be able to edit files, ensure they have the "chmod" permission to do so for their user account and group. If they don't, Windows users will be restricted from editing, viewing, or changing their files. Always test thoroughly as permissions on OpenIndiana's side can cause issues for Windows users. Note for Windows 11: consider having your Windows 11 users authenticate with a username/password as opposed to a guest account, as Windows 11 has many roadblocks that make this difficult otherwise with passwordless guest accounts. This author personally has spent hours with this, and does not recommend it either!
 
 #### Manually mounting remote NFS shares
 
