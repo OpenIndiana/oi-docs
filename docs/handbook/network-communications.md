@@ -328,6 +328,10 @@ sharemgr show
 
 Lastly, ensure that the permissions you set agree with the user account's permissions. For instance, if you want users to be able to edit files, ensure they have the "chmod" permission to do so for their user account and group. If they don't, Windows users will be restricted from editing, viewing, or changing their files. Always test thoroughly as permissions on OpenIndiana's side can cause issues for Windows users. Note for Windows 11: consider having your Windows 11 users authenticate with a username/password as opposed to a guest account, as Windows 11 has many roadblocks that make this difficult otherwise with passwordless guest accounts. This author personally has spent hours with this, and does not recommend it either!
 
+### Configuring NFS client connectivity
+
+OpenIndiana has built in NFS client support and automatic mounting capabilities for using remote NFS shares.
+
 #### Manually mounting remote NFS shares
 
 The [`mount -F nfs`](https://illumos.org/man/8/mount_nfs) command is used to manually mount a remote share to a specified location.
