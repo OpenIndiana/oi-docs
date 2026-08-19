@@ -326,7 +326,16 @@ You can also verify locally that the system share parameters are to your liking:
 sharemgr show
 ```
 
-Lastly, ensure that the permissions you set agree with the user account's permissions. For instance, if you want users to be able to edit files, ensure they have the "chmod" permission to do so for their user account and group. If they don't, Windows users will be restricted from editing, viewing, or changing their files. Always test thoroughly as permissions on OpenIndiana's side can cause issues for Windows users. Note for Windows 11: consider having your Windows 11 users authenticate with a username/password as opposed to a guest account, as Windows 11 has many roadblocks that make this difficult otherwise with passwordless guest accounts. This author personally has spent hours with this, and does not recommend it either!
+Lastly, ensure that the permissions you set agree with the user account's permissions. For instance, if you want users to be able to edit files, ensure they have the permission to do so for their user account and group. 
+
+For instance, if the SMB user account is named "user", & in the "staff" group, ensure the folders and files they create by default have read, write, and if need be, execute permissions. If they don't, Windows users will see the Windows File Properties Menushowing restrictions for editing, viewing, (or executing) their SMB files. As always, test thoroughly as permissions on OpenIndiana's side can cause issues for Windows users. 
+
+<div class="note" markdown="1">
+!!! note
+    For Microsoft Windows 11: consider having your Windows 11 users authenticate with a username/password as opposed to a guest account, as Windows 11 has many roadblocks that make this difficult otherwise with passwordless guest accounts. This author personally has spent hours with this, and does not recommend it either!
+ 
+</div>
+
 
 ### Configuring NFS client connectivity
 
