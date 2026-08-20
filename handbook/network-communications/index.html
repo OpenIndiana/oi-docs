@@ -1090,8 +1090,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hipster-as-a-samba-server" class="md-nav__link">
-    Hipster as a SAMBA server
+  <a href="#hipster-as-a-smbsamba-server" class="md-nav__link">
+    Hipster as a SMB/SAMBA server
   </a>
   
 </li>
@@ -2375,8 +2375,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hipster-as-a-samba-server" class="md-nav__link">
-    Hipster as a SAMBA server
+  <a href="#hipster-as-a-smbsamba-server" class="md-nav__link">
+    Hipster as a SMB/SAMBA server
   </a>
   
 </li>
@@ -2806,15 +2806,37 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 </ul>
 <h3 id="hipster-as-a-cifs-server-domain">Hipster as a CIFS server (domain)</h3>
 <p>&lt; Placeholder for introduction content &gt;</p>
-<h3 id="hipster-as-a-samba-server">Hipster as a SAMBA server</h3>
-<p>&lt; Place holder for content &gt;</p>
+<h3 id="hipster-as-a-smbsamba-server">Hipster as a SMB/SAMBA server</h3>
+<p>OpenIndiana has rich &amp; native support through it's Zettabyte file system to drive modern SAMBA services. First, to start, ensure you have the pool you want to share created. Second, check that any other SMB service (such as one you may have installed or compiled manually) is not running as it will conflict with the native implementation. Third, start the native service as follows:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo svcadm enable -r smb/server
+</span></code></pre></div>
+<p>Then run the following: </p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo zfs create -o nbmand=on -o sharesmb=on poolname/setname 
+</span></code></pre></div>
+Then, to define the share's name, use the following command:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo zfs set sharesmb=name=sharename poolname/setname  
+</span></code></pre></div>
+<p>Afterwards, you can test your share with the following command on your OpenIndiana system.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo smbclient -L //192.168.1.1/ -U username
+</span></code></pre></div>
+<p>You can also verify locally that the system share parameters are to your liking:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sharemgr show
+</span></code></pre></div>
+<p>Lastly, ensure that the permissions you set agree with the user account's permissions. For instance, if you want users to be able to edit files, ensure they have the permission to do so for their user account and group. </p>
+<p>For instance, if the SMB user account is named "user", &amp; in the "staff" group, ensure the folders and files they create by default have read, write, and if need be, execute permissions. If they don't, Windows users will see the Windows File Properties Menushowing restrictions for editing, viewing, (or executing) their SMB files. As always, test thoroughly as permissions on OpenIndiana's side can cause issues for Windows users. </p>
+<div class="note">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For Microsoft Windows 11: consider having your Windows 11 users authenticate with a username/password as opposed to a guest account, as Windows 11 has many roadblocks that make this difficult otherwise with passwordless guest accounts. This author personally has spent hours with this, and does not recommend it either!</p>
+</div>
+</div>
 <h3 id="configuring-nfs-client-connectivity">Configuring NFS client connectivity</h3>
 <p>OpenIndiana has built in NFS client support and automatic mounting capabilities for using remote NFS shares.</p>
 <h4 id="manually-mounting-remote-nfs-shares">Manually mounting remote NFS shares</h4>
 <p>The <a href="https://illumos.org/man/8/mount_nfs"><code>mount -F nfs</code></a> command is used to manually mount a remote share to a specified location.
 Two forms of remote host and path are supported, <code>host:/remote/path</code> and <code>nfs://host/remote/path</code>.
 For example, to mount the remote folder <code>example</code> on the server <code>hipster</code> to the local path <code>/mnt/example</code>, this command could be used:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># mount -F nfs nfs://hipster/example /mnt/example/`
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># mount -F nfs nfs://hipster/example /mnt/example/`
 </span></code></pre></div>
 <h4 id="automatically-mounting-remote-nfs-shares">Automatically mounting remote NFS shares</h4>
 <p>Automounting is provided by the <em>autofs</em> service. This enables automatic on demand mounting and unmounting of remote NFS shares.
@@ -2828,24 +2850,24 @@ For more information, see <a href="https://docs.oracle.com/cd/E23823_01/html/816
 </div>
 </div>
 <p>Before automounting can be used, the autofs daemon must be running. In OI it should be enabled by default:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a># svcs system/filesystem/autofs
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>STATE          STIME    FMRI
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>online         14:59:45 svc:/system/filesystem/autofs:default
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a># svcs system/filesystem/autofs
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>STATE          STIME    FMRI
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>online         14:59:45 svc:/system/filesystem/autofs:default
 </span></code></pre></div>
 <p>If it is not already running, it can be enabled with <code>svcadm enable system/filesystem/autofs</code>.</p>
 <p>The paths for direct NFS shares are configured in <code>/etc/auto_direct</code>. For this file to be read by autofs, a new line must first be added to the end of <code>/etc/auto_master</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a># Master map for automounter
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>#
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>+auto_master
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>/net            -hosts          -nosuid,nobrowse
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>/home           auto_home       -nobrowse
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>/-              auto_direct
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a># Master map for automounter
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>#
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>+auto_master
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>/net            -hosts          -nosuid,nobrowse
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>/home           auto_home       -nobrowse
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>/-              auto_direct
 </span></code></pre></div>
 <p>The <code>/etc/auto_direct</code> file can then be created and populated. Entries consist of the local path to mount the NFS share, optional mount options, and the remote NFS path.
 Both the forms in the previous section for specifying the remote path are supported.
 For example, this configures two automatically mounted shares, one using the <code>ro</code> option (for read-only):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/mnt/example nfs://hipster/example
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>/mnt/reference -ro hipster:/reference
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>/mnt/example nfs://hipster/example
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>/mnt/reference -ro hipster:/reference
 </span></code></pre></div>
 <p>For changes to these files to take effect, reboot or run the <code>automount</code> commmand.</p>
 <p>The <code>mount</code> command is used without arguments to list all current mounts, including any automatically mounted NFS locations and mount time (when the automatic mount was triggered).</p>
@@ -2883,11 +2905,11 @@ For example, this configures two automatically mounted shares, one using the <co
 <li><a href="https://www.illumos.org/man/8/share">unshare(8)</a></li>
 </ul>
 <p>For example to view the full documentation for <code>share(8)</code> you can use this command:
-<div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">$ </span>man<span class="w"> </span>share.8
+<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">$ </span>man<span class="w"> </span>share.8
 </span></code></pre></div></p>
 <h4 id="sharing-a-folder-with-nfs">Sharing a folder with NFS</h4>
 <p>To create a read-only temporary NFS share on an existing folder in this example <code>/nfs/example</code> you can use the following <a href="https://www.illumos.org/man/8/share">share(8)</a> command:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp"># </span>share<span class="w"> </span>-d<span class="w"> </span>example-share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/nfs/example
+<div class="language-console highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp"># </span>share<span class="w"> </span>-d<span class="w"> </span>example-share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/nfs/example
 </span></code></pre></div>
 <p>The flags provided can be described in a table such as the following:</p>
 <table>
@@ -2914,14 +2936,14 @@ For example, this configures two automatically mounted shares, one using the <co
 </table>
 <p>If you want the share to be persistent, you can write it to the <a href="https://illumos.org/man/5/dfstab">dfstab(5)</a> by using the <code>-p</code> flag on the <a href="https://www.illumos.org/man/8/share">share(8)</a> command.</p>
 <p>You can then use the <a href="https://www.illumos.org/man/8/share">share(8)</a> command with no arguments to list shares as follows:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">$ </span>share
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">-               /nfs/example   ro   &quot;example-share&quot;</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">$ </span>share
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="go">-               /nfs/example   ro   &quot;example-share&quot;</span>
 </span></code></pre></div>
 <p>After this you can enable the <code>network/nfs/server</code> service with <a href="https://www.illumos.org/man/8/svcadm">svcadm(8)</a> using the following command:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="gp"># </span>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>network/nfs/server
+<div class="language-console highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp"># </span>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>network/nfs/server
 </span></code></pre></div>
 <p>And then use <a href="https://www.illumos.org/man/8/shareall">shareall(8)</a> to share it on the network as follows:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp"># </span>shareall
+<div class="language-console highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp"># </span>shareall
 </span></code></pre></div>
 <h4 id="using-an-access-list">Using an access list</h4>
 <p>An access list argument is a colon separated list, the access list may include the following:</p>
@@ -2932,7 +2954,7 @@ For example, this configures two automatically mounted shares, one using the <co
 <li>A network, IP address or IP subnet</li>
 </ul>
 <p>This is an example of creating an NFS share that's read-only for everyone, but provide read-write and root access to a single IP address in this case <code>192.168.0.100</code>, IP addresses are prefixed with <code>@</code> as they are in the network components:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp"># </span>share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro,rw<span class="o">=</span>@192.168.0.100,root<span class="o">=</span>@192.168.0.100<span class="w"> </span>/nfs/example
+<div class="language-console highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp"># </span>share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro,rw<span class="o">=</span>@192.168.0.100,root<span class="o">=</span>@192.168.0.100<span class="w"> </span>/nfs/example
 </span></code></pre></div>
 <h4 id="other-useful-nfs-options">Other useful NFS options</h4>
 <table>
@@ -2955,7 +2977,7 @@ For example, this configures two automatically mounted shares, one using the <co
 </table>
 <h4 id="removing-an-nfs-share">Removing an NFS share</h4>
 <p>You can use the <a href="https://www.illumos.org/man/8/unshare">unshare(8)</a> utility with the NFS share folder as shown here:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp"># </span>unshare<span class="w"> </span>/nfs/example
+<div class="language-console highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp"># </span>unshare<span class="w"> </span>/nfs/example
 </span></code></pre></div>
 <h4 id="securing-nfs-with-kerberos">Securing NFS with Kerberos</h4>
 <p>&lt; Place holder for content &gt;</p>
@@ -2980,7 +3002,7 @@ specifically pkg install pkg:/service/network/dns/bind</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2025-09-02 17:33:27</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2026-08-20 07:06:43</span>
       
         <br>
         Created:
