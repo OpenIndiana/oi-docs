@@ -541,8 +541,38 @@ You can use the [unshare(8)](https://www.illumos.org/man/8/unshare) utility with
 
 ## Hipster as an FTP server
 
-< Place holder for content >
+OpenIndiana has incredibly powerful FTP capabilities and support. Employing them is straightforward.
 
+First, check whether the FTP service is enabled or not:
+
+``` 
+svcs -a | grep ftp
+``` 
+
+You may see something like:
+``` 
+disabled       12:13:18 svc:/network/tftp/udp6:default
+disabled       12:10:38 svc:/network/proftpd:default
+``` 
+
+Second, determine the IPv4 address (and interface) you want to connect with by running:
+``` 
+ipadm
+``` 
+Third, edit the /etc/proftpd.conf file, with the value "DefaultAddress" defined (unless your hostname already resolves, then this setep is unneccessary).
+
+Afterwards, execute the FTP service as follows:
+``` 
+sudo svcadm enable -r svc:/network/proftpd:default
+``` 
+Optionally, if you have nmap installed, you can verify the service IP and port are open by running the IP-Address as follows:
+``` 
+nmap IP-Address
+``` 
+If all works, you can now connect
+``` 
+ftp username@IP-Address
+``` 
 
 ## Hipster as a DNS server
 
@@ -552,8 +582,7 @@ specifically pkg install pkg:/service/network/dns/bind
 
 ## Hipster as a NTP server
 
-< Place holder for content >
-
+see https://docs.oracle.com/cd/E37838_01/html/E61003/time-4.html
 
 ## Hipster as a INETD server
 
