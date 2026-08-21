@@ -46,11 +46,26 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 < Place holder for content >
 
 
-## WWW server
+## Apache HTTP
 
-* Apache
-* nginx
+Starting a web service such as an Apache HTTP server on OpenIndiana is incredibly powerful & very simple. First, check if you have Apache running:
+``` 
+svcs -a http
+``` 
+By default, Apache is disabled on new installs. If by chance you have a minimal install and Apache isn't listed, install it:
+``` 
+sudo pkg install web/server/apache-24
+``` 
+Second, start the service:
+``` 
+sudo svcadm enable -r svc:/network/http:apache24
+``` 
+It is that straightforward! Apache HTTP will be running on port 80! You can verify this with a web browser at:
+``` 
+http://Your-IP-Address:80
+``` 
 
+To change Apache HTTP configuration settings, edit /etc/apache2/2.4/httpd.conf. To host & add new content such as HTML files, you can do so with the default directory at /var/apache2/2.4/htdocs/. For managing and checking information on your Apache HTTP server, use apchectl which is located at /bin/apchectl. Have fun hosting with OpenIndiana!
 
 ## Firewalls
 
