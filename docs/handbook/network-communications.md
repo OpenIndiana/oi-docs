@@ -43,8 +43,21 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Email
 
-< Place holder for content >
+Email services are fully supported both as a client and server on OpenIndiana. To use a client, install one from the repository. A powerful client such as Mozilla Thunderbird is easily installed as follows:
+```
+pkg install thunderbird
+```
+Configuration of your email account is typically the same as on any other platform. Either create an account or log-in with your username and password combination. This author has personally tested with both Gmail and private e-mail services.
 
+As a server, postfix is available to install.
+```
+pkg install postfix
+```
+Then, you can start the service:
+```
+sudo svcadm enable -r svc:/network/smtp:postfix
+```
+Your service should now be running on port 25.
 
 ## Apache HTTP
 
