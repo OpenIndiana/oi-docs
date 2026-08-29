@@ -43,14 +43,42 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 
 ## Email
 
-< Place holder for content >
+Email services are fully supported both as a client and server on OpenIndiana. To use a client, install one from the repository. A powerful client such as Mozilla Thunderbird is easily installed as follows:
+```
+sudo pkg install thunderbird
+```
+Configuration of your email account is typically the same as on any other platform. Either create an account or log-in with your username and password combination. This author has personally tested with both Gmail and private e-mail services.
 
+As a server, postfix is available to install.
+```
+sudo pkg install postfix
+```
+Then, you can start the service:
+```
+sudo svcadm enable -r svc:/network/smtp:postfix
+```
+Your service should now be running on port 25.
 
-## WWW server
+## Apache HTTP
 
-* Apache
-* nginx
+Starting a web service such as an Apache HTTP server on OpenIndiana is incredibly powerful & very simple. First, check if you have Apache running:
+``` 
+svcs -a http
+``` 
+By default, Apache is disabled on new installs. If by chance you have a minimal install and Apache isn't listed, install it:
+``` 
+sudo pkg install web/server/apache-24
+``` 
+Second, start the service:
+``` 
+sudo svcadm enable -r svc:/network/http:apache24
+``` 
+It is that straightforward! Apache HTTP will be running on port 80! You can verify this with a web browser at:
+``` 
+http://Your-IP-Address:80
+``` 
 
+To change Apache HTTP configuration settings, edit /etc/apache2/2.4/httpd.conf. To host & add new content such as HTML files, you can do so with the default directory at /var/apache2/2.4/htdocs/. For managing and checking information on your Apache HTTP server, use apchectl which is located at /bin/apchectl. Have fun hosting with OpenIndiana!
 
 ## Firewalls
 
@@ -541,8 +569,38 @@ You can use the [unshare(8)](https://www.illumos.org/man/8/unshare) utility with
 
 ## Hipster as an FTP server
 
-< Place holder for content >
+OpenIndiana has incredibly powerful FTP capabilities and support. Employing them is straightforward.
 
+First, check whether the FTP service is enabled or not:
+
+``` 
+svcs -a | grep ftp
+``` 
+
+You may see something like:
+``` 
+disabled       12:13:18 svc:/network/tftp/udp6:default
+disabled       12:10:38 svc:/network/proftpd:default
+``` 
+
+Second, determine the IPv4 address (and interface) you want to connect with by running:
+``` 
+ipadm
+``` 
+Third, edit the /etc/proftpd.conf file, with the value "DefaultAddress" defined (unless your hostname already resolves, then this setep is unneccessary).
+
+Afterwards, execute the FTP service as follows:
+``` 
+sudo svcadm enable -r svc:/network/proftpd:default
+``` 
+Optionally, if you have nmap installed, you can verify the service IP and port are open by running the IP-Address as follows:
+``` 
+nmap IP-Address
+``` 
+If all works, you can now connect
+``` 
+ftp username@IP-Address
+``` 
 
 ## Hipster as a DNS server
 
@@ -552,8 +610,7 @@ specifically pkg install pkg:/service/network/dns/bind
 
 ## Hipster as a NTP server
 
-< Place holder for content >
-
+see https://docs.oracle.com/cd/E37838_01/html/E61003/time-4.html
 
 ## Hipster as a INETD server
 
