@@ -953,8 +953,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#www-server" class="md-nav__link">
-    WWW server
+  <a href="#apache-http" class="md-nav__link">
+    Apache HTTP
   </a>
   
 </li>
@@ -2238,8 +2238,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#www-server" class="md-nav__link">
-    WWW server
+  <a href="#apache-http" class="md-nav__link">
+    Apache HTTP
   </a>
   
 </li>
@@ -2608,12 +2608,31 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <h2 id="pppoe">PPPoE</h2>
 <p>&lt; Place holder for content &gt;</p>
 <h2 id="email">Email</h2>
-<p>&lt; Place holder for content &gt;</p>
-<h2 id="www-server">WWW server</h2>
-<ul>
-<li>Apache</li>
-<li>nginx</li>
-</ul>
+<p>Email services are fully supported both as a client and server on OpenIndiana. To use a client, install one from the repository. A powerful client such as Mozilla Thunderbird is easily installed as follows:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo pkg install thunderbird
+</span></code></pre></div>
+Configuration of your email account is typically the same as on any other platform. Either create an account or log-in with your username and password combination. This author has personally tested with both Gmail and private e-mail services.</p>
+<p>As a server, postfix is available to install.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo pkg install postfix
+</span></code></pre></div>
+Then, you can start the service:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo svcadm enable -r svc:/network/smtp:postfix
+</span></code></pre></div>
+Your service should now be running on port 25.</p>
+<h2 id="apache-http">Apache HTTP</h2>
+<p>Starting a web service such as an Apache HTTP server on OpenIndiana is incredibly powerful &amp; very simple. First, check if you have Apache running:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>svcs -a http
+</span></code></pre></div>
+By default, Apache is disabled on new installs. If by chance you have a minimal install and Apache isn't listed, install it:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo pkg install web/server/apache-24
+</span></code></pre></div>
+Second, start the service:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo svcadm enable -r svc:/network/http:apache24
+</span></code></pre></div>
+It is that straightforward! Apache HTTP will be running on port 80! You can verify this with a web browser at:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http://Your-IP-Address:80
+</span></code></pre></div></p>
+<p>To change Apache HTTP configuration settings, edit /etc/apache2/2.4/httpd.conf. To host &amp; add new content such as HTML files, you can do so with the default directory at /var/apache2/2.4/htdocs/. For managing and checking information on your Apache HTTP server, use apchectl which is located at /bin/apchectl. Have fun hosting with OpenIndiana!</p>
 <h2 id="firewalls">Firewalls</h2>
 <p>Firewalls are used to filter network traffic based on rules set by the system administrator. Firewall can protect your personal computer or whole company's network from unauthorized network while allowing passage of legitimate network traffic.</p>
 <h3 id="ip-filter">IP Filter</h3>
@@ -2763,39 +2782,39 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <h4 id="configuration-steps">Configuration steps</h4>
 <p>Start by listing available storage pools.</p>
 <p><code>zfs list</code></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>NAME<span class="w">                           </span>USED<span class="w">  </span>AVAIL<span class="w">  </span>REFER<span class="w">  </span>MOUNTPOINT
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>storage<span class="w">                        </span>498K<span class="w">   </span>899G<span class="w">    </span>19K<span class="w">  </span>/storage
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>NAME<span class="w">                           </span>USED<span class="w">  </span>AVAIL<span class="w">  </span>REFER<span class="w">  </span>MOUNTPOINT
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>storage<span class="w">                        </span>498K<span class="w">   </span>899G<span class="w">    </span>19K<span class="w">  </span>/storage
 </span></code></pre></div>
 <p>Create your ZFS dataset to be shared via CIFS/SMB.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>zfs<span class="w"> </span>create<span class="w"> </span>-o<span class="w"> </span><span class="nv">casesensitivity</span><span class="o">=</span>mixed<span class="w"> </span>-o<span class="w"> </span><span class="nv">sharesmb</span><span class="o">=</span>on<span class="w"> </span>storage/backup
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>zfs<span class="w"> </span>create<span class="w"> </span>-o<span class="w"> </span><span class="nv">casesensitivity</span><span class="o">=</span>mixed<span class="w"> </span>-o<span class="w"> </span><span class="nv">sharesmb</span><span class="o">=</span>on<span class="w"> </span>storage/backup
 </span></code></pre></div>
 <p>Start the CIFS service.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>-r<span class="w"> </span>smb/server
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>-r<span class="w"> </span>smb/server
 </span></code></pre></div>
 <p>Join the CIFS server to a workgroup.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>smbadm<span class="w"> </span>join<span class="w"> </span>-w<span class="w"> </span>WORKGROUP
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>smbadm<span class="w"> </span>join<span class="w"> </span>-w<span class="w"> </span>WORKGROUP
 </span></code></pre></div>
 <p>Configure PAM authentication for the CIFS service.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;other password required pam_smb_passwd.so.1 nowarn&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/pam.conf
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;other password required pam_smb_passwd.so.1 nowarn&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/pam.conf
 </span></code></pre></div>
 <p>Reset the password for the local user accounts which will be used for remotely accessing the CIFS/SMB share.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>passwd<span class="w"> </span>&lt;user_account&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>passwd<span class="w"> </span>&lt;user_account&gt;
 </span></code></pre></div>
 <p>Set the share name to be used for the CIFS/SMB share.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">sharesmb</span><span class="o">=</span><span class="nv">name</span><span class="o">=</span>backup<span class="w"> </span>storage/backup
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>zfs<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">sharesmb</span><span class="o">=</span><span class="nv">name</span><span class="o">=</span>backup<span class="w"> </span>storage/backup
 </span></code></pre></div>
 <p>Change the ownership of ZFS dataset to the user account which will be used for remotely accessing the CIFS/SMB share.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>&lt;user_account&gt;<span class="w"> </span>/storage/backup
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>chown<span class="w"> </span>-R<span class="w"> </span>&lt;user_account&gt;<span class="w"> </span>/storage/backup
 </span></code></pre></div>
 <p>Verify everything is all set to go.</p>
 <p><code>sharemgr show -vp</code></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>default<span class="w"> </span><span class="nv">nfs</span><span class="o">=()</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>smb<span class="w"> </span><span class="nv">smb</span><span class="o">=()</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span>*<span class="w"> </span>/var/smb/cvol<span class="w">  </span><span class="nv">smb</span><span class="o">=()</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">                  </span>c$<span class="o">=</span>/var/smb/cvol<span class="w">       </span><span class="nv">smb</span><span class="o">=(</span><span class="nv">abe</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="w"> </span><span class="nv">guestok</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="o">)</span><span class="w">      </span><span class="s2">&quot;Default Share&quot;</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>zfs<span class="w"> </span><span class="nv">smb</span><span class="o">=()</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span>zfs/storage/backup<span class="w"> </span><span class="nv">smb</span><span class="o">=()</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">          </span><span class="nv">backup</span><span class="o">=</span>/storage/backup
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>default<span class="w"> </span><span class="nv">nfs</span><span class="o">=()</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>smb<span class="w"> </span><span class="nv">smb</span><span class="o">=()</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">        </span>*<span class="w"> </span>/var/smb/cvol<span class="w">  </span><span class="nv">smb</span><span class="o">=()</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">                  </span>c$<span class="o">=</span>/var/smb/cvol<span class="w">       </span><span class="nv">smb</span><span class="o">=(</span><span class="nv">abe</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="w"> </span><span class="nv">guestok</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="o">)</span><span class="w">      </span><span class="s2">&quot;Default Share&quot;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>zfs<span class="w"> </span><span class="nv">smb</span><span class="o">=()</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">    </span>zfs/storage/backup<span class="w"> </span><span class="nv">smb</span><span class="o">=()</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">          </span><span class="nv">backup</span><span class="o">=</span>/storage/backup
 </span></code></pre></div>
 <p>You can create additional CIFS datasets using the following 4 commands.</p>
 <ul>
@@ -2808,19 +2827,19 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
 <p>&lt; Placeholder for introduction content &gt;</p>
 <h3 id="hipster-as-a-smbsamba-server">Hipster as a SMB/SAMBA server</h3>
 <p>OpenIndiana has rich &amp; native support through it's Zettabyte file system to drive modern SAMBA services. First, to start, ensure you have the pool you want to share created. Second, check that any other SMB service (such as one you may have installed or compiled manually) is not running as it will conflict with the native implementation. Third, start the native service as follows:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo svcadm enable -r smb/server
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo svcadm enable -r smb/server
 </span></code></pre></div>
 <p>Then run the following: </p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo zfs create -o nbmand=on -o sharesmb=on poolname/setname 
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo zfs create -o nbmand=on -o sharesmb=on poolname/setname 
 </span></code></pre></div>
 Then, to define the share's name, use the following command:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo zfs set sharesmb=name=sharename poolname/setname  
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>sudo zfs set sharesmb=name=sharename poolname/setname  
 </span></code></pre></div>
 <p>Afterwards, you can test your share with the following command on your OpenIndiana system.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo smbclient -L //192.168.1.1/ -U username
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo smbclient -L //192.168.1.1/ -U username
 </span></code></pre></div>
 <p>You can also verify locally that the system share parameters are to your liking:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sharemgr show
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sharemgr show
 </span></code></pre></div>
 <p>Lastly, ensure that the permissions you set agree with the user account's permissions. For instance, if you want users to be able to edit files, ensure they have the permission to do so for their user account and group. </p>
 <p>For instance, if the SMB user account is named "user", &amp; in the "staff" group, ensure the folders and files they create by default have read, write, and if need be, execute permissions. If they don't, Windows users will see the Windows File Properties Menushowing restrictions for editing, viewing, (or executing) their SMB files. As always, test thoroughly as permissions on OpenIndiana's side can cause issues for Windows users. </p>
@@ -2836,7 +2855,7 @@ Then, to define the share's name, use the following command:</p>
 <p>The <a href="https://illumos.org/man/8/mount_nfs"><code>mount -F nfs</code></a> command is used to manually mount a remote share to a specified location.
 Two forms of remote host and path are supported, <code>host:/remote/path</code> and <code>nfs://host/remote/path</code>.
 For example, to mount the remote folder <code>example</code> on the server <code>hipster</code> to the local path <code>/mnt/example</code>, this command could be used:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a># mount -F nfs nfs://hipster/example /mnt/example/`
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a># mount -F nfs nfs://hipster/example /mnt/example/`
 </span></code></pre></div>
 <h4 id="automatically-mounting-remote-nfs-shares">Automatically mounting remote NFS shares</h4>
 <p>Automounting is provided by the <em>autofs</em> service. This enables automatic on demand mounting and unmounting of remote NFS shares.
@@ -2850,24 +2869,24 @@ For more information, see <a href="https://docs.oracle.com/cd/E23823_01/html/816
 </div>
 </div>
 <p>Before automounting can be used, the autofs daemon must be running. In OI it should be enabled by default:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a># svcs system/filesystem/autofs
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>STATE          STIME    FMRI
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>online         14:59:45 svc:/system/filesystem/autofs:default
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a># svcs system/filesystem/autofs
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>STATE          STIME    FMRI
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>online         14:59:45 svc:/system/filesystem/autofs:default
 </span></code></pre></div>
 <p>If it is not already running, it can be enabled with <code>svcadm enable system/filesystem/autofs</code>.</p>
 <p>The paths for direct NFS shares are configured in <code>/etc/auto_direct</code>. For this file to be read by autofs, a new line must first be added to the end of <code>/etc/auto_master</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a># Master map for automounter
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>#
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>+auto_master
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>/net            -hosts          -nosuid,nobrowse
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>/home           auto_home       -nobrowse
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>/-              auto_direct
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a># Master map for automounter
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>#
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>+auto_master
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>/net            -hosts          -nosuid,nobrowse
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>/home           auto_home       -nobrowse
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>/-              auto_direct
 </span></code></pre></div>
 <p>The <code>/etc/auto_direct</code> file can then be created and populated. Entries consist of the local path to mount the NFS share, optional mount options, and the remote NFS path.
 Both the forms in the previous section for specifying the remote path are supported.
 For example, this configures two automatically mounted shares, one using the <code>ro</code> option (for read-only):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>/mnt/example nfs://hipster/example
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>/mnt/reference -ro hipster:/reference
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>/mnt/example nfs://hipster/example
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>/mnt/reference -ro hipster:/reference
 </span></code></pre></div>
 <p>For changes to these files to take effect, reboot or run the <code>automount</code> commmand.</p>
 <p>The <code>mount</code> command is used without arguments to list all current mounts, including any automatically mounted NFS locations and mount time (when the automatic mount was triggered).</p>
@@ -2905,11 +2924,11 @@ For example, this configures two automatically mounted shares, one using the <co
 <li><a href="https://www.illumos.org/man/8/share">unshare(8)</a></li>
 </ul>
 <p>For example to view the full documentation for <code>share(8)</code> you can use this command:
-<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">$ </span>man<span class="w"> </span>share.8
+<div class="language-console highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="gp">$ </span>man<span class="w"> </span>share.8
 </span></code></pre></div></p>
 <h4 id="sharing-a-folder-with-nfs">Sharing a folder with NFS</h4>
 <p>To create a read-only temporary NFS share on an existing folder in this example <code>/nfs/example</code> you can use the following <a href="https://www.illumos.org/man/8/share">share(8)</a> command:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp"># </span>share<span class="w"> </span>-d<span class="w"> </span>example-share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/nfs/example
+<div class="language-console highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gp"># </span>share<span class="w"> </span>-d<span class="w"> </span>example-share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro<span class="w"> </span>/nfs/example
 </span></code></pre></div>
 <p>The flags provided can be described in a table such as the following:</p>
 <table>
@@ -2936,14 +2955,14 @@ For example, this configures two automatically mounted shares, one using the <co
 </table>
 <p>If you want the share to be persistent, you can write it to the <a href="https://illumos.org/man/5/dfstab">dfstab(5)</a> by using the <code>-p</code> flag on the <a href="https://www.illumos.org/man/8/share">share(8)</a> command.</p>
 <p>You can then use the <a href="https://www.illumos.org/man/8/share">share(8)</a> command with no arguments to list shares as follows:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">$ </span>share
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="go">-               /nfs/example   ro   &quot;example-share&quot;</span>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="gp">$ </span>share
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="go">-               /nfs/example   ro   &quot;example-share&quot;</span>
 </span></code></pre></div>
 <p>After this you can enable the <code>network/nfs/server</code> service with <a href="https://www.illumos.org/man/8/svcadm">svcadm(8)</a> using the following command:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp"># </span>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>network/nfs/server
+<div class="language-console highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gp"># </span>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>network/nfs/server
 </span></code></pre></div>
 <p>And then use <a href="https://www.illumos.org/man/8/shareall">shareall(8)</a> to share it on the network as follows:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp"># </span>shareall
+<div class="language-console highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="gp"># </span>shareall
 </span></code></pre></div>
 <h4 id="using-an-access-list">Using an access list</h4>
 <p>An access list argument is a colon separated list, the access list may include the following:</p>
@@ -2954,7 +2973,7 @@ For example, this configures two automatically mounted shares, one using the <co
 <li>A network, IP address or IP subnet</li>
 </ul>
 <p>This is an example of creating an NFS share that's read-only for everyone, but provide read-write and root access to a single IP address in this case <code>192.168.0.100</code>, IP addresses are prefixed with <code>@</code> as they are in the network components:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp"># </span>share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro,rw<span class="o">=</span>@192.168.0.100,root<span class="o">=</span>@192.168.0.100<span class="w"> </span>/nfs/example
+<div class="language-console highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="gp"># </span>share<span class="w"> </span>-F<span class="w"> </span>nfs<span class="w"> </span>-o<span class="w"> </span>ro,rw<span class="o">=</span>@192.168.0.100,root<span class="o">=</span>@192.168.0.100<span class="w"> </span>/nfs/example
 </span></code></pre></div>
 <h4 id="other-useful-nfs-options">Other useful NFS options</h4>
 <table>
@@ -2977,7 +2996,7 @@ For example, this configures two automatically mounted shares, one using the <co
 </table>
 <h4 id="removing-an-nfs-share">Removing an NFS share</h4>
 <p>You can use the <a href="https://www.illumos.org/man/8/unshare">unshare(8)</a> utility with the NFS share folder as shown here:</p>
-<div class="language-console highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="gp"># </span>unshare<span class="w"> </span>/nfs/example
+<div class="language-console highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="gp"># </span>unshare<span class="w"> </span>/nfs/example
 </span></code></pre></div>
 <h4 id="securing-nfs-with-kerberos">Securing NFS with Kerberos</h4>
 <p>&lt; Place holder for content &gt;</p>
@@ -2988,12 +3007,32 @@ For example, this configures two automatically mounted shares, one using the <co
 <h2 id="hipster-as-a-dhcp-server">Hipster as a DHCP server</h2>
 <p>&lt; Place holder for content &gt;</p>
 <h2 id="hipster-as-an-ftp-server">Hipster as an FTP server</h2>
-<p>&lt; Place holder for content &gt;</p>
+<p>OpenIndiana has incredibly powerful FTP capabilities and support. Employing them is straightforward.</p>
+<p>First, check whether the FTP service is enabled or not:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>svcs -a | grep ftp
+</span></code></pre></div>
+<p>You may see something like:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>disabled       12:13:18 svc:/network/tftp/udp6:default
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>disabled       12:10:38 svc:/network/proftpd:default
+</span></code></pre></div></p>
+<p>Second, determine the IPv4 address (and interface) you want to connect with by running:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>ipadm
+</span></code></pre></div>
+Third, edit the /etc/proftpd.conf file, with the value "DefaultAddress" defined (unless your hostname already resolves, then this setep is unneccessary).</p>
+<p>Afterwards, execute the FTP service as follows:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>sudo svcadm enable -r svc:/network/proftpd:default
+</span></code></pre></div>
+Optionally, if you have nmap installed, you can verify the service IP and port are open by running the IP-Address as follows:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>nmap IP-Address
+</span></code></pre></div>
+If all works, you can now connect
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>ftp username@IP-Address
+</span></code></pre></div></p>
 <h2 id="hipster-as-a-dns-server">Hipster as a DNS server</h2>
 <p>see https://docs.oracle.com/cd/E23824_01/html/821-1455/dnsref-31.html
 specifically pkg install pkg:/service/network/dns/bind</p>
 <h2 id="hipster-as-a-ntp-server">Hipster as a NTP server</h2>
-<p>&lt; Place holder for content &gt;</p>
+<p>see https://docs.oracle.com/cd/E37838_01/html/E61003/time-4.html</p>
 <h2 id="hipster-as-a-inetd-server">Hipster as a INETD server</h2>
 <p>&lt; Place holder for content &gt;</p>
 
@@ -3002,7 +3041,7 @@ specifically pkg install pkg:/service/network/dns/bind</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2026-08-20 07:06:43</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2026-08-29 13:03:26</span>
       
         <br>
         Created:
