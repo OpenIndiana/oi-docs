@@ -299,8 +299,6 @@ In 2009, the OpenSolaris project released an [OpenSolaris text install ISO](http
 
 The following illumos based distributions are known to support the SPARC platform:
 
-* [Dilos](http://www.dilos.org/download)
-* [OpenSCXE](http://opensxce.org)
 * [Tribblix](http://www.tribblix.org/download.html)
 
 ### Commercial distributions with SPARC releases
