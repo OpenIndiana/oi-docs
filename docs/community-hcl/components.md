@@ -226,6 +226,7 @@ Intel UHD Graphics 620                   | yes                    | Thinkpad T58
 NVIDIA GeForce GT 710                    | yes                    | nvidia-390 package (390.157) (1024x768)  | nvidia | David Stes
 NVIDIA GeForce GT 730                    | yes                    | Nvidia 340.107                           | nvidia | Gary Mills
 NVIDIA GeForce GT 730                    | yes                    | nvidia-470 package (470.256) (1920x1200), nvidia 595.71.5 kernel panic| nvidia | David Stes
+NVIDIA GeForce GT 730                    | yes                    | illumosfb (1024x768) with UEFI boot| illumosfb | David Stes
 NVIDIA GeForce 210                       | yes                    | PCI-ID: 10de:0a23, Nvidia 340.107        | nvidia | Alex Viskovatoff
 NVIDIA GeForce 220                       | yes                    | Nvidia 340.107                           | nvidia | Guy
 NVIDIA GeForce 8400 GS                   | yes                    | PCI-ID: 10de:06e4, Nvidia 340.107        | nvidia | Ancoron Luciferis
