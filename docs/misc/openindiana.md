@@ -286,14 +286,11 @@ Just ask on the [IRC channels or mailing lists](#how-can-i-contact-openindiana-c
 
 ## Does OpenIndiana provide a SPARC release?
 
-OpenIndiana Hipster is not currently available for the SPARC platform.
+A pre-release version of OpenIndiana Hipster 2025.11 for the SPARC platform is available for testing.
+Further details are available [on the OI downloads website](https://dlc.openindiana.aurora-opencloud.org/SPARC/).
 
-In regards to the creation of a SPARC port of OpenIndiana Hipster, there have been periodic discussions on the [OpenIndiana mailing lists](https://openindiana.org/mailman/listinfo).
-If you would like to see SPARC become a supported platform, please help us by joining the [OpenIndiana community](https://www.openindiana.org/community/getting-involved).
-
-### Historical SPARC releases
-
-In 2009, the OpenSolaris project released an [OpenSolaris text install ISO](http://dlc.openindiana.org/isos/archive/opensolaris), and much more recently, there was work done by Adam Glasgall who produced an [unofficial SPARC text install ISO](http://neutron-star.mit.edu/OpenIndiana_Text_SPARC.iso) based on oi-dev-151-a8.
+In regards to the creation of a SPARC port of OpenIndiana Hipster, there have been discussions on the [OpenIndiana mailing lists](https://openindiana.org/mailman/listinfo).
+If you would like to see SPARC become a fully supported platform, please help us by joining the [OpenIndiana community](https://www.openindiana.org/community/getting-involved).
 
 ### illumos distributions with SPARC releases
 
@@ -305,6 +302,13 @@ The following illumos based distributions are known to support the SPARC platfor
 
 For production use on modern SPARC hardware, there is also commercial [Oracle Solaris](https://www.oracle.com/solaris/solaris11/index.html)
 
+### Historical SPARC releases
+
+In 2009, the OpenSolaris project released an [OpenSolaris text install ISO](http://dlc.openindiana.org/isos/archive/opensolaris).
+
+Some historical illumos distributions also provided SPARC support:
+* [Dilos](https://web.archive.org/web/20230618112535/http://www.dilos.org/) - Last updated 2019, website offline.
+* [OpenSCXE](https://web.archive.org/web/20230202203527/http://opensxce.org/) - Last updated 2014, website offline.
 
 ## What are the licensing terms for OpenIndiana?
 
