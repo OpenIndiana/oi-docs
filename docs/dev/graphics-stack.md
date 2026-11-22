@@ -21,8 +21,9 @@ the X Window System bundled with libraries and applications developed by
 the [freedesktop.org](https://www.freedesktop.org/) community.
 
 Therefore the Graphic Stack is comprised of:
-* the opensource X11 display server Xorg, client libraries and utilities developed by the [X.org Project](https://www.x.org/),
-* an OpenGL implementation in the form of the opensource [Mesa](https://www.mesa3d.org/) library,
+
+* the open source X11 display server Xorg, client libraries and utilities developed by the [X.org Project](https://www.x.org/),
+* an OpenGL implementation in the form of the open source [Mesa](https://www.mesa3d.org/) library,
 * and illumos kernel drivers for different graphics adapters provided by the [gfx-drm](https://github.com/illumos/gfx-drm) gate,
 * together with the [libdrm](https://gitlab.freedesktop.org/mesa/drm) implementing communication between kernel drivers and user-space components through the Direct Rendering Infrastructure (DRI) protocol.
 
