@@ -2376,73 +2376,76 @@ The complete set of instructions to build one or more related packages is called
 <h3 id="setting-up-your-build-environment">Setting up your build environment</h3>
 <p>We strongly recommend building packages inside a fresh local zone set up exclusively for building. See <a href="../../handbook/systems-administration/#quick-setup-example">Quick zone setup example</a> for simple instructions.</p>
 <p>Further we assume that you are logged into the build zone if you set up the build environment in a zone the directory were oi-userland is cloned can otherwise be anywhere you like.</p>
+<p>You must also have GNU Make on hand. Install it using the following command below:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ sudo pkg install gnu-make
+</span></code></pre></div>
 <h4 id="adding-rbac-profile-to-the-build-user">Adding RBAC profile to the build user</h4>
 <p>Installing software requires privileges, so your build user must have at minimum the 'Software Installation' profile:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>profiles
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Software<span class="w"> </span>Installation
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ZFS<span class="w"> </span>File<span class="w"> </span>System<span class="w"> </span>Management
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Console<span class="w"> </span>User
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Suspend<span class="w"> </span>To<span class="w"> </span>RAM
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Suspend<span class="w"> </span>To<span class="w"> </span>Disk
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Brightness
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>CPU<span class="w"> </span>Power<span class="w"> </span>Management
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Network<span class="w"> </span>Autoconf<span class="w"> </span>User
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>Desktop<span class="w"> </span>Removable<span class="w"> </span>Media<span class="w"> </span>User
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>Basic<span class="w"> </span>Solaris<span class="w"> </span>User
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>All
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>profiles
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Software<span class="w"> </span>Installation
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ZFS<span class="w"> </span>File<span class="w"> </span>System<span class="w"> </span>Management
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Console<span class="w"> </span>User
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Suspend<span class="w"> </span>To<span class="w"> </span>RAM
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Suspend<span class="w"> </span>To<span class="w"> </span>Disk
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Brightness
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>CPU<span class="w"> </span>Power<span class="w"> </span>Management
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Network<span class="w"> </span>Autoconf<span class="w"> </span>User
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Desktop<span class="w"> </span>Removable<span class="w"> </span>Media<span class="w"> </span>User
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Basic<span class="w"> </span>Solaris<span class="w"> </span>User
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>All
 </span></code></pre></div>
 <p>If it is not the case add this profile to your build user:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pfexec<span class="w"> </span>su<span class="w"> </span>-
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>usermod<span class="w"> </span>-P<span class="s1">&#39;Software Installation&#39;</span><span class="w"> </span>&lt;username&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pfexec<span class="w"> </span>su<span class="w"> </span>-
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>usermod<span class="w"> </span>-P<span class="s1">&#39;Software Installation&#39;</span><span class="w"> </span>&lt;username&gt;
 </span></code></pre></div>
 <p>This is not necessary if your user has already the 'Primary Administrator' profile.</p>
 <h4 id="downloading-oi-userland">Downloading oi-userland</h4>
 <p>Start by forking <a href="https://github.com/OpenIndiana/oi-userland">oi-userland repository</a> on Github and then check out the repository (subdirectory oi-userland must not pre-exist):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>~
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mylogin/oi-userland
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">cd</span><span class="w"> </span>oi-userland
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mylogin/oi-userland
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nb">cd</span><span class="w"> </span>oi-userland
 </span></code></pre></div>
 <p>Add https://github.com/OpenIndiana/oi-userland/ as upstream to your repository to resync your repository with oi-userland.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/OpenIndiana/oi-userland/
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/OpenIndiana/oi-userland/
 </span></code></pre></div>
 <p>Run the setup stage which will prepare some tools and create an IPS pkg5 repository for first use under the i386 directory:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/oi-userland
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>gmake<span class="w"> </span>setup
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/oi-userland
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>gmake<span class="w"> </span>setup
 </span></code></pre></div>
 <h4 id="adding-the-local-repository-to-your-publisher-list">Adding the local repository to your publisher list</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>-g<span class="w"> </span>file://<span class="nv">$HOME</span>/oi-userland/i386/repo<span class="w"> </span>userland
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>--non-sticky<span class="w"> </span>openindiana.org
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>-g<span class="w"> </span>file://<span class="nv">$HOME</span>/oi-userland/i386/repo<span class="w"> </span>userland
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>--non-sticky<span class="w"> </span>openindiana.org
 </span></code></pre></div>
 <h4 id="setting-the-local-repository-as-primary-publisher">Setting the local repository as primary publisher</h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>--search-first<span class="w"> </span>userland
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>--search-first<span class="w"> </span>userland
 </span></code></pre></div>
 <h4 id="optional-running-a-local-pkg-server-for-installation-on-other-zoneshosts">Optional: Running a local pkg server for installation on other zones/hosts</h4>
 <p>If you would like to use your oi-userland repository on other zones or hosts, you can run a pkg server:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>pfexec<span class="w"> </span>svccfg<span class="w"> </span>-s<span class="w">  </span>pkg/server
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>svc:/application/pkg/server&gt;<span class="w"> </span>add<span class="w"> </span>oi-userland
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>svc:/application/pkg/server&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>oi-userland
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>addpg<span class="w"> </span>pkg<span class="w"> </span>application
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>setprop<span class="w"> </span>pkg/inst_root<span class="o">=</span>astring:<span class="s2">&quot;/export/home/username/oi-userland/i386/repo&quot;</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>setprop<span class="w"> </span>pkg/port<span class="o">=</span>count:<span class="s2">&quot;10000&quot;</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>setprop<span class="w"> </span>pkg/readonly<span class="o">=</span>boolean:<span class="s2">&quot;true&quot;</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>refresh
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span><span class="nb">exit</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>$<span class="w"> </span>pfexec<span class="w"> </span>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>oi-userland
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>pfexec<span class="w"> </span>svccfg<span class="w"> </span>-s<span class="w">  </span>pkg/server
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>svc:/application/pkg/server&gt;<span class="w"> </span>add<span class="w"> </span>oi-userland
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>svc:/application/pkg/server&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>oi-userland
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>addpg<span class="w"> </span>pkg<span class="w"> </span>application
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>setprop<span class="w"> </span>pkg/inst_root<span class="o">=</span>astring:<span class="s2">&quot;/export/home/username/oi-userland/i386/repo&quot;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>setprop<span class="w"> </span>pkg/port<span class="o">=</span>count:<span class="s2">&quot;10000&quot;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>setprop<span class="w"> </span>pkg/readonly<span class="o">=</span>boolean:<span class="s2">&quot;true&quot;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span>refresh
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>svc:/application/pkg/server:oi-userland&gt;<span class="w"> </span><span class="nb">exit</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>$<span class="w"> </span>pfexec<span class="w"> </span>svcadm<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>oi-userland
 </span></code></pre></div>
 <p>On other hosts you can then specify http://hostname:10000 instead of the file:// address above.
 If you only intend to install and test packages locally this is not necessary as on-disk repository access suffices.</p>
 <h3 id="building-and-installing-your-first-packages">Building and installing your first packages</h3>
 <p>Enter to oi-userland/components/PATH/TO/COMPONENT directory and run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/oi-userland/components/SOFTWARE
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>gmake<span class="w"> </span>env-prep
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>gmake<span class="w"> </span>publish
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>refresh
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>pkg://userland/PACKAGE_FMRI
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/oi-userland/components/SOFTWARE
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>gmake<span class="w"> </span>env-prep
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>gmake<span class="w"> </span>publish
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>refresh
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>pkg://userland/PACKAGE_FMRI
 </span></code></pre></div>
 <p>Here PACKAGE_FMRI is a full name (FMRI) of package which you want to install. The FMRIs of published packages will be printed in the end of <code>publish</code> stage.
 Note, that running <code>gmake env-prep</code> is strictly not required, if you are sure that all build requirements are satisfied.</p>
 <p>To speed up the compilation you can pass an optional argument to gmake setting COMPONENT_BUILD_ARGS variable in your environment, for instance with</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMPONENT_BUILD_ARGS</span><span class="o">=</span>-j4
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMPONENT_BUILD_ARGS</span><span class="o">=</span>-j4
 </span></code></pre></div>
 <p>to use 4 jobs for builds.</p>
 <h2 id="creating-your-first-component">Creating your first component</h2>
@@ -2453,20 +2456,20 @@ On the top of the Makefile it includes <code>../../../make-rules/shared-macros.m
 The file shared-macros.mk contains global constants used by other makefiles. Sometimes some global variables that alter these constants are declared before this include.
 The first section of the Makefile contains definitions of the component name, version, an url where the software should be fetched from, a short description embedded in the package metadata and so on.
 Look, for example, at <code>library/libjpeg6-ijg/Makefile</code>:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>COMPONENT_NAME=         libjpeg6-ijg
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>COMPONENT_VERSION=      6.0.2
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>LIBJPEG_API_VERSION=    6b
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>COMPONENT_FMRI=         image/library/libjpeg6-ijg
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>COMPONENT_CLASSIFICATION=System/Multimedia Libraries
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>COMPONENT_PROJECT_URL=  http://www.ijg.org/
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>COMPONENT_SUMMARY=      libjpeg - Independent JPEG Group library version 6b
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>COMPONENT_SRC=          jpeg-$(LIBJPEG_API_VERSION)
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>COMPONENT_ARCHIVE=      $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>COMPONENT_ARCHIVE_HASH= \
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a> sha256:75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>COMPONENT_ARCHIVE_URL=  http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>COMPONENT_LICENSE=      IJG,GPLv2.0
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>COMPONENT_LICENSE_FILE= $(COMPONENT_NAME).license
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>COMPONENT_NAME=         libjpeg6-ijg
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>COMPONENT_VERSION=      6.0.2
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>LIBJPEG_API_VERSION=    6b
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>COMPONENT_FMRI=         image/library/libjpeg6-ijg
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>COMPONENT_CLASSIFICATION=System/Multimedia Libraries
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>COMPONENT_PROJECT_URL=  http://www.ijg.org/
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>COMPONENT_SUMMARY=      libjpeg - Independent JPEG Group library version 6b
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>COMPONENT_SRC=          jpeg-$(LIBJPEG_API_VERSION)
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>COMPONENT_ARCHIVE=      $(COMPONENT_NAME)-$(COMPONENT_VERSION).tar.gz
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>COMPONENT_ARCHIVE_HASH= \
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a> sha256:75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>COMPONENT_ARCHIVE_URL=  http://www.ijg.org/files/jpegsrc.v$(LIBJPEG_API_VERSION).tar.gz
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>COMPONENT_LICENSE=      IJG,GPLv2.0
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>COMPONENT_LICENSE_FILE= $(COMPONENT_NAME).license
 </span></code></pre></div>
 <p>Here</p>
 <table>
@@ -2601,7 +2604,7 @@ Look, for example, at <code>library/libjpeg6-ijg/Makefile</code>:</p>
 <li><code>POST_*_ACTION</code></li>
 </ul>
 <p>For example, you may add this line for an Autotools-based component:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">CONFIGURE_OPTIONS</span><span class="o">+=</span><span class="w"> </span>--enable-shared
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">CONFIGURE_OPTIONS</span><span class="o">+=</span><span class="w"> </span>--enable-shared
 </span></code></pre></div>
 <p>After creating the component Makefile you can run <code>gmake prep</code>.</p>
 <p>Now you can create necessary patches for the component and put them in the patches directory.</p>
@@ -2612,7 +2615,7 @@ You can use the COMPONENT_TEST_TRANSFORMS variable to set a list of sed directiv
 make it reproducible.</p>
 <h3 id="creating-p5m-files">Creating p5m files</h3>
 <p>When the <code>install</code> target passes you can run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>gmake<span class="w"> </span>sample-manifest
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>gmake<span class="w"> </span>sample-manifest
 </span></code></pre></div>
 <p>to generate a manifest from the list of installed files.</p>
 <p>Copy the file <code>manifests/sample-manifest.p5m</code> to <code>$(COMPONENT_NAME).p5m</code> and edit it:</p>
@@ -2634,70 +2637,70 @@ These transforms can be used as examples if you need custom transforms for your 
 <p>Add necessary build time dependencies on the top of the generated section.</p>
 <p>Run <code>gmake publish</code>. If the manifest is valid your package is published to the local repository.</p>
 <p>To be able to search for the new packages in the local repository you need to rebuild search indexes:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>pkgrepo<span class="w"> </span>refresh<span class="w"> </span>-s<span class="w"> </span>/path/to/my_repo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pkgrepo<span class="w"> </span>refresh<span class="w"> </span>-s<span class="w"> </span>/path/to/my_repo
 </span></code></pre></div>
 <p>You can even rebuild the entire metadata:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pkgrepo<span class="w"> </span>rebuild<span class="w"> </span>-s<span class="w"> </span>/path/to/my_repo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pkgrepo<span class="w"> </span>rebuild<span class="w"> </span>-s<span class="w"> </span>/path/to/my_repo
 </span></code></pre></div>
 <h3 id="installing-the-package">Installing the package</h3>
 <p>After you've published the package to your local repository and rebuilt the repository index or metadata you can install the package and perform whatever testing is appropriate.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pkg<span class="w"> </span>publisher
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pkg<span class="w"> </span>publisher
 </span></code></pre></div>
 <p>If the package you built and published to the local userland repository is not already part of hipster it should be straightforward to install it:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>your/package/name
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>install<span class="w"> </span>your/package/name
 </span></code></pre></div>
 <p>If, however, the package you built is an updated version of an existing package then you may have to take additional steps before it can be updated.</p>
 <p>If <code>pkg</code> refuses to install the package from your local repository it may be because the userland-incorporation is preventing updates to the version of the package:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>pfexec<span class="w"> </span>pkg<span class="w"> </span>update<span class="w"> </span>image/library/libjpeg6-ijg
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>No<span class="w"> </span>updates<span class="w"> </span>available<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>image.
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>$<span class="w"> </span>pfexec<span class="w"> </span>pkg<span class="w"> </span>update<span class="w"> </span>pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1:20180211T125627Z
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>pkg<span class="w"> </span>update:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>image/library/libjpeg6-ijg<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>installed:
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span>Reject:<span class="w">  </span>pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span>Reason:<span class="w">  </span>This<span class="w"> </span>version<span class="w"> </span>is<span class="w"> </span>excluded<span class="w"> </span>by<span class="w"> </span>installed<span class="w"> </span>incorporation<span class="w"> </span>consolidation/userland/userland-incorporation@0.5.11-2018.0.0.11745
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$<span class="w"> </span>pfexec<span class="w"> </span>pkg<span class="w"> </span>update<span class="w"> </span>image/library/libjpeg6-ijg
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>No<span class="w"> </span>updates<span class="w"> </span>available<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>image.
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>$<span class="w"> </span>pfexec<span class="w"> </span>pkg<span class="w"> </span>update<span class="w"> </span>pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1:20180211T125627Z
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>pkg<span class="w"> </span>update:<span class="w"> </span>No<span class="w"> </span>matching<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>image/library/libjpeg6-ijg<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>installed:
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span>Reject:<span class="w">  </span>pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span>Reason:<span class="w">  </span>This<span class="w"> </span>version<span class="w"> </span>is<span class="w"> </span>excluded<span class="w"> </span>by<span class="w"> </span>installed<span class="w"> </span>incorporation<span class="w"> </span>consolidation/userland/userland-incorporation@0.5.11-2018.0.0.11745
 </span></code></pre></div>
 <p>If you will install many test versions of packages on your development system you may find it easiest to uninstall the userland-incorporation.  Alternately, if you want to test a package on a system while keeping userland-incorporation, you can use <code>pkg change-facet</code> to relax the version constraint for just that package:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>change-facet<span class="w"> </span>facet.version-lock.your/package/name/here<span class="o">=</span><span class="nb">false</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>change-facet<span class="w"> </span>facet.version-lock.your/package/name/here<span class="o">=</span><span class="nb">false</span>
 </span></code></pre></div>
 <p>After you have performed one of these steps to remove the version constraint there is one more issue you may encounter.  Because the installed version of the package came from the openindiana.org publisher but the updated version you want to install and test is associated with the userland publisher, <code>pkg</code> will by default not allow the package update to switch which publisher provides the package.</p>
 <p>One option to work around this is to make the openindiana.org publisher non-sticky:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>--non-sticky<span class="w"> </span>openindiana.org
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>set-publisher<span class="w"> </span>--non-sticky<span class="w"> </span>openindiana.org
 </span></code></pre></div>
 <p>You only need to perform that operation on your development system once.</p>
 <p>Alternately, you can force <code>pkg</code> to apply an update from a different publisher by specifying the full FMRI for the package, including the publisher:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>update<span class="w"> </span>pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1:20180211T125627Z
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>pfexec<span class="w"> </span>pkg<span class="w"> </span>update<span class="w"> </span>pkg://userland/image/library/libjpeg6-ijg@6.0.2-2018.0.0.1:20180211T125627Z
 </span></code></pre></div>
 <h2 id="contributing-changes-back-to-oi-userland">Contributing changes back to oi-userland</h2>
 <h3 id="every-time-you-add-or-modify-a-component-create-a-new-branch">Every time you add or modify a component, create a new branch:</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>my_feature
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>my_feature
 </span></code></pre></div>
 <h3 id="keep-this-branch-synchronized-with-upstreamoihipster">Keep this branch synchronized with upstream/oi/hipster:</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>upstream<span class="w"> </span>oi/hipster
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>pull<span class="w"> </span>--rebase<span class="w"> </span>upstream<span class="w"> </span>oi/hipster
 </span></code></pre></div>
 <p>Your local branch is forwarded to the last commit of oi/hipster and your additional commits are kept on top of the stack.</p>
 <h3 id="committing-changes">Committing changes</h3>
 <p>When you think you are ready with changes you need to commit them locally and push those changes back to your Github repository.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nb">cd</span><span class="w"> </span>~/oi-userland/components/SOFTWARE
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>git<span class="w"> </span>add<span class="w"> </span>Makefile<span class="w"> </span>*.p5m<span class="w"> </span>&lt;etc.&gt;
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>git<span class="w"> </span>commit
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">cd</span><span class="w"> </span>~/oi-userland/components/SOFTWARE
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>git<span class="w"> </span>add<span class="w"> </span>Makefile<span class="w"> </span>*.p5m<span class="w"> </span>&lt;etc.&gt;
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>git<span class="w"> </span>commit
 </span></code></pre></div>
 <p>Commit messages should be simple and describe what you did, e.g "Added XYZ", "XYZ: updated to SOME_VERSION", "XYZ: fixed SOMETHING" or "BUG_ID BUG_SUMMARY", where BUG_ID is issue number from issue tracker and BUG_SUMMARY is the issue name.</p>
 <p>If you've created several commits while working on your component it's necessary to <em>squash</em> all your commits into one.</p>
 <p>To do it, first check how many commits are to be considered:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>log
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>log
 </span></code></pre></div>
 <p>then</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~N
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~N
 </span></code></pre></div>
 <p>with N the number of commits to be squashed and follow the instructions: the letter 's' should be put in place of 'pick' for the N - 1 commits before the last.</p>
 <p>If you made a mistake with the commit message or author, use:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>commit<span class="w"> </span>--amend
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>commit<span class="w"> </span>--amend
 </span></code></pre></div>
 <p>with the relevant option.</p>
 <p>Now push your changes to your repository to GitHub.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>push<span class="w"> </span>my_name<span class="w"> </span>my_feature
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>push<span class="w"> </span>my_name<span class="w"> </span>my_feature
 </span></code></pre></div>
 <p>or</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>my_name<span class="w"> </span>my_feature
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>push<span class="w"> </span>-f<span class="w"> </span>my_name<span class="w"> </span>my_feature
 </span></code></pre></div>
 <p>if the branch you just rebased had already been pushed: since the history is rewritten you need to force the push, be careful.</p>
 <h3 id="asking-for-change-integration">Asking for change integration</h3>
@@ -2712,7 +2715,7 @@ These transforms can be used as examples if you need custom transforms for your 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2025-07-09 19:07:37</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2026-11-22 10:22:15</span>
       
         <br>
         Created:
