@@ -84,6 +84,12 @@ We strongly recommend building packages inside a fresh local zone set up exclusi
 
 Further we assume that you are logged into the build zone if you set up the build environment in a zone the directory were oi-userland is cloned can otherwise be anywhere you like.
 
+You must also have GNU Make on hand. Install it using the following command below:
+
+```
+$ sudo pkg install gnu-make
+```
+
 #### Adding RBAC profile to the build user
 
 Installing software requires privileges, so your build user must have at minimum the 'Software Installation' profile:
