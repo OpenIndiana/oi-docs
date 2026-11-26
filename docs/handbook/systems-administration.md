@@ -1736,28 +1736,56 @@ Here are just a few of them:
 
 ## Virtualization
 
-< Place holder >
+Virtualization with illumos is unique in that it supports **both** KVM and bhyve. Whether you are coming from Linux or
+FreeBSD, illumos, and therefore OpenIndiana, supports popular virtualization technologies that will make you feel at
+home no matter your background.
 
-### OpenIndiana as a virtualization host server
+At the moment, bhyve is the preferred virtualization solution in OpenIndiana. You will find out why in the system
+requirements, but there are plenty of other valid reasons too.
+
+For easily virtualization, OpenIndiana also has VirtualBox available for installation.
+
+### System Requirements
+
+First and foremost, your CPU must support virtualization extensions. Double check this by entering your computer's
+BIOS settings. This feature may be called `VT-d`, `VT-x`, `AMD-V`, or `AMD SVM`. This is required for _any_ hypervisor
+you want to use.
+
+If using KVM, you **must** have an Intel CPU with EPT support. Most modern Intel CPUs will have EPT, but older ones,
+such as the Core2 Duo and Core2 Quad line of CPUs, don't. To check if your CPU supports EPT, visit
+https://www.intel.com/content/www/us/en/ark.html#@Processors to look up your CPU's features.
+
+Unfortunately, AMD CPUs are completely unsupported with KVM in OpenIndiana. You must use bhyve if you do not have an
+Intel CPU.
+
+### Using KVM
 
 <div class="info" markdown="1">
-!!! info "Documentation Team"
-    ITEMS TO WRITE ABOUT:
-
-    * Qemu-KVM (KVM) walkthrough
-        * illumos KVM port does not support AMD processors.
-        * Intel processors require EPT support.
-    * Virtualbox walkthrough
-        * There is no package for this yet, but folks do have it working, see the wiki for details.
+!!! info "TODO"
+    Write a walkhrough with KVM on illumos. Maybe mention virt-manager too?
 </div>
 
-<div class="info" markdown="1">
-!!! info "Documentation Team"
-    ITEMS TO WRITE ABOUT:
+### Using bhyve
 
-    In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
-    Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
-    You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
+<div class="info" markdown="1">
+!!! info "TODO"
+    Write a walkhrough with bhyve on illumos. Maybe mention virt-manager too?
+</div>
+
+### Using VirtualBox
+
+OpenIndiana supports VirtualBox for easy virtualization. To install VirtualBox, simply install the `virtualbox` package
+like so:
+
+```bash
+$ sudo pkg install virtualbox
+```
+
+Afterwards, you are good to go. You can then use VirtualBox like you would under any other platform.
+
+<div class="info" markdown="1">
+!!! info "TODO"
+    Walkthrough VirtualBox on OpenIndiana (installation, setup, etc.)
 </div>
 
 ## Localization
