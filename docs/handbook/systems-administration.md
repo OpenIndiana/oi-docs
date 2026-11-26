@@ -1025,41 +1025,58 @@ Refer to the manual page for details: [scvprop(1)](https://illumos.org/man/1/svc
 
 #### Basic Strategy
 
-Here is general methodology intended as an introduction in how to resolve a service that fails.
+Basic troubleshooting resolves around the following steps:
+
+1. Find out which service(s) failed.
+2. Find out the failed service's/services' dependencies.
+3. Find out detailed service information.
+4. Find out what processes are associated with the failing service and analyze them.
+
+In troubleshooting a service on the system, the first thing to find out is why a service isn't running. Starting at
+step 1, run the following command to find out which services failed:
 
 ```bash
-    svcs -xv
+$ svcs -xv
 ```
 
-This command provides the following information:
-- a possible reason for the failure
-- location of the log file associated with the service
-- references for further reading
+This command lists all services that are either enabled but not running or preventing another service from running. In
+it's output, for each service, you will find a reason for the service's current state and some other helpful resources
+that may help you during troubleshooting.
 
-Analysis during this step will frequently suffice to resolve your issue.
-However, this is not alway the case.
+Usually, this command should contain enough information to resolve your issue. If your issue is still not resolved,
+then the next step (step 2) is to list the suspect service's dependencies:
 
 ```bash
-    svcs -d FMRI
+$ svcs -d failed-service
 ```
 
-This command provides a list of services that the failed service requires.
-The failed service might be failing due to a service that it depends on not operating appropriately, although its status is online and it *appears* to function correctly.
+This command displays `failed-service`'s dependencies. You can use `svcs -x` on each service dependency to check its
+current status and to get additional resources when troubleshooting.
+
+Sometimes, a failed service might be failing due to a dependency not running correctly. Even though the current failing
+service may itself run correctly, one of its dependencies may be causing the service to fail despite the service being
+online. This is why this step is important.
+
+If you need additional information on the failed service itself, move on to step 3. List information about the failing
+service via the following command:
 
 ```bash
-    svcs -l FMRI
+$ svcs -l failed-service
 ```
 
-While this command provides similar information provided by the first command, this command will also provide information on services that are online and but might exhibit dubious behaviour.
-This command will provide information similar to the first command.
+This command will list all details about the service `failed-service`, which we can use to determine what's going on
+with the failed service. It may reveal crucial details even if the service is in an online state.
+
+If you still cannot find any helpful information, move on to step 4. Go back to one of the previous commands (shown
+below) and examine any processes that might be associated with the failing service:
 
 ```bash
-    svcs -d FMRI
+$ svcs -d failed-service
 ```
 
-Should analysis of the previous commands not be sufficient to resolve the issue, examination of the processes associated with suspicioous service might be necessary.
-Use this command to list all processes associated with the service.
-Use the tools from the previous section, System Monitoring, to scrutinise each process listed.
+This is the same command as in step 2. We return back to this command becaues it also lists processes associated with
+the failing service. This is the final step in troubleshooting a failing service. From here on, you should ues the
+commands from the _System Monitoring_ section to analyze each process.
 
 ##### Examples
 
@@ -1112,9 +1129,11 @@ Obtain a list of failed services:
 We always obtain a reason which in our case pinpoints the error precisely.
 This is not always the case.
 
-#### Corrupt Service Configuration: Revert to an Old Configuration
+#### Revert To An Older Service Configuration
 
-SMF periodically takes snapshots of the service configuration so that it is alway possible to revert to a previous configuration.
+If editing a service configuration goes wrong, you can restore a service configuration from a saved snapshot. SMF takes
+service configuration snapshots automatically in case something goes wrong, so you can always try reverting to a
+previous configuration to try fixing your issue.
 
 ```bash
     # List all cups services:
@@ -1139,29 +1158,31 @@ SMF periodically takes snapshots of the service configuration so that it is alwa
 
 #### Boot Failure
 
-- On the boot menu, select =3= to load boot prompt
+If your system fails to boot due to a crucial service refusing to start, you can boot the system without any service
+milestone to get the system to boot.
+
+First, at the bootloader menu, select =3= to bring up the bootloader prompt.
 
 ```bash
-    3. Escape to loader prompt
+3. Escape to loader prompt
 ```
 
-- Now boot without services by entering: `boot -m milestone=none`:
+Next, enter `boot -m milestone=none`:
 
 ```bash
-    OK boot -m milestone=none
+OK boot -m milestone=none
 ```
 
-- Login as root and enable all services:
+This will boot the system without reaching any milestone. The intent is to get the system to boot successfully 
 
 ```bash
-    svcadm milestone all
+$ svcadm milestone all
 ```
 
-- Now the system will boot and fail. So use `svcs` to determine which services are failing:
-
+Now the system will boot and fail. Uses `svcs` to determine which services are failing:
 
 ```bash
-    svcs -a
+$ svcs -a
 ```
 
 #### Maintenance Mode
