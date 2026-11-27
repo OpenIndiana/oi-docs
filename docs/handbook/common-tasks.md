@@ -28,7 +28,9 @@ All Rights Reserved. (Contributor contact(s):________________[Insert hyperlink/a
     Please see the **Contrib** section for more details about joining the OpenIndiana Documentation Team.
 </div>
 
-< place holder for introduction content >
+OpenIndiana can do a fair amount of common tasks you expect from any other system. Given its similarities to Linux and
+BSD, most software that already works on those systems also works on OpenIndiana. This includes, but is certainly not
+limited to, various UNIX commands, desktop applications, multimedia programs, graphics, and desktop publishing.
 
 
 ## Basic UNIX commands
@@ -50,21 +52,54 @@ Print versions are also available.
 | Command | Further details | Brief summary
 | --- | --- | ---
 | `su` | [su(1M)](https://illumos.org/man/1M/su) | Switch user. Without any parameters, root implied
-| `sudo` | sudo(1M) | Perform the command following with root privilages
-| `pfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privilages
+| `sudo` | sudo(1M) | Perform the command following with root privileges
+| `pfexec` | [pfexec(1)](https://illumos.org/man/1/pfexec) | Similar to `sudo` but not prompted for a password and limited privileges
 
-Examples:
+#### Examples
+
+The following command logs in as root under a different user:
+
+```bash
+$ su
+```
+
+The following command lists the current directory using root privileges:
+
+```bash
+$ sudo ls
+```
+
+!!! TODO
+    Write an example for the pfexec command.
 
 ### Basic system information
 
 | Command | Further details | Brief summary
 | --- | --- | ---
-| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat) | Statistics on system processes
+| `prstat` | [prstat(1M)](https://illumos.org/man/1M/prstat) | Statistics on system processes, like top
 | `df` | [df(1M)](https://illumos.org/man/1m/df) | Disk usage by partition
 | `du` | [du(1)](https://illumos.org/man/1/du) | Disk usage by file
 | `pkg list` | pkg(1) | List software packages installed on the system
 
-Examples:
+#### Examples
+
+To list processes on the system, run the following command:
+
+```bash
+$ prstat
+```
+
+To list the total ree disk space on the root partition in a human-readable format, run the following command:
+
+```bash
+$ df -h /
+```
+
+To get the size of "mynote.txt" in bytes using `du`, run the following:
+
+```bash
+$ du -b mynote.txt
+```
 
 ### System shutdown, reboot…
 
@@ -72,7 +107,7 @@ Examples:
 | --- | --- | ---
 | `shutdown` | [shutdown(1M)](https://illumos.org/man/1M/shutdown) | Shutdown the system
 
-Examples:
+#### Examples
 
 ```
 shutdown -i5 -g0 -y # Turn off the machine immediately
@@ -90,10 +125,32 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 | `usermod` | [usermod(1M)](https://illumos.org/man/1M/usermod) | Modify a user (group memberships, roles, login shell…)
 
 
-## Desktop applications
+## The Desktop
 
-< place holder >
+OpenIndiana's default desktop environment is the MATE desktop environment. This desktop environment brings the familiar
+feel of OpenSolaris's GNOME 2 desktop environment with little differences, so users of the OpenSolaris desktop
+environment will feel right at home.
 
+### Basics
+
+At first glance, the desktop looks somewhat of a cross between the Windows and macOS interfaces. At the top and bottom
+of your screen are two "bars" or _panels_ (as they're properly known). The top panel contains a limited menubar
+containing three menus, your system tray, and the current date and time. The first menu, _Applications_ contains all
+installed applications on the system. The _Places_ menu contains some of the most common directories on the system you
+may need to access, such as the current user's home folder, along with a search tool and the option to connect to a
+file server. Finally, the _System_ menu contains shortcuts to system preferences, help and about options, and options
+to lock the system, log out the current user, or shutdown. To the right of the top panel is your system tray and the
+current time and date.
+
+On the other hand, the bottom panel, from left to right, includes a button to show or hide all windows, the task
+switcher, a virtual desktop switcher, and the trash. Clicking on any rectangle in the virtual desktop switcher will
+switch to a different virtual desktop, allowing you to keep your work organizd. Clicking on the trash icon will open
+the trash in the file manager, while dragging any file from the desktop or file manager will move it to the trash.
+
+#### Workspaces
+
+Most modern OSes include the ability to create multiple virtual desktops or workspaces to keep your work organized.
+OpenIndiana is no different (and, in fact, has had this feature for several years even before Windows).
 
 ### How can the desktop be modified?
 
@@ -114,22 +171,110 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
     * glib is modified to use link /usr/bin/x-terminal-emulator if it's found for running applications with Terminal=true.
 </div>
 
-## Multimedia - Audio
+In the MATE desktop environment, you can configure your system via the Control Center. Access it via the _System_ menu in the top panel.
 
-< Place Holder for future content >
+When you open the Control Center, there are several categories of settings:
 
+- **Administration**: Tasks that impact the system's operation and resources.
+- **Hardware**: Options to configure hardware devices, such as displays, sound, keyboards, mice, and power management.
+- **Look and Feel**: Options that configure how the desktop looks. This includes theme options.
+- **Personal**: Settings related to your personal usage of the system.
+- **Other**: Miscellaneous preferences. NVIDIA X Server Settings can be found here.
 
-## Multimedia - Video
+Note that you may access some of these preference items individually under _System > Preferences_ in the top panel.
+
+#### Look and Feel
+MATE ships with several themes by default. In OpenIndiana, the default theme is the _Nimbus_ theme, the same theme used
+in OpenSolaris. If you don't like the default theme, or simply want to try other available themes, go to the Control
+Center and look under _Look and Feel_ for the _Apperance_ option, and then open it. Under _Theme_, select the theme
+you want to use. Each time you select a different theme, it is instantly applied.
+
+If desired, you may also install additional themes too. After downloading a theme, in the _Appearance Preferences_
+window opened earlier, click the _Install_ button and select the theme package you downloaded earlier. You can then
+choose the newly installed theme for the desktop.
+
+<div class="warning" markdown="1">
+!!! warning "About External Themes"
+
+    Like with anything you download, be _very_ careful about downloading and installing custom themes as you can
+    inadvertently install a malicious theme (although such a situation should be very rare for OpenIndiana).
+</div>
+
+### Differences from GNOME
+
+If you are coming from a legacy OpenSolaris installation with GNOME 2, you should mostly feel right at home. However,
+you should be aware of some important differences between GNOME 2 and MATE:
+
+- LightDM is used instead of GDM.
+- Some MATE applications may have slight differences compared to their GNOME 2 counterparts.
+
+Ultimately, there shouldn't be too many radical differences other than some mostly under-the-hood changes. MATE was
+chosen to preserve the OpenSolaris desktop as much as possible, so migrating to OpenIndiana is very harmless.
+
+If you are coming from a Solaris 11 installation with GNOME 3/4x, then you will have to adapt to the radically
+different UI. MATE combines the familiarity of both Windows and macOS in some respects, so chances are you shouldn't
+have too much difficulty adapting to the differences. On the other hand, the under-the-hood components are much
+different too.
+
+## Setting Up hipster-encumbered
+
+In some situations, namely in multimedia ones, you may need software that deals with formats that might be covered by
+one or more patents. In OpenIndiana, this software won't be in the base repository, but instead a separate repository:
+hipster-encumbered. If you need this repository, run the following commands below:
+
+```bash
+$ sudo pkg set-publisher -g https://pkg.openindiana.org/hipster-encumbered hipster-encumbered
+$ sudo pkg refresh
+```
+
+Afterwards, hipster-encumbered will be enabled, and you will be able to install packages from that repository like you
+would any other package.
+
+## Multimedia and Graphics
+
+OpenIndiana supports multiple different multimedia tasks too, whether that's for graphics, audio, or video.
+
+### Audio
+
+OpenIndiana supports multiple different audio applications:
+
+- **Playback**: VLC
+- **Editing**: Audacity
+- **Ripping**: Sound Juicer
+
+!!! info "Updates Needed"
+    While most applications listed above are up to date, some, namely Audacity, are severely behind in their latest
+    versions. We are looking for contributors to ship newer versions and warmly welcome your contribution.
+
+### Video
 
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
 
     * How to get OI to play a DVD
-    * How to get flash player installed and working.
-    * How to get VLC installed and working.
-    * Totem (video player)
 </div>
+
+#### Video Playback
+
+OpenIndiana ships with multiple video players available for installation, including VLC and Totem. Neither are
+installed by default, so it is up to you to install a video player of your choice.
+
+Totem is a simple, solid video player. It doesn't have as many features compared to VLC, but it supports common
+multimedia formats. To install Toem, run the following command in a terminal below:
+
+```bash
+$ sudo pkg install totem
+```
+
+If you prefer to use VLC over Totem, such as for playing many more formats, run the following command in a terminal
+below:
+
+```bash
+$ sudo pkg install vlc
+```
+
+From there, VLC will be installed.
 
 ### Using OpenIndiana as a media server, HTPC, etc.
 
@@ -143,11 +288,13 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 
 ## Printing
 
+OpenIndiana uses CUPS, the same printing system used on macOS, Linux, and other systems. If your printer works via
+CUPS, then you should have no issue using your printer with OpenIndiana.
+
 <div class="info" markdown="1">
 !!! info "Documentation Team"
     ITEMS TO WRITE ABOUT:
 
-    * OI uses CUPS as the primary print system.
     * GNOME print manager (`system-config-printer`)
 
     See the additional information about printing in contrib/topics.md
@@ -156,11 +303,18 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 
 ## Graphics workstation
 
-<div class="info" markdown="1">
-!!! info "Documentation Team"
-    ITEMS TO WRITE ABOUT:
+OpenIndiana supports some functionality as a graphics workstation. For advanced image editing, GIMP is available for
+usage. To install GIMP, run the following command:
 
-    * GIMP
+```bash
+sudo pkg install gimp
+```
+
+Once installed, you may use GIMP just like you would on Linux, BSD, Windows, and other systems.
+
+<div class="info" markdown="1">
+!!! info "TODO Items"
+    TODO: Expand section with more information on GIMP.
 </div>
 
 ## Desktop Publishing system, Etc.
@@ -169,8 +323,9 @@ shutdown -i6 -g120 -y # Reboot the machine in 2 minutes (120 seconds)
 
 ## Boot loader settings
 
-OpenIndiana Hipster uses the 'BootForth' boot loader (GRUB is not used any
-more, disregard older manusls/wiki pages that mention grub).
+OpenIndiana Hipster uses FreeBSD's bootloader, known as 'BootForth'. Older versions used GRUB, so older manual/wiki
+pages will likely mention GRUB. Please disregard those older resources as they do not apply to modern versions of
+OpenIndiana Hipster.
 
 Boot configuration items should be stored in `/boot/conf.d`.
 
