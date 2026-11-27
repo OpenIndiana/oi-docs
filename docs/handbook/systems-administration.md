@@ -771,92 +771,117 @@ support for, but the above command should suffice
 for existing installations.
 
 
-## Service Management Facility
+## Service Management Facility (SMF)
 
-Services are an extension to processes.
-The administration of services is carried out on OpenIndian using *Service Management Facility*, commonly known as *SMF*.
+Most systems administrators will expect either a traditional System V-style service management (on BSD) or systemd (on
+Linux). On OpenIndiana, we introduce a new way of managing services through the *Service Management Facility*, commonly
+abbreviated as *SMF*.
 
-As application become more complex, their demands on system resources and peripheral resource increase.
-Modern applications often require more resource to provide more services.
-Resources such as an internet connection, a web server running in the background, a databank up and running in an appropriate state or mode of operation are increasingly found to be the prerequisite of modern applications.
-Although the application may provide users with a single service, the application might require many processes before it can itself run.
+Some applications may require some kind of daemon running on the system in order to function properly; similarly, they
+may be the application providing this daemon themselves. As applicaitons get more complex, these daemons may depend on
+other daemons. It may also be desirable to start some of these daemons in parallel for improved system startup times as
+well. Furthermore, a system administrator may want to manage groups of these daemons. For example, a system
+administrator may want to group certain services responsible for a graphical environment together. By grouping them,
+the system admininstrator can easily manage all these daemons at once, along with providing a state the system can
+reach at startup. Ultimately, the System V approach falls short of delivering these complex features that are
+fundamental to a modern system, and this is why SMF was introduced.
 
-To provide some system functionality, more than one process is required and some of these processes might depend on other processes.
-A modern application that provides some functionality might require a group of interrelated processes.
-We would like to start, stop, analyse, diagnose, in other words, manage the group as a single unit.
-We refer to such a unit as a *service* and the mechanism of providing this on OpenIndiana as *Service Management Facility*.
-
-SMF was originally developed to improve limitations of the old startup mechanism of the Solaris operating system using scripts known as `init.d`.
-
- **Service Management Framework on OI** | **Purpose**
+ **Manpage** | **Description**
  ---------------------------------------|-----------------------------
  [smf(7)](https://illumos.org/man/7/smf)| Service Management Facility
 
-A service is a definition of how a service should be started while a service instance is a precise configuration.
-Some services can have multiple instances whereas others are defined to be a singleton.
+### Services
 
-Each service instance can be identified by a FMRI which uniquely defines each instance, which is why the SMF commands use FMRIs to identify services.
-A SMF FMRI is composed of three sections, the sections are delimited by a colon:
+A service is a definition of how a service should be started while a service instance is a precise configuration.
+Some services can have multiple instances whereas others are defined to be a singleton. Services may have one or more
+dependent services, or _dependencies_.
+
+Each service instance can be identified by a _Fault Manage Resource Identifier_ (FMRI) which uniquely defines each
+instance. An SMF FMRI is composed of three sections and are delimited by a colon:
 
 ```bash
     service resource:service name:service instance
 ```
 
-FMRIs are found in various areas: software packages, ZFS, etc., and the first part denotes this area or *scheme*.
-For software packages the scheme is  `pkg:`, while for services the scheme is `svc`.
+Note that FMRIs are also found outside of SMF also; they can be found in pkg, ZFS, and others. FMRIs have different
+schemes, and this is determined by their application. For example, a pkg FMRI will have a scheme of `pkg:`. For SMF,
+FMRIs use the scheme `svc:`.
 
-Many commands use the FMRI to identify service instances, but it is not the only way of specifying a service instance to the commands.
-In this manual, nomenclature is simplified as `[service]` as a unique identification of a service.
+SMF does not strictly require FMRIs. Often, you can use just the service name to to identify a service. For example,
+instead of using `svc:/application/graphical-login/lightdm:default` for managing LightDM, you can just use `lightdm`
+instead. Throughout this manual, we'll use the service name itself to keep things simple.
 
 - [Opensolaris documentation](https://dlc.openindiana.org/docs/osol/20090715/IMGPACKAGESYS/html/index.html)
 
+#### States
+A service has one of several states:
+
+- **Uninitialized**: The default state for all services.
+- **Online**: The service is enabled and running.
+- **Offline**: The service is enabled but is not currently running.
+- **Disabled**: The service is disabled and not running.
+- **Degraded**: The service is running, but is functioning in a limited capacity.
+- **Maintenance**: The service is enabled, but is not able to run.
+- **Legacy Run**: The service is not managed by SMF. Services in this state can only be observed.
+
+Any service in a maintenance state must be manually cleared via `svcadm clear`. This state is useful if you need to
+perform an administrative action and must prevent the service from running.
+
+Services in a legacy run state (or "legacy-run" as indicated in smf(7)) may be currently running. SMF cannot start,
+stop, or otherwise perform any administrative actions on any services in this state.
 
 ### SMF Basic Commands
 
- | **Command** | **Purpose**                                  |
- |-------------|------------------------------------------|
- | [svcs(1)](https://illumos.org/man/8/mpstat)     | display information about services       |
- | [svcadm(7)](https://illumos.org/man/7/scvadm)   | manage services (enable/disable, ...)    |
- | [svccfg(8)](https://illumos.org/man/8//svccfg)   | configure services                       |
- | [svcprop(1)](https://illumos.org/man/1/svcprop)  | display service configuration properties |
- | [inetadm(8)](https://illumos.org/man/8/inetadm)  | initialise service managed by `inetd`      |
- | [inetconv(8)](https://illumos.org/man/8/inetconv) | convert `inetd` service to smf services    |
+ | **Command**                                       | **Purpose**                                           |
+ |---------------------------------------------------|-------------------------------------------------------|
+ | [svcs(1)](https://illumos.org/man/8/mpstat)       | Display service information                           |
+ | [svcadm(7)](https://illumos.org/man/7/scvadm)     | Manage services (enable/disable, ...)                 |
+ | [svccfg(8)](https://illumos.org/man/8//svccfg)    | Configure services                                    |
+ | [svcprop(1)](https://illumos.org/man/1/svcprop)   | Display service configuration properties              |
+ | [inetadm(8)](https://illumos.org/man/8/inetadm)   | Manage services managed by `inetd` (internet services |
+ | [inetconv(8)](https://illumos.org/man/8/inetconv) | Convert `inetd` services to smf services              |
 
-Use of the SMF commands require relevant privileges.
-The following RBAC profiles can be made available to all a user to become a SMF administrator:
+Use of the SMF commands require the correct privileges. Below are the necessary RBAC profiles a user must have in order
+to run these commands:
 
- | **RBAC profile**   | **Purpose**                                        |
- |--------------------|----------------------------------------------------|
- | Service Management | manage services. A service manager can manipulate any service in any way|
- | Service Operator   | administer services. A service operator can enable or disable any service.|
+ | **RBAC profile**   | **Purpose**                                                               |
+ |--------------------|---------------------------------------------------------------------------|
+ | Service Management | Manage services. A service manager can manipulate any service in any way. |
+ | Service Operator   | Administer services. A service operator can enable or disable any service.|
 
-Further details: [smf_security(7)](https://illumos.org/man/7/smf_security)
+For further details, please consult [smf_security(7)](https://illumos.org/man/7/smf_security).
 
 #### svcs
 
-This command is used to display services and their relevant status.
-It is also used to provide a list of services that depend on a service, and it can also display a list of services that a service requires to operate.
-
-All services generate log files and the location of a log file associated with a service can be obtained using this command.
-A list of processes requirred by a service can be displayed using this command.
-
 *Usage*: `svcs [options] [FMRI]`
+
+This command is used to display services and their relevant status. (Think **s**er**v**i**c**e **s**tatus). It is also
+used to provide a list of services that depend on a service, and it can also display a list of services that a service
+requires to operate. You can also find the location of log files belonging to a service with this command as well.
+
+All services generate log files and the location of a log file associated with a service can be obtained using this
+command.
 
 | **Option**     | **Information to Display**                     |
 |----------------|------------------------------------------------|
-|                | enabled services                               |
-| `?`            | detailed help                                  |
-| `a`            | all services                                   |
-| `d [service]`  | services that this service requires            |
-| `D [service]`  | services that require this service             |
-| `l [service]`  | verbose information on service                 |
-| `L [service]`  | log file associated with service               |
-| `o column,...` | various information as defined by *columns*    |
+| (None)         | Display enabled services                       |
+| `?`            | Display detailed help                          |
+| `a`            | Show all services                              |
+| `d [service]`  | Display `service`'s dependencies               |
+| `D [service]`  | Display services dependent on `service`        |
+| `l [service]`  | Display all information about `service`        |
+| `L [service]`  | Display the log file associated with `service` |
+| `o column,...` | Display only the columns listed in *columns*   |
 | `p [service]`  | processes associated with service              |
-| `x`            | details on services that are enabled but not running or prevent other services |
-|                | from running |
-| `v`            | more verbose output for some options           |
-| `z [zone]`     | services in `zone`                             |
+| `x [service]`  | Explain the given service's current state      |
+|                | Without specifying `service`, this explains    |
+|                | state of all services that are enabled but not |
+|                | running or are enabled but are preventing      |
+|                | another service from running.                  |
+| `v`            | Verbose mode                                   |
+| `z [zone]`     | Display services in `zone`                     |
+| `Z`            | Operate on all zones. Only available in the    |
+|                | zone                                           |
 
 * **service:** to specify a service use the FMRI, an FRMI instance or a FMRI pattern. Obtain a list of service FMRIs via `-o FMRI`.
   * **column:** comma separated column names
@@ -871,9 +896,9 @@ A list of processes requirred by a service can be displayed using this command.
 **List services and their status**
 
 ```bash
-    svcs
-    svcs -a
-    svcs -o svc,state,desc
+    svcs                    # Show currently enabled services
+    svcs -a                 # Show all services, including disabled ones
+    svcs -o svc,state,desc  # Show only each enabled service, its state, and its description
 ```
 
 **Get printer information**
@@ -911,33 +936,40 @@ A list of processes requirred by a service can be displayed using this command.
 
 #### svcadm
 
-Use this command to change the status of a service: enable, disable, etc.
-
 *Usage*: `svcadm [options] [subcommand] [subcommand options] [service]`
 
- | **options** | **purpose**                           |
+This command allows you to change the state of a service. Common operations include enabling and disabling services,
+along with managing milestones and setting the default boot milestone.
+
+Use this command to change the status of a service: enable, disable, etc.
+
+ | **Options** | **Purpose**                           |
  |-------------|---------------------------------------|
- | `v`         | verbose                               |
- | `z [zone]`  | command applies to the zone specified |
+ | `S [state]` | Operate on all services in the given  |
+ |             | state `[state]`.                      |
+ | `v`         | Verbose mode                          |
+ | `z [zone]`  | Operate on zone `[zone]`              |
+ | `Z`         | Operate on all zones. Only available  |
+ |             | in the global zone.                   |
 
 
 
- | **subsommand** | **subcommand option** | **Purpose**                                   |
- |--------------|--------------|-----------------------------------------------------------|
- | `enable`       |              | enable `service` to `online` state                        |
- |              | `r`          | enable `service`, but also recursively enable its dependencies             |
- |              | `t`          | enabling a service as persistent, even after rebooting.   |
- |              |              | This option enables the service *only temporarily* until the next  |
- |              |              | system boot                                      |
- | `disable`      |              | disable `service`  to `offline` state                     |
- |              | `c`          | add a comment which can be viewed by `svcs`               |
- |              | `t`          | disable service *temporarily*. The service will be enabled on ensuing boots       |
- | `restart`      |              | restart `service`                                         |
- | `refresh`      |              | re-read service configuration, so                         |
- |              |              | any configuration changes will take effect after a service `restart` |
-  | `clear`        |              | for a service in a *maintenance* state, signal the        |
- |              |              | service as repaired.                                      |
- |              |              | for a service in a *degraded* state, attempt to bring the service online|
+ | **Subcommand** | **Subcommand option** | **Purpose**                                      |
+ |----------------|--------------|-----------------------------------------------------------|
+ | `enable`       |              | Enable `service`.                                         |
+ |                | `r`          | Enable `service` and recursively enable its dependencies  |
+ |                | `t`          | Enable `service` temporarily until the next reboot.       |
+ | `disable`      |              | Disable `service`                                         |
+ |                | `c`          | Add a comment explaining why the service was disabled.    |
+ |                |              | This comment can be viewed by `svcs`.                     |
+ |                | `t`          | Disable the service temporarily until the next reboot.    |
+ | `restart`      |              | Restart `service`                                       |
+ | `refresh`      |              | Re-read service configuration, so                       |
+ |                |              | any configuration changes will take effect after a service `restart` |
+ | `clear`        |              | Clear's the service's current state. If the service was   |
+ |                |              | was in a *maintenace* state, it is marked as repaired. If |
+ |                |              | it was in a *degraded* state, SMF will attempt to bring   |
+ |                |              | the service back online.                                  |
 
 
 ##### Examples
@@ -957,9 +989,18 @@ We then restart the CUPS printer scheduler, then check the status of the service
 
 #### svccfg
 
-This command is used to manage service configurations.
+*Usage*: `svccfg [options] -s [FMRI] [subcommand] [args...]`
 
-*Usage*: `svccfg [options] -s [FMRI]`
+This command is used to manage service configurations. If no subcommand is specified, then you are dropped into a
+shell-like interface where you can execute multiple subcommands without having to execute svccfg several times.
+
+For more information, please consult the [svccfg(8) manual page](https://illumos.org/man/8/svccfg).
+
+| **options** | **purpose**                           |
+|-------------|---------------------------------------|
+| `v`         | Verbose output                        |
+| `z [zone]`  | Operate on zone `zone`. |
+
 
 #### svcprop
 
@@ -984,41 +1025,58 @@ Refer to the manual page for details: [scvprop(1)](https://illumos.org/man/1/svc
 
 #### Basic Strategy
 
-Here is general methodology intended as an introduction in how to resolve a service that fails.
+Basic troubleshooting resolves around the following steps:
+
+1. Find out which service(s) failed.
+2. Find out the failed service's/services' dependencies.
+3. Find out detailed service information.
+4. Find out what processes are associated with the failing service and analyze them.
+
+In troubleshooting a service on the system, the first thing to find out is why a service isn't running. Starting at
+step 1, run the following command to find out which services failed:
 
 ```bash
-    svcs -xv
+$ svcs -xv
 ```
 
-This command provides the following information:
-- a possible reason for the failure
-- location of the log file associated with the service
-- references for further reading
+This command lists all services that are either enabled but not running or preventing another service from running. In
+it's output, for each service, you will find a reason for the service's current state and some other helpful resources
+that may help you during troubleshooting.
 
-Analysis during this step will frequently suffice to resolve your issue.
-However, this is not alway the case.
+Usually, this command should contain enough information to resolve your issue. If your issue is still not resolved,
+then the next step (step 2) is to list the suspect service's dependencies:
 
 ```bash
-    svcs -d FMRI
+$ svcs -d failed-service
 ```
 
-This command provides a list of services that the failed service requires.
-The failed service might be failing due to a service that it depends on not operating appropriately, although its status is online and it *appears* to function correctly.
+This command displays `failed-service`'s dependencies. You can use `svcs -x` on each service dependency to check its
+current status and to get additional resources when troubleshooting.
+
+Sometimes, a failed service might be failing due to a dependency not running correctly. Even though the current failing
+service may itself run correctly, one of its dependencies may be causing the service to fail despite the service being
+online. This is why this step is important.
+
+If you need additional information on the failed service itself, move on to step 3. List information about the failing
+service via the following command:
 
 ```bash
-    svcs -l FMRI
+$ svcs -l failed-service
 ```
 
-While this command provides similar information provided by the first command, this command will also provide information on services that are online and but might exhibit dubious behaviour.
-This command will provide information similar to the first command.
+This command will list all details about the service `failed-service`, which we can use to determine what's going on
+with the failed service. It may reveal crucial details even if the service is in an online state.
+
+If you still cannot find any helpful information, move on to step 4. Go back to one of the previous commands (shown
+below) and examine any processes that might be associated with the failing service:
 
 ```bash
-    svcs -d FMRI
+$ svcs -d failed-service
 ```
 
-Should analysis of the previous commands not be sufficient to resolve the issue, examination of the processes associated with suspicioous service might be necessary.
-Use this command to list all processes associated with the service.
-Use the tools from the previous section, System Monitoring, to scrutinise each process listed.
+This is the same command as in step 2. We return back to this command becaues it also lists processes associated with
+the failing service. This is the final step in troubleshooting a failing service. From here on, you should ues the
+commands from the _System Monitoring_ section to analyze each process.
 
 ##### Examples
 
@@ -1071,9 +1129,11 @@ Obtain a list of failed services:
 We always obtain a reason which in our case pinpoints the error precisely.
 This is not always the case.
 
-#### Corrupt Service Configuration: Revert to an Old Configuration
+#### Revert To An Older Service Configuration
 
-SMF periodically takes snapshots of the service configuration so that it is alway possible to revert to a previous configuration.
+If editing a service configuration goes wrong, you can restore a service configuration from a saved snapshot. SMF takes
+service configuration snapshots automatically in case something goes wrong, so you can always try reverting to a
+previous configuration to try fixing your issue.
 
 ```bash
     # List all cups services:
@@ -1098,29 +1158,31 @@ SMF periodically takes snapshots of the service configuration so that it is alwa
 
 #### Boot Failure
 
-- On the boot menu, select =3= to load boot prompt
+If your system fails to boot due to a crucial service refusing to start, you can boot the system without any service
+milestone to get the system to boot.
+
+First, at the bootloader menu, select =3= to bring up the bootloader prompt.
 
 ```bash
-    3. Escape to loader prompt
+3. Escape to loader prompt
 ```
 
-- Now boot without services by entering: `boot -m milestone=none`:
+Next, enter `boot -m milestone=none`:
 
 ```bash
-    OK boot -m milestone=none
+OK boot -m milestone=none
 ```
 
-- Login as root and enable all services:
+This will boot the system without reaching any milestone. The intent is to get the system to boot successfully 
 
 ```bash
-    svcadm milestone all
+$ svcadm milestone all
 ```
 
-- Now the system will boot and fail. So use `svcs` to determine which services are failing:
-
+Now the system will boot and fail. Uses `svcs` to determine which services are failing:
 
 ```bash
-    svcs -a
+$ svcs -a
 ```
 
 #### Maintenance Mode
@@ -1674,29 +1736,57 @@ Here are just a few of them:
 
 ## Virtualization
 
-< Place holder >
+Virtualization with illumos is unique in that it supports **both** KVM and bhyve. Whether you are coming from Linux or
+FreeBSD, illumos, and therefore OpenIndiana, supports popular virtualization technologies that will make you feel at
+home no matter your background.
 
-### OpenIndiana as a virtualization host server
+At the moment, bhyve is the preferred virtualization solution in OpenIndiana. You will find out why in the system
+requirements, but there are plenty of other valid reasons too.
+
+For easily virtualization, OpenIndiana also has VirtualBox available for installation.
+
+### System Requirements
+
+First and foremost, your CPU must support virtualization extensions. Double check this by entering your computer's
+BIOS settings. This feature may be called `VT-d`, `VT-x`, `AMD-V`, or `AMD SVM`. This is required for _any_ hypervisor
+you want to use.
+
+If using KVM, you **must** have an Intel CPU with EPT support. Most modern Intel CPUs will have EPT, but older ones,
+such as the Core2 Duo and Core2 Quad line of CPUs, don't. To check if your CPU supports EPT, visit
+https://www.intel.com/content/www/us/en/ark.html#@Processors to look up your CPU's features.
+
+Unfortunately, AMD CPUs are completely unsupported with KVM in OpenIndiana. You must use bhyve if you do not have an
+Intel CPU.
+
+### Using KVM
 
 <div class="info" markdown="1">
-!!! info "Documentation Team"
-    ITEMS TO WRITE ABOUT:
-
-    * Qemu-KVM (KVM) walkthrough
-        * illumos KVM port does not support AMD processors.
-        * Intel processors require EPT support.
-    * Virtualbox walkthrough
-        * There is no package for this yet, but folks do have it working, see the wiki for details.
+!!! info "TODO"
+    Write a walkhrough with KVM on illumos. Maybe mention virt-manager too?
 </div>
+
+### Using bhyve
 
 <div class="info" markdown="1">
-!!! info "Documentation Team"
-    ITEMS TO WRITE ABOUT:
-
-    In a nutshell, most modern Intel processors such as i3, i5, i7, and Xeon provide EPT support.
-    Most older processors such as Core2duo and Core2Quad lack EPT support, and a few of them lack virtualization support at all.
-    You can check your processor for EPT support via the following link: <http://ark.intel.com/Products/VirtualizationTechnology>
+!!! info "TODO"
+    Write a walkhrough with bhyve on illumos. Maybe mention virt-manager too?
 </div>
+
+### Using VirtualBox
+
+OpenIndiana supports VirtualBox for easy virtualization. To install VirtualBox, simply install the `virtualbox` package
+like so:
+
+```bash
+$ sudo pkg install virtualbox
+```
+
+Using VirtualBox under OpenIndiana is nothing special in comparison to using it on Windows, Linux, and others. To get
+started, click on the "New button". In the window that pops up, give your new virtual machine an appropriate name, and
+locate the disk image of the OS you would like to install in the VM. If needed, adjust the _OS_, _OS Distribution_ (if
+applicable), and _OS Version_. Additionally, adjust the virtual hardware (allocated CPU cores, RAM, etc.) and virtual
+hard disk devices too (allocated storage, virtual hard drive type, etc). When you're finished, click "Finish", and then
+your newly created VM will launch.
 
 ## Localization
 
