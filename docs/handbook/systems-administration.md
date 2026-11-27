@@ -1781,12 +1781,12 @@ like so:
 $ sudo pkg install virtualbox
 ```
 
-Afterwards, you are good to go. You can then use VirtualBox like you would under any other platform.
-
-<div class="info" markdown="1">
-!!! info "TODO"
-    Walkthrough VirtualBox on OpenIndiana (installation, setup, etc.)
-</div>
+Using VirtualBox under OpenIndiana is nothing special in comparison to using it on Windows, Linux, and others. To get
+started, click on the "New button". In the window that pops up, give your new virtual machine an appropriate name, and
+locate the disk image of the OS you would like to install in the VM. If needed, adjust the _OS_, _OS Distribution_ (if
+applicable), and _OS Version_. Additionally, adjust the virtual hardware (allocated CPU cores, RAM, etc.) and virtual
+hard disk devices too (allocated storage, virtual hard drive type, etc). When you're finished, click "Finish", and then
+your newly created VM will launch.
 
 ## Localization
 
